@@ -1,0 +1,51 @@
+import React, {Component} from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {selectUser, getUsersList} from '../actions/index';
+import { Link } from "react-router";
+
+
+class UserList extends Component {
+    renderList() {
+        if (!this.props.users) {
+            return (<p></p>);
+        }
+        return this.props.users.map((user) => {
+            return (
+                <li
+                    key={user.id}
+                >
+                <p onClick={() => this.props.selectUser(user)}>{user.first} {user.last}</p>
+                <Link onClick={() => this.props.selectUser(user)} to={("users/").concat(user.id)} >Voir détail</Link>
+                </li>
+            );
+        });
+    }
+
+    render() {
+        return (
+            <div>
+                <ul>
+                    {this.renderList()}
+                </ul>
+                <span 
+                    onClick={() => this.props.getUsersList()}
+                >
+                    Reload
+                </span>
+            </div>
+        );
+    }
+}
+
+function mapStateToProps(state) {
+    return {
+        users: state.users
+    };
+}
+
+function matchDispatchToProps(dispatch){
+    return bindActionCreators({selectUser: selectUser, getUsersList: getUsersList}, dispatch);
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(UserList);
