@@ -1,22 +1,24 @@
-import React, {Component} from 'react';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import {selectUser, getUsersList} from '../actions/index';
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { selectUser, getUsersList } from '../actions/index';
 import { Link } from "react-router";
 
 
 class UserList extends Component {
     renderList() {
         if (!this.props.users) {
-            return (<p></p>);
+            return (
+                <p></p>
+            );
         }
         return this.props.users.map((user) => {
             return (
                 <li
                     key={user.id}
                 >
-                <p onClick={() => this.props.selectUser(user)}>{user.first} {user.last}</p>
-                <Link onClick={() => this.props.selectUser(user)} to={("users/").concat(user.id)} >Voir détail</Link>
+                <p onClick={ () => this.props.selectUser(user) }>{ user.first } { user.last }</p>
+                <Link onClick={ () => this.props.selectUser(user) } to={ ("users/").concat(user.id) } >Voir détail</Link>
                 </li>
             );
         });
@@ -26,10 +28,10 @@ class UserList extends Component {
         return (
             <div>
                 <ul>
-                    {this.renderList()}
+                    { this.renderList() }
                 </ul>
                 <span 
-                    onClick={() => this.props.getUsersList()}
+                    onClick={ () => this.props.getUsersList() }
                 >
                     Reload
                 </span>
@@ -45,7 +47,7 @@ function mapStateToProps(state) {
 }
 
 function matchDispatchToProps(dispatch){
-    return bindActionCreators({selectUser: selectUser, getUsersList: getUsersList}, dispatch);
+    return bindActionCreators({ selectUser: selectUser, getUsersList: getUsersList }, dispatch);
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(UserList);

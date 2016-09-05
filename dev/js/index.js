@@ -7,8 +7,8 @@ import thunk from 'redux-thunk';
 import promise from 'redux-promise';
 import createLogger from 'redux-logger';
 import allReducers from './reducers';
-import App from './components/App';
-import Layout from './components/Layout';
+import Home from './containers/home';
+import Layout from './containers/layout';
 import UserList from './containers/user-list';
 import UserDetail from './containers/user-detail';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
@@ -25,7 +25,7 @@ ReactDOM.render(
     <Provider store={ store }>
         <Router history={ history }>
             <Route path="/" component={ Layout }>
-               <IndexRoute component={ App }></IndexRoute>
+               <IndexRoute component={ Home }></IndexRoute>
                <Route path="users" component={ UserList }></Route>
                <Route path="users/(:filter)" component={ UserDetail }></Route>
             </Route>

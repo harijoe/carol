@@ -14,11 +14,11 @@ export class UserDetail extends Component {
 
         return (
             <div>
-                <img src={this.props.user.thumbnail} width="200px"/>
-                <h2>{this.props.user.first} {this.props.user.last}</h2>
-                <h3>Age: {this.props.user.age}</h3>
-                <h4>Description: {this.props.user.description}</h4>
-                <p>filter: {params ? params.filter : "" }</p>
+                <img src={ this.props.user.thumbnail } width="200px"/>
+                <h2>{ this.props.user.first } { this.props.user.last }</h2>
+                <h3>Age: { this.props.user.age }</h3>
+                <h4>Description: { this.props.user.description }</h4>
+                <p>filter: { params ? params.filter : "" }</p>
             </div>
         );
     }

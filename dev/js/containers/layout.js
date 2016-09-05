@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 export default class Layout extends Component {
-    render() {    
+    render() {
         return (
         <div>
-            {this.props.children}
+            { this.props.children }
         </div>
         );
     }

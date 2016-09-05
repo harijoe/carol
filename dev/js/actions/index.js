@@ -1,6 +1,5 @@
 import axios from "axios";
 import * as types from '../constants/actionTypes';
-import { pushState } from 'redux-react-router';
 
 export const selectUser = (user) => {
     return {
