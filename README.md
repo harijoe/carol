@@ -4,21 +4,19 @@ Quotatis SPA
 
 Version: 0.0.1
 
+## Requirements
+[Node.js](https://nodejs.org/)
+
 ## Getting Started
 
 To get started, first install all the necessary dependencies.
 ```
-> npm install
-```
-
-Run an initial webpack build
-```
-> webpack
+npm install
 ```
 
 Start the development server (changes will now update live in browser)
 ```
-> npm run start
+npm run dev
 ```
 
 To view your project, go to: [http://localhost:3000/](http://localhost:3000/)
