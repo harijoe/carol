@@ -8,18 +8,18 @@ export const selectUser = (user) => {
   }
 }
 
-function requestData() {
+const requestData = () => {
   return { type: types.REQ_DATA }
 }
 
-function receiveUsers(json) {
+const receiveUsers = (json) => {
   return {
     type: types.RECV_USERS,
     payload: json
   }
 }
 
-function receiveError(json) {
+const receiveError = (json) => {
   return {
     type: types.RECV_ERROR,
     data: json
