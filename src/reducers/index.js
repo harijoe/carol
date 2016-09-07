@@ -1,7 +1,7 @@
-import {combineReducers} from 'redux';
-import UserReducer from './reducer-users';
-import ActiveUserReducer from './reducer-active-user';
+import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
+import UserReducer from './reducer-users'
+import ActiveUserReducer from './reducer-active-user'
 
 /*
  * We combine all reducers into a single object before updated data is dispatched (sent) to store
@@ -9,9 +9,9 @@ import { routerReducer } from 'react-router-redux'
  * */
 
 const allReducers = combineReducers({
-    users: UserReducer,
-    activeUser: ActiveUserReducer,
-    routing: routerReducer
-});
+  users: UserReducer,
+  activeUser: ActiveUserReducer,
+  routing: routerReducer
+})
 
 export default allReducers
