@@ -4,7 +4,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Home from '../../containers/home';
 
-describe('components', () => {
+describe('container', () => {
     describe('Home', () => {
         const enzymeWrapper  = shallow(<Home />);
 
@@ -12,7 +12,7 @@ describe('components', () => {
             expect(enzymeWrapper.find('img')).to.have.length(1);
         })
         it('should have a search bar', () => {
-            const navBar = (enzymeWrapper.find('Input.search-bar'));
+            const navBar = (enzymeWrapper.find('input.search-bar'));
 
             expect(navBar).to.have.length(1);
         })
