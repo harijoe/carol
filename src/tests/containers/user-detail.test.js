@@ -2,7 +2,9 @@ var chai = require('chai');
 var expect = chai.expect;
 import React from 'react';
 import { shallow } from 'enzyme';
-import { UserDetail } from '../../containers/user-detail';
+var rewire = require("rewire");
+var index = rewire('../../containers/user-detail');
+var UserDetail = index.__get__('UserDetail');
 
 describe('containers (connected components)', () => {
     describe('User detail', () => {
@@ -11,4 +13,4 @@ describe('containers (connected components)', () => {
             expect(enzymeWrapper.find('span').hasClass('loader')).to.equal(true);
         })
     })
-});
+})

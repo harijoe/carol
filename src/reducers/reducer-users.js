@@ -4,10 +4,10 @@
  * */
 
 export default function reducerUsers (state = null, action) {
-    switch (action.type) {
-        case 'RECV_USERS':
-            return action.payload;
-    }
-
-    return state;
+  switch (action.type) {
+    case 'RECV_USERS':
+      return action.payload
+    default:
+      return state
+  }
 }

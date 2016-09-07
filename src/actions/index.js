@@ -1,46 +1,46 @@
-import axios from "axios";
-import * as types from '../constants/actionTypes';
+import axios from 'axios'
+import * as types from '../constants/actionTypes'
 
 export const selectUser = (user) => {
-    return {
-        type: types.USER_SELECTED,
-        payload: user
-    }
-};
+  return {
+    type: types.USER_SELECTED,
+    payload: user
+  }
+}
 
 function requestData() {
-	return {type: types.REQ_DATA}
-};
+  return { type: types.REQ_DATA }
+}
 
 function receiveUsers(json) {
-	return {
-		type: types.RECV_USERS,
-		payload: json
-	}
-};
+  return {
+    type: types.RECV_USERS,
+    payload: json
+  }
+}
 
 function receiveError(json) {
-	return {
-		type: types.RECV_ERROR,
-		data: json
-	}
-};
+  return {
+    type: types.RECV_ERROR,
+    data: json
+  }
+}
 
 export const getUsersList = () => {
-    return function(dispatch) {
-		dispatch(requestData());
+  return function(dispatch) {
+    dispatch(requestData())
 
-		return axios({
-			url: 'http://api-fake/app_dev.php/api/users',
-			timeout: 20000,
-			method: 'get',
-			responseType: 'json'
-		})
-			.then(function(response) {
-				dispatch(receiveUsers(response.data));
-			})
-			.catch(function(response){
-				dispatch(receiveError(response.data));
-			})
-	}
+    return axios({
+      url: 'http://api-fake/app_dev.php/api/users',
+      timeout: 20000,
+      method: 'get',
+      responseType: 'json'
+    })
+      .then((response) => {
+        dispatch(receiveUsers(response.data))
+      })
+      .catch((response) => {
+        dispatch(receiveError(response.data))
+      })
+  }
 }
