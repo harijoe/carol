@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import React from 'react'
 
 const Login = () => {
@@ -13,6 +14,7 @@ const Login = () => {
         Login
       </button>
       {/* {divError} */}
+      <Link to="/">Back</Link>
     </div>
   )
 }
