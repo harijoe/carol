@@ -1,14 +1,35 @@
 import { Link } from 'react-router'
 import React from 'react'
+import { login } from '../actions/auth'
+import Input from '../components/input'
+
+const onClickLogin = () => {
+  login({
+    username: this.id.usernameInput.value,
+    password: this.id.passwordInput.value
+  })
+}
 
 const Login = () => {
+  const attrUsername = {
+    className: 'username',
+    id: 'username',
+    placeholder: 'Username',
+    type: 'text'
+  }
+  const attrPassword = {
+    className: 'password',
+    id: 'password',
+    placeholder: 'Password',
+    type: 'text'
+  }
+
   return (
     <div>
-      <input placeholder="Username" type="text" />
-      <input placeholder="Password" type="password" />
-
+      <Input  attr={attrUsername} />
+      <Input  attr={attrPassword} />
       <button
-        // onClick={this.onClickLogin.bind(this)}
+        onClick={onClickLogin}
         type="button"
       >
         Login

@@ -1,14 +1,14 @@
-var rewire = require("rewire");
-var chai = require('chai');
-var expect = chai.expect;
-var chaiJsonEqual = require('chai-json-equal');
-var index = rewire("../../actions/index.js");
-var receiveUsers = index.__get__('receiveUsers');
-import * as types from '../../constants/actionTypes';
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import * as actions from '../../actions/index';
-import nock from 'nock';
+var rewire = require("rewire")
+var chai = require('chai')
+var expect = chai.expect
+var chaiJsonEqual = require('chai-json-equal')
+var index = rewire("../../actions/index.js")
+var receiveUsers = index.__get__('receiveUsers')
+import * as types from '../../constants/actionTypes'
+import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
+import * as actions from '../../actions/index'
+import nock from 'nock'
 
 
 chai.use(chaiJsonEqual);
