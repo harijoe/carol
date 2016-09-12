@@ -1,10 +1,12 @@
 import axios from 'axios'
-import { createStore } from 'redux'
+import thunk from 'redux-thunk'
+import { createStore, applyMiddleware } from 'redux'
 import Config from '../config'
 import * as types from '../constants/actionTypes'
-import authReducer from '../reducers/reducer-auth'
+import allReducers from '../reducers'
 
-const store = createStore(authReducer, ['User Redux'])
+const store = createStore(allReducers, applyMiddleware(thunk))
+const dispatch = store.dispatch
 const getAuthEndpoint = (grantType = 'password') => {
   return `${Config.apiUrl}/oauth/v2/token?client_id=${Config.clientId}&client_secret=${Config.clientSecret}&grant_type=${grantType}`
 }
@@ -21,6 +23,7 @@ const receiveError = () => {
 }
 
 const login = (credentials) => {
+  console.log(`${getAuthEndpoint('password')}&username=${credentials.username}&password=${credentials.password}`)
   return axios({
     url: `${getAuthEndpoint('password')}&username=${credentials.username}&password=${credentials.password}`,
     timeout: 20000,
@@ -28,12 +31,14 @@ const login = (credentials) => {
     responseType: 'json'
   })
     .then((response) => {
-      store.dispatch(receiveToken(response.data))
+      console.log('then')
+      dispatch(receiveToken(response.data))
       /*
        return axios.get(Config.apiUrl + '/me') */
     })
     .catch((response) => {
-      store.dispatch(receiveError(response.data))
+      console.log(response)
+      dispatch(receiveError())
     })
 }
 

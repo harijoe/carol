@@ -1,7 +1,5 @@
 import { Link } from 'react-router'
 import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 import login from '../actions/auth'
 import Input from '../components/input'
 
@@ -16,6 +14,7 @@ class Login extends Component {
       valuePassword: '',
     }
   }
+
   onClickLogin() {
     login({
       username: this.state.valueUsername,
@@ -79,12 +78,8 @@ class Login extends Component {
   }
 }
 
-function matchDispatchToProps(dispatch) {
-  return bindActionCreators({ login }, dispatch)
-}
-
 Login.propTypes = {
   login: React.PropTypes.func
 }
 
-export default connect(matchDispatchToProps)(Login)
+export default Login

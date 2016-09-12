@@ -9,7 +9,7 @@ describe('container', () => {
         const enzymeWrapper  = shallow(<Login />);
 
         it('should have two inputs', () => {
-            expect(enzymeWrapper.find('input')).to.have.length(2)
+            expect(enzymeWrapper.find('Input')).to.have.length(2)
         })
 
         it('should have one button', () => {

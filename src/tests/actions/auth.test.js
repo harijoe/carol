@@ -1,7 +1,7 @@
 import nock from 'nock'
 import thunk from 'redux-thunk'
 import configureMockStore from 'redux-mock-store'
-import * as actions from '../../actions/auth'
+import login from '../../actions/auth'
 var chai = require('chai')
 var expect = chai.expect
 import * as types from '../../constants/actionTypes'
@@ -22,18 +22,18 @@ describe('async actions', () => {
     }
     const username = 'myname';
 
-    nock('http://localhost/app_dev.php/api/')
-      .get(`/oauth/v2/token?%0A%20%20%20%20client_id=undefined%0A%20%20%20%20&client_secret=undefined%0A%20%20%20%20&grant_type=password%0A%20%20%20%20%20%20&username=${username}%0A%20%20%20%20%20%20&password=password`)
+    nock('http://api-fake/app_dev.php/api')
+      .get(`/oauth/v2/token?client_id=1_1x7wyo33dxs0wc4c0gokcs4s4soook04wooo4cwsckk8g4k8s8&client_secret=ylgb972rcsg0wksg0scooo4wcc0sg8swkgo8ccck08go40koc&grant_type=password&username=myname&password=password`)
       .reply(200, jsonResp)
 
     const expectedActions = [
-      { type: types.AUTH_TOKEN },
+      { type: 'AUTH_TOKEN' },
     ]
-    /*const store = mockStore()
-console.log(actions);
-    return store.dispatch(actions.login({ username: username, password: 'password' }))
+    const store = mockStore()
+// console.log(login);
+    return store.dispatch(login({ username: username, password: 'password' }))
       .then(() => {
-        expect(store.getActions()).to.jsonEqual(expectedActions)
-      })*/
+        // expect(store.getActions()).to.jsonEqual(expectedActions)
+      })
   })
 })
