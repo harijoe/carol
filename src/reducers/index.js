@@ -2,6 +2,7 @@ import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 import UserReducer from './reducer-users'
 import ActiveUserReducer from './reducer-active-user'
+import AuthReducer from './reducer-auth'
 
 /*
  * We combine all reducers into a single object before updated data is dispatched (sent) to store
@@ -11,6 +12,7 @@ import ActiveUserReducer from './reducer-active-user'
 const allReducers = combineReducers({
   users: UserReducer,
   activeUser: ActiveUserReducer,
+  auth: AuthReducer,
   routing: routerReducer
 })
 

@@ -19,6 +19,8 @@ export default class Input extends Component {
     return (
       <input
         {...this.props.attr}
+        value={this.props.value}
+        onChange={this.props.handleChange}
       />
     )
   }
@@ -31,5 +33,7 @@ Input.propTypes = {
     id: React.PropTypes.string,
     name: React.PropTypes.string,
     type: React.PropTypes.oneOf(['text']),
-  }).isRequired
+  }).isRequired,
+  value: React.PropTypes.string,
+  handleChange: React.PropTypes.func
 }

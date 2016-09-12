@@ -1,43 +1,90 @@
 import { Link } from 'react-router'
-import React from 'react'
-import { login } from '../actions/auth'
+import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import login from '../actions/auth'
 import Input from '../components/input'
 
-const onClickLogin = () => {
-  login({
-    username: this.id.usernameInput.value,
-    password: this.id.passwordInput.value
-  })
-}
+class Login extends Component {
+  constructor() {
+    super()
 
-const Login = () => {
-  const attrUsername = {
-    className: 'username',
-    id: 'username',
-    placeholder: 'Username',
-    type: 'text'
+    this.handleChange = this.handleChange.bind(this)
+    this.onClickLogin = this.onClickLogin.bind(this)
+    this.state = {
+      valueUsername: '',
+      valuePassword: '',
+    }
   }
-  const attrPassword = {
-    className: 'password',
-    id: 'password',
-    placeholder: 'Password',
-    type: 'text'
+  onClickLogin() {
+    login({
+      username: this.state.valueUsername,
+      password: this.state.valuePassword
+    })
   }
 
-  return (
-    <div>
-      <Input  attr={attrUsername} />
-      <Input  attr={attrPassword} />
-      <button
-        onClick={onClickLogin}
-        type="button"
-      >
-        Login
-      </button>
-      {/* {divError} */}
-      <Link to="/">Back</Link>
-    </div>
-  )
+  handleChange(event) {
+    switch (event.target.id) {
+      case 'username':
+        this.setState({
+          valueUsername: event.target.value
+        })
+        break
+      case 'password':
+        this.setState({
+          valuePassword: event.target.value
+        })
+        break
+      default:
+        return
+    }
+  }
+
+  render() {
+    const attrUsername = {
+      className: 'username',
+      id: 'username',
+      placeholder: 'Username',
+      type: 'text'
+    }
+    const attrPassword = {
+      className: 'password',
+      id: 'password',
+      placeholder: 'Password',
+      type: 'text',
+    }
+
+    return (
+      <div>
+        <Input
+          attr={attrUsername}
+          handleChange={this.handleChange}
+          value={this.state.valueUsername}
+        />
+        <Input
+          attr={attrPassword}
+          value={this.state.valuePassword}
+          handleChange={this.handleChange}
+        />
+        <button
+          onClick={this.onClickLogin}
+          type="button"
+        >
+          Login
+        </button>
+        {/* {divError} */}
+        <Link to="/">Back</Link>
+      </div>
+    )
+  }
 }
 
-export default Login
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({ login }, dispatch)
+}
+
+Login.propTypes = {
+  login: React.PropTypes.func
+}
+
+export default connect(matchDispatchToProps)(Login)
