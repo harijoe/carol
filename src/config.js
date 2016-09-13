@@ -1,7 +1,9 @@
+const apiUrl = 'http://192.168.33.10/app_dev.php'
 const config = {
-  apiUrl: 'http://api-fake/app_dev.php/api',
-  clientId: '1_1x7wyo33dxs0wc4c0gokcs4s4soook04wooo4cwsckk8g4k8s8',
-  clientSecret: 'ylgb972rcsg0wksg0scooo4wcc0sg8swkgo8ccck08go40koc'
+  apiUrl,
+  clientId: '2_4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k',
+  clientSecret: '4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc',
+  profileUrl: `${apiUrl}/users/1`
 }
 
 export default config

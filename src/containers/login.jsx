@@ -50,7 +50,7 @@ class Login extends Component {
       className: 'password',
       id: 'password',
       placeholder: 'Password',
-      type: 'text',
+      type: 'password',
     }
 
     return (

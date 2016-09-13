@@ -32,7 +32,10 @@ Input.propTypes = {
     placeholder: React.PropTypes.string,
     id: React.PropTypes.string,
     name: React.PropTypes.string,
-    type: React.PropTypes.oneOf(['text']),
+    type: React.PropTypes.oneOf([
+      'text',
+      'password'
+    ]),
   }).isRequired,
   value: React.PropTypes.string,
   handleChange: React.PropTypes.func
