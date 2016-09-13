@@ -14,6 +14,7 @@ import Layout from './containers/layout'
 import UserList from './containers/user-list'
 import UserDetail from './containers/user-detail'
 import Login from './containers/login'
+import Profile from './containers/profile'
 
 const logger = createLogger()
 const store = createStore(
@@ -28,6 +29,7 @@ ReactDOM.render(
       <Route path="/" component={Layout}>
         <IndexRoute component={Home} />
         <Route path="login" component={Login} />
+        <Route path="profile" component={Profile} />
         <Route path="users" component={UserList} />
         <Route path="users/(:filter)" component={UserDetail} />
       </Route>

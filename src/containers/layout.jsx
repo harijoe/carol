@@ -4,7 +4,8 @@ import { Link } from 'react-router'
 const Layout = (props) => {
   return (
     <div>
-      <Link to="login">Login</Link>
+      <Link to="login">Login</Link><br />
+      <Link to="/">Home</Link>
       {props.children}
     </div>
   )
