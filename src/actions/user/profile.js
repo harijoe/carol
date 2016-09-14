@@ -10,7 +10,6 @@ const middleware = routerMiddleware(browserHistory)
 const store = createStore(allReducers, applyMiddleware(thunk, middleware))
 
 const profile = () => {
-  console.log('hello')
   if (null === localStorage.getItem('access_token')) {
     store.dispatch(push('/login'))
   }
@@ -24,8 +23,8 @@ const profile = () => {
       Authorization: `Bearer ${localStorage.getItem('access_token')}`
     }
   })
-    .then((response) => {
-      console.log(response)
+    .then(() => {
+      console.log('profile success')
     })
     .catch(() => {
       console.log('profile error')

@@ -7,9 +7,7 @@ import AuthReducer from './reducer-auth'
  * Your entire applications state (store) is just whatever gets returned from all your reducers
  * */
 
-const allReducers = combineReducers({
+export default combineReducers({
   auth: AuthReducer,
   routing: routerReducer
 })
-
-export default allReducers

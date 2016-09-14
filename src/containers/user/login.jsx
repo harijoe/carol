@@ -1,5 +1,6 @@
-import { Link } from 'react-router'
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import login from '../../actions/user/login'
 import Input from '../../components/input'
 
@@ -11,12 +12,12 @@ class Login extends Component {
     this.onClickLogin = this.onClickLogin.bind(this)
     this.state = {
       valueUsername: '',
-      valuePassword: '',
+      valuePassword: ''
     }
   }
 
   onClickLogin() {
-    login({
+    this.props.login({
       username: this.state.valueUsername,
       password: this.state.valuePassword
     })
@@ -40,6 +41,12 @@ class Login extends Component {
   }
 
   render() {
+    let error = ''
+
+    if (this.props.auth && this.props.auth.error) {
+      error = this.props.auth.error
+    }
+
     const attrUsername = {
       className: 'username',
       id: 'username',
@@ -71,15 +78,26 @@ class Login extends Component {
         >
           Login
         </button>
-        {/* {divError} */}
-        <Link to="/">Back</Link>
+        <br />
+        { error }
       </div>
     )
   }
 }
 
-Login.propTypes = {
-  login: React.PropTypes.func
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  }
 }
 
-export default Login
+Login.propTypes = {
+  login: React.PropTypes.func,
+  auth: React.PropTypes.object
+}
+
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({ login }, dispatch)
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(Login)

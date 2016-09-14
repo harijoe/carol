@@ -4,14 +4,14 @@ const reducerAuth = (state = null, action) => {
   const payload = action.payload
 
   switch (action.type) {
-    case 'AUTH_TOKEN':
+    case types.auth.AUTH_TOKEN:
       return {
         accessToken: payload.access_token,
         refreshToken: payload.refresh_token
       }
-    case types.AUTH_BAD_REQUEST:
+    case types.login.LOGIN_BAD_REQUEST:
       return {
-        error: 'Erreur de connexion'
+        error: 'Votre login et/ou mot de passe sont invalides'
       }
     default:
       return state
