@@ -10,7 +10,7 @@ import Config from '../../config'
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
-/*describe('async actions', () => {
+/* describe('async actions', () => {
   afterEach(() => {
     nock.cleanAll()
   })
@@ -38,4 +38,4 @@ const mockStore = configureMockStore(middlewares)
         expect(store.getActions()).to.jsonEqual(expectedActions)
       })
   })
-})*/
+}) */

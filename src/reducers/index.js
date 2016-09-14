@@ -1,7 +1,5 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
-import UserReducer from './reducer-users'
-import ActiveUserReducer from './reducer-active-user'
 import AuthReducer from './reducer-auth'
 
 /*
@@ -10,8 +8,6 @@ import AuthReducer from './reducer-auth'
  * */
 
 const allReducers = combineReducers({
-  users: UserReducer,
-  activeUser: ActiveUserReducer,
   auth: AuthReducer,
   routing: routerReducer
 })

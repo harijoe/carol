@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import * as actions from '../actions/auth'
+import profile from '../../actions/user/profile'
 
 class Profile extends Component {
   componentWillMount() {
-    console.log('mounted')
-    actions.profile()
+    profile()
   }
 
   render() {

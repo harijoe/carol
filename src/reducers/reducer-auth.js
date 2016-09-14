@@ -1,3 +1,5 @@
+import * as types from '../constants/actionTypes'
+
 const reducerAuth = (state = null, action) => {
   const payload = action.payload
 
@@ -6,6 +8,10 @@ const reducerAuth = (state = null, action) => {
       return {
         accessToken: payload.access_token,
         refreshToken: payload.refresh_token
+      }
+    case types.AUTH_BAD_REQUEST:
+      return {
+        error: 'Erreur de connexion'
       }
     default:
       return state

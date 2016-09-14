@@ -1,7 +1,7 @@
-export const RECV_ERROR = 'RECV_ERROR'
-export const REQ_DATA = 'REQ_DATA'
-export const RECV_DATA = 'RECV_DATA'
-export const RECV_USERS = 'RECV_USERS'
-export const USER_SELECTED = 'USER_SELECTED'
-export const AUTH_TOKEN = 'AUTH_TOKEN'
-export const AUTH_ERROR = 'AUTH_ERROR'
+export const auth = {
+  AUTH_TOKEN: 'AUTH_TOKEN'
+}
+
+export const login = {
+  LOGIN_BAD_REQUEST: 'LOGIN_BAD_REQUEST'
+}

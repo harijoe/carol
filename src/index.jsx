@@ -11,10 +11,8 @@ import createLogger from 'redux-logger'
 import allReducers from './reducers'
 import Home from './containers/home'
 import Layout from './containers/layout'
-import UserList from './containers/user-list'
-import UserDetail from './containers/user-detail'
-import Login from './containers/login'
-import Profile from './containers/profile'
+import Login from './containers/user/login'
+import Profile from './containers/user/profile'
 
 const logger = createLogger()
 const store = createStore(
@@ -30,8 +28,6 @@ ReactDOM.render(
         <IndexRoute component={Home} />
         <Route path="login" component={Login} />
         <Route path="profile" component={Profile} />
-        <Route path="users" component={UserList} />
-        <Route path="users/(:filter)" component={UserDetail} />
       </Route>
     </Router>
   </Provider>,

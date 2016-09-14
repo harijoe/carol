@@ -1,7 +1,7 @@
 import { Link } from 'react-router'
 import React, { Component } from 'react'
-import login from '../actions/auth'
-import Input from '../components/input'
+import login from '../../actions/user/login'
+import Input from '../../components/input'
 
 class Login extends Component {
   constructor() {

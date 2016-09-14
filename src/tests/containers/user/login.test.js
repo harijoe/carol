@@ -2,7 +2,7 @@ var chai = require('chai')
 var expect = chai.expect
 import React from 'react'
 import { shallow } from 'enzyme'
-import Login from '../../containers/login'
+import Login from '../../../containers/user/login'
 
 describe('container', () => {
     describe('Login', () => {
