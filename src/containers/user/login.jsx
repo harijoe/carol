@@ -51,6 +51,7 @@ class Login extends Component {
       className: 'username',
       id: 'username',
       placeholder: 'Username',
+      name: 'username',
       type: 'text'
     }
     const attrPassword = {
@@ -58,6 +59,7 @@ class Login extends Component {
       id: 'password',
       placeholder: 'Password',
       type: 'password',
+      name: 'password'
     }
 
     return (
@@ -94,6 +96,10 @@ function mapStateToProps(state) {
 Login.propTypes = {
   login: React.PropTypes.func,
   auth: React.PropTypes.object
+}
+
+Login.contextTypes = {
+  router: React.PropTypes.object
 }
 
 function matchDispatchToProps(dispatch) {

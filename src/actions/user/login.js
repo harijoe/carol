@@ -2,6 +2,7 @@ import axios from 'axios'
 import * as authActions from '../auth'
 import Config from '../../config'
 import { login as types } from '../../constants/actionTypes'
+import navigate from '../navigate'
 
 const getAuthEndpoint = (grantType = 'password') => {
   return `${Config.apiUrl}/oauth/v2/token?client_id=${Config.clientId}&client_secret=${Config.clientSecret}&grant_type=${grantType}`
@@ -14,6 +15,7 @@ const receiveBadRequest = () => {
 const loginSuccess = (data, dispatch) => {
   authActions.saveTokens(data)
   dispatch(authActions.receiveToken(data))
+  navigate('/profile')
 }
 
 const loginFailure = (response, dispatch) => {
@@ -32,9 +34,13 @@ const login = (credentials) => {
     })
       .then((response) => {
         loginSuccess(response.data, dispatch)
+
+        return 1
       })
       .catch((response) => {
         loginFailure(response, dispatch)
+
+        return 0
       })
   }
 }

@@ -5,7 +5,7 @@
   "license": "ISC",
   "scripts": {
     "dev": "webpack-dev-server  --config webpack.dev.js",
-    "test": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text --reporter=clover mocha src/tests/**/*.test.js --recursive --compilers js:babel-core/register --require ignore-styles -r mock-local-storage",
+    "test": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text --reporter=clover mocha src/tests/index.test.js --recursive --compilers js:babel-core/register --require ignore-styles -r mock-local-storage",
     "test:watch": "npm test -- --watch",
     "test:cover": "npm test && chromium-browser coverage/lcov-report/index.html",
     "lint": "eslint src",
@@ -74,6 +74,7 @@
     "redux-mock-store": "^1.1.4",
     "rewire": "^2.5.2",
     "sass-loader": "^4.0.0",
+    "sinon": "^1.17.5",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1",

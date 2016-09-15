@@ -28,15 +28,15 @@ export default class Input extends Component {
 
 Input.propTypes = {
   attr: React.PropTypes.shape({
-    className: React.PropTypes.string,
+    className: React.PropTypes.string.isRequired,
     placeholder: React.PropTypes.string,
-    id: React.PropTypes.string,
-    name: React.PropTypes.string,
+    id: React.PropTypes.string.isRequired,
+    name: React.PropTypes.string.isRequired,
     type: React.PropTypes.oneOf([
       'text',
       'password'
-    ]),
+    ]).isRequired,
   }).isRequired,
   value: React.PropTypes.string,
-  handleChange: React.PropTypes.func
+  handleChange: React.PropTypes.func.isRequired
 }
