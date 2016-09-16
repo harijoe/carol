@@ -37,6 +37,6 @@ Input.propTypes = {
       'password'
     ]).isRequired,
   }).isRequired,
-  value: React.PropTypes.string,
+  value: React.PropTypes.string.isRequired,
   handleChange: React.PropTypes.func.isRequired
 }

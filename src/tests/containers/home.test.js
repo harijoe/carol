@@ -10,8 +10,8 @@ describe('Home', () => {
   it('should have an image', () => {
     expect(enzymeWrapper.find('img')).to.have.length(1);
   })
-  it('should have a search bar', () => {
-    const navBar = (enzymeWrapper.find('input.search-bar'));
+  it('should have a search pro', () => {
+    const navBar = (enzymeWrapper.find('Input'));
 
     expect(navBar).to.have.length(1);
   })
