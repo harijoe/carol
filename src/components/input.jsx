@@ -18,15 +18,25 @@ export default class Input extends Component {
   render() {
     return (
       <input
-        type="text"
-        value={this.state.value}
-        onChange={this.handleChange}
-        className={this.props.className}
+        {...this.props.attr}
+        value={this.props.value}
+        onChange={this.props.handleChange}
       />
     )
   }
 }
 
 Input.propTypes = {
-  className: React.PropTypes.string
+  attr: React.PropTypes.shape({
+    className: React.PropTypes.string.isRequired,
+    placeholder: React.PropTypes.string,
+    id: React.PropTypes.string.isRequired,
+    name: React.PropTypes.string.isRequired,
+    type: React.PropTypes.oneOf([
+      'text',
+      'password'
+    ]).isRequired,
+  }).isRequired,
+  value: React.PropTypes.string,
+  handleChange: React.PropTypes.func.isRequired
 }
