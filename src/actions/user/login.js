@@ -34,13 +34,9 @@ const login = (credentials) => {
     })
       .then((response) => {
         loginSuccess(response.data, dispatch)
-
-        return 1
       })
       .catch((response) => {
         loginFailure(response, dispatch)
-
-        return 0
       })
   }
 }

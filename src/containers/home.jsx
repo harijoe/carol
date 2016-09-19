@@ -1,13 +1,23 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import Input from '../components/input'
+import searchPro from '../actions/pro/searchPro'
+import ProList from './pro/ProList'
 
 class Home extends Component {
   constructor() {
     super()
+
     this.handleChange = this.handleChange.bind(this)
+    this.onClickSearchPro = this.onClickSearchPro.bind(this)
     this.state = {
       searchProValue: ''
     }
+  }
+
+  onClickSearchPro() {
+    this.props.searchPro(this.state.searchProValue)
   }
 
   handleChange(event) {
@@ -38,9 +48,19 @@ class Home extends Component {
           handleChange={this.handleChange}
           value={this.state.searchProValue}
         />
+        <button onClick={this.onClickSearchPro}>Rechercher</button>
+        <ProList />
       </div>
     )
   }
 }
 
-export default Home
+Home.propTypes = {
+  searchPro: React.PropTypes.func,
+}
+
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({ searchPro }, dispatch)
+}
+
+export default connect(null, matchDispatchToProps)(Home)

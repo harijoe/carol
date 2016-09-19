@@ -25,5 +25,5 @@ describe('Login', () => {
     );
     wrapper.find('button').simulate('click');
     expect(onClickLogin.calledOnce).to.equal(true);
-  });
+  })
 })
