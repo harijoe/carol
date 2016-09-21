@@ -52,6 +52,7 @@ it('dispatch AUTH_TOKEN with a good credential', () => {
     },
   ]
   const store = mockStore()
+
   return store.dispatch(login({ username, password }))
     .then(() => {
       expect(store.getActions()).to.jsonEqual(expectedActions)

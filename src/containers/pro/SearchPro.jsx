@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import Input from '../components/input'
-import searchPro from '../actions/pro/searchPro'
-import ProList from './pro/ProList'
+import Input from '../../components/form/Input'
+import searchPro from '../../actions/pro/searchPro'
+import Button from '../../components/form/Button'
 
-class Home extends Component {
+class SearchPro extends Component {
   constructor() {
     super()
 
@@ -16,7 +16,11 @@ class Home extends Component {
     }
   }
 
-  onClickSearchPro() {
+  onClickSearchPro(e) {
+    if (e) {
+      e.preventDefault()
+    }
+
     this.props.searchPro(this.state.searchProValue)
   }
 
@@ -37,25 +41,21 @@ class Home extends Component {
 
     return (
       <div>
-        <img
-          alt=""
-          src="https://ssl.gstatic.com/onebox/media/olympics/photos/o16/live/RIOEC8C1QFE71_768x432.JPG"
-        />
-        <br />
-        <Input
-          type="text"
-          attr={attrSearchPro}
-          handleChange={this.handleChange}
-          value={this.state.searchProValue}
-        />
-        <button onClick={this.onClickSearchPro}>Rechercher</button>
-        <ProList />
+        <form onSubmit={this.onClickSearchPro}>
+          <Input
+            type="text"
+            attr={attrSearchPro}
+            handleChange={this.handleChange}
+            value={this.state.searchProValue}
+          />
+          <Button type="submit" value="Recherche" />
+        </form>
       </div>
     )
   }
 }
 
-Home.propTypes = {
+SearchPro.propTypes = {
   searchPro: React.PropTypes.func,
 }
 
@@ -63,4 +63,4 @@ function matchDispatchToProps(dispatch) {
   return bindActionCreators({ searchPro }, dispatch)
 }
 
-export default connect(null, matchDispatchToProps)(Home)
+export default connect(null, matchDispatchToProps)(SearchPro)

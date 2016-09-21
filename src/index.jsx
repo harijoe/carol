@@ -9,10 +9,10 @@ import thunk from 'redux-thunk'
 import promise from 'redux-promise'
 import createLogger from 'redux-logger'
 import allReducers from './reducers'
-import Home from './containers/home'
-import Layout from './containers/layout'
-import Login from './containers/user/login'
-import Profile from './containers/user/profile'
+import Home from './containers/Home'
+import Layout from './containers/Layout'
+import Login from './containers/user/Login'
+import Profile from './containers/user/Profile'
 
 const logger = createLogger()
 const store = createStore(

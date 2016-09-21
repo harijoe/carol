@@ -1,13 +1,8 @@
 import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import searchPro from '../../actions/pro/searchPro'
 
 class ProList extends Component {
   renderList() {
-    if (!this.props.pros) {
-      return null
-    }
     return this.props.pros.map((pro) => {
       return (
         <li key={pro.id}>
@@ -21,6 +16,10 @@ class ProList extends Component {
   }
 
   render() {
+    if (!this.props.pros) {
+      return null
+    }
+
     return (
       <div>
         <ul>
@@ -32,8 +31,7 @@ class ProList extends Component {
 }
 
 ProList.propTypes = {
-  pros: React.PropTypes.array,
-  searchPro: React.PropTypes.func
+  pros: React.PropTypes.array
 }
 
 function mapStateToProps(state) {
@@ -42,8 +40,4 @@ function mapStateToProps(state) {
   }
 }
 
-function matchDispatchToProps(dispatch) {
-  return bindActionCreators({ searchPro }, dispatch)
-}
-
-export default connect(mapStateToProps, matchDispatchToProps)(ProList)
+export default connect(mapStateToProps)(ProList)

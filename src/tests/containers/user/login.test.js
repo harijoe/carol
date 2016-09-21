@@ -4,7 +4,7 @@ var expect = chai.expect
 import sinon from 'sinon'
 import React from 'react'
 import { shallow } from 'enzyme'
-var loginConnect = rewire("../../../containers/user/login");
+var loginConnect = rewire("../../../containers/user/Login");
 const Login = loginConnect.__get__('Login');
 
 describe('Login', () => {

@@ -24,7 +24,6 @@ const searchFailure = (response, dispatch) => {
 const searchPro = (trade) => {
   return function(dispatch) {
     const tradeQueryParam = trade ? `trade=${trade}` : ''
-
     return axios({
       url: `${Config.apiUrl}/companies?${tradeQueryParam}&access_token=${localStorage.getItem('access_token')}`,
       timeout: 20000,

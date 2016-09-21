@@ -1,35 +1,24 @@
 var chai = require('chai');
 var expect = chai.expect;
 import React from 'react';
-import sinon from 'sinon'
 import { shallow } from 'enzyme';
-import Home from '../../containers/home';
+import Home from '../../containers/Home';
 
 describe('Home', () => {
-  const enzymeWrapper  = shallow(<Home />);
+  const enzymeWrapper  = shallow(<Home />)
 
   it('should have an image', () => {
-    expect(enzymeWrapper.find('img')).to.have.length(1);
+    expect(enzymeWrapper.find('img')).to.have.length(1)
   })
 
-  it('should have a search pro', () => {
-    const navBar = (enzymeWrapper.find('Input'));
+  it('should have a search pro\'s connect', () => {
+    expect(enzymeWrapper.find('Connect(SearchPro)')).to.have.length(1)
 
-    expect(navBar).to.have.length(1);
   })
 
-  it('should have a button', () => {
-    const button = (enzymeWrapper.find('button'));
+  it('should have a pro list\'s connect', () => {
+    expect(enzymeWrapper.find('Connect(SearchPro)')).to.have.length(1)
+    expect(enzymeWrapper.find('Connect(ProList)')).to.have.length(1)
 
-    expect(button).to.have.length(1);
-  })
-
-  it('simulates click events', () => {
-    const onClickSearch = sinon.spy();
-    const wrapper = shallow(
-      <Home searchPro={onClickSearch} />
-    );
-    wrapper.find('button').simulate('click');
-    expect(onClickSearch.calledOnce).to.equal(true);
   })
 })

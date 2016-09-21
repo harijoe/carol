@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 export default class Input extends Component {
   constructor() {
     super()
+
     this.state = {
       value: '',
     }
@@ -36,6 +37,7 @@ Input.propTypes = {
       'text',
       'password'
     ]).isRequired,
+    pattern: React.PropTypes.string
   }).isRequired,
   value: React.PropTypes.string.isRequired,
   handleChange: React.PropTypes.func.isRequired

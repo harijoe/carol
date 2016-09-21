@@ -3,7 +3,7 @@ var rewire = require("rewire");
 var expect = chai.expect
 import React from 'react'
 import { shallow } from 'enzyme'
-var loginConnect = rewire("../../components/input");
+var loginConnect = rewire("../../components/form/Input");
 const Input = loginConnect.__get__('Input');
 
 describe('Input', () => {
@@ -17,6 +17,6 @@ describe('Input', () => {
   const enzymeWrapper  = shallow(<Input attr={attr} value="monty93" handleChange={() => {return 1}} />);
 
   it('should have two inputs', () => {
-    expect(enzymeWrapper.find('input')).to.have.length(1)
+    expect(enzymeWrapper.find('input')).to.have.html('<input type="text" class="username" id="username" name="username" placeholder="Username" value="monty93"/>')
   })
 })
