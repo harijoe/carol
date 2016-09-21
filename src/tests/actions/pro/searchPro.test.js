@@ -1,14 +1,15 @@
 import nock from 'nock'
 import thunk from 'redux-thunk'
 import configureMockStore from 'redux-mock-store'
+import chai from 'chai'
+import chaiJsonEqual from 'chai-json-equal'
 import searchPro from '../../../actions/pro/searchPro'
-var chai = require('chai')
-var chaiJsonEqual = require('chai-json-equal');
-var expect = chai.expect
 
-chai.use(chaiJsonEqual);
+const expect = chai.expect
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
+
+chai.use(chaiJsonEqual);
 
 afterEach(() => {
   nock.cleanAll()

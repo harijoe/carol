@@ -1,9 +1,10 @@
-var chai = require('chai')
-var rewire = require("rewire");
-var expect = chai.expect
+import chai from 'chai'
+import rewire from "rewire";
 import React from 'react'
 import { shallow } from 'enzyme'
-var loginConnect = rewire("../../components/form/Input");
+
+const expect = chai.expect
+const loginConnect = rewire("../../components/form/Input");
 const Input = loginConnect.__get__('Input');
 
 describe('Input', () => {

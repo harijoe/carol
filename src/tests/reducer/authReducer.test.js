@@ -1,5 +1,5 @@
+import { expect } from 'chai'
 import reducerUsers from '../../reducers/authReducer';
-var expect = require('chai').expect;
 
 describe('auth', function() {
   const accessToken = 'xkjdfjkfdkg'

@@ -1,11 +1,11 @@
-var chai = require('chai')
-var rewire = require("rewire");
-var expect = chai.expect
+import chai from 'chai'
 import React from 'react'
 import { shallow } from 'enzyme'
 import chaiEnzyme from 'chai-enzyme'
+import chaiJsonEqual from 'chai-json-equal'
 import Button from '../../components/form/Button'
-var chaiJsonEqual = require('chai-json-equal');
+
+const expect = chai.expect
 chai.use(chaiEnzyme())
 chai.use(chaiJsonEqual);
 

@@ -1,10 +1,11 @@
-var chai = require('chai')
-var rewire = require("rewire")
-var expect = chai.expect
+import chai from 'chai'
+import rewire from 'rewire'
 import React from 'react'
 import { shallow } from 'enzyme'
 import chaiEnzyme from 'chai-enzyme'
-var ProListConnect = rewire('../../../containers/pro/ProList')
+
+const expect = chai.expect
+const ProListConnect = rewire('../../../containers/pro/ProList')
 const ProList = ProListConnect.__get__('ProList')
 
 chai.use(chaiEnzyme())

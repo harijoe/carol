@@ -1,5 +1,5 @@
+import { expect } from 'chai'
 import prosReducer from '../../../reducers/pro/prosReducer'
-var expect = require('chai').expect
 
 describe('prosReducer', function() {
   context('state and action.type = null', function() {

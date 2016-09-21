@@ -1,10 +1,11 @@
-var chai = require('chai')
-var rewire = require("rewire")
-var expect = chai.expect
+import chai from 'chai'
+import rewire from 'rewire'
 import React from 'react'
 import sinon from 'sinon'
 import { shallow } from 'enzyme'
-var SearchProConnect = rewire('../../../containers/pro/SearchPro')
+
+const expect = chai.expect
+const SearchProConnect = rewire('../../../containers/pro/SearchPro')
 const SearchPro = SearchProConnect.__get__('SearchPro')
 
 describe('SearchPro', () => {

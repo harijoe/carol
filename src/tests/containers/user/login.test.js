@@ -1,9 +1,10 @@
-var chai = require('chai')
-var rewire = require("rewire");
-var expect = chai.expect
+import chai from 'chai'
+import rewire from 'rewire'
+import { shallow } from 'enzyme'
 import sinon from 'sinon'
 import React from 'react'
-import { shallow } from 'enzyme'
+
+const expect = chai.expect
 var loginConnect = rewire("../../../containers/user/Login");
 const Login = loginConnect.__get__('Login');
 
