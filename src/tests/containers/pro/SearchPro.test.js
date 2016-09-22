@@ -12,15 +12,15 @@ describe('SearchPro', () => {
   const enzymeWrapper  = shallow(<SearchPro />)
 
   it('should have a form', () => {
-    expect(enzymeWrapper.find('form')).to.have.length(1)
+    expect(enzymeWrapper.find('Form')).to.have.length(1)
   })
 
   it('should have an Input into the form', () => {
-    expect(enzymeWrapper.find('form Input')).to.have.length(1)
+    expect(enzymeWrapper.find('Form Input')).to.have.length(1)
   })
 
   it('should have a Button into the form', () => {
-    expect(enzymeWrapper.find('Button')).to.have.length(1)
+    expect(enzymeWrapper.find('Form Button')).to.have.length(1)
   })
 
   it('simulates submit events of the form', () => {
@@ -29,7 +29,7 @@ describe('SearchPro', () => {
       <SearchPro searchPro={onClickSearch} />
     )
 
-    wrapper.find('form').simulate('submit', { preventDefault() {} });
+    wrapper.find('Form').simulate('submit');
     expect(onClickSearch.calledOnce).to.equal(true);
   })
 })
