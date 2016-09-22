@@ -3,7 +3,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import chaiEnzyme from 'chai-enzyme'
 import chaiJsonEqual from 'chai-json-equal'
-import Button from '../../components/form/Button'
+import Button from '../../../components/form/Button'
 
 const expect = chai.expect
 chai.use(chaiEnzyme())
