@@ -5,7 +5,7 @@ import sinon from 'sinon'
 import React from 'react'
 
 const expect = chai.expect
-var loginConnect = rewire("../../../containers/user/Login");
+const loginConnect = rewire("../../../containers/user/Login");
 const Login = loginConnect.__get__('Login');
 
 describe('Login', () => {

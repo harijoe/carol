@@ -1,20 +1,20 @@
 import * as types from '../../constants/actionTypes'
 
-const retrievePros = (pros) => {
-  const retrievedPros = []
+const transformPros = (pros) => {
+  const transformedPros = []
   let i
   let proCurrent = {}
 
   for (i = 0; i < pros.length; i++) {
     proCurrent = pros[i]
-    retrievedPros[i] = {
+    transformedPros[i] = {
       id: proCurrent['@id'],
       name: proCurrent.name,
       trade: proCurrent.trade
     }
   }
 
-  return retrievedPros
+  return transformedPros
 }
 
 const reducerPros = (state = null, action) => {
@@ -22,7 +22,7 @@ const reducerPros = (state = null, action) => {
 
   switch (action.type) {
     case types.pro.PRO_LIST:
-      return retrievePros(pros)
+      return transformPros(pros)
     default:
       return state
   }

@@ -15,7 +15,7 @@ module.exports = {
     './src'
   ],
   output: {
-    filename: 'bundle.js'
+    filename: 'js/bundle.js'
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -28,7 +28,7 @@ module.exports = {
       'React': 'react',
     }),
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './public/index.html'
     }),
     new ExtractTextPlugin('css/[name].css?[hash]', {
       allChunks: false

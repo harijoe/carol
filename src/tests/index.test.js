@@ -5,9 +5,15 @@ describe('actions', () => {
   describe('pro', () => {
     require('./actions/pro/searchPro.test')
   })
+  describe('content', () => {
+    require('./actions/content.test')
+  })
+  describe('content', () => {
+    require('./actions/content.test')
+  })
 })
 describe('containers', () => {
-  require('./containers/home.test.js')
+  require('./containers/home.test')
   describe('user', () => {
     require('./containers/user/login.test')
   })
@@ -15,10 +21,19 @@ describe('containers', () => {
     require('./containers/pro/SearchPro.test')
     require('./containers/pro/ProList.test')
   })
+  describe('content', () => {
+    require('./containers/content.test')
+  })
+  describe('content', () => {
+    require('./containers/content.test')
+  })
 })
 
 describe('reducer', () => {
-  require('./reducer/authReducer.test')
+  require('./reducer/auth.test')
+  describe('content', () => {
+    require('./reducer/content.test')
+  })
   describe('pro', () => {
     require('./reducer/pro/prosReducer.test')
   })

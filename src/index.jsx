@@ -1,18 +1,19 @@
-import { createStore, applyMiddleware } from 'redux'
-import { Router, Route, browserHistory, IndexRoute } from 'react-router'
-import { syncHistoryWithStore } from 'react-router-redux'
-import { Provider } from 'react-redux'
-import 'babel-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import { Router, Route, browserHistory, IndexRoute } from 'react-router'
+import { syncHistoryWithStore } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import promise from 'redux-promise'
 import createLogger from 'redux-logger'
 import allReducers from './reducers'
-import Home from './containers/Home'
+
 import Layout from './containers/Layout'
+import Home from './containers/Home'
 import Login from './containers/user/Login'
 import Profile from './containers/user/Profile'
+import Content from './containers/Content'
 
 const logger = createLogger()
 const store = createStore(
@@ -28,6 +29,7 @@ ReactDOM.render(
         <IndexRoute component={Home} />
         <Route path="login" component={Login} />
         <Route path="profile" component={Profile} />
+        <Route path="content" component={Content} />
       </Route>
     </Router>
   </Provider>,

@@ -1,17 +1,17 @@
 import React from 'react'
 import Header from '../components/Header'
 
-const Layout = (props) => {
+export default function App({ children }) {
   return (
     <div>
       <Header />
-      {props.children}
+      <div>
+        {children}
+      </div>
     </div>
   )
 }
 
-Layout.propTypes = {
+App.propTypes = {
   children: React.PropTypes.object
 }
-
-export default Layout

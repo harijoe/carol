@@ -5,17 +5,17 @@ var autoprefixer = require('autoprefixer')
 module.exports = {
   devtool: 'source-map',
   resolve: {
-    root: path.resolve(__dirname, '../'),
+    root: './',
     extensions: ['', '.js', '.jsx', '.scss', '.json'],
     modulesDirectories: ['src', 'node_modules']
   },
   entry: [
-    path.resolve(__dirname, '../src')
+    './src'
   ],
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, './public/js/'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/js/'
   },
   module: {
     loaders: [

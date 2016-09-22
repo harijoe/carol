@@ -6,6 +6,8 @@ const reducerAuth = (state = null, action) => {
       return {
         error: 'Votre login et/ou mot de passe sont invalides'
       }
+    case types.auth.AUTH_TOKEN:
+      return action.payload
     default:
       return state
   }
