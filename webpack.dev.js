@@ -71,6 +71,7 @@ module.exports = {
     colors: true,
     progress: true,
     profile: true,
-    watch: true
+    watch: true,
+    historyApiFallback: true
   }
 }
