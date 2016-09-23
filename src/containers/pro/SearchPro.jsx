@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import Input from '../../components/form/Input'
 import searchPro from '../../actions/pro/searchPro'
 import Button from '../../components/form/Button'
+import Form from '../../components/form/Form'
 
 class SearchPro extends Component {
   constructor() {
@@ -16,11 +17,7 @@ class SearchPro extends Component {
     }
   }
 
-  onClickSearchPro(e) {
-    if (e) {
-      e.preventDefault()
-    }
-
+  onClickSearchPro() {
     this.props.searchPro(this.state.searchProValue)
   }
 
@@ -41,7 +38,7 @@ class SearchPro extends Component {
 
     return (
       <div>
-        <form onSubmit={this.onClickSearchPro}>
+        <Form onSubmit={this.onClickSearchPro}>
           <Input
             type="text"
             attr={attrSearchPro}
@@ -49,7 +46,7 @@ class SearchPro extends Component {
             value={this.state.searchProValue}
           />
           <Button type="submit" value="Recherche" />
-        </form>
+        </Form>
       </div>
     )
   }

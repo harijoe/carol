@@ -3,20 +3,22 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import login from '../../actions/user/login'
 import Input from '../../components/form/Input'
+import Form from '../../components/form/Form'
+import Button from '../../components/form/Button'
 
 class Login extends Component {
   constructor() {
     super()
 
     this.handleChange = this.handleChange.bind(this)
-    this.onClickLogin = this.onClickLogin.bind(this)
+    this.onSubmitLogin = this.onSubmitLogin.bind(this)
     this.state = {
       valueUsername: '',
       valuePassword: ''
     }
   }
 
-  onClickLogin() {
+  onSubmitLogin() {
     this.props.login({
       username: this.state.valueUsername,
       password: this.state.valuePassword
@@ -63,7 +65,7 @@ class Login extends Component {
     }
 
     return (
-      <div>
+      <Form onSubmit={this.onSubmitLogin}>
         <Input
           attr={attrUsername}
           handleChange={this.handleChange}
@@ -74,15 +76,10 @@ class Login extends Component {
           value={this.state.valuePassword}
           handleChange={this.handleChange}
         />
-        <button
-          onClick={this.onClickLogin}
-          type="button"
-        >
-          Login
-        </button>
+        <Button type="submit" value="Login" />
         <br />
         { error }
-      </div>
+      </Form>
     )
   }
 }

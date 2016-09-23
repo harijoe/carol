@@ -1,5 +1,5 @@
 import reducerUsers from '../../reducers/auth';
-var expect = require('chai').expect;
+const expect = require('chai').expect;
 
 describe('auth', function() {
   const access_token = 'xkjdfjkfdkg'

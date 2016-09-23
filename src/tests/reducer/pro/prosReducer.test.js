@@ -14,7 +14,7 @@ describe('prosReducer', function() {
         type: 'PRO_LIST',
         pros: []
       }
-      expect(prosReducer(null, action)).to.eql([]);
+      expect(prosReducer(null, action)).to.eql([])
     })
   })
 
@@ -35,7 +35,7 @@ describe('prosReducer', function() {
           }
         ]
       }
-      expect(prosReducer(null, action)).to.eql([{id: 1, name: 'Mcdo', trade: 'kitchen'}, {id: 2, name: 'Leroy Merlin', trade: 'bricolage'}]);
+      expect(prosReducer(null, action)).to.eql([{id: 1, name: 'Mcdo', trade: 'kitchen'}, {id: 2, name: 'Leroy Merlin', trade: 'bricolage'}])
     })
   })
 })

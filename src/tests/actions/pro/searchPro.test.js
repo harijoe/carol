@@ -9,7 +9,7 @@ const expect = chai.expect
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
-chai.use(chaiJsonEqual);
+chai.use(chaiJsonEqual)
 
 afterEach(() => {
   nock.cleanAll()
