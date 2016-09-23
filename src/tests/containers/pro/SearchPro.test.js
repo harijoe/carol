@@ -24,12 +24,12 @@ describe('SearchPro', () => {
   })
 
   it('simulates submit events of the form', () => {
-    const onClickSearch = sinon.spy();
+    const onClickSearch = sinon.spy()
     const wrapper = shallow(
       <SearchPro searchPro={onClickSearch} />
     )
 
-    wrapper.find('Form').simulate('submit');
-    expect(onClickSearch.calledOnce).to.equal(true);
+    wrapper.find('Form').simulate('submit')
+    expect(onClickSearch.calledOnce).to.equal(true)
   })
 })

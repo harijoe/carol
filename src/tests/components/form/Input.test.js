@@ -1,11 +1,11 @@
 import chai from 'chai'
-import rewire from "rewire";
+import rewire from "rewire"
 import React from 'react'
 import { shallow } from 'enzyme'
 
 const expect = chai.expect
-const loginConnect = rewire("../../../components/form/Input");
-const Input = loginConnect.__get__('Input');
+const loginConnect = rewire("../../../components/form/Input")
+const Input = loginConnect.__get__('Input')
 
 describe('Input', () => {
   const attr = {

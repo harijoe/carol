@@ -40,7 +40,7 @@ describe('reducer', () => {
 })
 
 describe('components', () => {
-  require('./components/form/Input.test.js')
-  require('./components/form/Button.test.js')
+  require('./components/form/Input.test')
+  require('./components/form/Button.test')
   require('./components/form/Form.test')
 })

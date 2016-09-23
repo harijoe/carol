@@ -5,11 +5,11 @@ import sinon from 'sinon'
 import React from 'react'
 
 const expect = chai.expect
-const loginConnect = rewire("../../../containers/user/Login");
-const Login = loginConnect.__get__('Login');
+const loginConnect = rewire("../../../containers/user/Login")
+const Login = loginConnect.__get__('Login')
 
 describe('Login', () => {
-  const enzymeWrapper  = shallow(<Login />);
+  const enzymeWrapper  = shallow(<Login />)
 
   it('should have one form', () => {
     expect(enzymeWrapper.find('Form')).to.have.length(1)
@@ -24,11 +24,11 @@ describe('Login', () => {
   })
 
   it('simulates click events', () => {
-    const onClickLogin = sinon.spy();
+    const onClickLogin = sinon.spy()
     const wrapper = shallow(
       <Login login={onClickLogin} />
     );
-    wrapper.find('Form').simulate('submit');
-    expect(onClickLogin.calledOnce).to.equal(true);
+    wrapper.find('Form').simulate('submit')
+    expect(onClickLogin.calledOnce).to.equal(true)
   })
 })

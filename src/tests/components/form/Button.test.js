@@ -7,10 +7,10 @@ import Button from '../../../components/form/Button'
 
 const expect = chai.expect
 chai.use(chaiEnzyme())
-chai.use(chaiJsonEqual);
+chai.use(chaiJsonEqual)
 
 describe('Button', () => {
-  const enzymeWrapper  = shallow(<Button id="submit" value="Rechercher" type="submit" />);
+  const enzymeWrapper  = shallow(<Button id="submit" value="Rechercher" type="submit" />)
 
   it('should have an button', () => {
     expect(enzymeWrapper.find('button')).to.have.html('<button type="submit" id="submit">Rechercher</button>')
