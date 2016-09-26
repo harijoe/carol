@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Quotatis website",
   "license": "ISC",
+  "engines": {
+    "node": ">=6.6.0"
+  },
   "scripts": {
     "start": "node server.js",
     "dev": "webpack-dev-server  --config webpack.dev.js",
