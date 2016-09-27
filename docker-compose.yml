@@ -1,0 +1,11 @@
+version: "2"
+
+services:
+  carol:
+      build: .
+      volumes:
+        - /app/node_modules
+        - /app/tmp
+      ports:
+        - "8080:8080"
+        - "49152:49152" # livereload
