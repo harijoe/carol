@@ -1,5 +1,6 @@
 import axios from 'axios'
-import Config from '../../config'
+import * as authActions from '../auth'
+import config from '../../config'
 import { pro as types } from '../../constants/actionTypes'
 
 const receiveListPro = (pros) => {
@@ -25,10 +26,13 @@ const searchPro = (trade) => {
   return function(dispatch) {
     const tradeQueryParam = trade ? `trade=${trade}` : ''
     return axios({
-      url: `${Config.apiUrl}/companies?${tradeQueryParam}&access_token=${localStorage.getItem('access_token')}`,
-      timeout: 20000,
+      url: `${config.apiUrl}/companies?${tradeQueryParam}`,
+      timeout: config.timeout,
       method: 'GET',
       responseType: 'json',
+      headers: {
+        Authorization: `Bearer ${authActions.getToken('client_credentials')}`
+      }
     })
       .then((response) => {
         searchSuccess(response.data['hydra:member'], dispatch)

@@ -28,6 +28,7 @@ const getContent = () => {
   return function(dispatch) {
     return axios({
       url: `${config.apiUrl}/posts?access_token=${auth.getToken('client_credentials')}`,
+      timeout: config.timeout,
       method: 'GET',
       responseType: 'json'
     })

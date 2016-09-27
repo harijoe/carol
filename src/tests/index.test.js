@@ -1,6 +1,7 @@
 describe('actions', () => {
   describe('user', () => {
     require('./actions/user/login.test')
+    require('./actions/user/profile.test')
   })
   describe('pro', () => {
     require('./actions/pro/searchPro.test')
@@ -16,6 +17,7 @@ describe('containers', () => {
   require('./containers/home.test')
   describe('user', () => {
     require('./containers/user/login.test')
+    require('./containers/user/profile.test')
   })
   describe('pro', () => {
     require('./containers/pro/SearchPro.test')
@@ -35,7 +37,7 @@ describe('reducer', () => {
     require('./reducer/content.test')
   })
   describe('pro', () => {
-    require('./reducer/pro/prosReducer.test')
+    require('./reducer/pros.test.js')
   })
 })
 

@@ -15,3 +15,8 @@ export const pro = {
   PRO_LIST: 'PRO_LIST',
   PRO_LIST_FAIL: 'PRO_LIST_FAIL'
 }
+
+export const user = {
+  USER_INFO: 'USER_INFO',
+  USER_UNAUTHORIZED: 'USER_UNAUTHORIZED',
+}

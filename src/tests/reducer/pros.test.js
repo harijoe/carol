@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import prosReducer from '../../../reducers/pro/prosReducer'
+import prosReducer from '../../reducers/pros'
 
 describe('prosReducer', function() {
   context('state and action.type = null', function() {

@@ -1,57 +1,60 @@
 import nock from 'nock'
 import thunk from 'redux-thunk'
-import configureMockStore from 'redux-mock-store'
 import chai from 'chai'
+import configureMockStore from 'redux-mock-store'
 import chaiJsonEqual from 'chai-json-equal'
-import searchPro from '../../../actions/pro/searchPro'
+import profile from '../../../actions/user/profile'
 
 const expect = chai.expect
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
-chai.use(chaiJsonEqual)
+chai.use(chaiJsonEqual);
 
 afterEach(() => {
   nock.cleanAll()
 })
 
-it('dispatch PRO_LIST with a good credential', () => {
-  const username = 'myname'
-  const jsonResponse = {
-    'hydra:member': username
-  }
-
+it('dispatch USER_UNAUTHORIZED', () => {
   nock('http://192.168.33.10/app_dev.php')
-    .get('/companies?trade=kitchen')
-    .reply(200, jsonResponse)
+    .get('/users/me')
+    .reply(401)
 
   const expectedActions = [
     {
-      type: 'PRO_LIST',
-      pros: username
+      type: 'USER_UNAUTHORIZED'
     },
   ]
   const store = mockStore()
-
-  return store.dispatch(searchPro('kitchen'))
+  return store.dispatch(profile())
     .then(() => {
       expect(store.getActions()).to.jsonEqual(expectedActions)
     })
 })
 
-it('dispatch PRO_LIST_FAIL if the api return an error', () => {
+it('dispatch USER_INFO', () => {
+  const username = 'myname'
+  const jsonResponse = {
+    'email': 'mon@email.com',
+    'username': username
+  }
+
   nock('http://192.168.33.10/app_dev.php')
-    .get('/companies?trade=kitchen&access_token=null')
-    .reply(400)
+    .get('/users/me')
+    .reply(200, jsonResponse)
 
   const expectedActions = [
     {
-      type: 'PRO_LIST_FAIL'
-    },
+      type: 'USER_INFO',
+      payload: {
+        email: 'mon@email.com',
+        username: 'myname'
+      }
+    }
   ]
   const store = mockStore()
 
-  return store.dispatch(searchPro('kitchen'))
+  return store.dispatch(profile())
     .then(() => {
       expect(store.getActions()).to.jsonEqual(expectedActions)
     })

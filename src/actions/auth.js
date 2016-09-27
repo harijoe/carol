@@ -23,7 +23,7 @@ const getNewToken = (grantType, credentials = null) => {
 
   return axios({
     url: `${config.apiUrl}/oauth/v2/token?client_id=${config.clientId}&client_secret=${config.clientSecret}&grant_type=${grantType}${isCredentials}`,
-    timeout: 20000,
+    timeout: config.timeout,
     method: 'GET',
     responseType: 'json'
   })

@@ -21,7 +21,7 @@ const login = (credentials) => {
   return function(dispatch) {
     return authActions.getToken('password', credentials)
       .then((response) => {
-        loginSuccess(response.data, dispatch)
+        loginSuccess(response, dispatch)
       })
       .catch((response) => {
         loginFailure(response, dispatch)

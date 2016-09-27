@@ -39,7 +39,7 @@ it('dispatch AUTH_TOKEN with a good credential', () => {
   const username = 'myname'
   const password = 'password'
   const jsonResponse = {
-    data: username
+    username
   }
 
   nock('http://192.168.33.10/app_dev.php')
@@ -49,7 +49,7 @@ it('dispatch AUTH_TOKEN with a good credential', () => {
   const expectedActions = [
     {
       type: 'AUTH_TOKEN',
-      payload: jsonResponse.data
+      payload: jsonResponse
     },
   ]
   const store = mockStore()

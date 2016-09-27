@@ -2,7 +2,8 @@ import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 import AuthReducer from './auth'
 import contentReducer from './content'
-import prosReducer from './pro/prosReducer'
+import prosReducer from './pros'
+import userReducer from './user'
 
 /*
  * We combine all reducers into a single object before updated data is dispatched (sent) to store
@@ -13,5 +14,6 @@ export default combineReducers({
   auth: AuthReducer,
   pros: prosReducer,
   content: contentReducer,
+  user: userReducer,
   routing: routerReducer
 })

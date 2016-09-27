@@ -9,6 +9,7 @@ function Header() {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/login">Login</Link></li>
         <li><Link to="/content">Content</Link></li>
+        <li><Link to="/profile">My account info</Link></li>
       </ul>
     </header>
   )
