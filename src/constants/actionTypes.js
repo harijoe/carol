@@ -19,4 +19,6 @@ export const pro = {
 export const user = {
   USER_INFO: 'USER_INFO',
   USER_UNAUTHORIZED: 'USER_UNAUTHORIZED',
+  USER_UPDATE: 'USER_UPDATE',
+  USER_ERROR: 'USER_ERROR'
 }

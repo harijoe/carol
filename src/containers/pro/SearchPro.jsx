@@ -42,7 +42,7 @@ class SearchPro extends Component {
           <Input
             type="text"
             attr={attrSearchPro}
-            handleChange={this.handleChange}
+            onChange={this.handleChange}
             value={this.state.searchProValue}
           />
           <Button type="submit" value="Recherche" />

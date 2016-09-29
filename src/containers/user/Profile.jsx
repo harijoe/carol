@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import profile from '../../actions/user/profile'
+import * as profileActions from '../../actions/user/profile'
 import Input from '../../components/form/Input'
 import Form from '../../components/form/Form'
 import Button from '../../components/form/Button'
@@ -19,23 +19,37 @@ class Profile extends Component {
   }
 
   componentWillMount() {
-    this.props.profile()
-  }
-
-  onSubmit() {}
-
-  get(fieldName) {
-    const user = this.props.user
-    let field = ''
-
-    if (this.state[fieldName]) {
-      field = this.state[fieldName]
-    } else if (user) {
-      field = user[fieldName]
+    if (!this.props.auth || 'password' !== this.props.auth.grantType) {
+      this.context.router.push({ pathname: '/login' })
     }
 
-    return field
+    this.props.getProfile()
+
+    const user = this.props.user
+
+    if (user) {
+      this.setFields(user)
+    }
   }
+
+  componentWillReceiveProps(nextProps) {
+    this.setFields(nextProps.user)
+  }
+
+  onSubmit() {
+    this.props.updateProfile({
+      email: this.state.email,
+      username: this.state.username
+    }, this.props.user['@id'])
+  }
+
+  setFields(data) {
+    this.setState({
+      email: data.email,
+      username: data.username
+    })
+  }
+
 
   handleChange(e) {
     switch (e.target.id) {
@@ -62,7 +76,7 @@ class Profile extends Component {
       placeholder: 'Email',
       id: 'email',
       name: 'email',
-      type: 'text'
+      type: 'email'
     }
     const attrUsername = {
       className: 'username',
@@ -75,8 +89,8 @@ class Profile extends Component {
     return (
       <div>
         <Form onSubmit={this.onSubmit}>
-          <Input attr={attrUsername} value={this.get('username')} handleChange={this.handleChange} /><br />
-          <Input attr={attrEmail} value={this.get('email')} handleChange={this.handleChange} />
+          <Input attr={attrUsername} value={this.state.username} onChange={this.handleChange} /><br />
+          <Input attr={attrEmail} value={this.state.email} onChange={this.handleChange} />
           <Button type="submit" value="Profile" />
         </Form>
       </div>
@@ -85,20 +99,33 @@ class Profile extends Component {
 }
 
 Profile.propTypes = {
-  profile: React.PropTypes.func,
+  getProfile: React.PropTypes.func,
+  updateProfile: React.PropTypes.func,
   user: React.PropTypes.shape({
     email: React.PropTypes.string,
-    username: React.PropTypes.string
+    username: React.PropTypes.string,
+    '@id': React.PropTypes.string,
+  }),
+  auth: React.PropTypes.shape({
+    grantType: React.PropTypes.string,
   })
 }
 
+Profile.contextTypes = {
+  router: React.PropTypes.object
+}
+
 function matchDispatchToProps(dispatch) {
-  return bindActionCreators({ profile }, dispatch)
+  return bindActionCreators({
+    getProfile: profileActions.getProfile,
+    updateProfile: profileActions.updateProfile,
+  }, dispatch)
 }
 
 function mapStateToProps(state) {
   return {
-    user: state.user
+    user: state.user,
+    auth: state.auth,
   }
 }
 

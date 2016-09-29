@@ -24,12 +24,6 @@ describe('auth', function() {
     });
   })
 
-  context(`state = null and action.type = AUTH_TOKEN and action.payload = {access_token: "${access_token}", refresh_token: "${refresh_token}"}`, function() {
-    it('should be an object!', function() {
-      expect(reducerUsers(null, actionAuthToken)).to.eql({access_token, refresh_token});
-    });
-  })
-
   context('state = null and action.type = LOGIN_BAD_REQUEST', function() {
     it('should be an object!', function() {
       expect(reducerUsers(null, actionBadRequest)).to.eql({error: 'Votre login et/ou mot de passe sont invalides'});

@@ -33,7 +33,7 @@ it('should dispatch CONTENT_RECEIVE with articles', () => {
     'hydra:member': contentData
   }
 
-  nock('http://192.168.33.10/app_dev.php')
+  nock('http://localhost/app_dev.php')
     .get(`/posts?access_token=${access_token}`)
     .reply(200, jsonResponse)
 

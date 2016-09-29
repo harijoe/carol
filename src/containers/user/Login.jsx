@@ -68,13 +68,13 @@ class Login extends Component {
       <Form onSubmit={this.onSubmitLogin}>
         <Input
           attr={attrUsername}
-          handleChange={this.handleChange}
+          onChange={this.handleChange}
           value={this.state.valueUsername}
         />
         <Input
           attr={attrPassword}
           value={this.state.valuePassword}
-          handleChange={this.handleChange}
+          onChange={this.handleChange}
         />
         <Button type="submit" value="Login" />
         <br />

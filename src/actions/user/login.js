@@ -6,8 +6,7 @@ const receiveBadRequest = () => {
   return { type: types.LOGIN_BAD_REQUEST }
 }
 
-const loginSuccess = (data, dispatch) => {
-  dispatch(authActions.receiveToken(data))
+const loginSuccess = () => {
   navigate('/profile')
 }
 
@@ -20,8 +19,11 @@ const loginFailure = (response, dispatch) => {
 const login = (credentials) => {
   return function(dispatch) {
     return authActions.getToken('password', credentials)
-      .then((response) => {
-        loginSuccess(response, dispatch)
+      .then(() => {
+        dispatch(authActions.receiveToken('password'))
+      })
+      .then(() => {
+        loginSuccess()
       })
       .catch((response) => {
         loginFailure(response, dispatch)

@@ -1,15 +1,6 @@
-import axios from 'axios'
-import thunk from 'redux-thunk'
-import { createStore, applyMiddleware } from 'redux'
-import { routerMiddleware, push } from 'react-router-redux'
-import { browserHistory } from 'react-router'
 import * as authActions from '../auth'
 import config from '../../config'
-import allReducers from '../../reducers'
 import { user as types } from '../../constants/actionTypes'
-
-const middleware = routerMiddleware(browserHistory)
-const store = createStore(allReducers, applyMiddleware(thunk, middleware))
 
 const receiveUserInfo = (payload) => {
   return {
@@ -17,38 +8,48 @@ const receiveUserInfo = (payload) => {
     payload
   }
 }
-const receiveError = (statusCode, dispatch) => {
+const receiveError = (statusCode) => {
   if (401 === statusCode) {
-    dispatch({
+    return {
       type: types.USER_UNAUTHORIZED
-    })
+    }
+  }
+
+  return {
+    type: types.USER_ERROR
   }
 }
 
-const profile = () => {
+export const getProfile = () => {
   const accessToken = authActions.getToken('password')
 
   if (null === accessToken) {
-    store.dispatch(push('/login'))
+    return {
+      type: types.USER_UNAUTHORIZED
+    }
   }
 
   return function(dispatch) {
-    return axios({
-      url: config.profileUrl,
-      timeout: config.timeout,
-      method: 'GET',
-      responseType: 'json',
-      headers: {
-        Authorization: `Bearer ${accessToken}`
-      }
-    })
+    return authActions
+      .request(accessToken, config.profileUrl, 'GET')
       .then((response) => {
         dispatch(receiveUserInfo(response.data))
       })
       .catch((response) => {
-        receiveError(response.status, dispatch)
+        dispatch(receiveError(response.status))
       })
   }
 }
 
-export default profile
+export const updateProfile = (data, id) => {
+  return function(dispatch) {
+    return authActions
+      .request(authActions.getToken('password'), `${config.baseUrl}${id}`, 'PUT', data)
+      .then(() => {
+        dispatch(receiveUserInfo({ '@id': id, username: data.username, email: data.email }))
+      })
+      .catch((response) => {
+        dispatch(receiveError(response.status))
+      })
+  }
+}

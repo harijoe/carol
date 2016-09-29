@@ -19,7 +19,7 @@ it('dispatch LOGIN_BAD_REQUEST with a wrong credential', () => {
   const username = 'myname';
   const password = 'password';
 
-  nock('http://192.168.33.10/app_dev.php')
+  nock('http://localhost/app_dev.php')
     .get(`/oauth/v2/token?client_id=1_4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k&client_secret=4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc&grant_type=password&username=${username}&password=${password}`)
     .reply(400)
 
@@ -42,14 +42,14 @@ it('dispatch AUTH_TOKEN with a good credential', () => {
     username
   }
 
-  nock('http://192.168.33.10/app_dev.php')
+  nock('http://localhost/app_dev.php')
     .get(`/oauth/v2/token?client_id=1_4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k&client_secret=4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc&grant_type=password&username=${username}&password=${password}`)
     .reply(200, jsonResponse)
 
   const expectedActions = [
     {
       type: 'AUTH_TOKEN',
-      payload: jsonResponse
+      grantType: 'password'
     },
   ]
   const store = mockStore()

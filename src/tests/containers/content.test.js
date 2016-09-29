@@ -11,13 +11,11 @@ const expect = chai.expect
 const middlewares = [thunk]
 const ContentConnect = rewire("../../containers/Content")
 const Content = ContentConnect.__get__('Content')
-const mockStore = configureStore(middlewares)
 
 chai.use(chaiEnzyme())
 
 describe('Content', () => {
   const getContent = sinon.spy()
-  const store = mockStore({content: 'content'})
   const contentList = [
     {
       id: 1,

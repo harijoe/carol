@@ -21,7 +21,7 @@ it('dispatch PRO_LIST with a good credential', () => {
     'hydra:member': username
   }
 
-  nock('http://192.168.33.10/app_dev.php')
+  nock('http://localhost/app_dev.php')
     .get('/companies?trade=kitchen')
     .reply(200, jsonResponse)
 
@@ -40,7 +40,7 @@ it('dispatch PRO_LIST with a good credential', () => {
 })
 
 it('dispatch PRO_LIST_FAIL if the api return an error', () => {
-  nock('http://192.168.33.10/app_dev.php')
+  nock('http://localhost/app_dev.php')
     .get('/companies?trade=kitchen&access_token=null')
     .reply(400)
 

@@ -21,7 +21,7 @@ export default class Input extends Component {
       <input
         {...this.props.attr}
         value={this.props.value}
-        onChange={this.props.handleChange}
+        onChange={this.props.onChange}
       />
     )
   }
@@ -35,10 +35,11 @@ Input.propTypes = {
     name: React.PropTypes.string.isRequired,
     type: React.PropTypes.oneOf([
       'text',
-      'password'
+      'password',
+      'email'
     ]).isRequired,
     pattern: React.PropTypes.string
   }).isRequired,
   value: React.PropTypes.string.isRequired,
-  handleChange: React.PropTypes.func.isRequired
+  onChange: React.PropTypes.func.isRequired
 }
