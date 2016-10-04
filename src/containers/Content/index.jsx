@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import getContent from '../../actions/content'
+import './content.scss'
 
 class Content extends Component {
   componentWillMount() {

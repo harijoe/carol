@@ -9,15 +9,15 @@ const expect = chai.expect
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 
-chai.use(chaiJsonEqual);
+chai.use(chaiJsonEqual)
 
 afterEach(() => {
   nock.cleanAll()
 })
 
 it('dispatch LOGIN_BAD_REQUEST with a wrong credential', () => {
-  const username = 'myname';
-  const password = 'password';
+  const username = 'myname'
+  const password = 'password'
 
   nock('http://localhost/app_dev.php')
     .get(`/oauth/v2/token?client_id=1_4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k&client_secret=4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc&grant_type=password&username=${username}&password=${password}`)
@@ -26,9 +26,31 @@ it('dispatch LOGIN_BAD_REQUEST with a wrong credential', () => {
   const expectedActions = [
     {
       type: 'LOGIN_BAD_REQUEST'
-    },
+    }
   ]
   const store = mockStore()
+
+  return store.dispatch(login({ username, password }))
+    .then(() => {
+      expect(store.getActions()).to.jsonEqual(expectedActions)
+    })
+})
+
+it('dispatch LOGIN_ERROR', () => {
+  const username = 'myname'
+  const password = 'password'
+
+  nock('http://localhost/app_dev.php')
+    .get(`/oauth/v2/token?client_id=1_4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k&client_secret=4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc&grant_type=password&username=${username}&password=${password}`)
+    .reply(500)
+
+  const expectedActions = [
+    {
+      type: 'LOGIN_ERROR'
+    }
+  ]
+  const store = mockStore()
+
   return store.dispatch(login({ username, password }))
     .then(() => {
       expect(store.getActions()).to.jsonEqual(expectedActions)

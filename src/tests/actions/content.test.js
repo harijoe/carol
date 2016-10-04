@@ -34,7 +34,7 @@ it('should dispatch CONTENT_RECEIVE with articles', () => {
   }
 
   nock('http://localhost/app_dev.php')
-    .get(`/posts?access_token=${access_token}`)
+    .get(`/posts`)
     .reply(200, jsonResponse)
 
   const expectedActions = [

@@ -18,6 +18,12 @@ class Login extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.user) {
+      this.context.router.push({ pathname: '/profile' })
+    }
+  }
+
   onSubmitLogin() {
     this.props.login({
       username: this.state.valueUsername,
@@ -86,13 +92,15 @@ class Login extends Component {
 
 function mapStateToProps(state) {
   return {
-    auth: state.auth
+    auth: state.auth,
+    user: state.user
   }
 }
 
 Login.propTypes = {
   login: React.PropTypes.func,
-  auth: React.PropTypes.object
+  auth: React.PropTypes.object,
+  user: React.PropTypes.object
 }
 
 Login.contextTypes = {

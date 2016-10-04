@@ -1,5 +1,5 @@
-import reducerUsers from '../../reducers/auth';
-const expect = require('chai').expect;
+import reducerUsers from '../../reducers/auth'
+const expect = require('chai').expect
 
 describe('auth', function() {
   const access_token = 'xkjdfjkfdkg'
@@ -20,13 +20,13 @@ describe('auth', function() {
   }
   context('state and action.type = null', function() {
     it('should be null!', function() {
-      expect(reducerUsers(null, 'non existing type')).to.be.null;
+      expect(reducerUsers(null, 'non existing type')).to.be.null
     });
   })
 
   context('state = null and action.type = LOGIN_BAD_REQUEST', function() {
     it('should be an object!', function() {
-      expect(reducerUsers(null, actionBadRequest)).to.eql({error: 'Votre login et/ou mot de passe sont invalides'});
+      expect(reducerUsers(null, actionBadRequest)).to.eql({error: 'Votre login et/ou mot de passe sont invalides'})
     });
   })
 

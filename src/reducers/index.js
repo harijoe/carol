@@ -4,6 +4,7 @@ import AuthReducer from './auth'
 import contentReducer from './content'
 import prosReducer from './pros'
 import userReducer from './user'
+import signupReducer from './signup'
 
 /*
  * We combine all reducers into a single object before updated data is dispatched (sent) to store
@@ -15,5 +16,6 @@ export default combineReducers({
   pros: prosReducer,
   content: contentReducer,
   user: userReducer,
+  signup: signupReducer,
   routing: routerReducer
 })

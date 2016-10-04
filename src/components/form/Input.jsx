@@ -5,7 +5,7 @@ export default class Input extends Component {
     super()
 
     this.state = {
-      value: '',
+      value: ''
     }
     this.handleChange = this.handleChange.bind(this)
   }

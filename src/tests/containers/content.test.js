@@ -3,12 +3,9 @@ import rewire from 'rewire'
 import React from 'react'
 import { shallow } from 'enzyme'
 import chaiEnzyme from 'chai-enzyme'
-import configureStore from 'redux-mock-store'
 import sinon from 'sinon'
-import thunk from 'redux-thunk'
 
 const expect = chai.expect
-const middlewares = [thunk]
 const ContentConnect = rewire("../../containers/Content")
 const Content = ContentConnect.__get__('Content')
 

@@ -2,10 +2,33 @@ import axios from 'axios'
 import { auth as types } from '../constants/actionTypes'
 import config from '../config'
 
+const receiveBadRequest = () => {
+  return {
+    type: types.LOGIN_BAD_REQUEST
+  }
+}
+
+const loginFailure = (response) => {
+  if (400 === response.status) {
+    return receiveBadRequest()
+  }
+
+  return {
+    type: types.LOGIN_ERROR
+  }
+}
+
 export const receiveToken = (grantType) => {
   return {
     type: types.AUTH_TOKEN,
     grantType
+  }
+}
+
+const receiveTokenError = (response) => {
+  return {
+    type: types.TOKEN_ERROR,
+    response
   }
 }
 
@@ -18,12 +41,13 @@ export const saveTokens = ({ access_token, refresh_token }) => {
   localStorage.setItem('refresh_token', refresh_token)
 }
 
-const getNewToken = (grantType, credentials = null) => {
+const getNewToken = (grantType, dispatch, credentials = null) => {
   if ('password' === grantType && null === credentials) {
     return null
   }
 
   const isCredentials = (credentials) ? `&username=${credentials.username}&password=${credentials.password}` : ''
+
   return axios({
     url: `${config.apiUrl}/oauth/v2/token?client_id=${config.clientId}&client_secret=${config.clientSecret}&grant_type=${grantType}${isCredentials}`,
     timeout: config.timeout,
@@ -33,34 +57,49 @@ const getNewToken = (grantType, credentials = null) => {
     .then((response) => {
       saveTokens(response.data)
 
-      return response.data
+      if ('password' === grantType) {
+        dispatch(receiveToken('password'))
+      }
+
+      return response.data.access_token
+    })
+    .catch((error) => {
+      if ('password' === grantType) {
+        return dispatch(loginFailure(error))
+      }
+
+      return dispatch(receiveTokenError(error))
     })
 }
 
-export const getToken = (grantType, credentials = null) => {
+export const getToken = (grantType, dispatch, credentials = null) => {
   let token = null
 
-  if (!credentials) {
-    token = localStorage.getItem('access_token')
-  }
+  return new Promise((resolve) => {
+    if (!credentials) {
+      token = localStorage.getItem('access_token')
+    }
 
-  if ('undefined' === token || null === token) {
-    token = getNewToken(grantType, credentials)
-  }
+    if ('undefined' === token || null === token) {
+      token = getNewToken(grantType, dispatch, credentials)
+    }
 
-  return token
+    resolve(token)
+  })
 }
 
 export const request = (accessToken, url, method, data = null) => {
   const headers = () => {
     if (accessToken) {
       return {
-        Accept: 'application/json',
+        Accept: 'application/ld+json',
         Authorization: `Bearer ${accessToken}`
       }
     }
 
-    return null
+    return {
+      Accept: 'application/ld+json'
+    }
   }
 
   return axios({

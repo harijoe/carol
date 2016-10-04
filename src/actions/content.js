@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { content as types } from '../constants/actionTypes'
 import * as auth from './auth'
 import config from '../config'
@@ -26,17 +25,15 @@ const onError = (response, dispatch) => {
 
 const getContent = () => {
   return function(dispatch) {
-    return axios({
-      url: `${config.apiUrl}/posts?access_token=${auth.getToken('client_credentials')}`,
-      timeout: config.timeout,
-      method: 'GET',
-      responseType: 'json'
-    })
-      .then((response) => {
-        onSuccess(response.data['hydra:member'], dispatch)
-      })
-      .catch((response) => {
-        onError(response, dispatch)
+    return auth.getToken('client_credentials')
+      .then((token) => {
+        return auth.request(token, `${config.apiUrl}/posts`, 'GET')
+          .then((response) => {
+            onSuccess(response.data['hydra:member'], dispatch)
+          })
+          .catch((response) => {
+            onError(response.data, dispatch)
+          })
       })
   }
 }
