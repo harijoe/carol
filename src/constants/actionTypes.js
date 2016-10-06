@@ -23,3 +23,7 @@ export const pro = {
   PRO_LIST: 'PRO_LIST',
   PRO_LIST_FAIL: 'PRO_LIST_FAIL'
 }
+
+export const country = {
+  COUNTRY_UPDATE: 'COUNTRY_UPDATE'
+}

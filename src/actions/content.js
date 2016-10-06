@@ -24,16 +24,16 @@ const onError = (response, dispatch) => {
 }
 
 const getContent = () => {
-  return function(dispatch) {
+  return (dispatch) => {
     return auth.getToken('client_credentials')
       .then((token) => {
-        return auth.request(token, `${config.apiUrl}/posts`, 'GET')
-          .then((response) => {
-            onSuccess(response.data['hydra:member'], dispatch)
-          })
-          .catch((response) => {
-            onError(response.data, dispatch)
-          })
+        return auth.request(`${config.apiUrl}/posts`, 'GET', token)
+      })
+      .then((response) => {
+        onSuccess(response.data['hydra:member'], dispatch)
+      })
+      .catch((response) => {
+        onError(response.data, dispatch)
       })
   }
 }

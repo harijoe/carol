@@ -7,6 +7,7 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import promise from 'redux-promise'
 import createLogger from 'redux-logger'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import allReducers from './reducers'
 
 import Layout from './containers/Layout'
@@ -25,17 +26,19 @@ const store = createStore(
 const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router history={history}>
-      <Route path="/" component={Layout}>
-        <IndexRoute component={Home} />
-        <Route path="login" component={Login} />
-        <Route path="profile" component={Profile} />
-        <Route path="signup" component={Signup} />
-        <Route path="signup-confirmation" component={SignupConfirmation} />
-        <Route path="content" component={Content} />
-      </Route>
-    </Router>
-  </Provider>,
+  <MuiThemeProvider>
+    <Provider store={store}>
+      <Router history={history}>
+        <Route path="/" component={Layout}>
+          <IndexRoute component={Home} />
+          <Route path="login" component={Login} />
+          <Route path="profile" component={Profile} />
+          <Route path="signup" component={Signup} />
+          <Route path="signup-confirmation" component={SignupConfirmation} />
+          <Route path="content" component={Content} />
+        </Route>
+      </Router>
+    </Provider>
+  </MuiThemeProvider>,
   document.getElementById('app')
 )

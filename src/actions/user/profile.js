@@ -1,4 +1,4 @@
-import * as authActions from '../auth'
+import { request, getToken } from '../auth'
 import config from '../../config'
 import { user as types } from '../../constants/actionTypes'
 
@@ -21,17 +21,16 @@ const receiveError = (statusCode) => {
 }
 
 export const getProfile = () => {
-  const accessToken = authActions.getToken('password')
+  return (dispatch) => {
+    return getToken('password').then((token) => {
+      if (null === token) {
+        return {
+          type: types.USER_UNAUTHORIZED
+        }
+      }
 
-  if (null === accessToken) {
-    return {
-      type: types.USER_UNAUTHORIZED
-    }
-  }
-
-  return function(dispatch) {
-    return authActions
-      .request(accessToken, config.profileUrl, 'GET')
+      return request(config.profileUrl, 'GET', token)
+    })
       .then((response) => {
         dispatch(receiveUserInfo(response.data))
       })
@@ -42,9 +41,10 @@ export const getProfile = () => {
 }
 
 export const updateProfile = (data, id) => {
-  return function(dispatch) {
-    return authActions
-      .request(authActions.getToken('password'), `${config.baseUrl}${id}`, 'PUT', data)
+  return (dispatch) => {
+    return getToken('password').then((token) => {
+      return request(`${config.baseUrl}${id}`, 'PUT', token, data)
+    })
       .then(() => {
         dispatch(receiveUserInfo({ '@id': id, username: data.username, email: data.email }))
       })

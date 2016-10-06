@@ -13,6 +13,9 @@ describe('actions', () => {
   describe('content', () => {
     require('./actions/content.test')
   })
+  describe('content', () => {
+    require('./actions/header.test')
+  })
 })
 describe('containers', () => {
   require('./containers/home.test')
@@ -44,7 +47,12 @@ describe('reducer', () => {
 })
 
 describe('components', () => {
-  require('./components/form/Input.test')
-  require('./components/form/Button.test')
-  require('./components/form/Form.test')
+  describe('form', () => {
+    require('./components/form/Input.test')
+    require('./components/form/Button.test')
+    require('./components/form/Form.test')
+  })
+  describe('header', () => {
+    require('./components/Header/index.test')
+  })
 })

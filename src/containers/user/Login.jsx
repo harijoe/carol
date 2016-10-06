@@ -19,7 +19,7 @@ class Login extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.user) {
+    if (nextProps.auth && 'password' === nextProps.auth.grantType) {
       this.context.router.push({ pathname: '/profile' })
     }
   }

@@ -41,19 +41,40 @@ export const saveTokens = ({ access_token, refresh_token }) => {
   localStorage.setItem('refresh_token', refresh_token)
 }
 
+export const request = (url, method, accessToken = null, data = null) => {
+  const headers = () => {
+    if (accessToken) {
+      return {
+        Accept: 'application/ld+json',
+        Authorization: `Bearer ${accessToken}`
+      }
+    }
+
+    return {
+      Accept: 'application/ld+json'
+    }
+  }
+
+  return axios({
+    url,
+    timeout: config.timeout,
+    method,
+    responseType: 'json',
+    data,
+    headers: headers()
+  })
+}
+
 const getNewToken = (grantType, dispatch, credentials = null) => {
   if ('password' === grantType && null === credentials) {
     return null
   }
 
   const isCredentials = (credentials) ? `&username=${credentials.username}&password=${credentials.password}` : ''
-
-  return axios({
-    url: `${config.apiUrl}/oauth/v2/token?client_id=${config.clientId}&client_secret=${config.clientSecret}&grant_type=${grantType}${isCredentials}`,
-    timeout: config.timeout,
-    method: 'GET',
-    responseType: 'json'
-  })
+  return request(
+    `${config.apiUrl}/oauth/v2/token?client_id=${config.clientId}&client_secret=${config.clientSecret}&grant_type=${grantType}${isCredentials}`,
+    'GET'
+  )
     .then((response) => {
       saveTokens(response.data)
 
@@ -85,29 +106,5 @@ export const getToken = (grantType, dispatch, credentials = null) => {
     }
 
     resolve(token)
-  })
-}
-
-export const request = (accessToken, url, method, data = null) => {
-  const headers = () => {
-    if (accessToken) {
-      return {
-        Accept: 'application/ld+json',
-        Authorization: `Bearer ${accessToken}`
-      }
-    }
-
-    return {
-      Accept: 'application/ld+json'
-    }
-  }
-
-  return axios({
-    url,
-    timeout: config.timeout,
-    method,
-    responseType: 'json',
-    data,
-    headers: headers()
   })
 }

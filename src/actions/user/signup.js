@@ -25,7 +25,7 @@ const onError = (response, dispatch) => {
 }
 
 const postSignup = (data) => {
-  return function(dispatch) {
+  return (dispatch) => {
     return auth.getToken('client_credentials')
       .then((token) => {
         const postData = {
@@ -35,13 +35,13 @@ const postSignup = (data) => {
           phone: data.phone
         }
 
-        return auth.request(token, `${config.apiUrl}/users`, 'POST', postData)
-          .then((response) => {
-            onSuccess(response.data, dispatch)
-          })
-          .catch((response) => {
-            onError(response.data, dispatch)
-          })
+        return auth.request(`${config.apiUrl}/users`, 'POST', token, postData)
+      })
+      .then((response) => {
+        onSuccess(response.data, dispatch)
+      })
+      .catch((response) => {
+        onError(response.data, dispatch)
       })
   }
 }
