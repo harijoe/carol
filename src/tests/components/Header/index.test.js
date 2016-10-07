@@ -27,8 +27,8 @@ describe('<Header />', () => {
   })
 
   afterEach(() => {
-   handleTouchTap.restore()
-   handleRequestClose.restore()
+    handleTouchTap.restore()
+    handleRequestClose.restore()
   })
 
   it('mapStateToProps()', () => {
@@ -82,23 +82,24 @@ describe('<Header />', () => {
     expect(wrapper.find('header')).to.have.length(1)
   })
 
-  it('should have 6 li', () => {
+  it('should have 7 li', () => {
     const wrapper = shallow(<Header />)
     const wrapperLi = wrapper.find('header').find('ul li')
 
-    expect(wrapperLi).to.have.length(6)
+    expect(wrapperLi).to.have.length(7)
     expect(wrapperLi.at(0).find('Link').prop('children')).to.be.equal('Burger menu')
     expect(wrapperLi.at(1).find('Link').prop('children')).to.be.equal('Home')
-    expect(wrapperLi.at(2).find('Link').prop('children')).to.be.equal('Site search')
-    expect(wrapperLi.at(3).find('Link').prop('children')).to.be.equal('Help')
+    expect(wrapperLi.at(2).find('Link').prop('children')).to.be.equal('Find a pro')
+    expect(wrapperLi.at(3).find('Link').prop('children')).to.be.equal('Site search')
+    expect(wrapperLi.at(4).find('Link').prop('children')).to.be.equal('Help')
   })
 
   it('should have a <DropDownMenu /> country', () => {
     const wrapper = shallow(<Header />)
     const wrapperLi = wrapper.find('header').find('ul li')
 
-    expect(wrapperLi.at(5).find('DropDownMenu')).to.have.length(1)
-    expect(wrapperLi.at(5).find('DropDownMenu').prop('value')).to.be.equal('GB')
+    expect(wrapperLi.at(6).find('DropDownMenu')).to.have.length(1)
+    expect(wrapperLi.at(6).find('DropDownMenu').prop('value')).to.be.equal('GB')
   })
 
   it('simulate change <DropDownMenu /> country', () => {
@@ -107,7 +108,7 @@ describe('<Header />', () => {
     const wrapper = shallow(<Header countryUpdate={countryUpdate} />)
     const wrapperLi = wrapper.find('header').find('ul li')
 
-    wrapperLi.at(5).find('DropDownMenu').simulate('change')
+    wrapperLi.at(6).find('DropDownMenu').simulate('change')
     expect(handleChangeCountry.calledOnce).to.be.true
     expect(countryUpdate.calledOnce).to.be.true
   })

@@ -16,6 +16,7 @@ import Profile from './containers/user/Profile'
 import Signup from './containers/user/Signup'
 import SignupConfirmation from './containers/user/SignupConfirmation'
 import Content from './containers/Content'
+import SearchPro from './containers/pro/SearchPro'
 
 const logger = createLogger()
 const store = createStore(
@@ -30,6 +31,7 @@ ReactDOM.render(
       <Router history={history}>
         <Route path="/" component={Layout}>
           <IndexRoute component={Home} />
+          <Route path="search-pro" component={SearchPro} />
           <Route path="profile" component={Profile} />
           <Route path="signup" component={Signup} />
           <Route path="signup-confirmation" component={SignupConfirmation} />

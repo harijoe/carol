@@ -143,6 +143,7 @@ class Header extends Component {
         <ul>
           <li><Link to="*">Burger menu</Link></li>
           <li><Link to="/">Home</Link></li>
+          <li><Link to="/search-pro">Find a pro</Link></li>
           <li><Link to="*">Site search</Link></li>
           <li><Link to="*">Help</Link></li>
           {this.login()}
