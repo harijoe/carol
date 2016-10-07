@@ -32,7 +32,6 @@ ReactDOM.render(
         <Route path="/" component={Layout}>
           <IndexRoute component={Home} />
           <Route path="search-pro" component={SearchPro} />
-          <Route path="login" component={Login} />
           <Route path="profile" component={Profile} />
           <Route path="signup" component={Signup} />
           <Route path="signup-confirmation" component={SignupConfirmation} />

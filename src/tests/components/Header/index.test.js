@@ -27,8 +27,8 @@ describe('<Header />', () => {
   })
 
   afterEach(() => {
-   handleTouchTap.restore()
-   handleRequestClose.restore()
+    handleTouchTap.restore()
+    handleRequestClose.restore()
   })
 
   it('mapStateToProps()', () => {
@@ -92,12 +92,12 @@ describe('<Header />', () => {
     expect(wrapperLi.at(2).find('Link').prop('children')).to.be.equal('Find a pro')
     expect(wrapperLi.at(3).find('Link').prop('children')).to.be.equal('Site search')
     expect(wrapperLi.at(4).find('Link').prop('children')).to.be.equal('Help')
-    expect(wrapperLi.at(5).prop('children')).to.be.equal('Login')
   })
 
   it('should have a <DropDownMenu /> country', () => {
     const wrapper = shallow(<Header />)
     const wrapperLi = wrapper.find('header').find('ul li')
+
     expect(wrapperLi.at(6).find('DropDownMenu')).to.have.length(1)
     expect(wrapperLi.at(6).find('DropDownMenu').prop('value')).to.be.equal('GB')
   })
