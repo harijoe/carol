@@ -4,6 +4,11 @@ import React from 'react'
 import sinon from 'sinon'
 import { shallow } from 'enzyme'
 
+import jsdom from 'jsdom'
+const doc = jsdom.jsdom('<!doctype html><html><body></body></html>')
+global.document = doc
+global.window = doc.defaultView
+
 const expect = chai.expect
 const SearchProConnect = rewire('../../../containers/pro/SearchPro')
 const SearchPro = SearchProConnect.__get__('SearchPro')
