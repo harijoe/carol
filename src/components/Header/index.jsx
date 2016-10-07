@@ -8,6 +8,7 @@ import DropDownMenu from 'material-ui/DropDownMenu'
 import Menu from 'material-ui/Menu'
 import MenuItem from 'material-ui/MenuItem'
 import { bindActionCreators } from 'redux'
+import Login from '../../containers/user/Login'
 import './header.scss'
 import countryUpdate from '../../actions/header'
 import countryList, { countryDefault } from '../../constants/country'
@@ -61,7 +62,21 @@ class Header extends Component {
   login() {
     if (!this.props.user) {
       return (
-        <li>Login</li>
+        <li>
+          <RaisedButton
+            onTouchTap={this.handleTouchTap}
+            label="O"
+          />
+          <Popover
+            open={this.state.open}
+            anchorEl={this.state.anchorEl}
+            anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
+            targetOrigin={{ horizontal: 'left', vertical: 'top' }}
+            onRequestClose={this.handleRequestClose}
+          >
+            <Login />
+          </Popover>
+        </li>
       )
     }
 

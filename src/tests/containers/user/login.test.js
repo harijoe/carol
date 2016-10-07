@@ -20,7 +20,7 @@ describe('Login', () => {
   })
 
   it('should have one button', () => {
-    expect(enzymeWrapper.find('Form Button')).to.have.length(1)
+    expect(enzymeWrapper.find ('RaisedButton')).to.have.length(1)
   })
 
   it('simulates click events', () => {

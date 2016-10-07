@@ -17,9 +17,20 @@ const HeaderConnect = rewire("../../../components/Header")
 const Header = HeaderConnect.__get__('Header')
 const mapStateToProps = HeaderConnect.__get__('mapStateToProps')
 
-
+let handleTouchTap
+let handleRequestClose
 
 describe('<Header />', () => {
+  beforeEach(() => {
+    handleTouchTap = sinon.spy(Header.prototype, 'handleTouchTap')
+    handleRequestClose = sinon.spy(Header.prototype, 'handleRequestClose')
+  })
+
+  afterEach(() => {
+   handleTouchTap.restore()
+   handleRequestClose.restore()
+  })
+
   it('mapStateToProps()', () => {
     expect(mapStateToProps({user: 'test', country: 'country'})).to.jsonEqual({user: 'test', country: 'country'})
   })
@@ -80,12 +91,12 @@ describe('<Header />', () => {
     expect(wrapperLi.at(1).find('Link').prop('children')).to.be.equal('Home')
     expect(wrapperLi.at(2).find('Link').prop('children')).to.be.equal('Site search')
     expect(wrapperLi.at(3).find('Link').prop('children')).to.be.equal('Help')
-    expect(wrapper.find('header').find('ul li').at(4).prop('children')).to.be.equal('Login')
   })
 
   it('should have a <DropDownMenu /> country', () => {
     const wrapper = shallow(<Header />)
     const wrapperLi = wrapper.find('header').find('ul li')
+
     expect(wrapperLi.at(5).find('DropDownMenu')).to.have.length(1)
     expect(wrapperLi.at(5).find('DropDownMenu').prop('value')).to.be.equal('GB')
   })
@@ -99,6 +110,17 @@ describe('<Header />', () => {
     wrapperLi.at(5).find('DropDownMenu').simulate('change')
     expect(handleChangeCountry.calledOnce).to.be.true
     expect(countryUpdate.calledOnce).to.be.true
+  })
+
+  it('clicking on login should be a popover', () => {
+    const wrapper = shallow(<Header />)
+
+    expect(wrapper).to.have.length(1)
+    wrapper.find('header RaisedButton').simulate('TouchTap', {preventDefault: () => {}})
+    wrapper.find('header ul li').find('Popover').simulate('RequestClose', {preventDefault: () => {}})
+
+    expect(handleTouchTap.calledOnce).to.be.true
+    expect(handleRequestClose.calledOnce).to.be.true
   })
 
   describe('user login', () => {
@@ -121,8 +143,6 @@ describe('<Header />', () => {
     })
 
     it('should have <RaisedButton /> my account', () => {
-      const handleTouchTap = sinon.spy(Header.prototype, 'handleTouchTap')
-      const handleRequestClose = sinon.spy(Header.prototype, 'handleRequestClose')
       const countryUpdate = sinon.spy()
       const wrapper = shallow(<Header countryUpdate={countryUpdate} user={{'@id': 'users/xdfgxdg-xfghxfgh-54xfcgh', username: 'my name', email: 'mon@email.com', country: 'FR'}} country="FR" />)
 

@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import RaisedButton from 'material-ui/RaisedButton'
 import login from '../../actions/user/login'
 import Input from '../../components/form/Input'
 import Form from '../../components/form/Form'
-import Button from '../../components/form/Button'
 
 class Login extends Component {
   constructor() {
@@ -12,6 +13,7 @@ class Login extends Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.onSubmitLogin = this.onSubmitLogin.bind(this)
+
     this.state = {
       valueUsername: '',
       valuePassword: ''
@@ -62,6 +64,7 @@ class Login extends Component {
       name: 'username',
       type: 'text'
     }
+
     const attrPassword = {
       className: 'password',
       id: 'password',
@@ -82,9 +85,10 @@ class Login extends Component {
           value={this.state.valuePassword}
           onChange={this.handleChange}
         />
-        <Button type="submit" value="Login" />
         <br />
+        <RaisedButton type="submit" label="Login" />
         { error }
+        <Link to="/forgot-password">forgot-password</Link>
       </Form>
     )
   }

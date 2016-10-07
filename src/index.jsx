@@ -12,7 +12,6 @@ import allReducers from './reducers'
 
 import Layout from './containers/Layout'
 import Home from './containers/Home'
-import Login from './containers/user/Login'
 import Profile from './containers/user/Profile'
 import Signup from './containers/user/Signup'
 import SignupConfirmation from './containers/user/SignupConfirmation'
@@ -31,7 +30,6 @@ ReactDOM.render(
       <Router history={history}>
         <Route path="/" component={Layout}>
           <IndexRoute component={Home} />
-          <Route path="login" component={Login} />
           <Route path="profile" component={Profile} />
           <Route path="signup" component={Signup} />
           <Route path="signup-confirmation" component={SignupConfirmation} />
