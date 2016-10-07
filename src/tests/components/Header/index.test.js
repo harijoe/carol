@@ -92,8 +92,7 @@ describe('<Header />', () => {
     expect(wrapperLi.at(2).find('Link').prop('children')).to.be.equal('Find a pro')
     expect(wrapperLi.at(3).find('Link').prop('children')).to.be.equal('Site search')
     expect(wrapperLi.at(4).find('Link').prop('children')).to.be.equal('Help')
-    expect(wrapper.find('header').find('ul li').at(5).prop('children')).to.be.equal('Login')
-
+    expect(wrapperLi.at(5).prop('children')).to.be.equal('Login')
   })
 
   it('should have a <DropDownMenu /> country', () => {
