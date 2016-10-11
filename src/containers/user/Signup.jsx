@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import postSignup from '../../actions/user/signup'
 import Form from '../../components/form/Form'
-import Input from '../../components/form/Input'
+import Input from '../../components/form/Input/Input'
 import Button from '../../components/form/Button'
 import './signup.scss'
 

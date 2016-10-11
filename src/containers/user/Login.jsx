@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import RaisedButton from 'material-ui/RaisedButton'
 import login from '../../actions/user/login'
-import Input from '../../components/form/Input'
+import Input from '../../components/form/Input/Input'
 import Form from '../../components/form/Form'
 
 class Login extends Component {

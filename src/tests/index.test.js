@@ -42,7 +42,10 @@ describe('reducer', () => {
     require('./reducer/content.test')
   })
   describe('pro', () => {
-    require('./reducer/pros.test.js')
+    require('./reducer/pros.test')
+  })
+  describe('user', () => {
+    require('./reducer/user.test')
   })
 })
 

@@ -37,9 +37,12 @@ it('dispatch USER_UNAUTHORIZED', () => {
 
 it('dispatch USER_INFO', () => {
   const username = 'myname'
+  const phone ='0606060606'
+  const email ='mon@email.com'
   const jsonResponse = {
-    'email': 'mon@email.com',
-    'username': username
+    email,
+    username,
+    phone
   }
 
   localStorage.setItem('access_token', 'jkhghfdxfgv54545')
@@ -52,44 +55,15 @@ it('dispatch USER_INFO', () => {
     {
       type: 'USER_INFO',
       payload: {
-        email: 'mon@email.com',
-        username: 'myname'
+        email,
+        username,
+        phone
       }
     }
   ]
   const store = mockStore()
 
   return store.dispatch(getProfile())
-    .then(() => {
-      expect(store.getActions()).to.jsonEqual(expectedActions)
-    })
-})
-
-it('dispatch USER_INFO after an updating profile', () => {
-  const username = 'myname'
-  const jsonResponse = {
-    'email': 'mon@email.com',
-    'username': username
-  }
-  const id = '/users/xdfgd-xdfgxdfg-5455'
-
-  nock('http://localhost/app_dev.php')
-    .put(id)
-    .reply(200, jsonResponse)
-
-  const expectedActions = [
-    {
-      type: 'USER_INFO',
-      payload: {
-        '@id': `/app_dev.php${id}`,
-        email: 'my@email.com',
-        username: 'myname'
-      }
-    }
-  ]
-  const store = mockStore()
-
-  return store.dispatch(updateProfile({email: 'my@email.com', username: 'myname'}, `/app_dev.php${id}`))
     .then(() => {
       expect(store.getActions()).to.jsonEqual(expectedActions)
     })

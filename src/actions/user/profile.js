@@ -45,9 +45,6 @@ export const updateProfile = (data, id) => {
     return getToken('password').then((token) => {
       return request(`${config.baseUrl}${id}`, 'PUT', token, data)
     })
-      .then(() => {
-        dispatch(receiveUserInfo({ '@id': id, username: data.username, email: data.email }))
-      })
       .catch((response) => {
         dispatch(receiveError(response.status))
       })

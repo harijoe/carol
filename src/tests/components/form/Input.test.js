@@ -5,7 +5,7 @@ import { shallow } from 'enzyme'
 import sinon from 'sinon'
 
 const expect = chai.expect
-const loginConnect = rewire("../../../components/form/Input")
+const loginConnect = rewire("../../../components/form/Input/Input")
 const Input = loginConnect.__get__('Input')
 
 describe('Input', () => {

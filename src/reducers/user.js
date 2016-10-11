@@ -2,8 +2,7 @@ import * as types from '../constants/actionTypes'
 
 const transform = (user) => {
   return {
-    email: user.email,
-    username: user.username,
+    phone: user.phone ? user.phone : '',
     '@id': user['@id']
   }
 }

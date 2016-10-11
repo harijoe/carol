@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import Input from '../../components/form/Input'
+import Input from '../../components/form/Input/Input'
 import searchPro from '../../actions/pro/searchPro'
 import Button from '../../components/form/Button'
 import Form from '../../components/form/Form'
