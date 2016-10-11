@@ -11,9 +11,6 @@ describe('actions', () => {
     require('./actions/content.test')
   })
   describe('content', () => {
-    require('./actions/content.test')
-  })
-  describe('content', () => {
     require('./actions/header.test')
   })
 })
@@ -31,8 +28,8 @@ describe('containers', () => {
   describe('content', () => {
     require('./containers/content.test')
   })
-  describe('content', () => {
-    require('./containers/content.test')
+  describe('help', () => {
+    require('./containers/help.test')
   })
 })
 

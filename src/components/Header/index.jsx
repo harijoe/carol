@@ -145,7 +145,7 @@ class Header extends Component {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/search">Site search</Link></li>
           <li><Link to="/search-pro">Find a pro</Link></li>
-          <li><Link to="*">Help</Link></li>
+          <li><Link to="/help">Help</Link></li>
           {this.login()}
           {this.country()}
         </ul>
