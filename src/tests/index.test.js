@@ -31,6 +31,9 @@ describe('containers', () => {
   describe('help', () => {
     require('./containers/help.test')
   })
+  describe('findAPro', () => {
+    require('./containers/findAPro.test')
+  })
 })
 
 describe('reducer', () => {

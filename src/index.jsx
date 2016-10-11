@@ -16,7 +16,7 @@ import Profile from './containers/user/Profile'
 import Signup from './containers/user/Signup'
 import SignupConfirmation from './containers/user/SignupConfirmation'
 import Content from './containers/Content'
-import SearchPro from './containers/pro/SearchPro'
+import FindAPro from './containers/FindAPro'
 import SearchSite from './containers/SearchSite'
 import Help from './containers/Help'
 
@@ -37,7 +37,7 @@ ReactDOM.render(
           <Route path="help" component={Help} />
           <Route path="profile" component={Profile} />
           <Route path="search" component={SearchSite} />
-          <Route path="search-pro" component={SearchPro} />
+          <Route path="search-pro" component={FindAPro} />
           <Route path="signup" component={Signup} />
           <Route path="signup-confirmation" component={SignupConfirmation} />
         </Route>
