@@ -89,8 +89,8 @@ describe('<Header />', () => {
     expect(wrapperLi).to.have.length(7)
     expect(wrapperLi.at(0).find('Link').prop('children')).to.be.equal('Burger menu')
     expect(wrapperLi.at(1).find('Link').prop('children')).to.be.equal('Home')
-    expect(wrapperLi.at(2).find('Link').prop('children')).to.be.equal('Find a pro')
-    expect(wrapperLi.at(3).find('Link').prop('children')).to.be.equal('Site search')
+    expect(wrapperLi.at(2).find('Link').prop('children')).to.be.equal('Site search')
+    expect(wrapperLi.at(3).find('Link').prop('children')).to.be.equal('Find a pro')
     expect(wrapperLi.at(4).find('Link').prop('children')).to.be.equal('Help')
   })
 
