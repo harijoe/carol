@@ -22,13 +22,11 @@ class Header extends Component {
     this.handleRequestClose = this.handleRequestClose.bind(this)
     this.handleTouchTap = this.handleTouchTap.bind(this)
     this.handleChangeCountry = this.handleChangeCountry.bind(this)
-    this.toggleCountryEditable = this.toggleCountryEditable.bind(this)
     this.updateCountry = this.updateCountry.bind(this)
 
     this.state = {
       open: false,
       country: countryDefault,
-      isCountrySelectable: true,
       anchorEl: null
     }
   }
@@ -42,16 +40,7 @@ class Header extends Component {
   }
 
   updateCountry(props) {
-    if (props.country) {
-      this.setState({ country: props.country })
-    }
-    this.toggleCountryEditable(props)
-  }
-
-  toggleCountryEditable(props) {
-    if (props.user) {
-      this.setState({ isCountrySelectable: false })
-    }
+    this.setState({ country: props.country.get('countryCode') })
   }
 
   handleChangeCountry(event, index, country) {
@@ -105,10 +94,6 @@ class Header extends Component {
   }
 
   country() {
-    if (!this.state.isCountrySelectable) {
-      return <MenuItem value={this.state.country} primaryText={countryList[this.state.country]} />
-    }
-
     const countryMenuItems = Object.keys(countryList).map((c, i) => {
       return <MenuItem key={i} value={c} primaryText={countryList[c]} />
     })
@@ -157,7 +142,7 @@ class Header extends Component {
 Header.propTypes = {
   user: React.PropTypes.object,
   countryUpdate: React.PropTypes.func,
-  country: React.PropTypes.string
+  country: React.PropTypes.object
 }
 
 function mapStateToProps(state) {

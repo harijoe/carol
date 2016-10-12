@@ -1,6 +1,4 @@
 import React from 'react'
-import ProList from './pro/ProList'
-import SearchPro from './pro/SearchPro'
 
 const Home = () => {
   return (

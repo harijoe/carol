@@ -1,21 +1,18 @@
+import { fromJS } from 'immutable'
 import * as types from '../constants/actionTypes'
 import { countryDefault } from '../constants/country'
 
-const countryReducer = (state = countryDefault, action) => {
+const initialState = fromJS({
+  countryCode: countryDefault
+})
+
+const countryReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.country.COUNTRY_UPDATE:
-      return action.country
-    case types.user.USER_INFO:
-      if (action.payload.country) {
-        return action.payload.country
-      }
-
-      break
+      return state.set('countryCode', action.country)
     default:
       return state
   }
-
-  return state
 }
 
 export default countryReducer

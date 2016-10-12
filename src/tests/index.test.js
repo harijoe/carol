@@ -47,6 +47,9 @@ describe('reducer', () => {
   describe('user', () => {
     require('./reducer/user.test')
   })
+  describe('country', () => {
+    require('./reducer/country.test')
+  })
 })
 
 describe('components', () => {
