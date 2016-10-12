@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import postSignup from '../../actions/user/signup'
 import Form from '../../components/form/Form'
-import Input from '../../components/form/Input/Input'
+import InputEmail from '../../components/form/Input/InputEmail'
+import InputPassword from '../../components/form/Input/InputPassword'
+import InputPhone from '../../components/form/Input/InputPhone'
 import Button from '../../components/form/Button'
 import './signup.scss'
 
@@ -14,7 +17,7 @@ class Signup extends Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.state = {
-      errors: '',
+      error: '',
       email: '',
       password: '',
       confirmPassword: '',
@@ -23,14 +26,15 @@ class Signup extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.signup) {
-      this.setState({ signup: null })
-      this.context.router.push({ pathname: '/signup-confirmation' })
-    }
-
     if (nextProps.auth && nextProps.auth.error) {
       this.setState({
-        errors: nextProps.auth.error
+        error: nextProps.auth.error
+      })
+    }
+
+    if (nextProps.signup && nextProps.signup.error) {
+      this.setState({
+        error: nextProps.signup.error
       })
     }
   }
@@ -38,11 +42,11 @@ class Signup extends Component {
   handleSubmit() {
     if (this.state.password !== this.state.confirmPassword) {
       return this.setState({
-        errors: 'Passwords do not match'
+        error: 'Passwords do not match'
       })
     }
 
-    return this.props.postSignup({
+    return this.props.submit({
       email: this.state.email,
       password: this.state.password,
       phone: this.state.phone
@@ -86,7 +90,6 @@ class Signup extends Component {
       id: 'email',
       placeholder: 'Email',
       name: 'email',
-      type: 'email',
       required: 'required'
     }
 
@@ -95,7 +98,6 @@ class Signup extends Component {
       id: 'password',
       placeholder: 'Password',
       name: 'password',
-      type: 'password',
       required: 'required'
     }
 
@@ -104,7 +106,6 @@ class Signup extends Component {
       id: 'confirmPassword',
       placeholder: 'Confirm your password',
       name: 'confirmPassword',
-      type: 'password',
       required: 'required'
     }
 
@@ -112,40 +113,38 @@ class Signup extends Component {
       className: 'phone',
       id: 'phone',
       placeholder: 'Phone number',
-      pattern: '^([0|+[0-9]{1,5})?([1-9][0-9]{9})$',
-      name: 'phone',
-      type: 'text'
+      name: 'phone'
     }
 
     return (
-      <div className="signup">
+      <div>
         <Form onSubmit={this.handleSubmit}>
           <div className="error">
-            { this.state.errors }
+            { this.state.error }
           </div>
           <div className="form-group">
-            <Input
+            <InputEmail
               attr={attrEmail}
               onChange={this.handleChange}
               value={this.state.email}
             />
           </div>
           <div className="form-group">
-            <Input
+            <InputPassword
               attr={attrPassword}
               value={this.state.password}
               onChange={this.handleChange}
             />
           </div>
           <div className="form-group">
-            <Input
+            <InputPassword
               attr={attrConfirmPassword}
               value={this.state.confirmPassword}
               onChange={this.handleChange}
             />
           </div>
           <div className="form-group">
-            <Input
+            <InputPhone
               attr={attrPhone}
               onChange={this.handleChange}
               value={this.state.phone}
@@ -161,15 +160,13 @@ class Signup extends Component {
 }
 
 Signup.propTypes = {
-  signup: React.PropTypes.object,
+  signup: React.PropTypes.shape({
+    error: React.PropTypes.string
+  }),
   auth: React.PropTypes.shape({
     error: React.PropTypes.string
   }),
-  postSignup: React.PropTypes.func
-}
-
-Signup.contextTypes = {
-  router: React.PropTypes.object
+  submit: React.PropTypes.func
 }
 
 function mapStateToProps(state) {
@@ -180,7 +177,16 @@ function mapStateToProps(state) {
 }
 
 function matchDispatchToProps(dispatch) {
-  return bindActionCreators({ postSignup }, dispatch)
+  return bindActionCreators({ submit: (data) => {
+    return () => {
+      dispatch(postSignup(data))
+        .then((response) => {
+          if (response && 201 === response.status) {
+            dispatch(push('/signup-confirmation'))
+          }
+        })
+    }
+  } }, dispatch)
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(Signup)

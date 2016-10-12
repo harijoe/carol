@@ -17,8 +17,8 @@ class Content extends Component {
     return this.props.content.map((content) => {
       return (
         <article key={content.id}>
-          <h1>{content.title}</h1>
-          <p className="body">{content.body}</p>
+          <h2>{content.title}</h2>
+          <div dangerouslySetInnerHTML={{ __html: content.body }} />
         </article>
       )
     })
@@ -26,8 +26,8 @@ class Content extends Component {
 
   render() {
     return (
-      <div className="content">
-        {this.renderList()}
+      <div>
+        { this.renderList() }
       </div>
     )
   }
@@ -40,7 +40,7 @@ Content.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    content: state.content
+    content: state.content.posts
   }
 }
 

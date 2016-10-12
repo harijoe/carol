@@ -9,6 +9,7 @@ const signupConnect = rewire("../../../containers/user/Signup")
 const Signup = signupConnect.__get__('Signup')
 
 describe('Signup', () => {
+  const enzymeWrapper = shallow(<Signup />)
   let receiveProps
 
   before(() => {
@@ -19,17 +20,20 @@ describe('Signup', () => {
     receiveProps.restore()
   })
 
-  const postSignup = sinon.spy()
-  const enzymeWrapper  = shallow(<Signup
-    postSignup={ postSignup }
-  />)
-
   it('should have one form', () => {
     expect(enzymeWrapper.find('Form')).to.have.length(1)
   })
 
-  it('should have four inputs', () => {
-    expect(enzymeWrapper.find('Form Input')).to.have.length(4)
+  it('should have one email input', () => {
+    expect(enzymeWrapper.find('Form InputEmail')).to.have.length(1)
+  })
+
+  it('should have two password inputs', () => {
+    expect(enzymeWrapper.find('Form InputPassword')).to.have.length(2)
+  })
+
+  it('should have one phone input', () => {
+    expect(enzymeWrapper.find('Form InputPhone')).to.have.length(1)
   })
 
   it('should have one button', () => {
@@ -37,48 +41,49 @@ describe('Signup', () => {
   })
 
   it('Email input has the right attr', () => {
-    const attr = enzymeWrapper.find('Form').find('Input').get(0).props.attr
+    const attr = enzymeWrapper.find('Form').find('InputEmail').get(0).props.attr
 
     expect(attr.className).to.be.equal('email')
     expect(attr.placeholder).to.be.equal('Email')
     expect(attr.id).to.be.equal('email')
     expect(attr.name).to.be.equal('email')
-    expect(attr.type).to.be.equal('email')
   })
 
   it('Password input has the right attr', () => {
-    const attr = enzymeWrapper.find('Form').find('Input').get(1).props.attr
+    const attr = enzymeWrapper.find('Form').find('InputPassword').get(0).props.attr
 
     expect(attr.className).to.be.equal('password')
     expect(attr.placeholder).to.be.equal('Password')
     expect(attr.id).to.be.equal('password')
     expect(attr.name).to.be.equal('password')
-    expect(attr.type).to.be.equal('password')
   })
 
   it('confirmPassword input has the right attr', () => {
-    const attr = enzymeWrapper.find('Form').find('Input').get(2).props.attr
+    const attr = enzymeWrapper.find('Form').find('InputPassword').get(1).props.attr
 
     expect(attr.className).to.be.equal('confirmPassword')
     expect(attr.placeholder).to.be.equal('Confirm your password')
     expect(attr.id).to.be.equal('confirmPassword')
     expect(attr.name).to.be.equal('confirmPassword')
-    expect(attr.type).to.be.equal('password')
   })
 
   it('Phone input has the right attr', () => {
-    const attr = enzymeWrapper.find('Form').find('Input').get(3).props.attr
+    const attr = enzymeWrapper.find('Form').find('InputPhone').get(0).props.attr
 
     expect(attr.className).to.be.equal('phone')
     expect(attr.placeholder).to.be.equal('Phone number')
     expect(attr.id).to.be.equal('phone')
     expect(attr.name).to.be.equal('phone')
-    expect(attr.type).to.be.equal('text')
   })
 
   it('simulates click events', () => {
-    enzymeWrapper.find('Form').simulate('submit')
-    expect(postSignup.calledOnce).to.equal(true)
+    const onSubmit = sinon.spy()
+    const wrapper = shallow(
+      <Signup submit={onSubmit} />
+    )
+
+    wrapper.find('Form').simulate('submit')
+    expect(onSubmit.calledOnce).to.equal(true)
   })
 
   it('should call componentWillReceiveProps', () => {

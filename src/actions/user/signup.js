@@ -1,5 +1,5 @@
 import { user as types } from '../../constants/actionTypes'
-import * as auth from '../auth'
+import { getToken, request } from '../auth'
 import config from '../../config'
 
 const receiveSuccess = (response) => {
@@ -9,24 +9,16 @@ const receiveSuccess = (response) => {
   }
 }
 
-const receiveError = (errors) => {
+const receiveError = (response) => {
   return {
     type: types.SIGNUP_ERROR,
-    errors
+    response
   }
-}
-
-const onSuccess = (response, dispatch) => {
-  dispatch(receiveSuccess(response))
-}
-
-const onError = (response, dispatch) => {
-  dispatch(receiveError(response))
 }
 
 const postSignup = (data) => {
   return (dispatch) => {
-    return auth.getToken('client_credentials')
+    return getToken('client_credentials')
       .then((token) => {
         const postData = {
           username: data.email,
@@ -35,13 +27,13 @@ const postSignup = (data) => {
           phone: data.phone
         }
 
-        return auth.request(`${config.apiUrl}/users`, 'POST', token, postData)
+        return request(`${config.apiUrl}/users`, 'POST', token, postData)
       })
       .then((response) => {
-        onSuccess(response.data, dispatch)
+        dispatch(receiveSuccess(response))
       })
       .catch((response) => {
-        onError(response.data, dispatch)
+        dispatch(receiveError(response))
       })
   }
 }

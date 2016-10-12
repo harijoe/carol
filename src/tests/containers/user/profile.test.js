@@ -32,7 +32,7 @@ describe('<Profile />', () => {
   })
 
   it('should have two inputs', () => {
-    expect(enzymeWrapper.find('Form Input')).to.have.length(1)
+    expect(enzymeWrapper.find('Form InputPhone')).to.have.length(1)
   })
 
   it('should have one button', () => {
@@ -40,14 +40,14 @@ describe('<Profile />', () => {
   })
 
   it('Phone input has the right attr', () => {
-    const attr = enzymeWrapper.find('Form').find('Input').get(0).props.attr
+    const attr = enzymeWrapper.find('Form').find('InputPhone').get(0).props.attr
 
     expect(attr.className).to.be.equal('phone')
     expect(attr.placeholder).to.be.equal('Phone')
     expect(attr.id).to.be.equal('phone')
     expect(attr.name).to.be.equal('phone')
     expect(attr.type).to.be.equal('text')
-    expect(enzymeWrapper.find('Form').find('Input').get(0).props.value).to.be.equal('0606060606')
+    expect(enzymeWrapper.find('Form').find('InputPhone').get(0).props.value).to.be.equal('0606060606')
   })
 
   it('email state should be equal to my@email.com', () => {
@@ -55,7 +55,7 @@ describe('<Profile />', () => {
   })
 
   it('simulate change phone', () => {
-    enzymeWrapper.find('Form').find('Input').at(0).simulate('change', {target: { value: '0101010101', id: 'phone' }})
+    enzymeWrapper.find('Form').find('InputPhone').at(0).simulate('change', {target: { value: '0101010101', id: 'phone' }})
     expect(enzymeWrapper.state('phone')).to.be.equal('0101010101')
   })
 

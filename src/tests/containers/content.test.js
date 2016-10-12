@@ -30,6 +30,6 @@ describe('Content', () => {
   expect(getContent.calledOnce).to.equal(true)
 
   it('should return a list of contents', () => {
-    expect(enzymeWrapper).to.have.html('<div class="content"><article><h1>title 1</h1><p class="body">body 1</p></article><article><h1>title 2</h1><p class="body">body 2</p></article></div>')
+    expect(enzymeWrapper).to.have.html('<div><article><h2>title 1</h2><div>body 1</div></article><article><h2>title 2</h2><div>body 2</div></article></div>')
   })
 })

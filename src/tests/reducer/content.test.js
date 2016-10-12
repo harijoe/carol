@@ -14,7 +14,7 @@ describe('contentReducer', () => {
         type: 'CONTENT_RECEIVE',
         content: []
       }
-      expect(contentReducer(null, action)).to.eql([]);
+      expect(contentReducer(null, action)).to.eql({ posts: [] });
     })
   })
 
@@ -35,7 +35,7 @@ describe('contentReducer', () => {
           }
         ]
       }
-      expect(contentReducer(null, action)).to.eql([{id: 1, title: 'post title 1', body: 'post body 1'}, {id: 2, title: 'post title 2', body: 'post body 2'}]);
+      expect(contentReducer(null, action)).to.eql({ posts: [{id: 1, title: 'post title 1', body: 'post body 1'}, {id: 2, title: 'post title 2', body: 'post body 2'}] });
     })
   })
 })

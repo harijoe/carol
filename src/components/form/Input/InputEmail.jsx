@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class InputPhone extends Component {
+class InputEmail extends Component {
   constructor() {
     super()
 
@@ -20,8 +20,8 @@ class InputPhone extends Component {
     return (
       <input
         {...this.props.attr}
-        type="text"
-        pattern="^([0|+[0-9]{1,5})?([1-9][0-9]{9})$"
+        type="email"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
         value={this.props.value}
         onChange={this.props.onChange}
       />
@@ -29,7 +29,7 @@ class InputPhone extends Component {
   }
 }
 
-InputPhone.propTypes = {
+InputEmail.propTypes = {
   attr: React.PropTypes.shape({
     className: React.PropTypes.string,
     placeholder: React.PropTypes.string,
@@ -40,4 +40,4 @@ InputPhone.propTypes = {
   onChange: React.PropTypes.func.isRequired
 }
 
-export default InputPhone
+export default InputEmail

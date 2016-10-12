@@ -1,6 +1,14 @@
-import * as types from '../constants/actionTypes'
+import { content as types } from '../constants/actionTypes'
 
-const transformContent = (content) => {
+const initialState = [
+  {
+    id: 0,
+    title: null,
+    body: null
+  }
+]
+
+const transform = (content) => {
   const list = []
   let i
   let current = {}
@@ -17,10 +25,13 @@ const transformContent = (content) => {
   return list
 }
 
-const contentReducer = (state = null, action) => {
+const contentReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.content.CONTENT_RECEIVE:
-      return transformContent(action.content)
+    case types.CONTENT_RECEIVE:
+      return {
+        ...state,
+        posts: transform(action.content)
+      }
     default:
       return state
   }

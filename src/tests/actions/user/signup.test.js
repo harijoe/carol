@@ -24,20 +24,12 @@ afterEach(() => {
 it('send data to API', () => {
   nock('http://localhost/app_dev.php')
     .post('/users', postData)
-    .reply(201, {ok: true})
+    .reply(201)
 
-  const expectedResponse = [
-    {
-      type: 'SIGNUP_SUCCESS',
-      response: {
-        ok: true
-      }
-    }
-  ]
   const store = mockStore()
 
   return store.dispatch(signup(postData))
     .then(() => {
-      expect(store.getActions()).to.jsonEqual(expectedResponse)
+      expect(store.getActions()[0].response.status).to.equal(201)
     })
 })

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
-import { syncHistoryWithStore } from 'react-router-redux'
+import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import promise from 'redux-promise'
 import createLogger from 'redux-logger'
@@ -23,7 +23,7 @@ import Help from './containers/Help'
 const logger = createLogger()
 const store = createStore(
   allReducers,
-  applyMiddleware(thunk, promise, logger)
+  applyMiddleware(thunk, promise, logger, routerMiddleware(browserHistory))
 )
 const history = syncHistoryWithStore(browserHistory, store)
 

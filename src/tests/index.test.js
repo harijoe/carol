@@ -10,7 +10,7 @@ describe('actions', () => {
   describe('content', () => {
     require('./actions/content.test')
   })
-  describe('content', () => {
+  describe('header', () => {
     require('./actions/header.test')
   })
 })
@@ -52,6 +52,9 @@ describe('reducer', () => {
 describe('components', () => {
   describe('form', () => {
     require('./components/form/Input.test')
+    require('./components/form/InputEmail.test')
+    require('./components/form/InputPassword.test')
+    require('./components/form/InputPhone.test')
     require('./components/form/Button.test')
     require('./components/form/Form.test')
   })

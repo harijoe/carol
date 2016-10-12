@@ -1,14 +1,25 @@
-import * as types from '../constants/actionTypes'
+import { user as types } from '../constants/actionTypes'
 
-const signupReducer = (state = null, action) => {
+const initialState = {
+  status: 0,
+  error: null
+}
+
+const signupReducer = (state = initialState, action) => {
+  // TODO: waiting for error normalization
+  const response = action.response
+
   switch (action.type) {
-    case types.user.SIGNUP_SUCCESS:
+    case types.SIGNUP_SUCCESS:
       return {
-        ok: true
+        ...state,
+        status: action.response.status
       }
-    case types.user.SIGNUP_ERROR:
+    case types.SIGNUP_ERROR:
       return {
-        error: 'Une erreur s\'est produite, merci de réessayer plus tard'
+        ...state,
+        status: action.response.status,
+        error: (response.data.error_description) ? response.data.error_description : response.data['hydra:description']
       }
     default:
       return state
