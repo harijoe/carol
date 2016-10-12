@@ -20,7 +20,6 @@ describe('InputPassword', () => {
   const enzymeWrapper  = shallow(<InputPassword attr={attr} value="aze123" onChange={handleChange} />)
 
   it('should have one input', () => {
-    console.log('input -> ', enzymeWrapper.find('input').html())
     expect(enzymeWrapper.find('input')).to.have.html('<input type="password" class="password" id="password" name="password" placeholder="password" pattern="(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$" value="aze123"/>')
   })
   it('should call onChange once', () => {

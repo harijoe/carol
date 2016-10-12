@@ -16,6 +16,7 @@ import Profile from './containers/user/Profile'
 import Signup from './containers/user/Signup'
 import SignupConfirmation from './containers/user/SignupConfirmation'
 import Content from './containers/Content'
+import Login from './containers/user/Login'
 import FindAPro from './containers/FindAPro'
 import SearchSite from './containers/SearchSite'
 import Help from './containers/Help'
@@ -39,6 +40,7 @@ ReactDOM.render(
           <Route path="search" component={SearchSite} />
           <Route path="search-pro" component={FindAPro} />
           <Route path="signup" component={Signup} />
+          <Route path="login" component={Login} />
           <Route path="signup-confirmation" component={SignupConfirmation} />
         </Route>
       </Router>

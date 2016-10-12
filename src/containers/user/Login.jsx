@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import RaisedButton from 'material-ui/RaisedButton'
 import login from '../../actions/user/login'
-import Input from '../../components/form/Input/Input'
+import InputEmail from '../../components/form/Input/InputEmail'
+import InputPassword from '../../components/form/Input/InputPassword'
 import Form from '../../components/form/Form'
 
 class Login extends Component {
@@ -17,6 +18,16 @@ class Login extends Component {
     this.state = {
       valueUsername: '',
       valuePassword: ''
+    }
+  }
+
+  componentWillMount() {
+    const username = (this.props.location) ? this.props.location.query.username : null
+
+    if (username) {
+      this.setState({
+        valueUsername: username
+      })
     }
   }
 
@@ -61,26 +72,24 @@ class Login extends Component {
       className: 'username',
       id: 'username',
       placeholder: 'Username',
-      name: 'username',
-      type: 'text'
+      name: 'username'
     }
 
     const attrPassword = {
       className: 'password',
       id: 'password',
       placeholder: 'Password',
-      type: 'password',
       name: 'password'
     }
 
     return (
       <Form onSubmit={this.onSubmitLogin}>
-        <Input
+        <InputEmail
           attr={attrUsername}
           onChange={this.handleChange}
           value={this.state.valueUsername}
         />
-        <Input
+        <InputPassword
           attr={attrPassword}
           value={this.state.valuePassword}
           onChange={this.handleChange}
@@ -104,7 +113,8 @@ function mapStateToProps(state) {
 Login.propTypes = {
   login: React.PropTypes.func,
   auth: React.PropTypes.object,
-  user: React.PropTypes.object
+  user: React.PropTypes.object,
+  location: React.PropTypes.object
 }
 
 Login.contextTypes = {
