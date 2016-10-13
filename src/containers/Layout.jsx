@@ -1,12 +1,18 @@
 import React from 'react'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import injectTapEventPlugin from 'react-tap-event-plugin'
 import Header from '../components/Header'
+
+injectTapEventPlugin()
 
 const Layout = (props) => {
   return (
-    <div>
-      <Header />
-      {props.children}
-    </div>
+    <MuiThemeProvider>
+      <div>
+        <Header />
+        {props.children}
+      </div>
+    </MuiThemeProvider>
   )
 }
 

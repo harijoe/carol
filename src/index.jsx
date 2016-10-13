@@ -7,8 +7,6 @@ import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import promise from 'redux-promise'
 import createLogger from 'redux-logger'
-import injectTapEventPlugin from 'react-tap-event-plugin'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import allReducers from './reducers'
 
 import Layout from './containers/Layout'
@@ -29,25 +27,21 @@ const store = createStore(
 )
 const history = syncHistoryWithStore(browserHistory, store)
 
-injectTapEventPlugin()
-
 ReactDOM.render(
-  <MuiThemeProvider>
-    <Provider store={store}>
-      <Router history={history}>
-        <Route path="/" component={Layout}>
-          <IndexRoute component={Home} />
-          <Route path="content" component={Content} />
-          <Route path="help" component={Help} />
-          <Route path="profile" component={Profile} />
-          <Route path="search" component={SearchSite} />
-          <Route path="search-pro" component={FindAPro} />
-          <Route path="signup" component={Signup} />
-          <Route path="login" component={Login} />
-          <Route path="signup-confirmation" component={SignupConfirmation} />
-        </Route>
-      </Router>
-    </Provider>
-  </MuiThemeProvider>,
+  <Provider store={store}>
+    <Router history={history}>
+      <Route path="/" component={Layout}>
+        <IndexRoute component={Home} />
+        <Route path="content" component={Content} />
+        <Route path="help" component={Help} />
+        <Route path="profile" component={Profile} />
+        <Route path="search" component={SearchSite} />
+        <Route path="search-pro" component={FindAPro} />
+        <Route path="signup" component={Signup} />
+        <Route path="login" component={Login} />
+        <Route path="signup-confirmation" component={SignupConfirmation} />
+      </Route>
+    </Router>
+  </Provider>,
   document.getElementById('app')
 )
