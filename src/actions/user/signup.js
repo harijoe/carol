@@ -31,9 +31,13 @@ const postSignup = (data) => {
       })
       .then((response) => {
         dispatch(receiveSuccess(response))
+
+        return response
       })
       .catch((response) => {
         dispatch(receiveError(response))
+
+        return response
       })
   }
 }
