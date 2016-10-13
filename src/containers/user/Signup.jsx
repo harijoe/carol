@@ -176,7 +176,7 @@ function mapStateToProps(state) {
   }
 }
 
-function matchDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch) {
   return bindActionCreators({ submit: (data) => {
     return () => {
       dispatch(postSignup(data))
@@ -189,4 +189,4 @@ function matchDispatchToProps(dispatch) {
   } }, dispatch)
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(Signup)
+export default connect(mapStateToProps, mapDispatchToProps)(Signup)

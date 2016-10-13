@@ -56,8 +56,8 @@ SearchPro.propTypes = {
   searchPro: React.PropTypes.func,
 }
 
-function matchDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch) {
   return bindActionCreators({ searchPro }, dispatch)
 }
 
-export default connect(null, matchDispatchToProps)(SearchPro)
+export default connect(null, mapDispatchToProps)(SearchPro)

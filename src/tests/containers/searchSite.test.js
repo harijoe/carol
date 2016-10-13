@@ -1,7 +1,7 @@
 import chai from 'chai'
 import { shallow } from 'enzyme'
 import React from 'react'
-import Home from '../../containers/SearchSite'
+import SearchSite from '../../containers/SearchSite'
 
 const expect = chai.expect
 

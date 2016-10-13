@@ -44,8 +44,8 @@ function mapStateToProps(state) {
   }
 }
 
-function matchDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch) {
   return bindActionCreators({ getContent }, dispatch)
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(Content)
+export default connect(mapStateToProps, mapDispatchToProps)(Content)

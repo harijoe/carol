@@ -4,11 +4,6 @@ import { shallow } from 'enzyme'
 import sinon from 'sinon'
 import React from 'react'
 
-import jsdom from 'jsdom'
-const doc = jsdom.jsdom('<!doctype html><html><body></body></html>')
-global.document = doc
-global.window = doc.defaultView
-
 const expect = chai.expect
 const ProfileConnect = rewire("../../../containers/user/Profile")
 const Profile = ProfileConnect.__get__('Profile')

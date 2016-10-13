@@ -91,7 +91,7 @@ Profile.contextTypes = {
   router: React.PropTypes.object
 }
 
-function matchDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     getProfile: profileActions.getProfile,
     updateProfile: profileActions.updateProfile
@@ -105,4 +105,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(Profile)
+export default connect(mapStateToProps, mapDispatchToProps)(Profile)

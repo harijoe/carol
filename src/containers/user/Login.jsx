@@ -126,8 +126,8 @@ Login.contextTypes = {
   router: React.PropTypes.object
 }
 
-function matchDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch) {
   return bindActionCreators({ login }, dispatch)
 }
 
-export default connect(mapStateToProps, matchDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

@@ -16,6 +16,7 @@ describe('actions', () => {
 })
 describe('containers', () => {
   require('./containers/home.test')
+  require('./containers/searchSite.test')
   describe('user', () => {
     require('./containers/user/login.test')
     require('./containers/user/profile.test')
@@ -63,5 +64,7 @@ describe('components', () => {
   })
   describe('header', () => {
     require('./components/Header/index.test')
+    require('./components/MenuLogin/index.test')
+    require('./components/MenuBurger/index.test')
   })
 })
