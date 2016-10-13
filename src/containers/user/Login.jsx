@@ -95,9 +95,14 @@ class Login extends Component {
           onChange={this.handleChange}
         />
         <br />
-        <RaisedButton type="submit" label="Login" />
+        <RaisedButton type="submit" label="Connexion" />
         { error }
-        <Link to="/forgot-password">forgot-password</Link>
+        <div>
+          <Link to="/forgot-password">Mot de passe oublié ?</Link>
+        </div>
+        <div>
+          <Link to="/signup">Je veux créer un compte</Link>
+        </div>
       </Form>
     )
   }
