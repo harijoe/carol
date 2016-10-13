@@ -35,6 +35,9 @@ describe('containers', () => {
   describe('findAPro', () => {
     require('./containers/findAPro.test')
   })
+  describe('urlPro', () => {
+    require('./containers/pro/LinkPro.test')
+  })
 })
 
 describe('reducer', () => {

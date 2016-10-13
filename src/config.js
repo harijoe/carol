@@ -8,5 +8,11 @@ const config = {
   profileUrl: `${apiUrl}/users/me`,
   timeout: 20000
 }
+export const proUrl = {
+  FR: 'https://www.quotatispro.fr',
+  ES: 'https://www.quotatispro.es',
+  GB: 'https://www.quotatispro.co.uk',
+  DEFAULT: 'https://www.quotatispro.co.uk'
+}
 
 export default config

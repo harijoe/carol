@@ -57,7 +57,7 @@ class Header extends Component {
     return (
       <header>
         <ul>
-          <li><MenuBurger /></li>
+          <li><MenuBurger country={this.state.country} /></li>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/search">Site search</Link></li>
           <li><Link to="/help">Help</Link></li>
