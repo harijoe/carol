@@ -16,12 +16,16 @@ class InputPassword extends Component {
     })
   }
 
+  get pattern() {
+    return (this.props.checkPattern) ? '(?=^.{8,}$)((?=.*d)|(?=.*W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$' : '.*'
+  }
+
   render() {
     return (
       <input
         {...this.props.attr}
         type="password"
-        pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+        pattern={this.pattern}
         value={this.props.value}
         onChange={this.props.onChange}
       />
@@ -37,7 +41,12 @@ InputPassword.propTypes = {
     name: React.PropTypes.string.isRequired
   }),
   value: React.PropTypes.string,
-  onChange: React.PropTypes.func.isRequired
+  onChange: React.PropTypes.func.isRequired,
+  checkPattern: React.PropTypes.bool
+}
+
+InputPassword.defaultProps = {
+  checkPattern: true
 }
 
 export default InputPassword

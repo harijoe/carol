@@ -16,12 +16,16 @@ class InputPhone extends Component {
     })
   }
 
+  get pattern() {
+    return (this.props.checkPattern) ? '^([0|+[0-9]{1,5})?([1-9][0-9]{9})$' : '.*'
+  }
+
   render() {
     return (
       <input
         {...this.props.attr}
         type="text"
-        pattern="^([0|+[0-9]{1,5})?([1-9][0-9]{9})$"
+        pattern={this.pattern}
         value={this.props.value}
         onChange={this.props.onChange}
       />
@@ -37,7 +41,12 @@ InputPhone.propTypes = {
     name: React.PropTypes.string.isRequired
   }),
   value: React.PropTypes.string,
-  onChange: React.PropTypes.func.isRequired
+  onChange: React.PropTypes.func.isRequired,
+  checkPattern: React.PropTypes.bool
+}
+
+InputPhone.defaultProps = {
+  checkPattern: true
 }
 
 export default InputPhone

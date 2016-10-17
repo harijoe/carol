@@ -93,6 +93,7 @@ class Login extends Component {
           attr={attrPassword}
           value={this.state.valuePassword}
           onChange={this.handleChange}
+          checkPattern={false}
         />
         <br />
         <RaisedButton type="submit" label="Connexion" />

@@ -16,12 +16,16 @@ class InputEmail extends Component {
     })
   }
 
+  get pattern() {
+    return (this.props.checkPattern) ? '[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$' : '.*'
+  }
+
   render() {
     return (
       <input
         {...this.props.attr}
         type="email"
-        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+        pattern={this.pattern}
         value={this.props.value}
         onChange={this.props.onChange}
       />
@@ -37,7 +41,12 @@ InputEmail.propTypes = {
     name: React.PropTypes.string.isRequired
   }),
   value: React.PropTypes.string,
-  onChange: React.PropTypes.func.isRequired
+  onChange: React.PropTypes.func.isRequired,
+  checkPattern: React.PropTypes.bool
+}
+
+InputEmail.defaultProps = {
+  checkPattern: true
 }
 
 export default InputEmail

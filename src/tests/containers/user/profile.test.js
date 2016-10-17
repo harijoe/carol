@@ -41,7 +41,6 @@ describe('<Profile />', () => {
     expect(attr.placeholder).to.be.equal('Phone')
     expect(attr.id).to.be.equal('phone')
     expect(attr.name).to.be.equal('phone')
-    expect(attr.type).to.be.equal('text')
     expect(enzymeWrapper.find('Form').find('InputPhone').get(0).props.value).to.be.equal('0606060606')
   })
 

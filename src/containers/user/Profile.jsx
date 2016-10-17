@@ -59,15 +59,18 @@ class Profile extends Component {
       className: 'phone',
       placeholder: 'Phone',
       id: 'phone',
-      name: 'phone',
-      pattern: '^([0|+[0-9]{1,5})?([1-9][0-9]{9})$',
-      type: 'text'
+      name: 'phone'
     }
 
     return (
       <div>
         <Form onSubmit={this.onSubmit}>
-          <InputPhone attr={attrPhone} value={this.state.phone} onChange={this.handleChange} />
+          <InputPhone
+            attr={attrPhone}
+            value={this.state.phone}
+            onChange={this.handleChange}
+            checkPattern={false}
+          />
           <Button type="submit" value="Profile" />
         </Form>
       </div>
