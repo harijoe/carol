@@ -1,82 +1,28 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import RaisedButton from 'material-ui/RaisedButton'
-import Popover from 'material-ui/Popover'
-import Menu from 'material-ui/Menu'
-import MenuItem from 'material-ui/MenuItem'
+import { Link } from 'react-router'
 import Login from '../../containers/user/Login'
+import Menu from '../Menu'
 
-class MenuLogin extends Component {
-  constructor() {
-    super()
-
-    this.handleRequestClose = this.handleRequestClose.bind(this)
-    this.handleTouchTap = this.handleTouchTap.bind(this)
-
-    this.state = {
-      open: false,
-      anchorEl: null
-    }
-  }
-  handleTouchTap(event) {
-    event.preventDefault()
-
-    this.setState({
-      open: true,
-      anchorEl: event.currentTarget
-    })
-  }
-
-  handleRequestClose() {
-    this.setState({
-      open: false
-    })
-  }
-
-  render() {
-    if (!this.props.user) {
-      return (
-        <div>
-          <RaisedButton
-            onTouchTap={this.handleTouchTap}
-            label="My account"
-          />
-          <Popover
-            open={this.state.open}
-            anchorEl={this.state.anchorEl}
-            anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
-            targetOrigin={{ horizontal: 'left', vertical: 'top' }}
-            onRequestClose={this.handleRequestClose}
-          >
-            <Login />
-          </Popover>
-        </div>
-      )
-    }
-
+function MenuLogin(props) {
+  if (!props.user.get('isLogged')) {
     return (
-      <div>
-        <RaisedButton
-          onTouchTap={this.handleTouchTap}
-          label="My account"
-        />
-        <Popover
-          open={this.state.open}
-          anchorEl={this.state.anchorEl}
-          anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
-          targetOrigin={{ horizontal: 'left', vertical: 'top' }}
-          onRequestClose={this.handleRequestClose}
-        >
-          <Menu>
-            <MenuItem primaryText="My Projects" />
-            <MenuItem primaryText="My infos" />
-            <MenuItem primaryText="Messaging" />
-            <MenuItem primaryText="log out" />
-          </Menu>
-        </Popover>
-      </div>
+      <Menu label="Login">
+        <Login />
+      </Menu>
     )
   }
+
+  return (
+    <Menu label="My account">
+      <ul>
+        <li><Link to="/*">My Projects</Link></li>
+        <li><Link to="/*">My infos</Link></li>
+        <li><Link to="/*">Messaging</Link></li>
+        <li><Link to="/*">log out</Link></li>
+      </ul>
+    </Menu>
+  )
 }
 
 MenuLogin.propTypes = {

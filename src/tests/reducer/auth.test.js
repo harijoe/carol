@@ -4,13 +4,6 @@ const expect = require('chai').expect
 describe('auth', function() {
   const access_token = 'xkjdfjkfdkg'
   const refresh_token = 'hxdkgjkxdfgk'
-  const actionAuthToken = {
-    type: 'AUTH_TOKEN',
-    payload: {
-      access_token: access_token,
-      refresh_token: refresh_token
-    }
-  }
   const actionBadRequest = {
     type: 'LOGIN_BAD_REQUEST',
     payload: {

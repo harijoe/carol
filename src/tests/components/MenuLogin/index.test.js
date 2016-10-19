@@ -1,46 +1,29 @@
 import chai from 'chai'
 import rewire from 'rewire'
 import { shallow } from 'enzyme'
-import sinon from 'sinon'
 import React from 'react'
+import { fromJS } from 'immutable'
 
 const expect = chai.expect
 const MenuLoginConnect = rewire("../../../components/MenuLogin")
 const MenuLogin = MenuLoginConnect.__get__('MenuLogin')
 
-let handleTouchTap
-let handleRequestClose
-
 describe('<MenuLogin />', () => {
-  beforeEach(() => {
-    handleTouchTap = sinon.spy(MenuLogin.prototype, 'handleTouchTap')
-    handleRequestClose = sinon.spy(MenuLogin.prototype, 'handleRequestClose')
+  context('Non Logged HO', () => {
+    it('should have <Menu /> with login form inside', () => {
+      const wrapper = shallow(<MenuLogin user={fromJS({id: 'users/xdfgxdg-xfghxfgh-54xfcgh', phone: '+33606060606', isLogged: false})} />)
+
+      expect(wrapper.find('Connect(Menu)')).to.have.length(1)
+      expect(wrapper.find('Connect(Menu) Connect(Login)')).to.have.length(1)
+    })
   })
 
-  afterEach(() => {
-    handleTouchTap.restore()
-    handleRequestClose.restore()
-  })
+  context('Logged HO', () => {
+    it('should have <Menu /> with a list of 4 items', () => {
+      const wrapper = shallow(<MenuLogin user={fromJS({id: 'users/xdfgxdg-xfghxfgh-54xfcgh', phone: '+33606060606', isLogged: true})} />)
 
-  it('clicking on login should be a popover', () => {
-    const wrapper = shallow(<MenuLogin />)
-
-    wrapper.find('RaisedButton').simulate('TouchTap', {preventDefault: () => {}})
-    wrapper.find('Popover').simulate('RequestClose', {preventDefault: () => {}})
-
-    expect(handleTouchTap.calledOnce).to.be.true
-    expect(handleRequestClose.calledOnce).to.be.true
-  })
-
-  describe('user login', () => {
-    it('should have <RaisedButton /> my account', () => {
-      const wrapper = shallow(<MenuLogin user={{'@id': 'users/xdfgxdg-xfghxfgh-54xfcgh', username: 'my name', email: 'mon@email.com'}} />)
-
-      expect(wrapper.find('RaisedButton')).to.have.length(1)
-      wrapper.find('RaisedButton').simulate('TouchTap', {preventDefault: () => {}})
-      expect(handleTouchTap.calledOnce).to.be.true
-      wrapper.find('Popover').simulate('RequestClose', {preventDefault: () => {}})
-      expect(handleRequestClose.calledOnce).to.be.true
+      expect(wrapper.find('Connect(Menu)')).to.have.length(1)
+      expect(wrapper.find('Connect(Menu) ul li')).to.have.length(4)
     })
   })
 })

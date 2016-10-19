@@ -67,6 +67,7 @@ describe('components', () => {
   })
   describe('header', () => {
     require('./components/Header/index.test')
+    require('./components/Menu/index.test')
     require('./components/MenuLogin/index.test')
     require('./components/MenuBurger/index.test')
   })

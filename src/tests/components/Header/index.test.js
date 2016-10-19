@@ -85,7 +85,7 @@ describe('<Header />', () => {
   describe('user login', () => {
     it('should have country initiated in store', () => {
       const countryUpdate = sinon.spy()
-      const wrapper = shallow(<Header countryUpdate={countryUpdate} user={{'@id': 'users/xdfgxdg-xfghxfgh-54xfcgh', username: 'my name', email: 'mon@email.com', country: 'FR'}} country={fromJS({countryCode: 'FR'})} />)
+      const wrapper = shallow(<Header countryUpdate={countryUpdate} user={fromJS({id: 'users/xdfgxdg-xfghxfgh-54xfcgh', username: 'my name', email: 'mon@email.com', country: 'FR'})} country={fromJS({countryCode: 'FR'})} />)
 
       expect(wrapper.state('country')).to.be.equal('FR')
     })

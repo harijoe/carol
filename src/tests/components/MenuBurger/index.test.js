@@ -12,23 +12,10 @@ let handleTouchTap
 let handleRequestClose
 
 describe('<MenuBurger />', () => {
-  beforeEach(() => {
-    handleTouchTap = sinon.spy(MenuBurger.prototype, 'handleTouchTap')
-    handleRequestClose = sinon.spy(MenuBurger.prototype, 'handleRequestClose')
-  })
-
-  afterEach(() => {
-    handleTouchTap.restore()
-    handleRequestClose.restore()
-  })
-
-  it('clicking on burger should be a popover', () => {
+  it('should have <Menu /> with a list of 4 items', () => {
     const wrapper = shallow(<MenuBurger />)
 
-    wrapper.find('RaisedButton').simulate('TouchTap', {preventDefault: () => {}})
-    wrapper.find('Popover').simulate('RequestClose', {preventDefault: () => {}})
-
-    expect(handleTouchTap.calledOnce).to.be.true
-    expect(handleRequestClose.calledOnce).to.be.true
+    expect(wrapper.find('Connect(Menu)')).to.have.length(1)
+    expect(wrapper.find('Connect(Menu) ul li')).to.have.length(4)
   })
 })

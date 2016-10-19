@@ -38,12 +38,12 @@ class Profile extends Component {
   onSubmit() {
     this.props.updateProfile({
       phone: this.state.phone,
-    }, this.props.user['@id'])
+    }, this.props.user.get('id'))
   }
 
   setFields(data) {
     this.setState({
-      phone: data.phone
+      phone: data.get('phone')
     })
   }
 
@@ -69,7 +69,6 @@ class Profile extends Component {
             attr={attrPhone}
             value={this.state.phone}
             onChange={this.handleChange}
-            checkPattern={false}
           />
           <Button type="submit" value="Profile" />
         </Form>
@@ -81,10 +80,7 @@ class Profile extends Component {
 Profile.propTypes = {
   getProfile: React.PropTypes.func,
   updateProfile: React.PropTypes.func,
-  user: React.PropTypes.shape({
-    phone: React.PropTypes.string,
-    '@id': React.PropTypes.string
-  }),
+  user: React.PropTypes.object,
   auth: React.PropTypes.shape({
     grantType: React.PropTypes.string
   })

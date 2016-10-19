@@ -1,20 +1,24 @@
+import { fromJS } from 'immutable'
 import * as types from '../constants/actionTypes'
 
-const transform = (user) => {
-  return {
-    phone: user.phone ? user.phone : '',
-    '@id': user['@id']
-  }
+const initialState = fromJS({
+  id: null,
+  phone: '',
+  isLogged: false
+})
+
+const transform = (payload, state) => {
+  state = state.set('phone', payload.phone || '')
+  state = state.set('id', payload['@id'])
+  state = state.set('isLogged', true)
+
+  return state
 }
 
-const reducerAuth = (state = null, action) => {
+const reducerAuth = (state = initialState, action) => {
   switch (action.type) {
     case types.user.USER_INFO:
-      return transform(action.payload)
-    case types.user.USER_UNAUTHORIZED:
-      return {
-        authorized: false
-      }
+      return transform(action.payload, state)
     default:
       return state
   }

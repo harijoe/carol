@@ -3,6 +3,7 @@ import rewire from 'rewire'
 import { shallow } from 'enzyme'
 import sinon from 'sinon'
 import React from 'react'
+import { fromJS } from 'immutable'
 
 const expect = chai.expect
 const ProfileConnect = rewire("../../../containers/user/Profile")
@@ -12,7 +13,7 @@ describe('<Profile />', () => {
   sinon.spy(Profile.prototype, 'componentWillMount')
   const getProfile = sinon.spy()
   const updateProfile = sinon.spy()
-  const enzymeWrapper  = shallow(<Profile getProfile={getProfile} updateProfile={updateProfile} auth={ {grantType: 'password'} } user={ {'@id': 'users/jhgd-xfdghh-5xfdg', phone: '0606060606'} } />)
+  const enzymeWrapper  = shallow(<Profile getProfile={getProfile} updateProfile={updateProfile} auth={ {grantType: 'password'} } user={fromJS({id: 'users/jhgd-xfdghh-5xfdg', phone: '0606060606'})} />)
 
   it('calls componentWillMount', () => {
     expect(Profile.prototype.componentWillMount.calledOnce).to.equal(true)
