@@ -11,36 +11,78 @@ const Menu = MenuConnect.__get__('Menu')
 
 let handleTouchTap
 let handleRequestClose
+let receiveProps
+let wrapper
 
 describe('<Menu />', () => {
   beforeEach(() => {
     handleTouchTap = sinon.spy(Menu.prototype, 'handleTouchTap')
     handleRequestClose = sinon.spy(Menu.prototype, 'handleRequestClose')
+    receiveProps = sinon.spy(Menu.prototype, 'componentWillReceiveProps')
+    wrapper = shallow(<Menu />)
   })
 
   afterEach(() => {
     handleTouchTap.restore()
     handleRequestClose.restore()
+    receiveProps.restore()
   })
 
-  it('calls componentWillReceiveProps', () => {
-    const receiveProps = sinon.spy(Menu.prototype, 'componentWillReceiveProps')
-    const wrapper = shallow(<Menu />)
+  context('Change page after changing page with PUSH action', () => {
+    it('calls componentWillReceiveProps and handleRequestClose', () => {
+      expect(receiveProps.calledOnce).to.be.false
 
-    expect(receiveProps.calledOnce).to.be.false
-    wrapper.setProps({
-      routing: {
-        locationBeforeTransitions: {
-          key: '42esd'
+      wrapper.setProps({
+        routing: {
+          locationBeforeTransitions: {
+            key: '42esd',
+            action: 'PUSH'
+          }
         }
-      }
+      })
+
+      expect(receiveProps.calledOnce).to.be.true
+      expect(handleRequestClose.calledOnce).to.be.true
     })
-    expect(receiveProps.calledOnce).to.be.true
+  })
+
+  context('Change page after changing page with REPLACE action', () => {
+    it('calls componentWillReceiveProps and handleRequestClose', () => {
+      expect(receiveProps.calledOnce).to.be.false
+
+      wrapper.setProps({
+        routing: {
+          locationBeforeTransitions: {
+            key: '42esd',
+            action: 'REPLACE'
+          }
+        }
+      })
+
+      expect(receiveProps.calledOnce).to.be.true
+      expect(handleRequestClose.calledOnce).to.be.true
+    })
+  })
+
+  context('Change page after changing page with OTHER action', () => {
+    it('should not call handleRequestClose', () => {
+      expect(receiveProps.calledOnce).to.be.false
+
+      wrapper.setProps({
+        routing: {
+          locationBeforeTransitions: {
+            key: '42esd',
+            action: 'OTHER'
+          }
+        }
+      })
+
+      expect(receiveProps.calledOnce).to.be.true
+      expect(handleRequestClose.calledOnce).to.be.false
+    })
   })
 
   it('clicking on login should be a popover', () => {
-    const wrapper = shallow(<Menu />)
-
     wrapper.find('RaisedButton').simulate('TouchTap', {preventDefault: () => {}})
     wrapper.find('Popover').simulate('RequestClose', {preventDefault: () => {}})
 
@@ -50,8 +92,6 @@ describe('<Menu />', () => {
 
   describe('user login', () => {
     it('should have <RaisedButton /> my account', () => {
-      const wrapper = shallow(<Menu />)
-
       expect(wrapper.find('RaisedButton')).to.have.length(1)
       wrapper.find('RaisedButton').simulate('TouchTap', {preventDefault: () => {}})
       expect(handleTouchTap.calledOnce).to.be.true

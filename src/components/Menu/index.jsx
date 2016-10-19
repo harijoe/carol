@@ -18,9 +18,9 @@ class Menu extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const transitionType = nextProps.routing.locationBeforeTransitions
+    const locationBeforeTransitions = nextProps.routing.locationBeforeTransitions
 
-    if ((-1 !== ['PUSH', 'REPLACE'].indexOf(transitionType)) && this.state.routingKey !== nextProps.routing.locationBeforeTransitions.key) {
+    if ((-1 !== ['PUSH', 'REPLACE'].indexOf(locationBeforeTransitions.action)) && this.state.routingKey !== locationBeforeTransitions.key) {
       this.handleRequestClose()
     }
   }
