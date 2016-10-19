@@ -21,6 +21,8 @@ describe('containers', () => {
     require('./containers/user/login.test')
     require('./containers/user/profile.test')
     require('./containers/user/signup.test')
+    require('./containers/user/message.test')
+    require('./containers/user/project.test')
   })
   describe('pro', () => {
     require('./containers/pro/SearchPro.test')

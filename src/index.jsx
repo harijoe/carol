@@ -19,6 +19,8 @@ import Login from './containers/user/Login'
 import FindAPro from './containers/FindAPro'
 import SearchSite from './containers/SearchSite'
 import Help from './containers/Help'
+import Message from './containers/user/Message'
+import Project from './containers/user/Project'
 
 const logger = createLogger()
 const store = createStore(
@@ -40,6 +42,8 @@ ReactDOM.render(
         <Route path="signup" component={Signup} />
         <Route path="login" component={Login} />
         <Route path="signup-confirmation" component={SignupConfirmation} />
+        <Route path="message" component={Message} />
+        <Route path="project" component={Project} />
       </Route>
     </Router>
   </Provider>,
