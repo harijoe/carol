@@ -17,7 +17,7 @@ function MenuLogin(props) {
     <Menu label="My account">
       <ul>
         <li><Link to="/project">My Projects</Link></li>
-        <li><Link to="/*">My infos</Link></li>
+        <li><Link to="/profile">My infos</Link></li>
         <li><Link to="/message">Messaging</Link></li>
         <li><Link to="/*">log out</Link></li>
       </ul>
