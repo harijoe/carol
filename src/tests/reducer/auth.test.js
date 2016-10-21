@@ -1,5 +1,9 @@
 import reducerUsers from '../../reducers/auth'
-const expect = require('chai').expect
+import { fromJS } from 'immutable'
+import chaiJsonEqual from 'chai-json-equal'
+import chai, { expect } from 'chai'
+
+chai.use(chaiJsonEqual)
 
 describe('auth', function() {
   const access_token = 'xkjdfjkfdkg'
@@ -11,16 +15,41 @@ describe('auth', function() {
       refresh_token: refresh_token
     }
   }
-  context('state and action.type = null', function() {
-    it('should be null!', function() {
-      expect(reducerUsers(null, 'non existing type')).to.be.null
+  let initialState
+
+  beforeEach(() => {
+    initialState = fromJS({
+      grantType: null,
+      error: null
+    })
+  })
+
+  context('state = initialState and action.type = null', function() {
+    it('should be initialState!', function() {
+      expect(reducerUsers(initialState, 'non existing type')).to.be.jsonEqual(initialState)
     });
   })
 
-  context('state = null and action.type = LOGIN_BAD_REQUEST', function() {
+  context('state = initialState and action.type = LOGIN_BAD_REQUEST', function() {
     it('should be an object!', function() {
-      expect(reducerUsers(null, actionBadRequest)).to.eql({error: 'Votre login et/ou mot de passe sont invalides'})
+      expect(reducerUsers(initialState, actionBadRequest)).to.jsonEqual(initialState.set('error', 'Votre login et/ou mot de passe sont invalides'))
     });
   })
 
+  context('state = { grantType = otherType, error = "An error" } and action.type = USER_LOGOUT', function() {
+    it('should be initialState', function() {
+      const state = fromJS({
+        grantType: 'otherType',
+        error: 'An error'
+      })
+
+      expect(reducerUsers(state, { type: 'USER_LOGOUT' })).to.jsonEqual(initialState)
+    });
+  })
+
+  context('state = initialState and action.type = LOGIN_ERROR', function() {
+    it('should be initialState', function() {
+      expect(reducerUsers(initialState, { type: 'LOGIN_ERROR' })).to.jsonEqual(initialState.set('error', 'Une erreur s\'est produite, merci de réessayer plus tard'))
+    });
+  })
 });

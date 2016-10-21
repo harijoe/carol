@@ -1,11 +1,19 @@
 describe('actions', () => {
   describe('user', () => {
-    require('./actions/user/login.test')
-    require('./actions/user/profile.test')
-    require('./actions/user/signup.test')
+    describe('login', () => {
+      require('./actions/user/login.test')
+    })
+    describe('profile', () => {
+      require('./actions/user/profile.test')
+    })
+    describe('signup', () => {
+      require('./actions/user/signup.test')
+    })
   })
   describe('pro', () => {
-    require('./actions/pro/searchPro.test')
+    describe('searchPro', () => {
+      require('./actions/pro/searchPro.test')
+    })
   })
   describe('content', () => {
     require('./actions/content.test')
@@ -15,18 +23,36 @@ describe('actions', () => {
   })
 })
 describe('containers', () => {
-  require('./containers/home.test')
-  require('./containers/searchSite.test')
+  describe('home', () => {
+    require('./containers/home.test')
+  })
+  describe('searchSite', () => {
+    require('./containers/searchSite.test')
+  })
   describe('user', () => {
-    require('./containers/user/login.test')
-    require('./containers/user/profile.test')
-    require('./containers/user/signup.test')
-    require('./containers/user/message.test')
-    require('./containers/user/project.test')
+    describe('login', () => {
+      require('./containers/user/login.test')
+    })
+    describe('profile', () => {
+      require('./containers/user/profile.test')
+    })
+    describe('signup', () => {
+      require('./containers/user/signup.test')
+    })
+    describe('message', () => {
+      require('./containers/user/message.test')
+    })
+    describe('project', () => {
+      require('./containers/user/project.test')
+    })
   })
   describe('pro', () => {
-    require('./containers/pro/SearchPro.test')
-    require('./containers/pro/ProList.test')
+    describe('SearchPro', () => {
+      require('./containers/pro/SearchPro.test')
+    })
+    describe('ProList', () => {
+      require('./containers/pro/ProList.test')
+    })
   })
   describe('content', () => {
     require('./containers/content.test')

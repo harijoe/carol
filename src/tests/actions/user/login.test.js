@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import chai from 'chai'
 import configureMockStore from 'redux-mock-store'
 import chaiJsonEqual from 'chai-json-equal'
-import login from '../../../actions/user/login'
+import login, { logout } from '../../../actions/user/login'
 
 const expect = chai.expect
 const middlewares = [thunk]
@@ -80,4 +80,26 @@ it('dispatch AUTH_TOKEN with a good credential', () => {
     .then(() => {
       expect(store.getActions()).to.jsonEqual(expectedActions)
     })
+})
+
+context('logged HO', () => {
+  before(() => {
+    localStorage.setItem('access_token', 'xf6f4xd646dx6f65x6ffgbx6f65x6f4x6fx')
+    localStorage.setItem('refresh_token', 'xf6f4xd646dx6f65x6ffgbx6f65x6f4x')
+  })
+
+  after(() => {
+    localStorage.removeItem('access_token')
+    localStorage.removeItem('refresh_token')
+  })
+
+  it('should logout', () => {
+    const expectedActions = {
+      type: 'USER_LOGOUT'
+    }
+
+    expect(logout()).to.jsonEqual(expectedActions)
+    expect(localStorage.getItem('access_token')).to.be.null
+    expect(localStorage.getItem('refresh_token')).to.be.null
+  })
 })

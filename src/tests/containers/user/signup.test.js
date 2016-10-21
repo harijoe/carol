@@ -3,6 +3,7 @@ import rewire from 'rewire'
 import { shallow } from 'enzyme'
 import sinon from 'sinon'
 import React from 'react'
+import { fromJS } from 'immutable'
 
 const expect = chai.expect
 const signupConnect = rewire("../../../containers/user/Signup")
@@ -87,13 +88,13 @@ describe('Signup', () => {
   })
 
   it('should call componentWillReceiveProps', () => {
-    const wrapper = shallow(<Signup error='' />, { lifecycleExperimental: true })
-    const prevProp = wrapper.props()
+    const wrapper = shallow(<Signup />)
 
-    wrapper.setState({
-      error: 'An error has occurred'
+    wrapper.setProps({
+      auth: fromJS({
+        error: 'An error has occurred'
+      })
     })
-    wrapper.instance().componentWillReceiveProps(prevProp)
     expect(receiveProps.calledOnce).to.be.true
   })
 })

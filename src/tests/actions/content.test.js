@@ -2,9 +2,9 @@ import nock from 'nock'
 import thunk from 'redux-thunk'
 import configureMockStore from 'redux-mock-store'
 import content from '../../actions/content'
+import chai from 'chai'
+import chaiJsonEqual from 'chai-json-equal'
 
-const chai = require('chai')
-const chaiJsonEqual = require('chai-json-equal')
 chai.use(chaiJsonEqual)
 const expect = chai.expect
 const middlewares = [thunk]

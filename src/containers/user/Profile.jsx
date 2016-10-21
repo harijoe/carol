@@ -12,16 +12,14 @@ class Profile extends Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
+    this.checkAccess = this.checkAccess.bind(this)
     this.state = {
       phone: ''
     }
   }
 
   componentWillMount() {
-    if (!this.props.auth || 'password' !== this.props.auth.grantType) {
-      this.context.router.push({ pathname: '/login' })
-    }
-
+    this.checkAccess(this.props.user)
     this.props.getProfile()
 
     const user = this.props.user
@@ -32,6 +30,7 @@ class Profile extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    this.checkAccess(nextProps.user)
     this.setFields(nextProps.user)
   }
 
@@ -47,6 +46,11 @@ class Profile extends Component {
     })
   }
 
+  checkAccess(user) {
+    if (!user.get('isLogged')) {
+      this.context.router.push({ pathname: '/login' })
+    }
+  }
 
   handleChange(e) {
     this.setState({
@@ -81,9 +85,7 @@ Profile.propTypes = {
   getProfile: React.PropTypes.func,
   updateProfile: React.PropTypes.func,
   user: React.PropTypes.object,
-  auth: React.PropTypes.shape({
-    grantType: React.PropTypes.string
-  })
+  auth: React.PropTypes.object
 }
 
 Profile.contextTypes = {

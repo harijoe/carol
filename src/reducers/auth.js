@@ -1,23 +1,30 @@
-import * as types from '../constants/actionTypes'
+import { fromJS } from 'immutable'
+import { auth as authTypes, user as userTypes } from '../constants/actionTypes'
 
-const transform = (grantType) => {
-  return {
-    grantType
-  }
+const initialState = fromJS({
+  grantType: null,
+  error: null
+})
+
+const transform = (data, state) => {
+  state = state.set('grantType', data.grantType || null)
+  state = state.set('error', data.error || null)
+
+  return state
 }
 
-const reducerAuth = (state = null, action) => {
+const reducerAuth = (state = initialState, action) => {
   switch (action.type) {
-    case types.auth.LOGIN_BAD_REQUEST:
-      return {
+    case authTypes.LOGIN_BAD_REQUEST:
+      return transform({
         error: 'Votre login et/ou mot de passe sont invalides'
-      }
-    case types.auth.LOGIN_ERROR:
-      return {
+      }, state)
+    case authTypes.LOGIN_ERROR:
+      return transform({
         error: 'Une erreur s\'est produite, merci de réessayer plus tard'
-      }
-    case types.auth.AUTH_TOKEN:
-      return transform(action.grantType)
+      }, state)
+    case userTypes.USER_LOGOUT:
+      return initialState
     default:
       return state
   }

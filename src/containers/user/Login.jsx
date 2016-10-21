@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import RaisedButton from 'material-ui/RaisedButton'
 import login from '../../actions/user/login'
 import InputEmail from '../../components/form/Input/InputEmail'
 import InputPassword from '../../components/form/Input/InputPassword'
 import Form from '../../components/form/Form'
+import { auth as types } from '../../constants/actionTypes'
 
 class Login extends Component {
   constructor() {
@@ -28,12 +30,6 @@ class Login extends Component {
       this.setState({
         valueUsername: username
       })
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.auth && 'password' === nextProps.auth.grantType) {
-      this.context.router.push({ pathname: '/profile' })
     }
   }
 
@@ -62,12 +58,7 @@ class Login extends Component {
   }
 
   render() {
-    let error = ''
-
-    if (this.props.auth && this.props.auth.error) {
-      error = this.props.auth.error
-    }
-
+    const error = this.props.auth.get('error')
     const attrUsername = {
       className: 'username',
       id: 'username',
@@ -127,8 +118,27 @@ Login.contextTypes = {
   router: React.PropTypes.object
 }
 
+function loginAndRedirect(data, dispatch) {
+  dispatch(login(data))
+    .then((token) => {
+      const errorList = [types.LOGIN_BAD_REQUEST, types.LOGIN_ERROR, types.TOKEN_ERROR]
+
+      if ('object' === typeof token && -1 !== errorList.indexOf(token.type)) {
+        return
+      }
+
+      dispatch(push('/profile'))
+    })
+}
+
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ login }, dispatch)
+  return bindActionCreators({
+    login: (data) => {
+      return () => {
+        loginAndRedirect(data, dispatch)
+      }
+    }
+  }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

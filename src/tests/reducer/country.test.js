@@ -1,7 +1,7 @@
 import chai, { expect } from 'chai'
 import countryReducer from '../../reducers/country'
+import chaiJsonEqual from 'chai-json-equal'
 
-const chaiJsonEqual = require('chai-json-equal')
 chai.use(chaiJsonEqual)
 
 describe('prosReducer', function() {

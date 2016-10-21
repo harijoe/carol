@@ -3,6 +3,7 @@ import rewire from 'rewire'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { fromJS } from 'immutable'
+import sinon from 'sinon'
 
 const expect = chai.expect
 const MenuLoginConnect = rewire("../../../components/MenuLogin")
@@ -24,6 +25,14 @@ describe('<MenuLogin />', () => {
 
       expect(wrapper.find('Connect(Menu)')).to.have.length(1)
       expect(wrapper.find('Connect(Menu) ul li')).to.have.length(4)
+    })
+
+    it('should logout', () => {
+      const logoutAndRedirect = sinon.spy()
+      const wrapper = shallow(<MenuLogin user={fromJS({id: 'users/xdfgxdg-xfghxfgh-54xfcgh', phone: '+33606060606', isLogged: true})} logoutAndRedirect={logoutAndRedirect} />)
+
+      wrapper.find('Connect(Menu) ul li').at(3).find('a').simulate('click')
+      expect(logoutAndRedirect.calledOnce).to.be.true
     })
   })
 })

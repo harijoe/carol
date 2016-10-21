@@ -26,9 +26,9 @@ class Signup extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.auth && nextProps.auth.error) {
+    if (nextProps.auth.get('error')) {
       this.setState({
-        error: nextProps.auth.error
+        error: nextProps.auth.get('error')
       })
     }
 
@@ -163,9 +163,7 @@ Signup.propTypes = {
   signup: React.PropTypes.shape({
     error: React.PropTypes.string
   }),
-  auth: React.PropTypes.shape({
-    error: React.PropTypes.string
-  }),
+  auth: React.PropTypes.object,
   submit: React.PropTypes.func
 }
 

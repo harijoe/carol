@@ -3,13 +3,14 @@ import rewire from 'rewire'
 import { shallow } from 'enzyme'
 import sinon from 'sinon'
 import React from 'react'
+import { fromJS } from 'immutable'
 
 const expect = chai.expect
 const loginConnect = rewire("../../../containers/user/Login")
 const Login = loginConnect.__get__('Login')
 
 describe('Login', () => {
-  const enzymeWrapper = shallow(<Login location={ { query: { username: 'test@mail.com' } } } />)
+  const enzymeWrapper = shallow(<Login location={ { query: { username: 'test@mail.com' } } } auth={ fromJS({grantType: null, error: null}) } />)
 
   it('should have one form', () => {
     expect(enzymeWrapper.find('Form')).to.have.length(1)
@@ -34,7 +35,7 @@ describe('Login', () => {
   it('simulates click events', () => {
     const onClickLogin = sinon.spy()
     const wrapper = shallow(
-      <Login login={onClickLogin} />
+      <Login login={onClickLogin} auth={fromJS({auth: {error: null}})} />
     );
     wrapper.find('Form').simulate('submit')
     expect(onClickLogin.calledOnce).to.equal(true)

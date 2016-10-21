@@ -19,6 +19,14 @@ const reducerAuth = (state = initialState, action) => {
   switch (action.type) {
     case types.user.USER_INFO:
       return transform(action.payload, state)
+    case types.user.USER_LOGOUT:
+      return initialState
+    case types.auth.AUTH_TOKEN:
+      if ('password' === action.grantType) {
+        return state.set('isLogged', true)
+      }
+
+      return state
     default:
       return state
   }
