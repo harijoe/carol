@@ -14,7 +14,8 @@
           "exclude": [
             "**/*.scss",
             "**/constants/",
-            "**/tests/"
+            "**/*test.js",
+            "**/config.js"
           ]
         }]
       ]

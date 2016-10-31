@@ -9,8 +9,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "webpack-dev-server --config webpack.dev.js --host 0.0.0.0",
-    "test": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text --reporter=clover mocha src/tests/index.test.js --recursive --compilers js:babel-core/register --require ignore-styles -r mock-local-storage",
-    "test:travis": "cross-env NODE_ENV=test mocha src/tests/index.test.js --recursive --compilers js:babel-core/register --require ignore-styles -r mock-local-storage",
+    "test": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text --reporter=clover mocha src/tests.js --recursive --compilers js:babel-core/register --require ignore-styles -r mock-local-storage",
+    "test:travis": "cross-env NODE_ENV=test mocha src/tests.js --recursive --compilers js:babel-core/register --require ignore-styles -r mock-local-storage",
     "test:watch": "npm test -- --watch",
     "test:cover": "npm test && chromium-browser coverage/lcov-report/index.html",
     "test:docker": "docker-compose exec carol npm test",

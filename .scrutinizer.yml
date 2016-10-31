@@ -13,7 +13,7 @@ build:
 checks:
     javascript: true
 build_failure_conditions:
-    - 'issues.severity(>= MAJOR).new.exists'
+    - 'issues.severity(>= CRITICAL).new.exists'
     - 'project.metric("scrutinizer.quality", < 9)'
     - 'project.metric_change("scrutinizer.quality", < -0.10)'
     - 'project.metric("scrutinizer.test_coverage", < 0.80)'
