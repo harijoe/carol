@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import RaisedButton from 'material-ui/RaisedButton'
-import { login, TOKEN_ERROR, LOGIN_ERROR, LOGIN_BAD_REQUEST } from '../../../services/auth/ducks'
+import { login } from '../../../services/auth/ducks'
 import InputEmail from '../../../ui/form/input/Email'
 import InputPassword from '../../../ui/form/input/Password'
 import Form from '../../../ui/form/Form'
@@ -117,27 +116,8 @@ Login.contextTypes = {
   router: React.PropTypes.object
 }
 
-function loginAndRedirect(data, dispatch) {
-  dispatch(login(data))
-    .then((token) => {
-      const errorList = [LOGIN_BAD_REQUEST, LOGIN_ERROR, TOKEN_ERROR]
-
-      if ('object' === typeof token && -1 !== errorList.indexOf(token.type)) {
-        return
-      }
-
-      dispatch(push('/profile'))
-    })
-}
-
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    login: (data) => {
-      return () => {
-        loginAndRedirect(data, dispatch)
-      }
-    }
-  }, dispatch)
+  return bindActionCreators({ login }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
