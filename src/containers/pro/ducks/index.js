@@ -1,3 +1,4 @@
+import { fromJS } from 'immutable'
 import config from '../../../config'
 import { request, getToken } from '../../../services/auth/ducks'
 
@@ -42,35 +43,32 @@ export const searchPro = (trade) => {
 /*
 Reducer
  */
-const transformPros = (pros) => {
-  const transformedPros = []
+const transformPros = (pros, state) => {
   let i
   let proCurrent = {}
 
   for (i = 0; i < pros.length; i++) {
     proCurrent = pros[i]
-    transformedPros[i] = {
-      id: proCurrent['@id'],
-      name: proCurrent.name,
-      trade: proCurrent.trade
-    }
+    state = state.setIn([i, 'id'], proCurrent['@id'])
+    state = state.setIn([i, 'name'], proCurrent.name)
+    state = state.setIn([i, 'trade'], proCurrent.trade)
   }
 
-  return transformedPros
+  return state
 }
 
-const initialState = [{
+const initialState = fromJS([{
   id: null,
   name: null,
   trade: null
-}]
+}])
 
 export default function reducerPros(state = initialState, action) {
   const pros = action.pros
 
   switch (action.type) {
     case PRO_LIST:
-      return transformPros(pros)
+      return transformPros(pros, initialState)
     default:
       return state
   }

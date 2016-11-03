@@ -1,3 +1,4 @@
+import { fromJS } from 'immutable'
 import { getToken, request } from '../../../services/auth/ducks'
 import config from '../../../config'
 
@@ -41,38 +42,32 @@ export const getContent = () => {
 /*
 Reducer
  */
-const initialState = [
+const initialState = fromJS([
   {
     id: 0,
     title: null,
     body: null
   }
-]
+])
 
-const transform = (content) => {
-  const list = []
+const transform = (content, state) => {
   let i
-  let current = {}
+  let current
 
   for (i = 0; i < content.length; i++) {
     current = content[i]
-    list[i] = {
-      id: current['@id'],
-      title: current.title,
-      body: current.body
-    }
+    state = state.setIn([i, 'id'], current['@id'])
+    state = state.setIn([i, 'title'], current.title)
+    state = state.setIn([i, 'body'], current.body)
   }
 
-  return list
+  return state
 }
 
 export default function contentReducer(state = initialState, action) {
   switch (action.type) {
     case CONTENT_RECEIVE:
-      return {
-        ...state,
-        posts: transform(action.content)
-      }
+      return transform(action.content, initialState)
     default:
       return state
   }

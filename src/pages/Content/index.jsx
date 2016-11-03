@@ -10,15 +10,15 @@ class Content extends Component {
   }
 
   renderList() {
-    if (!this.props.content) {
+    if (!this.props.content.getIn([0, 'id'])) {
       return (<p>Aucun contenu</p>)
     }
 
     return this.props.content.map((content) => {
       return (
-        <article key={content.id}>
-          <h2>{content.title}</h2>
-          <div dangerouslySetInnerHTML={{ __html: content.body }} />
+        <article key={content.get('id')}>
+          <h2>{content.get('title')}</h2>
+          <div dangerouslySetInnerHTML={{ __html: content.get('body') }} />
         </article>
       )
     })
@@ -34,7 +34,7 @@ class Content extends Component {
 }
 
 Content.propTypes = {
-  content: React.PropTypes.array,
+  content: React.PropTypes.object,
   getContent: React.PropTypes.func.isRequired
 }
 

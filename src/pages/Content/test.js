@@ -4,6 +4,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import chaiEnzyme from 'chai-enzyme'
 import sinon from 'sinon'
+import { fromJS } from 'immutable'
 
 const expect = chai.expect
 const ContentConnect = rewire("./")
@@ -13,7 +14,7 @@ chai.use(chaiEnzyme())
 
 describe('Content', () => {
   const getContent = sinon.spy()
-  const contentList = [
+  const contentList = fromJS([
     {
       id: 1,
       title: 'title 1',
@@ -24,7 +25,7 @@ describe('Content', () => {
       title: 'title 2',
       body: 'body 2'
     }
-  ]
+  ])
   const enzymeWrapper = shallow(<Content getContent={ getContent } content={ contentList } />)
 
   expect(getContent.calledOnce).to.equal(true)

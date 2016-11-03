@@ -5,10 +5,10 @@ class ProList extends Component {
   renderList() {
     return this.props.pros.map((pro) => {
       return (
-        <li key={pro.id}>
+        <li key={pro.get('id')}>
           <ul>
-            <li>Name: {pro.name}</li>
-            <li>Trade: {pro.trade}</li>
+            <li>Name: {pro.get('name')}</li>
+            <li>Trade: {pro.get('trade')}</li>
           </ul><br />
         </li>
       )
@@ -16,7 +16,7 @@ class ProList extends Component {
   }
 
   render() {
-    if (!this.props.pros[0].id) {
+    if (!this.props.pros.getIn([0, 'id'])) {
       return null
     }
 
@@ -31,7 +31,7 @@ class ProList extends Component {
 }
 
 ProList.propTypes = {
-  pros: React.PropTypes.array
+  pros: React.PropTypes.object
 }
 
 function mapStateToProps(state) {

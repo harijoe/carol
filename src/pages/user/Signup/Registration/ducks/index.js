@@ -1,3 +1,4 @@
+import { fromJS } from 'immutable'
 import { getToken, request } from '../../../../../services/auth/ducks'
 import config from '../../../../../config'
 
@@ -53,9 +54,16 @@ export const postSignup = (data) => {
 /*
 Reducer
  */
-const initialState = {
+const initialState = fromJS({
   status: 0,
   error: null
+})
+
+const transform = (data, state) => {
+  state = state.set('status', data.status || null)
+  state = state.set('error', data.error || null)
+
+  return state
 }
 
 const signupReducer = (state = initialState, action) => {
@@ -64,16 +72,12 @@ const signupReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case SIGNUP_SUCCESS:
-      return {
-        ...state,
-        status: action.response.status
-      }
+      return transform({ status: action.response.status }, state)
     case SIGNUP_ERROR:
-      return {
-        ...state,
-        status: action.response.status,
-        error: (response.data.error_description) ? response.data.error_description : response.data['hydra:description']
-      }
+      return transform({
+        status: response.status,
+        error: response.data.error_description ? response.data.error_description : response.data['hydra:description']
+      }, state)
     default:
       return state
   }

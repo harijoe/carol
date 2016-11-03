@@ -1,5 +1,9 @@
-const expect = require('chai').expect
+import chai, { expect } from 'chai'
+import chaiJsonEqual from 'chai-json-equal'
+import { fromJS } from 'immutable'
 import signupReducer from './'
+
+chai.use(chaiJsonEqual)
 
 describe('signupReducer', function() {
   const actionSignupSuccess = {
@@ -18,20 +22,25 @@ describe('signupReducer', function() {
       }
     }
   }
-  const initialState = {
+  const initialState = fromJS({
     status: 0,
     error: null
-  }
+  })
 
-  context('state = null and action.type = SIGNUP_SUCCESS', function() {
-    it('should be an object!', function() {
-      expect(signupReducer(initialState, actionSignupSuccess)).to.eql({ status: 400, error: null })
+  context('state = initialState and action.type = SIGNUP_SUCCESS', function() {
+    it('should be an with the status 400', function() {
+      expect(signupReducer(initialState, actionSignupSuccess)).to.jsonEqual(initialState.set('status', 400))
     })
   })
 
-  context('state = null and action.type = SIGNUP_ERROR', function() {
-    it('should be an object!', function() {
-      expect(signupReducer(initialState, actionSignupError)).to.eql({status: 404, error: 'Une erreur s\'est produite, merci de réessayer plus tard'})
+  context('state = initialState and action.type = SIGNUP_ERROR', function() {
+    const expected = fromJS({
+      status: 404,
+      error: 'Une erreur s\'est produite, merci de réessayer plus tard'
+    })
+
+    it('should be an object with status 404 and the right error sentence', function() {
+      expect(signupReducer(initialState, actionSignupError)).to.jsonEqual(expected)
     })
   })
 })

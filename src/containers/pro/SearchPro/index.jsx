@@ -18,7 +18,7 @@ class SearchPro extends Component {
   }
 
   onClickSearchPro() {
-    console.log(this.props.searchPro(this.state.searchProValue))
+    this.props.searchPro(this.state.searchProValue)
   }
 
   handleChange(event) {

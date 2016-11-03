@@ -17,7 +17,7 @@ class Signup extends Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.state = {
-      error: '',
+      error: null,
       email: '',
       password: '',
       confirmPassword: '',
@@ -25,25 +25,17 @@ class Signup extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.auth.get('error')) {
-      this.setState({
-        error: nextProps.auth.get('error')
-      })
-    }
-
-    if (nextProps.signup && nextProps.signup.error) {
-      this.setState({
-        error: nextProps.signup.error
-      })
-    }
+  setError(error = null) {
+    this.setState({
+      error
+    })
   }
 
   handleSubmit() {
+    this.setError()
+
     if (this.state.password !== this.state.confirmPassword) {
-      return this.setState({
-        error: 'Passwords do not match'
-      })
+      return this.setError('Passwords do not match')
     }
 
     return this.props.submit({
@@ -120,6 +112,8 @@ class Signup extends Component {
       <div>
         <Form onSubmit={this.handleSubmit}>
           <div className="error">
+            { this.props.auth.get('error') } <br />
+            { this.props.signup.get('error') } <br />
             { this.state.error }
           </div>
           <div className="form-group">
@@ -160,9 +154,7 @@ class Signup extends Component {
 }
 
 Signup.propTypes = {
-  signup: React.PropTypes.shape({
-    error: React.PropTypes.string
-  }),
+  signup: React.PropTypes.object,
   auth: React.PropTypes.object,
   submit: React.PropTypes.func
 }
