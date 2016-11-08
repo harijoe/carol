@@ -1,43 +1,48 @@
 import { fromJS } from 'immutable'
+import { call } from 'redux-saga/effects'
+import { takeLatest } from 'redux-saga'
+import actionTypes, { createRequestTypes, fetchEntity, initialAction } from '../../../services/actions'
 import config from '../../../config'
-import { request, getToken } from '../../../services/auth/ducks'
 
 /*
 Const and Type
  */
-const PRO_LIST =  'PRO_LIST'
-const PRO_LIST_FAIL = 'PRO_LIST_FAIL'
 
-const receiveListPro = (pros) => {
-  return {
-    type: PRO_LIST,
-    pros
-  }
-}
+/** global: PRO */
+const PRO = createRequestTypes('PRO_LIST')
 
-const receiveListProFAIL = () => {
-  return {
-    type: PRO_LIST_FAIL
-  }
+const getProActions = () => {
+  return initialAction
+    .set('request', (value) => {
+      return actionTypes(PRO.REQUEST, { value })
+    })
+    .set('success', (pros) => {
+      return actionTypes(PRO.SUCCESS, { pros })
+    })
+    .set('failure', () => {
+      return actionTypes(PRO.FAILURE)
+    })
 }
 
 /*
 Actions
  */
-export const searchPro = (trade) => {
-  return (dispatch) => {
-    return getToken('client_credentials').then((token) => {
-      const tradeQueryParam = trade ? `trade=${trade}` : ''
 
-      return request(`${config.apiUrl}/companies?${tradeQueryParam}`, 'GET', token)
-    })
-      .then((response) => {
-        dispatch(receiveListPro(response.data['hydra:member']))
-      })
-      .catch(() => {
-        dispatch(receiveListProFAIL())
-      })
-  }
+export const fetchPro = fetchEntity.bind(null, getProActions(), 'client_credentials')
+
+export function* loadPro({ value }) {
+  const tradeQueryParam = value ? `trade=${value}` : ''
+  const url = `${config.apiUrl}/companies?${tradeQueryParam}`
+
+  yield call(fetchPro, value, url)
+}
+
+export const loadProSearch = (value) => {
+  return actionTypes(PRO.FETCH, { value })
+}
+
+export function* watchFetchPro() {
+  yield takeLatest(PRO.FETCH, loadPro)
 }
 
 /*
@@ -49,9 +54,10 @@ const transformPros = (pros, state) => {
 
   for (i = 0; i < pros.length; i++) {
     proCurrent = pros[i]
-    state = state.setIn([i, 'id'], proCurrent['@id'])
-    state = state.setIn([i, 'name'], proCurrent.name)
-    state = state.setIn([i, 'trade'], proCurrent.trade)
+    state = state
+      .setIn([i, 'id'], proCurrent['@id'])
+      .setIn([i, 'name'], proCurrent.name)
+      .setIn([i, 'trade'], proCurrent.trade)
   }
 
   return state
@@ -63,13 +69,15 @@ const initialState = fromJS([{
   trade: null
 }])
 
-export default function reducerPros(state = initialState, action) {
+const reducerPros = (state = initialState, action) => {
   const pros = action.pros
 
   switch (action.type) {
-    case PRO_LIST:
+    case PRO.SUCCESS:
       return transformPros(pros, initialState)
     default:
       return state
   }
 }
+
+export default reducerPros

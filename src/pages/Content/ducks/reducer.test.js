@@ -15,7 +15,7 @@ describe('contentReducer', () => {
   ])
   context('state = initialState and action.type = null', function() {
     it('should be initialState!', function() {
-      expect(contentReducer(initialState, 'non existing type')).to.jsonEqual(initialState);
+      expect(contentReducer(initialState, 'non existing type')).to.jsonEqual(initialState)
     })
   })
 
@@ -26,7 +26,7 @@ describe('contentReducer', () => {
         content: []
       }
 
-      expect(contentReducer(initialState, action)).to.jsonEqual(initialState);
+      expect(contentReducer(initialState, action)).to.jsonEqual(initialState)
     })
   })
 
@@ -49,18 +49,19 @@ describe('contentReducer', () => {
       }
 
       const expected = fromJS([
-          {
-            id: 1,
-            title: 'post title 1',
-            body: 'post body 1'
-          },
-          {
-            id: 2,
-            title: 'post title 2',
-            body: 'post body 2'
-          }
-        ])
-      expect(contentReducer(initialState, action)).to.jsonEqual(expected);
+        {
+          id: 1,
+          title: 'post title 1',
+          body: 'post body 1'
+        },
+        {
+          id: 2,
+          title: 'post title 2',
+          body: 'post body 2'
+        }
+      ])
+
+      expect(contentReducer(initialState, action)).to.jsonEqual(expected)
     })
   })
 })

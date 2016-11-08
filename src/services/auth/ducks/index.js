@@ -2,13 +2,25 @@ import { fromJS } from 'immutable'
 import axios from 'axios'
 import config from '../../../config'
 
+/** global: localStorage */
+
 /*
 Const
  */
+
+/** global: LOGIN_BAD_REQUEST */
 export const LOGIN_BAD_REQUEST = 'LOGIN_BAD_REQUEST'
+
+/** global: LOGIN_ERROR */
 export const LOGIN_ERROR = 'LOGIN_ERROR'
+
+/** global: TOKEN_ERROR */
 export const TOKEN_ERROR = 'TOKEN_ERROR'
+
+/** global: USER_LOGOUT */
 const USER_LOGOUT = 'USER_LOGOUT'
+
+/** global: AUTH_TOKEN */
 const AUTH_TOKEN = 'AUTH_TOKEN'
 
 /*
@@ -118,6 +130,16 @@ export const getToken = (grantType, dispatch, credentials = null) => {
   })
 }
 
+export const getTokenSaga = (grantType, dispatch, credentials = null) => {
+  const token = localStorage.getItem('access_token')
+
+  if (!credentials && token) {
+    return token
+  }
+
+  return getNewToken(grantType, dispatch, credentials)
+}
+
 export const login = (credentials) => {
   return (dispatch) => {
     return getToken('password', dispatch, credentials)
@@ -149,9 +171,6 @@ const transform = (data, state) => {
   return state
 }
 
-/*
-Reducer
- */
 const reducerAuth = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_BAD_REQUEST:

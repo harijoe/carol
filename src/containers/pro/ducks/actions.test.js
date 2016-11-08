@@ -1,58 +1,20 @@
-import nock from 'nock'
-import thunk from 'redux-thunk'
-import configureMockStore from 'redux-mock-store'
 import chai from 'chai'
 import chaiJsonEqual from 'chai-json-equal'
-import { searchPro } from './'
+import { call } from 'redux-saga/effects'
+import { take } from 'redux-saga'
+import { loadPro, fetchPro, loadProSearch } from './'
 
 const expect = chai.expect
-const middlewares = [thunk]
-const mockStore = configureMockStore(middlewares)
 
 chai.use(chaiJsonEqual)
 
-afterEach(() => {
-  nock.cleanAll()
+it('loadPro()', () => {
+  const gen = loadPro({ value: 'test' })
+
+  expect(gen.next().value).to.be.jsonEqual(call(fetchPro, 'test', 'http://localhost/app_dev.php/companies?trade=test'))
+  expect(gen.next()).to.be.jsonEqual({ done: true, value: undefined })
 })
 
-it('dispatch PRO_LIST with a good credential', () => {
-  const username = 'myname'
-  const jsonResponse = {
-    'hydra:member': username
-  }
-
-  nock('http://localhost/app_dev.php')
-    .get('/companies?trade=kitchen')
-    .reply(200, jsonResponse)
-
-  const expectedActions = [
-    {
-      type: 'PRO_LIST',
-      pros: username
-    },
-  ]
-  const store = mockStore()
-
-  return store.dispatch(searchPro('kitchen'))
-    .then(() => {
-      expect(store.getActions()).to.jsonEqual(expectedActions)
-    })
-})
-
-it('dispatch PRO_LIST_FAIL if the api return an error', () => {
-  nock('http://localhost/app_dev.php')
-    .get('/companies?trade=kitchen&access_token=null')
-    .reply(400)
-
-  const expectedActions = [
-    {
-      type: 'PRO_LIST_FAIL'
-    },
-  ]
-  const store = mockStore()
-
-  return store.dispatch(searchPro('kitchen'))
-    .then(() => {
-      expect(store.getActions()).to.jsonEqual(expectedActions)
-    })
+it('loadProSearch()', () => {
+  expect(loadProSearch('test')).to.be.jsonEqual({ type: 'PRO_LIST_FETCH', value: 'test' })
 })

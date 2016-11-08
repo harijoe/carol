@@ -31,10 +31,10 @@ describe('prosReducer', function() {
     })
   })
 
-  context('state = null and action.type = PRO_LIST and a list of pros returned', function() {
+  context('state = initialState and action.type = PRO_LIST_SUCCESS and a list of pros returned', function() {
     it('should be an object!', function() {
       const action = {
-        type: 'PRO_LIST',
+        type: 'PRO_LIST_SUCCESS',
         pros: [
           {
             '@id': 1,

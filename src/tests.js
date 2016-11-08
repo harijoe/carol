@@ -1,25 +1,27 @@
+import 'babel-polyfill'
+
 describe('actions', () => {
   describe('user', () => {
     describe('login', () => {
-      require('./services/auth/ducks/actions.test.js')
+      require('./services/auth/ducks/actions.test')
     })
     describe('profile', () => {
-      require('./pages/user/Profile/ducks/actions.test.js')
+      require('./pages/user/Profile/ducks/actions.test')
     })
     describe('signup', () => {
-      require('./pages/user/Signup/Registration/ducks/actions.test.js')
+      require('./pages/user/Signup/Registration/ducks/actions.test')
     })
   })
   describe('pro', () => {
     describe('searchPro', () => {
-      require('./containers/pro/ducks/actions.test.js')
+      require('./containers/pro/ducks/actions.test')
     })
   })
   describe('content', () => {
-    require('./pages/Content/ducks/actions.test.js')
+    require('./pages/Content/ducks/actions.test')
   })
   describe('country reducer', () => {
-    require('./containers/Country/ducks/reducer.test.js')
+    require('./containers/Country/ducks/reducer.test')
   })
   describe('country', () => {
     require('./containers/Country/test')
@@ -72,20 +74,24 @@ describe('containers', () => {
   })
 })
 
+describe('services', () => {
+  require('./services/actions/test')
+})
+
 describe('reducer', () => {
-  require('./services/auth/ducks/reducer.test.js')
+  require('./services/auth/ducks/reducer.test')
   describe('content', () => {
-    require('./pages/Content/ducks/reducer.test.js')
+    require('./pages/Content/ducks/reducer.test')
   })
   describe('pro', () => {
-    require('./containers/pro/ducks/reducer.test.js')
+    require('./containers/pro/ducks/reducer.test')
   })
   describe('user', () => {
-    require('./pages/user/Profile/ducks/reducer.test.js')
-    require('./pages/user/Signup/Registration/ducks/reducer.test.js')
+    require('./pages/user/Profile/ducks/reducer.test')
+    require('./pages/user/Signup/Registration/ducks/reducer.test')
   })
   describe('country', () => {
-    require('./containers/Country/ducks/reducer.test.js')
+    require('./containers/Country/ducks/reducer.test')
   })
 })
 

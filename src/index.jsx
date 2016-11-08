@@ -7,8 +7,9 @@ import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import promise from 'redux-promise'
 import createLogger from 'redux-logger'
-import allReducers from './reducers'
+import createSagaMiddleware from 'redux-saga'
 
+import allReducers from './reducers'
 import Layout from './pages/Layout'
 import Home from './pages/Home'
 import Profile from './pages/user/Profile'
@@ -21,13 +22,23 @@ import SearchSite from './pages/SearchSite'
 import Help from './pages/Help'
 import Message from './pages/user/Message'
 import Project from './pages/user/Project'
+import rootSaga from './sagas'
 
 const logger = createLogger()
+const sagaMiddleware = createSagaMiddleware()
 const store = createStore(
   allReducers,
-  applyMiddleware(thunk, promise, logger, routerMiddleware(browserHistory))
+  applyMiddleware(
+    thunk,
+    promise,
+    logger,
+    routerMiddleware(browserHistory),
+    sagaMiddleware
+  )
 )
 const history = syncHistoryWithStore(browserHistory, store)
+
+sagaMiddleware.run(rootSaga)
 
 ReactDOM.render(
   <Provider store={store}>
