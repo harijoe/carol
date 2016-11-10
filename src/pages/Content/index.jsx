@@ -40,7 +40,7 @@ Content.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    content: state.content.posts
+    content: state.content
   }
 }
 

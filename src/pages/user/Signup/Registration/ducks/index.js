@@ -29,14 +29,7 @@ export const postSignup = (data) => {
   return (dispatch) => {
     return getToken('client_credentials')
       .then((token) => {
-        const postData = {
-          username: data.email,
-          email: data.email,
-          password: data.password,
-          phone: data.phone
-        }
-
-        return request(`${config.apiUrl}/users`, 'POST', token, postData)
+        return request(`${config.apiUrl}/users`, 'POST', token, data)
       })
       .then((response) => {
         dispatch(receiveSuccess(response))

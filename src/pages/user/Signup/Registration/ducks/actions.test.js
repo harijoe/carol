@@ -16,7 +16,11 @@ const postData = {
   username: 'test@mail.com',
   email: 'test@mail.com',
   password: 'test',
-  phone: '0123456789'
+  gender: 'Mr',
+  firstName: 'test_prenom',
+  lastName: 'test_nom',
+  mobilePhone: '0623456789',
+  zipCode: '92210'
 }
 
 chai.use(chaiJsonEqual)
@@ -35,6 +39,7 @@ it('receiveSuccess', () => {
 })
 
 it('send data to API', () => {
+  localStorage.setItem('access_token', 'jkhghfdxfgv54545')
   nock('http://localhost/app_dev.php')
     .post('/users', postData)
     .reply(201)

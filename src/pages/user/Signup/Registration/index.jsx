@@ -4,9 +4,12 @@ import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { postSignup } from './ducks'
 import Form from '../../../../ui/form/Form'
+import InputText from '../../../../ui/form/input/Text'
+import InputRadio from '../../../../ui/form/input/Radio'
 import InputEmail from '../../../../ui/form/input/Email'
 import InputPassword from '../../../../ui/form/input/Password'
 import InputPhone from '../../../../ui/form/input/Phone'
+import InputPostal from '../../../../ui/form/input/Postal'
 import Button from '../../../../ui/form/input/Button'
 import './signup.scss'
 
@@ -21,7 +24,11 @@ class Signup extends Component {
       email: '',
       password: '',
       confirmPassword: '',
-      phone: ''
+      gender: '',
+      firstName: '',
+      lastName: '',
+      mobilePhone: '',
+      zipCode: ''
     }
   }
 
@@ -39,14 +46,19 @@ class Signup extends Component {
     }
 
     return this.props.submit({
+      username: this.state.email,
       email: this.state.email,
       password: this.state.password,
-      phone: this.state.phone
+      gender: this.state.gender,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      mobilePhone: this.state.mobilePhone,
+      zipCode: this.state.zipCode
     })
   }
 
   handleChange(e) {
-    switch (e.target.id) {
+    switch (e.target.name) {
       case 'email':
         this.setState({
           email: e.target.value
@@ -65,9 +77,33 @@ class Signup extends Component {
         })
 
         break
-      case 'phone':
+      case 'gender':
         this.setState({
-          phone: e.target.value
+          gender: e.target.value
+        })
+
+        break
+      case 'firstName':
+        this.setState({
+          firstName: e.target.value
+        })
+
+        break
+      case 'lastName':
+        this.setState({
+          lastName: e.target.value
+        })
+
+        break
+      case 'mobilePhone':
+        this.setState({
+          mobilePhone: e.target.value
+        })
+
+        break
+      case 'zipCode':
+        this.setState({
+          zipCode: e.target.value
         })
 
         break
@@ -101,11 +137,52 @@ class Signup extends Component {
       required: 'required'
     }
 
+    const attrGender1 = {
+      className: 'gender',
+      id: 'gender1',
+      placeholder: 'Gender',
+      name: 'gender',
+      required: 'required'
+    }
+
+    const attrGender2 = {
+      className: 'gender',
+      id: 'gender2',
+      placeholder: 'Gender',
+      name: 'gender',
+      required: 'required'
+    }
+
+    const attrFirstName = {
+      className: 'firstName',
+      id: 'firstName',
+      placeholder: 'First name',
+      name: 'firstName',
+      required: 'required'
+    }
+
+    const attrLastName = {
+      className: 'lastName',
+      id: 'lastName',
+      placeholder: 'Last name',
+      name: 'lastName',
+      required: 'required'
+    }
+
     const attrPhone = {
-      className: 'phone',
-      id: 'phone',
-      placeholder: 'Phone number',
-      name: 'phone'
+      className: 'mobilePhone',
+      id: 'mobilePhone',
+      placeholder: 'Mobile phone number',
+      name: 'mobilePhone',
+      required: 'required'
+    }
+
+    const attrPostalcode = {
+      className: 'zipCode',
+      id: 'zipCode',
+      placeholder: 'Postal code',
+      name: 'zipCode',
+      required: 'required'
     }
 
     return (
@@ -119,8 +196,8 @@ class Signup extends Component {
           <div className="form-group">
             <InputEmail
               attr={attrEmail}
-              onChange={this.handleChange}
               value={this.state.email}
+              onChange={this.handleChange}
             />
           </div>
           <div className="form-group">
@@ -138,12 +215,48 @@ class Signup extends Component {
             />
           </div>
           <div className="form-group">
-            <InputPhone
-              attr={attrPhone}
+            <InputRadio
+              attr={attrGender1}
+              value="Mr"
               onChange={this.handleChange}
-              value={this.state.phone}
+            />
+            Mr
+            <InputRadio
+              attr={attrGender2}
+              value="Mrs"
+              onChange={this.handleChange}
+            />
+            Mrs
+          </div>
+          <div className="form-group">
+            <InputText
+              attr={attrFirstName}
+              value={this.state.firstName}
+              onChange={this.handleChange}
             />
           </div>
+          <div className="form-group">
+            <InputText
+              attr={attrLastName}
+              value={this.state.lastName}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <InputPhone
+              attr={attrPhone}
+              value={this.state.mobilePhone}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <InputPostal
+              attr={attrPostalcode}
+              value={this.state.zipCode}
+              onChange={this.handleChange}
+            />
+          </div>
+
           <div className="form-group">
             <Button type="submit" value="Signup" />
           </div>
@@ -167,16 +280,18 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ submit: (data) => {
-    return () => {
-      dispatch(postSignup(data))
-        .then((response) => {
-          if (response && 201 === response.status) {
-            dispatch(push('/signup-confirmation'))
-          }
-        })
+  return bindActionCreators({
+    submit: (data) => {
+      return () => {
+        dispatch(postSignup(data))
+          .then((response) => {
+            if (response && 201 === response.status) {
+              dispatch(push('/signup-confirmation'))
+            }
+          })
+      }
     }
-  } }, dispatch)
+  }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signup)
