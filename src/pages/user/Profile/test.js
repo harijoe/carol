@@ -28,30 +28,95 @@ describe('<Profile />', () => {
   })
 
   it('should have two inputs', () => {
-    expect(enzymeWrapper.find('Form InputPhone')).to.have.length(1)
+    expect(enzymeWrapper.find('Form InputPhone')).to.have.length(2)
+  })
+
+  it('should have two inputs', () => {
+    expect(enzymeWrapper.find('Form InputText')).to.have.length(3)
+  })
+
+  it('should have two inputs', () => {
+    expect(enzymeWrapper.find('Form InputRadio')).to.have.length(2)
+  })
+
+  it('should have two inputs', () => {
+    expect(enzymeWrapper.find('Form InputPostal')).to.have.length(1)
   })
 
   it('should have one button', () => {
     expect(enzymeWrapper.find('Form Button')).to.have.length(1)
   })
 
+  it('Radio input has the right attr', () => {
+    const attr = enzymeWrapper.find('Form').find('InputRadio').get(0).props.attr
+
+    expect(attr.className).to.be.equal('gender')
+    expect(attr.placeholder).to.be.equal('Gender')
+    expect(attr.id).to.be.equal('gender1')
+    expect(attr.name).to.be.equal('gender')
+  })
+
+  it('Radio input has the right attr', () => {
+    const attr = enzymeWrapper.find('Form').find('InputRadio').get(1).props.attr
+
+    expect(attr.className).to.be.equal('gender')
+    expect(attr.placeholder).to.be.equal('Gender')
+    expect(attr.id).to.be.equal('gender2')
+    expect(attr.name).to.be.equal('gender')
+  })
+
+  it('Text input has the right attr', () => {
+    const attr = enzymeWrapper.find('Form').find('InputText').get(0).props.attr
+
+    expect(attr.className).to.be.equal('firstName')
+    expect(attr.placeholder).to.be.equal('First name')
+    expect(attr.id).to.be.equal('firstName')
+    expect(attr.name).to.be.equal('firstName')
+  })
+
+  it('Text input has the right attr', () => {
+    const attr = enzymeWrapper.find('Form').find('InputText').get(1).props.attr
+
+    expect(attr.className).to.be.equal('lastName')
+    expect(attr.placeholder).to.be.equal('Last name')
+    expect(attr.id).to.be.equal('lastName')
+    expect(attr.name).to.be.equal('lastName')
+  })
+
   it('Phone input has the right attr', () => {
     const attr = enzymeWrapper.find('Form').find('InputPhone').get(0).props.attr
 
-    expect(attr.className).to.be.equal('phone')
-    expect(attr.placeholder).to.be.equal('Phone')
-    expect(attr.id).to.be.equal('phone')
-    expect(attr.name).to.be.equal('phone')
-    expect(enzymeWrapper.find('Form').find('InputPhone').get(0).props.value).to.be.equal('0606060606')
+    expect(attr.className).to.be.equal('mobilePhone')
+    expect(attr.placeholder).to.be.equal('Mobile phone number')
+    expect(attr.id).to.be.equal('mobilePhone')
+    expect(attr.name).to.be.equal('mobilePhone')
   })
 
-  it('email state should be equal to my@email.com', () => {
-    expect(enzymeWrapper.state('phone')).to.be.equal('0606060606')
+  it('Phone input has the right attr', () => {
+    const attr = enzymeWrapper.find('Form').find('InputPhone').get(1).props.attr
+
+    expect(attr.className).to.be.equal('fixedPhone')
+    expect(attr.placeholder).to.be.equal('Fixed phone number')
+    expect(attr.id).to.be.equal('fixedPhone')
+    expect(attr.name).to.be.equal('fixedPhone')
   })
 
-  it('simulate change phone', () => {
-    enzymeWrapper.find('Form').find('InputPhone').at(0).simulate('change', {target: { value: '0101010101', id: 'phone' }})
-    expect(enzymeWrapper.state('phone')).to.be.equal('0101010101')
+  it('Text input has the right attr', () => {
+    const attr = enzymeWrapper.find('Form').find('InputText').get(2).props.attr
+
+    expect(attr.className).to.be.equal('address')
+    expect(attr.placeholder).to.be.equal('Address')
+    expect(attr.id).to.be.equal('address')
+    expect(attr.name).to.be.equal('address')
+  })
+
+  it('Postal input has the right attr', () => {
+    const attr = enzymeWrapper.find('Form').find('InputPostal').get(0).props.attr
+
+    expect(attr.className).to.be.equal('zipCode')
+    expect(attr.placeholder).to.be.equal('Postal code')
+    expect(attr.id).to.be.equal('zipCode')
+    expect(attr.name).to.be.equal('zipCode')
   })
 
   it('simulates click events', () => {
