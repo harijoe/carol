@@ -70,7 +70,7 @@ const initialState = fromJS({
   id: null,
   gender: '',
   firstName: '',
-  lastName:'',
+  lastName: '',
   mobilePhone: '',
   fixedPhone: '',
   address: '',

@@ -17,10 +17,9 @@ class Profile extends Component {
     this.onSubmit = this.onSubmit.bind(this)
     this.checkAccess = this.checkAccess.bind(this)
     this.state = {
-      gender1: 'Mr',
-      gender2: 'Mrs',
+      gender: '',
       firstName: '',
-      lastName:'',
+      lastName: '',
       mobilePhone: '',
       fixedPhone: '',
       address: '',
@@ -172,16 +171,14 @@ class Profile extends Component {
       className: 'fixedPhone',
       id: 'fixedPhone',
       placeholder: 'Fixed phone number',
-      name: 'fixedPhone',
-      required: 'required'
+      name: 'fixedPhone'
     }
 
     const attrAddress = {
       className: 'address',
       id: 'address',
       placeholder: 'Address',
-      name: 'address',
-      required: 'required'
+      name: 'address'
     }
 
     const attrZipCode = {
@@ -197,19 +194,20 @@ class Profile extends Component {
         <Form onSubmit={this.onSubmit}>
           <div className="error">
             { this.props.auth.get('error') } <br />
-            { this.props.profile.get('error') } <br />
             { this.state.error }
           </div>
           <div className="form-group">
             <InputRadio
               attr={attrGender1}
-              value={this.state.gender1}
+              value="Mr"
+              checked={this.state.gender === 'Mrs'}
               onChange={this.handleChange}
             />
             Mr
             <InputRadio
               attr={attrGender2}
-              value={this.state.gender2}
+              value="Mrs"
+              checked={this.state.gender === 'Mrs'}
               onChange={this.handleChange}
             />
             Mrs
