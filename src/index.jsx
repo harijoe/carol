@@ -23,6 +23,10 @@ import Help from './pages/Help'
 import Message from './pages/user/Message'
 import Project from './pages/user/Project'
 import rootSaga from './sagas'
+import ForgotPassword from './pages/user/ForgotPassword'
+import ResetPassword from './pages/user/ResetPassword'
+import ForgotPasswordConfirmation from './pages/user/ForgotPasswordConfirmation'
+import ResetPasswordConfirmation from './pages/user/ResetPasswordConfirmation'
 
 const logger = createLogger()
 const sagaMiddleware = createSagaMiddleware()
@@ -55,6 +59,10 @@ ReactDOM.render(
         <Route path="signup-confirmation" component={SignupConfirmation} />
         <Route path="message" component={Message} />
         <Route path="project" component={Project} />
+        <Route path="forgot-password" component={ForgotPassword} />
+        <Route path="forgot-password-confirmation" component={ForgotPasswordConfirmation} />
+        <Route path="reset-password" component={ResetPassword} />
+        <Route path="reset-password-confirmation" component={ResetPasswordConfirmation} />
       </Route>
     </Router>
   </Provider>,

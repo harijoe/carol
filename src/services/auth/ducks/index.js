@@ -1,30 +1,11 @@
-import { fromJS } from 'immutable'
 import axios from 'axios'
 import config from '../../../config'
+import { LOGIN_BAD_REQUEST, LOGIN_ERROR, TOKEN_ERROR, USER_LOGOUT, AUTH_TOKEN } from './actionTypes'
 
 /** global: localStorage */
 
 /*
-Const
- */
-
-/** global: LOGIN_BAD_REQUEST */
-export const LOGIN_BAD_REQUEST = 'LOGIN_BAD_REQUEST'
-
-/** global: LOGIN_ERROR */
-export const LOGIN_ERROR = 'LOGIN_ERROR'
-
-/** global: TOKEN_ERROR */
-export const TOKEN_ERROR = 'TOKEN_ERROR'
-
-/** global: USER_LOGOUT */
-const USER_LOGOUT = 'USER_LOGOUT'
-
-/** global: AUTH_TOKEN */
-const AUTH_TOKEN = 'AUTH_TOKEN'
-
-/*
-Actions
+ Actions
  */
 const receiveBadRequest = () => {
   return {
@@ -61,18 +42,22 @@ export const saveTokens = ({ access_token, refresh_token }) => {
   localStorage.setItem('refresh_token', refresh_token)
 }
 
-export const request = (url, method, accessToken = null, data = null) => {
+/** global initHeader */
+const initHeader = {
+  Accept: 'application/ld+json'
+}
+
+export const request = (url, method, accessToken = null, data = null, localeHeader = null) => {
   const headers = () => {
     if (accessToken) {
-      return {
-        Accept: 'application/ld+json',
-        Authorization: `Bearer ${accessToken}`
-      }
+      initHeader.Authorization = `Bearer ${accessToken}`
     }
 
-    return {
-      Accept: 'application/ld+json'
+    if (localeHeader) {
+      initHeader['X-LOCALE'] =  localeHeader
     }
+
+    return initHeader
   }
 
   return axios({
@@ -154,42 +139,3 @@ export function logout() {
     type: USER_LOGOUT
   }
 }
-
-/**
- * Reducer
-  */
-
-const initialState = fromJS({
-  grantType: null,
-  error: null
-})
-
-const transform = (data, state) => {
-  state = state.set('grantType', data.grantType || null)
-  state = state.set('error', data.error || null)
-
-  return state
-}
-
-const reducerAuth = (state = initialState, action) => {
-  switch (action.type) {
-    case LOGIN_BAD_REQUEST:
-      return transform({
-        error: 'Votre login et/ou mot de passe sont invalides'
-      }, state)
-    case LOGIN_ERROR:
-      return transform({
-        error: 'Une erreur s\'est produite, merci de réessayer plus tard'
-      }, state)
-    case USER_LOGOUT:
-      return initialState
-    case AUTH_TOKEN:
-      return transform({
-        grantType: action.grantType
-      }, state)
-    default:
-      return state
-  }
-}
-
-export default reducerAuth

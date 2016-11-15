@@ -1,4 +1,4 @@
-import reducerUsers from './'
+import reducerUsers from './reducer'
 import { fromJS } from 'immutable'
 import chaiJsonEqual from 'chai-json-equal'
 import chai, { expect } from 'chai'
