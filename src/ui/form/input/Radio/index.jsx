@@ -15,6 +15,7 @@ export default class InputRadio extends Component {
         {...this.props.attr}
         type="radio"
         value={this.props.value}
+        checked={this.props.checked}
         onChange={this.props.onChange}
       />
     )
@@ -29,5 +30,6 @@ InputRadio.propTypes = {
     name: React.PropTypes.string.isRequired
   }).isRequired,
   value: React.PropTypes.string.isRequired,
+  checked: React.PropTypes.bool.isRequired,
   onChange: React.PropTypes.func.isRequired
 }

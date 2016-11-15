@@ -200,14 +200,14 @@ class Profile extends Component {
             <InputRadio
               attr={attrGender1}
               value="Mr"
-              checked={this.state.gender === 'Mrs'}
+              checked={'Mr' === this.state.gender}
               onChange={this.handleChange}
             />
             Mr
             <InputRadio
               attr={attrGender2}
               value="Mrs"
-              checked={this.state.gender === 'Mrs'}
+              checked={'Mrs' === this.state.gender}
               onChange={this.handleChange}
             />
             Mrs
