@@ -36,13 +36,25 @@ it('dispatch USER_UNAUTHORIZED', () => {
 })
 
 it('dispatch USER_INFO', () => {
-  const username = 'myname'
-  const phone ='0606060606'
-  const email ='mon@email.com'
+  const username ='test@email.com'
+  const email ='test@email.com'
+  const gender ='Mr'
+  const firstName ='test_firstName'
+  const lastName ='test_lastName'
+  const mobilePhone ='+33612345678'
+  const fixedPhone =''
+  const address ='1 rue de test'
+  const zipCode ='75001'
   const jsonResponse = {
-    email,
     username,
-    phone
+    email,
+    gender,
+    firstName,
+    lastName,
+    mobilePhone,
+    fixedPhone,
+    address,
+    zipCode
   }
 
   localStorage.setItem('access_token', 'jkhghfdxfgv54545')
@@ -55,9 +67,15 @@ it('dispatch USER_INFO', () => {
     {
       type: 'USER_INFO',
       payload: {
-        email,
         username,
-        phone
+        email,
+        gender,
+        firstName,
+        lastName,
+        mobilePhone,
+        fixedPhone,
+        address,
+        zipCode
       }
     }
   ]
@@ -83,7 +101,7 @@ it('dispatch USER_UNAUTHORIZED after an updating a wrong profile', () => {
   ]
   const store = mockStore()
 
-  return store.dispatch(updateProfile({email: 'my@email.com', username: 'myname'}, `/app_dev.php${id}`))
+  return store.dispatch(updateProfile({email: 'test@email.com', username: 'test@email.com'}, `/app_dev.php${id}`))
     .then(() => {
       expect(store.getActions()).to.jsonEqual(expectedActions)
     })
@@ -103,7 +121,7 @@ it('dispatch USER_UNAUTHORIZED after an updating a wrong profile', () => {
   ]
   const store = mockStore()
 
-  return store.dispatch(updateProfile({email: 'my@email.com', username: 'myname'}, `/app_dev.php${id}`))
+  return store.dispatch(updateProfile({email: 'test@email.com', username: 'test@email.com'}, `/app_dev.php${id}`))
     .then(() => {
       expect(store.getActions()).to.jsonEqual(expectedActions)
     })

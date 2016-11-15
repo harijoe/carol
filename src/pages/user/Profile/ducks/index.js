@@ -3,7 +3,7 @@ import { request, getToken } from '../../../../services/auth/ducks'
 import config from '../../../../config'
 
 /*
-Const
+ Const
  */
 const USER_INFO = 'USER_INFO'
 const USER_LOGOUT = 'USER_LOGOUT'
@@ -11,7 +11,7 @@ const USER_UNAUTHORIZED = 'USER_UNAUTHORIZED'
 const USER_ERROR = 'USER_ERROR'
 
 /*
-Actions
+ Actions
  */
 const receiveUserInfo = (payload) => {
   return {
@@ -64,15 +64,27 @@ export const updateProfile = (data, id) => {
 }
 
 /*
-Reducer
+ Reducer
  */
 const initialState = fromJS({
   id: null,
-  phone: '',
+  gender: '',
+  firstName: '',
+  lastName: '',
+  mobilePhone: '',
+  fixedPhone: '',
+  address: '',
+  zipCode: ''
 })
 
 const transform = (payload, state) => {
-  state = state.set('phone', payload.phone || '')
+  state = state.set('gender', payload.gender || '')
+  state = state.set('firstName', payload.firstName || '')
+  state = state.set('lastName', payload.lastName || '')
+  state = state.set('mobilePhone', payload.mobilePhone || '')
+  state = state.set('fixedPhone', payload.fixedPhone || '')
+  state = state.set('address', payload.address || '')
+  state = state.set('zipCode', payload.zipCode || '')
   state = state.set('id', payload['@id'])
 
   return state
