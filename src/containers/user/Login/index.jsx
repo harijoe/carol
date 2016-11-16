@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import RaisedButton from 'material-ui/RaisedButton'
 import { login } from '../../../services/auth/ducks'
@@ -22,7 +23,7 @@ class Login extends Component {
   }
 
   componentWillMount() {
-    const username = (this.props.location) ? this.props.location.query.username : null
+    const username = this.props.location ? this.props.location.query.username : null
 
     if (username) {
       this.setState({
@@ -32,10 +33,12 @@ class Login extends Component {
   }
 
   onSubmitLogin() {
+    const nextPathname = this.props.location && this.props.location.state ? this.props.location.state.nextPathname : null
+
     this.props.login({
       username: this.state.valueUsername,
       password: this.state.valuePassword
-    })
+    }, nextPathname)
   }
 
   handleChange(event) {
@@ -86,7 +89,7 @@ class Login extends Component {
         />
         <br />
         <RaisedButton type="submit" label="Connexion" />
-        { error }
+        {error}
         <div>
           <Link to="/forgot-password">Mot de passe oublié ?</Link>
         </div>
@@ -112,12 +115,24 @@ Login.propTypes = {
   location: React.PropTypes.object
 }
 
-Login.contextTypes = {
-  router: React.PropTypes.object
-}
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    login: (data, nextPathname) => {
+      return () => {
+        dispatch(login(data))
+          .then((token) => {
+            // Invalid login case? Return
+            if ('object' === typeof token) {
+              return
+            }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ login }, dispatch)
+            if (nextPathname) {
+              dispatch(push(nextPathname))
+            }
+          })
+      }
+    }
+  }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

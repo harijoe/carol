@@ -1,6 +1,10 @@
 import 'babel-polyfill'
+
 describe('containers', () => {
   require('./containers/tests')
+})
+describe('hoc', () => {
+  require('./hoc/tests')
 })
 describe('pages', () => {
   require('./pages/tests')

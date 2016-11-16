@@ -15,7 +15,6 @@ class Profile extends Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
-    this.checkAccess = this.checkAccess.bind(this)
     this.state = {
       gender: '',
       firstName: '',
@@ -28,7 +27,6 @@ class Profile extends Component {
   }
 
   componentWillMount() {
-    this.checkAccess(this.props.auth)
     this.props.getProfile()
 
     const user = this.props.user
@@ -39,7 +37,6 @@ class Profile extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.checkAccess(nextProps.auth)
     this.setFields(nextProps.user)
   }
 
@@ -65,16 +62,6 @@ class Profile extends Component {
       address: data.get('address'),
       zipCode: data.get('zipCode')
     })
-  }
-
-  isLogged(auth) {
-    return 'password' === auth.get('grantType')
-  }
-
-  checkAccess(auth) {
-    if (!this.isLogged(auth)) {
-      this.context.router.push({ pathname: '/login' })
-    }
   }
 
   handleChange(e) {
@@ -193,7 +180,6 @@ class Profile extends Component {
       <div>
         <Form onSubmit={this.onSubmit}>
           <div className="error">
-            { this.props.auth.get('error') } <br />
             { this.state.error }
           </div>
           <div className="form-group">
@@ -267,11 +253,6 @@ Profile.propTypes = {
   getProfile: React.PropTypes.func,
   updateProfile: React.PropTypes.func,
   user: React.PropTypes.object,
-  auth: React.PropTypes.object
-}
-
-Profile.contextTypes = {
-  router: React.PropTypes.object
 }
 
 function mapDispatchToProps(dispatch) {
@@ -284,7 +265,6 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   return {
     user: state.user,
-    auth: state.auth
   }
 }
 

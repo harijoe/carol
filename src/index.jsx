@@ -27,6 +27,8 @@ import ForgotPassword from './pages/user/ForgotPassword'
 import ResetPassword from './pages/user/ResetPassword'
 import ForgotPasswordConfirmation from './pages/user/ForgotPasswordConfirmation'
 import ResetPasswordConfirmation from './pages/user/ResetPasswordConfirmation'
+import anonymousOnly from './hoc/anonymousOnly'
+import requiresAuth from './hoc/requiresAuth'
 
 const logger = createLogger()
 const sagaMiddleware = createSagaMiddleware()
@@ -51,18 +53,21 @@ ReactDOM.render(
         <IndexRoute component={Home} />
         <Route path="content" component={Content} />
         <Route path="help" component={Help} />
-        <Route path="profile" component={Profile} />
         <Route path="search" component={SearchSite} />
         <Route path="search-pro" component={FindAPro} />
-        <Route path="signup" component={Signup} />
-        <Route path="login" component={Login} />
+
+        <Route path="login" component={anonymousOnly(Login)} />
+        <Route path="signup" component={anonymousOnly(Signup)} />
         <Route path="signup-confirmation" component={SignupConfirmation} />
-        <Route path="favorite" component={Favorite} />
-        <Route path="project" component={Project} />
-        <Route path="forgot-password" component={ForgotPassword} />
+
+        <Route path="forgot-password" component={anonymousOnly(ForgotPassword)} />
         <Route path="forgot-password-confirmation" component={ForgotPasswordConfirmation} />
-        <Route path="reset-password" component={ResetPassword} />
+        <Route path="reset-password" component={anonymousOnly(ResetPassword)} />
         <Route path="reset-password-confirmation" component={ResetPasswordConfirmation} />
+
+        <Route path="favorite" component={requiresAuth(Favorite)} />
+        <Route path="project" component={requiresAuth(Project)} />
+        <Route path="profile" component={requiresAuth(Profile)} />
       </Route>
     </Router>
   </Provider>,
