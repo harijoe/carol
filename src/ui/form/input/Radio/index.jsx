@@ -30,6 +30,6 @@ InputRadio.propTypes = {
     name: React.PropTypes.string.isRequired
   }).isRequired,
   value: React.PropTypes.string.isRequired,
-  checked: React.PropTypes.bool.isRequired,
+  checked: React.PropTypes.bool,
   onChange: React.PropTypes.func.isRequired
 }
