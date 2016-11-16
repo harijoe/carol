@@ -20,7 +20,7 @@ import Login from './pages/user/Login'
 import FindAPro from './pages/pro/FindAPro'
 import SearchSite from './pages/SearchSite'
 import Help from './pages/Help'
-import Message from './pages/user/Message'
+import Favorite from './pages/user/Favorite'
 import Project from './pages/user/Project'
 import rootSaga from './sagas'
 import ForgotPassword from './pages/user/ForgotPassword'
@@ -57,7 +57,7 @@ ReactDOM.render(
         <Route path="signup" component={Signup} />
         <Route path="login" component={Login} />
         <Route path="signup-confirmation" component={SignupConfirmation} />
-        <Route path="message" component={Message} />
+        <Route path="favorite" component={Favorite} />
         <Route path="project" component={Project} />
         <Route path="forgot-password" component={ForgotPassword} />
         <Route path="forgot-password-confirmation" component={ForgotPasswordConfirmation} />

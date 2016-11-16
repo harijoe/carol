@@ -32,8 +32,8 @@ describe('user', () => {
     require('./user/ForgotPassword/test')
     require('./user/ForgotPassword/ducks/actions.test')
   })
-  describe('message', () => {
-    require('./user/Message/test')
+  describe('favorite', () => {
+    require('./user/Favorite/test')
   })
   describe('project', () => {
     require('./user/Project/test')

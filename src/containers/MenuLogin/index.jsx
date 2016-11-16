@@ -25,7 +25,7 @@ function MenuLogin(props) {
       <ul>
         <li><Link to="/project">My Projects</Link></li>
         <li><Link to="/profile">My infos</Link></li>
-        <li><Link to="/message">Messaging</Link></li>
+        <li><Link to="/favorite">My favorites</Link></li>
         <li><a onClick={props.logoutAndRedirect}>log out</a></li>
       </ul>
     </Menu>
