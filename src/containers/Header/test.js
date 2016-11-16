@@ -23,15 +23,14 @@ describe('<Header />', () => {
     expect(wrapper.find('header')).to.have.length(1)
   })
 
-  it('should have 7 li', () => {
+  it('should have 6 li', () => {
     const wrapperLi = wrapper.find('header').find('ul li')
 
-    expect(wrapperLi).to.have.length(6)
+    expect(wrapperLi).to.have.length(5)
     expect(wrapperLi.at(0).find('MenuBurger')).to.have.length(1)
     expect(wrapperLi.at(1).find('Link').prop('children')).to.be.equal('Home')
     expect(wrapperLi.at(2).find('Link').prop('children')).to.be.equal('Site search')
-    expect(wrapperLi.at(3).find('Link').prop('children')).to.be.equal('Help')
-    expect(wrapperLi.at(4).find('Connect(MenuLogin)')).to.have.length(1)
-    expect(wrapperLi.at(5).find('Connect(Country)')).to.have.length(1)
+    expect(wrapperLi.at(3).find('Connect(MenuLogin)')).to.have.length(1)
+    expect(wrapperLi.at(4).find('Connect(Country)')).to.have.length(1)
   })
 })

@@ -13,7 +13,6 @@ function Header() {
         <li><MenuBurger /></li>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/search">Site search</Link></li>
-        <li><Link to="/help">Help</Link></li>
         <li><MenuLogin /></li>
         <li><Country /></li>
       </ul>

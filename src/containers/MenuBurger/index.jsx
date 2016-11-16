@@ -10,6 +10,7 @@ export default function MenuBurger () {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/search-pro">Trouver un artisan</Link></li>
         <li><Link to="*">Ressources pour mes travaux</Link></li>
+        <li><Link to="/help">Help</Link></li>
         <li><LinkPro /></li>
       </ul>
     </Menu>
