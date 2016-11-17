@@ -15,3 +15,6 @@ describe('services', () => {
 describe('ui', () => {
   require('./ui/tests')
 })
+describe('utils', () => {
+  require('./utils/tests')
+})

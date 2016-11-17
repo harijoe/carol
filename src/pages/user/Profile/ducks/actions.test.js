@@ -3,6 +3,7 @@ import thunk from 'redux-thunk'
 import chai from 'chai'
 import configureMockStore from 'redux-mock-store'
 import chaiJsonEqual from 'chai-json-equal'
+import storage from '../../../../utils/storage'
 import { getProfile, updateProfile } from './'
 
 const expect = chai.expect
@@ -16,7 +17,7 @@ afterEach(() => {
 })
 
 it('dispatch USER_UNAUTHORIZED', () => {
-  localStorage.setItem('access_token', 'jkhghfdxfgv54545')
+  storage.setItem('access_token', 'jkhghfdxfgv54545')
 
   nock('http://localhost/app_dev.php')
     .get('/users/me')
@@ -57,7 +58,7 @@ it('dispatch USER_INFO', () => {
     zipCode
   }
 
-  localStorage.setItem('access_token', 'jkhghfdxfgv54545')
+  storage.setItem('access_token', 'jkhghfdxfgv54545')
 
   nock('http://localhost/app_dev.php')
     .get('/users/me')

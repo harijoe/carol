@@ -1,8 +1,7 @@
 import axios from 'axios'
 import config from '../../../config'
 import { LOGIN_BAD_REQUEST, LOGIN_ERROR, TOKEN_ERROR, USER_LOGOUT, AUTH_TOKEN } from './actionTypes'
-
-/** global: localStorage */
+import storage from '../../../utils/storage'
 
 /*
  Actions
@@ -38,8 +37,8 @@ const receiveTokenError = (response) => {
 }
 
 export const saveTokens = ({ access_token, refresh_token }) => {
-  localStorage.setItem('access_token', access_token)
-  localStorage.setItem('refresh_token', refresh_token)
+  storage.setItem('access_token', access_token)
+  storage.setItem('refresh_token', refresh_token)
 }
 
 /** global initHeader */
@@ -104,7 +103,7 @@ export const getToken = (grantType, dispatch, credentials = null) => {
 
   return new Promise((resolve) => {
     if (!credentials) {
-      token = localStorage.getItem('access_token')
+      token = storage.getItem('access_token')
     }
 
     if ('undefined' === token || null === token) {
@@ -116,7 +115,7 @@ export const getToken = (grantType, dispatch, credentials = null) => {
 }
 
 export const getTokenSaga = (grantType, dispatch, credentials = null) => {
-  const token = localStorage.getItem('access_token')
+  const token = storage.getItem('access_token')
 
   if (!credentials && token) {
     return token
@@ -132,8 +131,8 @@ export const login = (credentials) => {
 }
 
 export function logout() {
-  localStorage.removeItem('access_token')
-  localStorage.removeItem('refresh_token')
+  storage.removeItem('access_token')
+  storage.removeItem('refresh_token')
 
   return {
     type: USER_LOGOUT

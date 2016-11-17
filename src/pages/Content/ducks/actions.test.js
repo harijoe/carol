@@ -4,6 +4,7 @@ import configureMockStore from 'redux-mock-store'
 import { getContent } from './'
 import chai from 'chai'
 import chaiJsonEqual from 'chai-json-equal'
+import storage from '../../../utils/storage'
 
 chai.use(chaiJsonEqual)
 const expect = chai.expect
@@ -23,11 +24,11 @@ const contentData = [
 
 afterEach(() => {
   nock.cleanAll()
-  localStorage.clear()
+  storage.clear()
 })
 
 it('should dispatch CONTENT_RECEIVE with articles', () => {
-  localStorage.setItem('access_token', access_token)
+  storage.setItem('access_token', access_token)
 
   const jsonResponse = {
     'hydra:member': contentData
