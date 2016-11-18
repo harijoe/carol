@@ -15,7 +15,6 @@ import Home from './pages/Home'
 import Profile from './pages/user/Profile'
 import Signup from './pages/user/Signup/Registration'
 import SignupConfirmation from './pages/user/Signup/Confirmation'
-import Content from './pages/Content'
 import Login from './pages/user/Login'
 import FindAPro from './pages/pro/FindAPro'
 import SearchSite from './pages/SearchSite'
@@ -51,7 +50,6 @@ ReactDOM.render(
     <Router history={history}>
       <Route path="/" component={Layout}>
         <IndexRoute component={Home} />
-        <Route path="content" component={Content} />
         <Route path="help" component={Help} />
         <Route path="search" component={SearchSite} />
         <Route path="search-pro" component={FindAPro} />

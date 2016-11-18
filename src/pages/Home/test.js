@@ -8,8 +8,8 @@ const expect = chai.expect
 describe('Home', () => {
   const enzymeWrapper  = shallow(<Home />)
 
-  it('should have an image', () => {
-    expect(enzymeWrapper.find('img')).to.have.length(1)
+  it('should have a div', () => {
+    expect(enzymeWrapper.find('div')).to.have.length(1)
   })
 
 })

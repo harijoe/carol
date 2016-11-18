@@ -1,9 +1,9 @@
-describe('user', () => {
-  describe('login', () => {
+describe('User', () => {
+  describe('Login', () => {
     require('./user/Login/test')
   })
 })
-describe('pro', () => {
+describe('Pro', () => {
   describe('SearchPro', () => {
     require('./pro/SearchPro/test')
     require('./pro/ducks/actions.test')
@@ -14,17 +14,25 @@ describe('pro', () => {
   describe('ducks', () => {
     require('./pro/ducks/reducer.test')
   })
-  describe('urlPro', () => {
+  describe('UrlPro', () => {
     require('./pro/LinkPro/test')
   })
 })
-describe('country', () => {
+describe('Country', () => {
   require('./Country/ducks/reducer.test')
   require('./Country/test')
 })
-describe('header', () => {
+describe('Header', () => {
   require('./Header/test')
   require('./Menu/test')
   require('./MenuLogin/test')
   require('./MenuBurger/test')
+})
+describe('ContentList', () => {
+  require('./ContentList/test')
+  require('./ContentList/ducks/reducer.test')
+  require('./ContentList/ducks/actions.test')
+})
+describe('LatestProjectsOnMap', () => {
+  require('./LatestProjectsOnMap/test')
 })

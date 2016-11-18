@@ -17,7 +17,8 @@
             "**/*test.js",
             "**/config.js"
           ]
-        }]
+        }],
+        ["transform-class-properties"]
       ]
     }
   }

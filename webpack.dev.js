@@ -43,7 +43,8 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader: 'babel!eslint'
+        loader: 'babel!eslint',
+        exclude: /node_modules/
       },
       {
         test: /\.jsx$/,

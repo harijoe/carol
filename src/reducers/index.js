@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 import AuthReducer from '../services/auth/ducks/reducer'
-import contentReducer from '../pages/Content/ducks'
+import contentReducer from '../containers/ContentList/ducks'
 import prosReducer from '../containers/pro/ducks'
 import userReducer from '../pages/user/Profile/ducks'
 import signupReducer from '../pages/user/Signup/Registration/ducks'

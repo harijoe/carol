@@ -4,18 +4,11 @@ describe('home', () => {
 describe('searchSite', () => {
   require('./SearchSite/test')
 })
-describe('content', () => {
-  require('./Content/test')
-})
 describe('help', () => {
   require('./Help/test')
 })
 describe('findAPro', () => {
   require('./pro/FindAPro/index')
-})
-describe('content', () => {
-  require('./Content/ducks/reducer.test')
-  require('./Content/ducks/actions.test')
 })
 describe('user', () => {
   describe('profile', () => {

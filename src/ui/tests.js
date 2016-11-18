@@ -6,3 +6,9 @@ describe('form', () => {
   require('./form/input/Button/test')
   require('./form/Form/test')
 })
+describe('Map', () => {
+  require('./Map/test')
+})
+describe('Item', () => {
+  require('./Item/test')
+})

@@ -1,4 +1,7 @@
 import 'babel-polyfill'
+import jsdom from 'jsdom-global'
+
+jsdom('<html><head></head><body></body></html>', { url: 'http://quotatis_dev.co.uk' })
 
 describe('containers', () => {
   require('./containers/tests')
