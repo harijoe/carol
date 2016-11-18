@@ -5,6 +5,7 @@ import configureMockStore from 'redux-mock-store'
 import chaiJsonEqual from 'chai-json-equal'
 import storage from '../../../../utils/storage'
 import { getProfile, updateProfile } from './'
+import config from '../../../../config'
 
 const expect = chai.expect
 const middlewares = [thunk]
@@ -19,7 +20,7 @@ afterEach(() => {
 it('dispatch USER_UNAUTHORIZED', () => {
   storage.setItem('access_token', 'jkhghfdxfgv54545')
 
-  nock('http://localhost/app_dev.php')
+  nock(config.apiUrl)
     .get('/users/me')
     .reply(401)
 
@@ -60,7 +61,7 @@ it('dispatch USER_INFO', () => {
 
   storage.setItem('access_token', 'jkhghfdxfgv54545')
 
-  nock('http://localhost/app_dev.php')
+  nock(config.apiUrl)
     .get('/users/me')
     .reply(200, jsonResponse)
 
@@ -91,7 +92,7 @@ it('dispatch USER_INFO', () => {
 it('dispatch USER_UNAUTHORIZED after an updating a wrong profile', () => {
   const id = '/users/xdfgd-xdfgxdfg-5455'
 
-  nock('http://localhost/app_dev.php')
+  nock(config.apiUrl)
     .put(id)
     .reply(401)
 
@@ -102,16 +103,16 @@ it('dispatch USER_UNAUTHORIZED after an updating a wrong profile', () => {
   ]
   const store = mockStore()
 
-  return store.dispatch(updateProfile({email: 'test@email.com', username: 'test@email.com'}, `/app_dev.php${id}`))
+  return store.dispatch(updateProfile({email: 'test@email.com', username: 'test@email.com'}, id))
     .then(() => {
       expect(store.getActions()).to.jsonEqual(expectedActions)
     })
 })
 
-it('dispatch USER_UNAUTHORIZED after an updating a wrong profile', () => {
+it('dispatch USER_ERROR after an updating a wrong profile', () => {
   const id = '/users/xdfgd-xdfgxdfg-5455'
 
-  nock('http://localhost/app_dev.php')
+  nock(config.apiUrl)
     .put(id)
     .reply(500)
 
@@ -122,7 +123,7 @@ it('dispatch USER_UNAUTHORIZED after an updating a wrong profile', () => {
   ]
   const store = mockStore()
 
-  return store.dispatch(updateProfile({email: 'test@email.com', username: 'test@email.com'}, `/app_dev.php${id}`))
+  return store.dispatch(updateProfile({email: 'test@email.com', username: 'test@email.com'}, id))
     .then(() => {
       expect(store.getActions()).to.jsonEqual(expectedActions)
     })

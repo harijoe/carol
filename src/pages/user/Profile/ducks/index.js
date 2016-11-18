@@ -55,7 +55,7 @@ export const getProfile = () => {
 export const updateProfile = (data, id) => {
   return (dispatch) => {
     return getToken('password').then((token) => {
-      return request(`${config.baseUrl}${id}`, 'PUT', token, data)
+      return request(`${config.apiUrl}${id}`, 'PUT', token, data)
     })
       .catch((response) => {
         dispatch(receiveError(response.status))

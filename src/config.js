@@ -1,5 +1,6 @@
 const baseUrl = 'http://localhost'
-const apiUrl = `${baseUrl}/app_dev.php`
+const apiUrl = 'http://localhost:8080/app_dev.php'
+
 const config = {
   baseUrl,
   apiUrl,
@@ -8,11 +9,19 @@ const config = {
   profileUrl: `${apiUrl}/users/me`,
   timeout: 20000
 }
+
 export const proUrl = {
   FR: 'https://www.quotatispro.fr',
   ES: 'https://www.quotatispro.es',
   GB: 'https://www.quotatispro.co.uk',
   DEFAULT: 'https://www.quotatispro.co.uk'
+}
+
+export const defaultLocale = 'en_GB'
+export const hostnamesLocales = {
+  'quotatis_dev.fr': 'fr_FR',
+  'quotatis_dev.es': 'es_ES',
+  'quotatis_dev.co.uk': 'en_GB'
 }
 
 export default config

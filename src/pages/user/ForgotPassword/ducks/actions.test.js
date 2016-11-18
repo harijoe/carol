@@ -5,6 +5,7 @@ import configureMockStore from 'redux-mock-store'
 import chaiJsonEqual from 'chai-json-equal'
 import rewire from 'rewire'
 import { postForgotPassword } from './'
+import config from '../../../../config'
 
 const ducks = rewire('./')
 const receiveError = ducks.__get__('receiveError')
@@ -32,7 +33,7 @@ it('receiveSuccess', () => {
 })
 
 it('send data to API', () => {
-  nock('http://localhost/app_dev.php')
+  nock(config.apiUrl)
     .post('/forgot-password', postData, 'fr_FR')
     .reply(204)
 

@@ -5,6 +5,7 @@ import { getContent } from './'
 import chai from 'chai'
 import chaiJsonEqual from 'chai-json-equal'
 import storage from '../../../utils/storage'
+import config from '../../../config'
 
 chai.use(chaiJsonEqual)
 const expect = chai.expect
@@ -34,7 +35,7 @@ it('should dispatch CONTENT_RECEIVE with articles', () => {
     'hydra:member': contentData
   }
 
-  nock('http://localhost/app_dev.php')
+  nock(config.apiUrl)
     .get(`/posts`)
     .reply(200, jsonResponse)
 

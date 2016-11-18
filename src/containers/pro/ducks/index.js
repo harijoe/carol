@@ -3,6 +3,7 @@ import { call } from 'redux-saga/effects'
 import { takeLatest } from 'redux-saga'
 import actionTypes, { createRequestTypes, fetchEntity, initialAction } from '../../../services/actions'
 import config from '../../../config'
+import { getCurrentCountry } from '../../../utils/locale'
 
 /*
 Const and Type
@@ -31,8 +32,9 @@ Actions
 export const fetchPro = fetchEntity.bind(null, getProActions(), 'client_credentials')
 
 export function* loadPro({ value }) {
-  const tradeQueryParam = value ? `trade=${value}` : ''
-  const url = `${config.apiUrl}/companies?${tradeQueryParam}`
+  const countryCodeQueryParam = `countryCode=${getCurrentCountry()}`
+  const tradeQueryParam = value ? `&trade=${value}` : ''
+  const url = `${config.apiUrl}/companies?${countryCodeQueryParam}${tradeQueryParam}`
 
   yield call(fetchPro, value, url)
 }

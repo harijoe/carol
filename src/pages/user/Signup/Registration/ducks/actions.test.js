@@ -5,6 +5,7 @@ import configureMockStore from 'redux-mock-store'
 import chaiJsonEqual from 'chai-json-equal'
 import rewire from 'rewire'
 import { postSignup } from './'
+import config from '../../../../../config'
 
 const ducks = rewire('./')
 const receiveError = ducks.__get__('receiveError')
@@ -40,7 +41,7 @@ it('receiveSuccess', () => {
 
 it('send data to API', () => {
   localStorage.setItem('access_token', 'jkhghfdxfgv54545')
-  nock('http://localhost/app_dev.php')
+  nock(config.apiUrl)
     .post('/users', postData)
     .reply(201)
 
