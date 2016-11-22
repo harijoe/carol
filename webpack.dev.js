@@ -1,7 +1,7 @@
-var webpack = require('webpack')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var autoprefixer = require('autoprefixer')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const autoprefixer = require('autoprefixer')
 
 module.exports = {
   devtool: 'eval-source-map',
@@ -11,8 +11,8 @@ module.exports = {
   },
   entry: [
     'babel-polyfill',
-    'webpack-dev-server/client?http://localhost',
-    'webpack/hot/dev-server',
+    'webpack-dev-server/client?http://0.0.0.0:80',
+    'webpack/hot/only-dev-server',
     './src'
   ],
   output: {
@@ -26,7 +26,7 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.ProvidePlugin({
-      'React': 'react',
+      React: 'react',
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html'

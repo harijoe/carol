@@ -1,6 +1,6 @@
-var webpack = require("webpack")
-var path = require('path')
-var autoprefixer = require('autoprefixer')
+const webpack = require('webpack')
+const path = require('path')
+const autoprefixer = require('autoprefixer')
 
 module.exports = {
   devtool: 'source-map',
@@ -52,7 +52,7 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
     new webpack.ProvidePlugin({
-      'React': 'react',
+      React: 'react',
     }),
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.OccurenceOrderPlugin()
