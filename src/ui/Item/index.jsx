@@ -4,12 +4,16 @@ const setDisplay = (active = false) => {
   return active ? { display: 'block' } : { display: 'none' }
 }
 
+const renderDate = (date = null) => {
+  return date ? <time>{date}</time> : null
+}
+
 const Item = (props) => {
   return (
     <article key={props.id} style={setDisplay(props.active)}>
       <h4>{props.title}</h4>
       <img src={props.image} alt="" />
-      <time>{props.date}</time>
+      {renderDate(props.date)}
       <p dangerouslySetInnerHTML={{ __html: props.content }} />
     </article>
   )

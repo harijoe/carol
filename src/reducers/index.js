@@ -2,6 +2,7 @@ import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 import AuthReducer from '../services/auth/ducks/reducer'
 import LatestProjectsOnMapReducer from '../containers/LatestProjectsOnMap/ducks'
+import LatestProjectsResourcesReducer from '../containers/LatestProjectsResources/ducks'
 import prosReducer from '../containers/pro/ducks'
 import userReducer from '../pages/user/Profile/ducks'
 import signupReducer from '../pages/user/Signup/Registration/ducks'
@@ -18,6 +19,7 @@ export default combineReducers({
   auth: AuthReducer,
   pros: prosReducer,
   latestProjectsOnMap: LatestProjectsOnMapReducer,
+  latestProjectsResources: LatestProjectsResourcesReducer,
   user: userReducer,
   signup: signupReducer,
   country: countryReducer,
