@@ -1,11 +1,13 @@
 import axios from 'axios'
+import { getCurrentLocale } from './locale'
 import config from '../config'
 
-const callApi = (endpoint, method = 'GET', locale = null, accessToken = null, data = null) => {
+const callApi = (endpoint, method = 'GET', accessToken = null, data = null) => {
   const url = (-1 === endpoint.indexOf(config.apiUrl)) ? config.apiUrl + endpoint : endpoint
   const headers = {
     Accept: 'application/ld+json'
   }
+  const locale = getCurrentLocale()
   const setHeaders = () => {
     if (accessToken) {
       headers.Authorization = `Bearer ${accessToken}`
@@ -30,5 +32,4 @@ const callApi = (endpoint, method = 'GET', locale = null, accessToken = null, da
 
 // API services
 export const generateToken = (grantType, extra) => { return callApi(`/oauth/v2/token?client_id=${config.clientId}&client_secret=${config.clientSecret}&grant_type=${grantType}${extra}`) }
-export const getContentsByDefault = (accessToken, locale) => { return callApi('/posts', 'GET', locale, accessToken) }
-export const getContentsByTags = (tags, accessToken, locale) => { return callApi(`/posts?tag[]=${tags.join('&tag[]=')}&order[project_date]=DESC`, 'GET', locale, accessToken) }
+export const getContentsByTags = (tags, itemsPerPage, accessToken) => { return callApi(`/posts?tag[]=${tags.join('&tag[]=')}&itemsPerPage=${itemsPerPage}&order[project_date]=DESC`, 'GET', accessToken) }

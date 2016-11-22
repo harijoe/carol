@@ -6,10 +6,10 @@ import { shallow } from 'enzyme'
 import { fromJS } from 'immutable'
 
 const expect = chai.expect
-const LatestProjectsOnMapConnect = rewire("./")
+const LatestProjectsOnMapConnect = rewire('./')
 const LatestProjectsOnMap = LatestProjectsOnMapConnect.__get__('LatestProjectsOnMap')
 const mapStateToProps = LatestProjectsOnMapConnect.__get__('mapStateToProps')
-const contentList = fromJS([
+const dataList = fromJS([
   {
     id: 1,
     title: 'title 1',
@@ -23,22 +23,22 @@ const contentList = fromJS([
     body: 'body 2'
   }
 ])
-const getContent = sinon.spy()
+const fetchData = sinon.spy()
 let wrapper
 
 describe('<LatestProjectsOnMap />', () => {
   beforeEach(() => {
-    wrapper = shallow(<LatestProjectsOnMap content={contentList} getContent={getContent} />)
+    wrapper = shallow(<LatestProjectsOnMap projects={dataList} fetchData={fetchData} />)
   })
 
   it('mapStateToProps()', () => {
-    expect(mapStateToProps({content: 'content'})).to.jsonEqual({posts: 'content'})
+    expect(mapStateToProps({latestProjectsOnMap: 'projects'})).to.jsonEqual({projects: 'projects'})
   })
 
   it('calls componentWillMount', () => {
     const willMount = sinon.spy(LatestProjectsOnMap.prototype, 'componentWillMount')
 
-    shallow(<LatestProjectsOnMap content={contentList} getContent={getContent} />)
+    shallow(<LatestProjectsOnMap projects={dataList} fetchData={fetchData} />)
 
     expect(willMount.calledOnce).to.be.true
   })

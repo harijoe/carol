@@ -1,43 +1,58 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getContent } from '../ContentList/ducks'
-import ContentList from '../../containers/ContentList'
+import { fetchData } from './ducks'
 import Map from '../../ui/Map'
-import { getCurrentLocale, getCurrentCountry } from '../../utils/locale'
+import Item from '../../ui/Item'
 
 class LatestProjectsOnMap extends Component {
   constructor() {
     super()
 
     this.state = {
-      markers: [],
-      country: getCurrentCountry(),
-      locale: getCurrentLocale()
+      markers: []
     }
   }
 
   componentWillMount() {
-    this.props.getContent(['inspiration', 'last-project'], this.state.locale)
+    this.props.fetchData(['inspiration', 'last-project'], 3)
   }
 
   componentWillReceiveProps(nextProps) {
-    this.updateMarkers(nextProps.posts)
+    this.updateMarkers(nextProps.projects)
   }
 
-  updateMarkers(posts) {
+  updateMarkers(projects) {
     const list = []
 
-    posts.map((post) => {
+    projects.map((project) => {
       return list.push({
         position: {
-          lat: parseFloat(post.get('latitude')),
-          lng: parseFloat(post.get('longitude')),
+          lat: parseFloat(project.get('latitude')),
+          lng: parseFloat(project.get('longitude')),
         },
-        key: post.get('title')
+        title: project.get('title')
       })
     })
 
     this.setState({ markers: list })
+  }
+
+  renderProjectsList() {
+    return this.props.projects.map((project, i) => {
+      const date = new Date(project.get('date'))
+
+      return (
+        <Item
+          key={i}
+          id={i}
+          title={project.get('title')}
+          image={project.get('image')}
+          content={project.get('body')}
+          date={`${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`}
+          active={0 === i}
+        />
+      )
+    })
   }
 
   render() {
@@ -45,25 +60,22 @@ class LatestProjectsOnMap extends Component {
       <div>
         <Map
           markers={this.state.markers}
-          country={this.state.country}
         />
-        <ContentList
-          locale={this.state.locale}
-        />
+        {this.renderProjectsList()}
       </div>
     )
   }
 }
 
 LatestProjectsOnMap.propTypes = {
-  posts: React.PropTypes.object,
-  getContent: React.PropTypes.func
+  projects: React.PropTypes.object,
+  fetchData: React.PropTypes.func
 }
 
 const mapStateToProps = (state) => {
   return {
-    posts: state.content
+    projects: state.latestProjectsOnMap
   }
 }
 
-export default connect(mapStateToProps, { getContent })(LatestProjectsOnMap)
+export default connect(mapStateToProps, { fetchData })(LatestProjectsOnMap)

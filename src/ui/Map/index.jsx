@@ -1,5 +1,6 @@
 import React from 'react'
 import { Map, Marker, InfoWindow, GoogleApiWrapper as googleApiWrapper } from 'google-maps-react'
+import { getCurrentCountry } from '../../utils/locale'
 import config from '../../config'
 import style from './style'
 
@@ -50,39 +51,36 @@ class GoogleMap extends React.Component {
 
   render() {
     return (
-      <div>
-        <Map
-          google={window.google}
-          initialCenter={this.state.initialCenter[this.props.country]}
-          zoom={5}
-          containerStyle={style.map}
-          onClick={this.onMapClick}
-        >
-          {this.props.markers.map((marker) => {
-            return (
-              <Marker
-                key={marker.key}
-                name={marker.key}
-                position={{ lat: marker.position.lat, lng: marker.position.lng }}
-                onClick={this.onMarkerClick}
-              />
-            )
-          })}
+      <Map
+        google={window.google}
+        initialCenter={this.state.initialCenter[getCurrentCountry()]}
+        zoom={5}
+        containerStyle={style.map}
+        onClick={this.onMapClick}
+      >
+        {this.props.markers.map((marker, i) => {
+          return (
+            <Marker
+              key={i}
+              name={marker.title}
+              position={{ lat: marker.position.lat, lng: marker.position.lng }}
+              onClick={this.onMarkerClick}
+            />
+          )
+        })}
 
-          <InfoWindow onClose={this.onInfoWindowClose}>
-            <div>
-              <h1>{this.state.selectedPlace.name}</h1>
-            </div>
-          </InfoWindow>
-        </Map>
-      </div>
+        <InfoWindow onClose={this.onInfoWindowClose}>
+          <div>
+            <h1>{this.state.selectedPlace.name}</h1>
+          </div>
+        </InfoWindow>
+      </Map>
     )
   }
 }
 
 GoogleMap.propTypes = {
   markers: React.PropTypes.array,
-  country: React.PropTypes.string,
   onMarkerClick: React.PropTypes.func
 }
 

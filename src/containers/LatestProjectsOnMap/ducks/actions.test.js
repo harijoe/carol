@@ -1,7 +1,7 @@
 import nock from 'nock'
 import thunk from 'redux-thunk'
 import configureMockStore from 'redux-mock-store'
-import { getContent } from './'
+import { fetchData } from './'
 import chai from 'chai'
 import chaiJsonEqual from 'chai-json-equal'
 import storage from '../../../utils/storage'
@@ -14,7 +14,7 @@ const expect = chai.expect
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
 const access_token = 'NjA5NDE3MTIwN2IxNjQ4ZjFmM2ZiYWViMWJiM2ZhMGFhMTBhMGE0Y2RmMTU2NjFjODJjMGRlNzFmZDEyZjk1NQ'
-const contentData = [
+const dataList = [
   {
     'id': 1,
     'title': 'Post title 1',
@@ -40,26 +40,26 @@ afterEach(() => {
   storage.clear()
 })
 
-it('should dispatch CONTENT_LIST_RECEIVE with articles', () => {
+it('should dispatch LATEST_PROJECTS_ON_MAP_RECEIVE with projects', () => {
   storage.setItem('access_token', access_token)
 
   const jsonResponse = {
-    'hydra:member': contentData
+    'hydra:member': dataList
   }
 
   nock(config.apiUrl)
-    .get(`/posts?tag[]=inspiration&tag[]=last-project&order[project_date]=DESC`)
+    .get(`/posts?tag[]=inspiration&tag[]=last-project&itemsPerPage=3&order[project_date]=DESC`)
     .reply(200, jsonResponse)
 
   const expectedActions = [
     {
-      type: 'CONTENT_LIST_RECEIVE',
-      content: contentData
+      type: 'LATEST_PROJECTS_ON_MAP_RECEIVE',
+      projects: dataList
     },
   ]
   const store = mockStore()
 
-  return store.dispatch(getContent(['inspiration', 'last-project']))
+  return store.dispatch(fetchData(['inspiration', 'last-project'], 3))
     .then(() => {
       expect(store.getActions()).to.jsonEqual(expectedActions)
     })

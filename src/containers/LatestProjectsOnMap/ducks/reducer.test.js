@@ -19,22 +19,22 @@ describe('contentReducer', () => {
     })
   })
 
-  context('state = initialState and action.type = CONTENT_RECEIVE and no posts returned', function() {
+  context('state = initialState and action.type = LATEST_PROJECTS_ON_MAP_RECEIVE and no posts returned', function() {
     it('should be an object!', function() {
       const action = {
-        type: 'CONTENT_LIST_RECEIVE',
-        content: []
+        type: 'LATEST_PROJECTS_ON_MAP_RECEIVE',
+        projects: []
       }
 
       expect(contentReducer(initialState, action)).to.jsonEqual(initialState)
     })
   })
 
-  context('state = initialState and action.type = CONTENT_RECEIVE and a list of posts returned', function() {
+  context('state = initialState and action.type = LATEST_PROJECTS_ON_MAP_RECEIVE and a list of posts returned', function() {
     it('should be an object!', function() {
       const action = {
-        type: 'CONTENT_LIST_RECEIVE',
-        content: [
+        type: 'LATEST_PROJECTS_ON_MAP_RECEIVE',
+        projects: [
           {
             '@id': 1,
             title: 'post title 1',

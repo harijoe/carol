@@ -28,11 +28,8 @@ describe('Header', () => {
   require('./MenuLogin/test')
   require('./MenuBurger/test')
 })
-describe('ContentList', () => {
-  require('./ContentList/test')
-  require('./ContentList/ducks/reducer.test')
-  require('./ContentList/ducks/actions.test')
-})
 describe('LatestProjectsOnMap', () => {
   require('./LatestProjectsOnMap/test')
+  require('./LatestProjectsOnMap/ducks/reducer.test')
+  require('./LatestProjectsOnMap/ducks/actions.test')
 })

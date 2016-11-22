@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 import AuthReducer from '../services/auth/ducks/reducer'
-import contentReducer from '../containers/ContentList/ducks'
+import LatestProjectsOnMapReducer from '../containers/LatestProjectsOnMap/ducks'
 import prosReducer from '../containers/pro/ducks'
 import userReducer from '../pages/user/Profile/ducks'
 import signupReducer from '../pages/user/Signup/Registration/ducks'
@@ -17,7 +17,7 @@ import resetPasswordReducer from '../pages/user/ResetPassword/ducks'
 export default combineReducers({
   auth: AuthReducer,
   pros: prosReducer,
-  content: contentReducer,
+  latestProjectsOnMap: LatestProjectsOnMapReducer,
   user: userReducer,
   signup: signupReducer,
   country: countryReducer,
