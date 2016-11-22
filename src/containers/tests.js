@@ -33,3 +33,8 @@ describe('LatestProjectsOnMap', () => {
   require('./LatestProjectsOnMap/ducks/reducer.test')
   require('./LatestProjectsOnMap/ducks/actions.test')
 })
+describe('LatestProjectsResources', () => {
+  require('./LatestProjectsResources/test')
+  require('./LatestProjectsResources/ducks/reducer.test')
+  require('./LatestProjectsResources/ducks/actions.test')
+})

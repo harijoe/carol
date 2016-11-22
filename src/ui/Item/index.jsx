@@ -9,7 +9,7 @@ const Item = (props) => {
     <article key={props.id} style={setDisplay(props.active)}>
       <h4>{props.title}</h4>
       <img src={props.image} alt="" />
-      <time>{props.date}</time>
+      {props.date ? <time>{props.date}</time> : null}
       <p dangerouslySetInnerHTML={{ __html: props.content }} />
     </article>
   )
