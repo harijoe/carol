@@ -1,5 +1,6 @@
 import { fromJS } from 'immutable'
 import { LOGIN_BAD_REQUEST, LOGIN_ERROR, USER_LOGOUT, AUTH_TOKEN } from './actionTypes'
+import { getStoredAuthState } from '../../../utils/auth'
 
 /**
  * Reducer
@@ -17,7 +18,7 @@ const transform = (data, state) => {
   return state
 }
 
-const reducerAuth = (state = initialState, action) => {
+const reducerAuth = (state = initialState.merge(getStoredAuthState()), action) => {
   switch (action.type) {
     case LOGIN_BAD_REQUEST:
       return transform({

@@ -36,9 +36,10 @@ const receiveTokenError = (response) => {
   }
 }
 
-export const saveTokens = ({ access_token, refresh_token }) => {
-  storage.setItem('access_token', access_token)
-  storage.setItem('refresh_token', refresh_token)
+export const saveTokens = (accessToken, refreshToken) => {
+  storage.setItem('access_token', accessToken)
+  storage.setItem('refresh_token', refreshToken)
+  storage.setItem('grant_type', refreshToken ? 'password' : 'client_credentials')
 }
 
 /** global initHeader */
@@ -81,7 +82,7 @@ const getNewToken = (grantType, dispatch, credentials = null) => {
     'GET'
   )
     .then((response) => {
-      saveTokens(response.data)
+      saveTokens(response.data.access_token, response.data.refresh_token)
 
       if ('password' === grantType) {
         dispatch(receiveToken('password'))
@@ -133,6 +134,7 @@ export const login = (credentials) => {
 export function logout() {
   storage.removeItem('access_token')
   storage.removeItem('refresh_token')
+  storage.removeItem('grant_type')
 
   return {
     type: USER_LOGOUT
