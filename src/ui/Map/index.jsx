@@ -8,10 +8,6 @@ class GoogleMap extends React.Component {
   constructor(props) {
     super(props)
 
-    this.onMapClick = this.onMapClick.bind(this)
-    this.onMarkerClick = this.onMarkerClick.bind(this)
-    this.onInfoWindowClose = this.onInfoWindowClose.bind(this)
-
     this.state = {
       initialCenter: {
         FR: {
@@ -33,22 +29,6 @@ class GoogleMap extends React.Component {
     }
   }
 
-  onMarkerClick(props, marker) {
-    this.setState({
-      selectedPlace: {
-        name: marker.name
-      }
-    })
-  }
-
-  onInfoWindowClose() {
-    // TODO: do something
-  }
-
-  onMapClick() {
-    // TODO: do something
-  }
-
   render() {
     return (
       <Map
@@ -56,20 +36,20 @@ class GoogleMap extends React.Component {
         initialCenter={this.state.initialCenter[getCurrentCountry()]}
         zoom={5}
         containerStyle={style.map}
-        onClick={this.onMapClick}
       >
         {this.props.markers.map((marker, i) => {
           return (
             <Marker
               key={i}
+              id={i}
               name={marker.title}
               position={{ lat: marker.position.lat, lng: marker.position.lng }}
-              onClick={this.onMarkerClick}
+              onClick={this.props.onMarkerClick}
             />
           )
         })}
 
-        <InfoWindow onClose={this.onInfoWindowClose}>
+        <InfoWindow>
           <div>
             <h1>{this.state.selectedPlace.name}</h1>
           </div>

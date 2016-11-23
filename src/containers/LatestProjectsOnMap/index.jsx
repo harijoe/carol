@@ -8,8 +8,11 @@ class LatestProjectsOnMap extends Component {
   constructor() {
     super()
 
+    this.onMarkerClick = this.onMarkerClick.bind(this)
+
     this.state = {
-      markers: []
+      markers: [],
+      activeProject: 0
     }
   }
 
@@ -19,6 +22,13 @@ class LatestProjectsOnMap extends Component {
 
   componentWillReceiveProps(nextProps) {
     this.updateMarkers(nextProps.projects)
+  }
+
+
+  onMarkerClick(props) {
+    this.setState({
+      activeProject: props.id
+    })
   }
 
   updateMarkers(projects) {
@@ -38,6 +48,10 @@ class LatestProjectsOnMap extends Component {
   }
 
   renderProjectsList() {
+    if (!this.props.projects.getIn([0, 'title'])) {
+      return (<p>Loading...</p>)
+    }
+
     return this.props.projects.map((project, i) => {
       const date = new Date(project.get('date'))
 
@@ -49,7 +63,7 @@ class LatestProjectsOnMap extends Component {
           image={project.get('image')}
           content={project.get('body')}
           date={`${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`}
-          active={0 === i}
+          active={this.state.activeProject}
         />
       )
     })
@@ -60,6 +74,7 @@ class LatestProjectsOnMap extends Component {
       <div>
         <Map
           markers={this.state.markers}
+          onMarkerClick={this.onMarkerClick}
         />
         {this.renderProjectsList()}
       </div>

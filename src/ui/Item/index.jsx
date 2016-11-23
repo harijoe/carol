@@ -1,12 +1,16 @@
 import React from 'react'
 
-const setDisplay = (active = false) => {
-  return active ? { display: 'block' } : { display: 'none' }
+const setDisplay = (props) => {
+  if ('undefined' !== typeof props.active) {
+    return props.active === props.id ? { display: 'block' } : { display: 'none' }
+  }
+
+  return { display: 'block' }
 }
 
 const Item = (props) => {
   return (
-    <article key={props.id} style={setDisplay(props.active)}>
+    <article key={props.id} style={setDisplay(props)}>
       <h4>{props.title}</h4>
       <img src={props.image} alt="" />
       {props.date ? <time>{props.date}</time> : null}
@@ -21,7 +25,7 @@ Item.propTypes = {
   date: React.PropTypes.string,
   image: React.PropTypes.string,
   content: React.PropTypes.string,
-  active: React.PropTypes.bool
+  active: React.PropTypes.number
 }
 
 export default Item
