@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
-import { postForgotPassword } from './ducks'
+import { callApiForgotPassword } from './ducks'
 import Form from '../../../ui/form/Form'
 import InputEmail from '../../../ui/form/input/Email'
 import Button from '../../../ui/form/input/Button'
@@ -100,7 +100,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ submit: (data) => {
     return () => {
-      dispatch(postForgotPassword(data))
+      dispatch(callApiForgotPassword(data))
         .then((response) => {
           if (response && 204 === response.status) {
             dispatch(push('/forgot-password-confirmation'))

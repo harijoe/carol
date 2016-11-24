@@ -54,7 +54,7 @@ export const request = (url, method, accessToken = null, data = null, localeHead
     }
 
     if (localeHeader) {
-      initHeader['X-LOCALE'] =  localeHeader
+      initHeader['Accept-Language'] =  localeHeader
     }
 
     return initHeader

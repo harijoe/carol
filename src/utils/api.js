@@ -33,3 +33,4 @@ const callApi = (endpoint, method = 'GET', accessToken = null, data = null) => {
 // API services
 export const generateToken = (grantType, extra) => { return callApi(`/oauth/v2/token?client_id=${config.clientId}&client_secret=${config.clientSecret}&grant_type=${grantType}${extra}`) }
 export const getContentsByTags = (tags, itemsPerPage, accessToken) => { return callApi(`/posts?tag[]=${tags.join('&tag[]=')}&itemsPerPage=${itemsPerPage}&order[project_date]=DESC`, 'GET', accessToken) }
+export const postForgotPassword = (accessToken, data) => { return callApi('/forgot-password/', 'POST', accessToken, data) }
