@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { proUrl } from '../../../config'
+import { FormattedMessage } from 'react-intl'
+import { countryConfig, defaultProUrl } from '../../../config'
 
 class LinkPro extends Component {
   constructor() {
     super()
 
     this.state = {
-      linkPro: proUrl.DEFAULT
+      linkPro: defaultProUrl
     }
   }
 
   componentWillMount() {
-    const linkPro = proUrl[this.props.countryCode]
+    const linkPro = countryConfig[this.props.countryCode].proUrl
 
     if (linkPro) {
       this.setState({
@@ -24,7 +25,7 @@ class LinkPro extends Component {
   render() {
     return (
       <a href={this.state.linkPro}>
-        Je suis artisan
+        <FormattedMessage id="pro.i_am_pro" />
       </a>
     )
   }

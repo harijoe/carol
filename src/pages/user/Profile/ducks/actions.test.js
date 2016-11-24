@@ -119,6 +119,11 @@ it('dispatch USER_ERROR after an updating a wrong profile', () => {
   const expectedActions = [
     {
       type: 'USER_ERROR',
+      payload: '',
+      payloadRequest: {
+        email: 'test@email.com',
+        username: 'test@email.com'
+      }
     }
   ]
   const store = mockStore()

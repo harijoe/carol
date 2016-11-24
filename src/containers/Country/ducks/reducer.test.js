@@ -10,15 +10,4 @@ describe('prosReducer', function() {
       expect(countryReducer(undefined, 'non existing type')).jsonEqual({ countryCode: "GB" })
     })
   })
-
-  context('state = GB, action.type = COUNTRY_UPDATE and action.country = "FR"', function() {
-    it('should be equal to FR!', function() {
-      const action = {
-        type: 'COUNTRY_UPDATE',
-        country: "FR"
-      }
-
-      expect(countryReducer(undefined, action)).to.jsonEqual({ countryCode: "FR" })
-    })
-  })
 })

@@ -4,6 +4,8 @@ filter:
         - 'public/*'
 build:
     tests:
+        before:
+            - mv src/config.js.dist src/config.js
         override:
             -
                 command: 'npm test'

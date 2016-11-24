@@ -1,10 +1,9 @@
 import React from 'react'
+import { FormattedMessage } from 'react-intl'
 
 const ResetPasswordConfirmation = () => {
   return (
-    <div>
-      <p>Your password has been successfully changed.</p>
-    </div>
+    <FormattedMessage id="user.reset_password_success" tagName="p" />
   )
 }
 

@@ -1,29 +1,20 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { injectIntl, intlShape } from 'react-intl'
+import messages from './messages'
 
-class InputPassword extends Component {
-  constructor() {
-    super()
+const InputPassword = (props) => {
+  const pattern =  (props.checkPattern) ? '(?=^.{8,}$)((?=.*d)|(?=.*W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$' : '.*'
 
-    this.state = {
-      value: ''
-    }
-  }
-
-  get pattern() {
-    return (this.props.checkPattern) ? '(?=^.{8,}$)((?=.*d)|(?=.*W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$' : '.*'
-  }
-
-  render() {
-    return (
-      <input
-        {...this.props.attr}
-        type="password"
-        pattern={this.pattern}
-        value={this.props.value}
-        onChange={this.props.onChange}
-      />
-    )
-  }
+  return (
+    <input
+      {...props.attr}
+      placeholder={props.intl.formatMessage(messages(props.attr.placeholder).placeholder)}
+      type="password"
+      pattern={pattern}
+      value={props.value}
+      onChange={props.onChange}
+    />
+  )
 }
 
 InputPassword.propTypes = {
@@ -35,11 +26,12 @@ InputPassword.propTypes = {
   }),
   value: React.PropTypes.string,
   onChange: React.PropTypes.func.isRequired,
-  checkPattern: React.PropTypes.bool
+  checkPattern: React.PropTypes.bool,
+  intl: intlShape.isRequired
 }
 
 InputPassword.defaultProps = {
   checkPattern: true
 }
 
-export default InputPassword
+export default injectIntl(InputPassword)

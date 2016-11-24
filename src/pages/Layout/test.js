@@ -5,18 +5,13 @@ import React from 'react'
 import { fromJS } from 'immutable'
 
 const expect = chai.expect
-const HeaderConnect = rewire("./")
-const Header = HeaderConnect.__get__('Header')
-const mapStateToProps = HeaderConnect.__get__('mapStateToProps')
+const LayoutConnect = rewire("./")
+const Layout = LayoutConnect.__get__('Layout')
 let wrapper
 
 describe('<Header />', () => {
   beforeEach(() => {
-    wrapper = shallow(<Header country={fromJS({ countryCode: 'GB' })} />)
-  })
-
-  it('mapStateToProps()', () => {
-    expect(mapStateToProps({user: 'test', country: 'country'})).to.jsonEqual({user: 'test'})
+    wrapper = shallow(<Layout country={fromJS({ countryCode: 'GB' })} />)
   })
 
   it('should have one header', () => {
@@ -28,8 +23,10 @@ describe('<Header />', () => {
 
     expect(wrapperLi).to.have.length(5)
     expect(wrapperLi.at(0).find('MenuBurger')).to.have.length(1)
-    expect(wrapperLi.at(1).find('Link').prop('children')).to.be.equal('Home')
-    expect(wrapperLi.at(2).find('Link').prop('children')).to.be.equal('Site search')
+    expect(wrapperLi.at(1).find('Link').find('FormattedMessage')).to.have.length(1)
+    expect(wrapperLi.at(1).find('Link').find('FormattedMessage')).to.have.id('home')
+    expect(wrapperLi.at(2).find('Link').find('FormattedMessage')).to.have.length(1)
+    expect(wrapperLi.at(2).find('Link').find('FormattedMessage')).to.have.id('pro.site_search')
     expect(wrapperLi.at(3).find('Connect(MenuLogin)')).to.have.length(1)
     expect(wrapperLi.at(4).find('Connect(Country)')).to.have.length(1)
   })

@@ -1,45 +1,36 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { injectIntl, intlShape } from 'react-intl'
+import messages from './messages'
 
-class InputEmail extends Component {
-  constructor() {
-    super()
+const InputEmail = (props) => {
+  const pattern = (props.checkPattern) ? '[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$' : '.*'
 
-    this.state = {
-      value: ''
-    }
-  }
-
-  get pattern() {
-    return (this.props.checkPattern) ? '[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$' : '.*'
-  }
-
-  render() {
-    return (
-      <input
-        {...this.props.attr}
-        type="email"
-        pattern={this.pattern}
-        value={this.props.value}
-        onChange={this.props.onChange}
-      />
-    )
-  }
+  return (
+    <input
+      {...props.attr}
+      placeholder={props.intl.formatMessage(messages.placeholder)}
+      type="email"
+      pattern={pattern}
+      value={props.value}
+      onChange={props.onChange}
+    />
+  )
 }
 
 InputEmail.propTypes = {
   attr: React.PropTypes.shape({
     className: React.PropTypes.string,
-    placeholder: React.PropTypes.string,
     id: React.PropTypes.string.isRequired,
     name: React.PropTypes.string.isRequired
   }),
   value: React.PropTypes.string,
   onChange: React.PropTypes.func.isRequired,
-  checkPattern: React.PropTypes.bool
+  checkPattern: React.PropTypes.bool,
+  intl: intlShape.isRequired
 }
 
 InputEmail.defaultProps = {
   checkPattern: true
 }
 
-export default InputEmail
+export default injectIntl(InputEmail)

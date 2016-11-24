@@ -23,7 +23,6 @@ describe('Country', () => {
   require('./Country/test')
 })
 describe('Header', () => {
-  require('./Header/test')
   require('./Menu/test')
   require('./MenuLogin/test')
   require('./MenuBurger/test')

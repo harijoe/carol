@@ -1,10 +1,9 @@
 import React from 'react'
+import { FormattedMessage } from 'react-intl'
 
 const Favorite = () => {
   return (
-    <div>
-      <p>page favorite</p>
-    </div>
+    <FormattedMessage id="user.favorite_page" tagName="p" />
   )
 }
 

@@ -8,6 +8,7 @@ import InputPhone from '../../../ui/form/input/Phone'
 import InputPostal from '../../../ui/form/input/Postal'
 import Form from '../../../ui/form/Form'
 import Button from '../../../ui/form/input/Button'
+import FormatError from '../../../ui/Errors'
 
 class Profile extends Component {
   constructor() {
@@ -117,7 +118,6 @@ class Profile extends Component {
     const attrGender1 = {
       className: 'gender',
       id: 'gender1',
-      placeholder: 'Gender',
       name: 'gender',
       required: 'required'
     }
@@ -125,7 +125,6 @@ class Profile extends Component {
     const attrGender2 = {
       className: 'gender',
       id: 'gender2',
-      placeholder: 'Gender',
       name: 'gender',
       required: 'required'
     }
@@ -133,7 +132,7 @@ class Profile extends Component {
     const attrFirstName = {
       className: 'firstName',
       id: 'firstName',
-      placeholder: 'First name',
+      placeholder: 'user.first_name',
       name: 'firstName',
       required: 'required'
     }
@@ -141,7 +140,7 @@ class Profile extends Component {
     const attrLastName = {
       className: 'lastName',
       id: 'lastName',
-      placeholder: 'Last name',
+      placeholder: 'user.last_name',
       name: 'lastName',
       required: 'required'
     }
@@ -149,7 +148,7 @@ class Profile extends Component {
     const attrMobilePhone = {
       className: 'mobilePhone',
       id: 'mobilePhone',
-      placeholder: 'Mobile phone number',
+      placeholder: 'user.mobile_phone',
       name: 'mobilePhone',
       required: 'required'
     }
@@ -157,21 +156,21 @@ class Profile extends Component {
     const attrFixedPhone = {
       className: 'fixedPhone',
       id: 'fixedPhone',
-      placeholder: 'Fixed phone number',
+      placeholder: 'user.fixed_phone',
       name: 'fixedPhone'
     }
 
     const attrAddress = {
       className: 'address',
       id: 'address',
-      placeholder: 'Address',
+      placeholder: 'user.address',
       name: 'address'
     }
 
     const attrZipCode = {
       className: 'zipCode',
       id: 'zipCode',
-      placeholder: 'Postal code',
+      placeholder: 'user.zip_code',
       name: 'zipCode',
       required: 'required'
     }
@@ -180,23 +179,23 @@ class Profile extends Component {
       <div>
         <Form onSubmit={this.onSubmit}>
           <div className="error">
-            { this.state.error }
+            <FormatError errors={this.props.user.get('errors')} />
           </div>
           <div className="form-group">
             <InputRadio
               attr={attrGender1}
               value="Mr"
+              text="user.mr"
               checked={'Mr' === this.state.gender}
               onChange={this.handleChange}
             />
-            Mr
             <InputRadio
               attr={attrGender2}
               value="Mrs"
+              text="user.mrs"
               checked={'Mrs' === this.state.gender}
               onChange={this.handleChange}
             />
-            Mrs
           </div>
           <div className="form-group">
             <InputText
@@ -241,7 +240,7 @@ class Profile extends Component {
             />
           </div>
           <div className="form-group">
-            <Button type="submit" value="Profile" />
+            <Button type="submit" value="user.update" />
           </div>
         </Form>
       </div>
@@ -252,7 +251,7 @@ class Profile extends Component {
 Profile.propTypes = {
   getProfile: React.PropTypes.func,
   updateProfile: React.PropTypes.func,
-  user: React.PropTypes.object,
+  user: React.PropTypes.object
 }
 
 function mapDispatchToProps(dispatch) {

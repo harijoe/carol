@@ -42,7 +42,7 @@ class SearchPro extends Component {
             onChange={this.handleChange}
             value={this.state.searchProValue}
           />
-          <Button type="submit" value="Recherche" />
+          <Button type="submit" value="search" />
         </Form>
       </div>
     )

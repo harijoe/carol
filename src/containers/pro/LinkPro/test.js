@@ -1,33 +1,38 @@
 import chai from 'chai'
 import React from 'react'
-import { shallow } from 'enzyme'
-import chaiEnzyme from 'chai-enzyme'
 import rewire from 'rewire'
 import { fromJS } from 'immutable'
+import chaiEnzyme from 'chai-enzyme'
+import mountWithContext from '../../../utils/ContextEnzymeTestHelper'
 
+chai.use(chaiEnzyme())
 const expect = chai.expect
 const LinkProConnect = rewire('./')
 const LinkPro = LinkProConnect.__get__('LinkPro')
 
-chai.use(chaiEnzyme())
-
 describe('LinkPro', () => {
   it('should return url pro uk', () => {
-    const enzymeWrapper  = shallow(<LinkPro countryCode='GB' />)
+    const enzymeWrapper  = mountWithContext(<LinkPro countryCode='GB' />)
 
-    expect(enzymeWrapper).to.have.html('<a href="https://www.quotatispro.co.uk">Je suis artisan</a>')
+    expect(enzymeWrapper.find('a')).to.have.length(1)
+    expect(enzymeWrapper.find('a')).to.have.attr('href', 'https://www.quotatispro.co.uk')
+    expect(enzymeWrapper.find('a').text()).to.equal('pro.i_am_pro')
   })
 
   it('should return url pro fr', () => {
-    const enzymeWrapper  = shallow(<LinkPro countryCode='FR' />)
+    const enzymeWrapper  = mountWithContext(<LinkPro countryCode='FR' />)
 
-    expect(enzymeWrapper).to.have.html('<a href="https://www.quotatispro.fr">Je suis artisan</a>')
+    expect(enzymeWrapper.find('a')).to.have.length(1)
+    expect(enzymeWrapper.find('a')).to.have.attr('href', 'https://www.quotatispro.fr')
+    expect(enzymeWrapper.find('a').text()).to.equal('pro.i_am_pro')
   })
 
   it('should return url pro es', () => {
-    const enzymeWrapper  = shallow(<LinkPro countryCode='ES' />)
+    const enzymeWrapper  = mountWithContext(<LinkPro countryCode='ES' />)
 
-    expect(enzymeWrapper).to.have.html('<a href="https://www.quotatispro.es">Je suis artisan</a>')
+    expect(enzymeWrapper.find('a')).to.have.length(1)
+    expect(enzymeWrapper.find('a')).to.have.attr('href', 'https://www.quotatispro.es')
+    expect(enzymeWrapper.find('a').text()).to.equal('pro.i_am_pro')
   })
 
   it('mapStateToProps should return an object with countryCode field', () => {

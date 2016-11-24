@@ -4,6 +4,7 @@ import { shallow } from 'enzyme'
 import sinon from 'sinon'
 import React from 'react'
 import { fromJS } from 'immutable'
+import { shallowWithContext } from '../../utils/ContextEnzymeTestHelper'
 
 const expect = chai.expect
 const MenuConnect = rewire("./")
@@ -19,7 +20,7 @@ describe('<Menu />', () => {
     handleTouchTap = sinon.spy(Menu.prototype, 'handleTouchTap')
     handleRequestClose = sinon.spy(Menu.prototype, 'handleRequestClose')
     receiveProps = sinon.spy(Menu.prototype, 'componentWillReceiveProps')
-    wrapper = shallow(<Menu />)
+    wrapper = shallowWithContext(<Menu label="test"  />)
   })
 
   afterEach(() => {
@@ -83,8 +84,8 @@ describe('<Menu />', () => {
   })
 
   it('clicking on login should be a popover', () => {
-    wrapper.find('RaisedButton').simulate('TouchTap', {preventDefault: () => {}})
-    wrapper.find('Popover').simulate('RequestClose', {preventDefault: () => {}})
+    wrapper.find('RaisedButton').simulate('touchTap', {preventDefault: () => {}})
+    wrapper.find('Popover').simulate('requestClose', {preventDefault: () => {}})
 
     expect(handleTouchTap.calledOnce).to.be.true
     expect(handleRequestClose.calledOnce).to.be.true
@@ -93,9 +94,9 @@ describe('<Menu />', () => {
   describe('user login', () => {
     it('should have <RaisedButton /> my account', () => {
       expect(wrapper.find('RaisedButton')).to.have.length(1)
-      wrapper.find('RaisedButton').simulate('TouchTap', {preventDefault: () => {}})
+      wrapper.find('RaisedButton').simulate('touchTap', {preventDefault: () => {}})
       expect(handleTouchTap.calledOnce).to.be.true
-      wrapper.find('Popover').simulate('RequestClose', {preventDefault: () => {}})
+      wrapper.find('Popover').simulate('requestClose', {preventDefault: () => {}})
       expect(handleRequestClose.calledOnce).to.be.true
     })
   })

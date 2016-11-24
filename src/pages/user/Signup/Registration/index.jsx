@@ -12,6 +12,7 @@ import InputPhone from '../../../../ui/form/input/Phone'
 import InputPostal from '../../../../ui/form/input/Postal'
 import Button from '../../../../ui/form/input/Button'
 import './signup.scss'
+import FormatError from '../../../../ui/Errors'
 
 class Signup extends Component {
   constructor() {
@@ -19,8 +20,9 @@ class Signup extends Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.resetErrors = this.resetErrors.bind(this)
     this.state = {
-      error: null,
+      errors: [],
       email: '',
       password: '',
       confirmPassword: '',
@@ -32,17 +34,33 @@ class Signup extends Component {
     }
   }
 
-  setError(error = null) {
+  resetErrors() {
     this.setState({
-      error
+      errors: []
     })
   }
 
+  addError(error = null) {
+    const errors = []
+
+    if (error && !this.hasError(this.state.errors, error)) {
+      errors.push(error)
+    }
+
+    this.setState({
+      errors
+    })
+  }
+
+  hasError(errors, error) {
+    return errors.length && -1 < errors.indexOf[error]
+  }
+
   handleSubmit() {
-    this.setError()
+    this.resetErrors()
 
     if (this.state.password !== this.state.confirmPassword) {
-      return this.setError('Passwords do not match')
+      return this.addError('user.password_match_err')
     }
 
     return this.props.submit({
@@ -116,7 +134,6 @@ class Signup extends Component {
     const attrEmail = {
       className: 'email',
       id: 'email',
-      placeholder: 'Email',
       name: 'email',
       required: 'required'
     }
@@ -124,7 +141,7 @@ class Signup extends Component {
     const attrPassword = {
       className: 'password',
       id: 'password',
-      placeholder: 'Password',
+      placeholder: 'user.password',
       name: 'password',
       required: 'required'
     }
@@ -132,7 +149,7 @@ class Signup extends Component {
     const attrConfirmPassword = {
       className: 'confirmPassword',
       id: 'confirmPassword',
-      placeholder: 'Confirm your password',
+      placeholder: 'user.confirm_password',
       name: 'confirmPassword',
       required: 'required'
     }
@@ -156,7 +173,7 @@ class Signup extends Component {
     const attrFirstName = {
       className: 'firstName',
       id: 'firstName',
-      placeholder: 'First name',
+      placeholder: 'user.first_name',
       name: 'firstName',
       required: 'required'
     }
@@ -164,7 +181,7 @@ class Signup extends Component {
     const attrLastName = {
       className: 'lastName',
       id: 'lastName',
-      placeholder: 'Last name',
+      placeholder: 'user.last_name',
       name: 'lastName',
       required: 'required'
     }
@@ -172,7 +189,7 @@ class Signup extends Component {
     const attrPhone = {
       className: 'mobilePhone',
       id: 'mobilePhone',
-      placeholder: 'Mobile phone number',
+      placeholder: 'user.mobile_phone',
       name: 'mobilePhone',
       required: 'required'
     }
@@ -180,7 +197,7 @@ class Signup extends Component {
     const attrPostalcode = {
       className: 'zipCode',
       id: 'zipCode',
-      placeholder: 'Postal code',
+      placeholder: 'user.postal_code',
       name: 'zipCode',
       required: 'required'
     }
@@ -189,9 +206,8 @@ class Signup extends Component {
       <div>
         <Form onSubmit={this.handleSubmit}>
           <div className="error">
-            { this.props.auth.get('error') } <br />
-            { this.props.signup.get('error') } <br />
-            { this.state.error }
+            <FormatError errors={this.props.signup.get('errors')} />
+            <FormatError errors={this.state.errors} />
           </div>
           <div className="form-group">
             <InputEmail
@@ -205,6 +221,7 @@ class Signup extends Component {
               attr={attrPassword}
               value={this.state.password}
               onChange={this.handleChange}
+              checkPattern={false}
             />
           </div>
           <div className="form-group">
@@ -212,21 +229,22 @@ class Signup extends Component {
               attr={attrConfirmPassword}
               value={this.state.confirmPassword}
               onChange={this.handleChange}
+              checkPattern={false}
             />
           </div>
           <div className="form-group">
             <InputRadio
               attr={attrGender1}
               value="Mr"
+              text="user.mr"
               onChange={this.handleChange}
             />
-            Mr
             <InputRadio
               attr={attrGender2}
               value="Mrs"
+              text="user.mrs"
               onChange={this.handleChange}
             />
-            Mrs
           </div>
           <div className="form-group">
             <InputText
@@ -258,7 +276,7 @@ class Signup extends Component {
           </div>
 
           <div className="form-group">
-            <Button type="submit" value="Signup" />
+            <Button type="submit" value="user.sign_up" />
           </div>
         </Form>
       </div>

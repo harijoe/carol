@@ -1,10 +1,9 @@
 import React from 'react'
+import { FormattedMessage } from 'react-intl'
 
 const Project = () => {
   return (
-    <div>
-      <p>My Projects Page</p>
-    </div>
+    <FormattedMessage id="user.project_page" tagName="p" />
   )
 }
 

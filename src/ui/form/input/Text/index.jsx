@@ -1,24 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { injectIntl, intlShape } from 'react-intl'
+import messages from './messages'
 
-export default class InputText extends Component {
-  constructor() {
-    super()
-
-    this.state = {
-      value: ''
-    }
-  }
-
-  render() {
-    return (
-      <input
-        {...this.props.attr}
-        type="text"
-        value={this.props.value}
-        onChange={this.props.onChange}
-      />
-    )
-  }
+const InputText = (props) => {
+  return (
+    <input
+      {...props.attr}
+      placeholder={props.attr.placeholder ? props.intl.formatMessage(messages(props.attr.placeholder).placeholder) : ''}
+      type="text"
+      value={props.value}
+      onChange={props.onChange}
+    />
+  )
 }
 
 InputText.propTypes = {
@@ -29,5 +22,8 @@ InputText.propTypes = {
     name: React.PropTypes.string.isRequired
   }).isRequired,
   value: React.PropTypes.string.isRequired,
-  onChange: React.PropTypes.func.isRequired
+  onChange: React.PropTypes.func.isRequired,
+  intl: intlShape.isRequired
 }
+
+export default injectIntl(InputText)

@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
+import { FormattedMessage } from 'react-intl'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
-import RaisedButton from 'material-ui/RaisedButton'
 import { login } from '../../../services/auth/ducks'
 import InputEmail from '../../../ui/form/input/Email'
 import InputPassword from '../../../ui/form/input/Password'
+import Button from '../../../ui/form/input/Button'
 import Form from '../../../ui/form/Form'
+import FormatError from '../../../ui/Errors'
 
 class Login extends Component {
   constructor() {
@@ -59,19 +61,18 @@ class Login extends Component {
   }
 
   render() {
-    const error = this.props.auth.get('error')
     const attrUsername = {
       className: 'username',
       id: 'username',
-      placeholder: 'Username',
-      name: 'username'
+      name: 'username',
+      required: 'required'
     }
 
     const attrPassword = {
       className: 'password',
       id: 'password',
-      placeholder: 'Password',
-      name: 'password'
+      name: 'password',
+      required: 'required'
     }
 
     return (
@@ -88,13 +89,13 @@ class Login extends Component {
           checkPattern={false}
         />
         <br />
-        <RaisedButton type="submit" label="Connexion" />
-        {error}
+        <Button type="submit" value="user.sign_in" />
+        <FormatError errors={this.props.auth.get('errors')} />
         <div>
-          <Link to="/forgot-password">Mot de passe oublié ?</Link>
+          <Link to="/forgot-password"><FormattedMessage id="user.forget_password" /></Link>
         </div>
         <div>
-          <Link to="/signup">Je veux créer un compte</Link>
+          <Link to="/signup"><FormattedMessage id="user.create_account" /></Link>
         </div>
       </Form>
     )

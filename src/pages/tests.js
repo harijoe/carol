@@ -1,3 +1,6 @@
+describe('layout', () => {
+  require('./Layout/test')
+})
 describe('home', () => {
   require('./Home/test')
 })

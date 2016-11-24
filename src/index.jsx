@@ -8,6 +8,7 @@ import thunk from 'redux-thunk'
 import promise from 'redux-promise'
 import createLogger from 'redux-logger'
 import createSagaMiddleware from 'redux-saga'
+import injectTapEventPlugin from 'react-tap-event-plugin'
 
 import allReducers from './reducers'
 import Layout from './pages/Layout'
@@ -45,6 +46,7 @@ const store = createStore(
 const history = syncHistoryWithStore(browserHistory, store)
 
 sagaMiddleware.run(rootSaga)
+injectTapEventPlugin()
 
 ReactDOM.render(
   <Provider store={store}>
@@ -58,6 +60,7 @@ ReactDOM.render(
         <Route path="artisan/:proId" component={ProDetails} />
 
         <Route path="login" component={anonymousOnly(Login)} />
+        <Route path="profile" component={requiresAuth(Profile)} />
         <Route path="signup" component={anonymousOnly(Signup)} />
         <Route path="signup-confirmation" component={SignupConfirmation} />
 
@@ -68,7 +71,6 @@ ReactDOM.render(
 
         <Route path="favorite" component={requiresAuth(Favorite)} />
         <Route path="project" component={requiresAuth(Project)} />
-        <Route path="profile" component={requiresAuth(Profile)} />
       </Route>
     </Router>
   </Provider>,

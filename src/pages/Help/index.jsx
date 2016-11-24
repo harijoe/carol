@@ -1,10 +1,11 @@
 import React from 'react'
+import { FormattedMessage } from 'react-intl'
 
 const Help = () => {
   return (
     <div>
       <p>
-        Help page
+        <FormattedMessage id="help" />
       </p>
     </div>
   )

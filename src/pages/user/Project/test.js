@@ -9,6 +9,6 @@ describe('Project', () => {
   const enzymeWrapper  = shallow(<Favorite />)
 
   it('should have an element p', () => {
-    expect(enzymeWrapper.find('p')).to.have.length(1)
+    expect(enzymeWrapper.find('FormattedMessage')).to.have.length(1)
   })
 })

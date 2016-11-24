@@ -4,6 +4,7 @@ import { shallow } from 'enzyme'
 import sinon from 'sinon'
 import React from 'react'
 import { fromJS } from 'immutable'
+import InputEmail from '../../../ui/form/input/Email'
 
 const expect = chai.expect
 const forgotPasswordConnect = rewire("./")
@@ -22,22 +23,23 @@ describe('ForgotPassword', () => {
     expect(enzymeWrapper.find('Form')).to.have.length(1)
   })
 
-  it('should have one email input', () => {
-    expect(enzymeWrapper.find('Form InputEmail')).to.have.length(1)
+  it('Email input has the right props', () => {
+    const elt = enzymeWrapper.find('Form div.form-group').at(0).childAt(0)
+    expect(elt.type()).to.equal(InputEmail)
+
+    const props = elt.props()
+    const attr = props.attr
+
+    expect(attr.className).to.be.equal('email')
+    expect(attr.id).to.be.equal('email')
+    expect(attr.name).to.be.equal('email')
+    expect(attr.required).to.equal('required')
   })
 
   it('should have one button', () => {
     expect(enzymeWrapper.find('Form Button')).to.have.length(1)
   })
 
-  it('Email input has the right attr', () => {
-    const attr = enzymeWrapper.find('Form').find('InputEmail').get(0).props.attr
-
-    expect(attr.className).to.be.equal('email')
-    expect(attr.placeholder).to.be.equal('Email')
-    expect(attr.id).to.be.equal('email')
-    expect(attr.name).to.be.equal('email')
-  })
 
   it('simulates click events', () => {
     const onSubmit = sinon.spy()

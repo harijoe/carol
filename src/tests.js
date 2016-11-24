@@ -1,5 +1,8 @@
 import 'babel-polyfill'
 import jsdom from 'jsdom-global'
+import injectTapEventPlugin from 'react-tap-event-plugin'
+
+injectTapEventPlugin()
 
 jsdom('<html><head></head><body></body></html>', { url: 'http://quotatis_dev.co.uk' })
 

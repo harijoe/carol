@@ -56,7 +56,6 @@ class ForgotPassword extends Component {
     const attrEmail = {
       className: 'email',
       id: 'email',
-      placeholder: 'Email',
       name: 'email',
       required: 'required'
     }
@@ -74,7 +73,7 @@ class ForgotPassword extends Component {
             />
           </div>
           <div className="form-group">
-            <Button type="submit" value="Send" />
+            <Button type="submit" value="user.send" />
           </div>
         </Form>
       </div>

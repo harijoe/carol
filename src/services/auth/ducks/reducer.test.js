@@ -11,8 +11,8 @@ describe('auth', function() {
   const actionBadRequest = {
     type: 'LOGIN_BAD_REQUEST',
     payload: {
-      access_token: access_token,
-      refresh_token: refresh_token
+      access_token,
+      refresh_token
     }
   }
   let initialState
@@ -20,36 +20,36 @@ describe('auth', function() {
   beforeEach(() => {
     initialState = fromJS({
       grantType: null,
-      error: null
+      errors: []
     })
   })
 
   context('state = initialState and action.type = null', function() {
     it('should be initialState!', function() {
       expect(reducerUsers(initialState, 'non existing type')).to.be.jsonEqual(initialState)
-    });
+    })
   })
 
   context('state = initialState and action.type = LOGIN_BAD_REQUEST', function() {
     it('should be an object!', function() {
-      expect(reducerUsers(initialState, actionBadRequest)).to.jsonEqual(initialState.set('error', 'Votre login et/ou mot de passe sont invalides'))
-    });
+      expect(reducerUsers(initialState, actionBadRequest)).to.jsonEqual(initialState.set('errors', ['user.invalid_login']))
+    })
   })
 
   context('state = { grantType = otherType, error = "An error" } and action.type = USER_LOGOUT', function() {
     it('should be initialState', function() {
       const state = fromJS({
         grantType: 'otherType',
-        error: 'An error'
+        error: ['An error']
       })
 
       expect(reducerUsers(state, { type: 'USER_LOGOUT' })).to.jsonEqual(initialState)
-    });
+    })
   })
 
   context('state = initialState and action.type = LOGIN_ERROR', function() {
     it('should be initialState', function() {
-      expect(reducerUsers(initialState, { type: 'LOGIN_ERROR' })).to.jsonEqual(initialState.set('error', 'Une erreur s\'est produite, merci de réessayer plus tard'))
-    });
+      expect(reducerUsers(initialState, { type: 'LOGIN_ERROR' })).to.jsonEqual(initialState.set('errors', ['server_error']))
+    })
   })
-});
+})

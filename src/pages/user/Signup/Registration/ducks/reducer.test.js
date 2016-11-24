@@ -6,7 +6,7 @@ import signupReducer from './'
 chai.use(chaiJsonEqual)
 
 describe('signupReducer', function() {
-  const actionSignupSuccess = {
+  const actionSignupBadRequest = {
     type: 'SIGNUP_SUCCESS',
     response: {
       status: 400
@@ -17,26 +17,29 @@ describe('signupReducer', function() {
     response: {
       status: 404,
       data: {
-        error_description: null,
-        'hydra:description': 'Une erreur s\'est produite, merci de réessayer plus tard'
+        violations: [{
+          message: 'test_error'
+        }]
       }
     }
   }
   const initialState = fromJS({
     status: 0,
-    error: null
+    errors: []
   })
 
   context('state = initialState and action.type = SIGNUP_SUCCESS', function() {
     it('should be an with the status 400', function() {
-      expect(signupReducer(initialState, actionSignupSuccess)).to.jsonEqual(initialState.set('status', 400))
+      expect(signupReducer(initialState, actionSignupBadRequest)).to.jsonEqual(initialState.set('status', 400))
     })
   })
 
   context('state = initialState and action.type = SIGNUP_ERROR', function() {
     const expected = fromJS({
       status: 404,
-      error: 'Une erreur s\'est produite, merci de réessayer plus tard'
+      errors: [
+        'test_error'
+      ]
     })
 
     it('should be an object with status 404 and the right error sentence', function() {

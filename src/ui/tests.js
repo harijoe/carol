@@ -12,3 +12,6 @@ describe('Map', () => {
 describe('Item', () => {
   require('./Item/test')
 })
+describe('Errors', () => {
+  require('./Errors/test')
+})

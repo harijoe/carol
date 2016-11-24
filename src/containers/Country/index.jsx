@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import DropDownMenu from 'material-ui/DropDownMenu'
 import MenuItem from 'material-ui/MenuItem'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { countryUpdate } from './ducks'
-import countryList, { countryDefault } from '../../constants/country'
+import { FormattedMessage } from 'react-intl'
+import { countryConfig } from '../../config'
 
 class Country extends Component {
   constructor() {
@@ -15,7 +14,7 @@ class Country extends Component {
 
     this.state = {
       open: false,
-      country: countryDefault,
+      country: null,
       anchorEl: null
     }
   }
@@ -34,16 +33,29 @@ class Country extends Component {
 
   handleChangeCountry(event, index, country) {
     this.setState({ country })
-    this.props.countryUpdate(country)
+    window.location.assign(`http://${countryConfig[country].url}`)
   }
 
   render () {
-    const countryMenuItems = Object.keys(countryList).map((c, i) => {
-      return <MenuItem key={i} value={c} primaryText={countryList[c]} />
+    const countryMenuItems = Object.keys(countryConfig).map((c, i) => {
+      const locale = countryConfig[c].country
+      const countryTran = <FormattedMessage id={locale} />
+
+      return (
+        <MenuItem
+          key={i}
+          value={c}
+          primaryText={countryTran}
+        />
+      )
     })
 
     return (
-      <DropDownMenu value={this.state.country} onChange={this.handleChangeCountry} openImmediately={false}>
+      <DropDownMenu
+        value={this.state.country}
+        onChange={this.handleChangeCountry}
+        openImmediately={false}
+      >
         { countryMenuItems }
       </DropDownMenu>
     )
@@ -52,7 +64,7 @@ class Country extends Component {
 
 Country.propTypes = {
   countryUpdate: React.PropTypes.func,
-  country: React.PropTypes.object
+  country: React.PropTypes.object,
 }
 
 function mapStateToProps(state) {
@@ -61,9 +73,4 @@ function mapStateToProps(state) {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ countryUpdate }, dispatch)
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(Country)
+export default connect(mapStateToProps)(Country)

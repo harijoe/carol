@@ -1,6 +1,7 @@
 import { fromJS } from 'immutable'
-import { getToken } from '../../../../../services/auth/ducks'
 import { createUser } from '../../../../../utils/api'
+import { getToken } from '../../../../../services/auth/ducks'
+import transformErrors from '../../../../../utils/transformErrors'
 
 /*
 Const
@@ -49,14 +50,13 @@ Reducer
  */
 const initialState = fromJS({
   status: 0,
-  error: null
+  errors: []
 })
 
-const transform = (data, state) => {
-  state = state.set('status', data.status || null)
-  state = state.set('error', data.error || null)
-
+const transform = ({ status = null, errors = [] }, state) => {
   return state
+    .set('status', status)
+    .set('errors', transformErrors(errors))
 }
 
 const signupReducer = (state = initialState, action) => {
@@ -65,11 +65,13 @@ const signupReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case SIGNUP_SUCCESS:
-      return transform({ status: action.response.status }, state)
+      return transform({
+        status: action.response.status
+      }, state)
     case SIGNUP_ERROR:
       return transform({
         status: response.status,
-        error: response.data.error_description ? response.data.error_description : response.data['hydra:description']
+        errors: response.data.violations ? response.data.violations : [{ message: 'server_error' }]
       }, state)
     default:
       return state

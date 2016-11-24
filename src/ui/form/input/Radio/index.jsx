@@ -1,25 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { FormattedMessage } from 'react-intl'
 
-export default class InputRadio extends Component {
-  constructor() {
-    super()
+const InputRadio = (props) => {
+  const { attr, value, text, onChange, checked } = props
+  const  translatedText = <FormattedMessage id={text} />
 
-    this.state = {
-      value: ''
-    }
-  }
-
-  render() {
-    return (
+  return (
+    <div>
       <input
-        {...this.props.attr}
+        {...attr}
         type="radio"
-        value={this.props.value}
-        checked={this.props.checked}
-        onChange={this.props.onChange}
+        value={value}
+        checked={checked}
+        onChange={onChange}
       />
-    )
-  }
+      {translatedText}
+    </div>
+  )
 }
 
 InputRadio.propTypes = {
@@ -30,6 +27,9 @@ InputRadio.propTypes = {
     name: React.PropTypes.string.isRequired
   }).isRequired,
   value: React.PropTypes.string.isRequired,
+  text: React.PropTypes.string.isRequired,
   checked: React.PropTypes.bool,
   onChange: React.PropTypes.func.isRequired
 }
+
+export default InputRadio

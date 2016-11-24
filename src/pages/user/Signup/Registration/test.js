@@ -4,6 +4,13 @@ import { shallow } from 'enzyme'
 import sinon from 'sinon'
 import React from 'react'
 import { fromJS } from 'immutable'
+import mountWithContext from '../../../../utils/ContextEnzymeTestHelper'
+import InputEmail from '../../../../ui/form/input/Email'
+import InputPassword from '../../../../ui/form/input/Password'
+import InputRadio from '../../../../ui/form/input/Radio'
+import InputText from '../../../../ui/form/input/Text'
+import InputPhone from '../../../../ui/form/input/Phone'
+import InputPostal from '../../../../ui/form/input/Postal'
 
 const expect = chai.expect
 const signupConnect = rewire("./")
@@ -16,69 +23,71 @@ describe('Signup', () => {
   const signup = fromJS({
     error: null
   })
-  const enzymeWrapper = shallow(<Signup auth={auth} signup={signup} />)
+  const enzymeWrapper = mountWithContext(<Signup auth={auth} signup={signup} />)
 
   it('should have one form', () => {
     expect(enzymeWrapper.find('Form')).to.have.length(1)
   })
 
   it('should have one email input', () => {
-    expect(enzymeWrapper.find('Form InputEmail')).to.have.length(1)
+    expect(enzymeWrapper.find('Form div.form-group').at(0).childAt(0).type()).to.equal(InputEmail)
   })
 
   it('should have two password inputs', () => {
-    expect(enzymeWrapper.find('Form InputPassword')).to.have.length(2)
+    expect(enzymeWrapper.find('Form div.form-group').at(1).childAt(0).type()).to.equal(InputPassword)
+    expect(enzymeWrapper.find('Form div.form-group').at(2).childAt(0).type()).to.equal(InputPassword)
   })
 
   it('should have two radio inputs', () => {
-    expect(enzymeWrapper.find('Form InputRadio')).to.have.length(2)
+    expect(enzymeWrapper.find('Form div.form-group').at(3).childAt(0).type()).to.equal(InputRadio)
+    expect(enzymeWrapper.find('Form div.form-group').at(3).childAt(1).type()).to.equal(InputRadio)
   })
 
   it('should have two text inputs', () => {
-    expect(enzymeWrapper.find('Form InputText')).to.have.length(2)
+    expect(enzymeWrapper.find('Form div.form-group').at(4).childAt(0).type()).to.equal(InputText)
+    expect(enzymeWrapper.find('Form div.form-group').at(5).childAt(0).type()).to.equal(InputText)
   })
 
   it('should have one phone input', () => {
-    expect(enzymeWrapper.find('Form InputPhone')).to.have.length(1)
+    expect(enzymeWrapper.find('Form div.form-group').at(6).childAt(0).type()).to.equal(InputPhone)
   })
 
   it('should have one postal input', () => {
-    expect(enzymeWrapper.find('Form InputPostal')).to.have.length(1)
+    expect(enzymeWrapper.find('Form div.form-group').at(7).childAt(0).type()).to.equal(InputPostal)
   })
 
   it('should have one button', () => {
     expect(enzymeWrapper.find('Form Button')).to.have.length(1)
   })
 
-  it('Email input has the right attr', () => {
-    const attr = enzymeWrapper.find('Form').find('InputEmail').get(0).props.attr
+  it('Email input has the right props', () => {
+    const attr = enzymeWrapper.find('Form div.form-group').at(0).childAt(0).props().attr
 
-    expect(attr.className).to.be.equal('email')
-    expect(attr.placeholder).to.be.equal('Email')
-    expect(attr.id).to.be.equal('email')
-    expect(attr.name).to.be.equal('email')
+    expect(attr.className).to.equal('email')
+    expect(attr.id).to.equal('email')
+    expect(attr.name).to.equal('email')
   })
 
-  it('Password input has the right attr', () => {
-    const attr = enzymeWrapper.find('Form').find('InputPassword').get(0).props.attr
+  it('Password input has the right props', () => {
+    const attr = enzymeWrapper.find('Form div.form-group').at(1).childAt(0).props().attr
 
     expect(attr.className).to.be.equal('password')
-    expect(attr.placeholder).to.be.equal('Password')
+    expect(attr.placeholder).to.be.equal('user.password')
     expect(attr.id).to.be.equal('password')
     expect(attr.name).to.be.equal('password')
   })
 
-  it('confirmPassword input has the right attr', () => {
-    const attr = enzymeWrapper.find('Form').find('InputPassword').get(1).props.attr
+  it('confirmPassword input has the right props', () => {
+    const attr = enzymeWrapper.find('Form div.form-group').at(2).childAt(0).props().attr
 
     expect(attr.className).to.be.equal('confirmPassword')
-    expect(attr.placeholder).to.be.equal('Confirm your password')
+    expect(attr.placeholder).to.be.equal('user.confirm_password')
     expect(attr.id).to.be.equal('confirmPassword')
     expect(attr.name).to.be.equal('confirmPassword')
   })
 
-  it('Radio input has the right attr', () => {
-    const attr = enzymeWrapper.find('Form').find('InputRadio').get(0).props.attr
+  it('Radio input has the right props', () => {
+    const attr = enzymeWrapper.find('Form div.form-group').at(3).childAt(0).props().attr
 
     expect(attr.className).to.be.equal('gender')
     expect(attr.placeholder).to.be.equal('Gender')
@@ -86,8 +95,8 @@ describe('Signup', () => {
     expect(attr.name).to.be.equal('gender')
   })
 
-  it('Radio input has the right attr', () => {
-    const attr = enzymeWrapper.find('Form').find('InputRadio').get(1).props.attr
+  it('Radio input has the right props', () => {
+    const attr = enzymeWrapper.find('Form div.form-group').at(3).childAt(1).props().attr
 
     expect(attr.className).to.be.equal('gender')
     expect(attr.placeholder).to.be.equal('Gender')
@@ -95,38 +104,38 @@ describe('Signup', () => {
     expect(attr.name).to.be.equal('gender')
   })
 
-  it('Text input has the right attr', () => {
-    const attr = enzymeWrapper.find('Form').find('InputText').get(0).props.attr
+  it('Text input has the right props', () => {
+    const attr = enzymeWrapper.find('Form div.form-group').at(4).childAt(0).props().attr
 
     expect(attr.className).to.be.equal('firstName')
-    expect(attr.placeholder).to.be.equal('First name')
+    expect(attr.placeholder).to.be.equal('user.first_name')
     expect(attr.id).to.be.equal('firstName')
     expect(attr.name).to.be.equal('firstName')
   })
 
-  it('Text input has the right attr', () => {
-    const attr = enzymeWrapper.find('Form').find('InputText').get(1).props.attr
+  it('Text input has the right props', () => {
+    const attr = enzymeWrapper.find('Form div.form-group').at(5).childAt(0).props().attr
 
     expect(attr.className).to.be.equal('lastName')
-    expect(attr.placeholder).to.be.equal('Last name')
+    expect(attr.placeholder).to.be.equal('user.last_name')
     expect(attr.id).to.be.equal('lastName')
     expect(attr.name).to.be.equal('lastName')
   })
 
-  it('Phone input has the right attr', () => {
-    const attr = enzymeWrapper.find('Form').find('InputPhone').get(0).props.attr
+  it('Phone input has the right props', () => {
+    const attr = enzymeWrapper.find('Form div.form-group').at(6).childAt(0).props().attr
 
     expect(attr.className).to.be.equal('mobilePhone')
-    expect(attr.placeholder).to.be.equal('Mobile phone number')
+    expect(attr.placeholder).to.be.equal('user.mobile_phone')
     expect(attr.id).to.be.equal('mobilePhone')
     expect(attr.name).to.be.equal('mobilePhone')
   })
 
-  it('Postal input has the right attr', () => {
-    const attr = enzymeWrapper.find('Form').find('InputPostal').get(0).props.attr
+  it('Postal input has the right props', () => {
+    const attr = enzymeWrapper.find('Form div.form-group').at(7).childAt(0).props().attr
 
     expect(attr.className).to.be.equal('zipCode')
-    expect(attr.placeholder).to.be.equal('Postal code')
+    expect(attr.placeholder).to.be.equal('user.postal_code')
     expect(attr.id).to.be.equal('zipCode')
     expect(attr.name).to.be.equal('zipCode')
   })

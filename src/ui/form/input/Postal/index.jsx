@@ -1,29 +1,20 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { injectIntl, intlShape } from 'react-intl'
+import messages from './messages'
 
-class InputPostal extends Component {
-  constructor() {
-    super()
+const InputPostal = (props) => {
+  const pattern = props.checkPattern ? '^[0-9]{5}$' : '.*'
 
-    this.state = {
-      value: ''
-    }
-  }
-
-  get pattern() {
-    return (this.props.checkPattern) ? '^[0-9]{5}$' : '.*'
-  }
-
-  render() {
-    return (
-      <input
-        {...this.props.attr}
-        type="text"
-        pattern={this.pattern}
-        value={this.props.value}
-        onChange={this.props.onChange}
-      />
-    )
-  }
+  return (
+    <input
+      {...props.attr}
+      placeholder={props.intl.formatMessage(messages(props.attr.placeholder).placeholder)}
+      type="text"
+      pattern={pattern}
+      value={props.value}
+      onChange={props.onChange}
+    />
+  )
 }
 
 InputPostal.propTypes = {
@@ -35,11 +26,12 @@ InputPostal.propTypes = {
   }),
   value: React.PropTypes.string,
   onChange: React.PropTypes.func.isRequired,
-  checkPattern: React.PropTypes.bool
+  checkPattern: React.PropTypes.bool,
+  intl: intlShape.isRequired
 }
 
 InputPostal.defaultProps = {
   checkPattern: true
 }
 
-export default InputPostal
+export default injectIntl(InputPostal)

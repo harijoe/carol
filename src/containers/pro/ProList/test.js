@@ -2,14 +2,11 @@ import chai from 'chai'
 import rewire from 'rewire'
 import React from 'react'
 import { shallow } from 'enzyme'
-import chaiEnzyme from 'chai-enzyme'
 import { fromJS } from 'immutable'
 
 const expect = chai.expect
 const ProListConnect = rewire('./')
 const ProList = ProListConnect.__get__('ProList')
-
-chai.use(chaiEnzyme())
 
 describe('SearchPro', () => {
   it('should return a list of pros', () => {
@@ -48,6 +45,7 @@ describe('SearchPro', () => {
       }
     ])
     const enzymeWrapper  = shallow(<ProList pros={initialState}/>)
-    expect(enzymeWrapper).to.have.html(null)
+
+    expect(enzymeWrapper.node).to.be.null
   })
 })

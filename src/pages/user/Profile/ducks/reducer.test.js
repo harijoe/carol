@@ -49,7 +49,8 @@ describe('userReducer', () => {
         mobilePhone: '',
         fixedPhone: '',
         address: '',
-        zipCode: ''
+        zipCode: '',
+        errors: []
       })
 
       expect(userReducer(state, { type: 'USER_LOGOUT' })).to.be.jsonEqual(initialState)
@@ -64,7 +65,7 @@ describe('userReducer', () => {
         firstName: 'firstName',
         lastName: 'lastName',
         mobilePhone: '0606060606',
-        fixedPhone: '',
+        fixedPhone: '0106060606',
         address: '1 rue de test',
         zipCode: '92210'
       }
@@ -83,7 +84,7 @@ describe('userReducer', () => {
         zipCode: ''
       })
 
-      expect(userReducer(initialState, action)).to.jsonEqual({id: user['@id'], gender: user.gender, firstName: user.firstName, lastName: user.lastName, mobilePhone: user.mobilePhone, fixedPhone: user.fixedPhone, address: user.address, zipCode: user.zipCode})
+      expect(userReducer(initialState, action)).to.jsonEqual(fromJS({ "id": "user/drfgxdf-xdfgxdfg54-54x5dg", "gender": "Mr", "firstName": "firstName", "lastName": "lastName", "mobilePhone": "0606060606", "fixedPhone": "0106060606", "address": "1 rue de test", "zipCode": "92210", errors: [] }))
     })
   })
 })

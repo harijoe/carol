@@ -1,6 +1,7 @@
 import { fromJS } from 'immutable'
 import { LOGIN_BAD_REQUEST, LOGIN_ERROR, USER_LOGOUT, AUTH_TOKEN } from './actionTypes'
 import { getStoredAuthState } from '../../../utils/auth'
+import transformErrors from '../../../utils/transformErrors'
 
 /**
  * Reducer
@@ -8,25 +9,24 @@ import { getStoredAuthState } from '../../../utils/auth'
 
 const initialState = fromJS({
   grantType: null,
-  error: null
+  errors: []
 })
 
-const transform = (data, state) => {
-  state = state.set('grantType', data.grantType || null)
-  state = state.set('error', data.error || null)
-
+const transform = ({ grantType = null, errors = [] }, state) => {
   return state
+    .set('grantType', grantType)
+    .set('errors', transformErrors(errors))
 }
 
 const reducerAuth = (state = initialState.merge(getStoredAuthState()), action) => {
   switch (action.type) {
     case LOGIN_BAD_REQUEST:
       return transform({
-        error: 'Votre login et/ou mot de passe sont invalides'
+        errors: [{ message: 'user.invalid_login' }]
       }, state)
     case LOGIN_ERROR:
       return transform({
-        error: 'Une erreur s\'est produite, merci de réessayer plus tard'
+        errors: [{ message: 'server_error' }]
       }, state)
     case USER_LOGOUT:
       return initialState

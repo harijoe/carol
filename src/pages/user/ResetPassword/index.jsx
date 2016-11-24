@@ -61,7 +61,7 @@ class ResetPassword extends Component {
     const attrPassword = {
       className: 'password',
       id: 'password',
-      placeholder: 'Password',
+      placeholder: 'password',
       name: 'password',
       required: 'required'
     }
@@ -69,7 +69,7 @@ class ResetPassword extends Component {
     const attrConfirmPassword = {
       className: 'confirmPassword',
       id: 'confirmPassword',
-      placeholder: 'Confirm your password',
+      placeholder: 'user.confirm_password',
       name: 'confirmPassword',
       required: 'required'
     }
@@ -96,7 +96,7 @@ class ResetPassword extends Component {
             />
           </div>
           <div className="form-group">
-            <Button type="submit" value="Send" />
+            <Button type="submit" value="user.send" />
           </div>
         </Form>
       </div>

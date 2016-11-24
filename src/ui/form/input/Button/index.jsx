@@ -1,11 +1,14 @@
 import React from 'react'
+import { FormattedMessage } from 'react-intl'
 
 function Button(props) {
   return (
     <button
       type={props.type ? props.type : 'button'}
       id={props.id}
-    >{props.value}</button>
+    >
+      <FormattedMessage id={props.value} />
+    </button>
   )
 }
 

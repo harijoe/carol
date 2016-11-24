@@ -1,29 +1,20 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { injectIntl, intlShape } from 'react-intl'
+import messages from './messages'
 
-class InputPhone extends Component {
-  constructor() {
-    super()
+const InputPhone = (props) => {
+  const pattern = props.checkPattern ? '^([0|+[0-9]{1,5})?([1-9][0-9]{9})$' : '.*'
 
-    this.state = {
-      value: ''
-    }
-  }
-
-  get pattern() {
-    return (this.props.checkPattern) ? '^([0|+[0-9]{1,5})?([1-9][0-9]{9})$' : '.*'
-  }
-
-  render() {
-    return (
-      <input
-        {...this.props.attr}
-        type="text"
-        pattern={this.pattern}
-        value={this.props.value}
-        onChange={this.props.onChange}
-      />
-    )
-  }
+  return (
+    <input
+      {...props.attr}
+      placeholder={props.attr.placeholder ? props.intl.formatMessage(messages(props.attr.placeholder).placeholder) : ''}
+      type="text"
+      pattern={pattern}
+      value={props.value}
+      onChange={props.onChange}
+    />
+  )
 }
 
 InputPhone.propTypes = {
@@ -35,11 +26,12 @@ InputPhone.propTypes = {
   }),
   value: React.PropTypes.string,
   onChange: React.PropTypes.func.isRequired,
-  checkPattern: React.PropTypes.bool
+  checkPattern: React.PropTypes.bool,
+  intl: intlShape.isRequired
 }
 
 InputPhone.defaultProps = {
   checkPattern: true
 }
 
-export default InputPhone
+export default injectIntl(InputPhone)

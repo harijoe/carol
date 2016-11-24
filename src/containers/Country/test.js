@@ -32,9 +32,8 @@ describe('<Country />', () => {
   })
 
   it('calls componentWillReceiveProps', () => {
-    const countryUpdate = sinon.spy()
     const receiveProps = sinon.spy(Country.prototype, 'componentWillReceiveProps')
-    const wrapper = shallow(<Country countryUpdate={countryUpdate} country={fromJS({ countryCode: 'ES' })} />)
+    const wrapper = shallow(<Country country={fromJS({ countryCode: 'ES' })} />)
 
     expect(receiveProps.calledOnce).to.be.false
     wrapper.setProps({country: fromJS({ countryCode: 'FR' })})
@@ -42,8 +41,7 @@ describe('<Country />', () => {
   })
 
   it('country should be equal to FR after updating the country with FR and user disconnected', () => {
-    const countryUpdate = sinon.spy()
-    const wrapper = shallow(<Country countryUpdate={countryUpdate} country={fromJS({ countryCode: 'GB' })}/>)
+    const wrapper = shallow(<Country country={fromJS({ countryCode: 'GB' })}/>)
 
     wrapper.setProps({country: fromJS({ countryCode: 'FR' })})
     expect(wrapper.state('country')).to.be.equal('FR')
@@ -56,18 +54,15 @@ describe('<Country />', () => {
 
   it('simulate change <DropDownMenu /> country', () => {
     const handleChangeCountry = sinon.spy(Country.prototype, 'handleChangeCountry')
-    const countryUpdate = sinon.spy()
-    const wrapper = shallow(<Country countryUpdate={countryUpdate} country={fromJS({ countryCode: 'GB' })} />)
+    const wrapper = shallow(<Country country={fromJS({ countryCode: 'GB' })} />)
 
-    wrapper.find('DropDownMenu').simulate('change')
+    wrapper.find('DropDownMenu').simulate('change', null, null, 'FR')
     expect(handleChangeCountry.calledOnce).to.be.true
-    expect(countryUpdate.calledOnce).to.be.true
   })
 
   describe('user login', () => {
     it('should have country initiated in store', () => {
-      const countryUpdate = sinon.spy()
-      const wrapper = shallow(<Country countryUpdate={countryUpdate} country={fromJS({countryCode: 'FR'})} />)
+      const wrapper = shallow(<Country country={fromJS({countryCode: 'FR'})} />)
 
       expect(wrapper.state('country')).to.be.equal('FR')
     })

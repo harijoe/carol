@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import RaisedButton from 'material-ui/RaisedButton'
 import Popover from 'material-ui/Popover'
+import { injectIntl, intlShape } from 'react-intl'
+import messages from './messages'
 
 class Menu extends Component {
   constructor() {
@@ -45,7 +47,7 @@ class Menu extends Component {
       <div>
         <RaisedButton
           onTouchTap={this.handleTouchTap}
-          label={this.props.label}
+          label={this.props.intl.formatMessage(messages(this.props.label).label)}
         />
         <Popover
           open={this.state.open}
@@ -63,7 +65,8 @@ class Menu extends Component {
 
 Menu.propTypes = {
   children: React.PropTypes.any,
-  label: React.PropTypes.string
+  label: React.PropTypes.string,
+  intl: intlShape.isRequired
 }
 
 function mapStateToProps(state) {
@@ -72,4 +75,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(Menu)
+export default connect(mapStateToProps)(injectIntl(Menu))
