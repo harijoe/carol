@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable'
-import { getToken, request } from '../../../../../services/auth/ducks'
-import config from '../../../../../config'
+import { getToken } from '../../../../../services/auth/ducks'
+import { createUser } from '../../../../../utils/api'
 
 /*
 Const
@@ -25,11 +25,11 @@ const receiveError = (response) => {
   }
 }
 
-export const postSignup = (data) => {
+export const callApiUserCreate = (data) => {
   return (dispatch) => {
     return getToken('client_credentials')
       .then((token) => {
-        return request(`${config.apiUrl}/users`, 'POST', token, data)
+        return createUser(token, data)
       })
       .then((response) => {
         dispatch(receiveSuccess(response))

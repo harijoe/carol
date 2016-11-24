@@ -4,7 +4,7 @@ import chai from 'chai'
 import configureMockStore from 'redux-mock-store'
 import chaiJsonEqual from 'chai-json-equal'
 import rewire from 'rewire'
-import { postSignup } from './'
+import { callApiUserCreate } from './'
 import config from '../../../../../config'
 
 const ducks = rewire('./')
@@ -42,12 +42,12 @@ it('receiveSuccess', () => {
 it('send data to API', () => {
   localStorage.setItem('access_token', 'jkhghfdxfgv54545')
   nock(config.apiUrl)
-    .post('/users', postData)
+    .post('/users', postData, 'en_GB')
     .reply(201)
 
   const store = mockStore()
 
-  return store.dispatch(postSignup(postData))
+  return store.dispatch(callApiUserCreate(postData))
     .then(() => {
       expect(store.getActions()[0].response.status).to.equal(201)
     })

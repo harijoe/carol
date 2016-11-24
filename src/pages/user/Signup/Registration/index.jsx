@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
-import { postSignup } from './ducks'
+import { callApiUserCreate } from './ducks'
 import Form from '../../../../ui/form/Form'
 import InputText from '../../../../ui/form/input/Text'
 import InputRadio from '../../../../ui/form/input/Radio'
@@ -283,7 +283,7 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({
     submit: (data) => {
       return () => {
-        dispatch(postSignup(data))
+        dispatch(callApiUserCreate(data))
           .then((response) => {
             if (response && 201 === response.status) {
               dispatch(push('/signup-confirmation'))

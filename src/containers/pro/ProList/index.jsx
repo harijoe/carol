@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
 class ProList extends Component {
@@ -9,6 +10,7 @@ class ProList extends Component {
           <ul>
             <li>Name: {pro.get('name')}</li>
             <li>Trade: {pro.get('trade')}</li>
+            <li><Link to={`/artisan/${pro.get('guid')}`}>See details</Link></li>
           </ul><br />
         </li>
       )

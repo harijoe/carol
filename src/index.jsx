@@ -17,6 +17,7 @@ import Signup from './pages/user/Signup/Registration'
 import SignupConfirmation from './pages/user/Signup/Confirmation'
 import Login from './pages/user/Login'
 import FindAPro from './pages/pro/FindAPro'
+import ProDetails from './pages/pro/ProDetails'
 import SearchSite from './pages/SearchSite'
 import Help from './pages/Help'
 import Favorite from './pages/user/Favorite'
@@ -52,7 +53,9 @@ ReactDOM.render(
         <IndexRoute component={Home} />
         <Route path="help" component={Help} />
         <Route path="search" component={SearchSite} />
+
         <Route path="search-pro" component={FindAPro} />
+        <Route path="artisan/:proId" component={ProDetails} />
 
         <Route path="login" component={anonymousOnly(Login)} />
         <Route path="signup" component={anonymousOnly(Signup)} />

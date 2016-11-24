@@ -58,6 +58,7 @@ const transformPros = (pros, state) => {
     proCurrent = pros[i]
     state = state
       .setIn([i, 'id'], proCurrent['@id'])
+      .setIn([i, 'guid'], proCurrent.guid)
       .setIn([i, 'name'], proCurrent.name)
       .setIn([i, 'trade'], proCurrent.trade)
   }
