@@ -3,13 +3,14 @@ const fr = {
   help: 'Aide',
   login: 'Se connecter',
   burger_menu: 'Menu Burger',
-  france: 'France',
-  spain: 'Espagne',
-  great_britain: 'Grande-Bretagne',
   search: 'Recherche',
   server_error: 'Une erreur s\'est produite, merci de réessayer plus tard',
-  'pro.find_pro': 'Trouver un artisan',
 
+  'country.france': 'France',
+  'country.spain': 'Espagne',
+  'country.great_britain': 'Grande-Bretagne',
+
+  'pro.find_pro': 'Trouver un artisan',
   'pro.resource': 'Resource for my work',
   'pro.i_am_pro': 'Je suis artisan',
   'pro.site_search': 'Recherche sur le site',
