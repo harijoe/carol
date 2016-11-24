@@ -38,3 +38,8 @@ describe('LatestProjectsResources', () => {
   require('./LatestProjectsResources/ducks/reducer.test')
   require('./LatestProjectsResources/ducks/actions.test')
 })
+describe('ReinsuranceArticles', () => {
+  require('./ReinsuranceArticles/test')
+  require('./ReinsuranceArticles/ducks/reducer.test')
+  require('./ReinsuranceArticles/ducks/actions.test')
+})
