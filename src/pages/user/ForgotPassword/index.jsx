@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
-import { callApiForgotPassword } from './ducks'
+import { postData } from './ducks'
 import Form from '../../../ui/form/Form'
 import InputEmail from '../../../ui/form/input/Email'
 import Button from '../../../ui/form/input/Button'
@@ -26,9 +26,9 @@ class ForgotPassword extends Component {
       })
     }
 
-    if (nextProps.forgotpassword && nextProps.forgotpassword.error) {
+    if (nextProps.forgotPassword && nextProps.forgotPassword.error) {
       this.setState({
-        error: nextProps.forgotpassword.error
+        error: nextProps.forgotPassword.error
       })
     }
   }
@@ -82,7 +82,7 @@ class ForgotPassword extends Component {
 }
 
 ForgotPassword.propTypes = {
-  forgotpassword: React.PropTypes.shape({
+  forgotPassword: React.PropTypes.shape({
     error: React.PropTypes.string
   }),
   auth: React.PropTypes.object,
@@ -91,7 +91,7 @@ ForgotPassword.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    forgotpassword: state.forgotpassword,
+    forgotPassword: state.forgotPassword,
     auth: state.auth
   }
 }
@@ -99,7 +99,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ submit: (data) => {
     return () => {
-      dispatch(callApiForgotPassword(data))
+      dispatch(postData(data))
         .then((response) => {
           if (response && 204 === response.status) {
             dispatch(push('/forgot-password-confirmation'))

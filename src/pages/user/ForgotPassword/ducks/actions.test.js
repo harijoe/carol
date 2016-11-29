@@ -4,7 +4,7 @@ import chai from 'chai'
 import configureMockStore from 'redux-mock-store'
 import chaiJsonEqual from 'chai-json-equal'
 import rewire from 'rewire'
-import { callApiForgotPassword } from './'
+import { postData } from './'
 import config from '../../../../config'
 
 const ducks = rewire('./')
@@ -13,7 +13,7 @@ const receiveSuccess = ducks.__get__('receiveSuccess')
 const expect = chai.expect
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
-const postData = {
+const data = {
   email: 'test@mail.com'
 }
 
@@ -34,12 +34,12 @@ it('receiveSuccess', () => {
 
 it('send data to API', () => {
   nock(config.apiUrl)
-    .post('/forgot-password/', postData, 'en_GB')
+    .post('/forgot-password/', data, 'en_GB')
     .reply(204)
 
   const store = mockStore()
 
-  return store.dispatch(callApiForgotPassword(postData))
+  return store.dispatch(postData(data))
     .then(() => {
       expect(store.getActions()[0].response.status).to.equal(204)
     })

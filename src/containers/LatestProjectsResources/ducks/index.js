@@ -1,5 +1,4 @@
 import { fromJS } from 'immutable'
-import { getToken } from '../../../services/auth/ducks'
 import { getContentsByTags } from '../../../utils/api'
 
 /*
@@ -27,10 +26,7 @@ const receiveError = (error) => {
 
 export const fetchData = (tags = null, itemsPerPage = 10) => {
   return (dispatch) => {
-    return getToken('client_credentials')
-      .then((token) => {
-        return getContentsByTags(tags, itemsPerPage, token)
-      })
+    return getContentsByTags(tags, itemsPerPage)
       .then((response) => {
         dispatch(receiveSuccess(response.data['hydra:member']))
       })

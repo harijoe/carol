@@ -7,8 +7,6 @@ import chaiJsonEqual from 'chai-json-equal'
 import storage from '../../../utils/storage'
 import config from '../../../config'
 
-/** global: localStorage */
-
 chai.use(chaiJsonEqual)
 const expect = chai.expect
 const middlewares = [thunk]
@@ -42,6 +40,7 @@ afterEach(() => {
 
 it('should dispatch LATEST_PROJECTS_ON_MAP_RECEIVE with projects', () => {
   storage.setItem('access_token', access_token)
+  storage.setItem('access_token_expires', Date.now() / 1000)
 
   const jsonResponse = {
     'hydra:member': dataList

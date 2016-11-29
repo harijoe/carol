@@ -1,6 +1,5 @@
 import { fromJS } from 'immutable'
 import { createUser } from '../../../../../utils/api'
-import { getToken } from '../../../../../services/auth/ducks'
 import transformErrors from '../../../../../utils/transformErrors'
 
 /*
@@ -28,10 +27,7 @@ const receiveError = (response) => {
 
 export const callApiUserCreate = (data) => {
   return (dispatch) => {
-    return getToken('client_credentials')
-      .then((token) => {
-        return createUser(token, data)
-      })
+    return createUser(data)
       .then((response) => {
         dispatch(receiveSuccess(response))
 

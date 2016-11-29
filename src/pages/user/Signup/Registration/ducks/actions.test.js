@@ -6,6 +6,7 @@ import chaiJsonEqual from 'chai-json-equal'
 import rewire from 'rewire'
 import { callApiUserCreate } from './'
 import config from '../../../../../config'
+import storage from '../../../../../utils/storage'
 
 const ducks = rewire('./')
 const receiveError = ducks.__get__('receiveError')
@@ -40,7 +41,9 @@ it('receiveSuccess', () => {
 })
 
 it('send data to API', () => {
-  localStorage.setItem('access_token', 'jkhghfdxfgv54545')
+  storage.setItem('access_token', 'jkhghfdxfgv54545')
+  storage.setItem('access_token_expires', Date.now() / 1000)
+
   nock(config.apiUrl)
     .post('/users', postData, 'en_GB')
     .reply(201)

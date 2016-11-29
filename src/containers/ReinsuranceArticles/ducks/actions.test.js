@@ -38,6 +38,7 @@ afterEach(() => {
 
 it('should dispatch REINSURANCE_ARTICLES_RECEIVE with articles', () => {
   storage.setItem('access_token', access_token)
+  storage.setItem('access_token_expires', Date.now() / 1000)
 
   const jsonResponse = {
     'hydra:member': dataList

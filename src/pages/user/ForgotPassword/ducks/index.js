@@ -1,4 +1,3 @@
-import { getToken } from '../../../../services/auth/ducks'
 import { postForgotPassword } from '../../../../utils/api'
 
 /*
@@ -24,15 +23,9 @@ const receiveError = (response) => {
   }
 }
 
-export const callApiForgotPassword = (data) => {
+export const postData = (data) => {
   return (dispatch) => {
-    return getToken('client_credentials')
-      .then((token) => {
-        const postData = {
-          email: data.email
-        }
-        return postForgotPassword(token, postData)
-      })
+    return postForgotPassword({ email: data.email })
       .then((response) => {
         dispatch(receiveSuccess(response))
 
