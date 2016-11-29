@@ -42,3 +42,8 @@ describe('ReinsuranceArticles', () => {
   require('./ReinsuranceArticles/ducks/reducer.test')
   require('./ReinsuranceArticles/ducks/actions.test')
 })
+describe('TestimonialArticles', () => {
+  require('./TestimonialArticles/test')
+  require('./TestimonialArticles/ducks/reducer.test')
+  require('./TestimonialArticles/ducks/actions.test')
+})

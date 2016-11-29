@@ -18,6 +18,7 @@ class ReinsuranceArticles extends Component {
           title={article.get('title')}
           image={article.get('image')}
           content={article.get('body')}
+          active
         />
       )
     })

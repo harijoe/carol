@@ -5,6 +5,9 @@ const fr = {
   burger_menu: 'Menu Burger',
   search: 'Recherche',
   server_error: 'Une erreur s\'est produite, merci de réessayer plus tard',
+  construction: 'Construction',
+  renovation: 'Rénovation',
+  fixing: 'Réparation',
 
   'country.france': 'France',
   'country.spain': 'Espagne',

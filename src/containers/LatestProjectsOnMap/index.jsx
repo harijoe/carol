@@ -63,7 +63,7 @@ class LatestProjectsOnMap extends Component {
           image={project.get('image')}
           content={project.get('body')}
           date={`${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`}
-          active={this.state.activeProject}
+          active={i === this.state.activeProject}
         />
       )
     })

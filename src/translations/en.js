@@ -3,11 +3,15 @@ const en = {
   help: 'Help',
   login: 'Login',
   burger_menu: 'Burger Menu',
+  server_error: 'An error occured, please try again later',
+  search: 'Search',
+  construction: 'Construction',
+  renovation: 'Renovation',
+  fixing: 'Fixing',
+
   'country.france': 'France',
   'country.spain': 'Spain',
   'country.great_britain': 'Great-Britain',
-  server_error: 'An error occured, please try again later',
-  search: 'Search',
 
   'pro.find_pro': 'Find a pro',
   'pro.resource': 'Ressource pour mes travaux',

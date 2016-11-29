@@ -18,6 +18,7 @@ class LatestProjectsResources extends Component {
           title={project.get('title')}
           image={project.get('image')}
           content={project.get('body')}
+          active
         />
       )
     })

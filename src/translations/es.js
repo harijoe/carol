@@ -5,6 +5,9 @@ const es = {
   burger_menu: 'Menu Burger ES',
   server_error: 'An error occured, please try again later ES',
   search: 'Search ES',
+  construction: 'Construction Es',
+  renovation: 'Rénovation Es',
+  fixing: 'Réparation Es',
 
   'country.france': 'Francia',
   'country.spain': 'España',
