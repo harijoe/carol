@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import InputText from '../../../ui/form/input/Text/index'
-import { loadProSearch } from '../ducks'
+import { loadSearchPros } from '../ProList/ducks'
 import Button from '../../../ui/form/input/Button'
 import Form from '../../../ui/form/Form'
 
@@ -17,7 +17,7 @@ class SearchPro extends Component {
   }
 
   onClickSearchPro() {
-    this.props.loadProSearch(this.state.searchProValue)
+    this.props.loadSearchPros(this.state.searchProValue)
   }
 
   handleChange(event) {
@@ -50,7 +50,7 @@ class SearchPro extends Component {
 }
 
 SearchPro.propTypes = {
-  loadProSearch: PropTypes.func,
+  loadSearchPros: PropTypes.func,
 }
 
-export default connect(null, { loadProSearch })(SearchPro)
+export default connect(null, { loadSearchPros })(SearchPro)

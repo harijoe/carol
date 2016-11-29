@@ -27,7 +27,7 @@ export function* fetchEntity(entity, grantType, id, url) {
     const token = yield call(getTokenSaga, grantType)
     const response = yield call(request, url, 'GET', token)
 
-    yield put(entity.get('success')(response.data['hydra:member']))
+    yield put(entity.get('success')(response.data['hydra:member'] || response.data))
   } catch (error) {
     yield put(entity.get('failure')())
   }

@@ -6,13 +6,16 @@ describe('User', () => {
 describe('Pro', () => {
   describe('SearchPro', () => {
     require('./pro/SearchPro/test')
-    require('./pro/ducks/actions.test')
   })
   describe('ProList', () => {
     require('./pro/ProList/test')
+    require('./pro/ProList/ducks/actions.test')
+    require('./pro/ProList/ducks/reducer.test')
   })
-  describe('ducks', () => {
-    require('./pro/ducks/reducer.test')
+  describe('Pro', () => {
+    require('./pro/Pro/test')
+    require('./pro/Pro/ducks/actions.test')
+    require('./pro/Pro/ducks/reducer.test')
   })
   describe('UrlPro', () => {
     require('./pro/LinkPro/test')

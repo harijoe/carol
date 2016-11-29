@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router'
 import { connect } from 'react-redux'
+import Pro from '../Pro'
 
 class ProList extends Component {
   renderList() {
     return this.props.pros.map((pro) => {
       return (
         <li key={pro.get('id')}>
-          <ul>
-            <li>Name: {pro.get('name')}</li>
-            <li>Trade: {pro.get('trade')}</li>
-            <li><Link to={`/artisan/${pro.get('guid')}`}>See details</Link></li>
-          </ul><br />
+          <Pro pro={pro} display="pros_search_result" />
         </li>
       )
     })

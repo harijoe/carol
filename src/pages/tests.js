@@ -13,6 +13,9 @@ describe('help', () => {
 describe('findAPro', () => {
   require('./pro/FindAPro/index')
 })
+describe('ProDetails', () => {
+  require('./pro/ProDetails/index')
+})
 describe('user', () => {
   describe('profile', () => {
     require('./user/Profile/ducks/reducer.test')

@@ -5,7 +5,8 @@ import LatestProjectsOnMapReducer from '../containers/LatestProjectsOnMap/ducks'
 import LatestProjectsResourcesReducer from '../containers/LatestProjectsResources/ducks'
 import TestimonialArticlesReducer from '../containers/TestimonialArticles/ducks'
 import ReinsuranceArticlesReducer from '../containers/ReinsuranceArticles/ducks'
-import prosReducer from '../containers/pro/ducks'
+import prosReducer from '../containers/pro/ProList/ducks'
+import proReducer from '../containers/pro/Pro/ducks'
 import userReducer from '../pages/user/Profile/ducks'
 import signupReducer from '../pages/user/Signup/Registration/ducks'
 import countryReducer from '../containers/Country/ducks'
@@ -20,6 +21,7 @@ import resetPasswordReducer from '../pages/user/ResetPassword/ducks'
 export default combineReducers({
   auth: AuthReducer,
   pros: prosReducer,
+  pro: proReducer,
   latestProjectsOnMap: LatestProjectsOnMapReducer,
   latestProjectsResources: LatestProjectsResourcesReducer,
   testimonialArticles: TestimonialArticlesReducer,

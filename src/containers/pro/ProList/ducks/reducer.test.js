@@ -38,11 +38,13 @@ describe('prosReducer', function() {
         pros: [
           {
             '@id': 1,
+            guid: '111-222-333-444',
             name: 'Mcdo',
             trade: 'kitchen'
           },
           {
             '@id': 2,
+            guid: '444-333-222-111',
             name: 'Leroy Merlin',
             trade: 'bricolage'
           }
@@ -52,11 +54,13 @@ describe('prosReducer', function() {
       const state = fromJS([
         {
           id: 1,
+          guid: '111-222-333-444',
           name: 'Mcdo',
           trade: 'kitchen'
         },
         {
           id: 2,
+          guid: '444-333-222-111',
           name: 'Leroy Merlin',
           trade: 'bricolage'
         }
