@@ -33,6 +33,7 @@ const en = {
   'pro.details.client_since': 'Member since',
   'pro.details.trade': 'Trade',
 
+  'user.gender': 'Gender',
   'user.forget_password': 'Forget password ?',
   'user.create_account': 'I want to create an account',
   'user.sign_up': 'Sign up',
@@ -64,14 +65,16 @@ const en = {
   'user.password_match_err': 'Passwords do not match',
 
   'validators.user.already_exist': 'This user already exists',
-  'validators.user.zipCode.not_blank': 'Field "Postal code" has not to be blank',
+  'validators.user.postalCode.not_blank': 'Field "Postal code" has not to be blank',
   'form.input.button.phone': 'Phone',
   'validators.user.mobilePhone.not_blank': 'Field "Mobile phone" has not to be blank',
   'validators.user.lastName.not_blank': 'Field "Last name" has not to be blank',
   'validators.user.firstName.not_blank': 'Field "First name" has not to be blank',
   'validators.user.gender.not_blank': 'Field "Gender" has not to be blank',
   'validators.user.gender.invalid_choice': 'Field "Gender" is not valid',
-  'validators.user.password.not_blank': 'Field "Password" has not to be blank'
+  'validators.user.password.not_blank': 'Field "Password" has not to be blank',
+  'validators.user.mobilePhone.invalid_type': 'Field "Mobile phone" is not valid',
+  'validators.user.fixedPhone.invalid_type': 'Field "Fixe phone" is not valid'
 }
 
 export default en

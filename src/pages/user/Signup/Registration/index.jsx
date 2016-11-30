@@ -30,7 +30,7 @@ class Signup extends Component {
       firstName: '',
       lastName: '',
       mobilePhone: '',
-      zipCode: ''
+      postalCode: ''
     }
   }
 
@@ -71,7 +71,7 @@ class Signup extends Component {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       mobilePhone: this.state.mobilePhone,
-      zipCode: this.state.zipCode
+      postalCode: this.state.postalCode
     })
   }
 
@@ -119,9 +119,9 @@ class Signup extends Component {
         })
 
         break
-      case 'zipCode':
+      case 'postalCode':
         this.setState({
-          zipCode: e.target.value
+          postalCode: e.target.value
         })
 
         break
@@ -195,10 +195,10 @@ class Signup extends Component {
     }
 
     const attrPostalcode = {
-      className: 'zipCode',
-      id: 'zipCode',
+      className: 'postalCode',
+      id: 'postalCode',
       placeholder: 'user.postal_code',
-      name: 'zipCode',
+      name: 'postalCode',
       required: 'required'
     }
 
@@ -270,7 +270,7 @@ class Signup extends Component {
           <div className="form-group">
             <InputPostal
               attr={attrPostalcode}
-              value={this.state.zipCode}
+              value={this.state.postalCode}
               onChange={this.handleChange}
             />
           </div>

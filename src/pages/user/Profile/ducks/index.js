@@ -80,8 +80,8 @@ export const updateProfile = (data, id) => {
     return getToken('password').then((token) => {
       return request(`${config.apiUrl}${id}`, 'PUT', token, data)
     })
-      .then(() => {
-        dispatch(receiveUserUpdated(data))
+      .then((response) => {
+        dispatch(receiveUserUpdated(response.data))
       })
       .catch((response) => {
         dispatch(receiveError(response, data))
@@ -100,7 +100,8 @@ const initialState = fromJS({
   mobilePhone: '',
   fixedPhone: '',
   address: '',
-  zipCode: '',
+  postalCode: '',
+  imageUrl: '',
   errors: []
 })
 
@@ -111,31 +112,32 @@ const transform = ({
     mobilePhone = '',
     fixedPhone = '',
     address = '',
-    zipCode = '',
+    postalCode = '',
     id = '',
+    imageUrl = '',
     errors = []
   }, state) => {
+  if (imageUrl) {
+    state = state.set('imageUrl', imageUrl)
+  }
+
   return state.set('gender', gender)
     .set('firstName', firstName)
     .set('lastName', lastName)
     .set('mobilePhone', mobilePhone)
     .set('fixedPhone', fixedPhone)
     .set('address', address)
-    .set('zipCode', zipCode)
+    .set('postalCode', postalCode)
     .set('id', id || state.get('id'))
     .set('errors', transformErrors(errors))
 }
 
-export default function reducerAuth(state = initialState, action) {
+export default function userReducer(state = initialState, action) {
   const payload = action.payload
 
   switch (action.type) {
     case USER_UPDATE:
-      return transform(Object.assign(
-          payload,
-          { errors: [] }
-        ),
-        state)
+      return transform(Object.assign(payload, { errors: [] }), state)
     case USER_INFO:
       payload.id = payload['@id']
       delete payload['@id']
@@ -146,9 +148,8 @@ export default function reducerAuth(state = initialState, action) {
     case USER_ERROR:
       return transform(Object.assign(
           action.payloadRequest,
-          { errors: payload.violations ? payload.violations : [{ message: 'server_error' }] }
-        ),
-        state)
+          { errors: payload.violations || [{ message: 'server_error' }] }
+        ), state)
     default:
       return state
   }

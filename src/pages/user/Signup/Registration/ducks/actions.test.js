@@ -22,7 +22,7 @@ const postData = {
   firstName: 'test_prenom',
   lastName: 'test_nom',
   mobilePhone: '0623456789',
-  zipCode: '92210'
+  postalCode: '92210'
 }
 
 chai.use(chaiJsonEqual)

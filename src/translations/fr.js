@@ -33,6 +33,7 @@ const fr = {
   'pro.details.client_since': 'Membre depuis',
   'pro.details.trade': 'Métier',
 
+  'user.gender': 'Sexe',
   'user.forget_password': 'Mot de passe oublié ?',
   'user.create_account': 'Je veux créer un compte',
   'user.sign_up': 'S\'inscrire',
@@ -66,13 +67,15 @@ const fr = {
   'form.input.button.phone': 'Téléphone',
 
   'validators.user.already_exist': 'Cette utilisateur existe déjà',
-  'validators.user.zipCode.not_blank': 'Le champ "Code postal" ne doit pas être vide',
+  'validators.user.postalCode.not_blank': 'Le champ "Code postal" ne doit pas être vide',
   'validators.user.mobilePhone.not_blank': 'Field "Mobile phone" has not to be blank FR',
   'validators.user.lastName.not_blank': 'Field "Last name" has not to be blank FR',
   'validators.user.firstName.not_blank': 'Field "First name" has not to be blank FR',
   'validators.user.gender.not_blank': 'Field "Gender" has not to be blank FR',
   'validators.user.gender.invalid_choice': 'Field "Gender" is not valid FR',
-  'validators.user.password.not_blank': 'Field "Password" has not to be blank FR'
+  'validators.user.password.not_blank': 'Field "Password" has not to be blank FR',
+  'validators.user.mobilePhone.invalid_type': 'Field "Mobile phone" is not valid FR',
+  'validators.user.fixedPhone.invalid_type': 'Field "Fixe phone" is not valid FR'
 }
 
 export default fr

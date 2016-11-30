@@ -1,4 +1,5 @@
 describe('form', () => {
+  require('./form/Img/test')
   require('./form/input/Email/test')
   require('./form/input/Password/test')
   require('./form/input/Phone/test')

@@ -46,7 +46,8 @@ it('dispatch USER_INFO', () => {
   const mobilePhone ='+33612345678'
   const fixedPhone =''
   const address ='1 rue de test'
-  const zipCode ='75001'
+  const postalCode ='75001'
+  const imageUrl ='http://image.test'
   const jsonResponse = {
     username,
     email,
@@ -56,7 +57,8 @@ it('dispatch USER_INFO', () => {
     mobilePhone,
     fixedPhone,
     address,
-    zipCode
+    postalCode,
+    imageUrl
   }
 
   storage.setItem('access_token', 'jkhghfdxfgv54545')
@@ -77,7 +79,8 @@ it('dispatch USER_INFO', () => {
         mobilePhone,
         fixedPhone,
         address,
-        zipCode
+        postalCode,
+        imageUrl
       }
     }
   ]

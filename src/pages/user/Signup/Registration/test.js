@@ -134,10 +134,10 @@ describe('Signup', () => {
   it('Postal input has the right props', () => {
     const attr = enzymeWrapper.find('Form div.form-group').at(7).childAt(0).props().attr
 
-    expect(attr.className).to.be.equal('zipCode')
+    expect(attr.className).to.be.equal('postalCode')
     expect(attr.placeholder).to.be.equal('user.postal_code')
-    expect(attr.id).to.be.equal('zipCode')
-    expect(attr.name).to.be.equal('zipCode')
+    expect(attr.id).to.be.equal('postalCode')
+    expect(attr.name).to.be.equal('postalCode')
   })
 
   it('simulates click events', () => {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import { FormattedMessage } from 'react-intl'
 import { getProfile, updateProfile } from './ducks'
 import InputText from '../../../ui/form/input/Text'
 import InputRadio from '../../../ui/form/input/Radio'
@@ -9,6 +9,7 @@ import InputPostal from '../../../ui/form/input/Postal'
 import Form from '../../../ui/form/Form'
 import Button from '../../../ui/form/input/Button'
 import FormatError from '../../../ui/Errors'
+import InputFileImage from '../../../ui/form/input/File/Image'
 
 class Profile extends Component {
   constructor() {
@@ -23,7 +24,8 @@ class Profile extends Component {
       mobilePhone: '',
       fixedPhone: '',
       address: '',
-      zipCode: ''
+      postalCode: '',
+      imageBase64: ''
     }
   }
 
@@ -42,15 +44,22 @@ class Profile extends Component {
   }
 
   onSubmit() {
-    this.props.updateProfile({
+    const data = {
       gender: this.state.gender,
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       mobilePhone: this.state.mobilePhone,
       fixedPhone: this.state.fixedPhone,
       address: this.state.address,
-      zipCode: this.state.zipCode,
-    }, this.props.user.get('id'))
+      postalCode: this.state.postalCode,
+      imageBase64: this.state.imageBase64
+    }
+
+    if (this.props.user.get('imageUrl') === data.imageBase64) {
+      delete data.imageBase64
+    }
+
+    this.props.updateProfile(data, this.props.user.get('id'))
   }
 
   setFields(data) {
@@ -61,7 +70,8 @@ class Profile extends Component {
       mobilePhone: data.get('mobilePhone'),
       fixedPhone: data.get('fixedPhone'),
       address: data.get('address'),
-      zipCode: data.get('zipCode')
+      postalCode: data.get('postalCode'),
+      imageBase64: data.get('imageUrl')
     })
   }
 
@@ -103,9 +113,15 @@ class Profile extends Component {
         })
 
         break
-      case 'zipCode':
+      case 'postalCode':
         this.setState({
-          zipCode: e.target.value
+          postalCode: e.target.value
+        })
+
+        break
+      case 'imageBase64':
+        this.setState({
+          imageBase64: e.target.src
         })
 
         break
@@ -168,11 +184,26 @@ class Profile extends Component {
     }
 
     const attrZipCode = {
-      className: 'zipCode',
-      id: 'zipCode',
+      className: 'postalCode',
+      id: 'postalCode',
       placeholder: 'user.zip_code',
-      name: 'zipCode',
+      name: 'postalCode',
       required: 'required'
+    }
+    const attrImage = {
+      className: 'imageBase64',
+      placeholder: 'Photo',
+      id: 'imageBase64',
+      name: 'imageBase64'
+    }
+
+    const attrPreview = {
+      className: 'imagePreview',
+      id: 'imagePreview',
+      name: 'imagePreview',
+      height: '100',
+      alt: 'image review',
+      src: this.state.imageBase64
     }
 
     return (
@@ -182,7 +213,15 @@ class Profile extends Component {
             <FormatError errors={this.props.user.get('errors')} />
           </div>
           <div className="form-group">
-            <InputRadio
+            <InputFileImage
+              attr={attrImage}
+              attrPreview={attrPreview}
+              preview
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <FormattedMessage id="user.gender" />: <InputRadio
               attr={attrGender1}
               value="Mr"
               text="user.mr"
@@ -198,44 +237,44 @@ class Profile extends Component {
             />
           </div>
           <div className="form-group">
-            <InputText
+            <FormattedMessage id="user.first_name" />: <InputText
               attr={attrFirstName}
               value={this.state.firstName}
               onChange={this.handleChange}
             />
           </div>
           <div className="form-group">
-            <InputText
+            <FormattedMessage id="user.last_name" />: <InputText
               attr={attrLastName}
               value={this.state.lastName}
               onChange={this.handleChange}
             />
           </div>
           <div className="form-group">
-            <InputPhone
+            <FormattedMessage id="user.mobile_phone" />: <InputPhone
               attr={attrMobilePhone}
               value={this.state.mobilePhone}
               onChange={this.handleChange}
             />
           </div>
           <div className="form-group">
-            <InputPhone
+            <FormattedMessage id="user.fixed_phone" />: <InputPhone
               attr={attrFixedPhone}
               value={this.state.fixedPhone}
               onChange={this.handleChange}
             />
           </div>
           <div className="form-group">
-            <InputText
+            <FormattedMessage id="user.address" />: <InputText
               attr={attrAddress}
               value={this.state.address}
               onChange={this.handleChange}
             />
           </div>
           <div className="form-group">
-            <InputPostal
+            <FormattedMessage id="user.postal_code" />: <InputPostal
               attr={attrZipCode}
-              value={this.state.zipCode}
+              value={this.state.postalCode}
               onChange={this.handleChange}
             />
           </div>
@@ -254,17 +293,10 @@ Profile.propTypes = {
   user: React.PropTypes.object
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    getProfile,
-    updateProfile
-  }, dispatch)
-}
-
 function mapStateToProps(state) {
   return {
     user: state.user,
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile)
+export default connect(mapStateToProps, { getProfile, updateProfile })(Profile)
