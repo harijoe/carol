@@ -4,12 +4,8 @@ import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { callApiUserCreate } from './ducks'
 import Form from '../../../../ui/form/Form'
-import InputText from '../../../../ui/form/input/Text'
-import InputRadio from '../../../../ui/form/input/Radio'
 import InputEmail from '../../../../ui/form/input/Email'
 import InputPassword from '../../../../ui/form/input/Password'
-import InputPhone from '../../../../ui/form/input/Phone'
-import InputPostal from '../../../../ui/form/input/Postal'
 import Button from '../../../../ui/form/input/Button'
 import './signup.scss'
 import FormatError from '../../../../ui/Errors'
@@ -25,12 +21,7 @@ class Signup extends Component {
       errors: [],
       email: '',
       password: '',
-      confirmPassword: '',
-      gender: '',
-      firstName: '',
-      lastName: '',
-      mobilePhone: '',
-      postalCode: ''
+      confirmPassword: ''
     }
   }
 
@@ -66,12 +57,7 @@ class Signup extends Component {
     return this.props.submit({
       username: this.state.email,
       email: this.state.email,
-      password: this.state.password,
-      gender: this.state.gender,
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
-      mobilePhone: this.state.mobilePhone,
-      postalCode: this.state.postalCode
+      password: this.state.password
     })
   }
 
@@ -92,36 +78,6 @@ class Signup extends Component {
       case 'confirmPassword':
         this.setState({
           confirmPassword: e.target.value
-        })
-
-        break
-      case 'gender':
-        this.setState({
-          gender: e.target.value
-        })
-
-        break
-      case 'firstName':
-        this.setState({
-          firstName: e.target.value
-        })
-
-        break
-      case 'lastName':
-        this.setState({
-          lastName: e.target.value
-        })
-
-        break
-      case 'mobilePhone':
-        this.setState({
-          mobilePhone: e.target.value
-        })
-
-        break
-      case 'postalCode':
-        this.setState({
-          postalCode: e.target.value
         })
 
         break
@@ -151,54 +107,6 @@ class Signup extends Component {
       id: 'confirmPassword',
       placeholder: 'user.confirm_password',
       name: 'confirmPassword',
-      required: 'required'
-    }
-
-    const attrGender1 = {
-      className: 'gender',
-      id: 'gender1',
-      placeholder: 'Gender',
-      name: 'gender',
-      required: 'required'
-    }
-
-    const attrGender2 = {
-      className: 'gender',
-      id: 'gender2',
-      placeholder: 'Gender',
-      name: 'gender',
-      required: 'required'
-    }
-
-    const attrFirstName = {
-      className: 'firstName',
-      id: 'firstName',
-      placeholder: 'user.first_name',
-      name: 'firstName',
-      required: 'required'
-    }
-
-    const attrLastName = {
-      className: 'lastName',
-      id: 'lastName',
-      placeholder: 'user.last_name',
-      name: 'lastName',
-      required: 'required'
-    }
-
-    const attrPhone = {
-      className: 'mobilePhone',
-      id: 'mobilePhone',
-      placeholder: 'user.mobile_phone',
-      name: 'mobilePhone',
-      required: 'required'
-    }
-
-    const attrPostalcode = {
-      className: 'postalCode',
-      id: 'postalCode',
-      placeholder: 'user.postal_code',
-      name: 'postalCode',
       required: 'required'
     }
 
@@ -232,49 +140,6 @@ class Signup extends Component {
               checkPattern={false}
             />
           </div>
-          <div className="form-group">
-            <InputRadio
-              attr={attrGender1}
-              value="Mr"
-              text="user.mr"
-              onChange={this.handleChange}
-            />
-            <InputRadio
-              attr={attrGender2}
-              value="Mrs"
-              text="user.mrs"
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="form-group">
-            <InputText
-              attr={attrFirstName}
-              value={this.state.firstName}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="form-group">
-            <InputText
-              attr={attrLastName}
-              value={this.state.lastName}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="form-group">
-            <InputPhone
-              attr={attrPhone}
-              value={this.state.mobilePhone}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="form-group">
-            <InputPostal
-              attr={attrPostalcode}
-              value={this.state.postalCode}
-              onChange={this.handleChange}
-            />
-          </div>
-
           <div className="form-group">
             <Button type="submit" value="user.sign_up" />
           </div>
