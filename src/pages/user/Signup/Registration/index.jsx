@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
 import { bindActionCreators } from 'redux'
 import { callApiUserCreate } from './ducks'
+import { login } from '../../../../services/auth/ducks'
 import Form from '../../../../ui/form/Form'
 import InputEmail from '../../../../ui/form/input/Email'
 import InputPassword from '../../../../ui/form/input/Password'
@@ -169,7 +169,10 @@ function mapDispatchToProps(dispatch) {
         dispatch(callApiUserCreate(data))
           .then((response) => {
             if (response && 201 === response.status) {
-              dispatch(push('/signup-confirmation'))
+              dispatch(login({
+                username: data.username,
+                password: data.password
+              }))
             }
           })
       }

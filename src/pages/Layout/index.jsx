@@ -11,7 +11,6 @@ import MenuLogin from '../../containers/MenuLogin'
 import MenuBurger from '../../containers/MenuBurger'
 import Country from '../../containers/Country'
 
-
 addLocaleData([...es, ...en, ...fr])
 
 const Layout = (props) => {

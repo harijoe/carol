@@ -12,19 +12,28 @@ const anonymousOnly = (AnonymousComponent) => {
       this.checkAndRedirect()
     }
 
-    checkAndRedirect() {
-      const { dispatch, isAuthenticated } = this.props
+    getRedirectPathname(location) {
+      return location && location.state && location.state.redirectPathname
+        ? location.state.redirectPathname : null
+    }
 
+    checkAndRedirect() {
+      const { dispatch, location, isAuthenticated } = this.props
+
+      // Authenticated? Move redirectPathname if exist, home otherwise
       if (isAuthenticated) {
-        dispatch(push('/'))
+        dispatch(push(this.getRedirectPathname(location) || '/'))
       }
     }
 
     render() {
-      const { isAuthenticated } = this.props
+      const { location, isAuthenticated } = this.props
+
+      const redirectPathname = this.getRedirectPathname(location)
+      const props = Object.assign({}, this.props, { redirectPathname })
 
       return (
-        !isAuthenticated ? <AnonymousComponent {...this.props} /> : null
+        !isAuthenticated ? <AnonymousComponent {...props} /> : null
       )
     }
   }
@@ -37,6 +46,7 @@ const anonymousOnly = (AnonymousComponent) => {
 
   Anonymous.propTypes = {
     dispatch: React.PropTypes.func.isRequired,
+    location: React.PropTypes.object,
     isAuthenticated: React.PropTypes.bool
   }
 

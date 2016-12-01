@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { FormattedMessage } from 'react-intl'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
-import { bindActionCreators } from 'redux'
 import { login } from '../../../services/auth/ducks'
 import InputEmail from '../../../ui/form/input/Email'
 import InputPassword from '../../../ui/form/input/Password'
@@ -35,12 +33,10 @@ class Login extends Component {
   }
 
   onSubmitLogin() {
-    const nextPathname = this.props.location && this.props.location.state ? this.props.location.state.nextPathname : null
-
     this.props.login({
       username: this.state.valueUsername,
       password: this.state.valuePassword
-    }, nextPathname)
+    })
   }
 
   handleChange(event) {
@@ -95,7 +91,7 @@ class Login extends Component {
           <Link to="/forgot-password"><FormattedMessage id="user.forget_password" /></Link>
         </div>
         <div>
-          <Link to="/signup"><FormattedMessage id="user.create_account" /></Link>
+          <Link to="/signup" state={{ redirectPathname: this.props.redirectPathname }}><FormattedMessage id="user.create_account" /></Link>
         </div>
       </Form>
     )
@@ -113,27 +109,8 @@ Login.propTypes = {
   login: React.PropTypes.func,
   auth: React.PropTypes.object,
   user: React.PropTypes.object,
-  location: React.PropTypes.object
+  location: React.PropTypes.object,
+  redirectPathname: React.PropTypes.string,
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    login: (data, nextPathname) => {
-      return () => {
-        dispatch(login(data))
-          .then((token) => {
-            // Invalid login case? Return
-            if ('object' === typeof token) {
-              return
-            }
-
-            if (nextPathname) {
-              dispatch(push(nextPathname))
-            }
-          })
-      }
-    }
-  }, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, { login })(Login)

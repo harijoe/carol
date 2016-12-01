@@ -15,20 +15,24 @@ class MenuLogin extends Component {
   }
 
   logoutAndRedirect(e) {
-    const { dispatch } = this.props
-
     e.preventDefault()
+
+    const { dispatch } = this.props
 
     dispatch(logout())
     dispatch(push('/'))
   }
 
   render() {
-    const isLogged = () => {
-      return 'password' !== this.props.auth.get('grantType')
+    const { location, auth } = this.props
+
+    // On login page?
+    if (location && location.pathname && ('/login' === location.pathname)) {
+      return null
     }
 
-    if (isLogged()) {
+    // Logged?
+    if ('password' !== auth.get('grantType')) {
       return (
         <Menu label="login">
           <Login />
@@ -51,6 +55,7 @@ class MenuLogin extends Component {
 
 MenuLogin.propTypes = {
   auth: React.PropTypes.object,
+  location: React.PropTypes.object,
   logoutAndRedirect: React.PropTypes.func,
   dispatch: React.PropTypes.func.isRequired
 }

@@ -15,10 +15,11 @@ const requiresAuth = (AuthenticatedComponent) => {
     checkAndRedirect() {
       const { dispatch, location, isAuthenticated } = this.props
 
+      // Not authenticated? Redirect to login
       if (!isAuthenticated) {
         dispatch(push({
           pathname: '/login',
-          state: { nextPathname: location.pathname }
+          state: { redirectPathname: location.pathname }
         }))
       }
     }
