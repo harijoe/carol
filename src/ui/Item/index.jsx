@@ -1,6 +1,6 @@
 import React from 'react'
 
-const setDisplay = (active = false) => {
+const setDisplay = (active = true) => {
   return active ? { display: 'block' } : { display: 'none' }
 }
 

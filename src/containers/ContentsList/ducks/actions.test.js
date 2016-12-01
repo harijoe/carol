@@ -1,13 +1,11 @@
 import nock from 'nock'
 import thunk from 'redux-thunk'
 import configureMockStore from 'redux-mock-store'
-import { fetchData } from './'
+import { fetchContents } from './'
 import chai from 'chai'
 import chaiJsonEqual from 'chai-json-equal'
 import storage from '../../../utils/storage'
 import config from '../../../config'
-
-/** global: localStorage */
 
 chai.use(chaiJsonEqual)
 const expect = chai.expect
@@ -20,14 +18,18 @@ const dataList = [
     'title': 'Post title 1',
     'body': 'body content 1',
     'image': 'image.jpg',
-    'slug': 'post-title'
+    'slug': 'post-title',
+    'longitude': '123.45',
+    'latitude': '1.23'
   },
   {
     'id': 2,
     'title': 'Post title 2',
     'body': 'body content 2',
     'image': 'image.jpg',
-    'slug': 'post-title'
+    'slug': 'post-title',
+    'longitude': '123.45',
+    'latitude': '1.23'
   }
 ]
 
@@ -36,7 +38,7 @@ afterEach(() => {
   storage.clear()
 })
 
-it('should dispatch LATEST_PROJECTS_RESOURCES_RECEIVE with projects', () => {
+it('should dispatch CONTENT_LIST_SUCCESS with data', () => {
   storage.setItem('access_token', access_token)
   storage.setItem('access_token_expires', Date.now() / 1000)
 
@@ -45,18 +47,23 @@ it('should dispatch LATEST_PROJECTS_RESOURCES_RECEIVE with projects', () => {
   }
 
   nock(config.apiUrl)
-    .get(`/posts?tag[]=work-resources&itemsPerPage=5&order[project_date]=DESC`)
+    .get(`/posts?tag[]=inspiration&tag[]=last-project&itemsPerPage=3&order[project_date]=DESC`)
     .reply(200, jsonResponse)
 
   const expectedActions = [
     {
-      type: 'LATEST_PROJECTS_RESOURCES_RECEIVE',
-      projects: dataList
+      type: 'CONTENT_LIST_REQUEST',
+      scope: 'latestProjectsOnMap'
+    },
+    {
+      type: 'CONTENT_LIST_SUCCESS',
+      scope: 'latestProjectsOnMap',
+      payload: dataList
     },
   ]
   const store = mockStore()
 
-  return store.dispatch(fetchData(['work-resources'], 5))
+  return store.dispatch(fetchContents('latestProjectsOnMap', 3, ['inspiration', 'last-project']))
     .then(() => {
       expect(store.getActions()).to.jsonEqual(expectedActions)
     })

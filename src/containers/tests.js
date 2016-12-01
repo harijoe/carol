@@ -30,23 +30,8 @@ describe('Header', () => {
   require('./MenuLogin/test')
   require('./MenuBurger/test')
 })
-describe('LatestProjectsOnMap', () => {
-  require('./LatestProjectsOnMap/test')
-  require('./LatestProjectsOnMap/ducks/reducer.test')
-  require('./LatestProjectsOnMap/ducks/actions.test')
-})
-describe('LatestProjectsResources', () => {
-  require('./LatestProjectsResources/test')
-  require('./LatestProjectsResources/ducks/reducer.test')
-  require('./LatestProjectsResources/ducks/actions.test')
-})
-describe('ReinsuranceArticles', () => {
-  require('./ReinsuranceArticles/test')
-  require('./ReinsuranceArticles/ducks/reducer.test')
-  require('./ReinsuranceArticles/ducks/actions.test')
-})
-describe('TestimonialArticles', () => {
-  require('./TestimonialArticles/test')
-  require('./TestimonialArticles/ducks/reducer.test')
-  require('./TestimonialArticles/ducks/actions.test')
+describe('ContentsList', () => {
+  require('./ContentsList/test')
+  require('./ContentsList/ducks/reducer.test')
+  require('./ContentsList/ducks/actions.test')
 })
