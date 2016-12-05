@@ -12,26 +12,26 @@ const config = {
 }
 
 export const hostnamesLocales = {
-  'quotatis_dev.fr': 'fr_FR',
-  'quotatis_dev.es': 'es_ES',
-  'quotatis_dev.co.uk': 'en_GB'
+  'quotatis.dev.fr': 'fr_FR',
+  'quotatis.dev.es': 'es_ES',
+  'quotatis.dev.co.uk': 'en_GB'
 }
 
 export const defaultProUrl = 'https://www.quotatispro.co.uk'
 export const defaultLocale = 'en_GB'
 export const countryConfig = {
   FR: {
-    url: 'quotatis_dev.fr',
+    url: 'quotatis.dev.fr',
     proUrl: 'https://www.quotatispro.fr',
     country: 'country.france'
   },
   ES: {
-    url: 'quotatis_dev.es',
+    url: 'quotatis.dev.es',
     proUrl: 'https://www.quotatispro.es',
     country: 'country.spain'
   },
   GB: {
-    url: 'quotatis_dev.co.uk',
+    url: 'quotatis.dev.co.uk',
     proUrl: 'https://www.quotatispro.co.uk',
     country: 'country.great_britain'
   }

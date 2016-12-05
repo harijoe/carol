@@ -4,7 +4,8 @@ import { shallow } from 'enzyme'
 import sinon from 'sinon'
 import React from 'react'
 import { fromJS } from 'immutable'
-import mountWithContext from '../../../../utils/ContextEnzymeTestHelper'
+import FacebookLogin from 'react-facebook-login'
+import { shallowWithContext } from '../../../../utils/ContextEnzymeTestHelper'
 import InputEmail from '../../../../ui/form/input/Email'
 import InputPassword from '../../../../ui/form/input/Password'
 
@@ -19,7 +20,8 @@ describe('Signup', () => {
   const signup = fromJS({
     error: null
   })
-  const enzymeWrapper = mountWithContext(<Signup auth={auth} signup={signup} />)
+  const onSubmit = sinon.spy()
+  const enzymeWrapper = shallowWithContext(<Signup submit={onSubmit} auth={auth} signup={signup} />)
 
   it('should have one form', () => {
     expect(enzymeWrapper.find('Form')).to.have.length(1)
@@ -66,7 +68,7 @@ describe('Signup', () => {
 
   it('calls componentWillReceiveProps', () => {
     const receiveProps = sinon.spy(Signup.prototype, 'componentWillReceiveProps')
-    const wrapper = shallow(<Signup signup={fromJS({ status: 0 })} />)
+    const wrapper = shallowWithContext(<Signup signup={fromJS({ status: 0 })} />)
 
     expect(receiveProps.calledOnce).to.be.false
     wrapper.setProps({country: fromJS({ status: 201 })})
@@ -75,11 +77,15 @@ describe('Signup', () => {
 
   it('simulates click events', () => {
     const callApiCreateUser = sinon.spy()
-    const wrapper = shallow(
+    const wrapper = shallowWithContext(
       <Signup callApiCreateUser={callApiCreateUser} auth={auth} signup={signup} />
     )
 
     wrapper.find('Form').simulate('submit')
     expect(callApiCreateUser.calledOnce).to.equal(true)
+  })
+
+  it('should have facebook button', () => {
+    expect(enzymeWrapper.find(FacebookLogin)).to.have.length(1)
   })
 })

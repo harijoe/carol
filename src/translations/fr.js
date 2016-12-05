@@ -64,6 +64,7 @@ const fr = {
   'user.project_page': 'Ma page projet',
   'user.invalid_login': 'Votre login et/ou mot de passe sont invalides',
   'user.password_match_err': 'Vos mots de passe doivent être identiques',
+  'user.continue_with_facebook': 'Continue with Facebook FR',
 
   'form.input.button.phone': 'Téléphone',
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
+import { isAuthenticated } from '../utils/auth'
 
 const requiresAuth = (AuthenticatedComponent) => {
   class Authentication extends Component {
@@ -13,10 +14,10 @@ const requiresAuth = (AuthenticatedComponent) => {
     }
 
     checkAndRedirect() {
-      const { dispatch, location, isAuthenticated } = this.props
+      const { dispatch, location, grantType } = this.props
 
       // Not authenticated? Redirect to login
-      if (!isAuthenticated) {
+      if (!isAuthenticated(grantType)) {
         dispatch(push({
           pathname: '/login',
           state: { redirectPathname: location.pathname }
@@ -25,24 +26,24 @@ const requiresAuth = (AuthenticatedComponent) => {
     }
 
     render() {
-      const { isAuthenticated } = this.props
+      const { grantType } = this.props
 
       return (
-        isAuthenticated ? <AuthenticatedComponent {...this.props} /> : null
+        isAuthenticated(grantType) ? <AuthenticatedComponent {...this.props} /> : null
       )
     }
   }
 
   const mapStateToProps = (state) => {
     return {
-      isAuthenticated: 'password' === state.auth.get('grantType')
+      grantType: state.auth.get('grantType')
     }
   }
 
   Authentication.propTypes = {
     dispatch: React.PropTypes.func.isRequired,
     location: React.PropTypes.object,
-    isAuthenticated: React.PropTypes.bool
+    grantType: React.PropTypes.string
   }
 
   return connect(mapStateToProps)(Authentication)

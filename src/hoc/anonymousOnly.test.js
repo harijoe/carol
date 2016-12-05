@@ -22,15 +22,15 @@ describe('anonymousOnly', () => {
   })
 
   it('render the AnonymousComponent if not autenthicated', () => {
-    wrapper = shallow(<WrapperComponent />, { context: { store: mockStore({ auth: fromJS({ 'grant_type': 'none' }) }) }})
+    wrapper = shallow(<WrapperComponent />, { context: { store: mockStore({ auth: fromJS({ 'grantType': 'none' }) }) }})
 
     expect(wrapper).to.have.html('<div>Anonymous access verified</div>')
   })
 
 
   it('does not render the AnonymousComponent if authenticated', () => {
-    wrapper = shallow(<WrapperComponent />, { context: { store: mockStore({ auth: fromJS({ 'grant_type': 'password' }) }) }})
+    wrapper = shallow(<WrapperComponent />, { context: { store: mockStore({ auth: fromJS({ 'grantType': 'password' }) }) }})
 
-    expect(wrapper).to.have.html('<div>Anonymous access verified</div>')
+    expect(wrapper).to.have.html('')
   })
 })

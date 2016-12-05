@@ -64,6 +64,7 @@ const en = {
   'user.project_page': 'My project page',
   'user.invalid_login': 'Your login and/or password are not valid',
   'user.password_match_err': 'Passwords do not match',
+  'user.continue_with_facebook': 'Continue with Facebook',
 
   'validators.user.already_exist': 'This user already exists',
   'validators.user.postalCode.not_blank': 'Field "Postal code" has not to be blank',

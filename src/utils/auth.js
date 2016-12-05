@@ -1,6 +1,7 @@
 import { Map } from 'immutable'
 import chooseDefaultStorage from './storage'
 import { getToken } from './token'
+import config from '../config'
 
 export const setStoredAuthState = (grantType) => {
   chooseDefaultStorage.setItem('grant_type', grantType)
@@ -24,4 +25,8 @@ export const getStoredAuthState = () => {
 
 export const login = (credentials) => {
   return getToken('password', credentials)
+}
+
+export const isAuthenticated = (grantType) => {
+  return -1 !== [config.facebookGrantType, 'password'].indexOf(grantType)
 }

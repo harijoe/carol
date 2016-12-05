@@ -4,7 +4,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 
 injectTapEventPlugin()
 
-jsdom('<html><head></head><body></body></html>', { url: 'http://quotatis_dev.co.uk' })
+jsdom('<html><head></head><body></body></html>', { url: 'http://quotatis.dev.co.uk' })
 
 describe('containers', () => {
   require('./containers/tests')

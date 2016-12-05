@@ -6,6 +6,7 @@ import { FormattedMessage } from 'react-intl'
 import Login from '../../containers/user/Login'
 import Menu from '../Menu'
 import { logout } from '../../services/auth/ducks'
+import { isAuthenticated } from '../../utils/auth'
 
 class MenuLogin extends Component {
   constructor() {
@@ -32,7 +33,7 @@ class MenuLogin extends Component {
     }
 
     // Logged?
-    if ('password' !== auth.get('grantType')) {
+    if (!isAuthenticated(auth.get('grantType'))) {
       return (
         <Menu label="login">
           <Login />
