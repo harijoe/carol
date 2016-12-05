@@ -8,7 +8,9 @@ const config = {
   clientSecret: '4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc',
   profileUrl: `${apiUrl}/users/me`,
   timeout: 20000,
-  googleMapsApiKey: 'AIzaSyBjl5j6n56z0DpGtImygG_AFU85GJw6tOk'
+  googleMapsApiKey: 'AIzaSyBjl5j6n56z0DpGtImygG_AFU85GJw6tOk',
+  facebookGrantType: 'https://www.quotatis.com/facebook',
+  facebookAppId: '233630107058419'
 }
 
 export const hostnamesLocales = {
