@@ -53,7 +53,7 @@ ReactDOM.render(
         <Route path="help" component={Help} />
         <Route path="search" component={SearchSite} />
 
-        <Route path="search-pro" component={FindAPro} />
+        <Route path="search-pro" component={requiresAuth(FindAPro)} />
         <Route path="artisan/:proId" component={ProDetails} />
 
         <Route path="login" component={anonymousOnly(Login)} />

@@ -4,6 +4,7 @@ import { FormattedMessage } from 'react-intl'
 import Map from '../../ui/Map'
 import ContentsList from '../../containers/ContentsList'
 import { fetchContents } from '../../containers/ContentsList/ducks'
+import SearchPro from '../../containers/pro/SearchPro'
 
 class Home extends Component {
   constructor() {
@@ -65,6 +66,7 @@ class Home extends Component {
   render() {
     return (
       <div>
+        <SearchPro />
         <Map
           markers={this.state.markers}
           onMarkerClick={this.onMarkerClick}

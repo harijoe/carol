@@ -26,12 +26,13 @@ describe('SearchPro', () => {
   })
 
   it('simulates submit events of the form', () => {
-    const loadSearchPros = sinon.spy()
+    const dispatch = sinon.spy()
     const wrapper = shallow(
-      <SearchPro loadSearchPros={loadSearchPros} />
-    )
+      <SearchPro dispatch={dispatch} />
+  )
 
-    wrapper.find('Form').simulate('submit')
-    expect(loadSearchPros.calledOnce).to.equal(true)
+  wrapper.find('Form').simulate('submit')
+    expect(dispatch.calledOnce).to.equal(true)
   })
+
 })

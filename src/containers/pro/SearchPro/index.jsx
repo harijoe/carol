@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 import InputText from '../../../ui/form/input/Text/index'
-import { loadSearchPros } from '../ProList/ducks'
 import Button from '../../../ui/form/input/Button'
 import Form from '../../../ui/form/Form'
 
@@ -10,14 +10,17 @@ class SearchPro extends Component {
     super()
 
     this.handleChange = this.handleChange.bind(this)
-    this.onClickSearchPro = this.onClickSearchPro.bind(this)
+    this.onClickButtonSearch = this.onClickButtonSearch.bind(this)
     this.state = {
       searchProValue: ''
     }
   }
 
-  onClickSearchPro() {
-    this.props.loadSearchPros(this.state.searchProValue)
+  onClickButtonSearch() {
+    const { dispatch } = this.props
+    const tradeQueryParam = this.state.searchProValue ? `?trade=${this.state.searchProValue}` : ''
+
+    dispatch(push(`/search-pro${tradeQueryParam}`))
   }
 
   handleChange(event) {
@@ -36,7 +39,7 @@ class SearchPro extends Component {
 
     return (
       <div>
-        <Form onSubmit={this.onClickSearchPro}>
+        <Form onSubmit={this.onClickButtonSearch}>
           <InputText
             attr={attrSearchPro}
             onChange={this.handleChange}
@@ -50,7 +53,8 @@ class SearchPro extends Component {
 }
 
 SearchPro.propTypes = {
-  loadSearchPros: PropTypes.func,
+  dispatch: React.PropTypes.func.isRequired
 }
 
-export default connect(null, { loadSearchPros })(SearchPro)
+export default connect()(SearchPro)
+

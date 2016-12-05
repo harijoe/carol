@@ -1,5 +1,6 @@
 import { fromJS } from 'immutable'
 import { call } from 'redux-saga/effects'
+import { remove as removeDiacritics } from 'diacritics'
 import { takeLatest } from 'redux-saga'
 import actionTypes, { createRequestTypes, fetchEntity, initialAction } from '../../../../services/actions'
 import config from '../../../../config'
@@ -33,7 +34,7 @@ export const fetchPro = fetchEntity.bind(null, getProsActions(), 'client_credent
 
 export function* searchPros({ value }) {
   const countryCodeQueryParam = `countryCode=${getCurrentCountry()}`
-  const tradeQueryParam = value ? `&trade=${value}` : ''
+  const tradeQueryParam = value ? `&trade=${removeDiacritics(value)}` : ''
   const url = `${config.apiUrl}/companies?${countryCodeQueryParam}${tradeQueryParam}`
 
   yield call(fetchPro, value, url)
