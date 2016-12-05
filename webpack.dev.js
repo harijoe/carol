@@ -52,6 +52,10 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+        test: /\.css$/,
+        loaders: ['style', 'css?sourceMap&-minimize&modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]']
+      },
+      {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader')
       },

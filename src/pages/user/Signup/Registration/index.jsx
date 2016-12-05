@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { callApiUserCreate } from './ducks'
-import { login } from '../../../../services/auth/ducks'
+import { injectIntl, intlShape } from 'react-intl'
+import { addNotification as notify } from 'reapop'
+import { callApiCreateUser } from './ducks'
+import { login } from '../../../../utils/auth'
 import Form from '../../../../ui/form/Form'
 import InputEmail from '../../../../ui/form/input/Email'
 import InputPassword from '../../../../ui/form/input/Password'
 import Button from '../../../../ui/form/input/Button'
 import './signup.scss'
 import FormatError from '../../../../ui/Errors'
+import messages from '../../../../utils/messages'
 
 class Signup extends Component {
   constructor() {
@@ -17,11 +19,29 @@ class Signup extends Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.resetErrors = this.resetErrors.bind(this)
+
     this.state = {
       errors: [],
       email: '',
       password: '',
       confirmPassword: ''
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.signup && 201 === nextProps.signup.get('status')) {
+      this.props.notify({
+        title: this.props.intl.formatMessage(messages('user.thank_you').label),
+        message: this.props.intl.formatMessage(messages('user.sign_up_confirmation').label),
+        status: 'success',
+        dismissible: true,
+        dismissAfter: 6000
+      })
+
+      this.props.login({
+        username: this.state.email,
+        password: this.state.password
+      })
     }
   }
 
@@ -54,7 +74,7 @@ class Signup extends Component {
       return this.addError('user.password_match_err')
     }
 
-    return this.props.submit({
+    return this.props.callApiCreateUser({
       username: this.state.email,
       email: this.state.email,
       password: this.state.password
@@ -152,7 +172,10 @@ class Signup extends Component {
 Signup.propTypes = {
   signup: React.PropTypes.object,
   auth: React.PropTypes.object,
-  submit: React.PropTypes.func
+  callApiCreateUser: React.PropTypes.func,
+  notify: React.PropTypes.func,
+  intl: intlShape.isRequired,
+  login: React.PropTypes.func,
 }
 
 function mapStateToProps(state) {
@@ -162,22 +185,4 @@ function mapStateToProps(state) {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    submit: (data) => {
-      return () => {
-        dispatch(callApiUserCreate(data))
-          .then((response) => {
-            if (response && 201 === response.status) {
-              dispatch(login({
-                username: data.username,
-                password: data.password
-              }))
-            }
-          })
-      }
-    }
-  }, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Signup)
+export default connect(mapStateToProps, { callApiCreateUser, notify, login })(injectIntl(Signup))

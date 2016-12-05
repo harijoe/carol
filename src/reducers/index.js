@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
+import { reducer as notificationsReducer } from 'reapop'
 import AuthReducer from '../services/auth/ducks/reducer'
 import ContentsReducer from '../containers/ContentsList/ducks'
 import prosReducer from '../containers/pro/ProList/ducks'
@@ -16,6 +17,7 @@ import resetPasswordReducer from '../pages/user/ResetPassword/ducks'
  * */
 
 export default combineReducers({
+  notifications: notificationsReducer,
   auth: AuthReducer,
   pros: prosReducer,
   pro: proReducer,

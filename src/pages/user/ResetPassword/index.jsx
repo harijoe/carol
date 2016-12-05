@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
-import { bindActionCreators } from 'redux'
+import { injectIntl, intlShape } from 'react-intl'
+import { addNotification as notify } from 'reapop'
 import { postResetPassword } from './ducks'
 import Form from '../../../ui/form/Form'
 import InputPassword from '../../../ui/form/input/Password'
 import Button from '../../../ui/form/input/Button'
+import messages from '../../../utils/messages'
 
 class ResetPassword extends Component {
   constructor(props) {
@@ -17,6 +18,18 @@ class ResetPassword extends Component {
       error: '',
       password: '',
       confirmPassword: ''
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.resetPassword && 204 === nextProps.resetPassword.status) {
+      this.props.notify({
+        title: this.props.intl.formatMessage(messages('user.thank_you').label),
+        message: this.props.intl.formatMessage(messages('user.reset_password_success').label),
+        status: 'success',
+        dismissible: true,
+        dismissAfter: 6000
+      })
     }
   }
 
@@ -32,7 +45,7 @@ class ResetPassword extends Component {
       return this.setError('Passwords do not match')
     }
 
-    return this.props.submit({
+    return this.props.postResetPassword({
       password: this.state.password,
       tokenResetPassword: this.props.location.query.token
     })
@@ -105,32 +118,21 @@ class ResetPassword extends Component {
 }
 
 ResetPassword.propTypes = {
-  resetpassword: React.PropTypes.shape({
+  resetPassword: React.PropTypes.shape({
     error: React.PropTypes.string
   }),
   auth: React.PropTypes.object,
-  submit: React.PropTypes.func,
-  location: React.PropTypes.object
+  postResetPassword: React.PropTypes.func,
+  location: React.PropTypes.object,
+  notify: React.PropTypes.func,
+  intl: intlShape.isRequired,
 }
 
 function mapStateToProps(state) {
   return {
-    resetpassword: state.resetpassword,
+    resetPassword: state.resetPassword,
     auth: state.auth
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ submit: (data) => {
-    return () => {
-      dispatch(postResetPassword(data))
-        .then((response) => {
-          if (response && 204 === response.status) {
-            dispatch(push('/reset-password-confirmation'))
-          }
-        })
-    }
-  } }, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ResetPassword)
+export default connect(mapStateToProps, { postResetPassword, notify })(injectIntl(ResetPassword))

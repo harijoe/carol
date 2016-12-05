@@ -64,13 +64,22 @@ describe('Signup', () => {
     expect(attr.name).to.be.equal('confirmPassword')
   })
 
+  it('calls componentWillReceiveProps', () => {
+    const receiveProps = sinon.spy(Signup.prototype, 'componentWillReceiveProps')
+    const wrapper = shallow(<Signup signup={fromJS({ status: 0 })} />)
+
+    expect(receiveProps.calledOnce).to.be.false
+    wrapper.setProps({country: fromJS({ status: 201 })})
+    expect(receiveProps.calledOnce).to.be.true
+  })
+
   it('simulates click events', () => {
-    const onSubmit = sinon.spy()
+    const callApiCreateUser = sinon.spy()
     const wrapper = shallow(
-      <Signup submit={onSubmit} auth={auth} signup={signup} />
+      <Signup callApiCreateUser={callApiCreateUser} auth={auth} signup={signup} />
     )
 
     wrapper.find('Form').simulate('submit')
-    expect(onSubmit.calledOnce).to.equal(true)
+    expect(callApiCreateUser.calledOnce).to.equal(true)
   })
 })

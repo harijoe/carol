@@ -57,6 +57,7 @@ const en = {
   'user.zip_code': 'Postal code',
   'user.send': 'Send',
   'user.thank_you': 'Thank you!',
+  'user.sign_up_confirmation': 'An email was sent to confirm your account.',
   'user.reset_password_email': 'An email was sent to reset your password.',
   'user.reset_password_success': 'Your password has been successfully changed.',
   'user.favorite_page': 'Favorite page',

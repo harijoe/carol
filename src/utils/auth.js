@@ -1,5 +1,6 @@
 import { Map } from 'immutable'
 import chooseDefaultStorage from './storage'
+import { getToken } from './token'
 
 export const setStoredAuthState = (grantType) => {
   chooseDefaultStorage.setItem('grant_type', grantType)
@@ -19,4 +20,8 @@ export const getStoredAuthState = () => {
 
     return new Map()
   }
+}
+
+export const login = (credentials) => {
+  return getToken('password', credentials)
 }

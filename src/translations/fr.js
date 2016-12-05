@@ -57,6 +57,7 @@ const fr = {
   'user.zip_code': 'Code postal',
   'user.send': 'Envoyer',
   'user.thank_you': 'Merci !',
+  'user.sign_up_confirmation': 'Un email vous a été envoyé pour confirmer votre compte.',
   'user.reset_password_email': 'Un email vous a été envoyé pour réinitialiser votre mot de passe.',
   'user.reset_password_success': 'Votre mot de passe a été réinitialisé avec succès.',
   'user.favorite_page': 'Page favorite',

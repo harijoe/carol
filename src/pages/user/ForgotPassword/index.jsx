@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
-import { bindActionCreators } from 'redux'
+import { injectIntl, intlShape } from 'react-intl'
+import { addNotification as notify } from 'reapop'
 import { postData } from './ducks'
 import Form from '../../../ui/form/Form'
 import InputEmail from '../../../ui/form/input/Email'
 import Button from '../../../ui/form/input/Button'
+import messages from '../../../utils/messages'
 
 class ForgotPassword extends Component {
   constructor() {
@@ -24,17 +25,31 @@ class ForgotPassword extends Component {
       this.setState({
         error: nextProps.auth.get('error')
       })
+
+      return
     }
 
     if (nextProps.forgotPassword && nextProps.forgotPassword.error) {
       this.setState({
         error: nextProps.forgotPassword.error
       })
+
+      return
+    }
+
+    if (nextProps.forgotPassword && 204 === nextProps.forgotPassword.status) {
+      this.props.notify({
+        title: this.props.intl.formatMessage(messages('user.thank_you').label),
+        message: this.props.intl.formatMessage(messages('user.reset_password_email').label),
+        status: 'success',
+        dismissible: true,
+        dismissAfter: 6000
+      })
     }
   }
 
   handleSubmit() {
-    return this.props.submit({
+    return this.props.postData({
       email: this.state.email
     })
   }
@@ -59,6 +74,7 @@ class ForgotPassword extends Component {
       name: 'email',
       required: 'required'
     }
+
     return (
       <div>
         <Form onSubmit={this.handleSubmit}>
@@ -86,7 +102,9 @@ ForgotPassword.propTypes = {
     error: React.PropTypes.string
   }),
   auth: React.PropTypes.object,
-  submit: React.PropTypes.func
+  postData: React.PropTypes.func,
+  notify: React.PropTypes.func,
+  intl: intlShape.isRequired,
 }
 
 function mapStateToProps(state) {
@@ -96,17 +114,4 @@ function mapStateToProps(state) {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ submit: (data) => {
-    return () => {
-      dispatch(postData(data))
-        .then((response) => {
-          if (response && 204 === response.status) {
-            dispatch(push('/forgot-password-confirmation'))
-          }
-        })
-    }
-  } }, dispatch)
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ForgotPassword)
+export default connect(mapStateToProps, { postData, notify })(injectIntl(ForgotPassword))

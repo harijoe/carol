@@ -25,7 +25,7 @@ const receiveError = (response) => {
   }
 }
 
-export const callApiUserCreate = (data) => {
+export const callApiCreateUser = (data) => {
   return (dispatch) => {
     return createUser(data)
       .then((response) => {

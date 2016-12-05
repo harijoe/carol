@@ -15,7 +15,6 @@ import Layout from './pages/Layout'
 import Home from './pages/Home'
 import Profile from './pages/user/Profile'
 import Signup from './pages/user/Signup/Registration'
-import SignupConfirmation from './pages/user/Signup/Confirmation'
 import Login from './pages/user/Login'
 import FindAPro from './pages/pro/FindAPro'
 import ProDetails from './pages/pro/ProDetails'
@@ -26,8 +25,6 @@ import Project from './pages/user/Project'
 import rootSaga from './sagas'
 import ForgotPassword from './pages/user/ForgotPassword'
 import ResetPassword from './pages/user/ResetPassword'
-import ForgotPasswordConfirmation from './pages/user/ForgotPasswordConfirmation'
-import ResetPasswordConfirmation from './pages/user/ResetPasswordConfirmation'
 import anonymousOnly from './hoc/anonymousOnly'
 import requiresAuth from './hoc/requiresAuth'
 
@@ -62,12 +59,9 @@ ReactDOM.render(
         <Route path="login" component={anonymousOnly(Login)} />
         <Route path="profile" component={requiresAuth(Profile)} />
         <Route path="signup" component={anonymousOnly(Signup)} />
-        <Route path="signup-confirmation" component={SignupConfirmation} />
 
         <Route path="forgot-password" component={anonymousOnly(ForgotPassword)} />
-        <Route path="forgot-password-confirmation" component={ForgotPasswordConfirmation} />
         <Route path="reset-password" component={anonymousOnly(ResetPassword)} />
-        <Route path="reset-password-confirmation" component={ResetPasswordConfirmation} />
 
         <Route path="favorite" component={requiresAuth(Favorite)} />
         <Route path="project" component={requiresAuth(Project)} />

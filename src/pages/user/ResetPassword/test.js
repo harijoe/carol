@@ -49,12 +49,21 @@ describe('ResetPassword', () => {
   })
 
   it('simulates click events', () => {
-    const onSubmit = sinon.spy()
+    const postResetPassword = sinon.spy()
     const wrapper = shallow(
-      <ResetPassword submit={onSubmit} auth={auth} resetPassword={resetPassword} />
+      <ResetPassword postResetPassword={postResetPassword} auth={auth} resetPassword={resetPassword} />
     )
 
     wrapper.find('Form').simulate('submit')
-    expect(onSubmit.calledOnce).to.equal(true)
+    expect(postResetPassword.calledOnce).to.equal(true)
+  })
+
+  it('calls componentWillReceiveProps', () => {
+    const receiveProps = sinon.spy(ResetPassword.prototype, 'componentWillReceiveProps')
+    const wrapper = shallow(<ResetPassword resetPassword={fromJS({ status: 0 })} />)
+
+    expect(receiveProps.calledOnce).to.be.false
+    wrapper.setProps({resetPassword: fromJS({ status: 201 })})
+    expect(receiveProps.calledOnce).to.be.true
   })
 })

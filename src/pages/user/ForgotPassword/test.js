@@ -40,14 +40,22 @@ describe('ForgotPassword', () => {
     expect(enzymeWrapper.find('Form Button')).to.have.length(1)
   })
 
-
   it('simulates click events', () => {
-    const onSubmit = sinon.spy()
+    const postData = sinon.spy()
     const wrapper = shallow(
-      <ForgotPassword submit={onSubmit} auth={auth} forgotPassword={forgotPassword} />
+      <ForgotPassword postData={postData} auth={auth} forgotPassword={forgotPassword} />
     )
 
     wrapper.find('Form').simulate('submit')
-    expect(onSubmit.calledOnce).to.equal(true)
+    expect(postData.calledOnce).to.equal(true)
+  })
+
+  it('calls componentWillReceiveProps', () => {
+    const receiveProps = sinon.spy(ForgotPassword.prototype, 'componentWillReceiveProps')
+    const wrapper = shallow(<ForgotPassword auth={auth} forgotPassword={forgotPassword} />)
+
+    expect(receiveProps.calledOnce).to.be.false
+    wrapper.setProps({forgotPassword: fromJS({ error: 400 })})
+    expect(receiveProps.calledOnce).to.be.true
   })
 })

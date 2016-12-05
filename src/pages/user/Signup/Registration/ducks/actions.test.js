@@ -4,7 +4,7 @@ import chai from 'chai'
 import configureMockStore from 'redux-mock-store'
 import chaiJsonEqual from 'chai-json-equal'
 import rewire from 'rewire'
-import { callApiUserCreate } from './'
+import { callApiCreateUser } from './'
 import config from '../../../../../config'
 import storage from '../../../../../utils/storage'
 
@@ -50,7 +50,7 @@ it('send data to API', () => {
 
   const store = mockStore()
 
-  return store.dispatch(callApiUserCreate(postData))
+  return store.dispatch(callApiCreateUser(postData))
     .then(() => {
       expect(store.getActions()[0].response.status).to.equal(201)
     })

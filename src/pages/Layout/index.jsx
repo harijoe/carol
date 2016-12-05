@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { IntlProvider, addLocaleData, FormattedMessage } from 'react-intl'
+import NotificationsSystem from 'reapop'
+import theme from 'reapop-theme-wybo'
 import fr from 'react-intl/locale-data/fr'
 import en from 'react-intl/locale-data/en'
 import es from 'react-intl/locale-data/es'
@@ -21,6 +23,7 @@ const Layout = (props) => {
         messages={getCurrentMessages()}
       >
         <div>
+          <NotificationsSystem theme={theme} />
           <header>
             <ul>
               <li><MenuBurger /></li>
