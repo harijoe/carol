@@ -8,6 +8,7 @@ import InputPassword from '../../../ui/form/input/Password'
 import Button from '../../../ui/form/input/Button'
 import Form from '../../../ui/form/Form'
 import FormatError from '../../../ui/Errors'
+import FacebookLogin from '../FacebookLogin'
 
 class Login extends Component {
   constructor() {
@@ -72,28 +73,31 @@ class Login extends Component {
     }
 
     return (
-      <Form onSubmit={this.onSubmitLogin}>
-        <InputEmail
-          attr={attrUsername}
-          onChange={this.handleChange}
-          value={this.state.valueUsername}
-        />
-        <InputPassword
-          attr={attrPassword}
-          value={this.state.valuePassword}
-          onChange={this.handleChange}
-          checkPattern={false}
-        />
-        <br />
-        <Button type="submit" value="user.sign_in" />
-        <FormatError errors={this.props.auth.get('errors')} />
+      <div>
+        <Form onSubmit={this.onSubmitLogin}>
+          <InputEmail
+            attr={attrUsername}
+            onChange={this.handleChange}
+            value={this.state.valueUsername}
+          />
+          <InputPassword
+            attr={attrPassword}
+            value={this.state.valuePassword}
+            onChange={this.handleChange}
+            checkPattern={false}
+          />
+          <br />
+          <Button type="submit" value="user.sign_in" />
+          <FormatError errors={this.props.auth.get('errors')} />
+        </Form>
         <div>
           <Link to="/forgot-password"><FormattedMessage id="user.forget_password" /></Link>
         </div>
         <div>
           <Link to="/signup" state={{ redirectPathname: this.props.redirectPathname }}><FormattedMessage id="user.create_account" /></Link>
         </div>
-      </Form>
+        <FacebookLogin />
+      </div>
     )
   }
 }
@@ -110,7 +114,7 @@ Login.propTypes = {
   auth: React.PropTypes.object,
   user: React.PropTypes.object,
   location: React.PropTypes.object,
-  redirectPathname: React.PropTypes.string,
+  redirectPathname: React.PropTypes.string
 }
 
 export default connect(mapStateToProps, { login })(Login)

@@ -11,7 +11,8 @@ const config = {
   googleMapsApiKey: 'AIzaSyD5R_CxRkMQR49reYM93SbKEC_DR37GsNI',
   googleRecaptchaKey: '6Ldc6A0UAAAAAKYDpetCQRpnBcBb7Lbxs2uKHjkN',
   facebookGrantType: 'https://www.quotatis.com/facebook',
-  facebookAppId: '233630107058419'
+  facebookAppId: '233630107058419',
+  facebookScope: 'public_profile, email, user_birthday, user_location'
 }
 
 export const hostnamesLocales = {

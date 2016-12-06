@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { injectIntl, intlShape } from 'react-intl'
 import { addNotification as notify } from 'reapop'
 import ReCAPTCHA from 'react-google-recaptcha'
-import FacebookLogin from 'react-facebook-login'
 import { callApiCreateUser } from './ducks'
 import { login } from '../../../../utils/auth'
 import Form from '../../../../ui/form/Form'
@@ -14,7 +13,7 @@ import Button from '../../../../ui/form/input/Button'
 import './signup.scss'
 import FormatError from '../../../../ui/Errors'
 import messages from '../../../../utils/messages'
-import { getTokenAction } from '../../../../utils/token'
+import FacebookLogin from '../../../../containers/user/FacebookLogin'
 import config from '../../../../config'
 
 class Signup extends Component {
@@ -25,7 +24,6 @@ class Signup extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleCaptchaSuccess = this.handleCaptchaSuccess.bind(this)
     this.resetErrors = this.resetErrors.bind(this)
-    this.responseFacebook = this.responseFacebook.bind(this)
 
     this.state = {
       errors: [],
@@ -132,10 +130,6 @@ class Signup extends Component {
     }
   }
 
-  responseFacebook(response) {
-    this.props.getTokenAction(config.facebookGrantType, response.accessToken)
-  }
-
   render() {
     const attrEmail = {
       className: 'email',
@@ -215,15 +209,7 @@ class Signup extends Component {
             <Button type="submit" value="user.sign_up" />
           </div>
         </Form>
-        <FacebookLogin
-          appId={config.facebookAppId}
-          fields="location,birthday"
-          callback={this.responseFacebook}
-          icon="fa-facebook"
-          size="small"
-          textButton={this.props.intl.formatMessage(messages('user.continue_with_facebook').label)}
-          scope="public_profile, email, user_birthday, user_location"
-        />
+        <FacebookLogin />
       </div>
     )
   }
@@ -235,8 +221,7 @@ Signup.propTypes = {
   callApiCreateUser: React.PropTypes.func,
   notify: React.PropTypes.func,
   intl: intlShape.isRequired,
-  login: React.PropTypes.func,
-  getTokenAction: React.PropTypes.func
+  login: React.PropTypes.func
 }
 
 function mapStateToProps(state) {
@@ -246,4 +231,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { callApiCreateUser, notify, login, getTokenAction })(injectIntl(Signup))
+export default connect(mapStateToProps, { callApiCreateUser, notify, login })(injectIntl(Signup))

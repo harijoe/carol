@@ -3,7 +3,8 @@ import rewire from 'rewire'
 import sinon from 'sinon'
 import React from 'react'
 import { fromJS } from 'immutable'
-import mountWithContext from '../../../utils/ContextEnzymeTestHelper'
+import FacebookLogin from '../FacebookLogin'
+import { shallowWithContext } from '../../../utils/ContextEnzymeTestHelper'
 import InputEmail from '../../../ui/form/input/Email'
 import InputPassword from '../../../ui/form/input/Password'
 
@@ -12,7 +13,7 @@ const loginConnect = rewire('./')
 const Login = loginConnect.__get__('Login')
 
 describe('Login', () => {
-  const enzymeWrapper = mountWithContext(<Login location={{ query: { username: 'test@mail.com' } }} auth={fromJS({grantType: null, error: null})} />)
+  const enzymeWrapper = shallowWithContext(<Login location={{ query: { username: 'test@mail.com' } }} auth={fromJS({grantType: null, error: null})} />)
 
   it('should have one form', () => {
     expect(enzymeWrapper.find('Form')).to.have.length(1)
@@ -36,10 +37,14 @@ describe('Login', () => {
 
   it('simulates click events', () => {
     const onClickLogin = sinon.spy()
-    const wrapper = mountWithContext(
+    const wrapper = shallowWithContext(
       <Login login={onClickLogin} auth={fromJS({auth: {error: null}})} />
     )
     wrapper.find('Form').simulate('submit')
     expect(onClickLogin.calledOnce).to.equal(true)
+  })
+
+  it('should have facebook button', () => {
+    expect(enzymeWrapper.find(FacebookLogin)).to.have.length(1)
   })
 })
