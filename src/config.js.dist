@@ -8,32 +8,33 @@ const config = {
   clientSecret: '4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc',
   profileUrl: `${apiUrl}/users/me`,
   timeout: 20000,
-  googleMapsApiKey: 'AIzaSyBjl5j6n56z0DpGtImygG_AFU85GJw6tOk',
+  googleMapsApiKey: 'AIzaSyD5R_CxRkMQR49reYM93SbKEC_DR37GsNI',
+  googleRecaptchaKey: '6Ldc6A0UAAAAAKYDpetCQRpnBcBb7Lbxs2uKHjkN',
   facebookGrantType: 'https://www.quotatis.com/facebook',
   facebookAppId: '233630107058419'
 }
 
 export const hostnamesLocales = {
-  'quotatis.dev.fr': 'fr_FR',
-  'quotatis.dev.es': 'es_ES',
-  'quotatis.dev.co.uk': 'en_GB'
+  'carol-fr.dev.quotatis.net': 'fr_FR',
+  'carol-es.dev.quotatis.net': 'es_ES',
+  'carol-co-uk.dev.quotatis.net': 'en_GB'
 }
 
 export const defaultProUrl = 'https://www.quotatispro.co.uk'
 export const defaultLocale = 'en_GB'
 export const countryConfig = {
   FR: {
-    url: 'quotatis.dev.fr',
+    url: 'carol-fr.dev.quotatis.net',
     proUrl: 'https://www.quotatispro.fr',
     country: 'country.france'
   },
   ES: {
-    url: 'quotatis.dev.es',
+    url: 'carol-es.dev.quotatis.net',
     proUrl: 'https://www.quotatispro.es',
     country: 'country.spain'
   },
   GB: {
-    url: 'quotatis.dev.co.uk',
+    url: 'carol-co-uk.dev.quotatis.net',
     proUrl: 'https://www.quotatispro.co.uk',
     country: 'country.great_britain'
   }

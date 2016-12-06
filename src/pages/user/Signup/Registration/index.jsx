@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { injectIntl, intlShape } from 'react-intl'
 import { addNotification as notify } from 'reapop'
+import ReCAPTCHA from 'react-google-recaptcha'
 import FacebookLogin from 'react-facebook-login'
 import { callApiCreateUser } from './ducks'
 import { login } from '../../../../utils/auth'
@@ -22,6 +23,7 @@ class Signup extends Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleCaptchaSuccess = this.handleCaptchaSuccess.bind(this)
     this.resetErrors = this.resetErrors.bind(this)
     this.responseFacebook = this.responseFacebook.bind(this)
 
@@ -30,6 +32,7 @@ class Signup extends Component {
       email: '',
       password: '',
       confirmPassword: '',
+      captcha: false,
       newsletterSubscription: false
     }
   }
@@ -73,11 +76,21 @@ class Signup extends Component {
     return errors.length && -1 < errors.indexOf[error]
   }
 
+  handleCaptchaSuccess(value) {
+    return this.setState({
+      captcha: value
+    })
+  }
+
   handleSubmit() {
     this.resetErrors()
 
     if (this.state.password !== this.state.confirmPassword) {
       return this.addError('user.password_match_err')
+    }
+
+    if (!this.state.captcha) {
+      return this.addError('user.captcha_error')
     }
 
     return this.props.callApiCreateUser({
@@ -182,6 +195,12 @@ class Signup extends Component {
               value={this.state.confirmPassword}
               onChange={this.handleChange}
               checkPattern={false}
+            />
+          </div>
+          <div className="form-group">
+            <ReCAPTCHA
+              sitekey={config.googleRecaptchaKey}
+              onChange={this.handleCaptchaSuccess}
             />
           </div>
           <div className="form-group">

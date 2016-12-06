@@ -38,7 +38,7 @@ describe('Signup', () => {
   })
 
   it('should have one newsletterSubscription input', () => {
-    expect(enzymeWrapper.find('Form div.form-group').at(3).childAt(0).type()).to.equal(InputCheckbox)
+    expect(enzymeWrapper.find('Form div.form-group').at(4).childAt(0).type()).to.equal(InputCheckbox)
   })
 
   it('should have one button', () => {
@@ -72,7 +72,7 @@ describe('Signup', () => {
   })
 
   it('newsletterSubscription input has the right props', () => {
-    const attr = enzymeWrapper.find('Form div.form-group').at(3).childAt(0).props().attr
+    const attr = enzymeWrapper.find('Form div.form-group').at(4).childAt(0).props().attr
 
     expect(attr.className).to.be.equal('newsletterSubscription')
     expect(attr.placeholder).to.be.equal('user.newsletter_subscription')
@@ -95,6 +95,7 @@ describe('Signup', () => {
       <Signup callApiCreateUser={callApiCreateUser} auth={auth} signup={signup} />
     )
 
+    wrapper.setState({ captcha: true })
     wrapper.find('Form').simulate('submit')
     expect(callApiCreateUser.calledOnce).to.equal(true)
   })

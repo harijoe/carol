@@ -64,6 +64,7 @@ const fr = {
   'user.project_page': 'Ma page projet',
   'user.invalid_login': 'Votre login et/ou mot de passe sont invalides',
   'user.password_match_err': 'Vos mots de passe doivent être identiques',
+  'user.captcha_error': 'Êtes-vous un robot?',
   'user.continue_with_facebook': 'Continue with Facebook FR',
   'user.newsletter_subscription': 'Je souhaite m\'inscrire à la newsletter de Quotatis mensuellement',
 

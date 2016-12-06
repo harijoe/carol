@@ -1,10 +1,11 @@
 import 'babel-polyfill'
 import jsdom from 'jsdom-global'
 import injectTapEventPlugin from 'react-tap-event-plugin'
+import { countryConfig } from './config'
 
 injectTapEventPlugin()
 
-jsdom('<html><head></head><body></body></html>', { url: 'http://quotatis.dev.co.uk' })
+jsdom('<html><head></head><body></body></html>', { url: `http://${countryConfig.GB.url}` })
 
 describe('containers', () => {
   require('./containers/tests')
