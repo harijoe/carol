@@ -8,6 +8,7 @@ import { login } from '../../../../utils/auth'
 import Form from '../../../../ui/form/Form'
 import InputEmail from '../../../../ui/form/input/Email'
 import InputPassword from '../../../../ui/form/input/Password'
+import InputCheckbox from '../../../../ui/form/input/Checkbox'
 import Button from '../../../../ui/form/input/Button'
 import './signup.scss'
 import FormatError from '../../../../ui/Errors'
@@ -28,7 +29,8 @@ class Signup extends Component {
       errors: [],
       email: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      newsletterSubscription: false
     }
   }
 
@@ -81,7 +83,8 @@ class Signup extends Component {
     return this.props.callApiCreateUser({
       username: this.state.email,
       email: this.state.email,
-      password: this.state.password
+      password: this.state.password,
+      newsletterSubscription: this.state.newsletterSubscription
     })
   }
 
@@ -102,6 +105,12 @@ class Signup extends Component {
       case 'confirmPassword':
         this.setState({
           confirmPassword: e.target.value
+        })
+
+        break
+      case 'newsletterSubscription':
+        this.setState({
+          newsletterSubscription: e.target.checked
         })
 
         break
@@ -138,6 +147,13 @@ class Signup extends Component {
       required: 'required'
     }
 
+    const attrNewsletterSubscription = {
+      className: 'newsletterSubscription',
+      id: 'newsletterSubscription',
+      placeholder: 'user.newsletter_subscription',
+      name: 'newsletterSubscription'
+    }
+
     return (
       <div>
         <Form onSubmit={this.handleSubmit}>
@@ -166,6 +182,14 @@ class Signup extends Component {
               value={this.state.confirmPassword}
               onChange={this.handleChange}
               checkPattern={false}
+            />
+          </div>
+          <div className="form-group">
+            <InputCheckbox
+              attr={attrNewsletterSubscription}
+              text="user.newsletter_subscription"
+              value={this.state.newsletterSubscription}
+              onChange={this.handleChange}
             />
           </div>
           <div className="form-group">

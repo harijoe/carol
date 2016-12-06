@@ -65,6 +65,7 @@ const fr = {
   'user.invalid_login': 'Votre login et/ou mot de passe sont invalides',
   'user.password_match_err': 'Vos mots de passe doivent être identiques',
   'user.continue_with_facebook': 'Continue with Facebook FR',
+  'user.newsletter_subscription': 'Je souhaite m\'inscrire à la newsletter de Quotatis mensuellement',
 
   'form.input.button.phone': 'Téléphone',
 

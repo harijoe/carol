@@ -65,6 +65,7 @@ const es = {
   'user.invalid_login': 'Your login and/or password are not valid ES',
   'user.password_match_err': 'Passwords do not match ES',
   'user.continue_with_facebook': 'Continue with Facebook ES',
+  'user.newsletter_subscription': 'I want to subscribe to Quotatis weekly newsletter ES',
 
   'form.input.button.phone': 'Phone ES',
 
