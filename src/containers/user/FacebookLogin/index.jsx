@@ -10,10 +10,10 @@ class FacebookLogin extends Component {
   constructor() {
     super()
 
-    this.responseFacebook = this.responseFacebook.bind(this)
+    this.handleFacebookResponse = this.handleFacebookResponse.bind(this)
   }
 
-  responseFacebook(response) {
+  handleFacebookResponse(response) {
     this.props.getTokenAction(config.facebookGrantType, response.accessToken)
   }
 
@@ -21,7 +21,7 @@ class FacebookLogin extends Component {
     return (
       <FacebookLoginBase
         appId={config.facebookAppId}
-        callback={this.responseFacebook}
+        callback={this.handleFacebookResponse}
         icon="fa-facebook"
         size="small"
         textButton={this.props.intl.formatMessage(messages('user.continue_with_facebook').label)}

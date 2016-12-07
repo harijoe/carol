@@ -9,6 +9,7 @@ import Button from '../../../ui/form/input/Button'
 import Form from '../../../ui/form/Form'
 import FormatError from '../../../ui/Errors'
 import FacebookLogin from '../FacebookLogin'
+import GoogleLogin from '../../../containers/user/GoogleLogin'
 
 class Login extends Component {
   constructor() {
@@ -97,6 +98,7 @@ class Login extends Component {
           <Link to="/signup" state={{ redirectPathname: this.props.redirectPathname }}><FormattedMessage id="user.create_account" /></Link>
         </div>
         <FacebookLogin />
+        <GoogleLogin />
       </div>
     )
   }
@@ -114,7 +116,7 @@ Login.propTypes = {
   auth: React.PropTypes.object,
   user: React.PropTypes.object,
   location: React.PropTypes.object,
-  redirectPathname: React.PropTypes.string
+  redirectPathname: React.PropTypes.string,
 }
 
 export default connect(mapStateToProps, { login })(Login)

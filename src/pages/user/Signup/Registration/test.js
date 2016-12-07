@@ -1,10 +1,10 @@
 import chai from 'chai'
 import rewire from 'rewire'
-import { shallow } from 'enzyme'
 import sinon from 'sinon'
 import React from 'react'
 import { fromJS } from 'immutable'
 import FacebookLogin from '../../../../containers/user/FacebookLogin'
+import GoogleLogin from '../../../../containers/user/GoogleLogin'
 import { shallowWithContext } from '../../../../utils/ContextEnzymeTestHelper'
 import InputEmail from '../../../../ui/form/input/Email'
 import InputPassword from '../../../../ui/form/input/Password'
@@ -102,5 +102,9 @@ describe('Signup', () => {
 
   it('should have facebook button', () => {
     expect(enzymeWrapper.find(FacebookLogin)).to.have.length(1)
+  })
+
+  it('should have google button', () => {
+    expect(enzymeWrapper.find(GoogleLogin)).to.have.length(1)
   })
 })

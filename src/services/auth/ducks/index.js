@@ -3,6 +3,7 @@ import { put, call } from 'redux-saga/effects'
 import config from '../../../config'
 import { LOGIN_BAD_REQUEST, LOGIN_ERROR, TOKEN_ERROR, USER_LOGOUT, AUTH_TOKEN } from './actionTypes'
 import storage from '../../../utils/storage'
+import { getCurrentLocale } from '../../../utils/locale'
 
 /*
  Actions
@@ -45,17 +46,14 @@ export const saveTokens = (accessToken, refreshToken) => {
 
 /** global initHeader */
 const initHeader = {
-  Accept: 'application/ld+json'
+  Accept: 'application/ld+json',
+  'Accept-Language': getCurrentLocale()
 }
 
-export const request = (url, method, accessToken = null, data = null, localeHeader = null) => {
+export const request = (url, method, accessToken = null, data = null) => {
   const headers = () => {
     if (accessToken) {
       initHeader.Authorization = `Bearer ${accessToken}`
-    }
-
-    if (localeHeader) {
-      initHeader['Accept-Language'] =  localeHeader
     }
 
     return initHeader

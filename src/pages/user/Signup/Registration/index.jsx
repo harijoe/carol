@@ -15,6 +15,7 @@ import FormatError from '../../../../ui/Errors'
 import messages from '../../../../utils/messages'
 import FacebookLogin from '../../../../containers/user/FacebookLogin'
 import config from '../../../../config'
+import GoogleLogin from '../../../../containers/user/GoogleLogin'
 
 class Signup extends Component {
   constructor() {
@@ -210,6 +211,7 @@ class Signup extends Component {
           </div>
         </Form>
         <FacebookLogin />
+        <GoogleLogin />
       </div>
     )
   }
