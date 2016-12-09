@@ -77,6 +77,7 @@ class Home extends Component {
         />
         <ContentsList
           items={this.props.contents.get('latestProjectsResources')}
+          active="all"
         />
         <ul>
           <li><a href="" id="construction" onClick={this.onTopicClick}><FormattedMessage id="construction" /></a></li>
