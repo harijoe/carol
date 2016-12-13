@@ -1,12 +1,6 @@
-import { call } from 'redux-saga/effects'
 import { takeLatest } from 'redux-saga'
 import storage from './storage'
 import { generateToken } from './api'
-import actionTypes, { createRequestTypes } from '../services/actions'
-import { getTokenSaga } from '../services/auth/ducks'
-
-/** global: FACEBOOK_LOGIN */
-const FACEBOOK_LOGIN = createRequestTypes('FACEBOOK_LOGIN')
 
 const getUnixTime = () => {
   return Date.now() / 1000 | 0
@@ -57,16 +51,4 @@ export const getToken = (grantType = 'client_credentials', credentials = null) =
 
     resolve(token)
   })
-}
-
-export function* getTokenCall({ grantType, accessToken }) {
-  yield call(getTokenSaga, grantType, `access_token=${accessToken}`)
-}
-
-export const getTokenAction = (grantType, accessToken) => {
-  return actionTypes(FACEBOOK_LOGIN.FETCH, { grantType, accessToken })
-}
-
-export function* watchGetToken() {
-  yield takeLatest(FACEBOOK_LOGIN.FETCH, getTokenCall)
 }

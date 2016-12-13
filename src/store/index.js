@@ -4,12 +4,14 @@ import { combineReducers } from 'redux'
 import { routerReducer as routing } from 'react-router-redux'
 import { fork } from 'redux-saga/effects'
 import { reducer as form } from 'redux-form'
+import { reducer as notifications } from 'reapop'
 
 import post from './post/reducer'
 import status from './status/reducer'
 
 const reducers = {
   routing,
+  notifications,
   post,
   form,
   status,

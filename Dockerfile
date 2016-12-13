@@ -15,7 +15,7 @@ RUN cp src/config.js.dist src/config.js
 # Set local node_modules binaries directly available
 ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/app/node_modules/.bin
 
-EXPOSE 8080
+EXPOSE 80
 
 ENV HEADLESS_MIKE 1
 CMD ["/app/docker/run.sh"]

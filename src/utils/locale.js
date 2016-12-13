@@ -1,5 +1,5 @@
-import { defaultLocale, hostnamesLocales } from '../config'
-import translations from '../translations'
+import { defaultLocale, hostnamesLocales } from 'config'
+import translations from 'translations'
 
 export const getCurrentLocale = () => {
   return 'undefined' !== typeof window ? hostnamesLocales[window.location.hostname] : defaultLocale

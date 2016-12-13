@@ -1,6 +1,6 @@
 import { take, put, call, fork } from 'redux-saga/effects'
 import { postList, POST_LIST_REQUEST } from './actions'
-import api from 'services/api'
+import api from 'utils/api'
 
 const fn = () => true
 

@@ -21,9 +21,6 @@ import {
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
-    <Route path="artisan/:proId" component={CompanyPage} />
-    <Route path="favorite" component={requiresAuth(FavoritePage)} />
-    <Route path="forgot-password" component={anonymousOnly(ForgotPasswordPage)} />
     <Route path="help" component={HelpPage} />
     <Route path="login" component={anonymousOnly(LoginPage)} />
     <Route path="profile" component={requiresAuth(ProfilePage)} />
