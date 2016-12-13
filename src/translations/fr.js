@@ -73,7 +73,6 @@ const fr = {
   'user.password_match_err': 'Vos mots de passe doivent être identiques',
   'user.captcha_error': 'Êtes-vous un robot?',
   'user.continue_with_facebook': 'Continue with Facebook FR',
-  'user.continue_with_google': 'Continue with Google FR',
   'user.newsletter_subscription': 'Je souhaite m\'inscrire à la newsletter de Quotatis mensuellement',
   'user.profile_info': 'Profile infos FR',
   'user.contact_info': 'Contact infos FR',

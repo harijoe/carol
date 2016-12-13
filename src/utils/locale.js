@@ -2,7 +2,7 @@ import { defaultLocale, hostnamesLocales } from '../config'
 import translations from '../translations'
 
 export const getCurrentLocale = () => {
-  return hostnamesLocales[window.location.hostname] || defaultLocale
+  return 'undefined' !== typeof window ? hostnamesLocales[window.location.hostname] : defaultLocale
 }
 
 export const getCurrentLanguage = () => {

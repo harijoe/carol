@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { getToken } from './token'
 import { getCurrentLocale } from './locale'
-import config from '../config'
+import config from 'config'
 
 const callApi = (endpoint, method = 'GET', token = null, data = null) => {
   const url = (-1 === endpoint.indexOf(config.apiUrl)) ? config.apiUrl + endpoint : endpoint
