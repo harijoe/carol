@@ -26,7 +26,8 @@ describe('Pro', () => {
       websiteUrl: 'www.reseau-afl.fr',
       employeesNumber: '<5',
       clientSince: '1997-03-01T13:48:56+00:00',
-      trade: 'Plomberie'
+      trade: 'Plomberie',
+      certificateName: 'QualiSol',
     })
 
     const enzymeWrapper  = shallow(<Pro pro={pro} />)

@@ -29,6 +29,7 @@ const Pro = (props) => {
       <li><FormattedMessage id="pro.details.employees_number" />: {pro.get('employeesNumber')}</li>
       <li><FormattedMessage id="pro.details.client_since" />: {pro.get('clientSince')}</li>
       <li><FormattedMessage id="pro.details.trade" />: {pro.get('trade')}</li>
+      <li><FormattedMessage id="pro.details.certificate" />: {pro.get('certificateName')}</li>
     </ul>
   )
 }
@@ -46,7 +47,8 @@ Pro.propTypes = {
     websiteUrl: PropTypes.string,
     employeesNumber: PropTypes.string,
     clientSince: PropTypes.string,
-    trade: PropTypes.string
+    trade: PropTypes.string,
+    certificateName: PropTypes.string,
   }).isRequired,
   display: React.PropTypes.oneOf([
     'full_details', 'pros_search_result'

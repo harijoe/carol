@@ -32,6 +32,7 @@ const es = {
   'pro.details.employees_number': 'Number of employee ES',
   'pro.details.client_since': 'Member since ES',
   'pro.details.trade': 'Trade ES',
+  'pro.details.certificate': 'Certificate ES',
 
   'user.gender': 'Gender ES',
   'user.forget_password': 'Forget password ES ?',

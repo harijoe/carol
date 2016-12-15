@@ -62,6 +62,7 @@ const transformPro = (pro, state) => {
     .set('employeesNumber', pro.employeesNumber || null)
     .set('clientSince', pro.clientSince || null)
     .set('trade', pro.trade || null)
+    .set('certificateName', pro.certificateName || null)
 
   return state
 }
@@ -80,6 +81,7 @@ const initialState = fromJS({
   employeesNumber: null,
   clientSince: null,
   trade: null,
+  certificateName: null,
 })
 
 const reducerPro = (state = initialState, action) => {

@@ -32,6 +32,7 @@ const fr = {
   'pro.details.employees_number': 'Nombre d\'employés',
   'pro.details.client_since': 'Membre depuis',
   'pro.details.trade': 'Métier',
+  'pro.details.certificate': 'Certificat',
 
   'user.gender': 'Sexe',
   'user.forget_password': 'Mot de passe oublié ?',
