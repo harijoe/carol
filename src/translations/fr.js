@@ -89,7 +89,7 @@ const fr = {
   'validators.user.gender.invalid_choice': 'Field "Gender" is not valid FR',
   'validators.user.password.not_blank': 'Field "Password" has not to be blank FR',
   'validators.user.mobilePhone.invalid_type': 'Field "Mobile phone" is not valid FR',
-  'validators.user.fixedPhone.invalid_type': 'Field "Fixe phone" is not valid FR'
+  'validators.user.fixedPhone.invalid_type': 'Field "Fixe phone" is not valid FR',
 }
 
 export default fr

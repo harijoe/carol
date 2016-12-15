@@ -5,17 +5,27 @@ import { isAuthenticated } from 'utils/auth'
 
 const anonymousOnly = (AnonymousComponent) => {
   class Anonymous extends Component {
+    static propTypes = {
+      dispatch: React.PropTypes.func.isRequired,
+      location: React.PropTypes.shape({
+        state: React.PropTypes.shape({
+          redirectPathname: React.PropTypes.string,
+        }),
+      }),
+      grantType: React.PropTypes.string,
+    }
+
+    static getRedirectPathname(location) {
+      return location && location.state && location.state.redirectPathname
+        ? location.state.redirectPathname : null
+    }
+
     componentDidMount() {
       this.checkAndRedirect()
     }
 
     componentDidUpdate() {
       this.checkAndRedirect()
-    }
-
-    getRedirectPathname(location) {
-      return location && location.state && location.state.redirectPathname
-        ? location.state.redirectPathname : null
     }
 
     checkAndRedirect() {
@@ -39,17 +49,9 @@ const anonymousOnly = (AnonymousComponent) => {
     }
   }
 
-  const mapStateToProps = (state) => {
-    return {
-      grantType: state.auth.get('grantType')
-    }
-  }
-
-  Anonymous.propTypes = {
-    dispatch: React.PropTypes.func.isRequired,
-    location: React.PropTypes.object,
-    grantType: React.PropTypes.string
-  }
+  const mapStateToProps = state => ({
+    grantType: state.auth.get('grantType'),
+  })
 
   return connect(mapStateToProps)(Anonymous)
 }

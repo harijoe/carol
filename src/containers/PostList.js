@@ -7,6 +7,8 @@ import { PostList } from 'components'
 class PostListContainer extends Component {
   static propTypes = {
     list: PropTypes.array.isRequired,
+    scope: PropTypes.string.isRequired,
+    tags: PropTypes.array,
     limit: PropTypes.number,
     loading: PropTypes.bool,
     request: PropTypes.func.isRequired,
@@ -16,23 +18,24 @@ class PostListContainer extends Component {
     limit: 20,
   }
 
-  componentDidMount () {
-    this.props.request()
+  componentDidMount() {
+    const { scope, tags, limit } = this.props
+    this.props.request(scope, tags, limit)
   }
 
-  render () {
+  render() {
     const { list, loading } = this.props
     return <PostList {...{ list, loading }} />
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   list: fromPost.getList(state),
   loading: fromStatus.isLoading(state, POST_LIST),
 })
 
-const mapDispatchToProps = (dispatch, { limit }) => ({
-  request: () => dispatch(postList.request(limit)),
+const mapDispatchToProps = (dispatch, { scope, tags, limit }) => ({
+  request: () => dispatch(postList.request(scope, tags, limit)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostListContainer)

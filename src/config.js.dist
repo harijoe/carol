@@ -28,7 +28,7 @@ const config = {
 export const hostnamesLocales = {
   'carol-fr.dev.quotatis.net': 'fr_FR',
   'carol-es.dev.quotatis.net': 'es_ES',
-  'carol-co-uk.dev.quotatis.net': 'en_GB'
+  'carol-co-uk.dev.quotatis.net': 'en_GB',
 }
 
 export const defaultProUrl = 'https://www.quotatispro.co.uk'
@@ -37,17 +37,17 @@ export const countryConfig = {
   FR: {
     url: 'carol-fr.dev.quotatis.net',
     proUrl: 'https://www.quotatispro.fr',
-    country: 'country.france'
+    country: 'country.france',
   },
   ES: {
     url: 'carol-es.dev.quotatis.net',
     proUrl: 'https://www.quotatispro.es',
-    country: 'country.spain'
+    country: 'country.spain',
   },
   GB: {
     url: 'carol-co-uk.dev.quotatis.net',
     proUrl: 'https://www.quotatispro.co.uk',
-    country: 'country.great_britain'
+    country: 'country.great_britain',
   }
 }
 

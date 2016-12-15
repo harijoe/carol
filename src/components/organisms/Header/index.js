@@ -26,7 +26,7 @@ const StyledIconLink = styled(IconLink)`
   }
 `
 
-const Header = (props) => (
+const Header = props => (
   <Wrapper {...props}>
     <StyledIconLink to="/" icon="node" size={100} />
     <PrimaryNavigation />

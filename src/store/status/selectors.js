@@ -7,7 +7,7 @@ export const initialState = {
 }
 
 const getIn = (state, prefix) => {
-  if (typeof prefix === 'undefined') {
+  if ('undefined' === typeof prefix) {
     return !!find(state, (value) => !!value)
   } else if (Array.isArray(prefix)) {
     return !!find(pick(state, prefix), (value) => !!value)

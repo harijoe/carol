@@ -3,8 +3,6 @@ const transformErrors = (errors) => {
     return []
   }
 
-  return errors.map((error) => {
-    return  error.message
-  })
+  return errors.map(error => error.message)
 }
 export default transformErrors

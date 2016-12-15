@@ -89,7 +89,7 @@ const es = {
   'validators.user.gender.invalid_choice': 'Field "Gender" is not valid ES',
   'validators.user.password.not_blank': 'Field "Password" has not to be blank ES',
   'validators.user.mobilePhone.invalid_type': 'Field "Mobile phone" is not valid ES',
-  'validators.user.fixedPhone.invalid_type': 'Field "Fixe phone" is not valid ES'
+  'validators.user.fixedPhone.invalid_type': 'Field "Fixe phone" is not valid ES',
 }
 
 export default es

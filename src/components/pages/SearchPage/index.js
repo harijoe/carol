@@ -5,7 +5,7 @@ import { PageTemplate, Header, Footer } from 'components'
 
 const SearchPage = () => (
   <PageTemplate header={<Header />} footer={<Footer />}>
-    <p><FormattedMessage id="pro.site_search" /></p>
+    <FormattedMessage id="pro.site_search" tagName="p" />
   </PageTemplate>
 )
 

@@ -5,7 +5,7 @@ import messagesFr from './fr'
 const translations = {
   fr: messagesFr,
   en: messagesEn,
-  es: messagesEs
+  es: messagesEs,
 }
 
 export default translations

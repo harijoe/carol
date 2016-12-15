@@ -15,7 +15,7 @@ import { Html } from 'components'
 const router = new Router()
 
 router.use((req, res, next) => {
-  if (env === 'development') {
+  if ('development' === env) {
     global.webpackIsomorphicTools.refresh()
   }
 
@@ -35,7 +35,7 @@ router.use((req, res, next) => {
     const fetchData = () => new Promise((resolve, reject) => {
       const method = req.method.toLowerCase()
       const { params, location, components } = renderProps
-      let promises = []
+      const promises = []
 
       components.forEach((component) => {
         if (component) {
@@ -70,10 +70,11 @@ router.use((req, res, next) => {
     }
 
     fetchData().then(() => {
-      render(configureStore(store.getState(), memoryHistory))
+      return render(configureStore(store.getState(), memoryHistory))
     }).catch((err) => {
-      console.log(err)
-      res.status(500).end()
+      console.error(err)
+
+      return res.status(500).end()
     })
   })
 })

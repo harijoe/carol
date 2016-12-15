@@ -1,13 +1,19 @@
 import { take, put, call, fork } from 'redux-saga/effects'
+import { getPostsByTags } from 'utils/api'
+import { getToken } from 'utils/token'
 import { postList, POST_LIST_REQUEST } from './actions'
-import api from 'utils/api'
 
 const fn = () => true
 
-export function* listPosts (limit, resolve = fn, reject = fn) {
+export function* listPosts (scope, tags, limit, resolve = fn, reject = fn) {
   try {
-    const params = { _limit: limit }
-    const { data } = yield call(api.get, '/posts', { params })
+    const params = {
+      _scope: scope,
+      _tags: tags,
+      _limit: limit,
+    }
+    const { token } = yield call(getToken())
+    const { data } = yield call(getPostsByTags(token), { params })
     resolve(data)
     yield put(postList.success(data))
   } catch (e) {
@@ -18,8 +24,8 @@ export function* listPosts (limit, resolve = fn, reject = fn) {
 
 export function* watchPostListRequest () {
   while (true) {
-    const { limit, resolve, reject } = yield take(POST_LIST_REQUEST)
-    yield call(listPosts, limit, resolve, reject)
+    const { scope, tags, limit, resolve, reject } = yield take(POST_LIST_REQUEST)
+    yield call(listPosts, scope, tags, limit, resolve, reject)
   }
 }
 

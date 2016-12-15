@@ -5,6 +5,14 @@ import { isAuthenticated } from 'utils/auth'
 
 const requiresAuth = (AuthenticatedComponent) => {
   class Authentication extends Component {
+    static propTypes = {
+      dispatch: React.PropTypes.func.isRequired,
+      location: React.PropTypes.shape({
+        pathname: React.PropTypes.string,
+      }),
+      grantType: React.PropTypes.string,
+    }
+
     componentDidMount() {
       this.checkAndRedirect()
     }
@@ -20,7 +28,7 @@ const requiresAuth = (AuthenticatedComponent) => {
       if (!isAuthenticated(grantType)) {
         dispatch(push({
           pathname: '/login',
-          state: { redirectPathname: location.pathname }
+          state: { redirectPathname: location.pathname },
         }))
       }
     }
@@ -34,17 +42,9 @@ const requiresAuth = (AuthenticatedComponent) => {
     }
   }
 
-  const mapStateToProps = (state) => {
-    return {
-      grantType: state.auth.get('grantType')
-    }
-  }
-
-  Authentication.propTypes = {
-    dispatch: React.PropTypes.func.isRequired,
-    location: React.PropTypes.object,
-    grantType: React.PropTypes.string
-  }
+  const mapStateToProps = state => ({
+    grantType: state.auth.get('grantType'),
+  })
 
   return connect(mapStateToProps)(Authentication)
 }

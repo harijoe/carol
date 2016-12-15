@@ -5,7 +5,7 @@ import { PageTemplate, Header, Footer } from 'components'
 
 const HelpPage = () => (
   <PageTemplate header={<Header />} footer={<Footer />}>
-    <p><FormattedMessage id="help" /></p>
+    <FormattedMessage id="help" tagName="p" />
   </PageTemplate>
 )
 

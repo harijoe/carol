@@ -12,7 +12,7 @@ export default (routes) => {
   const app = express()
 
   /* istanbul ignore next */
-  if (env === 'production' || env === 'development') {
+  if ('production' === env || 'development' === env) {
     app.use(compression())
     app.use(morgan('dev'))
     app.use(cookieParser())

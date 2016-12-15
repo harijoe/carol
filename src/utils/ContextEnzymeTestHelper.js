@@ -8,7 +8,6 @@
 import React from 'react'
 import { IntlProvider, intlShape } from 'react-intl'
 import { mount, shallow } from 'enzyme'
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
 
 // You can pass your messages to the IntlProvider. Optional: remove if unneeded.
 // Create the IntlProvider to retrieve context for wrapping around.
@@ -18,25 +17,15 @@ const { intl } = intlProvider.getChildContext()
 /**
  * When using React-Intl `injectIntl` on components, props.intl is required.
  */
-const nodeWithIntlProp = (node) => {
-  return React.cloneElement(node, { intl })
-}
+const nodeWithIntlProp = node => React.cloneElement(node, { intl })
 
-export function shallowWithContext(node) {
-  const muiTheme = getMuiTheme()
+export const shallowWithContext = node => shallow(nodeWithIntlProp(node), {
+  context: { intl },
+})
 
-  return shallow(nodeWithIntlProp(node), {
-    context: { intl, muiTheme }
-  })
-}
-
-const mountWithContext = (node) => {
-  const muiTheme = getMuiTheme()
-
-  return mount(nodeWithIntlProp(node), {
-    context: { intl, muiTheme },
-    childContextTypes: { intl: intlShape, muiTheme: React.PropTypes.object }
-  })
-}
+const mountWithContext = node => mount(nodeWithIntlProp(node), {
+  context: { intl },
+  childContextTypes: { intl: intlShape },
+})
 
 export default mountWithContext

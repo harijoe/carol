@@ -3,7 +3,7 @@ import { initialState, getLoadingState, getErrorState } from './selectors'
 export default (state = initialState, action) => {
   if (!action.type) return state
 
-  let [ suffix, ...prefix ] = action.type.split('_').reverse()
+  let [suffix, ...prefix] = action.type.split('_').reverse()
   prefix = prefix.reverse().join('_')
 
   switch (suffix) {

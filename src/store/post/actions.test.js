@@ -3,6 +3,8 @@ import * as actions from './actions'
 test('postList', () => {
   expect(actions.postList.request(3)).toEqual({
     type: actions.POST_LIST_REQUEST,
+    scope: 'latestProjectsOnMap',
+    tags: ['inspiration', 'last-project'],
     limit: 3,
   })
 

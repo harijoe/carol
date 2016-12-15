@@ -10,18 +10,16 @@ const Credits = styled(Paragraph)`
 `
 
 const StyledFooter = styled.div`
-  background-color: ${([ ...colors.grayscale ].reverse()[1])};
+  background-color: ${([...colors.grayscale].reverse()[1])};
   padding: 2rem;
 `
 
-const Footer = (props) => {
-  return (
-    <StyledFooter {...props}>
-      <Credits>
-        Made with <Icon icon="heart" /> by <Link href="https://www.quotatis.fr">Quotatis</Link>
-      </Credits>
-    </StyledFooter>
-  )
-}
+const Footer = props => (
+  <StyledFooter {...props}>
+    <Credits>
+      Made with <Icon icon="heart" /> by <Link href="https://www.quotatis.fr">Quotatis</Link>
+    </Credits>
+  </StyledFooter>
+)
 
 export default Footer

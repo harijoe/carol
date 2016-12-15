@@ -15,21 +15,19 @@ const Nav = styled.nav`
 
 const StyledLink = styled(Link)`
   font-weight: 300;
-  color: ${[ ...colors.grayscale ].reverse()[3]};
+  color: ${[...colors.grayscale].reverse()[3]};
   font-size: 1.25rem;
 
   &.active {
-    color: ${[ ...colors.grayscale ].reverse()[0]};
+    color: ${[...colors.grayscale].reverse()[0]};
   }
 `
 
-const PrimaryNavigation = (props) => {
-  return (
-    <Nav {...props}>
-      <li><StyledLink to="/" onlyActiveOnIndex activeClassName="active">Home</StyledLink></li>
-      <li><StyledLink to="/help" activeClassName="active">Help</StyledLink></li>
-    </Nav>
-  )
-}
+const PrimaryNavigation = props => (
+  <Nav {...props}>
+    <li><StyledLink to="/" onlyActiveOnIndex activeClassName="active">Home</StyledLink></li>
+    <li><StyledLink to="/help" activeClassName="active">Help</StyledLink></li>
+  </Nav>
+)
 
 export default PrimaryNavigation

@@ -23,9 +23,9 @@ const requireSafe = (path) => {
   let module = {}
   try {
     // using ${} suppresses webpack warning
-    module = require(`${path}`)
+    module = require(path)
   } catch (e) {
-    if (e.message.search('Cannot find module') !== 0) {
+    if (0 !== e.message.search('Cannot find module')) {
       throw e
     }
   }
@@ -56,7 +56,7 @@ Object.keys(reducers).forEach((reducerName) => {
   }
 })
 
-export function* saga () {
+export function* saga() {
   yield sagas.map(fork)
 }
 

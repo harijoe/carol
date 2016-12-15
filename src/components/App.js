@@ -7,17 +7,12 @@ injectGlobal`
   }
 `
 
-class App extends Component {
-  static propTypes = {
-    children: PropTypes.any,
-  }
+const App = (props) => (
+  <div>{props.children}</div>
+)
 
-  render () {
-    const { children } = this.props
-    return (
-      <div>{children}</div>
-    )
-  }
+App.propTypes = {
+  children: PropTypes.any,
 }
 
 export default App

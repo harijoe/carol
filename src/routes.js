@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, IndexRoute } from 'react-router'
+
 import anonymousOnly from 'hoc/anonymousOnly'
 import requiresAuth from 'hoc/requiresAuth'
 import {
@@ -21,6 +22,9 @@ import {
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
+    <Route path="company/:companyId" component={CompanyPage} />
+    <Route path="favorite" component={requiresAuth(FavoritePage)} />
+    <Route path="forgot-password" component={anonymousOnly(ForgotPasswordPage)} />
     <Route path="help" component={HelpPage} />
     <Route path="login" component={anonymousOnly(LoginPage)} />
     <Route path="profile" component={requiresAuth(ProfilePage)} />

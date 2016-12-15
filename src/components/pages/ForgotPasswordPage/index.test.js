@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import NotFoundPage from './'
+import ForgotPasswordPage from './'
 
 it('renders', () => {
-  shallow(<NotFoundPage />)
+  shallow(<ForgotPasswordPage />)
 })

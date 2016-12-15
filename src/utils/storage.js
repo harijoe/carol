@@ -23,13 +23,13 @@ export function inMemoryStorage() {
       },
 
       // methods
-      key: (n) => { return (Object.keys(store))[n] || null },
-      getItem: (key) => { return store[key] || null },
-      setItem: (key, value) => { store[key] = String(value) },
+      key: n => (Object.keys(store))[n] || null,
+      getItem: key => store[key] || null,
+      setItem: (key, value) => (store[key] = String(value)),
       removeItem: (key) => {
         delete store[key]
       },
-      clear: () => { store = {} }
+      clear: () => { store = {} },
     }
   })()
 }

@@ -1,10 +1,7 @@
-import { takeLatest } from 'redux-saga'
 import storage from './storage'
 import { generateToken } from './api'
 
-const getUnixTime = () => {
-  return Date.now() / 1000 | 0
-}
+const getUnixTime = () => Date.now() / 1000 || 0
 
 const saveTokens = (accessToken, refreshToken, expiresIn) => {
   storage.setItem('access_token', accessToken)
@@ -26,29 +23,25 @@ export const getNewToken = (grantType, credentials = null) => {
 
       return Promise.resolve(response.data.access_token)
     })
-    .catch((error) => {
-      return Promise.reject(new Error(error))
-    })
+    .catch(error => Promise.reject(new Error(error)))
 }
 
 export const getToken = (grantType = 'client_credentials', credentials = null) => {
   let token = null
 
-  return new Promise((resolve) => {
-    if (!credentials) {
-      token = storage.getItem('access_token')
-    }
+  if (!credentials) {
+    token = storage.getItem('access_token')
+  }
 
-    if ('undefined' === token || null === token) {
-      token = getNewToken(grantType, credentials)
-    }
+  if ('undefined' === token || null === token) {
+    token = getNewToken(grantType, credentials)
+  }
 
-    const tokenExpire = storage.getItem('access_token_expires') || 0
+  const tokenExpire = storage.getItem('access_token_expires') || 0
 
-    if (0 <= getUnixTime() - tokenExpire) {
-      token = getNewToken(grantType, credentials)
-    }
+  if (0 <= getUnixTime() - tokenExpire) {
+    token = getNewToken(grantType, credentials)
+  }
 
-    resolve(token)
-  })
+  return token
 }
