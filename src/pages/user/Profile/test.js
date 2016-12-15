@@ -12,6 +12,7 @@ import InputPostal from '../../../ui/form/input/Postal'
 import InputFileImage from '../../../ui/form/input/File/Image'
 import Button from '../../../ui/form/input/Button'
 import Form from '../../../ui/form/Form'
+import InputCheckbox from '../../../ui/form/input/Checkbox'
 
 const expect = chai.expect
 const ProfileConnect = rewire("./")
@@ -126,10 +127,50 @@ describe('<Profile />', () => {
     const elt = enzymeWrapper.find(InputText).at(2)
     const attr = elt.props().attr
 
+    expect(attr.className).to.be.equal('preferedLanguage')
+    expect(attr.id).to.be.equal('preferedLanguage')
+    expect(attr.name).to.be.equal('preferedLanguage')
+    expect(attr.placeholder).to.be.equal('user.prefered_language')
+  })
+
+  it('Text input for address has the right props', () => {
+    const elt = enzymeWrapper.find(InputText).at(3)
+    const attr = elt.props().attr
+
     expect(attr.className).to.be.equal('address')
     expect(attr.id).to.be.equal('address')
     expect(attr.name).to.be.equal('address')
     expect(attr.placeholder).to.be.equal('user.address')
+  })
+
+  it('Text input for address has the right props', () => {
+    const elt = enzymeWrapper.find(InputText).at(4)
+    const attr = elt.props().attr
+
+    expect(attr.className).to.be.equal('countryCode')
+    expect(attr.id).to.be.equal('countryCode')
+    expect(attr.name).to.be.equal('countryCode')
+    expect(attr.placeholder).to.be.equal('user.country_code')
+  })
+
+  it('Text input for address has the right props', () => {
+    const elt = enzymeWrapper.find(InputText).at(5)
+    const attr = elt.props().attr
+
+    expect(attr.className).to.be.equal('region')
+    expect(attr.id).to.be.equal('region')
+    expect(attr.name).to.be.equal('region')
+    expect(attr.placeholder).to.be.equal('user.region')
+  })
+
+  it('Text input for address has the right props', () => {
+    const elt = enzymeWrapper.find(InputText).at(6)
+    const attr = elt.props().attr
+
+    expect(attr.className).to.be.equal('city')
+    expect(attr.id).to.be.equal('city')
+    expect(attr.name).to.be.equal('city')
+    expect(attr.placeholder).to.be.equal('user.city')
   })
 
   it('Text input for address has the right props', () => {
@@ -141,8 +182,20 @@ describe('<Profile />', () => {
     expect(attr.className).to.be.equal('postalCode')
     expect(attr.id).to.be.equal('postalCode')
     expect(attr.name).to.be.equal('postalCode')
-    expect(attr.placeholder).to.be.equal('user.zip_code')
+    expect(attr.placeholder).to.be.equal('user.postal_code')
     expect(attr.required).to.equal('required')
+  })
+
+  it('Checkbox input for newsletterSubscription has the right props', () => {
+    const elt = enzymeWrapper.find(InputCheckbox)
+    expect(elt).to.have.length(1)
+
+    const attr = elt.at(0).props().attr
+
+    expect(attr.className).to.be.equal('newsletterSubscription')
+    expect(attr.id).to.be.equal('newsletterSubscription')
+    expect(attr.name).to.be.equal('newsletterSubscription')
+    expect(attr.placeholder).to.be.equal('user.newsletter_subscription')
   })
 
   it('labels <FormattedMessage />', () => {
@@ -158,16 +211,31 @@ describe('<Profile />', () => {
     expect(enzymeWrapper.find('Form > div').at(4).find(FormattedMessage).at(0).prop('id')).to.equal('user.last_name')
 
     expect(enzymeWrapper.find('Form > div').at(5).find(FormattedMessage).at(0)).to.have.length(1)
-    expect(enzymeWrapper.find('Form > div').at(5).find(FormattedMessage).at(0).prop('id')).to.equal('user.mobile_phone')
+    expect(enzymeWrapper.find('Form > div').at(5).find(FormattedMessage).at(0).prop('id')).to.equal('user.birthday')
 
     expect(enzymeWrapper.find('Form > div').at(6).find(FormattedMessage).at(0)).to.have.length(1)
-    expect(enzymeWrapper.find('Form > div').at(6).find(FormattedMessage).at(0).prop('id')).to.equal('user.fixed_phone')
+    expect(enzymeWrapper.find('Form > div').at(6).find(FormattedMessage).at(0).prop('id')).to.equal('user.prefered_language')
 
     expect(enzymeWrapper.find('Form > div').at(7).find(FormattedMessage).at(0)).to.have.length(1)
-    expect(enzymeWrapper.find('Form > div').at(7).find(FormattedMessage).at(0).prop('id')).to.equal('user.address')
+    expect(enzymeWrapper.find('Form > div').at(7).find(FormattedMessage).at(0).prop('id')).to.equal('user.mobile_phone')
 
     expect(enzymeWrapper.find('Form > div').at(8).find(FormattedMessage).at(0)).to.have.length(1)
-    expect(enzymeWrapper.find('Form > div').at(8).find(FormattedMessage).at(0).prop('id')).to.equal('user.postal_code')
+    expect(enzymeWrapper.find('Form > div').at(8).find(FormattedMessage).at(0).prop('id')).to.equal('user.fixed_phone')
+
+    expect(enzymeWrapper.find('Form > div').at(9).find(FormattedMessage).at(0)).to.have.length(1)
+    expect(enzymeWrapper.find('Form > div').at(9).find(FormattedMessage).at(0).prop('id')).to.equal('user.address')
+
+    expect(enzymeWrapper.find('Form > div').at(10).find(FormattedMessage).at(0)).to.have.length(1)
+    expect(enzymeWrapper.find('Form > div').at(10).find(FormattedMessage).at(0).prop('id')).to.equal('user.postal_code')
+
+    expect(enzymeWrapper.find('Form > div').at(11).find(FormattedMessage).at(0)).to.have.length(1)
+    expect(enzymeWrapper.find('Form > div').at(11).find(FormattedMessage).at(0).prop('id')).to.equal('user.country_code')
+
+    expect(enzymeWrapper.find('Form > div').at(12).find(FormattedMessage).at(0)).to.have.length(1)
+    expect(enzymeWrapper.find('Form > div').at(12).find(FormattedMessage).at(0).prop('id')).to.equal('user.region')
+
+    expect(enzymeWrapper.find('Form > div').at(13).find(FormattedMessage).at(0)).to.have.length(1)
+    expect(enzymeWrapper.find('Form > div').at(13).find(FormattedMessage).at(0).prop('id')).to.equal('user.city')
   })
 
   it('simulates click events', () => {

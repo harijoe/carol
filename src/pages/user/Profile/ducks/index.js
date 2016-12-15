@@ -2,6 +2,7 @@ import { fromJS } from 'immutable'
 import { request, getToken } from '../../../../services/auth/ducks'
 import config from '../../../../config'
 import transformErrors from '../../../../utils/transformErrors'
+import transformDate from '../../../../utils/transformDate'
 
 /*
  Const
@@ -94,42 +95,66 @@ export const updateProfile = (data, id) => {
  */
 const initialState = fromJS({
   id: null,
+  facebookId: '',
+  googleId: '',
   gender: '',
   firstName: '',
   lastName: '',
-  mobilePhone: '',
-  fixedPhone: '',
   address: '',
   postalCode: '',
+  city: '',
+  region: '',
+  countryCode: '',
+  mobilePhone: '',
+  fixedPhone: '',
+  birthday: '',
   imageUrl: '',
+  preferedLanguage: '',
+  newsletterSubscription: false,
   errors: []
 })
 
 const transform = ({
-    gender = '',
-    firstName = '',
-    lastName = '',
-    mobilePhone = '',
-    fixedPhone = '',
-    address = '',
-    postalCode = '',
-    id = '',
-    imageUrl = '',
-    errors = []
+  id,
+  facebookId,
+  googleId,
+  gender,
+  firstName,
+  lastName,
+  address,
+  postalCode,
+  city,
+  region,
+  countryCode,
+  mobilePhone,
+  fixedPhone,
+  birthday,
+  imageUrl,
+  preferedLanguage,
+  newsletterSubscription,
+    errors
   }, state) => {
   if (imageUrl) {
     state = state.set('imageUrl', imageUrl)
   }
 
-  return state.set('gender', gender)
-    .set('firstName', firstName)
-    .set('lastName', lastName)
-    .set('mobilePhone', mobilePhone)
-    .set('fixedPhone', fixedPhone)
-    .set('address', address)
-    .set('postalCode', postalCode)
+  return state.set('gender', gender || '')
+    .set('firstName', firstName || '')
+    .set('lastName', lastName || '')
+    .set('mobilePhone', mobilePhone || '')
+    .set('fixedPhone', fixedPhone || '')
+    .set('address', address || '')
+    .set('postalCode', postalCode || '')
+    .set('birthday', transformDate(birthday, 'dd/mm/yyyy') || '')
+    .set('newsletterSubscription', newsletterSubscription || false)
+    .set('facebookId', facebookId || '')
+    .set('googleId', googleId || '')
+    .set('preferedLanguage', preferedLanguage || '')
+    .set('countryCode', countryCode || '')
+    .set('region', region || '')
+    .set('city', city || '')
     .set('id', id || state.get('id'))
-    .set('errors', transformErrors(errors))
+    .set('errors', errors ? transformErrors(errors) : [])
 }
 
 export default function userReducer(state = initialState, action) {

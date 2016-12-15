@@ -38,7 +38,6 @@ it('dispatch USER_UNAUTHORIZED', () => {
 })
 
 it('dispatch USER_INFO', () => {
-  const username ='test@email.com'
   const email ='test@email.com'
   const gender ='Mr'
   const firstName ='test_firstName'
@@ -49,7 +48,6 @@ it('dispatch USER_INFO', () => {
   const postalCode ='75001'
   const imageUrl ='http://image.test'
   const jsonResponse = {
-    username,
     email,
     gender,
     firstName,
@@ -71,7 +69,6 @@ it('dispatch USER_INFO', () => {
     {
       type: 'USER_INFO',
       payload: {
-        username,
         email,
         gender,
         firstName,
@@ -106,7 +103,7 @@ it('dispatch USER_UNAUTHORIZED after an updating a wrong profile', () => {
   ]
   const store = mockStore()
 
-  return store.dispatch(updateProfile({email: 'test@email.com', username: 'test@email.com'}, id))
+  return store.dispatch(updateProfile({email: 'test@email.com'}, id))
     .then(() => {
       expect(store.getActions()).to.jsonEqual(expectedActions)
     })
@@ -124,14 +121,13 @@ it('dispatch USER_ERROR after an updating a wrong profile', () => {
       type: 'USER_ERROR',
       payload: '',
       payloadRequest: {
-        email: 'test@email.com',
-        username: 'test@email.com'
+        email: 'test@email.com'
       }
     }
   ]
   const store = mockStore()
 
-  return store.dispatch(updateProfile({email: 'test@email.com', username: 'test@email.com'}, id))
+  return store.dispatch(updateProfile({email: 'test@email.com'}, id))
     .then(() => {
       expect(store.getActions()).to.jsonEqual(expectedActions)
     })

@@ -16,16 +16,23 @@ describe('userReducer', () => {
     it('state should be initialState!', function () {
       const initialState = fromJS({
         id: null,
+        facebookId: '',
+        googleId: '',
         gender: '',
         firstName: '',
         lastName: '',
-        mobilePhone: '',
-        fixedPhone: '',
         address: '',
         postalCode: '',
+        city: '',
+        region: '',
+        countryCode: '',
+        mobilePhone: '',
+        fixedPhone: '',
+        birthday: '',
         imageUrl: '',
-        imageBase64: '',
-        error: null
+        preferedLanguage: '',
+        newsletterSubscription: false,
+        errors: []
       })
 
       expect(userReducer(initialState, { type: 'AUTH_TOKEN', grantType: 'otherGrantType' })).to.be.jsonEqual(initialState)
@@ -36,28 +43,44 @@ describe('userReducer', () => {
     it('should be initialState when user is logging out!', function () {
       const state = fromJS({
         id: '/users/65456-dfx45-dxfg',
+        facebookId: 'facebookId',
+        googleId: 'googleId',
         gender: 'Mr',
         firstName: 'firstName',
         lastName: 'lastName',
-        mobilePhone: '+33606060606',
-        fixedPhone: '',
         address: '1 rue de test',
         postalCode: '92210',
+        city: 'Paris',
+        region: 'Ile de france',
+        countryCode: 'FR',
+        mobilePhone: '+33606060606',
+        fixedPhone: '+33106060606',
+        birthday: '01/01/2016',
         imageUrl: 'http://image.test',
         imageBase64: 'imageBase64',
-        error: null
+        preferedLanguage: 'fr',
+        newsletterSubscription: true,
+        errors: []
       })
       const initialState = fromJS({
         id: null,
+        facebookId: '',
+        googleId: '',
         gender: '',
         firstName: '',
         lastName: '',
-        mobilePhone: '',
-        fixedPhone: '',
         address: '',
         postalCode: '',
-        errors: [],
+        city: '',
+        region: '',
+        countryCode: '',
+        mobilePhone: '',
+        fixedPhone: '',
+        birthday: '',
         imageUrl: '',
+        preferedLanguage: '',
+        newsletterSubscription: false,
+        errors: [],
       })
 
       expect(userReducer(state, { type: 'USER_LOGOUT' })).to.be.jsonEqual(initialState)
@@ -68,14 +91,23 @@ describe('userReducer', () => {
     it('should be an object!', function() {
       const user = {
         '@id': 'user/drfgxdf-xdfgxdfg54-54x5dg',
+        facebookId: 'facebookId',
+        googleId: 'googleId',
         gender: 'Mr',
         firstName: 'firstName',
         lastName: 'lastName',
-        fixedPhone: '0106060606',
-        mobilePhone: '+33612456789',
         address: '1 rue de test',
         postalCode: '92210',
+        city: 'Paris',
+        region: 'Ile de france',
+        countryCode: 'FR',
+        mobilePhone: '+33606060606',
+        fixedPhone: '+33106060606',
+        birthday: '01/01/2016',
         imageUrl: 'http://image.test',
+        imageBase64: 'imageBase64',
+        preferedLanguage: 'fr',
+        newsletterSubscription: true,
         errors: []
       }
       const action = {
@@ -84,19 +116,45 @@ describe('userReducer', () => {
       }
       const initialState = fromJS({
         id: null,
+        facebookId: '',
+        googleId: '',
         gender: '',
         firstName: '',
         lastName: '',
-        mobilePhone: '',
-        fixedPhone: '',
         address: '',
         postalCode: '',
+        city: '',
+        region: '',
+        countryCode: '',
+        mobilePhone: '',
+        fixedPhone: '',
+        birthday: '',
         imageUrl: '',
+        preferedLanguage: '',
+        newsletterSubscription: false,
         errors: []
       })
 
-      expect(userReducer(initialState, action)).to.jsonEqual(fromJS({ id: "user/drfgxdf-xdfgxdfg54-54x5dg", gender: "Mr", firstName: "firstName", lastName: "lastName", mobilePhone: "+33612456789", fixedPhone: "0106060606", address: "1 rue de test", postalCode: "92210", errors: [], imageUrl: user.imageUrl }))
-
+      expect(userReducer(initialState, action)).to.jsonEqual(fromJS({
+        id: "user/drfgxdf-xdfgxdfg54-54x5dg",
+        facebookId: 'facebookId',
+        googleId: 'googleId',
+        gender: 'Mr',
+        firstName: 'firstName',
+        lastName: 'lastName',
+        address: '1 rue de test',
+        postalCode: '92210',
+        city: 'Paris',
+        region: 'Ile de france',
+        countryCode: 'FR',
+        mobilePhone: '+33606060606',
+        fixedPhone: '+33106060606',
+        birthday: '01/01/2016',
+        imageUrl: 'http://image.test',
+        preferedLanguage: 'fr',
+        newsletterSubscription: true,
+        errors: []
+      }))
     })
   })
 })

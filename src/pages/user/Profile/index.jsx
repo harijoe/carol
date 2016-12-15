@@ -10,6 +10,8 @@ import Form from '../../../ui/form/Form'
 import Button from '../../../ui/form/input/Button'
 import FormatError from '../../../ui/Errors'
 import InputFileImage from '../../../ui/form/input/File/Image'
+import InputCheckbox from '../../../ui/form/input/Checkbox'
+import DatePicker from '../../../ui/DatePicker'
 
 class Profile extends Component {
   constructor() {
@@ -18,14 +20,23 @@ class Profile extends Component {
     this.handleChange = this.handleChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
     this.state = {
+      id: null,
+      facebookId: '',
+      googleId: '',
       gender: '',
       firstName: '',
       lastName: '',
-      mobilePhone: '',
-      fixedPhone: '',
       address: '',
       postalCode: '',
-      imageBase64: ''
+      city: '',
+      region: '',
+      countryCode: '',
+      mobilePhone: '',
+      fixedPhone: '',
+      birthday: '',
+      imageBase64: '',
+      preferedLanguage: '',
+      newsletterSubscription: false,
     }
   }
 
@@ -44,15 +55,31 @@ class Profile extends Component {
   }
 
   onSubmit() {
+    if (this.state.birthday) {
+      const splitDate = this.state.birthday.split('/')
+
+      this.setState({
+        birthday: `${splitDate[2]}/${splitDate[1]}/${splitDate[0]}`
+      })
+    }
+
     const data = {
+      facebookId: this.state.facebookId,
+      googleId: this.state.googleId,
       gender: this.state.gender,
       firstName: this.state.firstName,
       lastName: this.state.lastName,
-      mobilePhone: this.state.mobilePhone,
-      fixedPhone: this.state.fixedPhone,
       address: this.state.address,
       postalCode: this.state.postalCode,
-      imageBase64: this.state.imageBase64
+      city: this.state.city,
+      region: this.state.region,
+      countryCode: this.state.countryCode,
+      mobilePhone: this.state.mobilePhone,
+      fixedPhone: this.state.fixedPhone,
+      birthday: this.state.birthday,
+      imageBase64: this.state.imageBase64,
+      preferedLanguage: this.state.preferedLanguage,
+      newsletterSubscription: this.state.newsletterSubscription
     }
 
     if (this.props.user.get('imageUrl') === data.imageBase64) {
@@ -64,14 +91,22 @@ class Profile extends Component {
 
   setFields(data) {
     this.setState({
+      facebookId: data.get('facebookId'),
+      googleId: data.get('googleId'),
       gender: data.get('gender'),
       firstName: data.get('firstName'),
       lastName: data.get('lastName'),
-      mobilePhone: data.get('mobilePhone'),
-      fixedPhone: data.get('fixedPhone'),
       address: data.get('address'),
       postalCode: data.get('postalCode'),
-      imageBase64: data.get('imageUrl')
+      city: data.get('city'),
+      region: data.get('region'),
+      countryCode: data.get('countryCode'),
+      mobilePhone: data.get('mobilePhone'),
+      fixedPhone: data.get('fixedPhone'),
+      birthday: data.get('birthday'),
+      imageBase64: data.get('imageUrl'),
+      preferedLanguage: data.get('preferedLanguage'),
+      newsletterSubscription: data.get('newsletterSubscription')
     })
   }
 
@@ -122,6 +157,42 @@ class Profile extends Component {
       case 'imageBase64':
         this.setState({
           imageBase64: e.target.src
+        })
+
+        break
+      case 'newsletterSubscription':
+        this.setState({
+          newsletterSubscription: e.target.checked
+        })
+
+        break
+      case 'preferedLanguage':
+        this.setState({
+          preferedLanguage: e.target.value
+        })
+
+        break
+      case 'countryCode':
+        this.setState({
+          countryCode: e.target.value
+        })
+
+        break
+      case 'region':
+        this.setState({
+          region: e.target.value
+        })
+
+        break
+      case 'city':
+        this.setState({
+          city: e.target.value
+        })
+
+        break
+      case 'birthday':
+        this.setState({
+          birthday: e.target.value
         })
 
         break
@@ -186,7 +257,7 @@ class Profile extends Component {
     const attrZipCode = {
       className: 'postalCode',
       id: 'postalCode',
-      placeholder: 'user.zip_code',
+      placeholder: 'user.postal_code',
       name: 'postalCode',
       required: 'required'
     }
@@ -206,12 +277,57 @@ class Profile extends Component {
       src: this.state.imageBase64
     }
 
+    const attrPreferedLanguage = {
+      className: 'preferedLanguage',
+      id: 'preferedLanguage',
+      placeholder: 'user.prefered_language',
+      name: 'preferedLanguage'
+    }
+
+    const attrCountry = {
+      className: 'countryCode',
+      id: 'countryCode',
+      placeholder: 'user.country_code',
+      name: 'countryCode',
+      required: 'required'
+    }
+
+    const attrRegion = {
+      className: 'region',
+      id: 'region',
+      placeholder: 'user.region',
+      name: 'region'
+    }
+
+    const attrCity = {
+      className: 'city',
+      id: 'city',
+      placeholder: 'user.city',
+      name: 'city',
+      required: 'required'
+    }
+
+    const attrNewsletterSubscription = {
+      className: 'newsletterSubscription',
+      id: 'newsletterSubscription',
+      placeholder: 'user.newsletter_subscription',
+      name: 'newsletterSubscription'
+    }
+
+    const attrBirthday = {
+      className: 'birthday',
+      placeholder: 'user.birthday',
+      id: 'birthday',
+      name: 'birthday'
+    }
+
     return (
       <div>
         <Form onSubmit={this.onSubmit}>
           <div className="error">
             <FormatError errors={this.props.user.get('errors')} />
           </div>
+          <FormattedMessage id="user.profile_info" tagName="p" />
           <div className="form-group">
             <InputFileImage
               attr={attrImage}
@@ -251,6 +367,22 @@ class Profile extends Component {
             />
           </div>
           <div className="form-group">
+            <FormattedMessage id="user.birthday" />: <DatePicker
+              attr={attrBirthday}
+              value={this.state.birthday}
+              dateFormat="DD/MM/YYYY"
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <FormattedMessage id="user.prefered_language" />: <InputText
+              attr={attrPreferedLanguage}
+              value={this.state.preferedLanguage}
+              onChange={this.handleChange}
+            />
+          </div>
+          <FormattedMessage id="user.contact_info" tagName="p" />
+          <div className="form-group">
             <FormattedMessage id="user.mobile_phone" />: <InputPhone
               attr={attrMobilePhone}
               value={this.state.mobilePhone}
@@ -279,7 +411,41 @@ class Profile extends Component {
             />
           </div>
           <div className="form-group">
-            <Button type="submit" value="user.update" />
+            <FormattedMessage id="user.country_code" />: <InputText
+              attr={attrCountry}
+              value={this.state.countryCode}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <FormattedMessage id="user.region" />: <InputText
+              attr={attrRegion}
+              value={this.state.region}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <FormattedMessage id="user.city" />: <InputText
+              attr={attrCity}
+              value={this.state.city}
+              onChange={this.handleChange}
+            />
+          </div>
+          <FormattedMessage id="user.social_network" tagName="p" />
+          <ul>
+            <li>Facebook Id : {this.state.facebookId}</li>
+            <li>Google Id : {this.state.googleId}</li>
+          </ul>
+          <div className="form-group">
+            <InputCheckbox
+              attr={attrNewsletterSubscription}
+              text="user.newsletter_subscription"
+              value={this.state.newsletterSubscription}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <Button type="submit" value="user.update" name="profile" />
           </div>
         </Form>
       </div>
@@ -290,7 +456,7 @@ class Profile extends Component {
 Profile.propTypes = {
   getProfile: React.PropTypes.func,
   updateProfile: React.PropTypes.func,
-  user: React.PropTypes.object
+  user: React.PropTypes.object,
 }
 
 function mapStateToProps(state) {
