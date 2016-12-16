@@ -201,41 +201,41 @@ describe('<Profile />', () => {
   it('labels <FormattedMessage />', () => {
     const elt = enzymeWrapper.find(FormattedMessage)
 
-    expect(enzymeWrapper.find('Form > div').at(2).find(FormattedMessage).at(0)).to.have.length(1)
-    expect(enzymeWrapper.find('Form > div').at(2).find(FormattedMessage).at(0).prop('id')).to.equal('user.gender')
-
     expect(enzymeWrapper.find('Form > div').at(3).find(FormattedMessage).at(0)).to.have.length(1)
-    expect(enzymeWrapper.find('Form > div').at(3).find(FormattedMessage).at(0).prop('id')).to.equal('user.first_name')
+    expect(enzymeWrapper.find('Form > div').at(3).find(FormattedMessage).at(0).prop('id')).to.equal('user.gender')
 
     expect(enzymeWrapper.find('Form > div').at(4).find(FormattedMessage).at(0)).to.have.length(1)
-    expect(enzymeWrapper.find('Form > div').at(4).find(FormattedMessage).at(0).prop('id')).to.equal('user.last_name')
+    expect(enzymeWrapper.find('Form > div').at(4).find(FormattedMessage).at(0).prop('id')).to.equal('user.first_name')
 
     expect(enzymeWrapper.find('Form > div').at(5).find(FormattedMessage).at(0)).to.have.length(1)
-    expect(enzymeWrapper.find('Form > div').at(5).find(FormattedMessage).at(0).prop('id')).to.equal('user.birthday')
+    expect(enzymeWrapper.find('Form > div').at(5).find(FormattedMessage).at(0).prop('id')).to.equal('user.last_name')
 
     expect(enzymeWrapper.find('Form > div').at(6).find(FormattedMessage).at(0)).to.have.length(1)
-    expect(enzymeWrapper.find('Form > div').at(6).find(FormattedMessage).at(0).prop('id')).to.equal('user.prefered_language')
+    expect(enzymeWrapper.find('Form > div').at(6).find(FormattedMessage).at(0).prop('id')).to.equal('user.birthday')
 
     expect(enzymeWrapper.find('Form > div').at(7).find(FormattedMessage).at(0)).to.have.length(1)
-    expect(enzymeWrapper.find('Form > div').at(7).find(FormattedMessage).at(0).prop('id')).to.equal('user.mobile_phone')
+    expect(enzymeWrapper.find('Form > div').at(7).find(FormattedMessage).at(0).prop('id')).to.equal('user.prefered_language')
 
     expect(enzymeWrapper.find('Form > div').at(8).find(FormattedMessage).at(0)).to.have.length(1)
-    expect(enzymeWrapper.find('Form > div').at(8).find(FormattedMessage).at(0).prop('id')).to.equal('user.fixed_phone')
+    expect(enzymeWrapper.find('Form > div').at(8).find(FormattedMessage).at(0).prop('id')).to.equal('user.mobile_phone')
 
     expect(enzymeWrapper.find('Form > div').at(9).find(FormattedMessage).at(0)).to.have.length(1)
-    expect(enzymeWrapper.find('Form > div').at(9).find(FormattedMessage).at(0).prop('id')).to.equal('user.address')
+    expect(enzymeWrapper.find('Form > div').at(9).find(FormattedMessage).at(0).prop('id')).to.equal('user.fixed_phone')
 
     expect(enzymeWrapper.find('Form > div').at(10).find(FormattedMessage).at(0)).to.have.length(1)
-    expect(enzymeWrapper.find('Form > div').at(10).find(FormattedMessage).at(0).prop('id')).to.equal('user.postal_code')
+    expect(enzymeWrapper.find('Form > div').at(10).find(FormattedMessage).at(0).prop('id')).to.equal('user.address')
 
     expect(enzymeWrapper.find('Form > div').at(11).find(FormattedMessage).at(0)).to.have.length(1)
-    expect(enzymeWrapper.find('Form > div').at(11).find(FormattedMessage).at(0).prop('id')).to.equal('user.country_code')
+    expect(enzymeWrapper.find('Form > div').at(11).find(FormattedMessage).at(0).prop('id')).to.equal('user.postal_code')
 
     expect(enzymeWrapper.find('Form > div').at(12).find(FormattedMessage).at(0)).to.have.length(1)
-    expect(enzymeWrapper.find('Form > div').at(12).find(FormattedMessage).at(0).prop('id')).to.equal('user.region')
+    expect(enzymeWrapper.find('Form > div').at(12).find(FormattedMessage).at(0).prop('id')).to.equal('user.country_code')
 
     expect(enzymeWrapper.find('Form > div').at(13).find(FormattedMessage).at(0)).to.have.length(1)
-    expect(enzymeWrapper.find('Form > div').at(13).find(FormattedMessage).at(0).prop('id')).to.equal('user.city')
+    expect(enzymeWrapper.find('Form > div').at(13).find(FormattedMessage).at(0).prop('id')).to.equal('user.region')
+
+    expect(enzymeWrapper.find('Form > div').at(14).find(FormattedMessage).at(0)).to.have.length(1)
+    expect(enzymeWrapper.find('Form > div').at(14).find(FormattedMessage).at(0).prop('id')).to.equal('user.city')
   })
 
   it('simulates click events', () => {

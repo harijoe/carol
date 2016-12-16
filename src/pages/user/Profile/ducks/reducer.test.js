@@ -16,6 +16,7 @@ describe('userReducer', () => {
     it('state should be initialState!', function () {
       const initialState = fromJS({
         id: null,
+        email: null,
         facebookId: '',
         googleId: '',
         gender: '',
@@ -43,6 +44,7 @@ describe('userReducer', () => {
     it('should be initialState when user is logging out!', function () {
       const state = fromJS({
         id: '/users/65456-dfx45-dxfg',
+        email: 'test@email.com',
         facebookId: 'facebookId',
         googleId: 'googleId',
         gender: 'Mr',
@@ -64,6 +66,7 @@ describe('userReducer', () => {
       })
       const initialState = fromJS({
         id: null,
+        email: null,
         facebookId: '',
         googleId: '',
         gender: '',
@@ -91,6 +94,7 @@ describe('userReducer', () => {
     it('should be an object!', function() {
       const user = {
         '@id': 'user/drfgxdf-xdfgxdfg54-54x5dg',
+        email: 'test@email.com',
         facebookId: 'facebookId',
         googleId: 'googleId',
         gender: 'Mr',
@@ -116,6 +120,7 @@ describe('userReducer', () => {
       }
       const initialState = fromJS({
         id: null,
+        email: null,
         facebookId: '',
         googleId: '',
         gender: '',
@@ -137,6 +142,7 @@ describe('userReducer', () => {
 
       expect(userReducer(initialState, action)).to.jsonEqual(fromJS({
         id: "user/drfgxdf-xdfgxdfg54-54x5dg",
+        email: 'test@email.com',
         facebookId: 'facebookId',
         googleId: 'googleId',
         gender: 'Mr',

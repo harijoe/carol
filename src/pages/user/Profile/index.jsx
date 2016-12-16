@@ -21,6 +21,7 @@ class Profile extends Component {
     this.onSubmit = this.onSubmit.bind(this)
     this.state = {
       id: null,
+      email: null,
       facebookId: '',
       googleId: '',
       gender: '',
@@ -55,17 +56,7 @@ class Profile extends Component {
   }
 
   onSubmit() {
-    if (this.state.birthday) {
-      const splitDate = this.state.birthday.split('/')
-
-      this.setState({
-        birthday: `${splitDate[2]}/${splitDate[1]}/${splitDate[0]}`
-      })
-    }
-
     const data = {
-      facebookId: this.state.facebookId,
-      googleId: this.state.googleId,
       gender: this.state.gender,
       firstName: this.state.firstName,
       lastName: this.state.lastName,
@@ -86,11 +77,17 @@ class Profile extends Component {
       delete data.imageBase64
     }
 
+    if (this.state.birthday) {
+      const splitDate = this.state.birthday.split('/')
+      data.birthday = `${splitDate[2]}/${splitDate[1]}/${splitDate[0]}`
+    }
+
     this.props.updateProfile(data, this.props.user.get('id'))
   }
 
   setFields(data) {
     this.setState({
+      email: data.get('email'),
       facebookId: data.get('facebookId'),
       googleId: data.get('googleId'),
       gender: data.get('gender'),
@@ -328,6 +325,9 @@ class Profile extends Component {
             <FormatError errors={this.props.user.get('errors')} />
           </div>
           <FormattedMessage id="user.profile_info" tagName="p" />
+          <div className="form-group">
+            <FormattedMessage id="user.email" />: {this.state.email}
+          </div>
           <div className="form-group">
             <InputFileImage
               attr={attrImage}

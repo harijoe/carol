@@ -95,6 +95,7 @@ export const updateProfile = (data, id) => {
  */
 const initialState = fromJS({
   id: null,
+  email: null,
   facebookId: '',
   googleId: '',
   gender: '',
@@ -116,6 +117,7 @@ const initialState = fromJS({
 
 const transform = ({
   id,
+  email,
   facebookId,
   googleId,
   gender,
@@ -132,8 +134,8 @@ const transform = ({
   imageUrl,
   preferedLanguage,
   newsletterSubscription,
-    errors
-  }, state) => {
+  errors
+}, state) => {
   if (imageUrl) {
     state = state.set('imageUrl', imageUrl)
   }
@@ -153,6 +155,7 @@ const transform = ({
     .set('countryCode', countryCode || '')
     .set('region', region || '')
     .set('city', city || '')
+    .set('email', email || null)
     .set('id', id || state.get('id'))
     .set('errors', errors ? transformErrors(errors) : [])
 }
@@ -172,9 +175,9 @@ export default function userReducer(state = initialState, action) {
       return initialState
     case USER_ERROR:
       return transform(Object.assign(
-          action.payloadRequest,
-          { errors: payload.violations || [{ message: 'server_error' }] }
-        ), state)
+        action.payloadRequest,
+        { errors: payload.violations || [{ message: 'server_error' }] }
+      ), state)
     default:
       return state
   }
