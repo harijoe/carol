@@ -3,7 +3,7 @@ import { POST_LIST_SUCCESS } from './actions'
 
 const transform = (items, list) => {
   let i
-  let newList
+  let newList = {}
   let current
 
   for (i = 0; i < items.length; i += 1) {

@@ -69,13 +69,13 @@ router.use((req, res, next) => {
       res.send(doctype + html)
     }
 
-    fetchData().then(() => {
-      return render(configureStore(store.getState(), memoryHistory))
-    }).catch((err) => {
-      console.error(err)
+    fetchData()
+      .then(() => render(configureStore(store.getState(), memoryHistory)))
+      .catch((err) => {
+        console.error(err)
 
-      return res.status(500).end()
-    })
+        return res.status(500).end()
+      })
   })
 })
 

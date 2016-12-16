@@ -49,7 +49,7 @@ if (DEBUG) {
   config.entry.unshift(
     `webpack-dev-server/client?http://${ip}:${port}/`,
     'webpack/hot/only-dev-server',
-    'react-hot-loader/patch',
+    'react-hot-loader/patch'
   )
 
   config.plugins = config.plugins.concat([

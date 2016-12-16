@@ -1,7 +1,5 @@
 import chai from 'chai'
-import rewire from 'rewire'
 import { shallow } from 'enzyme'
-import sinon from 'sinon'
 import React from 'react'
 import { fromJS } from 'immutable'
 import configureMockStore from 'redux-mock-store'

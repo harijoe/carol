@@ -48,7 +48,7 @@ export const countryConfig = {
     url: 'carol-co-uk.dev.quotatis.net',
     proUrl: 'https://www.quotatispro.co.uk',
     country: 'country.great_britain',
-  }
+  },
 }
 
 export default config

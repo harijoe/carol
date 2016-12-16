@@ -5,6 +5,6 @@ require('babel-polyfill')
 require('babel-core/register')
 
 global.webpackIsomorphicTools = new WebpackIsomorphicTools(webpackIsomorphicToolsConfig)
-  .server('./', function () {
+  .server('./', () => {
     require('./server')
   })

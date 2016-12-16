@@ -7,7 +7,7 @@ injectGlobal`
   }
 `
 
-const App = (props) => (
+const App = props => (
   <div>{props.children}</div>
 )
 

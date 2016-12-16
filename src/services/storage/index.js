@@ -12,26 +12,28 @@
  *
  * WARNING: As a result, for now, the store is shared amongst all requests.
  */
-export function inMemoryStorage() {
-  return (() => {
-    let store = {}
+export const inMemoryStorage = () => (() => {
+  let store = {}
 
-    return {
-      // getters
-      get length() {
-        return Object.keys(store).length
-      },
+  return {
+    // getters
+    get length() {
+      return Object.keys(store).length
+    },
 
-      // methods
-      key: n => (Object.keys(store))[n] || null,
-      getItem: key => store[key] || null,
-      setItem: (key, value) => (store[key] = String(value)),
-      removeItem: (key) => {
-        delete store[key]
-      },
-      clear: () => { store = {} },
-    }
-  })()
+    // methods
+    key: n => (Object.keys(store))[n] || null,
+    getItem: key => store[key] || null,
+    setItem: (key, value) => (store[key] = String(value)),
+    removeItem: (key) => {
+      delete store[key]
+    },
+    clear: () => { store = {} },
+  }
+})()
+
+export const inCookieStorage = () => {
+
 }
 
 /**
@@ -40,7 +42,7 @@ export function inMemoryStorage() {
  * @return WebStorageImplementation - https://developer.mozilla.org/en-US/docs/Web/API/Storage
 
  */
-function chooseDefaultStorage() {
+const chooseDefaultStorage = () => {
   // In the browser, we prefer the native localStorage
   if (process.browser && 'undefined' !== typeof localStorage) {
     return localStorage

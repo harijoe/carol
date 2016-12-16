@@ -1,5 +1,5 @@
-import storage from './storage'
-import { generateToken } from './api'
+import storage from 'services/storage'
+import { generateToken } from 'services/api'
 
 const getUnixTime = () => Date.now() / 1000 || 0
 

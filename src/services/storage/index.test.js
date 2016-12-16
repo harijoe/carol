@@ -1,5 +1,5 @@
 import chai from 'chai'
-import { inMemoryStorage } from './storage'
+import { inMemoryStorage } from './'
 
 const expect = chai.expect
 
