@@ -1,5 +1,5 @@
 import storage from 'services/storage'
-import { generateToken } from 'services/api'
+import api from 'services/api'
 
 const getUnixTime = () => Date.now() / 1000 || 0
 
@@ -17,11 +17,11 @@ export const getNewToken = (grantType, credentials = null) => {
 
   const isCredentials = (credentials) ? `&username=${credentials.username}&password=${credentials.password}` : ''
 
-  return generateToken(grantType, isCredentials)
+  return api.generateToken(grantType, isCredentials)
     .then((response) => {
-      saveTokens(response.data.access_token, response.data.refresh_token, response.data.expires_in)
+      saveTokens(response.access_token, response.refresh_token, response.expires_in)
 
-      return Promise.resolve(response.data.access_token)
+      return Promise.resolve(response.access_token)
     })
     .catch(error => Promise.reject(new Error(error)))
 }

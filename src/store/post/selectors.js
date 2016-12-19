@@ -7,4 +7,6 @@ export const initialState = fromJS({
   reinsuranceArticles: [],
 })
 
-export const getList = (state = initialState) => state.list || []
+export const getList = (state = initialState, scope) => {
+  return state.get(scope) || []
+}

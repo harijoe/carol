@@ -1,17 +1,18 @@
 import { take, put, call, fork } from 'redux-saga/effects'
 import cookie from 'react-cookie'
 import api from 'services/api'
+import getToken from 'utils/token'
 import { auth, AUTH_REQUEST, AUTH_SUCCESS, AUTH_LOGOUT } from './actions'
 
 // istanbul ignore next
 const noop = () => {}
 
-export function* serviceAuth(service, serviceToken, resolve = noop, reject = noop) {
+export function* serviceAuth(resolve = noop, reject = noop) {
   try {
-    const { data } = yield call(api.getToken, { access_token: serviceToken })
+    const { token } = yield call(getToken())
 
-    resolve(data.token)
-    yield put(auth.success(data.token))
+    resolve(token)
+    yield put(auth.success(token))
   } catch (error) {
     reject(error)
     yield put(auth.failure(error.data))
@@ -41,9 +42,9 @@ export function* watchAuthLogout() {
 
 export function* watchAuthRequest() {
   while (true) {
-    const { service, accessToken, resolve, reject } = yield take(AUTH_REQUEST)
+    const { resolve, reject } = yield take(AUTH_REQUEST)
 
-    yield call(serviceAuth, service, accessToken, resolve, reject)
+    yield call(serviceAuth, resolve, reject)
   }
 }
 

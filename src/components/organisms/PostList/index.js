@@ -9,15 +9,36 @@ const Wrapper = styled.div`
   }
 `
 
-const PostList = ({ list, loading, ...props }) => (
-  <Wrapper {...props}>
-    {loading && <div>Loading</div>}
-    {list.map((post, i) => <Post key={i} loading={loading} {...post} />)}
-  </Wrapper>
-)
+const setDisplay = (active, i, tags) => {
+  if ('string' === typeof active) {
+    if ('all' === active) {
+      return true
+    }
+
+    return tags.includes(active)
+  }
+
+  return i === active
+}
+
+const PostList = ({ list, active, loading, ...props }) => {
+  return (
+    <Wrapper {...props}>
+      {loading && <div>Loading...</div>}
+      {list.map((items, i) => {
+        return <Post
+          key={i}
+          loading={loading}
+          items={items}
+          active={setDisplay(active, i, items.get('tags'))}
+        />
+      })}
+    </Wrapper>
+  )
+}
 
 PostList.propTypes = {
-  list: PropTypes.array.isRequired,
+  list: PropTypes.object.isRequired,
   loading: PropTypes.bool,
 }
 

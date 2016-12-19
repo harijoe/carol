@@ -9,12 +9,9 @@ const locale = getCurrentLocale()
 api.request = (endpoint, method, settings, body) => {
   const url = (-1 === endpoint.indexOf(config.api.url)) ? config.api.url + endpoint : endpoint
 
-  fetch(url, api.init(method, settings, body))
+  return fetch(url, api.init(method, settings, body))
     .then(api.checkStatus)
-    .then(response => ({
-      status: response.status,
-      response,
-    }))
+    .then(response => response)
     .catch(error => Promise.reject(error))
 }
 
@@ -42,15 +39,10 @@ api.checkStatus = (response) => {
     })
 }
 
-api.getToken = (grantType, extra) => api.request(`/oauth/v2/token?client_id=${config.clientId}&client_secret=${config.clientSecret}&grant_type=${grantType}${extra}`)
-
-api.setToken = (token) => {
-  requestHeaders.append('Authorization', `Bearer ${token}`)
-}
-
-api.unsetToken = () => {
-  requestHeaders.delete('Authorization')
-}
+// Token services
+api.generateToken = (grantType, extra) => api.request(`/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api.clientSecret}&grant_type=${grantType}${extra}`)
+api.setToken = token => requestHeaders.append('Authorization', `Bearer ${token}`)
+api.unsetToken = () => requestHeaders.delete('Authorization')
 
 ;['delete', 'get', 'head'].forEach((method) => {
   api[method] = (url, settings) => api.request(url, method, settings)

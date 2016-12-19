@@ -7,10 +7,14 @@ import { PostList } from 'components'
 
 class PostListContainer extends Component {
   static propTypes = {
-    list: PropTypes.array.isRequired,
+    list: PropTypes.object,
     scope: PropTypes.string.isRequired,
-    tags: PropTypes.array,
+    tags: PropTypes.array.isRequired,
     limit: PropTypes.number,
+    active: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
     loading: PropTypes.bool,
     request: PropTypes.func.isRequired,
   }
@@ -19,21 +23,21 @@ class PostListContainer extends Component {
     limit: 20,
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const { scope, tags, limit } = this.props
 
     this.props.request(scope, tags, limit)
   }
 
   render() {
-    const { list, loading } = this.props
+    const { list, active, loading } = this.props
 
-    return <PostList {...{ list, loading }} />
+    return <PostList {...{ list, active, loading }} />
   }
 }
 
-const mapStateToProps = state => ({
-  list: fromPost.getList(state),
+const mapStateToProps = (state, { scope }) => ({
+  list: fromPost.getList(state, scope),
   loading: fromStatus.isLoading(state, POST_LIST),
 })
 

@@ -1,17 +1,17 @@
 import { take, put, call, fork } from 'redux-saga/effects'
 import api from 'services/api'
-import { fromAuth } from 'store/selectors'
+import { getToken } from 'utils/token'
 import { postList, POST_LIST_REQUEST } from './actions'
 
-const fn = () => true
+const noop = () => {}
 
-export function* listPosts(scope, tags, limit, resolve = fn, reject = fn) {
+export function* listPosts(scope, tags, limit, resolve = noop, reject = noop) {
   try {
-    const { token } = yield call(fromAuth.getToken())
-    const { data } = yield call(api.get, `/posts?tag[]=${tags.join('&tag[]=')}&itemsPerPage=${limit}&order[project_date]=DESC`, { accessToken: token })
+    const token = yield call(getToken)
+    const data = yield call(api.get, `/posts?tag[]=${tags.join('&tag[]=')}&itemsPerPage=${limit}&order[project_date]=DESC`, { accessToken: token })
 
-    resolve(data)
-    yield put(postList.success(data))
+    resolve(data['hydra:member'])
+    yield put(postList.success({ data: data['hydra:member'], scope }))
   } catch (e) {
     reject(e)
     yield put(postList.failure(e))

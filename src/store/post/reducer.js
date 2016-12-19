@@ -3,12 +3,11 @@ import { POST_LIST_SUCCESS } from './actions'
 
 const transform = (items, list) => {
   let i
-  let newList = {}
   let current
 
   for (i = 0; i < items.length; i += 1) {
     current = items[i]
-    newList = list
+    list = list
       .setIn([i, 'id'], current['@id'])
       .setIn([i, 'title'], current.title)
       .setIn([i, 'body'], current.body)
@@ -20,16 +19,16 @@ const transform = (items, list) => {
       .setIn([i, 'longitude'], current.longitude)
   }
 
-  return newList
+  return list
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case POST_LIST_SUCCESS: {
-      const list = state.get(action.scope)
+      const list = state.get(action.list.scope)
 
       return state.merge({
-        [action.scope]: transform(action.data, list),
+        [action.list.scope]: transform(action.list.data, list),
       })
     }
     default: {

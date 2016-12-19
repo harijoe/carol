@@ -55,7 +55,7 @@ const fr = {
   'user.fixed_phone': 'Téléphone fixe',
   'user.postal_code': 'Code postal',
   'user.address': 'Adresse',
-  'user.birthday': 'Date de naissance',
+  'user.birthday': 'DateTime de naissance',
   'user.facebook_id': 'Facebook id',
   'user.google_id': 'Google id',
   'user.prefered_language': 'Language préférée',

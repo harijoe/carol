@@ -5,6 +5,7 @@ export const AUTH_FAILURE = 'AUTH_FAILURE'
 export const AUTH_LOGOUT = 'AUTH_LOGOUT'
 
 export const auth = {
+  request: () => ({ type: AUTH_REQUEST }),
   success: token => ({ type: AUTH_SUCCESS, token }),
   failure: error => ({ type: AUTH_FAILURE, error }),
 }
