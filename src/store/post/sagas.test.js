@@ -3,6 +3,7 @@ import * as actions from './actions'
 import api from 'services/api'
 import saga, * as sagas from './sagas'
 
+/** global: jest */
 const resolve = jest.fn()
 const reject = jest.fn()
 

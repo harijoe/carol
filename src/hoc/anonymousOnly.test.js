@@ -1,7 +1,4 @@
-import chai from 'chai'
-import rewire from 'rewire'
 import { shallow } from 'enzyme'
-import sinon from 'sinon'
 import React from 'react'
 import { fromJS } from 'immutable'
 import configureMockStore from 'redux-mock-store'
@@ -11,7 +8,7 @@ import anonymousOnly from './anonymousOnly'
 const expect = chai.expect
 
 describe('anonymousOnly', () => {
-  let MockAnonymousComponent, WrapperComponent, wrapper, instance
+  let MockAnonymousComponent, WrapperComponent, wrapper
   const mockStore = configureMockStore()
 
   beforeEach(() => {

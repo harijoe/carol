@@ -40,7 +40,8 @@ export const inCookieStorage = () => {
  * Choose the best storage strategy for the environment
  *
  * @return WebStorageImplementation - https://developer.mozilla.org/en-US/docs/Web/API/Storage
-
+ *
+ * global: localStorage
  */
 const chooseDefaultStorage = () => {
   // In the browser, we prefer the native localStorage

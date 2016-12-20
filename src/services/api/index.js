@@ -2,6 +2,7 @@ import fetch from 'isomorphic-fetch'
 import config from 'config'
 import { getCurrentLocale } from 'utils/locale'
 
+/** global: Headers */
 const api = {}
 const requestHeaders = new Headers()
 const locale = getCurrentLocale()
@@ -18,7 +19,7 @@ api.request = (endpoint, method, settings, body) => {
 api.init = (method = 'GET', settings = {}, body = null) => {
   requestHeaders.append('Accept', 'application/ld+json')
   requestHeaders.append('Content-Type', 'application/json')
-  if (settings.accessToken) { requestHeaders.append('Authorization', `Bearer ${settings.accessToken}`) }
+  if (settings.accessToken && !requestHeaders.get('Authorization')) { requestHeaders.append('Authorization', `Bearer ${settings.accessToken}`) }
   if (locale) { requestHeaders.append('Accept-Language', locale) }
 
   const fetchInit = { method, headers: requestHeaders }

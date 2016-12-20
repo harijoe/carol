@@ -1,12 +1,9 @@
-import chai from 'chai'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { fromJS } from 'immutable'
 import configureMockStore from 'redux-mock-store'
 
 import requiresAuth from './requiresAuth'
-
-const expect = chai.expect
 
 describe('requiresAuth', () => {
   let MockAuthenticationComponent, WrapperComponent, wrapper, instance

@@ -1,7 +1,4 @@
-import chai from 'chai'
 import { inMemoryStorage } from './'
-
-const expect = chai.expect
 
 const webStorageTestSuite = (adapterFactory) => {
   return function() {

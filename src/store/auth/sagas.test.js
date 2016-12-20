@@ -1,10 +1,10 @@
 import { take, put, call, fork } from 'redux-saga/effects'
 import cookie from 'react-cookie'
 import * as actions from './actions'
-import { currentUserRead } from '../user/actions'
 import api from 'services/api'
 import saga, * as sagas from './sagas'
 
+/** global: jest */
 const resolve = jest.fn()
 const reject = jest.fn()
 const error = { data: 'test' }
@@ -38,7 +38,6 @@ test('watchAuthSuccess', () => {
     call(cookie.save, 'token', 1, { path: '/' }),
     call(api.setToken, 1)
   ])
-  expect(generator.next().value).toEqual(put(currentUserRead.request()))
 })
 
 test('watchAuthLogout', () => {
@@ -51,7 +50,7 @@ test('watchAuthLogout', () => {
 })
 
 test('watchAuthRequest', () => {
-  const payload = { service: 'facebook', accessToken: 1, resolve, reject }
+  const payload = { resolve, reject }
   const generator = sagas.watchAuthRequest()
   expect(generator.next().value).toEqual(take(actions.AUTH_REQUEST))
   expect(generator.next(payload).value).toEqual(call(sagas.serviceAuth, ...Object.values(payload)))
