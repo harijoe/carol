@@ -17,10 +17,10 @@ api.request = (endpoint, method, settings, body) => {
 }
 
 api.init = (method = 'GET', settings = {}, body = null) => {
-  requestHeaders.append('Accept', 'application/ld+json')
-  requestHeaders.append('Content-Type', 'application/json')
-  if (settings.accessToken && !requestHeaders.get('Authorization')) { requestHeaders.append('Authorization', `Bearer ${settings.accessToken}`) }
-  if (locale) { requestHeaders.append('Accept-Language', locale) }
+  requestHeaders.set('Accept', 'application/ld+json')
+  requestHeaders.set('Content-Type', 'application/json')
+  if (settings.accessToken) { requestHeaders.set('Authorization', `Bearer ${settings.accessToken}`) }
+  if (locale) { requestHeaders.set('Accept-Language', locale) }
 
   const fetchInit = { method, headers: requestHeaders }
 
@@ -42,7 +42,7 @@ api.checkStatus = (response) => {
 
 // Token services
 api.generateToken = (grantType, extra) => api.request(`/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api.clientSecret}&grant_type=${grantType}${extra}`)
-api.setToken = token => requestHeaders.append('Authorization', `Bearer ${token}`)
+api.setToken = token => requestHeaders.set('Authorization', `Bearer ${token}`)
 api.unsetToken = () => requestHeaders.delete('Authorization')
 
 ;['delete', 'get', 'head'].forEach((method) => {
