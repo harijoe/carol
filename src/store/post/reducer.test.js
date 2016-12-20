@@ -10,32 +10,34 @@ it('returns the initial state', () => {
 it('handles POST_LIST_SUCCESS', () => {
   expect(reducer(initialState, {
     type: actions.POST_LIST_SUCCESS,
-    scope: 'latestProjectsOnMap',
-    list: [
-      {
-        '@id': 1,
-        title: 'post title 1',
-        body: 'post body 1'
-      },
-      {
-        '@id': 2,
-        title: 'post title 2',
-        body: 'post body 2'
-      }
-    ],
+    list: {
+      scope: 'latestProjectsOnMap',
+      data: [
+        {
+          '@id': 1,
+          title: 'post title 1',
+          body: 'post body 1',
+        },
+        {
+          '@id': 2,
+          title: 'post title 2',
+          body: 'post body 2',
+        }
+      ],
+    },
   })).toEqual({
     ...initialState,
-    list: fromJS({
+    items: fromJS({
       latestProjectsOnMap: [
         {
           id: 1,
           title: 'post title 1',
-          body: 'post body 1'
+          body: 'post body 1',
         },
         {
           id: 2,
           title: 'post title 2',
-          body: 'post body 2'
+          body: 'post body 2',
         }
       ]
     }),

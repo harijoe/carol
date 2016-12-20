@@ -1,11 +1,15 @@
 import * as actions from './actions'
 
+const scope = 'latestProjectsOnMap'
+const tags = ['inspiration', 'last-project']
+const limit = 3
+
 test('postList', () => {
-  expect(actions.postList.request(3)).toEqual({
+  expect(actions.postList.request(scope, tags, limit)).toEqual({
     type: actions.POST_LIST_REQUEST,
-    scope: 'latestProjectsOnMap',
-    tags: ['inspiration', 'last-project'],
-    limit: 3,
+    scope,
+    tags,
+    limit,
   })
 
   expect(actions.postList.success([1, 2, 3])).toEqual({

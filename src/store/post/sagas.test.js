@@ -1,4 +1,5 @@
-import { take, put, call, fork } from 'redux-saga/effects'
+import { put, call, fork } from 'redux-saga/effects'
+import { takeEvery } from 'redux-saga'
 import * as actions from './actions'
 import api from 'services/api'
 import saga, * as sagas from './sagas'
@@ -16,13 +17,13 @@ describe('listPosts', () => {
 
   it('calls success', () => {
     const generator = sagas.listPosts(1)
-    expect(generator.next().value).toEqual(call(api.get, '/posts', { params: { _limit: 1 } }))
+    expect(generator.next().value).toEqual(call(api.get, '/posts'))
     expect(generator.next({ data }).value).toEqual(put(actions.postList.success(data)))
   })
 
   it('calls success and resolve', () => {
     const generator = sagas.listPosts(1, resolve)
-    expect(generator.next().value).toEqual(call(api.get, '/posts', { params: { _limit: 1 } }))
+    expect(generator.next().value).toEqual(call(api.get, '/posts'))
     expect(resolve).not.toBeCalled()
     expect(generator.next({ data }).value).toEqual(put(actions.postList.success(data)))
     expect(resolve).toHaveBeenCalledWith(data)
@@ -30,13 +31,13 @@ describe('listPosts', () => {
 
   it('calls failure', () => {
     const generator = sagas.listPosts(1)
-    expect(generator.next().value).toEqual(call(api.get, '/posts', { params: { _limit: 1 } }))
+    expect(generator.next().value).toEqual(call(api.get, '/posts'))
     expect(generator.throw('test').value).toEqual(put(actions.postList.failure('test')))
   })
 
   it('calls failure and reject', () => {
     const generator = sagas.listPosts(1, resolve, reject)
-    expect(generator.next().value).toEqual(call(api.get, '/posts', { params: { _limit: 1 } }))
+    expect(generator.next().value).toEqual(call(api.get, '/posts'))
     expect(reject).not.toBeCalled()
     expect(generator.throw('test').value).toEqual(put(actions.postList.failure('test')))
     expect(reject).toHaveBeenCalledWith('test')
@@ -46,7 +47,7 @@ describe('listPosts', () => {
 test('watchPostListRequest', () => {
   const payload = { limit: 1, resolve, reject }
   const generator = sagas.watchPostListRequest()
-  expect(generator.next().value).toEqual(take(actions.POST_LIST_REQUEST))
+  expect(generator.next().value).toEqual(takeEvery(actions.POST_LIST_REQUEST))
   expect(generator.next(payload).value).toEqual(call(sagas.listPosts, ...Object.values(payload)))
 })
 

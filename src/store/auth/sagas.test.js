@@ -4,7 +4,6 @@ import * as actions from './actions'
 import api from 'services/api'
 import saga, * as sagas from './sagas'
 
-/** global: jest */
 const resolve = jest.fn()
 const reject = jest.fn()
 const error = { data: 'test' }
@@ -50,7 +49,7 @@ test('watchAuthLogout', () => {
 })
 
 test('watchAuthRequest', () => {
-  const payload = { resolve, reject }
+  const payload = { service: 'facebook', accessToken: 1, resolve, reject }
   const generator = sagas.watchAuthRequest()
   expect(generator.next().value).toEqual(take(actions.AUTH_REQUEST))
   expect(generator.next(payload).value).toEqual(call(sagas.serviceAuth, ...Object.values(payload)))

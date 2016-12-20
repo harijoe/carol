@@ -1,9 +1,14 @@
 import * as selectors from './selectors'
 
+const list = {
+  latestProjectsOnMap: [],
+  latestProjectsResources: [],
+  testimonialArticles: [],
+  reinsuranceArticles: [],
+}
+
 test('initialState', () => {
-  expect(selectors.initialState).toEqual({
-    list: [],
-  })
+  expect(selectors.initialState).toEqual(list)
 })
 
 test('getList', () => {
