@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { colors } from 'components/globals'
 import { Paragraph, Link, Icon } from 'components'
+import config from 'config'
 
 const Credits = styled(Paragraph)`
   text-align: center;
@@ -17,7 +18,7 @@ const StyledFooter = styled.div`
 const Footer = props => (
   <StyledFooter {...props}>
     <Credits>
-      Made with <Icon icon="heart" /> by <Link href="https://www.quotatis.fr">Quotatis</Link>
+      Made with <Icon icon="heart" /> by <Link href={config.baseUrl}>Quotatis</Link>
     </Credits>
   </StyledFooter>
 )

@@ -1,27 +1,36 @@
+import merge from 'lodash/merge'
+
 const ip = process.env.IP || '0.0.0.0'
 const port = process.env.PORT || 80
 
 const config = {
-  env: process.env.NODE_ENV || 'development',
-  baseUrl: `http://${ip}:${port}`,
-  ip,
-  port,
-  api: {
-    url: `http://${ip}:8080/app_dev.php`,
-    clientId: '4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k',
-    clientSecret: '4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc',
+  all: {
+    env: process.env.NODE_ENV || 'development',
+    baseUrl: `http://${ip}:${port}`,
+    ip,
+    port,
+    api: {
+      url: `http://${ip}:8080/app_dev.php`,
+      clientId: '4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k',
+      clientSecret: '4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc',
+    },
+    google: {
+      mapsKey: 'AIzaSyD5R_CxRkMQR49reYM93SbKEC_DR37GsNI',
+      recaptchaKey: '6Ldc6A0UAAAAAKYDpetCQRpnBcBb7Lbxs2uKHjkN',
+      grantType: 'https://www.quotatis.com/google',
+      clientId: '207076591339-2im88atidmkjth45lcbaoia59e2p0430.apps.googleusercontent.com',
+      scope: 'https://www.googleapis.com/auth/plus.login',
+    },
+    facebook: {
+      grantType: 'https://www.quotatis.com/facebook',
+      appId: '233630107058419',
+      scope: 'public_profile, email, user_birthday, user_location',
+    },
   },
-  google: {
-    mapsKey: 'AIzaSyD5R_CxRkMQR49reYM93SbKEC_DR37GsNI',
-    recaptchaKey: '6Ldc6A0UAAAAAKYDpetCQRpnBcBb7Lbxs2uKHjkN',
-    grantType: 'https://www.quotatis.com/google',
-    clientId: '207076591339-2im88atidmkjth45lcbaoia59e2p0430.apps.googleusercontent.com',
-    scope: 'https://www.googleapis.com/auth/plus.login',
-  },
-  facebook: {
-    grantType: 'https://www.quotatis.com/facebook',
-    appId: '233630107058419',
-    scope: 'public_profile, email, user_birthday, user_location',
+  development: {},
+  production: {
+    baseUrl: 'https://www.quotatis.com',
+    apiUrl: 'https://api.quotatis.com',
   },
 }
 
@@ -51,4 +60,5 @@ export const countryConfig = {
   },
 }
 
-export default config
+module.exports = exports = merge(config.all, config[config.all.env])
+export default exports

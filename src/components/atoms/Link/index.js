@@ -6,6 +6,7 @@ import { colors, fonts } from 'components/globals'
 
 const styles = ({ light, kind }) => {
   const color = light ? [...colors[kind]].reverse()[1] : colors[kind][1]
+
   return css`
     font-family: ${fonts.primary};
     text-decoration: none;
@@ -25,6 +26,7 @@ const Link = ({ ...props, to }) => {
   if (to) {
     return <StyledLink {...props} />
   }
+
   return <Anchor {...props} />
 }
 
