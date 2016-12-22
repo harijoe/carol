@@ -2,6 +2,8 @@ import merge from 'lodash/merge'
 
 const ip = process.env.IP || '0.0.0.0'
 const port = process.env.PORT || 80
+const apiIp = process.env.API_IP || ip
+const apiPort = process.env.API_PORT || 8080
 
 const config = {
   all: {
@@ -10,7 +12,7 @@ const config = {
     ip,
     port,
     api: {
-      url: `http://${ip}:8080/app_dev.php`,
+      url: `http://${apiIp}:${apiPort}/app_dev.php`,
       clientId: '4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k',
       clientSecret: '4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc',
     },
@@ -27,10 +29,12 @@ const config = {
       scope: 'public_profile, email, user_birthday, user_location',
     },
   },
-  development: {},
+  staging: {},
   production: {
     baseUrl: 'https://www.quotatis.com',
-    apiUrl: 'https://api.quotatis.com',
+    api: {
+      url: 'https://api.quotatis.com',
+    },
   },
 }
 
