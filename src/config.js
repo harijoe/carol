@@ -1,0 +1,70 @@
+import merge from 'lodash/merge'
+
+const ip = process.env.IP || '0.0.0.0'
+const port = process.env.PORT || 80
+const apiIp = process.env.API_IP || ip
+const apiPort = process.env.API_PORT || 8080
+
+const config = {
+  all: {
+    env: process.env.NODE_ENV || 'development',
+    baseUrl: `http://${ip}:${port}`,
+    ip,
+    port,
+    api: {
+      url: `http://${apiIp}:${apiPort}/app_dev.php`,
+      clientId: '4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k',
+      clientSecret: '4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc',
+    },
+    google: {
+      mapsKey: 'AIzaSyD5R_CxRkMQR49reYM93SbKEC_DR37GsNI',
+      recaptchaKey: '6Ldc6A0UAAAAAKYDpetCQRpnBcBb7Lbxs2uKHjkN',
+      grantType: 'https://www.quotatis.com/google',
+      clientId: '207076591339-2im88atidmkjth45lcbaoia59e2p0430.apps.googleusercontent.com',
+      scope: 'https://www.googleapis.com/auth/plus.login',
+    },
+    facebook: {
+      grantType: 'https://www.quotatis.com/facebook',
+      appId: '233630107058419',
+      scope: 'public_profile, email, user_birthday, user_location',
+    },
+    hostnamesLocales: {
+      'carol-fr.dev.quotatis.net': 'fr_FR',
+      'carol-es.dev.quotatis.net': 'es_ES',
+      'carol-co-uk.dev.quotatis.net': 'en_GB',
+    },
+    defaultProUrl: 'https://www.quotatispro.co.uk',
+    defaultLocale: 'en_GB',
+    countryConfig: {
+      FR: {
+        url: 'carol-fr.dev.quotatis.net',
+        proUrl: 'https://www.quotatispro.fr',
+        country: 'country.france',
+      },
+      ES: {
+        url: 'carol-es.dev.quotatis.net',
+        proUrl: 'https://www.quotatispro.es',
+        country: 'country.spain',
+      },
+      GB: {
+        url: 'carol-co-uk.dev.quotatis.net',
+        proUrl: 'https://www.quotatispro.co.uk',
+        country: 'country.great_britain',
+      },
+    },
+  },
+  staging: { // TODO: Add global env variable on docker for staging
+    api: {
+      url: `http://staging.quotatis.net:${apiPort}`,
+    },
+  },
+  production: {
+    baseUrl: 'https://www.quotatis.com',
+    api: {
+      url: 'https://api.quotatis.com',
+    },
+  },
+}
+
+module.exports = exports = merge(config.all, config[config.all.env])
+export default exports
