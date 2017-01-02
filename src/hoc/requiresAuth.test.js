@@ -19,13 +19,13 @@ describe('requiresAuth', () => {
   it('render the AuthenticationComponent if authenticated', () => {
     wrapper = shallow(<WrapperComponent />, { context: { store: mockStore({ auth: fromJS({ 'grantType': 'password' }) }) }})
 
-    expect(wrapper.contains('<div>Authentication access verified</div>')).toBe(true)
+    expect(wrapper.html()).toBe('<div>Authentication access verified</div>')
   })
 
 
   it('does not render the AuthenticationComponent if not authenticated', () => {
     wrapper = shallow(<WrapperComponent />, { context: { store: mockStore({ auth: fromJS({ 'grantType': 'none' }) }) }})
 
-    expect(wrapper.contains('')).toBe(true)
+    expect(wrapper.html()).toBe('')
   })
 })

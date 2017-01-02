@@ -6,9 +6,7 @@ import { GoogleMap } from 'components'
 
 class GoogleMapContainer extends Component {
   static propTypes = {
-    list: PropTypes.object,
-    onMarkerClick: React.PropTypes.func,
-    scope: React.PropTypes.string.isRequired,
+    onMarkerClick: PropTypes.func,
   }
 
   constructor() {
@@ -19,24 +17,22 @@ class GoogleMapContainer extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.updateMarkers(nextProps.list)
+  }
+
   updateMarkers(projects) {
     const list = []
 
-    projects.map((project) => {
-      return list.push({
-        position: {
-          lat: parseFloat(project.get('latitude')),
-          lng: parseFloat(project.get('longitude')),
-        },
-        title: project.get('title'),
-      })
-    })
+    projects.map(project => list.push({
+      position: {
+        lat: parseFloat(project.get('latitude')),
+        lng: parseFloat(project.get('longitude')),
+      },
+      title: project.get('title'),
+    }))
 
     this.setState({ markers: list })
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.updateMarkers(nextProps.list)
   }
 
   render() {

@@ -21,25 +21,27 @@ const setDisplay = (active, i, tags) => {
   return i === active
 }
 
-const PostList = ({ list, active, loading, ...props }) => {
-  return (
-    <Wrapper {...props}>
-      {loading && <div>Loading...</div>}
-      {list.map((items, i) => {
-        return <Post
-          key={i}
-          loading={loading}
-          items={items}
-          active={setDisplay(active, i, items.get('tags'))}
-        />
-      })}
-    </Wrapper>
-  )
-}
+const PostList = ({ list, active, loading, ...props }) => (
+  <Wrapper {...props}>
+    {loading && <div>Loading...</div>}
+    {list.map((items, i) =>
+      <Post
+        key={i}
+        loading={loading}
+        items={items}
+        active={setDisplay(active, i, items.get('tags'))}
+      />
+    )}
+  </Wrapper>
+)
 
 PostList.propTypes = {
   list: PropTypes.object.isRequired,
   loading: PropTypes.bool,
+  active: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
 }
 
 export default PostList

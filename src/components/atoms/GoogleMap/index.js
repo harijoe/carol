@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import { Map, Marker, InfoWindow, GoogleApiWrapper as googleApiWrapper } from 'google-maps-react'
 import { getCurrentCountry } from 'utils/locale'
 import config from 'config'
@@ -8,13 +8,13 @@ const style = {
     position: 'relative',
     width: '500px',
     height: '300px',
-  }
+  },
 }
 
 class GoogleMap extends React.Component {
   static propTypes = {
-    markers: React.PropTypes.array,
-    onMarkerClick: React.PropTypes.func,
+    markers: PropTypes.array,
+    onMarkerClick: PropTypes.func,
   }
 
   constructor(props) {
@@ -49,17 +49,15 @@ class GoogleMap extends React.Component {
         zoom={5}
         containerStyle={style.map}
       >
-        {this.props.markers.map((marker, i) => {
-          return (
-            <Marker
-              key={i}
-              id={i}
-              name={marker.title}
-              position={{ lat: marker.position.lat, lng: marker.position.lng }}
-              onClick={this.props.onMarkerClick}
-            />
-          )
-        })}
+        {this.props.markers.map((marker, i) => (
+          <Marker
+            key={i}
+            id={i}
+            name={marker.title}
+            position={{ lat: marker.position.lat, lng: marker.position.lng }}
+            onClick={this.props.onMarkerClick}
+          />
+        ))}
 
         <InfoWindow>
           <div>

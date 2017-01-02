@@ -9,7 +9,7 @@ import configureStore from 'store/configure'
 
 import routes from 'routes'
 
-const initialState = window.__INITIAL_STATE__
+const initialState = window.INITIAL_STATE
 const store = configureStore(initialState, browserHistory)
 const history = syncHistoryWithStore(browserHistory, store)
 const root = document.getElementById('app')
@@ -23,10 +23,3 @@ const renderApp = () => (
 )
 
 render(renderApp(), root)
-
-if (module.hot) {
-  module.hot.accept('routes', () => {
-    require('routes')
-    render(renderApp(), root)
-  })
-}

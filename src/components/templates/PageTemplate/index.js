@@ -1,9 +1,6 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 import { IntlProvider, addLocaleData } from 'react-intl'
-import NotificationsSystem from 'reapop'
-// import 'font-awesome/css/font-awesome.min.css'
-import theme from 'reapop-theme-wybo'
 import fr from 'react-intl/locale-data/fr'
 import en from 'react-intl/locale-data/en'
 import es from 'react-intl/locale-data/es'
@@ -43,7 +40,6 @@ const PageTemplate = ({ header, children, footer, ...props }) => (
     messages={getCurrentMessages()}
   >
     <Wrapper {...props}>
-      <NotificationsSystem theme={theme} />
       <Header>{header}</Header>
       <Content>{children}</Content>
       <Footer>{footer}</Footer>

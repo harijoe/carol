@@ -3,13 +3,17 @@ import styled, { css } from 'styled-components'
 
 import { Icon, Link } from 'components'
 
-const iconStyles = ({ hasText, right, responsive }) => css`
-  margin: ${hasText ? (right ? '0 0 0 0.25em' : '0 0.25em 0 0') : 0};
-  padding-top: 0.25em;
-  @media screen and (max-width: 420px) {
-    margin: ${responsive && 0};
-  }
-`
+const iconStyles = ({ hasText, right, responsive }) => {
+  const margin = right ? '0 0 0 0.25em' : '0 0.25em 0 0'
+
+  return css`
+    margin: ${hasText ? margin : 0};
+    padding-top: 0.25em;
+    @media screen and (max-width: 420px) {
+      margin: ${responsive && 0};
+    }
+  `
+}
 
 const textStyle = ({ responsive }) => css`
   @media screen and (max-width: 420px) {

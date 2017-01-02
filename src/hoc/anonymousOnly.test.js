@@ -19,13 +19,13 @@ describe('anonymousOnly', () => {
   it('render the AnonymousComponent if not autenthicated', () => {
     wrapper = shallow(<WrapperComponent />, { context: { store: mockStore({ auth: fromJS({ 'grantType': 'none' }) }) }})
 
-    expect(wrapper.contains('<div>Anonymous access verified</div>')).toBe(true)
+    expect(wrapper.html()).toBe('<div>Anonymous access verified</div>')
   })
 
 
   it('does not render the AnonymousComponent if authenticated', () => {
     wrapper = shallow(<WrapperComponent />, { context: { store: mockStore({ auth: fromJS({ 'grantType': 'password' }) }) }})
 
-    expect(wrapper.contains('')).toBe(true)
+    expect(wrapper.html()).toBe('')
   })
 })

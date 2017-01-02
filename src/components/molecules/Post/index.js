@@ -5,9 +5,7 @@ import { Image, Heading, DateTime, Paragraph } from 'components'
 
 const Article = styled.article``
 
-const setDisplay = (active = true) => {
-  return active ? { display: 'block' } : { display: 'none' }
-}
+const setDisplay = (active = true) => (active ? { display: 'block' } : { display: 'none' })
 
 const Post = ({ items, active, ...props }) => {
   const date = new Date(items.get('date'))
@@ -23,7 +21,12 @@ const Post = ({ items, active, ...props }) => {
 }
 
 Post.propTypes = {
-  items: PropTypes.object.isRequired,
+  items: PropTypes.shape({
+    title: PropTypes.string,
+    body: PropTypes.string,
+    image: PropTypes.string,
+    date: PropTypes.string,
+  }).isRequired,
   active: React.PropTypes.bool,
 }
 

@@ -1,18 +1,19 @@
+import { fromJS } from 'immutable'
 import * as selectors from './selectors'
 
-const list = {
+const list = fromJS({
   latestProjectsOnMap: [],
   latestProjectsResources: [],
   testimonialArticles: [],
   reinsuranceArticles: [],
-}
+})
 
 test('initialState', () => {
   expect(selectors.initialState).toEqual(list)
 })
 
 test('getList', () => {
-  expect(selectors.getList({})).toEqual([])
-  expect(selectors.getList()).toEqual(selectors.initialState.list)
-  expect(selectors.getList(selectors.initialState)).toEqual(selectors.initialState.list)
+  const expected = fromJS([])
+
+  expect(selectors.getList(selectors.initialState, 'latestProjectsOnMap')).toEqual(expected)
 })

@@ -15,17 +15,17 @@ const anonymousOnly = (AnonymousComponent) => {
       grantType: React.PropTypes.string,
     }
 
-    static getRedirectPathname(location) {
-      return location && location.state && location.state.redirectPathname
-        ? location.state.redirectPathname : null
-    }
-
     componentDidMount() {
       this.checkAndRedirect()
     }
 
     componentDidUpdate() {
       this.checkAndRedirect()
+    }
+
+    getRedirectPathname(location) {
+      return location && location.state && location.state.redirectPathname
+        ? location.state.redirectPathname : null
     }
 
     checkAndRedirect() {

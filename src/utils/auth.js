@@ -1,7 +1,8 @@
 import { Map } from 'immutable'
+
+import config from 'config'
 import storage from 'services/storage'
 import { getToken } from './token'
-import config from 'config'
 
 export const setStoredAuthState = (grantType) => {
   storage.setItem('grant_type', grantType)

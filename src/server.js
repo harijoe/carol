@@ -51,17 +51,17 @@ router.use((req, res, next) => {
       Promise.all(promises).then(resolve).catch(reject)
     })
 
-    const render = (store) => {
+    const render = (providedStore) => {
       const content = renderToString(
-        <Provider store={store}>
+        <Provider store={providedStore}>
           <RouterContext {...renderProps} />
         </Provider>
       )
 
       const styles = styleSheet.rules().map(rule => rule.cssText).join('\n')
-      const initialState = store.getState()
+      const initialState = providedStore.getState()
       const assets = global.webpackIsomorphicTools.assets()
-      const state = `window.__INITIAL_STATE__ = ${serialize(initialState)}`
+      const state = `window.INITIAL_STATE = ${serialize(initialState)}`
       const markup = <Html {...{ styles, assets, state, content }} />
       const doctype = '<!doctype html>\n'
       const html = renderToStaticMarkup(markup)
@@ -69,7 +69,7 @@ router.use((req, res, next) => {
       res.send(doctype + html)
     }
 
-    fetchData()
+    return fetchData()
       .then(() => render(configureStore(store.getState(), memoryHistory)))
       .catch((err) => {
         console.error(err)

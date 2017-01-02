@@ -1,4 +1,7 @@
-jest.dontMock('reapop-theme-wybo')
+Object.defineProperty(window.location, 'hostname', {
+  writable: true,
+  value: 'carol-co-uk.dev.quotatis.net',
+})
 
 import React from 'react'
 import { mount, shallow } from 'enzyme'
@@ -20,11 +23,6 @@ it('renders children when passed in', () => {
 it('renders header', () => {
   const wrapper = wrap()
   expect(wrapper.contains('header')).toBe(true)
-})
-
-it('renders hero', () => {
-  const wrapper = wrap({ hero: 'hero' })
-  expect(wrapper.contains('hero')).toBe(true)
 })
 
 it('renders footer', () => {

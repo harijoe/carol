@@ -1,57 +1,45 @@
 import { put, call, fork } from 'redux-saga/effects'
 import { takeEvery } from 'redux-saga'
+
 import * as actions from './actions'
 import api from 'services/api'
+import { getToken } from 'utils/token'
 import saga, * as sagas from './sagas'
-
-/** global: jest */
-const resolve = jest.fn()
-const reject = jest.fn()
 
 beforeEach(() => {
   jest.resetAllMocks()
 })
 
 describe('listPosts', () => {
-  const data = [1, 2, 3]
+  const scope = 'latestProjectsOnMap'
+  const params = { scope, tags: ['inspiration', 'last-project'], limit: 1 }
 
   it('calls success', () => {
-    const generator = sagas.listPosts(1)
-    expect(generator.next().value).toEqual(call(api.get, '/posts'))
-    expect(generator.next({ data }).value).toEqual(put(actions.postList.success(data)))
-  })
+    const generator = sagas.listPosts(params)
 
-  it('calls success and resolve', () => {
-    const generator = sagas.listPosts(1, resolve)
-    expect(generator.next().value).toEqual(call(api.get, '/posts'))
-    expect(resolve).not.toBeCalled()
-    expect(generator.next({ data }).value).toEqual(put(actions.postList.success(data)))
-    expect(resolve).toHaveBeenCalledWith(data)
+    expect(generator.next().value).toEqual(call(getToken))
+    expect(generator.next().value).toEqual(call(api.get, '/posts?tag[]=inspiration&tag[]=last-project&itemsPerPage=1&order[project_date]=DESC', { accessToken: undefined }))
+    expect(generator.next({ undefined }).value).toEqual(put(actions.postList.success(undefined, scope)))
   })
 
   it('calls failure', () => {
-    const generator = sagas.listPosts(1)
-    expect(generator.next().value).toEqual(call(api.get, '/posts'))
-    expect(generator.throw('test').value).toEqual(put(actions.postList.failure('test')))
-  })
+    const generator = sagas.listPosts(params)
 
-  it('calls failure and reject', () => {
-    const generator = sagas.listPosts(1, resolve, reject)
-    expect(generator.next().value).toEqual(call(api.get, '/posts'))
-    expect(reject).not.toBeCalled()
+    expect(generator.next().value).toEqual(call(getToken))
+    expect(generator.next().value).toEqual(call(api.get, '/posts?tag[]=inspiration&tag[]=last-project&itemsPerPage=1&order[project_date]=DESC', { accessToken: undefined }))
     expect(generator.throw('test').value).toEqual(put(actions.postList.failure('test')))
-    expect(reject).toHaveBeenCalledWith('test')
   })
 })
 
 test('watchPostListRequest', () => {
-  const payload = { limit: 1, resolve, reject }
   const generator = sagas.watchPostListRequest()
-  expect(generator.next().value).toEqual(takeEvery(actions.POST_LIST_REQUEST))
-  expect(generator.next(payload).value).toEqual(call(sagas.listPosts, ...Object.values(payload)))
+  const expected = call(takeEvery, actions.POST_LIST_REQUEST, sagas.listPosts)
+
+  expect(generator.next().value).toEqual(expected)
 })
 
 test('saga', () => {
   const generator = saga()
+
   expect(generator.next().value).toEqual(fork(sagas.watchPostListRequest))
 })
