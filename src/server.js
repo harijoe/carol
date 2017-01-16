@@ -15,7 +15,7 @@ import { Html } from 'components'
 const router = new Router()
 
 router.use((req, res, next) => {
-  if ('development' === env) {
+  if (env === 'development') {
     global.webpackIsomorphicTools.refresh()
   }
 

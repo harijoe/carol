@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { FormattedMessage } from 'react-intl'
 
 import { PageTemplate, Header, Footer, List, Link } from 'components'
-import { PostList, GoogleMap } from 'containers'
+import { PostList, GoogleMap, FirmSearchForm } from 'containers'
 
 class HomePage extends Component {
   constructor() {
@@ -34,6 +34,7 @@ class HomePage extends Component {
   render() {
     return (
       <PageTemplate header={<Header />} footer={<Footer />}>
+        <FirmSearchForm />
         <GoogleMap scope="latestProjectsOnMap" onMarkerClick={this.onMarkerClick} />
         <PostList scope="latestProjectsOnMap" tags={['inspiration', 'last-project']} limit={3} active={this.state.activeProject} />
         <PostList scope="latestProjectsResources" tags={['work-resources']} limit={5} active="all" />

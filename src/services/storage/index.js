@@ -45,7 +45,7 @@ export const inCookieStorage = () => {
  */
 const chooseDefaultStorage = () => {
   // In the browser, we prefer the native localStorage
-  if (process.browser && 'undefined' !== typeof localStorage) {
+  if (process.browser && typeof localStorage !== 'undefined') {
     return localStorage
   }
 

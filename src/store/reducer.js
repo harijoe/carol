@@ -4,12 +4,14 @@ import { reducer as form } from 'redux-form'
 import { reducer as notifications } from 'reapop'
 
 import post from './post/reducer'
+import firm from './firm/reducer'
 import status from './status/reducer'
 
 const reducers = {
   routing,
   notifications,
   post,
+  firm,
   form,
   status,
 }

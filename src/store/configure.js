@@ -6,7 +6,7 @@ import reducer from './reducer'
 import sagas from './sagas'
 
 const configureStore = (initialState, history) => {
-  const hasWindow = 'undefined' !== typeof window
+  const hasWindow = typeof window !== 'undefined'
   const sagaMiddleware = createSagaMiddleware()
 
   const finalCreateStore = compose(

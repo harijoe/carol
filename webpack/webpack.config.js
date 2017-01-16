@@ -6,7 +6,7 @@ const webpackIsomorphicToolsConfig = require('./webpack-isomorphic-tools')
 
 const ip = process.env.IP || '0.0.0.0'
 const port = (+process.env.PORT + 1) || 80
-const DEBUG = 'production' !== process.env.NODE_ENV
+const DEBUG = process.env.NODE_ENV !== 'production'
 
 const config = {
   devtool: DEBUG ? 'source-map' : false,

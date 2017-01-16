@@ -11,7 +11,7 @@ const saveTokens = (accessToken, refreshToken, expiresIn) => {
 }
 
 export const getNewToken = (grantType, credentials = null) => {
-  if ('password' === grantType && null === credentials) {
+  if (credentials === null && grantType === 'password') {
     return null
   }
 
@@ -33,13 +33,13 @@ export const getToken = (grantType = 'client_credentials', credentials = null) =
     token = storage.getItem('access_token')
   }
 
-  if ('undefined' === token || null === token) {
+  if (token === 'undefined' || token === null) {
     token = getNewToken(grantType, credentials)
   }
 
   const tokenExpire = storage.getItem('access_token_expires') || 0
 
-  if (0 <= getUnixTime() - tokenExpire) {
+  if (getUnixTime() - tokenExpire >= 0) {
     token = getNewToken(grantType, credentials)
   }
 

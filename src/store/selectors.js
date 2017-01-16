@@ -12,7 +12,7 @@ req.keys().forEach((key) => {
   module.exports[fromName] = {}
 
   forIn(selectors, (selector, name) => {
-    if ('function' === typeof selector) {
+    if (typeof selector === 'function') {
       module.exports[fromName][name] = (state, ...args) => selector(getState(state), ...args)
     }
   })

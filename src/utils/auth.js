@@ -25,4 +25,4 @@ export const getStoredAuthState = () => {
 }
 
 export const login = credentials => getToken('password', credentials)
-export const isAuthenticated = grantType => (-1 !== [config.facebookGrantType, 'password'].indexOf(grantType))
+export const isAuthenticated = grantType => ([config.facebookGrantType, 'password'].indexOf(grantType) !== -1)

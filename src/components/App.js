@@ -1,11 +1,7 @@
 import React, { PropTypes } from 'react'
 import { injectGlobal } from 'styled-components'
 
-injectGlobal`
-  body {
-    margin: 0;
-  }
-`
+injectGlobal(['body { margin: 0; }'])
 
 const App = props => (
   <div>{props.children}</div>

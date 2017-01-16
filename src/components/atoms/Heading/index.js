@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import { colors, reverseColors, fonts } from 'components/globals'
 
 const styles = ({ kind, light, level }) => {
-  const index = 'grayscale' === kind ? 0 : 1
+  const index = kind === 'grayscale' ? 0 : 1
   const color = light ? reverseColors[kind][index] : colors[kind][index]
 
   return css`

@@ -8,7 +8,7 @@ const requestHeaders = new Headers()
 const locale = getCurrentLocale()
 
 api.request = (endpoint, method, settings, body) => {
-  const url = (-1 === endpoint.indexOf(config.api.url)) ? config.api.url + endpoint : endpoint
+  const url = (endpoint.indexOf(config.api.url) === -1) ? config.api.url + endpoint : endpoint
 
   return fetch(url, api.init(method, settings, body))
     .then(api.checkStatus)
