@@ -2,7 +2,9 @@ import React, { PropTypes } from 'react'
 import { injectGlobal } from 'styled-components'
 import Helmet from 'react-helmet'
 
-injectGlobal(['body { margin: 0; }'])
+import resets from 'components/resets'
+
+injectGlobal([resets])
 
 const App = props => (
   <div>
