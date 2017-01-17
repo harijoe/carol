@@ -23,13 +23,13 @@ it('renders label when passed in', () => {
 })
 
 it('does not render error when passed in without invalid', () => {
-  const wrapper = wrap({ error: 'foo error' })
+  const wrapper = wrap({ error: { id: 'foo.error', values: {} }})
 
-  expect(wrapper.contains('foo error')).toBe(false)
+  expect(wrapper.contains('foo.error')).toBe(false)
 })
 
 it('renders error when passed in along with invalid', () => {
-  const wrapper = wrap({ error: 'foo error', invalid: true })
+  const wrapper = wrap({ error: { id: 'foo.error', values: {} }, invalid: true })
 
-  expect(wrapper.contains('foo error')).toBe(true)
+  expect(wrapper.contains('foo.error')).toBe(true)
 })

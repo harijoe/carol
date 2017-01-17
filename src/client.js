@@ -23,3 +23,10 @@ const renderApp = () => (
 )
 
 render(renderApp(), root)
+
+if (module.hot) {
+  module.hot.accept('routes', () => {
+    require('routes')
+    render(renderApp(), root)
+  })
+}

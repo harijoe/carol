@@ -31,7 +31,7 @@ it('does not render invalid when was not touched', () => {
   const wrapper = wrap()
 
   expect(wrapper.find({ invalid: true }).length).toBe(0)
-  wrapper.setProps({ meta: { error: 'test' } })
+  wrapper.setProps({ meta: { error: { id: 'test' } } })
   expect(wrapper.find({ invalid: true }).length).toBe(0)
 })
 
@@ -44,13 +44,13 @@ it('does not render invalid when has no error', () => {
 })
 
 it('renders invalid when was touched and has error', () => {
-  const wrapper = wrap({ meta: { touched: true, error: 'test error' } })
+  const wrapper = wrap({ meta: { touched: true, error: { id: 'test error' } } })
 
   expect(wrapper.find({ invalid: true })).toHaveLength(1)
 })
 
 it('renders error when passed in', () => {
-  const wrapper = wrap({ meta: { error: 'test error' } })
+  const wrapper = wrap({ meta: { error: { id: 'test error' } } })
 
-  expect(wrapper.find({ error: 'test error' })).toHaveLength(1)
+  expect(wrapper.find({ error: { id: 'test error' } })).toHaveLength(1)
 })

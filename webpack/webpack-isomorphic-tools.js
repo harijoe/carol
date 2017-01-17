@@ -13,6 +13,7 @@ const config = {
     },
   },
   modulesDirectories: ['src', 'node_modules'],
+  patch_require: true,
 }
 
 module.exports = exports = config

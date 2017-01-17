@@ -10,12 +10,15 @@ const Wrapper = styled.div`
 `
 
 const setDisplay = (active, i, tags) => {
-  let check
+  if (typeof active === 'string') {
+    if (active === 'all') {
+      return true
+    }
 
-  if (check = active === i) { return check }
-  if (typeof active === 'string' && active === 'all') { return true }
+    return tags.includes(active)
+  }
 
-  return tags.includes(active)
+  return active === i
 }
 
 const PostList = ({ list, active, loading, ...props }) => (

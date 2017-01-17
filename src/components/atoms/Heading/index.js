@@ -18,7 +18,7 @@ const styles = ({ kind, light, level }) => {
   `
 }
 
-const Heading = styled(({ level, children, light, ...props }) => React.createElement(`h${level}`, props, children))`${styles}`
+const Heading = styled(({ level, children, ...props }) => React.createElement(`h${level}`, props, children))`${styles}`
 
 Heading.propTypes = {
   level: PropTypes.number,

@@ -9,7 +9,7 @@ const port = (+process.env.PORT + 1) || 80
 const DEBUG = process.env.NODE_ENV !== 'production'
 
 const config = {
-  devtool: DEBUG ? 'source-map' : false,
+  devtool: DEBUG ? 'eval' : false,
   entry: [
     'babel-polyfill',
     path.join(__dirname, '../src/client'),
@@ -32,7 +32,6 @@ const config = {
   ],
   module: {
     loaders: [
-      { test: /\.html$/, loader: 'html' },
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.css$/, loader: 'style-loader!css-loader?sourceMap&-minimize&modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]' },
       { test: /\.png$/, loader: 'url-loader?prefix=images/&limit=8000&mimetype=image/png' },
