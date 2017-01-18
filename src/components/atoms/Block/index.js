@@ -4,7 +4,7 @@ import { fonts, colors } from 'components/globals'
 
 const Block = styled.div`
   font-family: ${fonts.primary};
-  background-color: #FFF;
+  background-color: #fff;
   color: ${colors.grayscale[0]};
 `
 
