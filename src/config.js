@@ -67,4 +67,5 @@ const config = {
 }
 
 module.exports = exports = merge(config.all, config[config.all.env])
+
 export default exports
