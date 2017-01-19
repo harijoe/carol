@@ -7,7 +7,7 @@ import { PostList } from 'components'
 
 class PostListContainer extends Component {
   static propTypes = {
-    list: PropTypes.object,
+    list: PropTypes.array,
     scope: PropTypes.string.isRequired,
     tags: PropTypes.array.isRequired,
     limit: PropTypes.number,

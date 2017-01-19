@@ -29,14 +29,14 @@ const PostList = ({ list, active, loading, ...props }) => (
         key={i}
         loading={loading}
         items={items}
-        active={setDisplay(active, i, items.get('tags'))}
+        active={setDisplay(active, i, items.tags)}
       />
     )}
   </Wrapper>
 )
 
 PostList.propTypes = {
-  list: PropTypes.object.isRequired,
+  list: PropTypes.array.isRequired,
   loading: PropTypes.bool,
   active: PropTypes.oneOfType([
     PropTypes.string,

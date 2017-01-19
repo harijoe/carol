@@ -8,14 +8,14 @@ const Article = styled.article``
 const setDisplay = (active = true) => (active ? { display: 'block' } : { display: 'none' })
 
 const Post = ({ items, active, ...props }) => {
-  const date = new Date(items.get('date'))
+  const date = new Date(items.date)
 
   return (
     <Article style={setDisplay(active)} {...props}>
-      <Image link={items.get('image')} />
-      <Heading level={2} dangerouslySetInnerHTML={{ __html: items.get('title') }} />
+      <Image link={items.featuredMedia} />
+      <Heading level={2} dangerouslySetInnerHTML={{ __html: items.title }} />
       <DateTime value={`${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`} />
-      <Paragraph dangerouslySetInnerHTML={{ __html: items.get('body') }} />
+      <Paragraph dangerouslySetInnerHTML={{ __html: items.body }} />
     </Article>
   )
 }

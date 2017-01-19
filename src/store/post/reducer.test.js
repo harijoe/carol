@@ -1,4 +1,3 @@
-import { fromJS } from 'immutable'
 import { initialState } from './selectors'
 import * as actions from './actions'
 import reducer from './reducer'
@@ -17,19 +16,19 @@ const payload = [
   },
 ]
 
-const list = fromJS([
+const list = [
   {
-    id: 1,
+    '@id': 1,
     title: 'post title 1',
     body: 'post body 1',
-    image: 'image.jpg',
+    featuredMedia: 'image.jpg',
     date: '01/01/2016',
     latitude: '123',
     longitude: '123',
     slug: 'text',
     tags: 'tag1,tag2',
-  }
-])
+  },
+]
 
 it('returns the initial state', () => {
   expect(reducer(undefined, {})).toEqual(initialState)
@@ -38,7 +37,6 @@ it('returns the initial state', () => {
 it('handles POST_LIST_SUCCESS', () => {
   const scope = 'latestProjectsOnMap'
   const action = { type: actions.POST_LIST_SUCCESS, scope, list: payload }
-  const expected = initialState.mergeIn([scope], list)
 
-  expect(reducer(initialState, action)).toEqual(expected)
+  expect(reducer(initialState, action)).toEqual({...initialState, [scope]: list})
 })

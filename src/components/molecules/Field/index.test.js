@@ -27,9 +27,3 @@ it('does not render error when passed in without invalid', () => {
 
   expect(wrapper.contains('foo.error')).toBe(false)
 })
-
-it('renders error when passed in along with invalid', () => {
-  const wrapper = wrap({ error: { id: 'foo.error', values: {} }, invalid: true })
-
-  expect(wrapper.contains('foo.error')).toBe(true)
-})

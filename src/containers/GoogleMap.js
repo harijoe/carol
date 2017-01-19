@@ -26,10 +26,10 @@ class GoogleMapContainer extends Component {
 
     projects.map(project => list.push({
       position: {
-        lat: parseFloat(project.get('latitude')),
-        lng: parseFloat(project.get('longitude')),
+        lat: parseFloat(project.latitude),
+        lng: parseFloat(project.longitude),
       },
-      title: project.get('title'),
+      title: project.title,
     }))
 
     this.setState({ markers: list })
