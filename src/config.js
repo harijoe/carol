@@ -1,13 +1,13 @@
 import merge from 'lodash/merge'
 
-const ip = process.env.IP || '0.0.0.0'
+const ip = `"${process.env.IP}"` || '0.0.0.0'
 const port = process.env.PORT || 80
-const apiIp = process.env.API_IP || ip
+const apiIp =`"${process.env.API_IP}"` || ip
 const apiPort = process.env.API_PORT || 8080
 
 const config = {
   all: {
-    env: process.env.NODE_ENV || 'development',
+    env: `"${process.env.NODE_ENV}"` || 'development',
     baseUrl: `http://${ip}:${port}`,
     ip,
     port,

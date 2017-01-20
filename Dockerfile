@@ -3,8 +3,7 @@ ADD . /app
 WORKDIR /app
 
 ARG INSTALL_DEP=true
-ARG NODE_ENV=development
-ENV NODE_ENV=development
+ENV NODE_ENV="development"
 
 RUN if [ -n "$INSTALL_DEP" ]; then \
        npm install --silent --unsafe-perm && \
