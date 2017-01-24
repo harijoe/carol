@@ -4,9 +4,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin')
 const webpackIsomorphicToolsConfig = require('./webpack-isomorphic-tools')
 
-const ip = `"${process.env.IP}"` || '0.0.0.0'
+const ip = process.env.IP || '0.0.0.0'
 const port = (+process.env.PORT + 1) || 80
-const DEBUG = `"${process.env.NODE_ENV}"` !== 'production'
+const DEBUG = `'${process.env.NODE_ENV}'` !== 'production'
 
 const config = {
   devtool: DEBUG ? 'eval' : false,
@@ -24,7 +24,7 @@ const config = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': `"${process.env.NODE_ENV}"`,
+      'process.env.NODE_ENV': `'${process.env.NODE_ENV}'`,
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '../public/index.html'),
