@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
+import NotificationsSystem from 'reapop'
+import theme from 'reapop-theme-wybo'
 import { IntlProvider, addLocaleData } from 'react-intl'
 import fr from 'react-intl/locale-data/fr'
 import en from 'react-intl/locale-data/en'
@@ -34,12 +36,22 @@ const Footer = styled.footer`
   margin-top: auto;
 `
 
+const notificationsDefaultValues = {
+  status: 'info',
+  position: 'tr',
+  dismissible: true,
+  dismissAfter: 5000,
+  allowHTML: true,
+  closeButton: false,
+}
+
 const PageTemplate = ({ header, children, footer, ...props }) => (
   <IntlProvider
     locale={getCurrentLanguage()}
     messages={getCurrentMessages()}
   >
     <Wrapper {...props}>
+      <NotificationsSystem theme={theme} defaultValues={notificationsDefaultValues} />
       <Header>{header}</Header>
       <Content>{children}</Content>
       <Footer>{footer}</Footer>

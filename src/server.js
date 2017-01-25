@@ -40,8 +40,10 @@ router.use((req, res, next) => {
       components.forEach((component) => {
         if (component) {
           while (component && !component[method]) {
+            // eslint-disable-next-line no-param-reassign
             component = component.WrappedComponent
           }
+          // eslint-disable-next-line no-unused-expressions
           component &&
           component[method] &&
           promises.push(component[method]({ req, res, params, location, store }))

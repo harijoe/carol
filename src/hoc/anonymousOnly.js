@@ -23,6 +23,7 @@ const anonymousOnly = (AnonymousComponent) => {
       this.checkAndRedirect()
     }
 
+    // eslint-disable-next-line class-methods-use-this
     getRedirectPathname(location) {
       return location && location.state && location.state.redirectPathname
         ? location.state.redirectPathname : null

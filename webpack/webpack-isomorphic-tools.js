@@ -11,6 +11,12 @@ const config = {
       extensions: ['woff', 'woff2', 'ttf', 'eot'],
       parser: WebpackIsomorphicToolsPlugin.url_loader_parser,
     },
+    styles: {
+      extensions: ['css'],
+      filter: WebpackIsomorphicToolsPlugin.style_loader_filter,
+      path: WebpackIsomorphicToolsPlugin.style_loader_path_extractor,
+      parser: WebpackIsomorphicToolsPlugin.css_loader_parser,
+    },
   },
   modulesDirectories: ['src', 'node_modules'],
   patch_require: true,

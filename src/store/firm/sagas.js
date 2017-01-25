@@ -28,6 +28,7 @@ export function* readFirmDetails(id) {
 }
 
 export function* watchFirmListRequest() {
+  // eslint-disable-next-line no-constant-condition
   while (true) {
     const { params } = yield take(FIRM_LIST_REQUEST)
     yield call(readFirmList, params)
@@ -35,6 +36,7 @@ export function* watchFirmListRequest() {
 }
 
 export function* watchFirmDetailsRequest() {
+  // eslint-disable-next-line no-constant-condition
   while (true) {
     const { id } = yield take(FIRM_DETAILS_REQUEST)
     yield call(readFirmDetails, id)

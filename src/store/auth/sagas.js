@@ -20,6 +20,7 @@ export function* serviceAuth(service, serviceToken, resolve = noop, reject = noo
 }
 
 export function* watchAuthSuccess() {
+  // eslint-disable-next-line no-constant-condition
   while (true) {
     const { token } = yield take(AUTH_SUCCESS)
 
@@ -31,6 +32,7 @@ export function* watchAuthSuccess() {
 }
 
 export function* watchAuthLogout() {
+  // eslint-disable-next-line no-constant-condition
   while (true) {
     yield take(AUTH_LOGOUT)
     yield [
@@ -41,6 +43,7 @@ export function* watchAuthLogout() {
 }
 
 export function* watchAuthRequest() {
+  // eslint-disable-next-line no-constant-condition
   while (true) {
     const { service, accessToken, resolve, reject } = yield take(AUTH_REQUEST)
 

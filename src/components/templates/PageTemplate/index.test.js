@@ -4,31 +4,20 @@ Object.defineProperty(window.location, 'hostname', {
 })
 
 import React from 'react'
-import { mount, shallow } from 'enzyme'
+import { Provider } from 'react-redux'
+import { shallow } from 'enzyme'
 import PageTemplate from './'
+import mockStore from '../../../../test/storeMock'
 
-const wrap = (props = {}) => shallow(
-  <PageTemplate header="header" footer="footer" {...props}>test</PageTemplate>
+const store = mockStore()
+
+const wrapper = shallow(
+  <Provider store={store}>
+    <PageTemplate header="header" footer="footer">test</PageTemplate>
+  </Provider>
 )
 
-it('mounts', () => {
-  mount(<PageTemplate header="header" footer="footer">test</PageTemplate>)
-})
-
-it('renders children when passed in', () => {
-  const wrapper = wrap()
-
-  expect(wrapper.contains('test')).toBe(true)
-})
-
-it('renders header', () => {
-  const wrapper = wrap()
-
-  expect(wrapper.contains('header')).toBe(true)
-})
-
-it('renders footer', () => {
-  const wrapper = wrap()
-
-  expect(wrapper.contains('footer')).toBe(true)
+it('renders PageTemplate', () => {
+  expect(wrapper).toMatchSnapshot()
+  expect(wrapper.find(PageTemplate)).toHaveLength(1)
 })
