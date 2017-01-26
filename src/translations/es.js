@@ -39,6 +39,13 @@ const es = {
   'firm.details.working_cities': 'Working Postal Codes ES',
   'firm.details.city_code': 'City code ES',
 
+  'project.validation_page': 'Page Validation ES',
+  'project.submit_button': 'OK ES',
+  'project.submit_success_title': 'Félicitation! ES',
+  'project.submit_failed_title': 'Oups! ES',
+  'project.submit_success': 'Projet envoyé! ES',
+  'project.submit_failed': 'Projet n\'a pas été envoyé! ES',
+
   'user.gender': 'Gender ES',
   'user.forget_password': 'Forget password ES ?',
   'user.create_account': 'Je veux créer un compte ES',

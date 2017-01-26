@@ -4,6 +4,5 @@ import ProjectPage from './'
 
 it('renders', () => {
   const wrapper = shallow(<ProjectPage />)
-
   expect(wrapper).toMatchSnapshot()
 })

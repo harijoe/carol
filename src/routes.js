@@ -17,6 +17,7 @@ import {
   SearchFirmPage,
   SearchPage,
   SignupPage,
+  ProjectSubmitPage,
 } from 'components'
 
 const routes = (
@@ -28,8 +29,9 @@ const routes = (
     <Route path="help" component={HelpPage} />
     <Route path="login" component={anonymousOnly(LoginPage)} />
     <Route path="profile" component={requiresAuth(ProfilePage)} />
-    <Route path="project" component={requiresAuth(ProjectPage)} />
-    <Route path="reset-password" component={anonymousOnly(ResetPasswordPage)} />
+    <Route path="project" component={ProjectPage} />
+    <Route path="signup" component={anonymousOnly(SignupPage)} />
+    <Route path="submit-project" component={ProjectSubmitPage} />
     <Route path="search" component={SearchPage} />
     <Route path="search-firm" component={SearchFirmPage} />
     <Route path="signup" component={anonymousOnly(SignupPage)} />

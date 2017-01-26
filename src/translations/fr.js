@@ -39,6 +39,13 @@ const fr = {
   'firm.details.working_cities': 'Working Postal Codes FR',
   'firm.details.city_code': 'Code Insee',
 
+  'project.validation_page': 'Page Validation FR',
+  'project.submit_button': 'OK',
+  'project.submit_success_title': 'Félicitation!',
+  'project.submit_failed_title': 'Oups!',
+  'project.submit_success': 'Projet envoyé!',
+  'project.submit_failed': 'Projet n\'a pas été envoyé!',
+
   'user.gender': 'Sexe',
   'user.forget_password': 'Mot de passe oublié ?',
   'user.create_account': 'Je veux créer un compte',
