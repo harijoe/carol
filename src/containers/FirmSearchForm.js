@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { reduxForm } from 'redux-form'
-import { remove as removeDiacritics } from 'diacritics'
 
 import { createValidator, required } from 'services/validation'
 import { fromForm } from 'store/selectors'
@@ -16,15 +15,15 @@ const FirmSearchFormContainer = props => (
 const onSubmit = (data, dispatch) => new Promise((resolve, reject) => {
   const queryParams = []
 
-  if (data.trade) { queryParams.push(`trade=${removeDiacritics(data.trade)}`) }
-  if (data.workingCityCode) { queryParams.push(`working-city-code=${removeDiacritics(data.workingCityCode)}`) }
+  if (data.homeImprovementId) { queryParams.push(`pro-form-id=${data.homeImprovementId}`) }
+  if (data.servedAreaCityCode) { queryParams.push(`served-area-city-code=${data.servedAreaCityCode}`) }
 
   dispatch(firmList.request(queryParams, resolve, reject))
   dispatch(push(`/search-firm?${queryParams.join('&')}`))
 })
 
 const validate = createValidator({
-  workingCityCode: [required],
+  servedAreaCityCode: [required],
 })
 
 const mapStateToProps = state => ({
@@ -35,7 +34,7 @@ const mapStateToProps = state => ({
 
 export const config = {
   form: 'FirmSearchForm',
-  fields: ['trade', 'workingCityCode'],
+  fields: ['homeImprovementId', 'servedAreaCityCode'],
   destroyOnUnmount: false,
   onSubmit,
   validate,

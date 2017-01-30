@@ -3,5 +3,5 @@ import { shallow } from 'enzyme'
 import SearchFirmPage from './'
 
 it('renders', () => {
-  shallow(<SearchFirmPage location={{ query: { trade: 'test', workingCityCode: '123' } }} />)
+  shallow(<SearchFirmPage location={{ query: { homeImprovementId: 'test', servedAreaCityCode: '123' } }} />)
 })

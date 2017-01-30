@@ -9,19 +9,19 @@ class FirmListContainer extends Component {
   static propTypes = {
     list: PropTypes.array,
     filters: PropTypes.shape({
-      trade: PropTypes.string,
-      workingCityCode: PropTypes.string,
+      homeImprovementId: PropTypes.string,
+      servedAreaCityCode: PropTypes.string,
     }),
     loading: PropTypes.bool,
     request: PropTypes.func.isRequired,
   }
 
   componentWillMount() {
-    const { trade, workingCityCode } = this.props.filters
+    const { homeImprovementId, servedAreaCityCode } = this.props.filters
     const queryParams = []
 
-    if (trade) { queryParams.push(`trade=${trade}`) }
-    if (workingCityCode) { queryParams.push(`working-city-code=${workingCityCode}`) }
+    if (homeImprovementId) { queryParams.push(`pro-form-id=${homeImprovementId}`) }
+    if (servedAreaCityCode) { queryParams.push(`served-area-city-code=${servedAreaCityCode}`) }
 
     this.props.request(queryParams)
   }

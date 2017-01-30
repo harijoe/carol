@@ -16,8 +16,8 @@ const FirmSearchForm = ({ handleSubmit, submitting, intl }) => (
   <Form method="POST" onSubmit={handleSubmit}>
     <Heading level={2}><FormattedMessage id="firm.find_pro" /></Heading>
     <Field name="_csrf" type="hidden" component="input" />
-    <Field name="trade" label={intl.formatMessage(messages('firm.details.trade').label)} component={RenderField} />
-    <Field name="workingCityCode" label={intl.formatMessage(messages('firm.details.city_code').label)} component={RenderField} />
+    <Field name="homeImprovementId" label={intl.formatMessage(messages('firm.details.home_improvement_id').label)} component={RenderField} />
+    <Field name="servedAreaCityCode" label={intl.formatMessage(messages('firm.details.city_code').label)} component={RenderField} />
     <Button type="submit" disabled={submitting}><FormattedMessage id="search" /></Button>
   </Form>
 )

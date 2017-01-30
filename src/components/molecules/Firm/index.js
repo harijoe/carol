@@ -17,20 +17,18 @@ const displayFull = items => (
     <li><FormattedMessage id="firm.details.website" />: {items.websiteUrl ? <a href={items.websiteUrl} rel="nofollow">{items.websiteUrl}</a> : <FormattedMessage id="firm.details.website_missing" />}</li>
     <li><FormattedMessage id="firm.details.employees_number" />: {items.employeesNumber}</li>
     <li><FormattedMessage id="firm.details.client_since" />: {items.clientSince}</li>
-    <li><FormattedMessage id="firm.details.trade" />: {items.trade}</li>
     <li><FormattedMessage id="firm.details.certificate" />: {renderList(items.certificates)}</li>
     <li><FormattedMessage id="firm.details.budget" />: {items.budget}</li>
     <li><FormattedMessage id="firm.details.delay" />: {items.delay}</li>
     <li><FormattedMessage id="firm.details.conviviality" />: {items.conviviality}</li>
     <li><FormattedMessage id="firm.details.notation" />: {(items.globalRating && items.globalRatingCount) ? items.globalRating / items.globalRatingCount : ''}</li>
-    <li><FormattedMessage id="firm.details.working_cities" />: {renderList(items.workingCities)}</li>
+    <li><FormattedMessage id="firm.details.served_area_cities" />: {renderList(items.servedAreaCities)}</li>
   </List>
 )
 
 const displayLight = items => (
   <List>
     <li><FormattedMessage id="firm.details.name" />: {items.name}</li>
-    <li><FormattedMessage id="firm.details.trade" />: {items.trade}</li>
     <li><FormattedMessage id="firm.details.notation" />: {(items.globalRating && items.globalRatingCount) ? items.globalRating / items.globalRatingCount : ''}</li>
     <li><Link to={`/firm/${items.guid}`}><FormattedMessage id="firm.site_search.result_link" /></Link></li>
   </List>
@@ -41,7 +39,6 @@ const Firm = ({ items, full = false }) => (full ? displayFull(items) : displayLi
 Firm.propTypes = {
   items: PropTypes.shape({
     name: PropTypes.string,
-    trade: PropTypes.string,
     logoUrl: PropTypes.string,
     postalCode: PropTypes.string,
     city: PropTypes.string,
@@ -57,7 +54,7 @@ Firm.propTypes = {
     conviviality: PropTypes.string,
     globalRating: PropTypes.number,
     globalRatingCount: PropTypes.number,
-    workingCities: PropTypes.array,
+    servedAreaCities: PropTypes.array,
   }).isRequired,
 }
 

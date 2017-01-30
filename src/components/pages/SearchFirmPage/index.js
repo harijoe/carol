@@ -6,7 +6,7 @@ import { FirmList } from 'containers'
 const FirmListPage = props => (
   <PageTemplate header={<Header />} footer={<Footer />}>
     <FirmList
-      filters={{ trade: props.location.query.trade, workingCityCode: props.location.query.workingCityCode }}
+      filters={{ homeImprovementId: props.location.query.homeImprovementId, servedAreaCityCode: props.location.query.servedAreaCityCode }}
     />
   </PageTemplate>
 )
@@ -14,8 +14,8 @@ const FirmListPage = props => (
 FirmListPage.propTypes = {
   location: PropTypes.shape({
     query: PropTypes.shape({
-      trade: PropTypes.string,
-      workingCityCode: PropTypes.string,
+      homeImprovementId: PropTypes.string,
+      servedAreaCityCode: PropTypes.string,
     }),
   }),
 }

@@ -8,7 +8,7 @@ import { firmList, firmDetails, FIRM_LIST_REQUEST, FIRM_DETAILS_REQUEST } from '
 export function* readFirmList(params) {
   try {
     const token = yield call(getToken)
-    const data = yield call(api.get, `/companies/search?countryCode=${getCurrentCountry()}&${params.join('&')}`, { accessToken: token })
+    const data = yield call(api.get, `/firms/search?country-code=${getCurrentCountry()}&${params.join('&')}`, { accessToken: token })
 
     yield put(firmList.success(data['hydra:member']))
   } catch (e) {
@@ -19,7 +19,7 @@ export function* readFirmList(params) {
 export function* readFirmDetails(id) {
   try {
     const token = yield call(getToken)
-    const data = yield call(api.get, `/companies/${id}`, { accessToken: token })
+    const data = yield call(api.get, `/firms/${id}`, { accessToken: token })
 
     yield put(firmDetails.success(data))
   } catch (e) {
