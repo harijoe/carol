@@ -35,7 +35,7 @@ describe('readFirmDetails', () => {
 
 describe('readFirmList', () => {
   it('calls success', () => {
-    const generator = sagas.readFirmList(['homeImprovementId=test', 'servedAreaCityCode=123'])
+    const generator = sagas.readFirmList(['pro-form-id=test', 'served-area-city-code=123'])
 
     expect(generator.next().value).toEqual(call(getToken))
     expect(generator.next().value).toEqual(call(api.get, '/firms/search?country-code=GB&pro-form-id=test&served-area-city-code=123', params))
@@ -43,7 +43,7 @@ describe('readFirmList', () => {
   })
 
   it('calls failure', () => {
-    const generator = sagas.readFirmList(['homeImprovementId=test', 'servedAreaCityCode=123'])
+    const generator = sagas.readFirmList(['pro-form-id=test', 'served-area-city-code=123'])
 
     expect(generator.next().value).toEqual(call(getToken))
     expect(generator.next().value).toEqual(call(api.get, '/firms/search?country-code=GB&pro-form-id=test&served-area-city-code=123', params))
