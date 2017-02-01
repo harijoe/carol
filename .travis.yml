@@ -10,4 +10,5 @@ branches:
   only:
     - master
     - develop
+    - refacto/new-archi
     - /^feature/*$/
