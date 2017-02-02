@@ -6,8 +6,7 @@ ARG INSTALL_DEP=true
 ENV NODE_ENV="development"
 
 RUN if [ -n "$INSTALL_DEP" ]; then \
-       npm install --silent --unsafe-perm && \
-       npm build; \
+       npm install --silent --unsafe-perm; \
     fi;
 
 # Set local node_modules binaries directly available
