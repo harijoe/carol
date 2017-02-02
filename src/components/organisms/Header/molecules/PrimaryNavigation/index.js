@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import { FormattedMessage } from 'react-intl'
 
 import { colors } from 'components/globals'
 import { Link } from 'components'
+import { BurgerMenu, SignInMenu } from 'containers'
 
 const Nav = styled.nav`
   display: flex;
@@ -24,9 +26,10 @@ const StyledLink = styled(Link)`
 `
 
 const PrimaryNavigation = props => (
-  <Nav {...props}>
-    <li><StyledLink to="/" onlyActiveOnIndex activeClassName="active">Home</StyledLink></li>
-    <li><StyledLink to="/help" activeClassName="active">Help</StyledLink></li>
+  <Nav>
+    <li><BurgerMenu /></li>
+    <li><StyledLink to="/" onlyActiveOnIndex activeClassName="active"><FormattedMessage id="home" tagName="span" /></StyledLink></li>
+    <li><SignInMenu {...props} /></li>
   </Nav>
 )
 

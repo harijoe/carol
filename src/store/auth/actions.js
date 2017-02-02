@@ -1,22 +1,30 @@
-export const AUTH = 'AUTH'
-export const AUTH_REQUEST = 'AUTH_REQUEST'
-export const AUTH_SUCCESS = 'AUTH_SUCCESS'
-export const AUTH_FAILURE = 'AUTH_FAILURE'
+import actionTypes, { createRequestTypes } from 'utils/createRequestTypes'
+import api from 'services/api'
+
+export const AUTH_LOGIN = createRequestTypes('AUTH_LOGIN')
 export const AUTH_LOGOUT = 'AUTH_LOGOUT'
 
-export const auth = {
-  success: token => ({ type: AUTH_SUCCESS, token }),
-  failure: error => ({ type: AUTH_FAILURE, error }),
-}
+export const authLogin = (grantType = 'client_credentials') => ({
+  request: (credentials, resolve, reject) => (actionTypes(AUTH_LOGIN.REQUEST, { grantType, credentials, resolve, reject })),
+  success: ({ access_token, refresh_token, expires_in }) => (
+    actionTypes(AUTH_LOGIN.SUCCESS, {
+      payload: {
+        accessToken: access_token,
+        refreshToken: refresh_token,
+        expiresIn: expires_in,
+        grantType,
+      },
+    })
+  ),
+  failure: error => (actionTypes(AUTH_LOGIN.FAILURE, { error })),
+})
 
-export const authFacebook = {
-  request: (accessToken, resolve, reject) => ({
-    type: AUTH_REQUEST,
-    service: 'facebook',
-    accessToken,
-    resolve,
-    reject,
-  }),
-}
+export const authLogout = () => (actionTypes(AUTH_LOGOUT))
 
-export const authLogout = () => ({ type: AUTH_LOGOUT })
+export const setToken = dispatch => (
+  new Promise((resolve, reject) => {
+    dispatch(authLogin('client_credentials').request('', resolve, reject))
+  }).then((token) => {
+    api.setToken(token.access_token)
+  })
+)

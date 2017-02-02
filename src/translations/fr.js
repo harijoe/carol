@@ -67,7 +67,7 @@ const fr = {
   'user.fixed_phone': 'Téléphone fixe',
   'user.postal_code': 'Code postal',
   'user.address': 'Adresse',
-  'user.birthday': 'DateTime de naissance',
+  'user.birthday': 'Date de naissance',
   'user.facebook_id': 'Facebook id',
   'user.google_id': 'Google id',
   'user.prefered_language': 'Language préférée',
@@ -81,6 +81,7 @@ const fr = {
   'user.reset_password_success': 'Votre mot de passe a été réinitialisé avec succès.',
   'user.favorite_page': 'Page favorite',
   'user.project_page': 'Ma page projet',
+  'user.message_page': 'My Message page FR',
   'user.invalid_login': 'Votre login et/ou mot de passe sont invalides',
   'user.password_match_err': 'Vos mots de passe doivent être identiques',
   'user.captcha_error': 'Êtes-vous un robot?',
@@ -89,6 +90,8 @@ const fr = {
   'user.profile_info': 'Profile infos FR',
   'user.contact_info': 'Contact infos FR',
   'user.social_network': 'Social Networks Parameters FR',
+  'user.choose_img': 'Choississez une image',
+  'user.drop_img': 'Try dropping some files here, or click to select files to upload. FR',
 
   'form.input.button.phone': 'Téléphone',
 

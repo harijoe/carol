@@ -16,6 +16,7 @@ const config = {
       clientId: '4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k',
       clientSecret: '4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc',
     },
+    profileUrl: `/users/me`,
     google: {
       mapsKey: 'AIzaSyD5R_CxRkMQR49reYM93SbKEC_DR37GsNI',
       recaptchaKey: '6Ldc6A0UAAAAAKYDpetCQRpnBcBb7Lbxs2uKHjkN',

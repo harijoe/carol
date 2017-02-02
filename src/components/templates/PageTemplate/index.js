@@ -1,11 +1,14 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 import NotificationsSystem from 'reapop'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import theme from 'reapop-theme-wybo'
 import { IntlProvider, addLocaleData } from 'react-intl'
 import fr from 'react-intl/locale-data/fr'
 import en from 'react-intl/locale-data/en'
 import es from 'react-intl/locale-data/es'
+import injectTapEventPlugin from 'react-tap-event-plugin'
+
 import { getCurrentMessages, getCurrentLanguage } from 'utils/locale'
 
 addLocaleData([...es, ...en, ...fr])
@@ -45,18 +48,22 @@ const notificationsDefaultValues = {
   closeButton: false,
 }
 
+injectTapEventPlugin()
+
 const PageTemplate = ({ header, children, footer, ...props }) => (
-  <IntlProvider
-    locale={getCurrentLanguage()}
-    messages={getCurrentMessages()}
-  >
-    <Wrapper {...props}>
-      <NotificationsSystem theme={theme} defaultValues={notificationsDefaultValues} />
-      <Header>{header}</Header>
-      <Content>{children}</Content>
-      <Footer>{footer}</Footer>
-    </Wrapper>
-  </IntlProvider>
+  <MuiThemeProvider>
+    <IntlProvider
+      locale={getCurrentLanguage()}
+      messages={getCurrentMessages()}
+    >
+      <Wrapper {...props}>
+        <NotificationsSystem theme={theme} defaultValues={notificationsDefaultValues} />
+        <Header {...props}>{header}</Header>
+        <Content>{children}</Content>
+        <Footer>{footer}</Footer>
+      </Wrapper>
+    </IntlProvider>
+  </MuiThemeProvider>
 )
 
 PageTemplate.propTypes = {

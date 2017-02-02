@@ -10,9 +10,7 @@ beforeEach(() => {
     touched: false,
     error: null,
   }
-  input = {
-    name: 'test',
-  }
+  input = { name: 'test' }
 })
 
 it('renders props when passed in', () => {

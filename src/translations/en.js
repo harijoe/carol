@@ -81,6 +81,7 @@ const en = {
   'user.reset_password_success': 'Your password has been successfully changed.',
   'user.favorite_page': 'Favorite page',
   'user.project_page': 'My project page',
+  'user.message_page': 'My Message page',
   'user.invalid_login': 'Your login and/or password are not valid',
   'user.password_match_err': 'Passwords do not match',
   'user.captcha_error': 'Are you a bot?',
@@ -89,6 +90,8 @@ const en = {
   'user.profile_info': 'Profile infos',
   'user.contact_info': 'Contact infos',
   'user.social_network': 'Social Networks Parameters',
+  'user.choose_img': 'Choose a picture',
+  'user.drop_img': 'Try dropping some files here, or click to select files to upload.',
 
   'validators.required_field': 'Required field',
   'validators.min_length': 'Must be at least {min} characters',

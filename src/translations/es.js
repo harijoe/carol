@@ -81,6 +81,7 @@ const es = {
   'user.reset_password_success': 'Your password has been successfully changed. ES',
   'user.favorite_page': 'Favorite page ES',
   'user.project_page': 'My project page ES',
+  'user.message_page': 'My Message page ES',
   'user.invalid_login': 'Your login and/or password are not valid ES',
   'user.password_match_err': 'Passwords do not match ES',
   'user.captcha_error': '¿Eres un bot?',
@@ -89,6 +90,8 @@ const es = {
   'user.profile_info': 'Profile infos ES',
   'user.contact_info': 'Contact infos ES',
   'user.social_network': 'Social Networks Parameters ES',
+  'user.choose_img': 'Choose a picture ES',
+  'user.drop_img': 'Try dropping some files here, or click to select files to upload. ES',
 
   'form.input.button.phone': 'Phone ES',
 

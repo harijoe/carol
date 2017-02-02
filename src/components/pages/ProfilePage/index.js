@@ -1,11 +1,12 @@
 import React from 'react'
 
-import { PageTemplate, Header, Footer } from 'components'
+import { MainLayout } from 'components'
+import { ProfileForm } from 'containers'
 
-const ProfilePage = () => (
-  <PageTemplate header={<Header />} footer={<Footer />}>
-    <p>Page</p>
-  </PageTemplate>
+const ProfilePage = (props) => (
+  <MainLayout {...props}>
+    <ProfileForm />
+  </MainLayout>
 )
 
 export default ProfilePage

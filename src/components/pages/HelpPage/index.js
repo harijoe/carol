@@ -1,12 +1,12 @@
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
 
-import { PageTemplate, Header, Footer } from 'components'
+import { MainLayout } from 'components'
 
-const HelpPage = () => (
-  <PageTemplate header={<Header />} footer={<Footer />}>
+const HelpPage = (props) => (
+  <MainLayout {...props} >
     <FormattedMessage id="help" tagName="p" />
-  </PageTemplate>
+  </MainLayout>
 )
 
 export default HelpPage

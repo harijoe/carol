@@ -35,12 +35,12 @@ api.checkStatus = (response) => {
 
   return response.json()
     .then((err) => {
-      throw new Error(`${response.statusText} (${response.status}) error occurred downstream: ${err.message}`)
+      throw err.violations || new Error(`${response.statusText} (${response.status}) error occurred downstream: ${err.message}`)
     })
 }
 
 // Token services
-api.generateToken = (grantType, extra) => api.request(`/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api.clientSecret}&grant_type=${grantType}${extra}`)
+api.generateToken = (grantType, extra = '') => api.request(`/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api.clientSecret}&grant_type=${grantType}${extra}`)
 api.setToken = token => headers['Authorization'] = `Bearer ${token}`
 api.unsetToken = () => headers['Authorization'] = null
 

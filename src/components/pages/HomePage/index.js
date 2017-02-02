@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { FormattedMessage } from 'react-intl'
 
-import { PageTemplate, Header, Footer, List, Link } from 'components'
+import { MainLayout, List, Link } from 'components'
 import { PostList, GoogleMap, FirmSearchForm } from 'containers'
 
 class HomePage extends Component {
@@ -33,7 +33,7 @@ class HomePage extends Component {
 
   render() {
     return (
-      <PageTemplate header={<Header />} footer={<Footer />}>
+      <MainLayout {...this.props}>
         <FirmSearchForm />
         <GoogleMap scope="latestProjectsOnMap" onMarkerClick={this.onMarkerClick} />
         <PostList scope="latestProjectsOnMap" tags={['inspiration', 'last-project']} limit={3} active={this.state.activeProject} />
@@ -45,7 +45,7 @@ class HomePage extends Component {
         </List>
         <PostList scope="testimonialArticles" tags={['testimony']} limit={10} active={this.state.activeTopic} />
         <PostList scope="reinsuranceArticles" tags={['quotatis-reinsurance']} limit={3} active="quotatis-reinsurance" />
-      </PageTemplate>
+      </MainLayout>
     )
   }
 }

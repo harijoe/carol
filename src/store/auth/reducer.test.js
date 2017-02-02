@@ -8,17 +8,17 @@ it('returns the initial state', () => {
 
 it('handles AUTH_SUCCESS', () => {
   expect(reducer(initialState, {
-    type: actions.AUTH_SUCCESS,
-    token: 1,
+    type: actions.AUTH_LOGIN.SUCCESS,
+    payload: { grantType: 'password' },
   })).toEqual({
     ...initialState,
-    token: 1,
+    isAuthenticated: true,
   })
 })
 
 it('handles AUTH_LOGOUT', () => {
-  expect(reducer({ ...initialState, token: 1 }, { type: actions.AUTH_LOGOUT })).toEqual({
+  expect(reducer({ ...initialState }, { type: actions.AUTH_LOGOUT })).toEqual({
     ...initialState,
-    token: initialState.token,
+    isAuthenticated: false,
   })
 })

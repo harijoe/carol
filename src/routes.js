@@ -18,6 +18,7 @@ import {
   SearchPage,
   SignupPage,
   ProjectSubmitPage,
+  MessagePage,
 } from 'components'
 
 const routes = (
@@ -28,6 +29,7 @@ const routes = (
     <Route path="forgot-password" component={anonymousOnly(ForgotPasswordPage)} />
     <Route path="help" component={HelpPage} />
     <Route path="login" component={anonymousOnly(LoginPage)} />
+    <Route path="message" component={requiresAuth(MessagePage)} />
     <Route path="profile" component={requiresAuth(ProfilePage)} />
     <Route path="project" component={ProjectPage} />
     <Route path="signup" component={anonymousOnly(SignupPage)} />

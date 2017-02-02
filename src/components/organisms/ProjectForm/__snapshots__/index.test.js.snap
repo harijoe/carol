@@ -10,7 +10,6 @@ ShallowWrapper {
     onClick={[Function]}>
     <FormattedMessage
         id="project.submit_button"
-        tagName="span"
         values={Object {}} />
 </Mock>,
   "nodes": Array [
@@ -18,7 +17,6 @@ ShallowWrapper {
       onClick={[Function]}>
       <FormattedMessage
             id="project.submit_button"
-            tagName="span"
             values={Object {}} />
 </Mock>,
   ],
@@ -63,7 +61,6 @@ ShallowWrapper {
           onClick={[Function]}>
           <FormattedMessage
                     id="project.submit_button"
-                    tagName="span"
                     values={Object {}} />
 </Mock>,
         "_debugID": 2,
@@ -71,7 +68,6 @@ ShallowWrapper {
           onClick={[Function]}>
           <FormattedMessage
                     id="project.submit_button"
-                    tagName="span"
                     values={Object {}} />
 </Mock>,
       },

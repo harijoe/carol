@@ -6,6 +6,9 @@ import { reducer as notifications } from 'reapop'
 import post from './post/reducer'
 import firm from './firm/reducer'
 import status from './status/reducer'
+import country from './country/reducer'
+import auth from './auth/reducer'
+import user from './user/reducer'
 
 const reducers = {
   routing,
@@ -14,6 +17,9 @@ const reducers = {
   firm,
   form,
   status,
+  country,
+  auth,
+  user,
 }
 
 const req = require.context('.', true, /\.\/.+\/reducer\.js$/)

@@ -6,17 +6,39 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <PageTemplate
-    footer="footer"
-    header="header">
-    test
-</PageTemplate>,
-  "nodes": Array [
+  "node": <Provider
+    store={
+        Object {
+            "dispatch": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+            Symbol(Symbol.observable): [Function],
+          }
+    }>
     <PageTemplate
-      footer="footer"
-      header="header">
-      test
-</PageTemplate>,
+        footer="footer"
+        header="header">
+        test
+    </PageTemplate>
+</Provider>,
+  "nodes": Array [
+    <Provider
+      store={
+            Object {
+                  "dispatch": [Function],
+                  "getState": [Function],
+                  "replaceReducer": [Function],
+                  "subscribe": [Function],
+                  Symbol(Symbol.observable): [Function],
+                }
+      }>
+      <PageTemplate
+            footer="footer"
+            header="header">
+            test
+      </PageTemplate>
+</Provider>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -24,51 +46,50 @@ ShallowWrapper {
       "_calledComponentWillUnmount": false,
       "_compositeType": 0,
       "_context": Object {},
-      "_currentElement": <Provider
-        store={
-                Object {
-                        "dispatch": [Function],
-                        "getState": [Function],
-                        "replaceReducer": [Function],
-                        "subscribe": [Function],
-                        Symbol(Symbol.observable): [Function],
-                      }
-        }>
-        <PageTemplate
-                footer="footer"
-                header="header">
-                test
-        </PageTemplate>
-</Provider>,
+      "_currentElement": <MuiThemeProvider>
+        <Provider
+                store={
+                        Object {
+                                "dispatch": [Function],
+                                "getState": [Function],
+                                "replaceReducer": [Function],
+                                "subscribe": [Function],
+                                Symbol(Symbol.observable): [Function],
+                              }
+                }>
+                <PageTemplate
+                        footer="footer"
+                        header="header">
+                        test
+                </PageTemplate>
+        </Provider>
+</MuiThemeProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
-      "_instance": Provider {
+      "_instance": MuiThemeProvider {
         "_reactInternalInstance": [Circular],
         "context": Object {},
         "props": Object {
-          "children": <PageTemplate
-            footer="footer"
-            header="header">
-            test
-</PageTemplate>,
-          "store": Object {
-            "dispatch": [Function],
-            "getState": [Function],
-            "replaceReducer": [Function],
-            "subscribe": [Function],
-            Symbol(Symbol.observable): [Function],
-          },
+          "children": <Provider
+            store={
+                        Object {
+                                    "dispatch": [Function],
+                                    "getState": [Function],
+                                    "replaceReducer": [Function],
+                                    "subscribe": [Function],
+                                    Symbol(Symbol.observable): [Function],
+                                  }
+            }>
+            <PageTemplate
+                        footer="footer"
+                        header="header">
+                        test
+            </PageTemplate>
+</Provider>,
         },
         "refs": Object {},
         "state": null,
-        "store": Object {
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-          Symbol(Symbol.observable): [Function],
-        },
         "updater": Object {
           "enqueueCallback": [Function],
           "enqueueCallbackInternal": [Function],
@@ -87,17 +108,39 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <PageTemplate
-          footer="footer"
-          header="header">
-          test
-</PageTemplate>,
+        "_currentElement": <Provider
+          store={
+                    Object {
+                              "dispatch": [Function],
+                              "getState": [Function],
+                              "replaceReducer": [Function],
+                              "subscribe": [Function],
+                              Symbol(Symbol.observable): [Function],
+                            }
+          }>
+          <PageTemplate
+                    footer="footer"
+                    header="header">
+                    test
+          </PageTemplate>
+</Provider>,
         "_debugID": 2,
-        "_renderedOutput": <PageTemplate
-          footer="footer"
-          header="header">
-          test
-</PageTemplate>,
+        "_renderedOutput": <Provider
+          store={
+                    Object {
+                              "dispatch": [Function],
+                              "getState": [Function],
+                              "replaceReducer": [Function],
+                              "subscribe": [Function],
+                              Symbol(Symbol.observable): [Function],
+                            }
+          }>
+          <PageTemplate
+                    footer="footer"
+                    header="header">
+                    test
+          </PageTemplate>
+</Provider>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -109,21 +152,23 @@ ShallowWrapper {
     "render": [Function],
   },
   "root": [Circular],
-  "unrendered": <Provider
-    store={
-        Object {
-            "dispatch": [Function],
-            "getState": [Function],
-            "replaceReducer": [Function],
-            "subscribe": [Function],
-            Symbol(Symbol.observable): [Function],
-          }
-    }>
-    <PageTemplate
-        footer="footer"
-        header="header">
-        test
-    </PageTemplate>
-</Provider>,
+  "unrendered": <MuiThemeProvider>
+    <Provider
+        store={
+            Object {
+                "dispatch": [Function],
+                "getState": [Function],
+                "replaceReducer": [Function],
+                "subscribe": [Function],
+                Symbol(Symbol.observable): [Function],
+              }
+        }>
+        <PageTemplate
+            footer="footer"
+            header="header">
+            test
+        </PageTemplate>
+    </Provider>
+</MuiThemeProvider>,
 }
 `;

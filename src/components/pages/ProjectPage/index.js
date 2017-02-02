@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { PageTemplate, Header, Footer } from 'components'
+import { MainLayout } from 'components'
 
 const ProjectPage = () => (
-  <PageTemplate header={<Header />} footer={<Footer />}>
+  <MainLayout>
     <p>Page</p>
-  </PageTemplate>
+  </MainLayout>
 )
 
 export default ProjectPage

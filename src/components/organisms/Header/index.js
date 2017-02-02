@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { colors, animations } from 'components/globals'
-import { IconLink, PrimaryNavigation } from 'components'
+import { IconLink } from 'components'
+import PrimaryNavigation from './molecules/PrimaryNavigation'
 
 const Wrapper = styled.div`
   display: flex;
@@ -29,7 +30,7 @@ const StyledIconLink = styled(IconLink)`
 const Header = props => (
   <Wrapper {...props}>
     <StyledIconLink to="/" icon="quotatis" size={100} />
-    <PrimaryNavigation />
+    <PrimaryNavigation {...props} />
   </Wrapper>
 )
 

@@ -1,6 +1,5 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { fromJS } from 'immutable'
 import configureMockStore from 'redux-mock-store'
 
 import anonymousOnly from './anonymousOnly'
@@ -16,15 +15,15 @@ describe('anonymousOnly', () => {
     WrapperComponent = anonymousOnly(MockAnonymousComponent)
   })
 
-  it('render the AnonymousComponent if not autenthicated', () => {
-    wrapper = shallow(<WrapperComponent />, { context: { store: mockStore({ auth: fromJS({ 'grantType': 'none' }) }) }})
+  it('render the AnonymousComponent if not authenthicated', () => {
+    wrapper = shallow(<WrapperComponent />, { context: { store: mockStore({ auth: { isAuthenticated: false } }) }})
 
     expect(wrapper.html()).toBe('<div>Anonymous access verified</div>')
   })
 
 
   it('does not render the AnonymousComponent if authenticated', () => {
-    wrapper = shallow(<WrapperComponent />, { context: { store: mockStore({ auth: fromJS({ 'grantType': 'password' }) }) }})
+    wrapper = shallow(<WrapperComponent />, { context: { store: mockStore({ auth: { isAuthenticated: true } }) }})
 
     expect(wrapper.html()).toBe('')
   })

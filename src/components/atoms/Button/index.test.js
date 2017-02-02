@@ -1,8 +1,9 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import Button from './'
 
 const wrap = (props = {}) => shallow(<Button {...props} />).dive()
+const wrapMounted = (props = {}) => mount(<Button {...props} />)
 
 it('renders with different combination of props', () => {
   wrap({ disabled: true })
@@ -17,19 +18,19 @@ it('renders children when passed in', () => {
 })
 
 it('renders props when passed in', () => {
-  const wrapper = wrap({ type: 'submit' })
+  const wrapper = wrapMounted({ type: 'submit' })
 
   expect(wrapper.find({ type: 'submit' })).toHaveLength(1)
 })
 
 it('renders button by default', () => {
-  const wrapper = wrap()
+  const wrapper = wrapMounted()
 
   expect(wrapper.find('button')).toHaveLength(1)
 })
 
 it('renders anchor when href is passed in', () => {
-  const wrapper = wrap({ href: 'test' })
+  const wrapper = wrapMounted({ href: 'test' })
 
   expect(wrapper.find('a')).toHaveLength(1)
 })

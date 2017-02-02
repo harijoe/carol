@@ -1,58 +1,58 @@
-import { take, put, call, fork } from 'redux-saga/effects'
+import { fork } from 'redux-saga/effects'
+import { takeEvery } from 'redux-saga'
 import cookie from 'react-cookie'
+import { call } from 'redux-saga/effects'
 
 import api from 'services/api'
-import { auth, AUTH_REQUEST, AUTH_SUCCESS, AUTH_LOGOUT } from './actions'
+import { AUTH_LOGIN, AUTH_LOGOUT, authLogin } from './actions'
+import fetch from 'utils/fetchSagas'
 
-// istanbul ignore next
-const noop = () => {}
+export function* getAuth({ grantType, credentials, resolve, reject } = {}) {
+  const token = yield cookie.load('access_token')
 
-export function* serviceAuth(service, serviceToken, resolve = noop, reject = noop) {
-  try {
-    const { data } = yield call(api.post, `/auth/${service}`, { access_token: serviceToken })
-
-    resolve(data.token)
-    yield put(auth.success(data.token))
-  } catch (error) {
-    reject(error)
-    yield put(auth.failure(error.data))
+  if (!credentials && token && token !== 'undefined') {
+    return resolve({ access_token: token })
   }
+
+  return yield call(fetch, authLogin(grantType), null, resolve, reject, api.generateToken, grantType, credentials)
 }
 
-export function* watchAuthSuccess() {
-  // eslint-disable-next-line no-constant-condition
-  while (true) {
-    const { token } = yield take(AUTH_SUCCESS)
+function* saveAuth(token) {
+  const { accessToken, refreshToken, grantType, expiresIn } = token.payload
 
-    yield [
-      call(cookie.save, 'token', token, { path: '/' }),
-      call(api.setToken, token),
-    ]
-  }
+  yield [
+    cookie.save('access_token', accessToken, { path: '/', maxAge: expiresIn }),
+    cookie.save('refresh_token', refreshToken),
+    cookie.save('grant_type', grantType, { path: '/', maxAge: expiresIn }),
+  ]
 }
 
-export function* watchAuthLogout() {
-  // eslint-disable-next-line no-constant-condition
-  while (true) {
-    yield take(AUTH_LOGOUT)
-    yield [
-      call(cookie.remove, 'token', { path: '/' }),
-      call(api.unsetToken),
-    ]
-  }
+function* removeAuth() {
+  yield api.unsetToken()
+
+  yield [
+    cookie.remove('access_token'),
+    cookie.remove('refresh_token'),
+    cookie.remove('grant_type'),
+  ]
 }
 
-export function* watchAuthRequest() {
-  // eslint-disable-next-line no-constant-condition
-  while (true) {
-    const { service, accessToken, resolve, reject } = yield take(AUTH_REQUEST)
+function* watchAuthRequest() {
+  yield call(takeEvery, AUTH_LOGIN.REQUEST, getAuth)
+}
 
-    yield call(serviceAuth, service, accessToken, resolve, reject)
-  }
+function* watchAuthSuccess() {
+  yield call(takeEvery, AUTH_LOGIN.SUCCESS, saveAuth)
+}
+
+function* watchAuthLogout() {
+  yield call(takeEvery, AUTH_LOGOUT, removeAuth)
 }
 
 export default function* () {
-  yield fork(watchAuthSuccess)
-  yield fork(watchAuthLogout)
-  yield fork(watchAuthRequest)
+  yield [
+    fork(watchAuthRequest),
+    fork(watchAuthSuccess),
+    fork(watchAuthLogout),
+  ]
 }

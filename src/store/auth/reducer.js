@@ -1,17 +1,21 @@
+import cookie from 'react-cookie'
 import { initialState } from './selectors'
-import { AUTH_SUCCESS, AUTH_LOGOUT } from './actions'
+import { AUTH_LOGIN, AUTH_LOGOUT } from './actions'
+import { isAuthenticated } from './selectors'
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case AUTH_SUCCESS:
+    case AUTH_LOGIN.SUCCESS:
+      const { grantType } = action.payload
+
       return {
         ...state,
-        token: action.token,
+        isAuthenticated: isAuthenticated(grantType),
       }
     case AUTH_LOGOUT:
       return {
         ...state,
-        token: initialState.token,
+        isAuthenticated: false,
       }
     default:
       return state

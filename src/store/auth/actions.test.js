@@ -1,25 +1,39 @@
 import * as actions from './actions'
 
-test('auth', () => {
-  expect(actions.auth.success(3)).toEqual({
-    type: actions.AUTH_SUCCESS,
-    token: 3,
-  })
+describe('grantType is client_credentials', () => {
+  const grantType = 'client_credentials'
 
-  expect(actions.auth.failure('test')).toEqual({
-    type: actions.AUTH_FAILURE,
-    error: 'test',
+  it('should render request type ', () => {
+    expect(actions.authLogin(grantType).request('test_credentials')).toEqual({
+      type: actions.AUTH_LOGIN.REQUEST,
+      grantType: 'client_credentials',
+      credentials: 'test_credentials',
+    })
   })
-})
-
-test('authFacebook', () => {
-  expect(actions.authFacebook.request(3)).toEqual({
-    type: actions.AUTH_REQUEST,
-    service: 'facebook',
-    accessToken: 3,
+  it('should render succes type ', () => {
+    expect(actions.authLogin(grantType).success({
+      access_token: '65x4dfgdx654xdg5f68dxfg644xg',
+      refresh_token: '65x4dfg654xdg5f68dxfg644xg',
+      expires_in: 3600,
+    })).toEqual({
+      type: actions.AUTH_LOGIN.SUCCESS,
+      payload: {
+        accessToken: '65x4dfgdx654xdg5f68dxfg644xg',
+        refreshToken: '65x4dfg654xdg5f68dxfg644xg',
+        expiresIn: 3600,
+        grantType,
+      }
+    })
   })
-})
-
-test('authLogout', () => {
-  expect(actions.authLogout()).toEqual({ type: actions.AUTH_LOGOUT })
+  it('should render failure type ', () => {
+    expect(actions.authLogin(grantType).failure('test error')).toEqual({
+      type: actions.AUTH_LOGIN.FAILURE,
+      error: 'test error',
+    })
+  })
+  it('should render logout type ', () => {
+    expect(actions.authLogout()).toEqual({
+      type: actions.AUTH_LOGOUT,
+    })
+  })
 })

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
-import { isAuthenticated } from 'utils/auth'
 
 const anonymousOnly = (AnonymousComponent) => {
   class Anonymous extends Component {
@@ -12,7 +11,7 @@ const anonymousOnly = (AnonymousComponent) => {
           redirectPathname: React.PropTypes.string,
         }),
       }),
-      grantType: React.PropTypes.string,
+      isAuthenticated: React.PropTypes.bool,
     }
 
     componentDidMount() {
@@ -30,28 +29,27 @@ const anonymousOnly = (AnonymousComponent) => {
     }
 
     checkAndRedirect() {
-      const { dispatch, location, grantType } = this.props
+      const { dispatch, location, isAuthenticated } = this.props
 
       // Authenticated? Move redirectPathname if exist, home otherwise
-      if (isAuthenticated(grantType)) {
+      if (isAuthenticated) {
         dispatch(push(this.getRedirectPathname(location) || '/'))
       }
     }
 
     render() {
-      const { location, grantType } = this.props
-
+      const { location, isAuthenticated } = this.props
       const redirectPathname = this.getRedirectPathname(location)
       const props = Object.assign({}, this.props, { redirectPathname })
 
       return (
-        !isAuthenticated(grantType) ? <AnonymousComponent {...props} /> : null
+        !isAuthenticated ? <AnonymousComponent {...props} /> : null
       )
     }
   }
 
   const mapStateToProps = state => ({
-    grantType: state.auth.get('grantType'),
+    isAuthenticated: state.auth.isAuthenticated,
   })
 
   return connect(mapStateToProps)(Anonymous)

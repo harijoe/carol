@@ -1,8 +1,7 @@
 import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
 import { fromPost, fromStatus } from 'store/selectors'
-import { postList, POST_LIST } from 'store/actions'
-
+import { setToken, postList, POST_LIST } from 'store/actions'
 import { PostList } from 'components'
 
 class PostListContainer extends Component {
@@ -24,9 +23,7 @@ class PostListContainer extends Component {
   }
 
   componentWillMount() {
-    const { scope, tags, limit } = this.props
-
-    this.props.request(scope, tags, limit)
+    this.props.request()
   }
 
   render() {
@@ -42,7 +39,11 @@ const mapStateToProps = (state, { scope }) => ({
 })
 
 const mapDispatchToProps = (dispatch, { scope, tags, limit }) => ({
-  request: () => dispatch(postList.request(scope, tags, limit)),
+  request: () => {
+    setToken(dispatch).then(() => {
+      dispatch(postList.request(scope, tags, limit))
+    })
+  },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostListContainer)

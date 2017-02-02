@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-import { Field } from 'components'
+import Field from './atoms/Field'
 
 const RenderField = ({ meta, input, ...props }) => (
   <Field {...{ ...props, ...input, invalid: meta.touched && !!meta.error, error: meta.error }} />

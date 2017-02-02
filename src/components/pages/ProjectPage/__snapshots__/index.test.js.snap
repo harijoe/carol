@@ -6,17 +6,13 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <Mock
-    footer={<Mock />}
-    header={<Mock />}>
+  "node": <Mock>
     <p>
         Page
     </p>
 </Mock>,
   "nodes": Array [
-    <Mock
-      footer={<Mock />}
-      header={<Mock />}>
+    <Mock>
       <p>
             Page
       </p>
@@ -56,17 +52,13 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <Mock
-          footer={<Mock />}
-          header={<Mock />}>
+        "_currentElement": <Mock>
           <p>
                     Page
           </p>
 </Mock>,
         "_debugID": 2,
-        "_renderedOutput": <Mock
-          footer={<Mock />}
-          header={<Mock />}>
+        "_renderedOutput": <Mock>
           <p>
                     Page
           </p>

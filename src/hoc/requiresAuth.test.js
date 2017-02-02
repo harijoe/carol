@@ -1,6 +1,5 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { fromJS } from 'immutable'
 import configureMockStore from 'redux-mock-store'
 
 import requiresAuth from './requiresAuth'
@@ -17,14 +16,14 @@ describe('requiresAuth', () => {
   })
 
   it('render the AuthenticationComponent if authenticated', () => {
-    wrapper = shallow(<WrapperComponent />, { context: { store: mockStore({ auth: fromJS({ 'grantType': 'password' }) }) }})
+    wrapper = shallow(<WrapperComponent />, { context: { store: mockStore({ auth: { isAuthenticated: true } }) }})
 
     expect(wrapper.html()).toBe('<div>Authentication access verified</div>')
   })
 
 
   it('does not render the AuthenticationComponent if not authenticated', () => {
-    wrapper = shallow(<WrapperComponent />, { context: { store: mockStore({ auth: fromJS({ 'grantType': 'none' }) }) }})
+    wrapper = shallow(<WrapperComponent />, { context: { store: mockStore({ auth: { isAuthenticated: false } }) }})
 
     expect(wrapper.html()).toBe('')
   })

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
-import { isAuthenticated } from 'utils/auth'
 
 const requiresAuth = (AuthenticatedComponent) => {
   class Authentication extends Component {
@@ -10,7 +9,7 @@ const requiresAuth = (AuthenticatedComponent) => {
       location: React.PropTypes.shape({
         pathname: React.PropTypes.string,
       }),
-      grantType: React.PropTypes.string,
+      isAuthenticated: React.PropTypes.bool,
     }
 
     componentDidMount() {
@@ -22,10 +21,10 @@ const requiresAuth = (AuthenticatedComponent) => {
     }
 
     checkAndRedirect() {
-      const { dispatch, location, grantType } = this.props
+      const { dispatch, location, isAuthenticated } = this.props
 
       // Not authenticated? Redirect to login
-      if (!isAuthenticated(grantType)) {
+      if (!isAuthenticated) {
         dispatch(push({
           pathname: '/login',
           state: { redirectPathname: location.pathname },
@@ -34,16 +33,16 @@ const requiresAuth = (AuthenticatedComponent) => {
     }
 
     render() {
-      const { grantType } = this.props
+      const { isAuthenticated } = this.props
 
       return (
-        isAuthenticated(grantType) ? <AuthenticatedComponent {...this.props} /> : null
+        isAuthenticated ? <AuthenticatedComponent {...this.props} /> : null
       )
     }
   }
 
   const mapStateToProps = state => ({
-    grantType: state.auth.get('grantType'),
+    isAuthenticated: state.auth.isAuthenticated,
   })
 
   return connect(mapStateToProps)(Authentication)

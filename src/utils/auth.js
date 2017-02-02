@@ -4,7 +4,7 @@ import config from 'config'
 import storage from 'services/storage'
 import { getToken } from './token'
 
-export const setStoredAuthState = (grantType) => {
+export const setStoredAuthState = grantType => {
   storage.setItem('grant_type', grantType)
 }
 
@@ -25,4 +25,4 @@ export const getStoredAuthState = () => {
 }
 
 export const login = credentials => getToken('password', credentials)
-export const isAuthenticated = grantType => ([config.facebookGrantType, 'password'].indexOf(grantType) !== -1)
+export const isAuthenticated = grantType => ([config.facebook.grantType, 'password'].indexOf(grantType) !== -1)
