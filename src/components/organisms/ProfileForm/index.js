@@ -15,15 +15,14 @@ const Form = styled.form`
 
 class ProfileForm extends Component {
   static propTypes = {
-    getProfile: React.PropTypes.func,
     handleSubmit: React.PropTypes.func,
     submitting: React.PropTypes.bool,
     intl: intlShape.isRequired,
-    imageBase64: React.PropTypes.string,
     initialValues: React.PropTypes.shape({
       email: React.PropTypes.string,
       facebookId: React.PropTypes.string,
       googleId: React.PropTypes.string,
+      imageBase64: React.PropTypes.string,
     }),
   }
 

@@ -5,20 +5,20 @@ import anonymousOnly from 'hoc/anonymousOnly'
 import requiresAuth from 'hoc/requiresAuth'
 import {
   App,
-  FirmPage,
   FavoritePage,
+  FirmPage,
+  FirmListPage,
   ForgotPasswordPage,
   HelpPage,
   HomePage,
   LoginPage,
+  MessagePage,
   ProfilePage,
-  ProjectPage,
+  ProjectListPage,
+  ProjectSubmitPage,
   ResetPasswordPage,
-  SearchFirmPage,
   SearchPage,
   SignupPage,
-  ProjectSubmitPage,
-  MessagePage,
 } from 'components'
 
 const routes = (
@@ -31,12 +31,12 @@ const routes = (
     <Route path="login" component={anonymousOnly(LoginPage)} />
     <Route path="message" component={requiresAuth(MessagePage)} />
     <Route path="profile" component={requiresAuth(ProfilePage)} />
-    <Route path="project" component={ProjectPage} />
+    <Route path="projects" component={ProjectListPage} />
+    <Route path="reset-password" component={ResetPasswordPage} />
+    <Route path="search" component={SearchPage} />
+    <Route path="search-firm" component={FirmListPage} />
     <Route path="signup" component={anonymousOnly(SignupPage)} />
     <Route path="submit-project" component={ProjectSubmitPage} />
-    <Route path="search" component={SearchPage} />
-    <Route path="search-firm" component={SearchFirmPage} />
-    <Route path="signup" component={anonymousOnly(SignupPage)} />
   </Route>
 )
 

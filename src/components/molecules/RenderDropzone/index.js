@@ -10,7 +10,7 @@ const Error = styled(Block)`
 `
 
 class RenderDropzone extends Component {
-  static  defaultProps = {
+  static defaultProps = {
     accept: 'image/png, image/jpeg, image/jpg',
   }
 

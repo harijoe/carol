@@ -69,7 +69,6 @@ DropDownMenu.propTypes = {
   children: PropTypes.any,
   label: PropTypes.string,
   intl: intlShape.isRequired,
-  routing: PropTypes.object,
 }
 
 export default injectIntl(DropDownMenu)

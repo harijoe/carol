@@ -1,11 +1,10 @@
-import { fork } from 'redux-saga/effects'
+import { call, fork } from 'redux-saga/effects'
 import { takeEvery } from 'redux-saga'
 import cookie from 'react-cookie'
-import { call } from 'redux-saga/effects'
 
 import api from 'services/api'
-import { AUTH_LOGIN, AUTH_LOGOUT, authLogin } from './actions'
 import fetch from 'utils/fetchSagas'
+import { AUTH_LOGIN, AUTH_LOGOUT, authLogin } from './actions'
 
 export function* getAuth({ grantType, credentials, resolve, reject } = {}) {
   const token = yield cookie.load('access_token')

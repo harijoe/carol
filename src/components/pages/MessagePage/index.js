@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl'
 
 import { MainLayout } from 'components'
 
-const MessagePage = (props) => (
+const MessagePage = props => (
   <MainLayout {...props}>
     <FormattedMessage id="user.message_page" tagName="p" />
   </MainLayout>

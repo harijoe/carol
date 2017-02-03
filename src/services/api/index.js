@@ -16,9 +16,9 @@ api.request = (endpoint, method, settings, body) => {
 }
 
 api.init = (method = 'GET', settings = {}, body = null) => {
-  headers['Accept'] = 'application/ld+json'
+  headers.Accept = 'application/ld+json'
   headers['Content-Type'] = 'application/json'
-  if (settings.accessToken) { headers['Authorization'] = `Bearer ${settings.accessToken}` }
+  if (settings.accessToken) { headers.Authorization = `Bearer ${settings.accessToken}` }
   if (locale) { headers['Accept-Language'] = locale }
 
   const fetchInit = { method, headers }
@@ -41,8 +41,8 @@ api.checkStatus = (response) => {
 
 // Token services
 api.generateToken = (grantType, extra = '') => api.request(`/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api.clientSecret}&grant_type=${grantType}${extra}`)
-api.setToken = token => headers['Authorization'] = `Bearer ${token}`
-api.unsetToken = () => headers['Authorization'] = null
+api.setToken = token => (headers.Authorization = `Bearer ${token}`)
+api.unsetToken = () => (headers.Authorization = null)
 
 ;['delete', 'get', 'head'].forEach((method) => {
   api[method] = (url, settings) => api.request(url, method, settings)

@@ -2,7 +2,7 @@ const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
 const config = require('./webpack.config')
 
-const ip = typeof process.env.IP !== 'undefined' && process.env.IP.toString() || '0.0.0.0'
+const ip = (typeof process.env.IP !== 'undefined' && process.env.IP.toString()) || '0.0.0.0'
 const port = (+process.env.PORT + 1) || 80
 
 new WebpackDevServer(webpack(config), {

@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 
@@ -7,14 +7,12 @@ import { authLogin } from 'store/actions'
 import { createValidator, required, email } from 'services/validation'
 import { fromAuth } from 'store/selectors'
 
-const SignInMenuContainer = props => {
-  return (
-    <SignInMenu {...props} />
-  )
-}
+const SignInMenuContainer = props => (
+  <SignInMenu {...props} />
+)
 
 const mapStateToProps = state => ({
-  isAuthenticated: fromAuth.isLogged(state),
+  isAuthenticated: fromAuth.isLoggedIn(state),
   user: state.user,
 })
 

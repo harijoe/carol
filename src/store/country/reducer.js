@@ -1,10 +1,5 @@
-import  { getCurrentCountry } from 'utils/locale'
+import { getCurrentCountry } from 'utils/locale'
 
 const initialState = { countryCode: getCurrentCountry() }
 
-export default function countryReducer(state = initialState, action) {
-  switch (action.type) {
-    default:
-      return state
-  }
-}
+export default (state = initialState) => state

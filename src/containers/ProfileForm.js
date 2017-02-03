@@ -26,7 +26,7 @@ class ProfileFormContainer extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const details = fromUser.getDetails(state)
 
   return {
@@ -38,7 +38,6 @@ const mapStateToProps = state => {
 }
 
 const onSubmit = (values, dispatch, formInfo) => {
-  console.log('submit')
   const splitDate = values.birthday.split('/')
   const data = JSON.parse(JSON.stringify(values))
 

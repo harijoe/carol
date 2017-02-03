@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 
 import { getCurrentLanguage } from 'utils/locale'
-import { Label, Paragraph } from 'components'
+import { Label, Paragraph } from 'components'
 import style from './style'
 
 const Wrapper = styled.div`${style}`

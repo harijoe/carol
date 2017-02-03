@@ -9,9 +9,11 @@ const action = (type, payload = {}) => ({
 
 export const createRequestTypes = base => (
   [REQUEST, SUCCESS, FAILURE].reduce((acc, type) => {
-    acc[type] = `${base}_${type}`
+    const newAcc = acc
 
-    return acc
+    newAcc[type] = `${base}_${type}`
+
+    return newAcc
   }, {})
 )
 

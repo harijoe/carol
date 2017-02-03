@@ -1,13 +1,13 @@
 import merge from 'lodash/merge'
 
-const ip = typeof process.env.IP !== 'undefined' && process.env.IP.toString() || '0.0.0.0'
+const ip = (typeof process.env.IP !== 'undefined' && process.env.IP.toString()) || '0.0.0.0'
 const port = process.env.PORT || 80
-const apiIp = typeof process.env.API_IP !== 'undefined' && process.env.API_IP.toString() || ip
+const apiIp = (typeof process.env.API_IP !== 'undefined' && process.env.API_IP.toString()) || ip
 const apiPort = process.env.API_PORT || 8080
 
 const config = {
   all: {
-    env: typeof process.env.NODE_ENV !== 'undefined' && process.env.NODE_ENV.toString() || 'development',
+    env: (typeof process.env.NODE_ENV !== 'undefined' && process.env.NODE_ENV.toString()) || 'development',
     baseUrl: `http://${ip}:${port}`,
     ip,
     port,
@@ -16,7 +16,6 @@ const config = {
       clientId: '4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k',
       clientSecret: '4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc',
     },
-    profileUrl: `/users/me`,
     google: {
       mapsKey: 'AIzaSyD5R_CxRkMQR49reYM93SbKEC_DR37GsNI',
       recaptchaKey: '6Ldc6A0UAAAAAKYDpetCQRpnBcBb7Lbxs2uKHjkN',
@@ -29,14 +28,9 @@ const config = {
       appId: '233630107058419',
       scope: 'public_profile, email, user_birthday, user_location',
     },
-    hostnamesLocales: {
-      'carol-fr.dev.quotatis.net': 'fr_FR',
-      'carol-es.dev.quotatis.net': 'es_ES',
-      'carol-co-uk.dev.quotatis.net': 'en_GB',
-    },
     defaultProUrl: 'https://www.quotatispro.co.uk',
     defaultLocale: 'en_GB',
-    countryConfig: {
+    countries: {
       FR: {
         url: 'carol-fr.dev.quotatis.net',
         proUrl: 'https://www.quotatispro.fr',
@@ -53,8 +47,13 @@ const config = {
         country: 'country.great_britain',
       },
     },
+    hostnamesLocales: {
+      'carol-fr.dev.quotatis.net': 'fr_FR',
+      'carol-es.dev.quotatis.net': 'es_ES',
+      'carol-co-uk.dev.quotatis.net': 'en_GB',
+    },
   },
-  staging: { // TODO: Add global env variable on docker for staging
+  staging: {
     api: {
       url: `http://staging.quotatis.net:${apiPort}`,
     },

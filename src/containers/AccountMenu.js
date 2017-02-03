@@ -5,11 +5,9 @@ import { push } from 'react-router-redux'
 import { authLogout } from 'store/actions'
 import { AccountMenu } from 'components'
 
-const AccountMenuContainer = props => {
-  return (
-    <AccountMenu {...props} />
-  )
-}
+const AccountMenuContainer = props => (
+  <AccountMenu {...props} />
+)
 
 AccountMenuContainer.propTypes = {
   logout: PropTypes.func,

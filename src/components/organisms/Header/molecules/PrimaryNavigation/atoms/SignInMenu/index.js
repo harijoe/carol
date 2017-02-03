@@ -4,7 +4,6 @@ import { FormattedMessage } from 'react-intl'
 
 import { RenderField, Button } from 'components'
 import { DropDownMenu, AccountMenu } from 'containers'
-import { isAuthenticated } from 'utils/auth'
 
 const SignInMenu = ({ location, isAuthenticated, handleSubmit, submitting }) => {
   if (location && location.pathname && (location.pathname === '/login')) {

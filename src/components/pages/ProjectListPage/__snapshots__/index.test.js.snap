@@ -7,24 +7,20 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <Mock>
-    <p>
-        Page
-    </p>
+    <Mock />
 </Mock>,
   "nodes": Array [
     <Mock>
-      <p>
-            Page
-      </p>
+      <Mock />
 </Mock>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
-    "_instance":  {
+    "_instance": ShallowComponentWrapper {
       "_calledComponentWillUnmount": false,
       "_compositeType": 2,
       "_context": Object {},
-      "_currentElement": <ProjectPage />,
+      "_currentElement": <ProjectListPage />,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -53,15 +49,11 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Mock>
-          <p>
-                    Page
-          </p>
+          <Mock />
 </Mock>,
         "_debugID": 2,
         "_renderedOutput": <Mock>
-          <p>
-                    Page
-          </p>
+          <Mock />
 </Mock>,
       },
       "_renderedNodeType": 1,
@@ -74,6 +66,6 @@ ShallowWrapper {
     "render": [Function],
   },
   "root": [Circular],
-  "unrendered": <ProjectPage />,
+  "unrendered": <ProjectListPage />,
 }
 `;

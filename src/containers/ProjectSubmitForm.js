@@ -6,12 +6,19 @@ import { bindActionCreators } from 'redux'
 import { injectIntl, intlShape } from 'react-intl'
 
 import messages from 'utils/messages'
-import { submitProject } from 'store/actions'
+import { projectSubmit } from 'store/actions'
 import { fromProject } from 'store/selectors'
 import { ProjectForm } from 'components'
 
-class ProjectFormContainer extends Component {
-  componentWillReceiveProps (nextProps) {
+class ProjectSubmitFormContainer extends Component {
+  static propTypes = {
+    request: PropTypes.func.isRequired,
+    notify: PropTypes.func,
+    redirectTo: PropTypes.func.isRequired,
+    intl: intlShape.isRequired,
+  }
+
+  componentWillReceiveProps(nextProps) {
     const type = (nextProps.status) ? 'success' : 'failed'
     const { intl: { formatMessage } } = nextProps
 
@@ -31,24 +38,17 @@ class ProjectFormContainer extends Component {
   }
 }
 
-ProjectFormContainer.propTypes = {
-  request: PropTypes.func.isRequired,
-  notify: PropTypes.func,
-  redirectTo: PropTypes.func.isRequired,
-  intl: intlShape.isRequired,
-}
-
 const mapStateToProps = state => ({
   status: fromProject.getStatus(state),
 })
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
-    request: submitProject.request,
+    request: projectSubmit.request,
     notify,
     redirectTo: path => push(path),
   }, dispatch)
 )
 
-export default connect(mapStateToProps, mapDispatchToProps)(injectIntl(ProjectFormContainer))
+export default connect(mapStateToProps, mapDispatchToProps)(injectIntl(ProjectSubmitFormContainer))
 

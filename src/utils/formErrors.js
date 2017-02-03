@@ -1,13 +1,13 @@
-const getFormErrors = errors => {
-  return(
-    errors.reduce((acc, { propertyPath, message }) => {
-      acc[propertyPath] = {
-        id: message,
-      }
+const getFormErrors = errors => (
+  errors.reduce((acc, { propertyPath, message }) => {
+    const newAcc = acc
 
-      return acc
-    }, {})
-  )
-}
+    newAcc[propertyPath] = {
+      id: message,
+    }
+
+    return newAcc
+  }, {})
+)
 
 export default getFormErrors

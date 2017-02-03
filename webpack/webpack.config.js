@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin')
 const webpackIsomorphicToolsConfig = require('./webpack-isomorphic-tools')
 
-const ip = typeof process.env.PUB_IP !== 'undefined' && process.env.PUB_IP.toString() || '0.0.0.0'
+const ip = (typeof process.env.PUB_IP !== 'undefined' && process.env.PUB_IP.toString()) || '0.0.0.0'
 const port = (+process.env.PORT + 1) || 80
 const DEBUG = `'${process.env.NODE_ENV}'` !== 'production'
 
