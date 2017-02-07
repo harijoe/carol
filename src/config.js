@@ -54,8 +54,9 @@ const config = {
     },
   },
   staging: {
+    baseUrl: 'carol-fr.preprod.qarx.io',
     api: {
-      url: `http://staging.quotatis.net:${apiPort}`,
+      url: 'http://api.preprod.qarx.io',
     },
   },
   production: {
