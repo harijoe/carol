@@ -31,7 +31,7 @@ const routes = (
     <Route path="login" component={anonymousOnly(LoginPage)} />
     <Route path="message" component={requiresAuth(MessagePage)} />
     <Route path="profile" component={requiresAuth(ProfilePage)} />
-    <Route path="projects" component={ProjectListPage} />
+    <Route path="projects" component={requiresAuth(ProjectListPage)} />
     <Route path="reset-password" component={ResetPasswordPage} />
     <Route path="search" component={SearchPage} />
     <Route path="search-firm" component={FirmListPage} />
