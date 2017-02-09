@@ -59,7 +59,7 @@ const es = {
   'user.mrs': 'Mrs ES',
   'user.first_name': 'First Name ES',
   'user.last_name': 'Last Name ES',
-  'user.email': 'Email ES',
+  'user.email': 'Correo electrónico',
   'user.password': 'Password ES',
   'user.confirm_password': 'Confirm Password ES',
   'user.my_account': 'Mon compte ES',
@@ -98,7 +98,7 @@ const es = {
   'user.social_network': 'Social Networks Parameters ES',
   'user.choose_img': 'Choose a picture ES',
   'user.drop_img': 'Try dropping some files here, or click to select files to upload. ES',
-
+  'user.forgot_password.heading': 'Contraseña olvidada',
   'form.input.button.phone': 'Phone ES',
 
   'validators.required_field': 'Required field ES',

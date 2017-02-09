@@ -98,6 +98,7 @@ const en = {
   'user.social_network': 'Social Networks Parameters',
   'user.choose_img': 'Choose a picture',
   'user.drop_img': 'Try dropping some files here, or click to select files to upload.',
+  'user.forgot_password.heading': 'Forgotten password',
 
   'validators.required_field': 'Required field',
   'validators.min_length': 'Must be at least {min} characters',

@@ -1,11 +1,13 @@
 import React from 'react'
 
-import { PageTemplate, Header, Footer } from 'components'
+import { MainLayout } from 'components'
+import { ResetPasswordForm } from 'containers'
 
-const ResetPasswordPage = () => (
-  <PageTemplate header={<Header />} footer={<Footer />}>
-    <p>Page</p>
-  </PageTemplate>
+
+const ResetPasswordPage = props => (
+  <MainLayout {...props} >
+    <ResetPasswordForm />
+  </MainLayout>
 )
 
 export default ResetPasswordPage

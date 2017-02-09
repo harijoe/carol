@@ -1,10 +1,11 @@
 import React from 'react'
 
 import { MainLayout } from 'components'
+import { ForgotPasswordForm } from 'containers'
 
 const ForgotPasswordPage = () => (
   <MainLayout>
-    <p>ForgotPasswordPage</p>
+    <ForgotPasswordForm />
   </MainLayout>
 )
 

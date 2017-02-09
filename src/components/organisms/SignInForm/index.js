@@ -31,6 +31,9 @@ const SignInForm = ({ location, isAuthenticated, handleSubmit, submitting }) => 
           <Button type="submit" disabled={submitting}><FormattedMessage id="user.sign_in" tagName="span" /></Button>
           <StyledLink to="/signup"><FormattedMessage id="user.create_account" /></StyledLink>
         </Form>
+        <Link to="/forgot-password">
+          <FormattedMessage id="user.forgot_password.heading" />
+        </Link>
       </DropDownMenu>
     )
   }
