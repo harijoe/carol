@@ -49,6 +49,7 @@ const es = {
   'project.updated_at': 'Updated at ES',
   'project.reference': 'Reference ES',
   'project.list.heading': 'My projects ES',
+  'project.validate_link': 'Valider ES',
 
   'user.gender': 'Gender ES',
   'user.forget_password': 'Forget password ES ?',

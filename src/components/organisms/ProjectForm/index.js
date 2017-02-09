@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react'
 import { FormattedMessage } from 'react-intl'
 
-import { Link } from 'components'
+import { Button } from 'components'
 
 const ProjectForm = props => (
-  <Link onClick={props.onClick}><FormattedMessage id="project.submit_button" /></Link>
+  <Button onClick={props.onClick}><FormattedMessage id="project.submit_button" /></Button>
 )
 
 ProjectForm.propTypes = {

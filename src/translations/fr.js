@@ -49,6 +49,7 @@ const fr = {
   'project.updated_at': 'Mis à jour le',
   'project.reference': 'Référence',
   'project.list.heading': 'Mes projets',
+  'project.validate_link': 'Valider',
 
   'user.gender': 'Sexe',
   'user.forget_password': 'Mot de passe oublié ?',

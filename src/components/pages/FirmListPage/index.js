@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
+import { FormattedMessage } from 'react-intl'
 
-import { PageTemplate, Header, Footer } from 'components'
+import { PageTemplate, Header, Footer, Link } from 'components'
 import { FirmList } from 'containers'
 
 const FirmListPage = props => (
@@ -8,6 +9,7 @@ const FirmListPage = props => (
     <FirmList
       filters={{ homeImprovementId: props.location.query.homeImprovementId, servedAreaCityCode: props.location.query.servedAreaCityCode }}
     />
+    <Link to="/submit-project"><FormattedMessage id="project.validate_link" /></Link>
   </PageTemplate>
 )
 

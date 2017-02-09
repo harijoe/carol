@@ -28,7 +28,7 @@ class ProjectSubmitFormContainer extends Component {
       status: type,
     })
 
-    if (nextProps.status) { this.props.redirectTo('/project') }
+    if (nextProps.status) { this.props.redirectTo('/projects') }
   }
 
   render() {
