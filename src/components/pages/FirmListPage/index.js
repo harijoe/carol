@@ -1,16 +1,16 @@
 import React, { PropTypes } from 'react'
 import { FormattedMessage } from 'react-intl'
 
-import { PageTemplate, Header, Footer, Link } from 'components'
+import { MainLayout, Link } from 'components'
 import { FirmList } from 'containers'
 
 const FirmListPage = props => (
-  <PageTemplate header={<Header />} footer={<Footer />}>
+  <MainLayout>
     <FirmList
       filters={{ homeImprovementId: props.location.query.homeImprovementId, servedAreaCityCode: props.location.query.servedAreaCityCode }}
     />
     <Link to="/submit-project"><FormattedMessage id="project.validate_link" /></Link>
-  </PageTemplate>
+  </MainLayout>
 )
 
 FirmListPage.propTypes = {

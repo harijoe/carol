@@ -1,14 +1,14 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import MenuSignIn from '.'
+import SignInForm from '.'
 
-const wrap = (props = {}) => shallow(<MenuSignIn {...props} />)
+const wrap = (props = {}) => shallow(<SignInForm {...props} />)
 
 describe('user is not connect', () => {
   it('should render a form', () => {
     const wrapper = wrap({ isAuthenticated: false })
 
-    expect(wrapper.find('form')).toHaveLength(1)
+    expect(wrapper.find('Form')).toHaveLength(1)
   })
 })
 
@@ -17,6 +17,6 @@ describe('user is connect with grantType facebook', () => {
     const wrapper = wrap({ isAuthenticated: true })
 
     expect(wrapper).toMatchSnapshot()
-    expect(wrapper.find('form')).toHaveLength(0)
+    expect(wrapper.find('Form')).toHaveLength(0)
   })
 })

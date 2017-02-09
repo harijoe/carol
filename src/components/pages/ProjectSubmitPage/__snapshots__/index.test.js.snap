@@ -6,9 +6,7 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <Mock
-    footer={<Mock />}
-    header={<Mock />}>
+  "node": <Mock>
     <FormattedMessage
         id="project.validation_page"
         tagName="p"
@@ -16,9 +14,7 @@ ShallowWrapper {
     <Mock />
 </Mock>,
   "nodes": Array [
-    <Mock
-      footer={<Mock />}
-      header={<Mock />}>
+    <Mock>
       <FormattedMessage
             id="project.validation_page"
             tagName="p"
@@ -60,9 +56,7 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <Mock
-          footer={<Mock />}
-          header={<Mock />}>
+        "_currentElement": <Mock>
           <FormattedMessage
                     id="project.validation_page"
                     tagName="p"
@@ -70,9 +64,7 @@ ShallowWrapper {
           <Mock />
 </Mock>,
         "_debugID": 2,
-        "_renderedOutput": <Mock
-          footer={<Mock />}
-          header={<Mock />}>
+        "_renderedOutput": <Mock>
           <FormattedMessage
                     id="project.validation_page"
                     tagName="p"

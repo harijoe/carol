@@ -2,13 +2,13 @@ import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 
-import SignInMenu from 'components/organisms/Header/molecules/PrimaryNavigation/atoms/SignInMenu'
 import { authLogin } from 'store/actions'
 import { createValidator, required, email } from 'services/validation'
 import { fromAuth } from 'store/selectors'
+import { SignInForm } from 'components'
 
-const SignInMenuContainer = props => (
-  <SignInMenu {...props} />
+const SignInFormContainer = props => (
+  <SignInForm {...props} />
 )
 
 const mapStateToProps = state => ({
@@ -16,7 +16,7 @@ const mapStateToProps = state => ({
   user: state.user,
 })
 
-SignInMenuContainer.propTypes = {
+SignInFormContainer.propTypes = {
   getTokenPassword: PropTypes.func,
   isAuthenticated: PropTypes.bool,
   user: PropTypes.object,
@@ -40,4 +40,4 @@ export const config = {
   validate,
 }
 
-export default connect(mapStateToProps)(reduxForm(config)(SignInMenuContainer))
+export default connect(mapStateToProps)(reduxForm(config)(SignInFormContainer))

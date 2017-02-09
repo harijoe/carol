@@ -1,11 +1,12 @@
 import React from 'react'
 
-import { PageTemplate, Header, Footer } from 'components'
+import { MainLayout } from 'components'
+import { SignUpForm } from 'containers'
 
 const SignupPage = () => (
-  <PageTemplate header={<Header />} footer={<Footer />}>
-    <p>Page</p>
-  </PageTemplate>
+  <MainLayout>
+    <SignUpForm />
+  </MainLayout>
 )
 
 export default SignupPage

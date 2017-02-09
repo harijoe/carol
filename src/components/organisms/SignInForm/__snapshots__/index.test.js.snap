@@ -22,7 +22,7 @@ ShallowWrapper {
       "_calledComponentWillUnmount": false,
       "_compositeType": 2,
       "_context": Object {},
-      "_currentElement": <SignInMenu
+      "_currentElement": <SignInForm
         isAuthenticated={true} />,
       "_debugID": 3,
       "_hostContainerInfo": null,
@@ -73,7 +73,7 @@ ShallowWrapper {
     "render": [Function],
   },
   "root": [Circular],
-  "unrendered": <SignInMenu
+  "unrendered": <SignInForm
     isAuthenticated={true} />,
 }
 `;

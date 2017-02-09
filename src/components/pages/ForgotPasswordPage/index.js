@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { PageTemplate, Header, Footer } from 'components'
+import { MainLayout } from 'components'
 
-const FavoritePage = () => (
-  <PageTemplate header={<Header />} footer={<Footer />}>
+const ForgotPasswordPage = () => (
+  <MainLayout>
     <p>ForgotPasswordPage</p>
-  </PageTemplate>
+  </MainLayout>
 )
 
-export default FavoritePage
+export default ForgotPasswordPage

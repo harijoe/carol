@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react'
 
-import { PageTemplate, Header, Footer } from 'components'
+import { MainLayout } from 'components'
 import { FirmDetails } from 'containers'
 
 const FirmPage = props => (
-  <PageTemplate header={<Header />} footer={<Footer />}>
+  <MainLayout>
     <FirmDetails id={props.params.firmId} />
-  </PageTemplate>
+  </MainLayout>
 )
 
 FirmPage.propTypes = {

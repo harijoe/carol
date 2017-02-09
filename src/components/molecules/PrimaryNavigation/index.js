@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl'
 
 import { colors } from 'components/globals'
 import { Link } from 'components'
-import { BurgerMenu, SignInMenu } from 'containers'
+import { BurgerMenu, SignInForm } from 'containers'
 
 const Nav = styled.nav`
   display: flex;
@@ -29,7 +29,7 @@ const PrimaryNavigation = props => (
   <Nav>
     <li><BurgerMenu /></li>
     <li><StyledLink to="/" onlyActiveOnIndex activeClassName="active"><FormattedMessage id="home" tagName="span" /></StyledLink></li>
-    <li><SignInMenu {...props} /></li>
+    <li><SignInForm {...props} /></li>
   </Nav>
 )
 

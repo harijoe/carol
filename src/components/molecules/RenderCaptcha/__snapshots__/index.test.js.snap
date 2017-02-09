@@ -1,4 +1,4 @@
-exports[`test render RenderDropzone withour error 1`] = `
+exports[`test render captcha withour error 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -6,8 +6,7 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <RenderDropzone
-    accept="image/png, image/jpeg, image/jpg"
+  "node": <RenderCaptcha
     input={
         Object {
             "name": "test",
@@ -20,8 +19,7 @@ ShallowWrapper {
           }
     } />,
   "nodes": Array [
-    <RenderDropzone
-      accept="image/png, image/jpeg, image/jpg"
+    <RenderCaptcha
       input={
             Object {
                   "name": "test",
@@ -161,8 +159,7 @@ ShallowWrapper {
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
         }>
-        <RenderDropzone
-                accept="image/png, image/jpeg, image/jpg"
+        <RenderCaptcha
                 input={
                         Object {
                                 "name": "test",
@@ -184,8 +181,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <RenderDropzone
-            accept="image/png, image/jpeg, image/jpg"
+          "children": <RenderCaptcha
             input={
                         Object {
                                     "name": "test",
@@ -343,8 +339,7 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <RenderDropzone
-          accept="image/png, image/jpeg, image/jpg"
+        "_currentElement": <RenderCaptcha
           input={
                     Object {
                               "name": "test",
@@ -357,8 +352,7 @@ ShallowWrapper {
                             }
           } />,
         "_debugID": 2,
-        "_renderedOutput": <RenderDropzone
-          accept="image/png, image/jpeg, image/jpg"
+        "_renderedOutput": <RenderCaptcha
           input={
                     Object {
                               "name": "test",
@@ -502,8 +496,7 @@ ShallowWrapper {
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }
     }>
-    <RenderDropzone
-        accept="image/png, image/jpeg, image/jpg"
+    <RenderCaptcha
         input={
             Object {
                 "name": "test",
@@ -527,8 +520,7 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <RenderDropzone
-    accept="image/png, image/jpeg, image/jpg"
+  "node": <RenderCaptcha
     input={
         Object {
             "name": "test",
@@ -545,8 +537,7 @@ ShallowWrapper {
           }
     } />,
   "nodes": Array [
-    <RenderDropzone
-      accept="image/png, image/jpeg, image/jpg"
+    <RenderCaptcha
       input={
             Object {
                   "name": "test",
@@ -690,8 +681,7 @@ ShallowWrapper {
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
         }>
-        <RenderDropzone
-                accept="image/png, image/jpeg, image/jpg"
+        <RenderCaptcha
                 input={
                         Object {
                                 "name": "test",
@@ -717,8 +707,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <RenderDropzone
-            accept="image/png, image/jpeg, image/jpg"
+          "children": <RenderCaptcha
             input={
                         Object {
                                     "name": "test",
@@ -880,8 +869,7 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <RenderDropzone
-          accept="image/png, image/jpeg, image/jpg"
+        "_currentElement": <RenderCaptcha
           input={
                     Object {
                               "name": "test",
@@ -898,8 +886,7 @@ ShallowWrapper {
                             }
           } />,
         "_debugID": 4,
-        "_renderedOutput": <RenderDropzone
-          accept="image/png, image/jpeg, image/jpg"
+        "_renderedOutput": <RenderCaptcha
           input={
                     Object {
                               "name": "test",
@@ -1047,8 +1034,7 @@ ShallowWrapper {
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }
     }>
-    <RenderDropzone
-        accept="image/png, image/jpeg, image/jpg"
+    <RenderCaptcha
         input={
             Object {
                 "name": "test",

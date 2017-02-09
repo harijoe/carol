@@ -3,12 +3,10 @@ import { connect } from 'react-redux'
 import { reduxForm, SubmissionError } from 'redux-form'
 
 import { ProfileForm } from 'components'
-import { profile, profileUpdate, setToken } from 'store/actions'
+import { userDetails, userUpdate, setToken } from 'store/actions'
 import { fromUser } from 'store/selectors'
 import { createValidator, required } from 'services/validation'
 import getFormErrors from 'utils/formErrors'
-
-const update = profileUpdate.request
 
 class ProfileFormContainer extends Component {
   static propTypes = {
@@ -49,7 +47,7 @@ const onSubmit = (values, dispatch, formInfo) => {
 
   return new Promise((resolve, reject) => {
     setToken(dispatch).then(() => {
-      dispatch(update(data, values['@id'], resolve, reject))
+      dispatch(userUpdate.request(data, values['@id'], resolve, reject))
     })
   }).catch((e) => {
     throw new SubmissionError(getFormErrors(e))
@@ -79,7 +77,7 @@ export const config = {
 const mapDispatchToProps = dispatch => ({
   request: () => {
     setToken(dispatch).then(() => {
-      dispatch(profile.request())
+      dispatch(userDetails.request())
     })
   },
 })

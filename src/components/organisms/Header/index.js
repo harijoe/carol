@@ -2,8 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { colors, animations } from 'components/globals'
-import { IconLink } from 'components'
-import PrimaryNavigation from './molecules/PrimaryNavigation'
+import { PrimaryNavigation, IconLink } from 'components'
 
 const Wrapper = styled.div`
   display: flex;

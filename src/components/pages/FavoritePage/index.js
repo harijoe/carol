@@ -1,12 +1,12 @@
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
 
-import { PageTemplate, Header, Footer } from 'components'
+import { MainLayout } from 'components'
 
 const FavoritePage = () => (
-  <PageTemplate header={<Header />} footer={<Footer />}>
+  <MainLayout>
     <FormattedMessage id="user.favorite_page" tagName="p" />
-  </PageTemplate>
+  </MainLayout>
 )
 
 export default FavoritePage

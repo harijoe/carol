@@ -12,7 +12,7 @@ ShallowWrapper {
         icon="quotatis"
         size={100}
         to="/" />
-    <PrimaryNavigation />
+    <Mock />
 </div>,
   "nodes": Array [
     <div
@@ -21,7 +21,7 @@ ShallowWrapper {
             icon="quotatis"
             size={100}
             to="/" />
-      <PrimaryNavigation />
+      <Mock />
 </div>,
   ],
   "options": Object {},
@@ -35,7 +35,7 @@ ShallowWrapper {
                 icon="quotatis"
                 size={100}
                 to="/" />
-        <PrimaryNavigation />
+        <Mock />
 </styled.div>,
       "_debugID": 3,
       "_hostContainerInfo": null,
@@ -51,7 +51,7 @@ ShallowWrapper {
               icon="quotatis"
               size={100}
               to="/" />,
-            <PrimaryNavigation />,
+            <Mock />,
           ],
         },
         "refs": Object {},
@@ -83,7 +83,7 @@ ShallowWrapper {
                     icon="quotatis"
                     size={100}
                     to="/" />
-          <PrimaryNavigation />
+          <Mock />
 </div>,
         "_debugID": 4,
         "_renderedOutput": <div
@@ -92,7 +92,7 @@ ShallowWrapper {
                     icon="quotatis"
                     size={100}
                     to="/" />
-          <PrimaryNavigation />
+          <Mock />
 </div>,
       },
       "_renderedNodeType": 0,
@@ -110,7 +110,7 @@ ShallowWrapper {
         icon="quotatis"
         size={100}
         to="/" />
-    <PrimaryNavigation />
+    <Mock />
 </styled.div>,
 }
 `;

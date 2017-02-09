@@ -1,4 +1,4 @@
-exports[`test renders the Firm component 1`] = `
+exports[`test renders SignUpForm component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -6,21 +6,9 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <Firm
-    items={
-        Object {
-            "city": "Paris",
-            "name": "test",
-          }
-    } />,
+  "node": <InjectIntl(SignUpForm) />,
   "nodes": Array [
-    <Firm
-      items={
-            Object {
-                  "city": "Paris",
-                  "name": "test",
-                }
-      } />,
+    <InjectIntl(SignUpForm) />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -149,13 +137,7 @@ ShallowWrapper {
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
         }>
-        <Firm
-                items={
-                        Object {
-                                "city": "Paris",
-                                "name": "test",
-                              }
-                } />
+        <InjectIntl(SignUpForm) />
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -166,13 +148,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <Firm
-            items={
-                        Object {
-                                    "city": "Paris",
-                                    "name": "test",
-                                  }
-            } />,
+          "children": <InjectIntl(SignUpForm) />,
           "locale": "en",
           "messages": Object {
             "burger_menu": "Burger Menu",
@@ -319,21 +295,9 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <Firm
-          items={
-                    Object {
-                              "city": "Paris",
-                              "name": "test",
-                            }
-          } />,
+        "_currentElement": <InjectIntl(SignUpForm) />,
         "_debugID": 2,
-        "_renderedOutput": <Firm
-          items={
-                    Object {
-                              "city": "Paris",
-                              "name": "test",
-                            }
-          } />,
+        "_renderedOutput": <InjectIntl(SignUpForm) />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -466,13 +430,7 @@ ShallowWrapper {
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }
     }>
-    <Firm
-        items={
-            Object {
-                "city": "Paris",
-                "name": "test",
-              }
-        } />
+    <InjectIntl(SignUpForm) />
 </IntlProvider>,
 }
 `;
