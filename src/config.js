@@ -58,6 +58,22 @@ const config = {
     api: {
       url: 'http://api.preprod.qarx.io',
     },
+    countries: {
+      FR: {
+        url: 'carol-fr.dev.preprod.qarx.io',
+      },
+      ES: {
+        url: 'carol-es.dev.preprod.qarx.io',
+      },
+      GB: {
+        url: 'carol-co-uk.preprod.qarx.io',
+      },
+    },
+    hostnamesLocales: {
+      'carol-fr.preprod.qarx.io': 'fr_FR',
+      'carol-es.preprod.qarx.io': 'es_ES',
+      'carol-co-uk.preprod.qarx.io': 'en_GB',
+    },
   },
   production: {
     baseUrl: 'https://www.quotatis.com',
