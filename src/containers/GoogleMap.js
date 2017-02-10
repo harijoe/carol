@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
 import { fromPost } from 'store/selectors'
 
-import { GoogleMap } from 'components'
+import { Map } from 'components'
 
 class GoogleMapContainer extends Component {
   static propTypes = {
@@ -29,14 +29,15 @@ class GoogleMapContainer extends Component {
         lat: parseFloat(project.latitude),
         lng: parseFloat(project.longitude),
       },
-      title: project.title,
+      title: 'Gio',
+      trade: 'dev',
     }))
 
     this.setState({ markers: list })
   }
 
   render() {
-    return <GoogleMap markers={this.state.markers} onMarkerClick={this.props.onMarkerClick} />
+    return <Map markers={this.state.markers} onMarkerClick={this.props.onMarkerClick} />
   }
 }
 

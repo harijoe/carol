@@ -7,6 +7,7 @@ export const colors = {
   alert: ['#ffa000', '#ffc107', '#ffd761', '#ffecb3'],
   success: ['#388e3c', '#4caf50', '#7cc47f', '#c8e6c9'],
   grayscale: ['#212121', '#616161', '#9e9e9e', '#bdbdbd', '#e0e0e0', '#eeeeee', '#ffffff'],
+  quotatis: ['#3333fe'],
 }
 
 export const reverseColors = {}
