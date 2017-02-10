@@ -6,7 +6,7 @@ build:
     tests:
         override:
             -
-                command: 'npm test'
+                command: 'npm run lint'
                 coverage:
                     file: 'coverage/clover.xml'
                     format: 'clover'
