@@ -3,7 +3,7 @@ import { Field } from 'redux-form'
 import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 
-import { RenderField, Button, Link } from 'components'
+import { RenderField, Button, Link, FacebookLogin, GoogleLogin } from 'components'
 import { DropDownMenu, AccountMenu } from 'containers'
 
 const Form = styled.form`
@@ -14,7 +14,8 @@ const Form = styled.form`
 Form.displayName = 'Form'
 
 const StyledLink = styled(Link)`
-  margin-left: 10px;
+  display: block;
+  margin: 10px 0;
 `
 
 const SignInForm = ({ location, isAuthenticated, handleSubmit, submitting }) => {
@@ -30,10 +31,10 @@ const SignInForm = ({ location, isAuthenticated, handleSubmit, submitting }) => 
           <Field name="password" type="password" component={RenderField} label="Password" />
           <Button type="submit" disabled={submitting}><FormattedMessage id="user.sign_in" tagName="span" /></Button>
           <StyledLink to="/signup"><FormattedMessage id="user.create_account" /></StyledLink>
+          <StyledLink to="/forgot-password"><FormattedMessage id="user.forgot_password.heading" /></StyledLink>
+          <FacebookLogin />
+          <GoogleLogin />
         </Form>
-        <Link to="/forgot-password">
-          <FormattedMessage id="user.forgot_password.heading" />
-        </Link>
       </DropDownMenu>
     )
   }

@@ -92,6 +92,7 @@ const en = {
   'user.password_match_err': 'Passwords do not match',
   'user.captcha_error': 'Are you a bot?',
   'user.continue_with_facebook': 'Continue with Facebook',
+  'user.continue_with_google': 'Continue with Google',
   'user.newsletter_subscription': 'I want to subscribe to Quotatis weekly newsletter',
   'user.profile_info': 'Profile infos',
   'user.contact_info': 'Contact infos',

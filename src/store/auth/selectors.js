@@ -1,8 +1,8 @@
 import cookie from 'react-cookie'
-import config from 'config'
+import { facebook, google } from 'config'
 
 export const isAuthenticated = (grantType = cookie.load('grant_type')) =>
-  grantType ? [config.facebook.grantType, 'password'].indexOf(grantType) !== -1 : false
+  grantType ? [facebook.grantType, google.grantType, 'password'].indexOf(grantType) !== -1 : false
 
 export const initialState = {
   isAuthenticated: isAuthenticated(),

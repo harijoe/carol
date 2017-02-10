@@ -1,4 +1,4 @@
-exports[`test renders the Project component 1`] = `
+exports[`test renders GoogleLogin component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -6,25 +6,9 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <Project
-    items={
-        Object {
-            "createdAt": "2017-02-01",
-            "name": "test",
-            "reference": "test",
-            "updatedAt": "2017-02-01",
-          }
-    } />,
+  "node": <InjectIntl(GoogleLogin) />,
   "nodes": Array [
-    <Project
-      items={
-            Object {
-                  "createdAt": "2017-02-01",
-                  "name": "test",
-                  "reference": "test",
-                  "updatedAt": "2017-02-01",
-                }
-      } />,
+    <InjectIntl(GoogleLogin) />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -155,15 +139,7 @@ ShallowWrapper {
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
         }>
-        <Project
-                items={
-                        Object {
-                                "createdAt": "2017-02-01",
-                                "name": "test",
-                                "reference": "test",
-                                "updatedAt": "2017-02-01",
-                              }
-                } />
+        <InjectIntl(GoogleLogin) />
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -174,15 +150,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <Project
-            items={
-                        Object {
-                                    "createdAt": "2017-02-01",
-                                    "name": "test",
-                                    "reference": "test",
-                                    "updatedAt": "2017-02-01",
-                                  }
-            } />,
+          "children": <InjectIntl(GoogleLogin) />,
           "locale": "en",
           "messages": Object {
             "burger_menu": "Burger Menu",
@@ -331,25 +299,9 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <Project
-          items={
-                    Object {
-                              "createdAt": "2017-02-01",
-                              "name": "test",
-                              "reference": "test",
-                              "updatedAt": "2017-02-01",
-                            }
-          } />,
+        "_currentElement": <InjectIntl(GoogleLogin) />,
         "_debugID": 2,
-        "_renderedOutput": <Project
-          items={
-                    Object {
-                              "createdAt": "2017-02-01",
-                              "name": "test",
-                              "reference": "test",
-                              "updatedAt": "2017-02-01",
-                            }
-          } />,
+        "_renderedOutput": <InjectIntl(GoogleLogin) />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -484,15 +436,7 @@ ShallowWrapper {
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }
     }>
-    <Project
-        items={
-            Object {
-                "createdAt": "2017-02-01",
-                "name": "test",
-                "reference": "test",
-                "updatedAt": "2017-02-01",
-              }
-        } />
+    <InjectIntl(GoogleLogin) />
 </IntlProvider>,
 }
 `;
