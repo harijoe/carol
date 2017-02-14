@@ -1,46 +1,27 @@
-import { take, put, call, fork } from 'redux-saga/effects'
+import { call, fork } from 'redux-saga/effects'
+import { takeLatest } from 'redux-saga'
 
 import api from 'services/api'
-import { getToken } from 'utils/token'
+import fetch from 'utils/fetchSagas'
 import { getCurrentCountry } from 'utils/locale'
-import { firmList, firmDetails, FIRM_LIST_REQUEST, FIRM_DETAILS_REQUEST } from './actions'
+import { firmList, firmDetails, FIRM_LIST, FIRM_DETAILS } from './actions'
 
-export function* readFirmList(params) {
-  try {
-    const token = yield call(getToken)
-    const data = yield call(api.get, `/firms/search?country-code=${getCurrentCountry()}&${params.join('&')}`, { accessToken: token })
+export function* readFirmList({ params, resolve, reject }) {
+  const filters = params.length > 0 ? `&${params.join('&')}` : ''
 
-    yield put(firmList.success(data['hydra:member']))
-  } catch (e) {
-    yield put(firmList.failure(e))
-  }
+  return yield call(fetch, firmList, null, resolve, reject, api.get, `/firms/search?country-code=${getCurrentCountry()}${filters}`)
 }
 
-export function* readFirmDetails(id) {
-  try {
-    const token = yield call(getToken)
-    const data = yield call(api.get, `/firms/${id}`, { accessToken: token })
-
-    yield put(firmDetails.success(data))
-  } catch (e) {
-    yield put(firmDetails.failure(e))
-  }
+export function* readFirmDetails({ id, resolve, reject }) {
+  return yield call(fetch, firmDetails, null, resolve, reject, api.get, `/firms/${id}`)
 }
 
 export function* watchFirmListRequest() {
-  // eslint-disable-next-line no-constant-condition
-  while (true) {
-    const { params } = yield take(FIRM_LIST_REQUEST)
-    yield call(readFirmList, params)
-  }
+  yield call(takeLatest, FIRM_LIST.REQUEST, readFirmList)
 }
 
 export function* watchFirmDetailsRequest() {
-  // eslint-disable-next-line no-constant-condition
-  while (true) {
-    const { id } = yield take(FIRM_DETAILS_REQUEST)
-    yield call(readFirmDetails, id)
-  }
+  yield call(takeLatest, FIRM_DETAILS.REQUEST, readFirmDetails)
 }
 
 export default function* () {

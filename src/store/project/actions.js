@@ -1,20 +1,16 @@
-export const PROJECT_SUBMIT = 'PROJECT_SUBMIT'
-export const PROJECT_SUBMIT_REQUEST = 'PROJECT_SUBMIT_REQUEST'
-export const PROJECT_SUBMIT_SUCCESS = 'PROJECT_SUBMIT_SUCCESS'
-export const PROJECT_SUBMIT_FAILURE = 'PROJECT_SUBMIT_FAILURE'
-export const PROJECT_LIST = 'PROJECT_LIST'
-export const PROJECT_LIST_REQUEST = 'PROJECT_LIST_REQUEST'
-export const PROJECT_LIST_SUCCESS = 'PROJECT_LIST_SUCCESS'
-export const PROJECT_LIST_FAILURE = 'PROJECT_LIST_FAILURE'
+import actionTypes, { createRequestTypes } from 'utils/createRequestTypes'
+
+export const PROJECT_SUBMIT = createRequestTypes('PROJECT_SUBMIT')
+export const PROJECT_LIST = createRequestTypes('PROJECT_LIST')
 
 export const projectSubmit = {
-  request: () => ({ type: PROJECT_SUBMIT_REQUEST }),
-  success: () => ({ type: PROJECT_SUBMIT_SUCCESS }),
-  failure: () => ({ type: PROJECT_SUBMIT_FAILURE }),
+  request: () => (actionTypes(PROJECT_SUBMIT.REQUEST)),
+  success: () => (actionTypes(PROJECT_SUBMIT.SUCCESS)),
+  failure: () => (actionTypes(PROJECT_SUBMIT.FAILURE)),
 }
 
 export const projectList = {
-  request: (params, resolve, reject) => ({ type: PROJECT_LIST_REQUEST, params, resolve, reject }),
-  success: list => ({ type: PROJECT_LIST_SUCCESS, list }),
-  failure: error => ({ type: PROJECT_LIST_FAILURE, error }),
+  request: (params, resolve, reject) => (actionTypes(PROJECT_LIST.REQUEST, { params, resolve, reject })),
+  success: payload => (actionTypes(PROJECT_LIST.SUCCESS, { payload })),
+  failure: error => (actionTypes(PROJECT_LIST.FAILURE, { error })),
 }

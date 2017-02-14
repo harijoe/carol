@@ -22,7 +22,7 @@ it('returns the initial state', () => {
 
 it('handles POST_LIST_SUCCESS', () => {
   const scope = 'latestProjectsOnMap'
-  const action = { type: actions.POST_LIST_SUCCESS, payload: { scope, 'hydra:member': payload } }
+  const action = { type: actions.POST_LIST.SUCCESS, payload: { scope, 'hydra:member': payload } }
 
   expect(reducer(initialState, action)).toEqual({...initialState, [scope]: payload})
 })

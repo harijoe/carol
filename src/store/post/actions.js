@@ -1,10 +1,9 @@
-export const POST_LIST = 'POST_LIST'
-export const POST_LIST_REQUEST = 'POST_LIST_REQUEST'
-export const POST_LIST_SUCCESS = 'POST_LIST_SUCCESS'
-export const POST_LIST_FAILURE = 'POST_LIST_FAILURE'
+import actionTypes, { createRequestTypes } from 'utils/createRequestTypes'
+
+export const POST_LIST = createRequestTypes('POST_LIST')
 
 export const postList = {
-  request: (scope, tags, limit, resolve, reject) => ({ type: POST_LIST_REQUEST, scope, tags, limit, resolve, reject }),
-  success: payload => ({ type: POST_LIST_SUCCESS, payload }),
-  failure: error => ({ type: POST_LIST_FAILURE, error }),
+  request: (scope, tags, limit, resolve, reject) => (actionTypes(POST_LIST.REQUEST, { scope, tags, limit, resolve, reject })),
+  success: payload => (actionTypes(POST_LIST.SUCCESS, { payload })),
+  failure: error => (actionTypes(POST_LIST.FAILURE, { error })),
 }

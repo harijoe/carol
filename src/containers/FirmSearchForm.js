@@ -15,7 +15,7 @@ const FirmSearchFormContainer = props => (
 const onSubmit = (data, dispatch) => new Promise((resolve, reject) => {
   const queryParams = []
 
-  if (data.homeImprovementId) { queryParams.push(`pro-form-id=${data.homeImprovementId}`) }
+  if (data.homeImprovementId) { queryParams.push(`home-improvement-id=${data.homeImprovementId}`) }
   if (data.servedAreaCityCode) { queryParams.push(`served-area-city-code=${data.servedAreaCityCode}`) }
 
   dispatch(firmList.request(queryParams, resolve, reject))

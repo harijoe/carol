@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
 
 import { fromFirm, fromStatus } from 'store/selectors'
-import { firmDetails, FIRM_DETAILS } from 'store/actions'
+import { firmDetails, FIRM_DETAILS, setToken } from 'store/actions'
 import { FirmDetails } from 'components'
 
 class FirmDetailsContainer extends Component {
@@ -29,7 +29,11 @@ const mapStateToProps = (state, { id }) => ({
 })
 
 const mapDispatchToProps = (dispatch, { id }) => ({
-  request: () => dispatch(firmDetails.request(id)),
+  request: () => {
+    setToken(dispatch).then(() => {
+      dispatch(firmDetails.request(id))
+    })
+  },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FirmDetailsContainer)

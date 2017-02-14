@@ -1,18 +1,18 @@
 import { initialState } from './selectors'
-import { FIRM_LIST_SUCCESS, FIRM_DETAILS_SUCCESS } from './actions'
+import { FIRM_LIST, FIRM_DETAILS } from './actions'
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case FIRM_LIST_SUCCESS: {
+    case FIRM_LIST.SUCCESS: {
       return {
         ...state,
-        list: action.list,
+        list: action.payload['hydra:member'],
       }
     }
-    case FIRM_DETAILS_SUCCESS: {
+    case FIRM_DETAILS.SUCCESS: {
       return {
         ...state,
-        [action.data.guid]: action.data,
+        [action.payload.guid]: action.payload,
       }
     }
     default: {

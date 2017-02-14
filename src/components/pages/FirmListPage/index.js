@@ -7,7 +7,7 @@ import { FirmList } from 'containers'
 const FirmListPage = props => (
   <MainLayout>
     <FirmList
-      filters={{ homeImprovementId: props.location.query.homeImprovementId, servedAreaCityCode: props.location.query.servedAreaCityCode }}
+      filters={{ homeImprovementId: props.location.query['home-improvement-id'], servedAreaCityCode: props.location.query['served-area-city-code'] }}
     />
     <Link to="/submit-project"><FormattedMessage id="project.validate_link" /></Link>
   </MainLayout>
@@ -16,8 +16,8 @@ const FirmListPage = props => (
 FirmListPage.propTypes = {
   location: PropTypes.shape({
     query: PropTypes.shape({
-      homeImprovementId: PropTypes.string,
-      servedAreaCityCode: PropTypes.string,
+      'home-improvement-id': PropTypes.string,
+      'served-area-city-code': PropTypes.string,
     }),
   }),
 }

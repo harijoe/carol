@@ -1,24 +1,24 @@
-import { PROJECT_SUBMIT_SUCCESS, PROJECT_SUBMIT_FAILURE, PROJECT_LIST_SUCCESS } from './actions'
+import { PROJECT_SUBMIT, PROJECT_LIST } from './actions'
 import { initialState } from './selectors'
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case PROJECT_SUBMIT_SUCCESS: {
+    case PROJECT_SUBMIT.SUCCESS: {
       return {
         ...state,
         status: true,
       }
     }
-    case PROJECT_SUBMIT_FAILURE: {
+    case PROJECT_SUBMIT.FAILURE: {
       return {
         ...state,
         status: false,
       }
     }
-    case PROJECT_LIST_SUCCESS: {
+    case PROJECT_LIST.SUCCESS: {
       return {
         ...state,
-        list: action.list,
+        list: action.payload,
       }
     }
     default: {

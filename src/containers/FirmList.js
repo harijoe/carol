@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
 import { fromFirm, fromStatus } from 'store/selectors'
-import { firmList, FIRM_LIST } from 'store/actions'
+import { firmList, FIRM_LIST, setToken } from 'store/actions'
 
 import { FirmList } from 'components'
 
@@ -39,7 +39,11 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  request: params => dispatch(firmList.request(params)),
+  request: (queryParams) => {
+    setToken(dispatch).then(() => {
+      dispatch(firmList.request(queryParams))
+    })
+  },
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FirmListContainer)
