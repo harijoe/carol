@@ -120,6 +120,8 @@ const fr = {
   'validators.user.password.not_blank': 'Field "Password" has not to be blank FR',
   'validators.user.mobilePhone.invalid_type': 'Field "Mobile phone" is not valid FR',
   'validators.user.fixedPhone.invalid_type': 'Field "Fixe phone" is not valid FR',
+  'validators.forgot_password.unexpired_token': 'Une demande de réinitialisation de mot de passe est est en cours.',
+
 }
 
 export default fr
