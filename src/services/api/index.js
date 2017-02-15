@@ -30,6 +30,10 @@ api.init = (method = 'GET', settings = {}, body = null) => {
 
 api.checkStatus = (response) => {
   if (response.ok) {
+    if (response.status === 204) {
+      return ''
+    }
+
     return response.json()
   }
 

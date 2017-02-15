@@ -15,6 +15,7 @@ const ResetPasswordFormContainer = props => (
 
 const onSubmit = (data, dispatch, { intl }) => new Promise((resolve, reject) => {
   dispatch(resetPassword.request(data, data.token, resolve, reject))
+}).then(() => {
   dispatch(notify({
     title: intl.formatMessage(messages('user.thank_you').label),
     message: intl.formatMessage(messages('user.reset_password_success').label),

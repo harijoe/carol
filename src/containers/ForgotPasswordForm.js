@@ -17,6 +17,7 @@ const ForgotPasswordFormContainer = props => (
 
 const onSubmit = (data, dispatch, { intl }) => new Promise((resolve, reject) => {
   dispatch(forgotPassword.request(data, resolve, reject))
+}).then(() => {
   dispatch(notify({
     title: intl.formatMessage(messages('user.thank_you').label),
     message: intl.formatMessage(messages('user.reset_password_email').label),
@@ -25,7 +26,7 @@ const onSubmit = (data, dispatch, { intl }) => new Promise((resolve, reject) => 
 }).catch((e) => {
   dispatch(notify({
     title: intl.formatMessage(messages('server_error').label),
-    message: intl.formatMessage(messages(e).label),
+    message: intl.formatMessage(messages('validators.forgot_password.unexpired_token').label),
     status: 'error',
   }))
   throw new SubmissionError(getFormErrors(e))

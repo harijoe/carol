@@ -17,7 +17,7 @@ const SignUpFormContainer = props => (
 )
 
 const onSubmit = (data, dispatch, { intl }) => new Promise((resolve, reject) => {
-  setToken(dispatch).then(() => {
+  setToken(dispatch).then(() => { // @TODO: Test on error
     dispatch(userCreate.request(data, resolve, reject))
     dispatch(notify({
       title: intl.formatMessage(messages('user.thank_you').label),
