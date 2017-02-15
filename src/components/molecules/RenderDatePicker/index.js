@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 
 import { getCurrentLanguage } from 'utils/locale'
+import transformDate from 'utils/transformDate'
 import { Label, Paragraph } from 'components'
 import style from './style'
 
@@ -45,6 +46,7 @@ class RenderDatePicker extends Component {
         }
         <DateField
           {...input}
+          value={transformDate(input.value)}
           id="birthday"
           dateFormat={dateFormat}
           placeholder={placeholder}

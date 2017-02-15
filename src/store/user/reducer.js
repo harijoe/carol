@@ -1,4 +1,3 @@
-import transformDate from 'utils/transformDate'
 import { USER_DETAILS, USER_UPDATE } from './actions'
 import { initialState } from './selectors'
 
@@ -11,7 +10,6 @@ export default function userReducer(state = initialState, action) {
       return {
         ...state,
         ...payload,
-        birthday: transformDate(payload.birthday, 'dd/mm/yyyy'),
         imageUrl: payload.imageUrl || '',
       }
     default:
