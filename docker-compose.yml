@@ -4,8 +4,8 @@ services:
   carol:
       build: .
       network_mode: 'bridge'
-      #environment:
-     #   NODE_ENV: development # this is required for production
+      environment:
+        NODE_ENV: staging # this is required for production
       volumes:
         - .:/app
         - /app/node_modules

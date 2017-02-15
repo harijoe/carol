@@ -6,10 +6,11 @@ const webpackIsomorphicToolsConfig = require('./webpack-isomorphic-tools')
 
 const ip = (typeof process.env.PUB_IP !== 'undefined' && process.env.PUB_IP.toString()) || '0.0.0.0'
 const port = (+process.env.PORT + 1) || 80
-const DEBUG = `'${process.env.NODE_ENV}'` !== 'production'
+const DEBUG = `'${process.env.NODE_ENV}'` === 'development'
 
 const config = {
   devtool: DEBUG ? 'eval' : false,
+  target: 'web',
   entry: [
     'babel-polyfill',
     path.join(__dirname, '../src/client'),
@@ -25,9 +26,6 @@ const config = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': `'${process.env.NODE_ENV}'`,
-    }),
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, '../public/index.html'),
     }),
   ],
   module: {
@@ -60,6 +58,9 @@ if (DEBUG) {
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, '../public/base.html'),
+    }),
   ])
 }
 

@@ -10,9 +10,14 @@ import express from 'services/express'
 import routes from 'routes'
 import configureStore from 'store/configure'
 import { env, port, ip } from 'config'
-import { Html } from 'components'
+import Html from 'components/Html'
+
+global.window = require('utils/windowOrGlobal')
+
+global.navigator = { userAgent: 'all' }
 
 const router = new Router()
+let ssrPort = port
 
 router.use((req, res, next) => {
   if (env === 'development') {
@@ -83,11 +88,15 @@ router.use((req, res, next) => {
 
 const app = express(router)
 
-app.listen(port, (error) => {
+if (env === 'development') {
+  ssrPort = port + 1
+}
+
+app.listen(ssrPort, (error) => {
   if (error) {
     console.error(error)
   } else {
-    console.info(`Listening on http://${ip}:${port}`)
+    console.info(`Listening on http://${ip}:${ssrPort}`)
   }
 })
 

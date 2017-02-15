@@ -1,4 +1,4 @@
-FROM markadams/chromium-xvfb-js:latest
+FROM mhart/alpine-node:latest
 ADD . /app
 WORKDIR /app
 
@@ -14,5 +14,4 @@ ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/app/node_
 
 EXPOSE 80
 
-ENV HEADLESS_MIKE 1
 CMD ["/app/docker/run.sh"]

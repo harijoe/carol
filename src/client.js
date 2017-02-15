@@ -9,8 +9,7 @@ import configureStore from 'store/configure'
 
 import routes from 'routes'
 
-const initialState = window.INITIAL_STATE
-const store = configureStore(initialState, browserHistory)
+const store = configureStore(window.INITIAL_STATE, browserHistory)
 const history = syncHistoryWithStore(browserHistory, store)
 const root = document.getElementById('app')
 
