@@ -17,10 +17,10 @@ const config = {
       clientSecret: '4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc',
     },
     google: {
-      mapsKey: 'AIzaSyD5R_CxRkMQR49reYM93SbKEC_DR37GsNI',
-      recaptchaKey: '6Ldc6A0UAAAAAKYDpetCQRpnBcBb7Lbxs2uKHjkN',
+      mapsKey: 'AIzaSyCYrFIvVAYqnWCNjjAfGIanmwxVvj1FPj8',
+      recaptchaKey: '6LctdA0UAAAAAMrXgwLpRnYl6KakExQn8kPRcSmN',
       grantType: 'https://www.quotatis.com/google',
-      clientId: '207076591339-2im88atidmkjth45lcbaoia59e2p0430.apps.googleusercontent.com',
+      clientId: '726740106708-5fh1f42gq45ek5a5g2p7olldjt679qjg.apps.googleusercontent.com',
       scope: 'https://www.googleapis.com/auth/plus.login',
     },
     facebook: {
