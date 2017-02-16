@@ -16,6 +16,11 @@ const config = {
       clientId: '4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k',
       clientSecret: '4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc',
     },
+    ssl: {
+      privateKey: 'ssl/qarx.io.key',
+      certificate: 'ssl/qarx.io.crt',
+      intermediate: 'ssl/qarx.io.intermediate.crt',
+    },
     google: {
       mapsKey: 'AIzaSyCYrFIvVAYqnWCNjjAfGIanmwxVvj1FPj8',
       recaptchaKey: '6LctdA0UAAAAAMrXgwLpRnYl6KakExQn8kPRcSmN',
@@ -79,6 +84,11 @@ const config = {
     baseUrl: 'https://www.quotatis.com',
     api: {
       url: 'https://api.quotatis.com',
+    },
+    ssl: {
+      privateKey: 'ssl/quotatis.com.key',
+      certificate: 'ssl/quotatis.com.crt',
+      intermediate: 'ssl/quotatis.com.intermediate.crt',
     },
   },
 }
