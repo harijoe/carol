@@ -16,8 +16,8 @@ import {
     resetPassword,
 } from './actions'
 
-function* createUser(newData, resolve, reject) {
-  return yield call(fetch, userCreate, null, resolve, reject, api.post, newData)
+function* createUser({ data, resolve, reject }) {
+  return yield call(fetch, userCreate, null, resolve, reject, api.post, '/users', {}, data)
 }
 
 function* setNewPassword({ data, id, resolve, reject }) {

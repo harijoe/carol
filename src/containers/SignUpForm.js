@@ -16,18 +16,19 @@ const SignUpFormContainer = props => (
   <SignUpForm {...props} />
 )
 
-const onSubmit = (data, dispatch, { intl }) => new Promise((resolve, reject) => {
-  setToken(dispatch).then(() => { // @TODO: Test on error
+const onSubmit = (data, dispatch, { intl }) => setToken(dispatch).then(() => { // @TODO: Test on error
+  new Promise((resolve, reject) => {
     dispatch(userCreate.request(data, resolve, reject))
+  }).then(() => {
     dispatch(notify({
       title: intl.formatMessage(messages('user.thank_you').label),
       message: intl.formatMessage(messages('user.sign_up.confirmation').label),
       status: 'success',
     }))
     dispatch(push('/'))
+  }).catch((e) => {
+    throw new SubmissionError(getFormErrors(e))
   })
-}).catch((e) => {
-  throw new SubmissionError(getFormErrors(e))
 })
 
 const validate = createValidator({
