@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 
 import { colors } from 'components/globals'
 import { Link } from 'components'
-import { BurgerMenu, SignInForm } from 'containers'
+import { BurgerMenu, DropDownMenu, AccountMenu } from 'containers'
+import SignInDropDownMenu from './SignInDropDownMenu'
 
 const Nav = styled.nav`
   display: flex;
@@ -25,12 +26,26 @@ const StyledLink = styled(Link)`
   }
 `
 
-const PrimaryNavigation = props => (
+const PrimaryNavigation = ({ isAuthenticated, ...props }) => (
   <Nav>
     <li><BurgerMenu /></li>
-    <li><StyledLink to="/" onlyActiveOnIndex activeClassName="active"><FormattedMessage id="home" tagName="span" /></StyledLink></li>
-    <li><SignInForm {...props} /></li>
+    <li>
+      <StyledLink to="/" onlyActiveOnIndex activeClassName="active">
+        <FormattedMessage id="home" tagName="span" />
+      </StyledLink>
+    </li>
+    <li>
+      {
+        isAuthenticated ?
+          <DropDownMenu label="user.my_account"><AccountMenu /></DropDownMenu>
+          : <SignInDropDownMenu {...props} />
+      }
+    </li>
   </Nav>
 )
+
+PrimaryNavigation.propTypes = {
+  isAuthenticated: PropTypes.bool,
+}
 
 export default PrimaryNavigation
