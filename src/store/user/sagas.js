@@ -1,7 +1,6 @@
 import { call, fork } from 'redux-saga/effects'
 import { takeLatest } from 'redux-saga'
 
-import api from 'services/api'
 import fetch from 'utils/fetchSagas'
 import {
     USER_CREATE,
@@ -17,23 +16,23 @@ import {
 } from './actions'
 
 function* createUser({ data, resolve, reject }) {
-  return yield call(fetch, userCreate, null, resolve, reject, api.post, '/users', {}, data)
+  return yield call(fetch, userCreate, null, resolve, reject, 'post', '/users', {}, data)
 }
 
 function* setNewPassword({ data, id, resolve, reject }) {
-  return yield call(fetch, resetPassword, null, resolve, reject, api.post, `/forgot-password/${id}`, {}, data)
+  return yield call(fetch, resetPassword, null, resolve, reject, 'post', `/forgot-password/${id}`, {}, data)
 }
 
 function* updateUser({ data, id, resolve, reject }) {
-  return yield call(fetch, userUpdate, null, resolve, reject, api.put, id, {}, data)
+  return yield call(fetch, userUpdate, null, resolve, reject, 'put', id, {}, data)
 }
 
 function* getUser({ resolve, reject }) {
-  return yield call(fetch, userDetails, null, resolve, reject, api.get, '/users/me')
+  return yield call(fetch, userDetails, null, resolve, reject, 'get', '/users/me')
 }
 
 function* requestNewPassword({ data, resolve, reject }) {
-  return yield call(fetch, forgotPassword, null, resolve, reject, api.post, '/forgot-password/', {}, data)
+  return yield call(fetch, forgotPassword, null, resolve, reject, 'post', '/forgot-password/', {}, data)
 }
 
 function* watchRequestNewPassword() {
