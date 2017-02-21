@@ -1,10 +1,11 @@
 import React from 'react'
 
 import { MainLayout } from 'components'
+import { SignInForm } from 'containers'
 
 const LoginPage = props => (
   <MainLayout {...props}>
-    <p>Page</p>
+    <SignInForm {...props} />
   </MainLayout>
 )
 
