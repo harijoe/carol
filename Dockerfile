@@ -12,6 +12,6 @@ RUN if [ -n "$INSTALL_DEP" ]; then \
 # Set local node_modules binaries directly available
 ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/app/node_modules/.bin
 
-EXPOSE 80
+EXPOSE 80 443
 
 CMD ["/app/docker/run.sh"]

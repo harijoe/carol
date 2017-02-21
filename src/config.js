@@ -59,9 +59,9 @@ const config = {
     },
   },
   staging: {
-    baseUrl: 'carol-fr.preprod.qarx.io',
+    baseUrl: 'carol-fr.qarx.io',
     api: {
-      url: 'http://api.preprod.qarx.io',
+      url: 'https://api.qarx.io',
     },
     countries: {
       FR: {
@@ -75,9 +75,9 @@ const config = {
       },
     },
     hostnamesLocales: {
-      'carol-fr.preprod.qarx.io': 'fr_FR',
-      'carol-es.preprod.qarx.io': 'es_ES',
-      'carol-co-uk.preprod.qarx.io': 'en_GB',
+      'carol-fr.qarx.io': 'fr_FR',
+      'carol-es.qarx.io': 'es_ES',
+      'carol-co-uk.qarx.io': 'en_GB',
     },
   },
   production: {
