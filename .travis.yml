@@ -11,6 +11,7 @@ services:
   - docker
 
 script:
+  - if [ "${BRANCH}" = "" ]; then BRANCH=develop; fi;
   - npm run lint && npm test
   - docker build -t eu.gcr.io/quotatis-152617/carol:${BRANCH} .
 
@@ -21,6 +22,8 @@ branches:
     - /^feature/*$/
 
 after_success:
+  - if [ "${BRANCH}" = "" ]; then BRANCH=develop; fi;
+  - echo ${BRANCH}
   - curl https://sdk.cloud.google.com | bash
   - source /home/travis/.bashrc
   - gcloud components update kubectl
@@ -31,13 +34,13 @@ after_success:
   - kubectl create ns ${BRANCH}
   - kubectl get svc --namespace=develop dora-develop -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
   - while [ $? -ne 0 ]; do
-        kubectl get svc --namespace=develop dora-develop -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+        kubectl get svc --namespace=develop dora-develop -o jsonpath='{.status.loadBalancer.ingress[0].ip}';
     done;
-  - kubectl run carol-${BRANCH} --namespace=${BRANCH} --image=eu.gcr.io/quotatis-152617/carol:${BRANCH} --port=443  --replicas=2 --labels="branch=${BRANCH},app=quotatis,run=carol-${BRANCH}" --env="PUB_IP=${CAROL_IP}"--env="NODE_ENV=staging" --env="PORT=443" --env="API_PORT=443" --env="API_IP=`kubectl get svc --namespace=develop dora-develop -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`" --image-pull-policy=Always
-  - kubectl expose deploy carol-${BRANCH} --type=LoadBalancer --name=carol-${BRANCH} --namespace=${BRANCH}
+  - kubectl run carol-${BRANCH} --namespace=${BRANCH} --image=eu.gcr.io/quotatis-152617/carol:${BRANCH} --port=443  --replicas=1 --labels="branch=${BRANCH},app=quotatis,run=carol-${BRANCH}" --env="PUB_IP=${CAROL_IP}" --env="NODE_ENV=staging" --env="PORT=443" --env="API_PORT=443" --env="API_IP=`kubectl get svc --namespace=develop dora-develop -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`" --image-pull-policy=Always
+  - kubectl expose --port=443 deploy carol-${BRANCH} --type=LoadBalancer --name=carol-${BRANCH} --namespace=${BRANCH}
   - kubectl get svc --namespace=${BRANCH} carol-${BRANCH} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
   - while [ $? -ne 0 ]; do
-       kubectl get svc --namespace=${BRANCH} carol-${BRANCH} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+       kubectl get svc --namespace=${BRANCH} carol-${BRANCH} -o jsonpath='{.status.loadBalancer.ingress[0].ip}';
     done;
   - export CAROL_IP=`kubectl get svc --namespace=${BRANCH} carol-${BRANCH} -o jsonpath="{.status.loadBalancer.ingress[0].ip}"`
   - export JSON_PATCH=`echo '{"spec":{"template":{"spec":{"containers":[{"env":[{"name":"API_IP","value":"104.199.107.196"}],"name":"carol-BRANCH"}]}}}}' | sed s/BRANCH/$BRANCH/g`
@@ -47,11 +50,7 @@ after_success:
 
 env:
   global:
-    - if [ "'${TRAVIS_PULL_REQUEST_BRANCH}'" != "''" ]; then
-        export BRANCH="${TRAVIS_PULL_REQUEST_BRANCH}"
-      elif [ "${BRANCH}" = "" ]; then
-        export BRANCH=develop
-      fi;
+    - BRANCH="${TRAVIS_PULL_REQUEST_BRANCH/\//-}"
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1
     - CLOUDSDK_CONTAINER_USE_CLIENT_CERTIFICATE=False
 
@@ -59,4 +58,3 @@ before_install:
   - openssl aes-256-cbc -K $encrypted_490d653ff7a6_key -iv $encrypted_490d653ff7a6_iv -in credentials.tar.gz.enc -out credentials.tar.gz -d
   - tar -xzf credentials.tar.gz
   - export GOOGLE_APPLICATION_CREDENTIALS=quotatis-01d6e02592a9.json
-

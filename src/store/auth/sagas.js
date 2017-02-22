@@ -20,9 +20,9 @@ function* saveAuth(token) {
   const { accessToken, refreshToken, grantType, expiresIn } = token.payload
 
   yield [
-    cookie.save('access_token', accessToken, { path: '/', maxAge: expiresIn }),
-    cookie.save('refresh_token', refreshToken),
-    cookie.save('grant_type', grantType, { path: '/', maxAge: expiresIn }),
+    cookie.save('access_token', accessToken, { path: '/', maxAge: expiresIn, secure: true }),
+    cookie.save('refresh_token', refreshToken, { secure: true }),
+    cookie.save('grant_type', grantType, { path: '/', maxAge: expiresIn, secure: true }),
   ]
 }
 
