@@ -7,9 +7,6 @@ build:
         override:
             -
                 command: 'npm run lint'
-                coverage:
-                    file: 'coverage/clover.xml'
-                    format: 'clover'
 checks:
     javascript: true
 build_failure_conditions:

@@ -1,4 +1,4 @@
-exports[`test should render MessagePage componen 1`] = `
+exports[`test renders MessagePage 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],

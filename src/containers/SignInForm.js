@@ -19,7 +19,6 @@ const validate = createValidator({
 })
 
 export const config = {
-  form: 'SignInForm',
   destroyOnUnmount: false,
   onSubmit,
   validate,
