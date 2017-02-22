@@ -40,7 +40,7 @@ const validate = createValidator({
 
 const config = {
   form: 'SignUpForm',
-  fields: ['email', 'password', 'confirmPassword', 'newsletter', 'captcha'],
+  fields: ['email', 'password', 'confirmPassword', 'newsletterSubscription', 'captcha'],
   destroyOnUnmount: false,
   onSubmit,
   validate,

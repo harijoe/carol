@@ -23,7 +23,7 @@ const SignUpForm = ({ handleSubmit, submitting, intl }) => (
     <Field name="email" label={intl.formatMessage(messages('user.email').label)} component={RenderField} />
     <Field name="password" type="password" label={intl.formatMessage(messages('user.password').label)} component={RenderField} />
     <Field name="confirmPassword" type="password" label={intl.formatMessage(messages('user.confirm_password').label)} component={RenderField} />
-    <Field name="newsletter" type="checkbox" label={intl.formatMessage(messages('user.newsletter_subscription').label)} component={RenderField} />
+    <Field name="newsletterSubscription" type="checkbox" label={intl.formatMessage(messages('user.newsletter_subscription').label)} component={RenderField} />
     <Field name="captcha" component={RenderCaptcha} />
     <StyledButton type="submit" disabled={submitting}><FormattedMessage id="user.sign_up" /></StyledButton>
   </Form>
