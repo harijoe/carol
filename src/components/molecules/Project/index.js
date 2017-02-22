@@ -25,8 +25,8 @@ Project.propTypes = {
   items: PropTypes.shape({
     name: PropTypes.string,
     reference: PropTypes.string,
-    created_at: PropTypes.string,
-    updated_at: PropTypes.string,
+    createdAt: PropTypes.string,
+    updatedAt: PropTypes.string,
   }).isRequired,
 }
 

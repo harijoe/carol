@@ -18,7 +18,7 @@ export default (state = initialState, action) => {
     case PROJECT_LIST.SUCCESS: {
       return {
         ...state,
-        list: action.payload,
+        list: action.payload['hydra:member'],
       }
     }
     default: {
