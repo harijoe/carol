@@ -4,11 +4,11 @@ import { MainLayout } from 'components'
 import { SignInForm } from 'containers'
 
 const LoginPage = (props) => {
-  const username = props.location != null ? props.location.query.username : null
+  const email = props.location != null ? props.location.query.email : null
 
   return (
     <MainLayout {...props}>
-      <SignInForm {...props} initialValues={{ email: username }} form="SignInFormLoginPage" />
+      <SignInForm {...props} initialValues={{ email }} form="SignInFormLoginPage" />
     </MainLayout>
   )
 }
@@ -16,7 +16,7 @@ const LoginPage = (props) => {
 LoginPage.propTypes = {
   location: PropTypes.shape({
     query: PropTypes.shape({
-      username: PropTypes.string,
+      email: PropTypes.string,
     }),
   }),
 }
