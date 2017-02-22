@@ -9,7 +9,7 @@ const SignInDropDownMenu = ({ location, ...props }) => {
 
   return (
     <DropDownMenu label="login">
-      <SignInForm {...props} />
+      <SignInForm {...props} form="SignInFormDropDownMenu" />
     </DropDownMenu>
   )
 }
