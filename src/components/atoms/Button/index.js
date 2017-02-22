@@ -7,6 +7,8 @@ import { fonts } from 'components/globals'
 const fontSize = ({ height }) => `${height / 40}rem`
 
 const styles = css`
+  ${props => props.disabled ? 'opacity: .6;' : ''}
+  cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
   display: inline-flex;
   font-family: ${fonts.primary};
   align-items: center;
@@ -16,7 +18,6 @@ const styles = css`
   height: 2.5em;
   justify-content: center;
   text-decoration: none;
-  cursor: pointer;
   appearance: none;
   padding: 0 1em;
   border-radius: 0.125em;

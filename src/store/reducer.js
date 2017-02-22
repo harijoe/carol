@@ -9,6 +9,7 @@ import status from './status/reducer'
 import country from './country/reducer'
 import auth from './auth/reducer'
 import user from './user/reducer'
+import projectElaboration from './projectElaboration/reducer'
 
 const reducers = {
   routing,
@@ -20,6 +21,7 @@ const reducers = {
   country,
   auth,
   user,
+  projectElaboration,
 }
 
 const req = require.context('.', true, /\.\/.+\/reducer\.js$/)

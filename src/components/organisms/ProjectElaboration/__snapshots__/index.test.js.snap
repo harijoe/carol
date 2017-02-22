@@ -1,4 +1,4 @@
-exports[`test renders ProjectForm component 1`] = `
+exports[`test renders ProjectElaboration 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -6,11 +6,29 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <ProjectForm
-    onClick={[Function]} />,
+  "node": <InjectIntl(ProjectElaboration)
+    conversation={
+        Array [
+            Object {
+              "message": Object {
+                "quick_replies": Array [],
+                "text": "message",
+              },
+            },
+          ]
+    } />,
   "nodes": Array [
-    <ProjectForm
-      onClick={[Function]} />,
+    <InjectIntl(ProjectElaboration)
+      conversation={
+            Array [
+                  Object {
+                    "message": Object {
+                      "quick_replies": Array [],
+                      "text": "message",
+                    },
+                  },
+                ]
+      } />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -145,8 +163,17 @@ ShallowWrapper {
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
         }>
-        <ProjectForm
-                onClick={[Function]} />
+        <InjectIntl(ProjectElaboration)
+                conversation={
+                        Array [
+                                Object {
+                                  "message": Object {
+                                    "quick_replies": Array [],
+                                    "text": "message",
+                                  },
+                                },
+                              ]
+                } />
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -157,8 +184,17 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <ProjectForm
-            onClick={[Function]} />,
+          "children": <InjectIntl(ProjectElaboration)
+            conversation={
+                        Array [
+                                    Object {
+                                      "message": Object {
+                                        "quick_replies": Array [],
+                                        "text": "message",
+                                      },
+                                    },
+                                  ]
+            } />,
           "locale": "en",
           "messages": Object {
             "burger_menu": "Burger Menu",
@@ -311,11 +347,29 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <ProjectForm
-          onClick={[Function]} />,
+        "_currentElement": <InjectIntl(ProjectElaboration)
+          conversation={
+                    Array [
+                              Object {
+                                "message": Object {
+                                  "quick_replies": Array [],
+                                  "text": "message",
+                                },
+                              },
+                            ]
+          } />,
         "_debugID": 2,
-        "_renderedOutput": <ProjectForm
-          onClick={[Function]} />,
+        "_renderedOutput": <InjectIntl(ProjectElaboration)
+          conversation={
+                    Array [
+                              Object {
+                                "message": Object {
+                                  "quick_replies": Array [],
+                                  "text": "message",
+                                },
+                              },
+                            ]
+          } />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -454,8 +508,17 @@ ShallowWrapper {
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }
     }>
-    <ProjectForm
-        onClick={[Function]} />
+    <InjectIntl(ProjectElaboration)
+        conversation={
+            Array [
+                Object {
+                  "message": Object {
+                    "quick_replies": Array [],
+                    "text": "message",
+                  },
+                },
+              ]
+        } />
 </IntlProvider>,
 }
 `;

@@ -51,6 +51,10 @@ const en = {
   'project.list.heading': 'My projects',
   'project.validate_link': 'Validate',
 
+  'project.elaboration.submit': 'Submit',
+  'project.elaboration.response': 'Response',
+  'project.elaboration.title': 'Project Elaboration',
+
   'user.gender': 'Gender',
   'user.forget_password': 'Forget password ?',
   'user.create_account': 'I want to create an account',

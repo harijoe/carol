@@ -51,6 +51,10 @@ const fr = {
   'project.list.heading': 'Mes projets',
   'project.validate_link': 'Valider',
 
+  'project.elaboration.submit': 'Envoyer',
+  'project.elaboration.response': 'Réponse',
+  'project.elaboration.title': 'Élaboration du projet',
+
   'user.gender': 'Sexe',
   'user.forget_password': 'Mot de passe oublié ?',
   'user.create_account': 'Je veux créer un compte',

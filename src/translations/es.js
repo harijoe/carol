@@ -51,6 +51,10 @@ const es = {
   'project.list.heading': 'My projects ES',
   'project.validate_link': 'Valider ES',
 
+  'project.elaboration.submit': 'Submit ES',
+  'project.elaboration.response': 'Response ES',
+  'project.elaboration.title': 'Project Elaboration ES',
+
   'user.gender': 'Gender ES',
   'user.forget_password': 'Forget password ES ?',
   'user.create_account': 'Je veux créer un compte ES',

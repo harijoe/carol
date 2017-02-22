@@ -12,7 +12,7 @@ const BurgerMenu = ({ proHomeLink }) => (
       </Link>
     </li>
     <li>
-      <Link to="/simple-project-elaboration">
+      <Link to="/project-elaboration">
         <FormattedMessage id="firm.find_pro" />
       </Link>
     </li>
