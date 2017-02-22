@@ -4,8 +4,18 @@ import PrimaryNavigation from '.'
 
 const wrap = (props = {}) => shallow(<PrimaryNavigation {...props} />)
 
-it('renders props when passed in', () => {
-  const wrapper = wrap({ id: 'foo' })
+it('renders PrimaryNavigation with AccountMenu', () => {
+  const wrapper = wrap({ isAuthenticated: true })
 
-  expect(wrapper.find({ id: 'foo' }).length).toBeGreaterThan(0)
+  expect(wrapper.find('AccountMenu')).toHaveLength(1)
+  expect(wrapper.find('SignInDropDownMenu')).toHaveLength(0)
+  expect(wrapper).toMatchSnapshot()
+})
+
+it('renders PrimaryNavigation with SignInDropDownMenu', () => {
+  const wrapper = wrap({ isAuthenticated: false })
+
+  expect(wrapper.find('AccountMenu')).toHaveLength(0)
+  expect(wrapper.find('SignInDropDownMenu')).toHaveLength(1)
+  expect(wrapper).toMatchSnapshot()
 })

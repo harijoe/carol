@@ -26,6 +26,12 @@ const StyledLink = styled(Link)`
   }
 `
 
+const StyledAccountMenu = styled(AccountMenu)``
+const StyledSignInDropDownMenu = styled(SignInDropDownMenu)``
+
+StyledAccountMenu.displayName = 'AccountMenu'
+StyledSignInDropDownMenu.displayName = 'SignInDropDownMenu'
+
 const PrimaryNavigation = ({ isAuthenticated, ...props }) => (
   <Nav>
     <li><BurgerMenu /></li>
@@ -37,8 +43,8 @@ const PrimaryNavigation = ({ isAuthenticated, ...props }) => (
     <li>
       {
         isAuthenticated ?
-          <DropDownMenu label="user.my_account"><AccountMenu /></DropDownMenu>
-          : <SignInDropDownMenu {...props} />
+          <DropDownMenu label="user.my_account"><StyledAccountMenu /></DropDownMenu>
+          : <StyledSignInDropDownMenu {...props} />
       }
     </li>
   </Nav>
