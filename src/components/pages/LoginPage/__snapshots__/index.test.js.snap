@@ -7,11 +7,23 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <Mock>
-    <Mock />
+    <Mock
+        form="SignInFormLoginPage"
+        initialValues={
+            Object {
+                "email": null,
+              }
+        } />
 </Mock>,
   "nodes": Array [
     <Mock>
-      <Mock />
+      <Mock
+            form="SignInFormLoginPage"
+            initialValues={
+                  Object {
+                        "email": null,
+                      }
+            } />
 </Mock>,
   ],
   "options": Object {},
@@ -49,11 +61,23 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Mock>
-          <Mock />
+          <Mock
+                    form="SignInFormLoginPage"
+                    initialValues={
+                              Object {
+                                        "email": null,
+                                      }
+                    } />
 </Mock>,
         "_debugID": 2,
         "_renderedOutput": <Mock>
-          <Mock />
+          <Mock
+                    form="SignInFormLoginPage"
+                    initialValues={
+                              Object {
+                                        "email": null,
+                                      }
+                    } />
 </Mock>,
       },
       "_renderedNodeType": 1,

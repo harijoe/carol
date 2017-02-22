@@ -8,12 +8,14 @@ ShallowWrapper {
   "length": 1,
   "node": <Mock
     label="login">
-    <Mock />
+    <Mock
+        form="SignInFormDropDownMenu" />
 </Mock>,
   "nodes": Array [
     <Mock
       label="login">
-      <Mock />
+      <Mock
+            form="SignInFormDropDownMenu" />
 </Mock>,
   ],
   "options": Object {},
@@ -61,12 +63,14 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Mock
           label="login">
-          <Mock />
+          <Mock
+                    form="SignInFormDropDownMenu" />
 </Mock>,
         "_debugID": 2,
         "_renderedOutput": <Mock
           label="login">
-          <Mock />
+          <Mock
+                    form="SignInFormDropDownMenu" />
 </Mock>,
       },
       "_renderedNodeType": 1,
