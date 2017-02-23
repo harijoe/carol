@@ -8,7 +8,7 @@ const Article = styled.article``
 
 const Project = ({ items, ...props }) => (
   <Article {...props}>
-    <Heading level={2}>items.name</Heading>
+    <Heading level={2}>{items.name}</Heading>
     <Paragraph>
       <FormattedMessage id="project.created_at" />: <DateTime value={items.createdAt} />
     </Paragraph>
@@ -16,7 +16,7 @@ const Project = ({ items, ...props }) => (
       <FormattedMessage id="project.updated_at" />: <DateTime value={items.updatedAt} />
     </Paragraph>
     <Paragraph>
-      <FormattedMessage id="project.reference" />: items.reference
+      <FormattedMessage id="project.reference" />: {items.reference}
     </Paragraph>
   </Article>
 )
