@@ -31,7 +31,7 @@ it('handles PROJECT_LIST_SUCCESS', () => {
       name: 'project test',
     },
   ]
-  const action = { type: actions.PROJECT_LIST.SUCCESS, payload: payload }
+  const action = { type: actions.PROJECT_LIST.SUCCESS, payload: { 'hydra:member': payload }}
 
-  expect(reducer(initialState, action)).toEqual({...initialState, list: action.payload})
+  expect(reducer(initialState, action)).toEqual({...initialState, list: payload})
 })

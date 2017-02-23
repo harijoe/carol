@@ -37,17 +37,17 @@ const config = {
     defaultLocale: 'en_GB',
     countries: {
       FR: {
-        url: 'carol-fr.dev.quotatis.net',
+        url: 'http://carol-fr.dev.quotatis.net',
         proUrl: 'https://www.quotatispro.fr',
         country: 'country.france',
       },
       ES: {
-        url: 'carol-es.dev.quotatis.net',
+        url: 'http://carol-es.dev.quotatis.net',
         proUrl: 'https://www.quotatispro.es',
         country: 'country.spain',
       },
       GB: {
-        url: 'carol-co-uk.dev.quotatis.net',
+        url: 'http://carol-co-uk.dev.quotatis.net',
         proUrl: 'https://www.quotatispro.co.uk',
         country: 'country.great_britain',
       },
@@ -65,13 +65,13 @@ const config = {
     },
     countries: {
       FR: {
-        url: 'carol-fr.dev.preprod.qarx.io',
+        url: 'https://carol-fr.qarx.io',
       },
       ES: {
-        url: 'carol-es.dev.preprod.qarx.io',
+        url: 'https://carol-es.qarx.io',
       },
       GB: {
-        url: 'carol-co-uk.preprod.qarx.io',
+        url: 'https://carol-co-uk.qarx.io',
       },
     },
     hostnamesLocales: {

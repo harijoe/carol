@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl'
 
 import { colors } from 'components/globals'
 import { Link } from 'components'
-import { BurgerMenu, DropDownMenu, AccountMenu } from 'containers'
+import { BurgerMenu, DropDownMenu, AccountMenu, CountryMenu } from 'containers'
 import SignInDropDownMenu from './SignInDropDownMenu'
 
 const Nav = styled.nav`
@@ -47,6 +47,7 @@ const PrimaryNavigation = ({ isAuthenticated, ...props }) => (
           : <StyledSignInDropDownMenu {...props} />
       }
     </li>
+    <li><CountryMenu /></li>
   </Nav>
 )
 

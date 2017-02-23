@@ -51,6 +51,7 @@ after_success:
 env:
   global:
     - BRANCH="${TRAVIS_PULL_REQUEST_BRANCH/\//-}"
+    - BRANCH="${BRANCH,,}"
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1
     - CLOUDSDK_CONTAINER_USE_CLIENT_CERTIFICATE=False
 
