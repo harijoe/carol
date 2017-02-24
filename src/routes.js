@@ -26,7 +26,7 @@ const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
     <Route path="favorite" component={requiresAuth(FavoritePage)} />
-    <Route path="firm/:firmId" component={FirmPage} />
+    <Route path="firm/:firmId" component={requiresAuth(FirmPage)} />
     <Route path="forgot-password" component={anonymousOnly(ForgotPasswordPage)} />
     <Route path="help" component={HelpPage} />
     <Route path="login" component={anonymousOnly(LoginPage)} />
@@ -35,10 +35,10 @@ const routes = (
     <Route path="projects" component={requiresAuth(ProjectListPage)} />
     <Route path="project-elaboration" component={ProjectElaborationPage} />
     <Route path="reset-password" component={ResetPasswordPage} />
-    <Route path="search" component={SearchPage} />
-    <Route path="search-firm" component={FirmListPage} />
+    <Route path="search" component={requiresAuth(SearchPage)} />
+    <Route path="search-firm" component={requiresAuth(FirmListPage)} />
     <Route path="signup" component={anonymousOnly(SignupPage)} />
-    <Route path="submit-project" component={ProjectSubmitPage} />
+    <Route path="submit-project" component={requiresAuth(ProjectSubmitPage)} />
   </Route>
 )
 
