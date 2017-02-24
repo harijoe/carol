@@ -18,11 +18,12 @@ export function* getAuth({ grantType, credentials, resolve, reject } = {}) {
 
 function* saveAuth(token) {
   const { accessToken, refreshToken, grantType, expiresIn } = token.payload
+  const secure = location.protocol === 'https:'
 
   yield [
-    cookie.save('access_token', accessToken, { path: '/', maxAge: expiresIn, secure: true }),
-    cookie.save('refresh_token', refreshToken, { secure: true }),
-    cookie.save('grant_type', grantType, { path: '/', maxAge: expiresIn, secure: true }),
+    cookie.save('access_token', accessToken, { path: '/', maxAge: expiresIn, secure }),
+    cookie.save('refresh_token', refreshToken, { secure }),
+    cookie.save('grant_type', grantType, { path: '/', maxAge: expiresIn, secure }),
   ]
 }
 
