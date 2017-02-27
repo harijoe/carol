@@ -17,11 +17,6 @@ const BurgerMenu = ({ proHomeLink }) => (
       </Link>
     </li>
     <li>
-      <Link to="/search-pro">
-        <FormattedMessage id="firm.find_pro" />
-      </Link>
-    </li>
-    <li>
       <Link to="/resource">
         <FormattedMessage id="firm.resource" />
       </Link>

@@ -1,5 +1,8 @@
+import uuid from 'uuid/v4'
+
 export const initialState = {
   answered: 0,
+  user: uuid(),
   conversation: [
     {
       message: { text: 'C\'est embetant mais nous allons devoir recommencer...' },
@@ -28,10 +31,10 @@ export const initialState = {
           },
         ],
       },
-      response: null,
     },
   ],
 }
 
 export const getConversation = (state = initialState) => state.conversation
 export const getAnswered = (state = initialState) => state.answered
+export const getUser = (state = initialState) => state.user
