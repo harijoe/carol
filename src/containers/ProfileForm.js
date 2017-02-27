@@ -7,6 +7,7 @@ import { userDetails, userUpdate, setToken } from 'store/actions'
 import { fromUser } from 'store/selectors'
 import { createValidator, required } from 'services/validation'
 import getFormErrors from 'utils/formErrors'
+import transformDate from 'utils/transformDate'
 
 class ProfileFormContainer extends Component {
   static propTypes = {
@@ -31,6 +32,7 @@ const mapStateToProps = (state) => {
     initialValues: {
       ...details,
       imageBase64: details.imageUrl,
+      birthday: transformDate(details.birthday),
     },
   }
 }
