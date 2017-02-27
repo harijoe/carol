@@ -17,9 +17,9 @@ class HomePage extends Component {
     }
   }
 
-  onMarkerClick(props) {
+  onMarkerClick(id) {
     this.setState({
-      activeProject: props.id,
+      activeProject: Number(id),
     })
   }
 
