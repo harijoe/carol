@@ -13,7 +13,7 @@ export function* getAuth({ grantType, credentials, resolve, reject } = {}) {
     return resolve({ access_token: token })
   }
 
-  return yield call(fetch, authLogin(grantType), null, resolve, reject, 'generateToken', grantType, credentials)
+  return yield call(fetch, authLogin(grantType), null, resolve, reject, 'generateToken', null, {}, { grantType, extra: credentials })
 }
 
 function* saveAuth(token) {

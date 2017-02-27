@@ -4,7 +4,7 @@ import { reduxForm, SubmissionError } from 'redux-form'
 
 import { ProfileForm } from 'components'
 import { userDetails, userUpdate, setToken } from 'store/actions'
-import { fromUser } from 'store/selectors'
+import { fromUser, fromLocale } from 'store/selectors'
 import { createValidator, required } from 'services/validation'
 import getFormErrors from 'utils/formErrors'
 import transformDate from 'utils/transformDate'
@@ -33,6 +33,7 @@ const mapStateToProps = (state) => {
       ...details,
       imageBase64: details.imageUrl,
       birthday: transformDate(details.birthday),
+      country: fromLocale.getCountry(state),
     },
   }
 }

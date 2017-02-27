@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 
 import messages from 'utils/messages'
-import { List, RenderField, Heading, Button, RenderDatePicker, RenderDropzone, Label } from 'components'
+import { List, RenderField, Heading, Button, RenderDropzone, Label, RenderDatePicker } from 'components'
 
 const Form = styled.form`
   width: 100%;
@@ -19,6 +19,7 @@ class ProfileForm extends Component {
     submitting: React.PropTypes.bool,
     intl: intlShape.isRequired,
     initialValues: React.PropTypes.shape({
+      country: React.PropTypes.string,
       email: React.PropTypes.string,
       facebookId: React.PropTypes.string,
       googleId: React.PropTypes.string,
@@ -111,6 +112,7 @@ class ProfileForm extends Component {
           name="birthday"
           placeholder={formatMessage(messages('user.birthday').label)}
           dateFormat="DD/MM/YYYY"
+          lang={initialValues.country}
           component={RenderDatePicker}
           label={formatMessage(messages('user.birthday').label)}
         />

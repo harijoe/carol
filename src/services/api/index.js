@@ -1,10 +1,8 @@
 import fetch from 'isomorphic-fetch'
 import config from 'config'
-import { getCurrentLocale } from 'utils/locale'
 
 const api = {}
 const headers = {}
-const locale = getCurrentLocale()
 
 api.request = (endpoint, method, settings, body) => {
   const url = (endpoint.indexOf(config.api.url) === -1) ? config.api.url + endpoint : endpoint
@@ -18,8 +16,8 @@ api.request = (endpoint, method, settings, body) => {
 api.init = (method = 'GET', settings = {}, body = null) => {
   headers.Accept = 'application/ld+json'
   headers['Content-Type'] = 'application/json'
-  if (settings.accessToken) { headers.Authorization = `Bearer ${settings.accessToken}` }
-  if (locale) { headers['Accept-Language'] = locale }
+  if (settings.accessToken != null) { headers.Authorization = `Bearer ${settings.accessToken}` }
+  if (settings.lang != null) { headers['Accept-Language'] = settings.lang }
 
   const fetchInit = { method, headers }
 
@@ -44,7 +42,8 @@ api.checkStatus = (response) => {
 }
 
 // Token services
-api.generateToken = (grantType, extra = '') => api.request(`/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api.clientSecret}&grant_type=${grantType}${extra}`)
+// TODO manage url in saga instead of here
+api.generateToken = (url, settings, data = { extra: '' }) => api.request(`/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api.clientSecret}&grant_type=${data.grantType}${data.extra}`)
 api.setToken = token => (headers.Authorization = `Bearer ${token}`)
 api.unsetToken = () => (headers.Authorization = null)
 

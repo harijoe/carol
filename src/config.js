@@ -35,27 +35,22 @@ const config = {
     },
     defaultProUrl: 'https://www.quotatispro.co.uk',
     defaultLocale: 'en_GB',
-    countries: {
-      FR: {
+    locales: {
+      fr_FR: {
         url: 'http://carol-fr.dev.quotatis.net',
         proUrl: 'https://www.quotatispro.fr',
-        country: 'country.france',
+        countryLabel: 'country.france',
       },
-      ES: {
+      es_ES: {
         url: 'http://carol-es.dev.quotatis.net',
         proUrl: 'https://www.quotatispro.es',
-        country: 'country.spain',
+        countryLabel: 'country.spain',
       },
-      GB: {
+      en_GB: {
         url: 'http://carol-co-uk.dev.quotatis.net',
         proUrl: 'https://www.quotatispro.co.uk',
-        country: 'country.great_britain',
+        countryLabel: 'country.great_britain',
       },
-    },
-    hostnamesLocales: {
-      'carol-fr.dev.quotatis.net': 'fr_FR',
-      'carol-es.dev.quotatis.net': 'es_ES',
-      'carol-co-uk.dev.quotatis.net': 'en_GB',
     },
   },
   staging: {
@@ -63,21 +58,16 @@ const config = {
     api: {
       url: 'https://api.qarx.io',
     },
-    countries: {
-      FR: {
+    locales: {
+      fr_FR: {
         url: 'https://carol-fr.qarx.io',
       },
-      ES: {
+      es_ES: {
         url: 'https://carol-es.qarx.io',
       },
-      GB: {
+      en_GB: {
         url: 'https://carol-co-uk.qarx.io',
       },
-    },
-    hostnamesLocales: {
-      'carol-fr.qarx.io': 'fr_FR',
-      'carol-es.qarx.io': 'es_ES',
-      'carol-co-uk.qarx.io': 'en_GB',
     },
   },
   production: {

@@ -21,6 +21,7 @@ export const authLogin = (grantType = 'client_credentials') => ({
 
 export const authLogout = () => (actionTypes(AUTH_LOGOUT))
 
+// TODO replace credentials by url
 export const setToken = dispatch => (
   new Promise((resolve, reject) => {
     dispatch(authLogin('client_credentials').request('', resolve, reject))

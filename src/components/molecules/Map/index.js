@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react'
 import GoogleMap from 'google-map-react'
 
-import { getCurrentCountry } from 'utils/locale'
 import { google } from 'config'
 import { Marker } from 'components'
 
@@ -17,6 +16,7 @@ class Map extends Component {
     zoom: PropTypes.number,
     markers: PropTypes.array,
     onMarkerClick: PropTypes.func,
+    country: PropTypes.string.isRequired,
   }
 
   static defaultProps = {
@@ -38,11 +38,11 @@ class Map extends Component {
   }
 
   render() {
-    const { initialCenter, zoom, markers, onMarkerClick } = this.props
+    const { initialCenter, zoom, markers, onMarkerClick, country } = this.props
 
     return (
       <GoogleMap
-        defaultCenter={initialCenter[getCurrentCountry()]}
+        defaultCenter={initialCenter[country]}
         defaultZoom={zoom}
         style={styles}
         bootstrapURLKeys={{ key: google.mapsKey }}

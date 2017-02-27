@@ -2,8 +2,6 @@ import React, { Component, PropTypes } from 'react'
 import { DateField, DatePicker } from 'react-date-picker'
 import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
-
-import { getCurrentLanguage } from 'utils/locale'
 import { Label, Paragraph } from 'components'
 import style from './style'
 
@@ -14,6 +12,7 @@ class RenderDatePicker extends Component {
     id: PropTypes.string,
     label: PropTypes.string,
     placeholder: PropTypes.string,
+    country: PropTypes.string,
     dateFormat: PropTypes.string.isRequired,
     meta: PropTypes.shape({
       touched: PropTypes.bool,
@@ -36,7 +35,7 @@ class RenderDatePicker extends Component {
   }
 
   render() {
-    const { label, id, input, dateFormat, placeholder, meta: { touched, error } } = this.props
+    const { label, id, input, dateFormat, placeholder, meta: { touched, error }, country } = this.props
 
     return (
       <Wrapper>
@@ -54,7 +53,7 @@ class RenderDatePicker extends Component {
           ref={(node) => { this.dateField = node }}
         >
           <DatePicker
-            locale={getCurrentLanguage()}
+            locale={country}
             highlightWeekends={false}
             highlightToday={false}
             footer={false}

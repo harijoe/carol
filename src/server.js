@@ -11,6 +11,8 @@ import routes from 'routes'
 import configureStore from 'store/configure'
 import { env, port, ip } from 'config'
 import Html from 'components/Html'
+import { setCountry, setLang } from 'store/locale/actions'
+import { getLocaleFromHostname, getLangFromLocale, getCountryFromLocale } from 'utils/locale'
 
 global.window = require('utils/windowOrGlobal')
 
@@ -59,6 +61,14 @@ router.use((req, res, next) => {
     })
 
     const render = (providedStore) => {
+      // Initialize locale from hostname
+      const locale = getLocaleFromHostname(req.hostname)
+      const lang = getLangFromLocale(locale)
+      const country = getCountryFromLocale(locale)
+
+      providedStore.dispatch(setLang(lang))
+      providedStore.dispatch(setCountry(country))
+
       const content = renderToString(
         <Provider store={providedStore}>
           <RouterContext {...renderProps} />
@@ -69,7 +79,7 @@ router.use((req, res, next) => {
       const initialState = providedStore.getState()
       const assets = global.webpackIsomorphicTools.assets()
       const state = `window.INITIAL_STATE = ${serialize(initialState)}`
-      const markup = <Html {...{ styles, assets, state, content }} />
+      const markup = <Html {...{ styles, assets, state, content, lang }} />
       const doctype = '<!doctype html>\n'
       const html = renderToStaticMarkup(markup)
 

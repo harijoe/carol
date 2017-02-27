@@ -17,7 +17,7 @@ const SignInDropDownMenu = ({ location, ...props }) => {
 SignInDropDownMenu.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string,
-  }).isRequired,
+  }),
 }
 
 export default SignInDropDownMenu

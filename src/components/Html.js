@@ -1,13 +1,12 @@
 import React, { PropTypes } from 'react'
 import Helmet from 'react-helmet'
-import { getCurrentLanguage } from 'utils/locale'
 
-const Html = ({ styles, assets, state, content }) => {
+const Html = ({ styles, assets, state, content, lang }) => {
   const helmet = Helmet.rewind()
   const attrs = helmet.htmlAttributes.toComponent()
 
   return (
-    <html lang={getCurrentLanguage} {...attrs}>
+    <html lang={lang} {...attrs}>
       <head>
         {helmet.title.toComponent()}
         {helmet.meta.toComponent()}
@@ -28,6 +27,7 @@ Html.propTypes = {
   assets: PropTypes.object.isRequired,
   state: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
+  lang: PropTypes.string.isRequired,
 }
 
 export default Html

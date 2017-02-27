@@ -15,8 +15,8 @@ ShallowWrapper {
     debounced={true}
     defaultCenter={
         Object {
-            "lat": 54.355481,
-            "lng": -2.278986,
+            "lat": 46.938698,
+            "lng": 2.399887,
           }
     }
     defaultZoom={5}
@@ -50,8 +50,8 @@ ShallowWrapper {
       debounced={true}
       defaultCenter={
             Object {
-                  "lat": 54.355481,
-                  "lng": -2.278986,
+                  "lat": 46.938698,
+                  "lng": 2.399887,
                 }
       }
       defaultZoom={5}
@@ -83,6 +83,7 @@ ShallowWrapper {
       "_compositeType": 0,
       "_context": Object {},
       "_currentElement": <Map
+        country="FR"
         initialCenter={
                 Object {
                         "ES": Object {
@@ -117,6 +118,7 @@ ShallowWrapper {
         "_reactInternalInstance": [Circular],
         "context": Object {},
         "props": Object {
+          "country": "FR",
           "initialCenter": Object {
             "ES": Object {
               "lat": 40.481755,
@@ -170,8 +172,8 @@ ShallowWrapper {
           debounced={true}
           defaultCenter={
                     Object {
-                              "lat": 54.355481,
-                              "lng": -2.278986,
+                              "lat": 46.938698,
+                              "lng": 2.399887,
                             }
           }
           defaultZoom={5}
@@ -205,8 +207,8 @@ ShallowWrapper {
           debounced={true}
           defaultCenter={
                     Object {
-                              "lat": 54.355481,
-                              "lng": -2.278986,
+                              "lat": 46.938698,
+                              "lng": 2.399887,
                             }
           }
           defaultZoom={5}
@@ -242,6 +244,7 @@ ShallowWrapper {
   },
   "root": [Circular],
   "unrendered": <Map
+    country="FR"
     initialCenter={
         Object {
             "ES": Object {
