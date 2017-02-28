@@ -29,6 +29,11 @@ const mapStateToProps = (state) => {
   const details = fromUser.getDetails(state)
 
   return {
+    details: {
+      email: details.email,
+      facebookId: details.facebookId,
+      googleId: details.googleId,
+    },
     initialValues: {
       ...details,
       imageBase64: details.imageUrl,

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { Field } from 'redux-form'
 import styled from 'styled-components'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
@@ -15,15 +15,17 @@ const Form = styled.form`
 
 class ProfileForm extends Component {
   static propTypes = {
-    handleSubmit: React.PropTypes.func,
-    submitting: React.PropTypes.bool,
+    handleSubmit: PropTypes.func,
+    submitting: PropTypes.bool,
     intl: intlShape.isRequired,
-    initialValues: React.PropTypes.shape({
-      country: React.PropTypes.string,
-      email: React.PropTypes.string,
-      facebookId: React.PropTypes.string,
-      googleId: React.PropTypes.string,
-      imageBase64: React.PropTypes.string,
+    details: PropTypes.shape({
+      email: PropTypes.string,
+      facebookId: PropTypes.string,
+      googleId: PropTypes.string,
+    }),
+    initialValues: PropTypes.shape({
+      country: PropTypes.string,
+      imageBase64: PropTypes.string,
     }),
   }
 
@@ -66,18 +68,18 @@ class ProfileForm extends Component {
   }
 
   render() {
-    const { initialValues, handleSubmit, submitting, intl } = this.props
+    const { initialValues, handleSubmit, submitting, intl, details } = this.props
     const formatMessage = intl.formatMessage
 
     return (
       <Form onSubmit={handleSubmit}>
         <Heading level={2}><FormattedMessage id="user.profile_info" tagName="p" /></Heading>
         <FormattedMessage id="user.contact_info" tagName="p" />
-        <p><FormattedMessage id="user.email" />: {initialValues.email}</p>
+        <p><FormattedMessage id="user.email" />: {details.email}</p>
         <FormattedMessage id="user.social_network" tagName="p" />
         <List>
-          <li>Facebook Id : {initialValues.facebookId}</li>
-          <li>Google Id : {initialValues.googleId}</li>
+          <li>Facebook Id : {details.facebookId}</li>
+          <li>Google Id : {details.googleId}</li>
         </List>
         <Field
           preview={{

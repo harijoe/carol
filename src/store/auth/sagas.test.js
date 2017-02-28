@@ -17,7 +17,7 @@ describe('getAuth', () => {
       resolve,
       reject,
     }
-    const generator = sagas.getAuth(params)
+    const generator = sagas.handleAuthLoginRequest(params)
 
     expect(generator.next().value).toEqual(cookie.load('access_token'))
     expect(resolve).not.toBeCalled()
@@ -33,7 +33,7 @@ describe('getAuth', () => {
       resolve,
       reject,
     }
-    const generator = sagas.getAuth(param)
+    const generator = sagas.handleAuthLoginRequest(param)
 
     expect(generator.next().value).toEqual(cookie.load('access_token'))
     expect(resolve).not.toBeCalled()

@@ -5,6 +5,7 @@ export const USER_DETAILS = createRequestTypes('USER_DETAILS')
 export const USER_UPDATE = createRequestTypes('USER_UPDATE')
 export const USER_FORGOT_PASSWORD = createRequestTypes('USER_FORGOT_PASSWORD')
 export const USER_UPDATE_PASSWORD = createRequestTypes('USER_UPDATE_PASSWORD')
+export const USER_RESET = 'USER_RESET'
 
 export const userCreate = {
   request: (data, resolve, reject) => (actionTypes(USER_CREATE.REQUEST, { data, resolve, reject })),
@@ -35,3 +36,5 @@ export const resetPassword = {
   success: payload => (actionTypes(USER_UPDATE_PASSWORD.SUCCESS, { payload })),
   failure: error => (actionTypes(USER_UPDATE_PASSWORD.FAILURE, { error })),
 }
+
+export const resetUser = () => (actionTypes(USER_RESET))
