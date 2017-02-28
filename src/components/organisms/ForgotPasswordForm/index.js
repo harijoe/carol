@@ -12,10 +12,11 @@ const Form = styled.form`
   padding: 1em;
 `
 
-const ForgotPasswordForm = ({ handleSubmit, submitting, intl }) => (
+const ForgotPasswordForm = ({ error, handleSubmit, submitting, intl }) => (
   <Form onSubmit={handleSubmit}>
     <Heading level={2}><FormattedMessage id="user.forgot_password.heading" /></Heading>
     <Field name="_csrf" type="hidden" component="input" />
+    {error && <FormattedMessage id={error} tagName="strong" />}
     <Field name="email" type="email" label={intl.formatMessage(messages('user.email').label)} component={RenderField} />
     <Button type="submit" disabled={submitting}><FormattedMessage id="user.send" /></Button>
   </Form>
@@ -25,6 +26,7 @@ ForgotPasswordForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   submitting: PropTypes.bool,
   intl: intlShape.isRequired,
+  error: PropTypes.string,
 }
 
 export default injectIntl(ForgotPasswordForm)

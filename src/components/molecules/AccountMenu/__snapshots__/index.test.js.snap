@@ -22,6 +22,8 @@ ShallowWrapper {
         locale="en"
         messages={
                 Object {
+                        "Invalid username and password combination": "Invalid username and password combination",
+                        "Missing parameters. \"username\" and \"password\" required": "Missing parameters. \"username\" and \"password\" required",
                         "burger_menu": "Burger Menu",
                         "construction": "Construction",
                         "country.france": "France",
@@ -125,6 +127,7 @@ ShallowWrapper {
                         "user.thank_you": "Thank you!",
                         "user.update": "Update",
                         "validators.forgot_password.unexpired_token": "You already asked to reinitialize your password, please check your emails.",
+                        "validators.forgot_password.user_not_found": "User not found",
                         "validators.integer": "Must be an integer",
                         "validators.max_length": "Must be no more than {max} characters",
                         "validators.min_length": "Must be at least {min} characters",
@@ -161,6 +164,8 @@ ShallowWrapper {
             logout={[Function]} />,
           "locale": "en",
           "messages": Object {
+            "Invalid username and password combination": "Invalid username and password combination",
+            "Missing parameters. \"username\" and \"password\" required": "Missing parameters. \"username\" and \"password\" required",
             "burger_menu": "Burger Menu",
             "construction": "Construction",
             "country.france": "France",
@@ -264,6 +269,7 @@ ShallowWrapper {
             "user.thank_you": "Thank you!",
             "user.update": "Update",
             "validators.forgot_password.unexpired_token": "You already asked to reinitialize your password, please check your emails.",
+            "validators.forgot_password.user_not_found": "User not found",
             "validators.integer": "Must be an integer",
             "validators.max_length": "Must be no more than {max} characters",
             "validators.min_length": "Must be at least {min} characters",
@@ -331,6 +337,8 @@ ShallowWrapper {
     locale="en"
     messages={
         Object {
+            "Invalid username and password combination": "Invalid username and password combination",
+            "Missing parameters. \"username\" and \"password\" required": "Missing parameters. \"username\" and \"password\" required",
             "burger_menu": "Burger Menu",
             "construction": "Construction",
             "country.france": "France",
@@ -434,6 +442,7 @@ ShallowWrapper {
             "user.thank_you": "Thank you!",
             "user.update": "Update",
             "validators.forgot_password.unexpired_token": "You already asked to reinitialize your password, please check your emails.",
+            "validators.forgot_password.user_not_found": "User not found",
             "validators.integer": "Must be an integer",
             "validators.max_length": "Must be no more than {max} characters",
             "validators.min_length": "Must be at least {min} characters",

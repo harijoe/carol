@@ -17,9 +17,10 @@ const StyledLink = styled(Link)`
   margin: 10px 0;
 `
 
-const SignInForm = ({ handleSubmit, submitting }) => (
+const SignInForm = ({ error, handleSubmit, submitting }) => (
   <div>
     <Form onSubmit={handleSubmit}>
+      {error && <FormattedMessage id={error} tagName="strong" />}
       <Field name="email" type="text" component={RenderField} label="Email" />
       <Field name="password" type="password" component={RenderField} label="Password" />
       <Button type="submit" disabled={submitting}><FormattedMessage id="user.sign_in" tagName="span" /></Button>
@@ -34,6 +35,7 @@ const SignInForm = ({ handleSubmit, submitting }) => (
 SignInForm.propTypes = {
   handleSubmit: React.PropTypes.func,
   submitting: React.PropTypes.bool,
+  error: React.PropTypes.string,
 }
 
 export default SignInForm

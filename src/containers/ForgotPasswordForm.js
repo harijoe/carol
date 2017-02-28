@@ -9,7 +9,6 @@ import { createValidator, required, email } from 'services/validation'
 import { fromForm } from 'store/selectors'
 import { forgotPassword } from 'store/actions'
 import { ForgotPasswordForm } from 'components'
-import getFormErrors from 'utils/formErrors'
 
 const ForgotPasswordFormContainer = props => (
   <ForgotPasswordForm {...props} />
@@ -24,12 +23,7 @@ const onSubmit = (data, dispatch, { intl }) => new Promise((resolve, reject) => 
     status: 'success',
   }))
 }).catch((e) => {
-  dispatch(notify({
-    title: intl.formatMessage(messages('server_error').label),
-    message: intl.formatMessage(messages('validators.forgot_password.unexpired_token').label),
-    status: 'error',
-  }))
-  throw new SubmissionError(getFormErrors(e))
+  throw new SubmissionError({ _error: e })
 })
 
 const validate = createValidator({

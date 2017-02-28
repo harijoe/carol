@@ -1,7 +1,7 @@
 import React from 'react'
-import { reduxForm } from 'redux-form'
+import { reduxForm, SubmissionError } from 'redux-form'
 
-import { authLogin } from 'store/actions'
+import { setToken } from 'store/actions'
 import { createValidator, required, email } from 'services/validation'
 import { SignInForm } from 'components'
 
@@ -9,9 +9,11 @@ const SignInFormContainer = props => (
   <SignInForm {...props} />
 )
 
-const onSubmit = (values, dispatch) => {
-  dispatch(authLogin('password').request(`&username=${values.email}&password=${values.password}`))
-}
+const onSubmit = (values, dispatch) => (
+  setToken(dispatch, 'password', `&username=${values.email}&password=${values.password}`).catch((e) => {
+    throw new SubmissionError({ _error: e })
+  })
+)
 
 const validate = createValidator({
   email: [required, email],

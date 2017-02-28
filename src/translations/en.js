@@ -8,6 +8,8 @@ const en = {
   construction: 'Construction',
   renovation: 'Renovation',
   fixing: 'Fixing',
+  'Invalid username and password combination': 'Invalid username and password combination',
+  'Missing parameters. "username" and "password" required': 'Missing parameters. "username" and "password" required',
 
   'country.france': 'France',
   'country.spain': 'Spain',
@@ -125,6 +127,7 @@ const en = {
   'validators.user.mobilePhone.invalid_type': 'Field "Mobile phone" is not valid',
   'validators.user.fixedPhone.invalid_type': 'Field "Fixe phone" is not valid',
   'validators.forgot_password.unexpired_token': 'You already asked to reinitialize your password, please check your emails.',
+  'validators.forgot_password.user_not_found': 'User not found',
 }
 
 export default en

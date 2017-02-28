@@ -2,6 +2,7 @@ import { call, fork } from 'redux-saga/effects'
 import { takeEvery } from 'redux-saga'
 import cookie from 'react-cookie'
 
+import config from 'config'
 import api from 'services/api'
 import fetch from 'utils/fetchSagas'
 import { AUTH_LOGIN, AUTH_LOGOUT, authLogin } from './actions'
@@ -13,7 +14,9 @@ export function* getAuth({ grantType, credentials, resolve, reject } = {}) {
     return resolve({ access_token: token })
   }
 
-  return yield call(fetch, authLogin(grantType), null, resolve, reject, 'generateToken', null, {}, { grantType, extra: credentials })
+  const url = `/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api.clientSecret}&grant_type=${grantType}${credentials}`
+
+  return yield call(fetch, authLogin(grantType), null, resolve, reject, 'get', url)
 }
 
 function* saveAuth(token) {
