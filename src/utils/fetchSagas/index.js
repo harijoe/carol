@@ -7,7 +7,7 @@ const noop = () => {}
 
 export default function* fetch(actions, payload, resolve = noop, reject = noop, method, url, settings = {}, data = null) {
   try {
-    const lang = yield select(fromLocale.getLang)
+    const lang = yield select(fromLocale.getLocale)
     const response = yield call(api[method], url, { ...settings, lang }, data)
 
     resolve(response)
