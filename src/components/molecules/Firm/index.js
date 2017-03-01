@@ -30,7 +30,7 @@ const displayLight = items => (
   <List>
     <li><FormattedMessage id="firm.details.name" />: {items.name}</li>
     <li><FormattedMessage id="firm.details.notation" />: {(items.globalRating && items.globalRatingCount) ? items.globalRating / items.globalRatingCount : ''}</li>
-    <li><Link to={`/firm/${items.guid}`}><FormattedMessage id="firm.site_search.result_link" /></Link></li>
+    <li><Link to={items['@id']}><FormattedMessage id="firm.site_search.result_link" /></Link></li>
   </List>
 )
 

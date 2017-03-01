@@ -26,7 +26,7 @@ const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
     <Route path="favorite" component={requiresAuth(FavoritePage)} />
-    <Route path="firm/:firmId" component={requiresAuth(FirmPage)} />
+    <Route path="firms/:firmId" component={requiresAuth(FirmPage)} />
     <Route path="forgot-password" component={anonymousOnly(ForgotPasswordPage)} />
     <Route path="help" component={HelpPage} />
     <Route path="login" component={anonymousOnly(LoginPage)} />
