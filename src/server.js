@@ -10,9 +10,11 @@ import express from 'services/express'
 import routes from 'routes'
 import configureStore from 'store/configure'
 import { env, port, ip } from 'config'
+import isAuthenticated from 'utils/auth'
 import Html from 'components/Html'
-import { setCountry, setLang } from 'store/locale/actions'
+import { setCountry, setLang, setAuthenticated } from 'store/actions'
 import { getLocaleFromHostname, getLangFromLocale, getCountryFromLocale } from 'utils/locale'
+import reactCookie from 'react-cookie'
 
 global.window = require('utils/windowOrGlobal')
 
@@ -68,6 +70,12 @@ router.use((req, res, next) => {
 
       providedStore.dispatch(setLang(lang))
       providedStore.dispatch(setCountry(country))
+
+      // Initialize auth from cookies
+      reactCookie.plugToRequest(req, res)
+      const grantType = reactCookie.load('grant_type')
+
+      providedStore.dispatch(setAuthenticated(isAuthenticated(grantType)))
 
       const content = renderToString(
         <Provider store={providedStore}>

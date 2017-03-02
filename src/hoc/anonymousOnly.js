@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
+import { fromAuth } from 'store/selectors'
 
 const anonymousOnly = (AnonymousComponent) => {
   class Anonymous extends Component {
@@ -49,7 +50,7 @@ const anonymousOnly = (AnonymousComponent) => {
   }
 
   const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated,
+    isAuthenticated: fromAuth.isAuthenticated(state),
   })
 
   return connect(mapStateToProps)(Anonymous)

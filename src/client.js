@@ -6,12 +6,9 @@ import { Router, browserHistory, applyRouterMiddleware } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { useScroll } from 'react-router-scroll'
 import configureStore from 'store/configure'
-import { initialState } from 'store/auth/selectors'
 import routes from 'routes'
 
-// Merge the authentification state client state to SSR state
-const prepareInitialState = () => ({ ...window.INITIAL_STATE, auth: initialState })
-const store = configureStore(prepareInitialState(), browserHistory)
+const store = configureStore({ ...window.INITIAL_STATE }, browserHistory)
 const history = syncHistoryWithStore(browserHistory, store)
 const root = document.getElementById('app')
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
+import { fromAuth } from 'store/selectors'
 
 const requiresAuth = (AuthenticatedComponent) => {
   class Authentication extends Component {
@@ -42,7 +43,7 @@ const requiresAuth = (AuthenticatedComponent) => {
   }
 
   const mapStateToProps = state => ({
-    isAuthenticated: state.auth.isAuthenticated,
+    isAuthenticated: fromAuth.isAuthenticated(state),
   })
 
   return connect(mapStateToProps)(Authentication)

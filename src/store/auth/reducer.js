@@ -1,5 +1,6 @@
-import { initialState, isAuthenticated } from './selectors'
-import { AUTH_LOGIN, AUTH_LOGOUT } from './actions'
+import isAuthenticated from 'utils/auth'
+import { initialState } from './selectors'
+import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_SET_AUTHENTICATED } from './actions'
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -8,13 +9,19 @@ export default (state = initialState, action) => {
 
       return {
         ...state,
-        isAuthenticated: isAuthenticated(grantType),
+        authenticated: isAuthenticated(grantType), // @TODO: Move it elsewhere, no logic in reducer
+      }
+    }
+    case AUTH_SET_AUTHENTICATED: {
+      return {
+        ...state,
+        authenticated: action.payload,
       }
     }
     case AUTH_LOGOUT: {
       return {
         ...state,
-        isAuthenticated: false,
+        authenticated: false,
       }
     }
     default: {

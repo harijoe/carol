@@ -12,13 +12,23 @@ it('handles AUTH_SUCCESS', () => {
     payload: { grantType: 'password' },
   })).toEqual({
     ...initialState,
-    isAuthenticated: true,
+    authenticated: true,
+  })
+})
+
+it('handles AUTH_SET_AUTHENTICATED', () => {
+  expect(reducer(initialState, {
+    type: actions.AUTH_SET_AUTHENTICATED,
+    payload: true,
+  })).toEqual({
+    ...initialState,
+    authenticated: true,
   })
 })
 
 it('handles AUTH_LOGOUT', () => {
   expect(reducer({ ...initialState }, { type: actions.AUTH_LOGOUT })).toEqual({
     ...initialState,
-    isAuthenticated: false,
+    authenticated: false,
   })
 })
