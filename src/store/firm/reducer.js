@@ -10,9 +10,11 @@ export default (state = initialState, action) => {
       }
     }
     case FIRM_DETAILS.SUCCESS: {
+      const id = action.payload['@id'].split('/')[2]
+
       return {
         ...state,
-        [action.payload.guid]: action.payload,
+        [id]: action.payload,
       }
     }
     default: {
