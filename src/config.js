@@ -39,16 +39,19 @@ const config = {
       fr_FR: {
         url: 'http://carol-fr.dev.quotatis.net',
         proUrl: 'https://www.quotatispro.fr',
+        contentUrl: 'https://fr.content.hugo.preprod.qarx.io/',
         countryLabel: 'country.france',
       },
       es_ES: {
         url: 'http://carol-es.dev.quotatis.net',
         proUrl: 'https://www.quotatispro.es',
+        contentUrl: 'https://es.content.hugo.preprod.qarx.io/',
         countryLabel: 'country.spain',
       },
       en_GB: {
         url: 'http://carol-co-uk.dev.quotatis.net',
         proUrl: 'https://www.quotatispro.co.uk',
+        contentUrl: 'https://uk.content.hugo.preprod.qarx.io/',
         countryLabel: 'country.great_britain',
       },
     },
@@ -74,6 +77,17 @@ const config = {
     baseUrl: 'https://www.quotatis.com',
     api: {
       url: 'https://api.quotatis.com',
+    },
+    locales: {
+      fr_FR: {
+        contentUrl: 'https://conseils-travaux.quotatis.fr',
+      },
+      es_ES: {
+        contentUrl: 'https://advice.quotatis.co.uk',
+      },
+      en_GB: {
+        contentUrl: 'https://consejos-reformas.quotatis.es',
+      },
     },
     ssl: {
       privateKey: 'ssl/quotatis.com.key',

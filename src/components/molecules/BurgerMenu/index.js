@@ -2,9 +2,10 @@ import React from 'react'
 import { FormattedMessage } from 'react-intl'
 import { Link } from 'react-router'
 
+import { locales } from 'config'
 import { List } from 'components'
 
-const BurgerMenu = ({ proHomeLink }) => (
+const BurgerMenu = ({ locale }) => (
   <List>
     <li>
       <Link to="/">
@@ -17,9 +18,9 @@ const BurgerMenu = ({ proHomeLink }) => (
       </Link>
     </li>
     <li>
-      <Link to="/resource">
+      <a href={locales[locale].contentUrl}>
         <FormattedMessage id="firm.resource" />
-      </Link>
+      </a>
     </li>
     <li>
       <Link to="/help">
@@ -27,7 +28,7 @@ const BurgerMenu = ({ proHomeLink }) => (
       </Link>
     </li>
     <li>
-      <a href={proHomeLink}>
+      <a href={locales[locale].proUrl}>
         <FormattedMessage id="firm.i_am_pro" />
       </a>
     </li>
@@ -35,7 +36,7 @@ const BurgerMenu = ({ proHomeLink }) => (
 )
 
 BurgerMenu.propTypes = {
-  proHomeLink: React.PropTypes.string,
+  locale: React.PropTypes.string,
 }
 
 export default BurgerMenu

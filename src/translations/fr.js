@@ -16,7 +16,7 @@ const fr = {
   'country.great_britain': 'Grande-Bretagne',
 
   'firm.find_pro': 'Trouver un artisan',
-  'firm.resource': 'Resource for my work',
+  'firm.resource': 'Ressource pour mes travaux',
   'firm.i_am_pro': 'Je suis artisan',
   'firm.site_search': 'Recherche sur le site',
   'firm.site_search.result_link': 'Plus de details',

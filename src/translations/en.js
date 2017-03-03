@@ -16,7 +16,7 @@ const en = {
   'country.great_britain': 'Great-Britain',
 
   'firm.find_pro': 'Find a pro',
-  'firm.resource': 'Ressource pour mes travaux',
+  'firm.resource': 'Resource for my work',
   'firm.i_am_pro': 'I am a pro',
   'firm.site_search': 'Site search',
   'firm.site_search.result_link': 'More details',
