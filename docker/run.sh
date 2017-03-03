@@ -4,10 +4,10 @@ set -xe
 
 if [ ${NODE_ENV} = 'development' ]; then
     export NODE_ENV=development
-    npm run dev
+    yarn run dev
     exit
 fi;
 
-npm run build:${NODE_ENV}
-npm start
+yarn run build:${NODE_ENV}
+yarn start
 

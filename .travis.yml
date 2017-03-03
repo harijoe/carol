@@ -12,7 +12,7 @@ services:
 
 script:
   - if [ "${BRANCH}" = "" ]; then BRANCH=develop; fi;
-  - npm run lint && npm test
+  - yarn run lint && yarn test
   - docker build -t eu.gcr.io/quotatis-152617/carol:${BRANCH} .
 
 branches:
