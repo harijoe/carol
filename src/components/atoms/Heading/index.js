@@ -1,14 +1,12 @@
 import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
 
-import { colors, reverseColors, fonts } from 'components/globals'
-
-const styles = ({ kind, light, level }) => {
+const styles = ({ kind, light, level, theme }) => {
   const index = kind === 'grayscale' ? 0 : 1
-  const color = light ? reverseColors[kind][index] : colors[kind][index]
+  const color = light ? theme.reverseColors[kind][index] : theme.colors[kind][index]
 
   return css`
-    font-family: ${fonts.primary};
+    font-family: ${theme.fonts.primary};
     font-weight: 500;
     font-size: ${0.75 + (1 / level)}rem;
     margin: 0;
@@ -23,7 +21,7 @@ const Heading = styled(({ level, children, ...props }) => React.createElement(`h
 Heading.propTypes = {
   level: PropTypes.number,
   children: PropTypes.any,
-  kind: PropTypes.oneOf(Object.keys(colors)),
+  kind: PropTypes.string,
   light: PropTypes.bool,
 }
 

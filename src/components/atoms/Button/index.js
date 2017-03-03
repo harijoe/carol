@@ -2,15 +2,13 @@ import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
 import { Link } from 'react-router'
 
-import { fonts } from 'components/globals'
-
 const fontSize = ({ height }) => `${height / 40}rem`
 
 const styles = css`
   ${props => props.disabled ? 'opacity: .6;' : ''}
   cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
   display: inline-flex;
-  font-family: ${fonts.primary};
+  font-family: ${props => props.theme.fonts.primary};
   align-items: center;
   white-space: nowrap;
   font-size: ${fontSize};

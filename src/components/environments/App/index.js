@@ -1,10 +1,7 @@
 import React, { PropTypes } from 'react'
-import { injectGlobal } from 'styled-components'
 import Helmet from 'react-helmet'
 
-import resets from 'components/resets'
-
-injectGlobal([resets])
+import { IntlProvider } from 'containers'
 
 const App = props => (
   <div>
@@ -24,7 +21,9 @@ const App = props => (
         { rel: 'icon', href: 'https://quotatis.fr/favicon.ico' },
       ]}
     />
-    {props.children}
+    <IntlProvider>
+      {props.children}
+    </IntlProvider>
   </div>
 )
 

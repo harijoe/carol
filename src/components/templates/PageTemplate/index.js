@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import styled from 'styled-components'
+import styled, { injectGlobal, ThemeProvider } from 'styled-components'
 import NotificationsSystem from 'reapop'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import theme from 'reapop-theme-wybo'
@@ -8,7 +8,11 @@ import fr from 'react-intl/locale-data/fr'
 import en from 'react-intl/locale-data/en'
 import es from 'react-intl/locale-data/es'
 import injectTapEventPlugin from 'react-tap-event-plugin'
-import { IntlProvider } from 'containers'
+
+import resets from 'components/themes/resets'
+import defaultTheme from '../../themes/default'
+
+injectGlobal([resets])
 
 addLocaleData([...es, ...en, ...fr])
 
@@ -51,14 +55,14 @@ injectTapEventPlugin()
 
 const PageTemplate = ({ header, children, footer, ...props }) => (
   <MuiThemeProvider>
-    <IntlProvider>
+    <ThemeProvider theme={defaultTheme}>
       <Wrapper {...props}>
         <NotificationsSystem theme={theme} defaultValues={notificationsDefaultValues} />
         <Header {...props}>{header}</Header>
         <Content>{children}</Content>
         <Footer>{footer}</Footer>
       </Wrapper>
-    </IntlProvider>
+    </ThemeProvider>
   </MuiThemeProvider>
 )
 

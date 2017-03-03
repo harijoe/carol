@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 
 import { Heading, Paragraph } from 'components'
-import { colors } from 'components/globals'
 
 const Block = styled.div`
   position: 'absolute';
@@ -10,7 +9,7 @@ const Block = styled.div`
   height: 8em;
   left: -25 / 2;
   top: -40 / 2;
-  background-color: ${colors.quotatis[0]};
+  background-color: ${props => props.theme.colors.quotatis[0]};
   text-align: center;
   color: #fff;
   font-size: 1em;

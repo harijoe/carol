@@ -1,8 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import Block from './'
+import theme from '../../themes/default'
 
-const wrap = (props = {}) => shallow(<Block {...props} />)
+const wrap = (props = {}) => shallow(<Block theme={theme} {...props} />)
 
 it('renders children when passed in', () => {
   const wrapper = wrap({ children: 'test' })

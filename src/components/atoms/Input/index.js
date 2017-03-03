@@ -1,12 +1,10 @@
 import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
 
-import { fonts, colors, reverseColors } from 'components/globals'
-
 export const fontSize = ({ height }) => `${height / 35.55}rem`
 
 const styles = css`
-  font-family: ${fonts.primary};
+  font-family: ${props => props.theme.fonts.primary};
   display: block;
   width: 100%;
   margin: 0;
@@ -14,9 +12,9 @@ const styles = css`
   font-size: ${fontSize};
   padding: 0 0.44em;
   height: 2.22em;
-  color: ${colors.grayscale[0]};
-  background-color: ${reverseColors.grayscale[0]};
-  border: 1px solid ${colors.grayscale[3]};
+  color: ${props => props.theme.colors.grayscale[0]};
+  background-color: ${props => props.theme.reverseColors.grayscale[0]};
+  border: 1px solid ${props => props.theme.colors.grayscale[3]};
   border-radius: 2px;
 
   &[type=checkbox], &[type=radio] {

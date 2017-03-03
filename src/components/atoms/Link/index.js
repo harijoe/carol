@@ -2,13 +2,11 @@ import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
 import { Link as RouterLink } from 'react-router'
 
-import { colors, fonts } from 'components/globals'
-
-const styles = ({ light, kind }) => {
-  const color = light ? [...colors[kind]].reverse()[1] : colors[kind][1]
+const styles = ({ light, kind, theme }) => {
+  const color = light ? theme.reverseColors[kind][1] : theme.colors[kind][1]
 
   return css`
-    font-family: ${fonts.primary};
+    font-family: ${theme.fonts.primary};
     text-decoration: none;
     font-weight: 500;
     color: ${color};
@@ -31,7 +29,7 @@ const Link = ({ ...props, to }) => {
 }
 
 Link.propTypes = {
-  kind: PropTypes.oneOf(Object.keys(colors)),
+  kind: PropTypes.string,
   light: PropTypes.bool,
   to: PropTypes.string,
 }

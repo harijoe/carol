@@ -1,11 +1,9 @@
 import styled from 'styled-components'
 
-import { fonts, colors } from 'components/globals'
-
 const Block = styled.div`
-  font-family: ${fonts.primary};
+  font-family: ${props => props.theme.fonts.primary};
   background-color: #fff;
-  color: ${colors.grayscale[0]};
+  color: ${props => props.theme.colors.grayscale[0]};
 `
 
 Block.defaultProps = {

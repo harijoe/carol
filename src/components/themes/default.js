@@ -1,6 +1,8 @@
 import { keyframes } from 'styled-components'
 
-export const colors = {
+const theme = {}
+
+theme.colors = {
   primary: ['#1976d2', '#2196f3', '#71bcf7', '#c2e2fb'],
   secondary: ['#c2185b', '#e91e63', '#f06292', '#f8bbd0'],
   danger: ['#d32f2f', '#f44336', '#f8877f', '#ffcdd2'],
@@ -10,19 +12,19 @@ export const colors = {
   quotatis: ['#3333fe'],
 }
 
-export const reverseColors = {}
+theme.reverseColors = {}
 
-Object.keys(colors).forEach((key) => {
-  reverseColors[key] = [...colors[key]].reverse()
+Object.keys(theme.colors).forEach((key) => {
+  theme.reverseColors[key] = [...theme.colors[key]].reverse()
 })
 
-export const fonts = {
+theme.fonts = {
   primary: 'Helvetica Neue, Helvetica, Roboto, sans-serif',
   pre: 'Consolas, Liberation Mono, Menlo, Courier, monospace',
   quote: 'Georgia, serif',
 }
 
-export const animations = {
+theme.animations = {
   rotate360: keyframes`
     from {
       transform: rotate(0deg);
@@ -32,3 +34,5 @@ export const animations = {
     }
   `,
 }
+
+export default theme

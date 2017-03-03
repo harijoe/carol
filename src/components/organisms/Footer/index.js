@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { colors } from 'components/globals'
 import { Paragraph, Link, Icon } from 'components'
 import config from 'config'
 
@@ -11,7 +10,7 @@ const Credits = styled(Paragraph)`
 `
 
 const StyledFooter = styled.div`
-  background-color: ${([...colors.grayscale].reverse()[1])};
+  background-color: ${props => props.theme.reverseColors.grayscale[1]};
   padding: 2rem;
 `
 

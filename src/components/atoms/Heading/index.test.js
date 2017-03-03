@@ -1,8 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import Heading from '.'
+import theme from '../../themes/default'
 
-const wrap = (props = {}) => shallow(<Heading {...props} />).dive()
+const wrap = (props = {}) => shallow(<Heading theme={theme} {...props} />).dive()
 
 it('renders with different props', () => {
   wrap({ kind: 'primary' })

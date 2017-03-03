@@ -1,14 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { colors, animations } from 'components/globals'
 import { IconLink } from 'components'
 import { PrimaryNavigation } from 'containers'
 
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  background-color: ${colors.grayscale[0]};
+  background-color: ${props => props.theme.colors.grayscale[0]};
   padding: 1rem;
 
   & > :not(:first-child) {
@@ -19,11 +18,11 @@ const Wrapper = styled.div`
 const StyledIconLink = styled(IconLink)`
   display: inline-block;
   transform-origin: center;
-  color: ${colors.primary[1]};
+  color: ${props => props.theme.colors.primary[1]};
 
   &:hover {
-    color: ${colors.primary[2]};
-    animation: ${animations.rotate360} 5s linear infinite;
+    color: ${props => props.theme.colors.primary[2]};
+    animation: ${props => props.theme.animations.rotate360} 5s linear infinite;
   }
 `
 

@@ -1,8 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import List from '.'
+import theme from '../../themes/default'
 
-const wrap = (props = {}) => shallow(<List {...props} />).dive()
+const wrap = (props = {}) => shallow(<List theme={theme} {...props} />).dive()
 
 it('renders children when passed in', () => {
   const wrapper = wrap({ children: 'test' })

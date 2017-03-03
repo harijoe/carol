@@ -1,14 +1,12 @@
 import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
 
-import { colors, fonts } from 'components/globals'
-
 const styles = css`
-  font-family: ${fonts.primary};
+  font-family: ${props => props.theme.fonts.primary};
   margin: 1rem 0;
   padding-left: 1.6rem;
   line-height: 1.7rem;
-  color: ${colors.grayscale[0]};
+  color: ${props => props.theme.colors.grayscale[0]};
 `
 
 const Ol = styled.ol`${styles}`
