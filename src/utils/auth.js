@@ -1,3 +1,5 @@
 import { facebook, google } from 'config'
 
-export default grantType => [facebook.grantType, google.grantType, 'password'].includes(grantType)
+const isAuthenticated = grantType => [facebook.grantType, google.grantType, 'password'].includes(grantType)
+
+export default isAuthenticated

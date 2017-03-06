@@ -18,6 +18,9 @@ const Project = ({ items, ...props }) => (
     <Paragraph>
       <FormattedMessage id="project.reference" />: {items.reference}
     </Paragraph>
+    <Paragraph>
+      <FormattedMessage id="project.status" />: <FormattedMessage id={`project.status.${items.status}`} />
+    </Paragraph>
   </Article>
 )
 
@@ -27,6 +30,7 @@ Project.propTypes = {
     reference: PropTypes.string,
     createdAt: PropTypes.string,
     updatedAt: PropTypes.string,
+    status: PropTypes.string,
   }).isRequired,
 }
 

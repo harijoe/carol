@@ -25,7 +25,7 @@ class ProjectListContainer extends Component {
 
 const mapStateToProps = state => ({
   list: fromProject.getList(state),
-  loading: fromStatus.isLoading(state, PROJECT_LIST),
+  loading: fromStatus.isLoading(state, PROJECT_LIST.prefix),
 })
 
 const mapDispatchToProps = dispatch => ({

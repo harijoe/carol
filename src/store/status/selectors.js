@@ -1,23 +1,11 @@
-import find from 'lodash/find'
-import pick from 'lodash/pick'
-
 export const initialState = {
   loading: {},
   error: {},
 }
 
-const getIn = (state, prefix) => {
-  if (typeof prefix === 'undefined') {
-    return !!find(state, value => !!value)
-  } else if (Array.isArray(prefix)) {
-    return !!find(pick(state, prefix), value => !!value)
-  } else if (Object.prototype.hasOwnProperty.call(state, prefix)) {
-    return !!state[prefix]
-  }
-  return false
-}
+export const getLoading = (state = initialState) => state.loading
+export const getError = (state = initialState) => state.error
 
-export const getLoadingState = (state = initialState) => state.loading || {}
-export const getErrorState = (state = initialState) => state.error || {}
-export const isLoading = (state, prefix) => getIn(getLoadingState(state), prefix)
-export const hasError = (state, prefix) => getIn(getErrorState(state), prefix)
+// These following selectors are to be used in a reducer as they take an actionTypes object as input
+export const isLoading = (state = initialState, actionType) => getLoading(state)[actionType] || false
+export const hasError = (state = initialState, actionType) => getError(state)[actionType] || false

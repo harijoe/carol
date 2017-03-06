@@ -25,7 +25,7 @@ class FirmDetailsContainer extends Component {
 
 const mapStateToProps = (state, { id }) => ({
   details: fromFirm.getDetails(state, id),
-  loading: fromStatus.isLoading(state, FIRM_DETAILS),
+  loading: fromStatus.isLoading(state, FIRM_DETAILS.prefix),
 })
 
 const mapDispatchToProps = (dispatch, { id }) => ({

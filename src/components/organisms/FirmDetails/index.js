@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 
-import { Firm } from 'components'
+import { Firm, Loading } from 'components'
 
 const Wrapper = styled.div`
   & > * {
@@ -9,14 +9,14 @@ const Wrapper = styled.div`
   }
 `
 
-const FirmDetails = ({ details, loading, ...props }) => (
-  <Wrapper {...props}>
-    {loading && <div>Loading...</div>}
-    <Firm
-      loading={loading}
-      items={details}
-      full="true"
-    />
+const FirmDetails = ({ details, loading }) => (
+  <Wrapper>
+    <Loading loading={loading}>
+      <Firm
+        items={details}
+        full="true"
+      />
+    </Loading>
   </Wrapper>
 )
 

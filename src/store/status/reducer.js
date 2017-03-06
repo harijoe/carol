@@ -1,42 +1,43 @@
-import { initialState, getLoadingState, getErrorState } from './selectors'
+import splitActionType from 'utils/actions'
+
+import { initialState, getLoading, getError } from './selectors'
 
 export default (state = initialState, action) => {
-  if (!action.type) return state
+  if (action.type == null) return state
 
-  const [suffix, ...splitPrefix] = action.type.split('_').reverse()
-  const prefix = splitPrefix.reverse().join('_')
+  const { prefix, suffix } = splitActionType(action.type)
 
   switch (suffix) {
     case 'REQUEST':
       return {
         loading: {
-          ...getLoadingState(state),
+          ...getLoading(state),
           [prefix]: true,
         },
         error: {
-          ...getErrorState(state),
+          ...getError(state),
           [prefix]: false,
         },
       }
     case 'SUCCESS':
       return {
         loading: {
-          ...getLoadingState(state),
+          ...getLoading(state),
           [prefix]: false,
         },
         error: {
-          ...getErrorState(state),
+          ...getError(state),
           [prefix]: false,
         },
       }
     case 'FAILURE':
       return {
         loading: {
-          ...getLoadingState(state),
+          ...getLoading(state),
           [prefix]: false,
         },
         error: {
-          ...getErrorState(state),
+          ...getError(state),
           [prefix]: true,
         },
       }

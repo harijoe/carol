@@ -32,7 +32,7 @@ class PostListContainer extends Component {
 
 const mapStateToProps = (state, { scope }) => ({
   list: fromPost.getList(state, scope),
-  loading: fromStatus.isLoading(state, POST_LIST),
+  loading: fromStatus.isLoading(state, POST_LIST.prefix),
 })
 
 const mapDispatchToProps = (dispatch, { scope, tags, limit }) => ({

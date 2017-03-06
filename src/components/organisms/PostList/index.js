@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 
-import { Post } from 'components'
+import { Post, Loading } from 'components'
 
 const Wrapper = styled.div`
   & > * {
@@ -21,17 +21,17 @@ const setDisplay = (active, i, tags) => {
   return active === i
 }
 
-const PostList = ({ list, active, loading, ...props }) => (
-  <Wrapper {...props}>
-    {loading && <div>Loading...</div>}
-    {list.map((items, i) =>
-      <Post
-        key={i}
-        loading={loading}
-        items={items}
-        active={setDisplay(active, i, items.tags)}
-      />
-    )}
+const PostList = ({ list, active, loading }) => (
+  <Wrapper>
+    <Loading loading={loading}>
+      {list.map((items, i) =>
+        <Post
+          key={i}
+          items={items}
+          active={setDisplay(active, i, items.tags)}
+        />
+      )}
+    </Loading>
   </Wrapper>
 )
 

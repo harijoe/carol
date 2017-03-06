@@ -1,4 +1,4 @@
-import { initialState, getLoadingState, getErrorState } from './selectors'
+import { initialState, getLoading, getError } from './selectors'
 import reducer from './reducer'
 
 it('returns the initial state', () => {
@@ -11,11 +11,11 @@ it('handles SOMETHING_REQUEST', () => {
     type: 'SOMETHING_REQUEST',
   })).toEqual({
     loading: {
-      ...getLoadingState(),
+      ...getLoading(),
       SOMETHING: true,
     },
     error: {
-      ...getErrorState(),
+      ...getError(),
       SOMETHING: false,
     },
   })
@@ -26,11 +26,11 @@ it('handles SOMETHING_SUCCESS', () => {
     type: 'SOMETHING_SUCCESS',
   })).toEqual({
     loading: {
-      ...getLoadingState(),
+      ...getLoading(),
       SOMETHING: false,
     },
     error: {
-      ...getErrorState(),
+      ...getError(),
       SOMETHING: false,
     },
   })
@@ -41,11 +41,11 @@ it('handles SOMETHING_FAILURE', () => {
     type: 'SOMETHING_FAILURE',
   })).toEqual({
     loading: {
-      ...getLoadingState(),
+      ...getLoading(),
       SOMETHING: false,
     },
     error: {
-      ...getErrorState(),
+      ...getError(),
       SOMETHING: true,
     },
   })

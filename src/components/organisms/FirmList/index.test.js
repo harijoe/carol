@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 import FirmList from './'
 
 const list = [
@@ -8,16 +8,10 @@ const list = [
   { id: 3, name: 'firm 3' },
 ]
 
-const wrap = (props = {}) => shallow(<FirmList list={list} {...props} />)
+const wrap = (props = {}) => mount(<FirmList list={list} {...props} />)
 
-it('renders props when passed in', () => {
-  const wrapper = wrap({ id: 'foo' })
+it('renders FirmList', () => {
+  const wrapper = wrap()
 
-  expect(wrapper.find({ id: 'foo' }).length).toBeGreaterThan(0)
-})
-
-it('renders loading when passed in', () => {
-  const wrapper = wrap({ loading: true })
-
-  expect(wrapper.contains('Loading...')).toBe(true)
+  expect(wrapper.find('Mock').length).toEqual(4)
 })

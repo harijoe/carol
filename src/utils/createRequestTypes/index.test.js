@@ -11,6 +11,7 @@ describe('Service actions', () => {
 
   it('should render request types with suffix REQUEST, SUCCESS and FAILURE', () => {
     expect(createRequestTypes('TEST')).toEqual({
+      prefix: 'TEST',
       REQUEST: 'TEST_REQUEST',
       SUCCESS: 'TEST_SUCCESS',
       FAILURE: 'TEST_FAILURE',

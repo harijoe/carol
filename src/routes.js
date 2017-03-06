@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 
-import anonymousOnly from 'hoc/anonymousOnly'
-import requiresAuth from 'hoc/requiresAuth'
+import anonymousOnly from 'hoc/security/anonymousOnly'
+import requiresAuth from 'hoc/security/requiresAuth'
 import {
   App,
   FavoritePage,

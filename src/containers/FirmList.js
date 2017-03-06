@@ -35,7 +35,7 @@ class FirmListContainer extends Component {
 
 const mapStateToProps = state => ({
   list: fromFirm.getList(state),
-  loading: fromStatus.isLoading(state, FIRM_LIST),
+  loading: fromStatus.isLoading(state, FIRM_LIST.prefix),
 })
 
 const mapDispatchToProps = dispatch => ({

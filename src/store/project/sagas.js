@@ -10,6 +10,7 @@ import {
 } from './actions'
 
 export function* submitProject() {
+  // @Todo deserves a comment...
   const request = yield Math.floor((Math.random() * 2) + 1)
 
   switch (request) {

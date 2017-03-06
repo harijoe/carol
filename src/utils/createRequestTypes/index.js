@@ -13,6 +13,8 @@ export const createRequestTypes = base => (
 
     newAcc[type] = `${base}_${type}`
 
+    newAcc.prefix = base
+
     return newAcc
   }, {})
 )
