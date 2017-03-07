@@ -27,3 +27,17 @@ test('projectList', () => {
     type: actions.PROJECT_LIST.FAILURE,
   })
 })
+
+test('projectDetails', () => {
+    expect(actions.projectDetails.request()).toEqual({
+        type: actions.PROJECT_DETAILS.REQUEST,
+    })
+
+    expect(actions.projectDetails.success()).toEqual({
+        type: actions.PROJECT_DETAILS.SUCCESS,
+    })
+
+    expect(actions.projectDetails.failure()).toEqual({
+        type: actions.PROJECT_DETAILS.FAILURE,
+    })
+})

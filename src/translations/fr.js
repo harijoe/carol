@@ -60,10 +60,12 @@ const fr = {
   'project.list.heading': 'Mes projets',
   'project.list.empty': 'Aucun projet',
   'project.validate_link': 'Valider',
+  'project.transmitted_to_firms': 'Votre projet à été transmis à',
 
   'project.elaboration.submit': 'Envoyer',
   'project.elaboration.response': 'Réponse',
   'project.elaboration.title': 'Élaboration du projet',
+  'project.question': 'Question & Réponse',
 
   'user.gender': 'Sexe',
   'user.forget_password': 'Mot de passe oublié ?',

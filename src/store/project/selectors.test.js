@@ -11,3 +11,7 @@ test('getStatus', () => {
 test('getList', () => {
   expect(selectors.getList(selectors.initialState)).toEqual([])
 })
+
+test('getDetails', () => {
+  expect(selectors.getDetails(selectors.initialState, 1)).toEqual({})
+})

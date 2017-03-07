@@ -16,6 +16,7 @@ import {
   ProjectElaborationPage,
   ProfilePage,
   ProjectListPage,
+  ProjectPage,
   ProjectSubmitPage,
   ResetPasswordPage,
   SearchPage,
@@ -33,6 +34,7 @@ const routes = (
     <Route path="message" component={requiresAuth(MessagePage)} />
     <Route path="profile" component={requiresAuth(ProfilePage)} />
     <Route path="projects" component={requiresAuth(ProjectListPage)} />
+    <Route path="projects/:projectId" component={requiresAuth(ProjectPage)} />
     <Route path="project-elaboration" component={ProjectElaborationPage} />
     <Route path="reset-password" component={ResetPasswordPage} />
     <Route path="search" component={requiresAuth(SearchPage)} />
