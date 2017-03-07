@@ -40,7 +40,7 @@ const detailView = (items, ...props) => (
       <FormattedMessage id="project.question" />: { items.answers !== undefined ? Object.keys(items.answers).map(key => `${key} ':' ${items.answers[key]}`) : ''}
     </Paragraph>
     <Paragraph>
-      <FormattedMessage id="project.firms" />:
+      <FormattedMessage id="project.transmitted_to_firms" />:
     </Paragraph>
     { items.firms !== undefined ? items.firms.map(firm => <Firm items={firm} />) : ''}
   </Article>
