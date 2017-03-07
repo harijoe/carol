@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 
-import { Project } from 'components'
+import { Project, Loading } from 'components'
 
 const Wrapper = styled.div`
   & > * {
@@ -11,17 +11,20 @@ const Wrapper = styled.div`
 
 const ProjectDetails = ({ details, loading, ...props }) => (
   <Wrapper {...props}>
-    {loading && <div>Loading...</div>}
-    <Project
-      loading={loading}
-      items={details}
-      full="true"
-    />
+    <Loading loading={loading && details === null}>
+      {
+        details != null &&
+        <Project
+          items={details}
+          full
+        />
+      }
+    </Loading>
   </Wrapper>
 )
 
 ProjectDetails.propTypes = {
-  details: PropTypes.object.isRequired,
+  details: PropTypes.object,
   loading: PropTypes.bool,
 }
 

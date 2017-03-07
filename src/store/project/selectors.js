@@ -5,4 +5,4 @@ export const initialState = {
 
 export const getStatus = (state = initialState) => state.status
 export const getList = (state = initialState) => state.list
-export const getDetails = (state = initialState, id) => state[id] || {}
+export const getDetails = (state = initialState, id) => state[id] || null

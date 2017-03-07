@@ -18,6 +18,9 @@ const listView = (items, ...props) => (
     <Paragraph>
       <FormattedMessage id="project.reference" />: {items.leadReference}
     </Paragraph>
+    <Paragraph>
+      <FormattedMessage id="project.status" />: <FormattedMessage id={items.status} />
+    </Paragraph>
   </Article>
 )
 
@@ -34,7 +37,7 @@ const detailView = (items, ...props) => (
       <FormattedMessage id="project.reference" />: {items.leadReference}
     </Paragraph>
     <Paragraph>
-      <FormattedMessage id="project.status" />: <FormattedMessage id={items.status} />
+      <FormattedMessage id="project.status" />: {items.status != null && <FormattedMessage id={items.status} />}
     </Paragraph>
     <Paragraph>
       <FormattedMessage id="project.question" />: { items.answers !== undefined ? Object.keys(items.answers).map(key => `${key} ':' ${items.answers[key]}`) : ''}
@@ -42,10 +45,10 @@ const detailView = (items, ...props) => (
     <Paragraph>
       <FormattedMessage id="project.transmitted_to_firms" />:
     </Paragraph>
-    { items.firms !== undefined ? items.firms.map(firm => <Firm items={firm} />) : ''}
+    { items.firms !== undefined ? items.firms.map((firm, i) => <Firm key={i} items={firm} />) : ''}
   </Article>
 )
-const Project = ({ items, full = false, ...props }) => (full ? detailView(items, ...props) : listView(items, ...props))
+const Project = ({ items, full, ...props }) => (full ? detailView(items, ...props) : listView(items, ...props))
 
 Project.propTypes = {
   items: PropTypes.shape({
@@ -57,6 +60,11 @@ Project.propTypes = {
     answers: PropTypes.object,
     firms: PropTypes.array,
   }).isRequired,
+  full: PropTypes.bool,
+}
+
+Project.defaultProps = {
+  full: false,
 }
 
 export default Project

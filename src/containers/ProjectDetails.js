@@ -7,7 +7,7 @@ import { ProjectDetails } from 'components'
 
 class ProjectDetailsContainer extends Component {
   static propTypes = {
-    details: PropTypes.object.isRequired,
+    details: PropTypes.object,
     loading: PropTypes.bool,
     request: PropTypes.func.isRequired,
   }
@@ -25,7 +25,7 @@ class ProjectDetailsContainer extends Component {
 
 const mapStateToProps = (state, { id }) => ({
   details: fromProject.getDetails(state, id),
-  loading: fromStatus.isLoading(state, PROJECT_DETAILS),
+  loading: fromStatus.isLoading(state, PROJECT_DETAILS.prefix),
 })
 
 const mapDispatchToProps = (dispatch, { id }) => ({

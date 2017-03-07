@@ -1,4 +1,4 @@
-exports[`test renders the Project component 1`] = `
+exports[`test renders ProjectDetails 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -6,25 +6,21 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <Project
-    full={false}
-    items={
+  "node": <ProjectDetails
+    details={
         Object {
-            "createdAt": "2017-02-01",
-            "name": "test",
-            "reference": "test",
-            "updatedAt": "2017-02-01",
+            "id": "1",
+            "name": "project1",
+            "trade": "test",
           }
     } />,
   "nodes": Array [
-    <Project
-      full={false}
-      items={
+    <ProjectDetails
+      details={
             Object {
-                  "createdAt": "2017-02-01",
-                  "name": "test",
-                  "reference": "test",
-                  "updatedAt": "2017-02-01",
+                  "id": "1",
+                  "name": "project1",
+                  "trade": "test",
                 }
       } />,
   ],
@@ -174,14 +170,12 @@ ShallowWrapper {
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
         }>
-        <Project
-                full={false}
-                items={
+        <ProjectDetails
+                details={
                         Object {
-                                "createdAt": "2017-02-01",
-                                "name": "test",
-                                "reference": "test",
-                                "updatedAt": "2017-02-01",
+                                "id": "1",
+                                "name": "project1",
+                                "trade": "test",
                               }
                 } />
 </IntlProvider>,
@@ -194,14 +188,12 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <Project
-            full={false}
-            items={
+          "children": <ProjectDetails
+            details={
                         Object {
-                                    "createdAt": "2017-02-01",
-                                    "name": "test",
-                                    "reference": "test",
-                                    "updatedAt": "2017-02-01",
+                                    "id": "1",
+                                    "name": "project1",
+                                    "trade": "test",
                                   }
             } />,
           "locale": "en",
@@ -369,25 +361,21 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <Project
-          full={false}
-          items={
+        "_currentElement": <ProjectDetails
+          details={
                     Object {
-                              "createdAt": "2017-02-01",
-                              "name": "test",
-                              "reference": "test",
-                              "updatedAt": "2017-02-01",
+                              "id": "1",
+                              "name": "project1",
+                              "trade": "test",
                             }
           } />,
         "_debugID": 2,
-        "_renderedOutput": <Project
-          full={false}
-          items={
+        "_renderedOutput": <ProjectDetails
+          details={
                     Object {
-                              "createdAt": "2017-02-01",
-                              "name": "test",
-                              "reference": "test",
-                              "updatedAt": "2017-02-01",
+                              "id": "1",
+                              "name": "project1",
+                              "trade": "test",
                             }
           } />,
       },
@@ -541,14 +529,12 @@ ShallowWrapper {
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }
     }>
-    <Project
-        full={false}
-        items={
+    <ProjectDetails
+        details={
             Object {
-                "createdAt": "2017-02-01",
-                "name": "test",
-                "reference": "test",
-                "updatedAt": "2017-02-01",
+                "id": "1",
+                "name": "project1",
+                "trade": "test",
               }
         } />
 </IntlProvider>,

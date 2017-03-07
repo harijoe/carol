@@ -13,5 +13,5 @@ test('getList', () => {
 })
 
 test('getDetails', () => {
-  expect(selectors.getDetails(selectors.initialState, 1)).toEqual({})
+  expect(selectors.getDetails(selectors.initialState, 1)).toEqual(null)
 })
