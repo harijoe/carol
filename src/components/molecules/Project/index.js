@@ -19,7 +19,7 @@ const Project = ({ items, ...props }) => (
       <FormattedMessage id="project.reference" />: {items.reference}
     </Paragraph>
     <Paragraph>
-      <FormattedMessage id="project.status" />: <FormattedMessage id={`project.status.${items.status}`} />
+      <FormattedMessage id="project.status" />: <FormattedMessage id={items.status} />
     </Paragraph>
   </Article>
 )
