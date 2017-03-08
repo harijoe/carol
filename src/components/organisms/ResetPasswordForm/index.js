@@ -12,11 +12,12 @@ const Form = styled.form`
   padding: 1em;
 `
 
-const ResetPasswordForm = ({ handleSubmit, submitting, intl }) => (
+const ResetPasswordForm = ({ error, handleSubmit, submitting, intl }) => (
   <Form onSubmit={handleSubmit}>
     <Heading level={2}><FormattedMessage id="user.forgot_password.heading" /></Heading>
     <Field name="_csrf" type="hidden" component="input" />
     <Field name="token" type="hidden" component="input" />
+    {error && <FormattedMessage id={error} tagName="strong" />}
     <Field name="password" type="password" label={intl.formatMessage(messages('user.password').label)} component={RenderField} />
     <Field name="passwordValidation" type="password" label={intl.formatMessage(messages('user.confirm_password').label)} component={RenderField} />
     <Button type="submit" disabled={submitting}><FormattedMessage id="user.send" /></Button>
@@ -26,6 +27,7 @@ const ResetPasswordForm = ({ handleSubmit, submitting, intl }) => (
 ResetPasswordForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   submitting: PropTypes.bool,
+  error: PropTypes.string,
   intl: intlShape.isRequired,
 }
 

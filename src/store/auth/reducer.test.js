@@ -9,10 +9,11 @@ it('returns the initial state', () => {
 it('handles AUTH_SUCCESS', () => {
   expect(reducer(initialState, {
     type: actions.AUTH_LOGIN.SUCCESS,
-    payload: { grantType: 'password' },
+    payload: { grantType: 'password', accessToken: '123test' },
   })).toEqual({
     ...initialState,
     authenticated: true,
+    accessToken: '123test',
   })
 })
 

@@ -1,15 +1,14 @@
-import { call, fork } from 'redux-saga/effects'
-import { takeEvery } from 'redux-saga'
+import { fork, takeEvery } from 'redux-saga/effects'
 
-import fetch from 'utils/fetchSagas'
+import fetch from 'sagas/fetch'
 import { postList, POST_LIST } from './actions'
 
-export function* listPosts({ scope, tags, limit, resolve, reject }) {
-  return yield call(fetch, postList, { scope }, resolve, reject, 'get', `/posts?tag[]=${tags.join('&tag[]=')}&itemsPerPage=${limit}&order[project_date]=DESC`)
+export function* listPosts({ scope, tags, limit }) {
+  return yield* fetch(postList, { scope }, 'get', `/posts?tag[]=${tags.join('&tag[]=')}&itemsPerPage=${limit}&order[project_date]=DESC`)
 }
 
 export function* watchPostListRequest() {
-  yield call(takeEvery, POST_LIST.REQUEST, listPosts)
+  yield takeEvery(POST_LIST.REQUEST, listPosts)
 }
 
 export default function* () {

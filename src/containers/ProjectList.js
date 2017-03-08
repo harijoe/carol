@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
 import { fromProject, fromStatus } from 'store/selectors'
-import { projectList, PROJECT_LIST, setToken } from 'store/actions'
+import { projectList, PROJECT_LIST } from 'store/actions'
 
 import { ProjectList } from 'components'
 
@@ -29,11 +29,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  request: () => {
-    setToken(dispatch).then(() => {
-      dispatch(projectList.request())
-    })
-  },
+  request: () => dispatch(projectList.request()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectListContainer)

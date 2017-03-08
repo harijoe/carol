@@ -116,6 +116,7 @@ const fr = {
   'user.choose_img': 'Choississez une image',
   'user.drop_img': 'Try dropping some files here, or click to select files to upload. FR',
   'user.forgot_password.heading': 'Mot de passe oublié',
+  'user.account_updated': 'Votre compte à été mise à jour',
   'form.input.button.phone': 'Téléphone',
 
   'validators.required_field': 'Champs requis',

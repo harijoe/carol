@@ -1,29 +1,39 @@
-import { call, fork, select } from 'redux-saga/effects'
-import { takeLatest } from 'redux-saga'
+import { fork, select, put, takeLatest } from 'redux-saga/effects'
 import { fromLocale } from 'store/selectors'
-import fetch from 'utils/fetchSagas'
+import fetch from 'sagas/fetch'
+import { push } from 'react-router-redux'
+
 import { firmList, firmDetails, FIRM_LIST, FIRM_DETAILS } from './actions'
 
-export function* readFirmList({ params, resolve, reject }) {
+export function* handleReadFirmListRequest({ params }) {
   const filters = params.length > 0 ? `&${params.join('&')}` : ''
   const country = yield select(fromLocale.getCountry)
 
-  return yield call(fetch, firmList, null, resolve, reject, 'get', `/firms/search?country-code=${country}${filters}`)
+  return yield* fetch(firmList, { params }, 'get', `/firms/search?country-code=${country}${filters}`)
 }
 
-export function* readFirmDetails({ id, resolve, reject }) {
-  return yield call(fetch, firmDetails, null, resolve, reject, 'get', `/firms/${id}`)
+export function* handleReadFirmListSuccess({ params }) {
+  yield put(push(`/search-firm?${params.join('&')}`))
+}
+
+export function* readFirmDetails({ id }) {
+  return yield* fetch(firmDetails, null, 'get', `/firms/${id}`)
 }
 
 export function* watchFirmListRequest() {
-  yield call(takeLatest, FIRM_LIST.REQUEST, readFirmList)
+  yield takeLatest(FIRM_LIST.REQUEST, handleReadFirmListRequest)
+}
+
+export function* watchFirmListSuccess() {
+  yield takeLatest(FIRM_LIST.SUCCESS, handleReadFirmListSuccess)
 }
 
 export function* watchFirmDetailsRequest() {
-  yield call(takeLatest, FIRM_DETAILS.REQUEST, readFirmDetails)
+  yield takeLatest(FIRM_DETAILS.REQUEST, readFirmDetails)
 }
 
 export default function* () {
   yield fork(watchFirmDetailsRequest)
   yield fork(watchFirmListRequest)
+  yield fork(watchFirmListSuccess)
 }

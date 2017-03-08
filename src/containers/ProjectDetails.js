@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
 
 import { fromProject, fromStatus } from 'store/selectors'
-import { projectDetails, PROJECT_DETAILS, setToken } from 'store/actions'
+import { projectDetails, PROJECT_DETAILS } from 'store/actions'
 import { ProjectDetails } from 'components'
 
 class ProjectDetailsContainer extends Component {
@@ -29,12 +29,7 @@ const mapStateToProps = (state, { id }) => ({
 })
 
 const mapDispatchToProps = (dispatch, { id }) => ({
-    // @TODO: when #191 is finished
-  request: () => {
-    setToken(dispatch).then(() => {
-      dispatch(projectDetails.request(id))
-    })
-  },
+  request: () => dispatch(projectDetails.request(id)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectDetailsContainer)

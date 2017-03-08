@@ -116,6 +116,7 @@ const en = {
   'user.choose_img': 'Choose a picture',
   'user.drop_img': 'Try dropping some files here, or click to select files to upload.',
   'user.forgot_password.heading': 'Forgotten password',
+  'user.account_updated': 'Your account has been updated',
 
   'validators.required_field': 'Required field',
   'validators.min_length': 'Must be at least {min} characters',

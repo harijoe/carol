@@ -1,7 +1,6 @@
-import { put, call, fork } from 'redux-saga/effects'
-import { takeLatest } from 'redux-saga'
+import { put, fork, takeLatest } from 'redux-saga/effects'
 
-import fetch from 'utils/fetchSagas'
+import fetch from 'sagas/fetch'
 import {
   projectSubmit,
   projectList,
@@ -28,24 +27,24 @@ export function* submitProject() {
   }
 }
 
-export function* readProjectList({ resolve, reject }) {
-  return yield call(fetch, projectList, null, resolve, reject, 'get', '/projects')
+export function* readProjectList() {
+  return yield* fetch(projectList, null, 'get', '/projects')
 }
-// @TODO: when #191 is finished
-export function* readProjectDetails({ id, resolve, reject }) {
-  return yield call(fetch, projectDetails, null, resolve, reject, 'get', `/projects/${id}`)
+
+export function* readProjectDetails({ id }) {
+  return yield* fetch(projectDetails, null, 'get', `/projects/${id}`)
 }
 
 export function* watchProjectSubmitRequest() {
-  yield call(takeLatest, PROJECT_SUBMIT.REQUEST, submitProject)
+  yield takeLatest(PROJECT_SUBMIT.REQUEST, submitProject)
 }
 
 export function* watchProjectListRequest() {
-  yield call(takeLatest, PROJECT_LIST.REQUEST, readProjectList)
+  yield takeLatest(PROJECT_LIST.REQUEST, readProjectList)
 }
 
 export function* watchProjectDetailsRequest() {
-  yield call(takeLatest, PROJECT_DETAILS.REQUEST, readProjectDetails)
+  yield takeLatest(PROJECT_DETAILS.REQUEST, readProjectDetails)
 }
 
 export default function* () {

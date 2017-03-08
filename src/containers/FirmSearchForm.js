@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
 import { reduxForm } from 'redux-form'
 
 import { createValidator, required } from 'services/validation'
@@ -12,15 +11,14 @@ const FirmSearchFormContainer = props => (
   <FirmSearchForm {...props} />
 )
 
-const onSubmit = (data, dispatch) => new Promise((resolve, reject) => {
+const onSubmit = (data, dispatch) => {
   const queryParams = []
 
   if (data.homeImprovementId) { queryParams.push(`home-improvement-id=${data.homeImprovementId}`) }
   if (data.servedAreaCityCode) { queryParams.push(`served-area-city-code=${data.servedAreaCityCode}`) }
 
-  dispatch(firmList.request(queryParams, resolve, reject))
-  dispatch(push(`/search-firm?${queryParams.join('&')}`))
-})
+  dispatch(firmList.request(queryParams))
+}
 
 const validate = createValidator({
   servedAreaCityCode: [required],

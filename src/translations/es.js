@@ -115,6 +115,7 @@ const es = {
   'user.choose_img': 'Choose a picture ES',
   'user.drop_img': 'Try dropping some files here, or click to select files to upload. ES',
   'user.forgot_password.heading': 'Contraseña olvidada',
+  'user.account_updated': 'Account Updated ES',
   'form.input.button.phone': 'Phone ES',
 
   'validators.required_field': 'Required field ES',

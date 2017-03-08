@@ -1,10 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { reduxForm, SubmissionError } from 'redux-form'
+import { reduxForm } from 'redux-form'
 import { injectIntl } from 'react-intl'
-import { addNotification as notify } from 'reapop'
 
-import messages from 'utils/messages'
 import { createValidator, required, email } from 'services/validation'
 import { fromForm } from 'store/selectors'
 import { forgotPassword } from 'store/actions'
@@ -14,17 +12,7 @@ const ForgotPasswordFormContainer = props => (
   <ForgotPasswordForm {...props} />
 )
 
-const onSubmit = (data, dispatch, { intl }) => new Promise((resolve, reject) => {
-  dispatch(forgotPassword.request(data, resolve, reject))
-}).then(() => {
-  dispatch(notify({
-    title: intl.formatMessage(messages('user.thank_you').label),
-    message: intl.formatMessage(messages('user.reset_password_email').label),
-    status: 'success',
-  }))
-}).catch((e) => {
-  throw new SubmissionError({ _error: e })
-})
+const onSubmit = (data, dispatch) => dispatch(forgotPassword.request(data))
 
 const validate = createValidator({
   email: [required, email],

@@ -1,7 +1,10 @@
-import { call, fork } from 'redux-saga/effects'
-import { takeLatest } from 'redux-saga'
+import { call, fork, put, takeLatest } from 'redux-saga/effects'
+import { stopSubmit } from 'redux-form'
+import { push } from 'react-router-redux'
 
-import fetch from 'utils/fetchSagas'
+import fetch from 'sagas/fetch'
+import notify from 'sagas/notify'
+import getFormErrors from 'utils/formErrors'
 import {
     USER_CREATE,
     USER_DETAILS,
@@ -15,50 +18,126 @@ import {
     resetPassword,
 } from './actions'
 
-function* createUser({ data, resolve, reject }) {
-  return yield call(fetch, userCreate, null, resolve, reject, 'post', '/users', {}, data)
+function* handleCreateUserRequest({ data }) {
+  return yield* fetch(userCreate, null, 'post', '/users', {}, data)
 }
 
-function* setNewPassword({ data, id, resolve, reject }) {
-  return yield call(fetch, resetPassword, null, resolve, reject, 'post', `/forgot-password/${id}`, {}, data)
+function* handleCreateUserSuccess() {
+  yield* notify('user.thank_you', 'user.sign_up.confirmation')
+
+  return yield put(push('/'))
 }
 
-function* updateUser({ data, id, resolve, reject }) {
-  return yield call(fetch, userUpdate, null, resolve, reject, 'put', id, {}, data)
+function* handleCreateUserFailure({ formName, error }) {
+  return yield put(stopSubmit(formName, getFormErrors(error)))
 }
 
-function* getUser({ resolve, reject }) {
-  return yield call(fetch, userDetails, null, resolve, reject, 'get', '/users/me')
+function* handleUpdatePasswordRequest({ data, id }) {
+  return yield call(fetch, resetPassword, null, 'post', `/forgot-password/${id}`, {}, data)
 }
 
-function* requestNewPassword({ data, resolve, reject }) {
-  return yield call(fetch, forgotPassword, null, resolve, reject, 'post', '/forgot-password/', {}, data)
+function* handleUpdateUserRequest({ data, id }) {
+  return yield call(fetch, userUpdate, null, 'put', id, {}, data)
+}
+
+function* handleUpdateUserFailure({ formName, error }) {
+  return yield put(stopSubmit(formName, getFormErrors(error)))
+}
+
+function* handleUpdateUserSuccess() {
+  return yield notify('user.thank_you', 'user.account_updated')
+}
+
+function* handleGetUserRequest() {
+  return yield call(fetch, userDetails, null, 'get', '/users/me')
+}
+
+function* handleRequestNewPassword({ data }) {
+  return yield call(fetch, forgotPassword, null, 'post', '/forgot-password/', {}, data)
+}
+
+function* handleRequestNewPasswordFailure({ formName, error }) {
+  return yield put(stopSubmit(formName, { _error: error }))
+}
+
+function* handleUpdatePasswordFailure({ formName }) {
+  return yield put(stopSubmit(formName, { _error: 'server_error' }))
+}
+
+function* handleUpdatePasswordSuccess() {
+  return yield* notify('user.thank_you', 'user.reset_password_success')
+}
+
+function* handleRequestNewPasswordSuccess() {
+  return yield* notify('user.thank_you', 'user.reset_password_email')
 }
 
 function* watchRequestNewPassword() {
-  yield call(takeLatest, USER_FORGOT_PASSWORD.REQUEST, requestNewPassword)
+  yield takeLatest(USER_FORGOT_PASSWORD.REQUEST, handleRequestNewPassword)
 }
 
 function* watchCreateUserRequest() {
-  yield call(takeLatest, USER_CREATE.REQUEST, createUser)
+  yield takeLatest(USER_CREATE.REQUEST, handleCreateUserRequest)
+}
+
+function* watchCreateUserSuccess() {
+  yield takeLatest(USER_CREATE.SUCCESS, handleCreateUserSuccess)
+}
+
+function* watchCreateUserFailure() {
+  yield takeLatest(USER_CREATE.FAILURE, handleCreateUserFailure)
 }
 
 function* watchUserDetailsRequest() {
-  yield call(takeLatest, USER_DETAILS.REQUEST, getUser)
+  yield takeLatest(USER_DETAILS.REQUEST, handleGetUserRequest)
 }
 
 function* watchUpdateUserRequest() {
-  yield call(takeLatest, USER_UPDATE.REQUEST, updateUser)
+  yield takeLatest(USER_UPDATE.REQUEST, handleUpdateUserRequest)
 }
 
-function* watchUpdatePassword() {
-  yield call(takeLatest, USER_UPDATE_PASSWORD.REQUEST, setNewPassword)
+function* watchUpdateUserFailure() {
+  yield takeLatest(USER_UPDATE.FAILURE, handleUpdateUserFailure)
+}
+
+function* watchUpdateUserSuccess() {
+  yield takeLatest(USER_UPDATE.SUCCESS, handleUpdateUserSuccess)
+}
+
+function* watchUpdatePasswordRequest() {
+  yield takeLatest(USER_UPDATE_PASSWORD.REQUEST, handleUpdatePasswordRequest)
+}
+
+function* watchUpdatePasswordFailure() {
+  yield takeLatest(USER_UPDATE_PASSWORD.FAILURE, handleUpdatePasswordFailure)
+}
+
+function* watchUpdatePasswordSuccess() {
+  yield takeLatest(USER_UPDATE_PASSWORD.SUCCESS, handleUpdatePasswordSuccess)
+}
+
+function* watchRequestNewPasswordSuccess() {
+  yield takeLatest(USER_FORGOT_PASSWORD.SUCCESS, handleRequestNewPasswordSuccess)
+}
+
+function* watchRequestNewPasswordFailure() {
+  yield takeLatest(USER_FORGOT_PASSWORD.FAILURE, handleRequestNewPasswordFailure)
 }
 
 export default function* () {
-  yield fork(watchUserDetailsRequest)
-  yield fork(watchUpdateUserRequest)
-  yield fork(watchCreateUserRequest)
-  yield fork(watchUpdatePassword)
-  yield fork(watchRequestNewPassword)
+  yield [
+    fork(watchUserDetailsRequest),
+    fork(watchUpdateUserRequest),
+    fork(watchUpdateUserFailure),
+    fork(watchUpdateUserSuccess),
+    fork(watchCreateUserRequest),
+    fork(watchCreateUserSuccess),
+    fork(watchCreateUserFailure),
+    fork(watchUpdatePasswordRequest),
+    fork(watchUpdatePasswordFailure),
+    fork(watchUpdatePasswordSuccess),
+    fork(watchRequestNewPasswordSuccess),
+    fork(watchRequestNewPasswordFailure),
+    fork(watchRequestNewPassword),
+  ]
 }

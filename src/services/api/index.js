@@ -41,10 +41,6 @@ api.checkStatus = (response) => {
     })
 }
 
-// Token services
-api.setToken = token => (headers.Authorization = `Bearer ${token}`)
-api.unsetToken = () => (headers.Authorization = null)
-
 ;['delete', 'get', 'head'].forEach((method) => {
   api[method] = (url, settings) => api.request(url, method, settings)
 })

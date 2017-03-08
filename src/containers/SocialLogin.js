@@ -1,6 +1,5 @@
 import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
-import { push } from 'react-router-redux'
 import FacebookLoginBase from 'react-facebook-login'
 import GoogleLoginBase from 'react-google-login'
 
@@ -37,13 +36,7 @@ class SocialLoginContainer extends Component {
 }
 
 const mapDispatchToProps = (dispatch, { grantType }) => ({
-  request: (accessToken) => {
-    new Promise((resolve, reject) => {
-      dispatch(authLogin(grantType).request(`&access_token=${accessToken}`, resolve, reject))
-    }).then(() => {
-      dispatch(push('/'))
-    })
-  },
+  request: accessToken => dispatch(authLogin(grantType).request(`&access_token=${accessToken}`)),
 })
 
 export default connect(null, mapDispatchToProps)(SocialLoginContainer)

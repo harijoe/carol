@@ -1,12 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { reduxForm, SubmissionError } from 'redux-form'
+import { reduxForm } from 'redux-form'
 
 import { ProfileForm } from 'components'
-import { userDetails, userUpdate, setToken } from 'store/actions'
+import { userDetails, userUpdate } from 'store/actions'
 import { fromUser, fromLocale } from 'store/selectors'
 import { createValidator, required } from 'services/validation'
-import getFormErrors from 'utils/formErrors'
 import transformDate from 'utils/transformDate'
 
 class ProfileFormContainer extends Component {
@@ -53,13 +52,7 @@ const onSubmit = (values, dispatch, formInfo) => {
     delete data.imageBase64
   }
 
-  return new Promise((resolve, reject) => {
-    setToken(dispatch).then(() => {
-      dispatch(userUpdate.request(data, values['@id'], resolve, reject))
-    })
-  }).catch((e) => {
-    throw new SubmissionError(getFormErrors(e))
-  })
+  return dispatch(userUpdate.request(data, values['@id']))
 }
 
 const validate = createValidator({
@@ -83,11 +76,7 @@ export const config = {
 }
 
 const mapDispatchToProps = dispatch => ({
-  request: () => {
-    setToken(dispatch).then(() => {
-      dispatch(userDetails.request())
-    })
-  },
+  request: () => dispatch(userDetails.request()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(reduxForm(config)(ProfileFormContainer))
