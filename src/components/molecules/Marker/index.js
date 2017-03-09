@@ -9,7 +9,7 @@ const Block = styled.div`
   height: 8em;
   left: -25 / 2;
   top: -40 / 2;
-  background-color: ${props => props.theme.color.primary};
+  background-color: ${props => props.theme.colors.primary};
   text-align: center;
   color: #fff;
   font-size: 1em;
