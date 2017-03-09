@@ -11,11 +11,10 @@ const ProjectElaborationContainer = props => (
 
 const mapStateToProps = state => ({
   conversation: fromProjectElaboration.getConversation(state),
-  answered: fromProjectElaboration.getAnswered(state),
 })
 
 const mapDispatchToProps = dispatch => ({
-  reply: text => dispatch(projectElaborationReply.request(text)),
+  reply: (text, payload) => dispatch(projectElaborationReply.request(text, payload)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectElaborationContainer)

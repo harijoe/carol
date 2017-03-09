@@ -24,9 +24,9 @@ const QuickReplies = ({ quick_replies, response, reply }) => {
   }
 
   const quickRepliesList = () => (
-    quick_replies.map(({ title }, i) => (
+    quick_replies.map(({ title, payload }, i) => (
       <Item key={i}>
-        <Button onClick={() => reply(title)}>{title}</Button>
+        <Button onClick={() => reply(title, payload)}>{title}</Button>
       </Item>
     ))
   )

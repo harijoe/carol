@@ -1,7 +1,6 @@
 import uuid from 'uuid/v4'
 
 export const initialState = {
-  answered: 0,
   user: uuid(),
   conversation: [
     {
@@ -36,5 +35,4 @@ export const initialState = {
 }
 
 export const getConversation = (state = initialState) => state.conversation
-export const getAnswered = (state = initialState) => state.answered
 export const getUser = (state = initialState) => state.user

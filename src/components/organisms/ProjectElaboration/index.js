@@ -5,13 +5,17 @@ import { Block, Heading } from 'components'
 import Conversation from './Conversation'
 import Form from './Form'
 
-const ProjectElaboration = ({ conversation, reply }) => (
-  <Block>
-    <Heading><FormattedMessage id="project.elaboration.title" /></Heading>
-    <Conversation conversation={conversation} reply={reply} />
-    <Form reply={reply} disabled={conversation[conversation.length - 1].message.quick_replies !== undefined} />
-  </Block>
-)
+const ProjectElaboration = ({ conversation, reply }) => {
+  const quickReplies = conversation[conversation.length - 1].message.quick_replies
+
+  return (
+    <Block>
+      <Heading><FormattedMessage id="project.elaboration.title" /></Heading>
+      <Conversation conversation={conversation} reply={reply} />
+      <Form reply={reply} disabled={quickReplies.length !== 0} />
+    </Block>
+  )
+}
 
 ProjectElaboration.propTypes = {
   conversation: PropTypes.arrayOf(

@@ -1,17 +1,21 @@
-import { call, fork, put, select, takeEvery } from 'redux-saga/effects'
+import { fork, select, takeEvery } from 'redux-saga/effects'
 
 import { fromProjectElaboration } from 'store/selectors'
+import fetch from 'sagas/fetch'
 import { PROJECT_ELABORATION_REPLY, projectElaborationReply } from './actions'
 
-function* fetchTemporary(actions, payload) {
-  yield put(actions.success({ 'hydra:member': [{ message: { text: 'next question' } }], ...payload }))
-}
-
-function* replyProjectElaboration({ text }) {
+function* replyProjectElaboration({ text, payload = null }) {
   const user = yield select(fromProjectElaboration.getUser)
+  const response = {
+    message: {
+      text,
+      quick_reply: { payload },
+    },
+    user,
+    channel: 'project',
+  }
 
-  // todo: fetchTemporary has to be removed when api will be plugged
-  yield call(fetchTemporary, projectElaborationReply, { previousResponse: text }, 'post', '/project-elaboration', {}, { text, user })
+  yield* fetch(projectElaborationReply, null, 'post', '/chatbot', {}, response)
 }
 
 function* watchReplyRequest() {

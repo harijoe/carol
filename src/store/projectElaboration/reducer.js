@@ -1,10 +1,8 @@
 import { initialState } from './selectors'
 import { PROJECT_ELABORATION_REPLY } from './actions'
 
-const addQuestion = (conversation, questions, previousResponse) => {
-  const updatedConversation = conversation
-
-  updatedConversation[conversation.length - 1].response = previousResponse
+const addQuestions = (conversation, questions) => {
+  const updatedConversation = conversation.slice()
 
   questions.map(question => (
     updatedConversation.push({ message: question.message })
@@ -13,15 +11,25 @@ const addQuestion = (conversation, questions, previousResponse) => {
   return updatedConversation
 }
 
-export default (state = initialState, action) => {
-  const payload = action.payload
+const addResponse = (conversation, response) => {
+  const updatedConversation = conversation.slice()
 
+  updatedConversation[conversation.length - 1].response = response
+
+  return updatedConversation
+}
+
+export default (state = initialState, action) => {
   switch (action.type) {
+    case PROJECT_ELABORATION_REPLY.REQUEST:
+      return {
+        ...state,
+        conversation: addResponse(state.conversation, action.text),
+      }
     case PROJECT_ELABORATION_REPLY.SUCCESS:
       return {
         ...state,
-        answered: state.answered + 1,
-        conversation: addQuestion(state.conversation, payload['hydra:member'], payload.previousResponse),
+        conversation: addQuestions(state.conversation, Object.values(action.payload)),
       }
     default:
       return state
