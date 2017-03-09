@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { Paragraph, Link, Icon } from 'components'
 import config from 'config'
+import { theme } from 'utils/style'
 
 const Credits = styled(Paragraph)`
   text-align: center;
@@ -10,7 +11,7 @@ const Credits = styled(Paragraph)`
 `
 
 const StyledFooter = styled.div`
-  background-color: ${props => props.theme.reverseColors.grayscale[1]};
+  background-color: ${theme('reverseColors.grayscale.darker')};
   padding: 2rem;
 `
 

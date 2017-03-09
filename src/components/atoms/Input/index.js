@@ -1,20 +1,17 @@
 import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
-
-export const fontSize = ({ height }) => `${height / 35.55}rem`
+import { theme } from 'utils/style'
 
 const styles = css`
-  font-family: ${props => props.theme.fonts.primary};
   display: block;
   width: 100%;
   margin: 0;
   box-sizing: border-box;
-  font-size: ${fontSize};
   padding: 0 0.44em;
   height: 2.22em;
-  color: ${props => props.theme.colors.grayscale[0]};
-  background-color: ${props => props.theme.reverseColors.grayscale[0]};
-  border: 1px solid ${props => props.theme.colors.grayscale[3]};
+  color: ${theme('colors.grayscale.darkest')};
+  background-color: ${theme('colors.grayscale.lightest')};
+  border: 1px solid ${theme('colors.grayscale.medium')};
   border-radius: 2px;
 
   &[type=checkbox], &[type=radio] {

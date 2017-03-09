@@ -1,21 +1,17 @@
 import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
 import { Link as RouterLink } from 'react-router'
+import { theme } from 'utils/style'
 
-const styles = ({ light, kind, theme }) => {
-  const color = light ? theme.reverseColors[kind][1] : theme.colors[kind][1]
+const styles = ({ kind }) => css`
+  text-decoration: none;
+  font-weight: 500;
+  color: ${theme(`branding.${kind}`)};
 
-  return css`
-    font-family: ${theme.fonts.primary};
-    text-decoration: none;
-    font-weight: 500;
-    color: ${color};
-
-    &:hover {
-      text-decoration: underline;
-    }
-  `
-}
+  &:hover {
+    text-decoration: underline;
+  }
+`
 
 const StyledLink = styled(RouterLink)`${styles}`
 const Anchor = styled.a`${styles}`

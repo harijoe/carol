@@ -1,8 +1,8 @@
 import styled from 'styled-components'
+import { theme } from 'utils/style'
 
 const Paragraph = styled.p`
-  font-family: ${props => props.theme.fonts.primary};
-  color: ${props => props.theme.colors.grayscale[0]};
+  color: ${theme('colors.darkest')};
   font-size: 1rem;
   line-height: 1.3;
   margin: 1rem 0 0;

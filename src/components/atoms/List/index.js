@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
+import { theme } from 'utils/style'
 
 const styles = css`
-  font-family: ${props => props.theme.fonts.primary};
   margin: 1rem 0;
   padding-left: 1.6rem;
   line-height: 1.7rem;
-  color: ${props => props.theme.colors.grayscale[0]};
+  color: ${theme('colors.grayscale.darker')};
 `
 
 const Ol = styled.ol`${styles}`

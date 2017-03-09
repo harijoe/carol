@@ -1,38 +1,60 @@
-import { keyframes } from 'styled-components'
+import resetsBase from 'components/themes/resets'
+import scaffoldingBase from 'components/themes/scaffolding'
 
 const theme = {}
 
 theme.colors = {
-  primary: ['#1976d2', '#2196f3', '#71bcf7', '#c2e2fb'],
-  secondary: ['#c2185b', '#e91e63', '#f06292', '#f8bbd0'],
-  danger: ['#d32f2f', '#f44336', '#f8877f', '#ffcdd2'],
-  alert: ['#ffa000', '#ffc107', '#ffd761', '#ffecb3'],
-  success: ['#388e3c', '#4caf50', '#7cc47f', '#c8e6c9'],
-  grayscale: ['#212121', '#616161', '#9e9e9e', '#bdbdbd', '#e0e0e0', '#eeeeee', '#ffffff'],
-  quotatis: ['#3333fe'],
+  grayscale: {
+    darkest: '#131313',
+    darker: '#383838',
+    dark: '#5E5E5E',
+    medium: '#ABABAB',
+    light: '#D1D1D1',
+    lighter: '#EBEBEB',
+    lightest: '#F9F9F9',
+  },
+  primary: '#3333FE',
+  secondary: '#FDB63F',
+  white: '#FFF',
+  black: '#262626',
+  grey: '#EEE',
+  danger: '#d32f2f',
+  alert: '#ffa000',
+  success: '#388e3c',
 }
-
-theme.reverseColors = {}
-
-Object.keys(theme.colors).forEach((key) => {
-  theme.reverseColors[key] = [...theme.colors[key]].reverse()
-})
 
 theme.fonts = {
-  primary: 'Helvetica Neue, Helvetica, Roboto, sans-serif',
-  pre: 'Consolas, Liberation Mono, Menlo, Courier, monospace',
-  quote: 'Georgia, serif',
+  size: {
+    reset: '62.5%',
+    base: '1.4rem',
+    root: '1rem',
+    xs: '1rem',
+    s: '1.2rem',
+    m: '1.5rem',
+    l: '1.8rem',
+    xl: '2.4rem',
+    xxl: '3.2rem',
+    xxxl: '5rem',
+  },
 }
 
-theme.animations = {
-  rotate360: keyframes`
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  `,
+theme.spaces = {
+  xs: '.4rem',
+  s: '.8rem',
+  m: '1.6rem',
+  l: '2.5rem',
+  xl: '3.2rem',
+  xxl: '5rem',
+  xxxl: '10rem',
+}
+
+theme.breakpoints = {
+  s: '576px',
+  m: '768px',
+  l: '992px',
+  xl: '1200px',
 }
 
 export default theme
+export const resets = resetsBase
+export const scaffolding = scaffoldingBase(theme)

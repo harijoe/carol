@@ -1,9 +1,9 @@
 import { PropTypes } from 'react'
 import styled from 'styled-components'
+import { theme } from 'utils/style'
 
 const Label = styled.label`
-  font-family: ${props => props.theme.fonts.primary};
-  color: ${props => props.theme.colors.grayscale[1]};
+  color: ${theme('colors.grayscale.darker')};
   font-size: 1rem;
   line-height: 2em;
 `

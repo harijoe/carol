@@ -11,6 +11,9 @@ ShallowWrapper {
         <Mock />
     </li>
     <li>
+        <Mock />
+    </li>
+    <li>
         <Styled(Mock)
             activeClassName="active"
             onlyActiveOnIndex={true}
@@ -33,6 +36,9 @@ ShallowWrapper {
 </styled.nav>,
   "nodes": Array [
     <styled.nav>
+      <li>
+            <Mock />
+      </li>
       <li>
             <Mock />
       </li>
@@ -100,6 +106,9 @@ ShallowWrapper {
                     <Mock />
           </li>
           <li>
+                    <Mock />
+          </li>
+          <li>
                     <Styled(Mock)
                               activeClassName="active"
                               onlyActiveOnIndex={true}
@@ -122,6 +131,9 @@ ShallowWrapper {
 </styled.nav>,
         "_debugID": 2,
         "_renderedOutput": <styled.nav>
+          <li>
+                    <Mock />
+          </li>
           <li>
                     <Mock />
           </li>
@@ -175,6 +187,9 @@ ShallowWrapper {
         <Mock />
     </li>
     <li>
+        <Mock />
+    </li>
+    <li>
         <Styled(Mock)
             activeClassName="active"
             onlyActiveOnIndex={true}
@@ -194,6 +209,9 @@ ShallowWrapper {
 </styled.nav>,
   "nodes": Array [
     <styled.nav>
+      <li>
+            <Mock />
+      </li>
       <li>
             <Mock />
       </li>
@@ -258,6 +276,9 @@ ShallowWrapper {
                     <Mock />
           </li>
           <li>
+                    <Mock />
+          </li>
+          <li>
                     <Styled(Mock)
                               activeClassName="active"
                               onlyActiveOnIndex={true}
@@ -277,6 +298,9 @@ ShallowWrapper {
 </styled.nav>,
         "_debugID": 4,
         "_renderedOutput": <styled.nav>
+          <li>
+                    <Mock />
+          </li>
           <li>
                     <Mock />
           </li>

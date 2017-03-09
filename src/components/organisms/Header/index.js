@@ -3,11 +3,12 @@ import styled from 'styled-components'
 
 import { IconLink } from 'components'
 import { PrimaryNavigation } from 'containers'
+import { theme } from 'utils/style'
 
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  background-color: ${props => props.theme.colors.grayscale[0]};
+  background-color: ${theme('colors.grayscale.darker')};
   padding: 1rem;
 
   & > :not(:first-child) {
@@ -18,12 +19,7 @@ const Wrapper = styled.div`
 const StyledIconLink = styled(IconLink)`
   display: inline-block;
   transform-origin: center;
-  color: ${props => props.theme.colors.primary[1]};
-
-  &:hover {
-    color: ${props => props.theme.colors.primary[2]};
-    animation: ${props => props.theme.animations.rotate360} 5s linear infinite;
-  }
+  color: ${theme('colors.branding.primary')};
 `
 
 const Header = props => (

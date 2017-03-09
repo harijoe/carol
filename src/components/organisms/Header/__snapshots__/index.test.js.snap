@@ -7,7 +7,7 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <div
-    className="kCHiNZ">
+    className="bNrTqf">
     <Styled(Mock)
         icon="quotatis"
         size={100}
@@ -15,108 +15,60 @@ ShallowWrapper {
     <Mock
         theme={
             Object {
-                "animations": Object {
-                  "rotate360": "iVXCSc",
+                "breakpoints": Object {
+                  "l": "992px",
+                  "m": "768px",
+                  "s": "576px",
+                  "xl": "1200px",
                 },
                 "colors": Object {
-                  "alert": Array [
-                    "#ffa000",
-                    "#ffc107",
-                    "#ffd761",
-                    "#ffecb3",
-                  ],
-                  "danger": Array [
-                    "#d32f2f",
-                    "#f44336",
-                    "#f8877f",
-                    "#ffcdd2",
-                  ],
-                  "grayscale": Array [
-                    "#212121",
-                    "#616161",
-                    "#9e9e9e",
-                    "#bdbdbd",
-                    "#e0e0e0",
-                    "#eeeeee",
-                    "#ffffff",
-                  ],
-                  "primary": Array [
-                    "#1976d2",
-                    "#2196f3",
-                    "#71bcf7",
-                    "#c2e2fb",
-                  ],
-                  "quotatis": Array [
-                    "#3333fe",
-                  ],
-                  "secondary": Array [
-                    "#c2185b",
-                    "#e91e63",
-                    "#f06292",
-                    "#f8bbd0",
-                  ],
-                  "success": Array [
-                    "#388e3c",
-                    "#4caf50",
-                    "#7cc47f",
-                    "#c8e6c9",
-                  ],
+                  "alert": "#ffa000",
+                  "black": "#262626",
+                  "danger": "#d32f2f",
+                  "grayscale": Object {
+                    "dark": "#5E5E5E",
+                    "darker": "#383838",
+                    "darkest": "#131313",
+                    "light": "#D1D1D1",
+                    "lighter": "#EBEBEB",
+                    "lightest": "#F9F9F9",
+                    "medium": "#ABABAB",
+                  },
+                  "grey": "#EEE",
+                  "primary": "#3333FE",
+                  "secondary": "#FDB63F",
+                  "success": "#388e3c",
+                  "white": "#FFF",
                 },
                 "fonts": Object {
-                  "pre": "Consolas, Liberation Mono, Menlo, Courier, monospace",
-                  "primary": "Helvetica Neue, Helvetica, Roboto, sans-serif",
-                  "quote": "Georgia, serif",
+                  "size": Object {
+                    "base": "1.4rem",
+                    "l": "1.8rem",
+                    "m": "1.5rem",
+                    "reset": "62.5%",
+                    "root": "1rem",
+                    "s": "1.2rem",
+                    "xl": "2.4rem",
+                    "xs": "1rem",
+                    "xxl": "3.2rem",
+                    "xxxl": "5rem",
+                  },
                 },
-                "reverseColors": Object {
-                  "alert": Array [
-                    "#ffecb3",
-                    "#ffd761",
-                    "#ffc107",
-                    "#ffa000",
-                  ],
-                  "danger": Array [
-                    "#ffcdd2",
-                    "#f8877f",
-                    "#f44336",
-                    "#d32f2f",
-                  ],
-                  "grayscale": Array [
-                    "#ffffff",
-                    "#eeeeee",
-                    "#e0e0e0",
-                    "#bdbdbd",
-                    "#9e9e9e",
-                    "#616161",
-                    "#212121",
-                  ],
-                  "primary": Array [
-                    "#c2e2fb",
-                    "#71bcf7",
-                    "#2196f3",
-                    "#1976d2",
-                  ],
-                  "quotatis": Array [
-                    "#3333fe",
-                  ],
-                  "secondary": Array [
-                    "#f8bbd0",
-                    "#f06292",
-                    "#e91e63",
-                    "#c2185b",
-                  ],
-                  "success": Array [
-                    "#c8e6c9",
-                    "#7cc47f",
-                    "#4caf50",
-                    "#388e3c",
-                  ],
+                "spaces": Object {
+                  "l": "2.5rem",
+                  "m": "1.6rem",
+                  "s": ".8rem",
+                  "xl": "3.2rem",
+                  "xs": ".4rem",
+                  "xxl": "5rem",
+                  "xxxl": "10rem",
                 },
               }
         } />
 </div>,
   "nodes": Array [
     <div
-      className="kCHiNZ">
+      className="bNrTqf">
       <Styled(Mock)
             icon="quotatis"
             size={100}
@@ -124,101 +76,53 @@ ShallowWrapper {
       <Mock
             theme={
                   Object {
-                        "animations": Object {
-                          "rotate360": "iVXCSc",
+                        "breakpoints": Object {
+                          "l": "992px",
+                          "m": "768px",
+                          "s": "576px",
+                          "xl": "1200px",
                         },
                         "colors": Object {
-                          "alert": Array [
-                            "#ffa000",
-                            "#ffc107",
-                            "#ffd761",
-                            "#ffecb3",
-                          ],
-                          "danger": Array [
-                            "#d32f2f",
-                            "#f44336",
-                            "#f8877f",
-                            "#ffcdd2",
-                          ],
-                          "grayscale": Array [
-                            "#212121",
-                            "#616161",
-                            "#9e9e9e",
-                            "#bdbdbd",
-                            "#e0e0e0",
-                            "#eeeeee",
-                            "#ffffff",
-                          ],
-                          "primary": Array [
-                            "#1976d2",
-                            "#2196f3",
-                            "#71bcf7",
-                            "#c2e2fb",
-                          ],
-                          "quotatis": Array [
-                            "#3333fe",
-                          ],
-                          "secondary": Array [
-                            "#c2185b",
-                            "#e91e63",
-                            "#f06292",
-                            "#f8bbd0",
-                          ],
-                          "success": Array [
-                            "#388e3c",
-                            "#4caf50",
-                            "#7cc47f",
-                            "#c8e6c9",
-                          ],
+                          "alert": "#ffa000",
+                          "black": "#262626",
+                          "danger": "#d32f2f",
+                          "grayscale": Object {
+                            "dark": "#5E5E5E",
+                            "darker": "#383838",
+                            "darkest": "#131313",
+                            "light": "#D1D1D1",
+                            "lighter": "#EBEBEB",
+                            "lightest": "#F9F9F9",
+                            "medium": "#ABABAB",
+                          },
+                          "grey": "#EEE",
+                          "primary": "#3333FE",
+                          "secondary": "#FDB63F",
+                          "success": "#388e3c",
+                          "white": "#FFF",
                         },
                         "fonts": Object {
-                          "pre": "Consolas, Liberation Mono, Menlo, Courier, monospace",
-                          "primary": "Helvetica Neue, Helvetica, Roboto, sans-serif",
-                          "quote": "Georgia, serif",
+                          "size": Object {
+                            "base": "1.4rem",
+                            "l": "1.8rem",
+                            "m": "1.5rem",
+                            "reset": "62.5%",
+                            "root": "1rem",
+                            "s": "1.2rem",
+                            "xl": "2.4rem",
+                            "xs": "1rem",
+                            "xxl": "3.2rem",
+                            "xxxl": "5rem",
+                          },
                         },
-                        "reverseColors": Object {
-                          "alert": Array [
-                            "#ffecb3",
-                            "#ffd761",
-                            "#ffc107",
-                            "#ffa000",
-                          ],
-                          "danger": Array [
-                            "#ffcdd2",
-                            "#f8877f",
-                            "#f44336",
-                            "#d32f2f",
-                          ],
-                          "grayscale": Array [
-                            "#ffffff",
-                            "#eeeeee",
-                            "#e0e0e0",
-                            "#bdbdbd",
-                            "#9e9e9e",
-                            "#616161",
-                            "#212121",
-                          ],
-                          "primary": Array [
-                            "#c2e2fb",
-                            "#71bcf7",
-                            "#2196f3",
-                            "#1976d2",
-                          ],
-                          "quotatis": Array [
-                            "#3333fe",
-                          ],
-                          "secondary": Array [
-                            "#f8bbd0",
-                            "#f06292",
-                            "#e91e63",
-                            "#c2185b",
-                          ],
-                          "success": Array [
-                            "#c8e6c9",
-                            "#7cc47f",
-                            "#4caf50",
-                            "#388e3c",
-                          ],
+                        "spaces": Object {
+                          "l": "2.5rem",
+                          "m": "1.6rem",
+                          "s": ".8rem",
+                          "xl": "3.2rem",
+                          "xs": ".4rem",
+                          "xxl": "5rem",
+                          "xxxl": "10rem",
                         },
                       }
             } />
@@ -233,101 +137,53 @@ ShallowWrapper {
       "_currentElement": <styled.div
         theme={
                 Object {
-                        "animations": Object {
-                          "rotate360": "iVXCSc",
+                        "breakpoints": Object {
+                          "l": "992px",
+                          "m": "768px",
+                          "s": "576px",
+                          "xl": "1200px",
                         },
                         "colors": Object {
-                          "alert": Array [
-                            "#ffa000",
-                            "#ffc107",
-                            "#ffd761",
-                            "#ffecb3",
-                          ],
-                          "danger": Array [
-                            "#d32f2f",
-                            "#f44336",
-                            "#f8877f",
-                            "#ffcdd2",
-                          ],
-                          "grayscale": Array [
-                            "#212121",
-                            "#616161",
-                            "#9e9e9e",
-                            "#bdbdbd",
-                            "#e0e0e0",
-                            "#eeeeee",
-                            "#ffffff",
-                          ],
-                          "primary": Array [
-                            "#1976d2",
-                            "#2196f3",
-                            "#71bcf7",
-                            "#c2e2fb",
-                          ],
-                          "quotatis": Array [
-                            "#3333fe",
-                          ],
-                          "secondary": Array [
-                            "#c2185b",
-                            "#e91e63",
-                            "#f06292",
-                            "#f8bbd0",
-                          ],
-                          "success": Array [
-                            "#388e3c",
-                            "#4caf50",
-                            "#7cc47f",
-                            "#c8e6c9",
-                          ],
+                          "alert": "#ffa000",
+                          "black": "#262626",
+                          "danger": "#d32f2f",
+                          "grayscale": Object {
+                            "dark": "#5E5E5E",
+                            "darker": "#383838",
+                            "darkest": "#131313",
+                            "light": "#D1D1D1",
+                            "lighter": "#EBEBEB",
+                            "lightest": "#F9F9F9",
+                            "medium": "#ABABAB",
+                          },
+                          "grey": "#EEE",
+                          "primary": "#3333FE",
+                          "secondary": "#FDB63F",
+                          "success": "#388e3c",
+                          "white": "#FFF",
                         },
                         "fonts": Object {
-                          "pre": "Consolas, Liberation Mono, Menlo, Courier, monospace",
-                          "primary": "Helvetica Neue, Helvetica, Roboto, sans-serif",
-                          "quote": "Georgia, serif",
+                          "size": Object {
+                            "base": "1.4rem",
+                            "l": "1.8rem",
+                            "m": "1.5rem",
+                            "reset": "62.5%",
+                            "root": "1rem",
+                            "s": "1.2rem",
+                            "xl": "2.4rem",
+                            "xs": "1rem",
+                            "xxl": "3.2rem",
+                            "xxxl": "5rem",
+                          },
                         },
-                        "reverseColors": Object {
-                          "alert": Array [
-                            "#ffecb3",
-                            "#ffd761",
-                            "#ffc107",
-                            "#ffa000",
-                          ],
-                          "danger": Array [
-                            "#ffcdd2",
-                            "#f8877f",
-                            "#f44336",
-                            "#d32f2f",
-                          ],
-                          "grayscale": Array [
-                            "#ffffff",
-                            "#eeeeee",
-                            "#e0e0e0",
-                            "#bdbdbd",
-                            "#9e9e9e",
-                            "#616161",
-                            "#212121",
-                          ],
-                          "primary": Array [
-                            "#c2e2fb",
-                            "#71bcf7",
-                            "#2196f3",
-                            "#1976d2",
-                          ],
-                          "quotatis": Array [
-                            "#3333fe",
-                          ],
-                          "secondary": Array [
-                            "#f8bbd0",
-                            "#f06292",
-                            "#e91e63",
-                            "#c2185b",
-                          ],
-                          "success": Array [
-                            "#c8e6c9",
-                            "#7cc47f",
-                            "#4caf50",
-                            "#388e3c",
-                          ],
+                        "spaces": Object {
+                          "l": "2.5rem",
+                          "m": "1.6rem",
+                          "s": ".8rem",
+                          "xl": "3.2rem",
+                          "xs": ".4rem",
+                          "xxl": "5rem",
+                          "xxxl": "10rem",
                         },
                       }
         }>
@@ -338,101 +194,53 @@ ShallowWrapper {
         <Mock
                 theme={
                         Object {
-                                "animations": Object {
-                                  "rotate360": "iVXCSc",
+                                "breakpoints": Object {
+                                  "l": "992px",
+                                  "m": "768px",
+                                  "s": "576px",
+                                  "xl": "1200px",
                                 },
                                 "colors": Object {
-                                  "alert": Array [
-                                    "#ffa000",
-                                    "#ffc107",
-                                    "#ffd761",
-                                    "#ffecb3",
-                                  ],
-                                  "danger": Array [
-                                    "#d32f2f",
-                                    "#f44336",
-                                    "#f8877f",
-                                    "#ffcdd2",
-                                  ],
-                                  "grayscale": Array [
-                                    "#212121",
-                                    "#616161",
-                                    "#9e9e9e",
-                                    "#bdbdbd",
-                                    "#e0e0e0",
-                                    "#eeeeee",
-                                    "#ffffff",
-                                  ],
-                                  "primary": Array [
-                                    "#1976d2",
-                                    "#2196f3",
-                                    "#71bcf7",
-                                    "#c2e2fb",
-                                  ],
-                                  "quotatis": Array [
-                                    "#3333fe",
-                                  ],
-                                  "secondary": Array [
-                                    "#c2185b",
-                                    "#e91e63",
-                                    "#f06292",
-                                    "#f8bbd0",
-                                  ],
-                                  "success": Array [
-                                    "#388e3c",
-                                    "#4caf50",
-                                    "#7cc47f",
-                                    "#c8e6c9",
-                                  ],
+                                  "alert": "#ffa000",
+                                  "black": "#262626",
+                                  "danger": "#d32f2f",
+                                  "grayscale": Object {
+                                    "dark": "#5E5E5E",
+                                    "darker": "#383838",
+                                    "darkest": "#131313",
+                                    "light": "#D1D1D1",
+                                    "lighter": "#EBEBEB",
+                                    "lightest": "#F9F9F9",
+                                    "medium": "#ABABAB",
+                                  },
+                                  "grey": "#EEE",
+                                  "primary": "#3333FE",
+                                  "secondary": "#FDB63F",
+                                  "success": "#388e3c",
+                                  "white": "#FFF",
                                 },
                                 "fonts": Object {
-                                  "pre": "Consolas, Liberation Mono, Menlo, Courier, monospace",
-                                  "primary": "Helvetica Neue, Helvetica, Roboto, sans-serif",
-                                  "quote": "Georgia, serif",
+                                  "size": Object {
+                                    "base": "1.4rem",
+                                    "l": "1.8rem",
+                                    "m": "1.5rem",
+                                    "reset": "62.5%",
+                                    "root": "1rem",
+                                    "s": "1.2rem",
+                                    "xl": "2.4rem",
+                                    "xs": "1rem",
+                                    "xxl": "3.2rem",
+                                    "xxxl": "5rem",
+                                  },
                                 },
-                                "reverseColors": Object {
-                                  "alert": Array [
-                                    "#ffecb3",
-                                    "#ffd761",
-                                    "#ffc107",
-                                    "#ffa000",
-                                  ],
-                                  "danger": Array [
-                                    "#ffcdd2",
-                                    "#f8877f",
-                                    "#f44336",
-                                    "#d32f2f",
-                                  ],
-                                  "grayscale": Array [
-                                    "#ffffff",
-                                    "#eeeeee",
-                                    "#e0e0e0",
-                                    "#bdbdbd",
-                                    "#9e9e9e",
-                                    "#616161",
-                                    "#212121",
-                                  ],
-                                  "primary": Array [
-                                    "#c2e2fb",
-                                    "#71bcf7",
-                                    "#2196f3",
-                                    "#1976d2",
-                                  ],
-                                  "quotatis": Array [
-                                    "#3333fe",
-                                  ],
-                                  "secondary": Array [
-                                    "#f8bbd0",
-                                    "#f06292",
-                                    "#e91e63",
-                                    "#c2185b",
-                                  ],
-                                  "success": Array [
-                                    "#c8e6c9",
-                                    "#7cc47f",
-                                    "#4caf50",
-                                    "#388e3c",
-                                  ],
+                                "spaces": Object {
+                                  "l": "2.5rem",
+                                  "m": "1.6rem",
+                                  "s": ".8rem",
+                                  "xl": "3.2rem",
+                                  "xs": ".4rem",
+                                  "xxl": "5rem",
+                                  "xxxl": "10rem",
                                 },
                               }
                 } />
@@ -454,303 +262,159 @@ ShallowWrapper {
             <Mock
               theme={
                             Object {
-                                          "animations": Object {
-                                            "rotate360": "iVXCSc",
+                                          "breakpoints": Object {
+                                            "l": "992px",
+                                            "m": "768px",
+                                            "s": "576px",
+                                            "xl": "1200px",
                                           },
                                           "colors": Object {
-                                            "alert": Array [
-                                              "#ffa000",
-                                              "#ffc107",
-                                              "#ffd761",
-                                              "#ffecb3",
-                                            ],
-                                            "danger": Array [
-                                              "#d32f2f",
-                                              "#f44336",
-                                              "#f8877f",
-                                              "#ffcdd2",
-                                            ],
-                                            "grayscale": Array [
-                                              "#212121",
-                                              "#616161",
-                                              "#9e9e9e",
-                                              "#bdbdbd",
-                                              "#e0e0e0",
-                                              "#eeeeee",
-                                              "#ffffff",
-                                            ],
-                                            "primary": Array [
-                                              "#1976d2",
-                                              "#2196f3",
-                                              "#71bcf7",
-                                              "#c2e2fb",
-                                            ],
-                                            "quotatis": Array [
-                                              "#3333fe",
-                                            ],
-                                            "secondary": Array [
-                                              "#c2185b",
-                                              "#e91e63",
-                                              "#f06292",
-                                              "#f8bbd0",
-                                            ],
-                                            "success": Array [
-                                              "#388e3c",
-                                              "#4caf50",
-                                              "#7cc47f",
-                                              "#c8e6c9",
-                                            ],
+                                            "alert": "#ffa000",
+                                            "black": "#262626",
+                                            "danger": "#d32f2f",
+                                            "grayscale": Object {
+                                              "dark": "#5E5E5E",
+                                              "darker": "#383838",
+                                              "darkest": "#131313",
+                                              "light": "#D1D1D1",
+                                              "lighter": "#EBEBEB",
+                                              "lightest": "#F9F9F9",
+                                              "medium": "#ABABAB",
+                                            },
+                                            "grey": "#EEE",
+                                            "primary": "#3333FE",
+                                            "secondary": "#FDB63F",
+                                            "success": "#388e3c",
+                                            "white": "#FFF",
                                           },
                                           "fonts": Object {
-                                            "pre": "Consolas, Liberation Mono, Menlo, Courier, monospace",
-                                            "primary": "Helvetica Neue, Helvetica, Roboto, sans-serif",
-                                            "quote": "Georgia, serif",
+                                            "size": Object {
+                                              "base": "1.4rem",
+                                              "l": "1.8rem",
+                                              "m": "1.5rem",
+                                              "reset": "62.5%",
+                                              "root": "1rem",
+                                              "s": "1.2rem",
+                                              "xl": "2.4rem",
+                                              "xs": "1rem",
+                                              "xxl": "3.2rem",
+                                              "xxxl": "5rem",
+                                            },
                                           },
-                                          "reverseColors": Object {
-                                            "alert": Array [
-                                              "#ffecb3",
-                                              "#ffd761",
-                                              "#ffc107",
-                                              "#ffa000",
-                                            ],
-                                            "danger": Array [
-                                              "#ffcdd2",
-                                              "#f8877f",
-                                              "#f44336",
-                                              "#d32f2f",
-                                            ],
-                                            "grayscale": Array [
-                                              "#ffffff",
-                                              "#eeeeee",
-                                              "#e0e0e0",
-                                              "#bdbdbd",
-                                              "#9e9e9e",
-                                              "#616161",
-                                              "#212121",
-                                            ],
-                                            "primary": Array [
-                                              "#c2e2fb",
-                                              "#71bcf7",
-                                              "#2196f3",
-                                              "#1976d2",
-                                            ],
-                                            "quotatis": Array [
-                                              "#3333fe",
-                                            ],
-                                            "secondary": Array [
-                                              "#f8bbd0",
-                                              "#f06292",
-                                              "#e91e63",
-                                              "#c2185b",
-                                            ],
-                                            "success": Array [
-                                              "#c8e6c9",
-                                              "#7cc47f",
-                                              "#4caf50",
-                                              "#388e3c",
-                                            ],
+                                          "spaces": Object {
+                                            "l": "2.5rem",
+                                            "m": "1.6rem",
+                                            "s": ".8rem",
+                                            "xl": "3.2rem",
+                                            "xs": ".4rem",
+                                            "xxl": "5rem",
+                                            "xxxl": "10rem",
                                           },
                                         }
               } />,
           ],
           "theme": Object {
-            "animations": Object {
-              "rotate360": "iVXCSc",
+            "breakpoints": Object {
+              "l": "992px",
+              "m": "768px",
+              "s": "576px",
+              "xl": "1200px",
             },
             "colors": Object {
-              "alert": Array [
-                "#ffa000",
-                "#ffc107",
-                "#ffd761",
-                "#ffecb3",
-              ],
-              "danger": Array [
-                "#d32f2f",
-                "#f44336",
-                "#f8877f",
-                "#ffcdd2",
-              ],
-              "grayscale": Array [
-                "#212121",
-                "#616161",
-                "#9e9e9e",
-                "#bdbdbd",
-                "#e0e0e0",
-                "#eeeeee",
-                "#ffffff",
-              ],
-              "primary": Array [
-                "#1976d2",
-                "#2196f3",
-                "#71bcf7",
-                "#c2e2fb",
-              ],
-              "quotatis": Array [
-                "#3333fe",
-              ],
-              "secondary": Array [
-                "#c2185b",
-                "#e91e63",
-                "#f06292",
-                "#f8bbd0",
-              ],
-              "success": Array [
-                "#388e3c",
-                "#4caf50",
-                "#7cc47f",
-                "#c8e6c9",
-              ],
+              "alert": "#ffa000",
+              "black": "#262626",
+              "danger": "#d32f2f",
+              "grayscale": Object {
+                "dark": "#5E5E5E",
+                "darker": "#383838",
+                "darkest": "#131313",
+                "light": "#D1D1D1",
+                "lighter": "#EBEBEB",
+                "lightest": "#F9F9F9",
+                "medium": "#ABABAB",
+              },
+              "grey": "#EEE",
+              "primary": "#3333FE",
+              "secondary": "#FDB63F",
+              "success": "#388e3c",
+              "white": "#FFF",
             },
             "fonts": Object {
-              "pre": "Consolas, Liberation Mono, Menlo, Courier, monospace",
-              "primary": "Helvetica Neue, Helvetica, Roboto, sans-serif",
-              "quote": "Georgia, serif",
+              "size": Object {
+                "base": "1.4rem",
+                "l": "1.8rem",
+                "m": "1.5rem",
+                "reset": "62.5%",
+                "root": "1rem",
+                "s": "1.2rem",
+                "xl": "2.4rem",
+                "xs": "1rem",
+                "xxl": "3.2rem",
+                "xxxl": "5rem",
+              },
             },
-            "reverseColors": Object {
-              "alert": Array [
-                "#ffecb3",
-                "#ffd761",
-                "#ffc107",
-                "#ffa000",
-              ],
-              "danger": Array [
-                "#ffcdd2",
-                "#f8877f",
-                "#f44336",
-                "#d32f2f",
-              ],
-              "grayscale": Array [
-                "#ffffff",
-                "#eeeeee",
-                "#e0e0e0",
-                "#bdbdbd",
-                "#9e9e9e",
-                "#616161",
-                "#212121",
-              ],
-              "primary": Array [
-                "#c2e2fb",
-                "#71bcf7",
-                "#2196f3",
-                "#1976d2",
-              ],
-              "quotatis": Array [
-                "#3333fe",
-              ],
-              "secondary": Array [
-                "#f8bbd0",
-                "#f06292",
-                "#e91e63",
-                "#c2185b",
-              ],
-              "success": Array [
-                "#c8e6c9",
-                "#7cc47f",
-                "#4caf50",
-                "#388e3c",
-              ],
+            "spaces": Object {
+              "l": "2.5rem",
+              "m": "1.6rem",
+              "s": ".8rem",
+              "xl": "3.2rem",
+              "xs": ".4rem",
+              "xxl": "5rem",
+              "xxxl": "10rem",
             },
           },
         },
         "refs": Object {},
         "state": Object {
-          "generatedClassName": "kCHiNZ",
+          "generatedClassName": "bNrTqf",
           "theme": Object {
-            "animations": Object {
-              "rotate360": "iVXCSc",
+            "breakpoints": Object {
+              "l": "992px",
+              "m": "768px",
+              "s": "576px",
+              "xl": "1200px",
             },
             "colors": Object {
-              "alert": Array [
-                "#ffa000",
-                "#ffc107",
-                "#ffd761",
-                "#ffecb3",
-              ],
-              "danger": Array [
-                "#d32f2f",
-                "#f44336",
-                "#f8877f",
-                "#ffcdd2",
-              ],
-              "grayscale": Array [
-                "#212121",
-                "#616161",
-                "#9e9e9e",
-                "#bdbdbd",
-                "#e0e0e0",
-                "#eeeeee",
-                "#ffffff",
-              ],
-              "primary": Array [
-                "#1976d2",
-                "#2196f3",
-                "#71bcf7",
-                "#c2e2fb",
-              ],
-              "quotatis": Array [
-                "#3333fe",
-              ],
-              "secondary": Array [
-                "#c2185b",
-                "#e91e63",
-                "#f06292",
-                "#f8bbd0",
-              ],
-              "success": Array [
-                "#388e3c",
-                "#4caf50",
-                "#7cc47f",
-                "#c8e6c9",
-              ],
+              "alert": "#ffa000",
+              "black": "#262626",
+              "danger": "#d32f2f",
+              "grayscale": Object {
+                "dark": "#5E5E5E",
+                "darker": "#383838",
+                "darkest": "#131313",
+                "light": "#D1D1D1",
+                "lighter": "#EBEBEB",
+                "lightest": "#F9F9F9",
+                "medium": "#ABABAB",
+              },
+              "grey": "#EEE",
+              "primary": "#3333FE",
+              "secondary": "#FDB63F",
+              "success": "#388e3c",
+              "white": "#FFF",
             },
             "fonts": Object {
-              "pre": "Consolas, Liberation Mono, Menlo, Courier, monospace",
-              "primary": "Helvetica Neue, Helvetica, Roboto, sans-serif",
-              "quote": "Georgia, serif",
+              "size": Object {
+                "base": "1.4rem",
+                "l": "1.8rem",
+                "m": "1.5rem",
+                "reset": "62.5%",
+                "root": "1rem",
+                "s": "1.2rem",
+                "xl": "2.4rem",
+                "xs": "1rem",
+                "xxl": "3.2rem",
+                "xxxl": "5rem",
+              },
             },
-            "reverseColors": Object {
-              "alert": Array [
-                "#ffecb3",
-                "#ffd761",
-                "#ffc107",
-                "#ffa000",
-              ],
-              "danger": Array [
-                "#ffcdd2",
-                "#f8877f",
-                "#f44336",
-                "#d32f2f",
-              ],
-              "grayscale": Array [
-                "#ffffff",
-                "#eeeeee",
-                "#e0e0e0",
-                "#bdbdbd",
-                "#9e9e9e",
-                "#616161",
-                "#212121",
-              ],
-              "primary": Array [
-                "#c2e2fb",
-                "#71bcf7",
-                "#2196f3",
-                "#1976d2",
-              ],
-              "quotatis": Array [
-                "#3333fe",
-              ],
-              "secondary": Array [
-                "#f8bbd0",
-                "#f06292",
-                "#e91e63",
-                "#c2185b",
-              ],
-              "success": Array [
-                "#c8e6c9",
-                "#7cc47f",
-                "#4caf50",
-                "#388e3c",
-              ],
+            "spaces": Object {
+              "l": "2.5rem",
+              "m": "1.6rem",
+              "s": ".8rem",
+              "xl": "3.2rem",
+              "xs": ".4rem",
+              "xxl": "5rem",
+              "xxxl": "10rem",
             },
           },
         },
@@ -773,7 +437,7 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <div
-          className="kCHiNZ">
+          className="bNrTqf">
           <Styled(Mock)
                     icon="quotatis"
                     size={100}
@@ -781,108 +445,60 @@ ShallowWrapper {
           <Mock
                     theme={
                               Object {
-                                        "animations": Object {
-                                          "rotate360": "iVXCSc",
+                                        "breakpoints": Object {
+                                          "l": "992px",
+                                          "m": "768px",
+                                          "s": "576px",
+                                          "xl": "1200px",
                                         },
                                         "colors": Object {
-                                          "alert": Array [
-                                            "#ffa000",
-                                            "#ffc107",
-                                            "#ffd761",
-                                            "#ffecb3",
-                                          ],
-                                          "danger": Array [
-                                            "#d32f2f",
-                                            "#f44336",
-                                            "#f8877f",
-                                            "#ffcdd2",
-                                          ],
-                                          "grayscale": Array [
-                                            "#212121",
-                                            "#616161",
-                                            "#9e9e9e",
-                                            "#bdbdbd",
-                                            "#e0e0e0",
-                                            "#eeeeee",
-                                            "#ffffff",
-                                          ],
-                                          "primary": Array [
-                                            "#1976d2",
-                                            "#2196f3",
-                                            "#71bcf7",
-                                            "#c2e2fb",
-                                          ],
-                                          "quotatis": Array [
-                                            "#3333fe",
-                                          ],
-                                          "secondary": Array [
-                                            "#c2185b",
-                                            "#e91e63",
-                                            "#f06292",
-                                            "#f8bbd0",
-                                          ],
-                                          "success": Array [
-                                            "#388e3c",
-                                            "#4caf50",
-                                            "#7cc47f",
-                                            "#c8e6c9",
-                                          ],
+                                          "alert": "#ffa000",
+                                          "black": "#262626",
+                                          "danger": "#d32f2f",
+                                          "grayscale": Object {
+                                            "dark": "#5E5E5E",
+                                            "darker": "#383838",
+                                            "darkest": "#131313",
+                                            "light": "#D1D1D1",
+                                            "lighter": "#EBEBEB",
+                                            "lightest": "#F9F9F9",
+                                            "medium": "#ABABAB",
+                                          },
+                                          "grey": "#EEE",
+                                          "primary": "#3333FE",
+                                          "secondary": "#FDB63F",
+                                          "success": "#388e3c",
+                                          "white": "#FFF",
                                         },
                                         "fonts": Object {
-                                          "pre": "Consolas, Liberation Mono, Menlo, Courier, monospace",
-                                          "primary": "Helvetica Neue, Helvetica, Roboto, sans-serif",
-                                          "quote": "Georgia, serif",
+                                          "size": Object {
+                                            "base": "1.4rem",
+                                            "l": "1.8rem",
+                                            "m": "1.5rem",
+                                            "reset": "62.5%",
+                                            "root": "1rem",
+                                            "s": "1.2rem",
+                                            "xl": "2.4rem",
+                                            "xs": "1rem",
+                                            "xxl": "3.2rem",
+                                            "xxxl": "5rem",
+                                          },
                                         },
-                                        "reverseColors": Object {
-                                          "alert": Array [
-                                            "#ffecb3",
-                                            "#ffd761",
-                                            "#ffc107",
-                                            "#ffa000",
-                                          ],
-                                          "danger": Array [
-                                            "#ffcdd2",
-                                            "#f8877f",
-                                            "#f44336",
-                                            "#d32f2f",
-                                          ],
-                                          "grayscale": Array [
-                                            "#ffffff",
-                                            "#eeeeee",
-                                            "#e0e0e0",
-                                            "#bdbdbd",
-                                            "#9e9e9e",
-                                            "#616161",
-                                            "#212121",
-                                          ],
-                                          "primary": Array [
-                                            "#c2e2fb",
-                                            "#71bcf7",
-                                            "#2196f3",
-                                            "#1976d2",
-                                          ],
-                                          "quotatis": Array [
-                                            "#3333fe",
-                                          ],
-                                          "secondary": Array [
-                                            "#f8bbd0",
-                                            "#f06292",
-                                            "#e91e63",
-                                            "#c2185b",
-                                          ],
-                                          "success": Array [
-                                            "#c8e6c9",
-                                            "#7cc47f",
-                                            "#4caf50",
-                                            "#388e3c",
-                                          ],
+                                        "spaces": Object {
+                                          "l": "2.5rem",
+                                          "m": "1.6rem",
+                                          "s": ".8rem",
+                                          "xl": "3.2rem",
+                                          "xs": ".4rem",
+                                          "xxl": "5rem",
+                                          "xxxl": "10rem",
                                         },
                                       }
                     } />
 </div>,
         "_debugID": 4,
         "_renderedOutput": <div
-          className="kCHiNZ">
+          className="bNrTqf">
           <Styled(Mock)
                     icon="quotatis"
                     size={100}
@@ -890,101 +506,53 @@ ShallowWrapper {
           <Mock
                     theme={
                               Object {
-                                        "animations": Object {
-                                          "rotate360": "iVXCSc",
+                                        "breakpoints": Object {
+                                          "l": "992px",
+                                          "m": "768px",
+                                          "s": "576px",
+                                          "xl": "1200px",
                                         },
                                         "colors": Object {
-                                          "alert": Array [
-                                            "#ffa000",
-                                            "#ffc107",
-                                            "#ffd761",
-                                            "#ffecb3",
-                                          ],
-                                          "danger": Array [
-                                            "#d32f2f",
-                                            "#f44336",
-                                            "#f8877f",
-                                            "#ffcdd2",
-                                          ],
-                                          "grayscale": Array [
-                                            "#212121",
-                                            "#616161",
-                                            "#9e9e9e",
-                                            "#bdbdbd",
-                                            "#e0e0e0",
-                                            "#eeeeee",
-                                            "#ffffff",
-                                          ],
-                                          "primary": Array [
-                                            "#1976d2",
-                                            "#2196f3",
-                                            "#71bcf7",
-                                            "#c2e2fb",
-                                          ],
-                                          "quotatis": Array [
-                                            "#3333fe",
-                                          ],
-                                          "secondary": Array [
-                                            "#c2185b",
-                                            "#e91e63",
-                                            "#f06292",
-                                            "#f8bbd0",
-                                          ],
-                                          "success": Array [
-                                            "#388e3c",
-                                            "#4caf50",
-                                            "#7cc47f",
-                                            "#c8e6c9",
-                                          ],
+                                          "alert": "#ffa000",
+                                          "black": "#262626",
+                                          "danger": "#d32f2f",
+                                          "grayscale": Object {
+                                            "dark": "#5E5E5E",
+                                            "darker": "#383838",
+                                            "darkest": "#131313",
+                                            "light": "#D1D1D1",
+                                            "lighter": "#EBEBEB",
+                                            "lightest": "#F9F9F9",
+                                            "medium": "#ABABAB",
+                                          },
+                                          "grey": "#EEE",
+                                          "primary": "#3333FE",
+                                          "secondary": "#FDB63F",
+                                          "success": "#388e3c",
+                                          "white": "#FFF",
                                         },
                                         "fonts": Object {
-                                          "pre": "Consolas, Liberation Mono, Menlo, Courier, monospace",
-                                          "primary": "Helvetica Neue, Helvetica, Roboto, sans-serif",
-                                          "quote": "Georgia, serif",
+                                          "size": Object {
+                                            "base": "1.4rem",
+                                            "l": "1.8rem",
+                                            "m": "1.5rem",
+                                            "reset": "62.5%",
+                                            "root": "1rem",
+                                            "s": "1.2rem",
+                                            "xl": "2.4rem",
+                                            "xs": "1rem",
+                                            "xxl": "3.2rem",
+                                            "xxxl": "5rem",
+                                          },
                                         },
-                                        "reverseColors": Object {
-                                          "alert": Array [
-                                            "#ffecb3",
-                                            "#ffd761",
-                                            "#ffc107",
-                                            "#ffa000",
-                                          ],
-                                          "danger": Array [
-                                            "#ffcdd2",
-                                            "#f8877f",
-                                            "#f44336",
-                                            "#d32f2f",
-                                          ],
-                                          "grayscale": Array [
-                                            "#ffffff",
-                                            "#eeeeee",
-                                            "#e0e0e0",
-                                            "#bdbdbd",
-                                            "#9e9e9e",
-                                            "#616161",
-                                            "#212121",
-                                          ],
-                                          "primary": Array [
-                                            "#c2e2fb",
-                                            "#71bcf7",
-                                            "#2196f3",
-                                            "#1976d2",
-                                          ],
-                                          "quotatis": Array [
-                                            "#3333fe",
-                                          ],
-                                          "secondary": Array [
-                                            "#f8bbd0",
-                                            "#f06292",
-                                            "#e91e63",
-                                            "#c2185b",
-                                          ],
-                                          "success": Array [
-                                            "#c8e6c9",
-                                            "#7cc47f",
-                                            "#4caf50",
-                                            "#388e3c",
-                                          ],
+                                        "spaces": Object {
+                                          "l": "2.5rem",
+                                          "m": "1.6rem",
+                                          "s": ".8rem",
+                                          "xl": "3.2rem",
+                                          "xs": ".4rem",
+                                          "xxl": "5rem",
+                                          "xxxl": "10rem",
                                         },
                                       }
                     } />
@@ -1003,101 +571,53 @@ ShallowWrapper {
   "unrendered": <styled.div
     theme={
         Object {
-            "animations": Object {
-              "rotate360": "iVXCSc",
+            "breakpoints": Object {
+              "l": "992px",
+              "m": "768px",
+              "s": "576px",
+              "xl": "1200px",
             },
             "colors": Object {
-              "alert": Array [
-                "#ffa000",
-                "#ffc107",
-                "#ffd761",
-                "#ffecb3",
-              ],
-              "danger": Array [
-                "#d32f2f",
-                "#f44336",
-                "#f8877f",
-                "#ffcdd2",
-              ],
-              "grayscale": Array [
-                "#212121",
-                "#616161",
-                "#9e9e9e",
-                "#bdbdbd",
-                "#e0e0e0",
-                "#eeeeee",
-                "#ffffff",
-              ],
-              "primary": Array [
-                "#1976d2",
-                "#2196f3",
-                "#71bcf7",
-                "#c2e2fb",
-              ],
-              "quotatis": Array [
-                "#3333fe",
-              ],
-              "secondary": Array [
-                "#c2185b",
-                "#e91e63",
-                "#f06292",
-                "#f8bbd0",
-              ],
-              "success": Array [
-                "#388e3c",
-                "#4caf50",
-                "#7cc47f",
-                "#c8e6c9",
-              ],
+              "alert": "#ffa000",
+              "black": "#262626",
+              "danger": "#d32f2f",
+              "grayscale": Object {
+                "dark": "#5E5E5E",
+                "darker": "#383838",
+                "darkest": "#131313",
+                "light": "#D1D1D1",
+                "lighter": "#EBEBEB",
+                "lightest": "#F9F9F9",
+                "medium": "#ABABAB",
+              },
+              "grey": "#EEE",
+              "primary": "#3333FE",
+              "secondary": "#FDB63F",
+              "success": "#388e3c",
+              "white": "#FFF",
             },
             "fonts": Object {
-              "pre": "Consolas, Liberation Mono, Menlo, Courier, monospace",
-              "primary": "Helvetica Neue, Helvetica, Roboto, sans-serif",
-              "quote": "Georgia, serif",
+              "size": Object {
+                "base": "1.4rem",
+                "l": "1.8rem",
+                "m": "1.5rem",
+                "reset": "62.5%",
+                "root": "1rem",
+                "s": "1.2rem",
+                "xl": "2.4rem",
+                "xs": "1rem",
+                "xxl": "3.2rem",
+                "xxxl": "5rem",
+              },
             },
-            "reverseColors": Object {
-              "alert": Array [
-                "#ffecb3",
-                "#ffd761",
-                "#ffc107",
-                "#ffa000",
-              ],
-              "danger": Array [
-                "#ffcdd2",
-                "#f8877f",
-                "#f44336",
-                "#d32f2f",
-              ],
-              "grayscale": Array [
-                "#ffffff",
-                "#eeeeee",
-                "#e0e0e0",
-                "#bdbdbd",
-                "#9e9e9e",
-                "#616161",
-                "#212121",
-              ],
-              "primary": Array [
-                "#c2e2fb",
-                "#71bcf7",
-                "#2196f3",
-                "#1976d2",
-              ],
-              "quotatis": Array [
-                "#3333fe",
-              ],
-              "secondary": Array [
-                "#f8bbd0",
-                "#f06292",
-                "#e91e63",
-                "#c2185b",
-              ],
-              "success": Array [
-                "#c8e6c9",
-                "#7cc47f",
-                "#4caf50",
-                "#388e3c",
-              ],
+            "spaces": Object {
+              "l": "2.5rem",
+              "m": "1.6rem",
+              "s": ".8rem",
+              "xl": "3.2rem",
+              "xs": ".4rem",
+              "xxl": "5rem",
+              "xxxl": "10rem",
             },
           }
     }>
@@ -1108,101 +628,53 @@ ShallowWrapper {
     <Mock
         theme={
             Object {
-                "animations": Object {
-                  "rotate360": "iVXCSc",
+                "breakpoints": Object {
+                  "l": "992px",
+                  "m": "768px",
+                  "s": "576px",
+                  "xl": "1200px",
                 },
                 "colors": Object {
-                  "alert": Array [
-                    "#ffa000",
-                    "#ffc107",
-                    "#ffd761",
-                    "#ffecb3",
-                  ],
-                  "danger": Array [
-                    "#d32f2f",
-                    "#f44336",
-                    "#f8877f",
-                    "#ffcdd2",
-                  ],
-                  "grayscale": Array [
-                    "#212121",
-                    "#616161",
-                    "#9e9e9e",
-                    "#bdbdbd",
-                    "#e0e0e0",
-                    "#eeeeee",
-                    "#ffffff",
-                  ],
-                  "primary": Array [
-                    "#1976d2",
-                    "#2196f3",
-                    "#71bcf7",
-                    "#c2e2fb",
-                  ],
-                  "quotatis": Array [
-                    "#3333fe",
-                  ],
-                  "secondary": Array [
-                    "#c2185b",
-                    "#e91e63",
-                    "#f06292",
-                    "#f8bbd0",
-                  ],
-                  "success": Array [
-                    "#388e3c",
-                    "#4caf50",
-                    "#7cc47f",
-                    "#c8e6c9",
-                  ],
+                  "alert": "#ffa000",
+                  "black": "#262626",
+                  "danger": "#d32f2f",
+                  "grayscale": Object {
+                    "dark": "#5E5E5E",
+                    "darker": "#383838",
+                    "darkest": "#131313",
+                    "light": "#D1D1D1",
+                    "lighter": "#EBEBEB",
+                    "lightest": "#F9F9F9",
+                    "medium": "#ABABAB",
+                  },
+                  "grey": "#EEE",
+                  "primary": "#3333FE",
+                  "secondary": "#FDB63F",
+                  "success": "#388e3c",
+                  "white": "#FFF",
                 },
                 "fonts": Object {
-                  "pre": "Consolas, Liberation Mono, Menlo, Courier, monospace",
-                  "primary": "Helvetica Neue, Helvetica, Roboto, sans-serif",
-                  "quote": "Georgia, serif",
+                  "size": Object {
+                    "base": "1.4rem",
+                    "l": "1.8rem",
+                    "m": "1.5rem",
+                    "reset": "62.5%",
+                    "root": "1rem",
+                    "s": "1.2rem",
+                    "xl": "2.4rem",
+                    "xs": "1rem",
+                    "xxl": "3.2rem",
+                    "xxxl": "5rem",
+                  },
                 },
-                "reverseColors": Object {
-                  "alert": Array [
-                    "#ffecb3",
-                    "#ffd761",
-                    "#ffc107",
-                    "#ffa000",
-                  ],
-                  "danger": Array [
-                    "#ffcdd2",
-                    "#f8877f",
-                    "#f44336",
-                    "#d32f2f",
-                  ],
-                  "grayscale": Array [
-                    "#ffffff",
-                    "#eeeeee",
-                    "#e0e0e0",
-                    "#bdbdbd",
-                    "#9e9e9e",
-                    "#616161",
-                    "#212121",
-                  ],
-                  "primary": Array [
-                    "#c2e2fb",
-                    "#71bcf7",
-                    "#2196f3",
-                    "#1976d2",
-                  ],
-                  "quotatis": Array [
-                    "#3333fe",
-                  ],
-                  "secondary": Array [
-                    "#f8bbd0",
-                    "#f06292",
-                    "#e91e63",
-                    "#c2185b",
-                  ],
-                  "success": Array [
-                    "#c8e6c9",
-                    "#7cc47f",
-                    "#4caf50",
-                    "#388e3c",
-                  ],
+                "spaces": Object {
+                  "l": "2.5rem",
+                  "m": "1.6rem",
+                  "s": ".8rem",
+                  "xl": "3.2rem",
+                  "xs": ".4rem",
+                  "xxl": "5rem",
+                  "xxxl": "10rem",
                 },
               }
         } />

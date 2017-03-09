@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
-
-import { Link } from 'components'
+import { theme } from 'utils/style'
+import { Link, BurgerButton } from 'components'
 import { BurgerMenu, DropDownMenu, AccountMenu, CountryMenu } from 'containers'
 import SignInDropDownMenu from './SignInDropDownMenu'
 
@@ -17,11 +17,11 @@ const Nav = styled.nav`
 
 const StyledLink = styled(Link)`
   font-weight: 300;
-  color: ${props => props.theme.reverseColors.grayscale[3]};
+  color: ${theme('reverseColors.grayscale.medium')};
   font-size: 1.25rem;
 
   &.active {
-    color: ${props => props.theme.reverseColors.grayscale[0]};
+    color: ${theme('reverseColors.grayscale.lightest')};
   }
 `
 
@@ -33,6 +33,7 @@ StyledSignInDropDownMenu.displayName = 'SignInDropDownMenu'
 
 const PrimaryNavigation = ({ isAuthenticated, ...props }) => (
   <Nav>
+    <li><BurgerButton /></li>
     <li><BurgerMenu /></li>
     <li>
       <StyledLink to="/" onlyActiveOnIndex activeClassName="active">
