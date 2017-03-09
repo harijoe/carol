@@ -14,10 +14,9 @@
     "lint": "eslint src",
     "lint:css": "stylelint 'src/components/**/*.js'",
     "clean": "del 'dist/!(.git*|Procfile)**'",
-    "copy": "copyfiles -u 1 public/* public/**/* dist",
-    "build:development": "yarn run clean && yarn run copy && cross-env NODE_ENV=development webpack --config webpack/dev.config",
-    "build:staging": "yarn run clean && yarn run copy && cross-env NODE_ENV=staging webpack --config webpack/prod.config",
-    "build:production": "yarn run clean && yarn run copy && cross-env NODE_ENV=production webpack --config webpack/prod.config"
+    "build:development": "yarn run clean copy && cross-env NODE_ENV=development webpack --config webpack/dev.config",
+    "build:staging": "yarn run clean && cross-env NODE_ENV=staging webpack --config webpack/prod.config",
+    "build:production": "yarn run clean && cross-env NODE_ENV=production webpack --config webpack/prod.config"
   },
   "repository": {
     "type": "git",

@@ -14,13 +14,7 @@ const config = {
     },
     styles: {
       extensions: ['css'],
-      filter(module, regular_expression, options, log) {
-        if (options.development) {
-          return WebpackIsomorphicToolsPlugin.style_loader_filter(module, regular_expression, options, log)
-        }
-
-        return null
-      },
+      filter: WebpackIsomorphicToolsPlugin.style_loader_filter,
       path: WebpackIsomorphicToolsPlugin.style_loader_path_extractor,
       parser: WebpackIsomorphicToolsPlugin.css_loader_parser,
     },
