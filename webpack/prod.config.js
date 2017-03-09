@@ -9,9 +9,8 @@ const assetsPath = path.resolve(projectRootPath, './build')
 
 const plugins = [
   new CleanPlugin([assetsPath], { root: projectRootPath }),
-  new ExtractTextPlugin('[name].[chunkhash].css', { allChunks: true }),
-  new webpack.optimize.DedupePlugin(),
-  new webpack.optimize.OccurenceOrderPlugin(),
+  new ExtractTextPlugin({ filename: '[name].[chunkhash].css', allChunks: true }),
+  new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }),
   new WebpackIsomorphicToolsPlugin(require('./webpack-isomorphic-tools')),
 ]
