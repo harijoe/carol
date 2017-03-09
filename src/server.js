@@ -21,7 +21,6 @@ global.window = require('utils/windowOrGlobal')
 global.navigator = { userAgent: 'all' }
 
 const router = new Router()
-let ssrPort = port
 
 router.use((req, res, next) => {
   if (env === 'development') {
@@ -86,7 +85,7 @@ router.use((req, res, next) => {
       const styles = styleSheet.rules().map(rule => rule.cssText).join('\n')
       const initialState = providedStore.getState()
       const assets = global.webpackIsomorphicTools.assets()
-      const state = `window.INITIAL_STATE = ${serialize(initialState)}`
+      const state = `window.__INITIAL_STATE__ = ${serialize(initialState)}`
       const markup = <Html {...{ styles, assets, state, content, lang }} />
       const doctype = '<!doctype html>\n'
       const html = renderToStaticMarkup(markup)
@@ -106,15 +105,11 @@ router.use((req, res, next) => {
 
 const app = express(router)
 
-if (env === 'development') {
-  ssrPort = port + 1
-}
-
-app.listen(ssrPort, (error) => {
+app.listen(port, (error) => {
   if (error) {
     console.error(error)
   } else {
-    console.info(`Listening on http://${ip}:${ssrPort}`)
+    console.info(`Server listening on https://${ip}:${port}`)
   }
 })
 

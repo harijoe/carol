@@ -19,6 +19,7 @@ class ProjectSubmitFormContainer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    // eslint-disable-next-line react/prop-types
     const type = (nextProps.status) ? 'success' : 'failed'
     const { intl: { formatMessage } } = nextProps
 
@@ -28,6 +29,7 @@ class ProjectSubmitFormContainer extends Component {
       status: type,
     })
 
+    // eslint-disable-next-line react/prop-types
     if (nextProps.status) { this.props.redirectTo('/projects') }
   }
 

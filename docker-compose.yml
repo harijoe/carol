@@ -10,7 +10,7 @@ services:
         - .:/app
         - /app/node_modules
       ports:
-        - "80:80"
+        - "443:443"
         - "49152:49152" # livereload
 
 networks:

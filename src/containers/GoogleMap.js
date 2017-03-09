@@ -19,6 +19,7 @@ class GoogleMapContainer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    // eslint-disable-next-line react/prop-types
     this.updateMarkers(nextProps.list)
   }
 

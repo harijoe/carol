@@ -7,7 +7,6 @@ import { addLocaleData } from 'react-intl'
 import fr from 'react-intl/locale-data/fr'
 import en from 'react-intl/locale-data/en'
 import es from 'react-intl/locale-data/es'
-import injectTapEventPlugin from 'react-tap-event-plugin'
 
 import resets from 'components/themes/resets'
 import defaultTheme from '../../themes/default'
@@ -50,8 +49,6 @@ const notificationsDefaultValues = {
   allowHTML: true,
   closeButton: false,
 }
-
-injectTapEventPlugin()
 
 const PageTemplate = ({ header, children, footer, ...props }) => (
   <MuiThemeProvider>

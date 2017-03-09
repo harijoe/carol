@@ -2,6 +2,7 @@ const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin')
 
 const config = {
   webpack_assets_file_path: 'webpack/webpack-assets.json',
+  webpack_stats_file_path: 'webpack/webpack-stats.json',
   assets: {
     images: {
       extensions: ['jpeg', 'jpg', 'png', 'gif', 'svg'],
@@ -13,7 +14,13 @@ const config = {
     },
     styles: {
       extensions: ['css'],
-      filter: WebpackIsomorphicToolsPlugin.style_loader_filter,
+      filter(module, regular_expression, options, log) {
+        if (options.development) {
+          return WebpackIsomorphicToolsPlugin.style_loader_filter(module, regular_expression, options, log)
+        }
+
+        return null
+      },
       path: WebpackIsomorphicToolsPlugin.style_loader_path_extractor,
       parser: WebpackIsomorphicToolsPlugin.css_loader_parser,
     },

@@ -1,18 +1,20 @@
 import merge from 'lodash/merge'
 
+const browser = typeof window !== 'undefined'
 const ip = (typeof process.env.IP !== 'undefined' && process.env.IP.toString()) || '0.0.0.0'
-const port = process.env.PORT || 80
-const apiIp = (typeof process.env.API_IP !== 'undefined' && process.env.API_IP.toString()) || ip
-const apiPort = process.env.API_PORT || 8080
+const port = process.env.PORT || 443
+const basename = `/${process.env.PUBLIC_PATH || ''}`.replace('//', '/') // Accepts: '/', '/path', 'path', undefined
 
 const config = {
   all: {
     env: (typeof process.env.NODE_ENV !== 'undefined' && process.env.NODE_ENV.toString()) || 'development',
-    baseUrl: `http://${ip}:${port}`,
+    baseUrl: `https://${ip}:${port}`,
     ip,
     port,
+    basename,
+    browser,
     api: {
-      url: `http://${apiIp}:${apiPort}/app_dev.php`,
+      url: 'https://api-dev.qarx.io:8080/app_dev.php',
       clientId: '4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k',
       clientSecret: '4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc',
     },
@@ -37,19 +39,19 @@ const config = {
     defaultLocale: 'en_GB',
     locales: {
       fr_FR: {
-        url: 'http://carol-fr.dev.quotatis.net',
+        url: 'https://carol-fr-dev.qarx.io',
         proUrl: 'https://www.quotatispro.fr',
         contentUrl: 'https://fr.content.hugo.preprod.qarx.io/',
         countryLabel: 'country.france',
       },
       es_ES: {
-        url: 'http://carol-es.dev.quotatis.net',
+        url: 'https://carol-es-dev.qarx.io',
         proUrl: 'https://www.quotatispro.es',
         contentUrl: 'https://es.content.hugo.preprod.qarx.io/',
         countryLabel: 'country.spain',
       },
       en_GB: {
-        url: 'http://carol-co-uk.dev.quotatis.net',
+        url: 'https://carol-co-uk-dev.qarx.io',
         proUrl: 'https://www.quotatispro.co.uk',
         contentUrl: 'https://uk.content.hugo.preprod.qarx.io/',
         countryLabel: 'country.great_britain',

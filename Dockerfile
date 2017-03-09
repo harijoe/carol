@@ -21,6 +21,6 @@ RUN if [ -n "$INSTALL_DEP" ]; then \
     fi;
 
 
-EXPOSE 80 443
+EXPOSE 443
 
 CMD ["/app/docker/run.sh"]

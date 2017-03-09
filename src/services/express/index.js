@@ -7,7 +7,7 @@ import bodyParser from 'body-parser'
 import path from 'path'
 import https from 'https'
 import fs from 'fs'
-import { ssl } from 'config'
+import { ssl, env, ip, port } from 'config'
 
 const root = path.join(__dirname, '../../..')
 
@@ -26,6 +26,29 @@ export default (routes) => {
   app.use(bodyParser.urlencoded({ extended: false }))
   app.use(bodyParser.json())
   app.use(routes)
+
+  if (env === 'development') {
+    const webpack = require('webpack')
+    const webpackConfig = require('../../../webpack/dev.config')
+
+    const compiler = webpack(webpackConfig)
+    const serverOptions = {
+      contentBase: `https://${ip}:${port}`,
+      quiet: true,
+      noInfo: true,
+      https: true,
+      hot: true,
+      inline: true,
+      lazy: false,
+      historyApiFallback: true,
+      publicPath: webpackConfig.output.publicPath,
+      headers: { 'Access-Control-Allow-Origin': '*' },
+      stats: { colors: true },
+    }
+
+    app.use(require('webpack-dev-middleware')(compiler, serverOptions))
+    app.use(require('webpack-hot-middleware')(compiler))
+  }
 
   const server = https.createServer({
     key: fs.readFileSync(path.join(root, ssl.privateKey)),

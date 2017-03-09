@@ -19,6 +19,7 @@ class DropDownMenu extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    // eslint-disable-next-line react/prop-types
     const locationBeforeTransitions = nextProps.routing.locationBeforeTransitions
 
     if (['PUSH', 'REPLACE'].indexOf(locationBeforeTransitions.action) !== -1) {
