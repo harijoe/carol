@@ -1,7 +1,5 @@
-import uuid from 'uuid/v4'
-
 export const initialState = {
-  user: uuid(),
+  user: null,
   conversation: [
     {
       message: { text: 'C\'est embetant mais nous allons devoir recommencer...' },

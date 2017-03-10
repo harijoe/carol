@@ -12,7 +12,7 @@ export function* handleAuthLoginRequest({ grantType = 'client_credentials', form
   const token = yield cookie.load('access_token')
 
   if (credentials === '' && token != null) {
-    return null
+    return yield put(authLogin(grantType, formName).success({ access_token: token }))
   }
 
   const url = `/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api.clientSecret}&grant_type=${grantType}${credentials}`

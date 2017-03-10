@@ -6,13 +6,14 @@ import { Provider } from 'react-redux'
 import { createMemoryHistory, RouterContext, match } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { Router } from 'express'
+import uuid from 'uuid/v4'
 import express from 'services/express'
 import routes from 'routes'
 import configureStore from 'store/configure'
 import { env, port, ip } from 'config'
 import isAuthenticated from 'utils/auth'
 import Html from 'components/Html'
-import { setCountry, setLang, setAuthenticated } from 'store/actions'
+import { setCountry, setLang, setAccessToken, setAuthenticated, setProjectElaborationUser } from 'store/actions'
 import { getLocaleFromHostname, getLangFromLocale, getCountryFromLocale } from 'utils/locale'
 import reactCookie from 'react-cookie'
 
@@ -69,12 +70,15 @@ router.use((req, res, next) => {
 
       providedStore.dispatch(setLang(lang))
       providedStore.dispatch(setCountry(country))
+      providedStore.dispatch(setProjectElaborationUser(uuid()))
 
       // Initialize auth from cookies
       reactCookie.plugToRequest(req, res)
       const grantType = reactCookie.load('grant_type')
+      const accessToken = reactCookie.load('access_token') || null
 
       providedStore.dispatch(setAuthenticated(isAuthenticated(grantType)))
+      providedStore.dispatch(setAccessToken(accessToken))
 
       const content = renderToString(
         <Provider store={providedStore}>

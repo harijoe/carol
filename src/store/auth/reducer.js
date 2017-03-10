@@ -1,6 +1,6 @@
 import isAuthenticated from 'utils/auth'
 import { initialState } from './selectors'
-import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_SET_AUTHENTICATED } from './actions'
+import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_SET_AUTHENTICATED, AUTH_SET_ACCESS_TOKEN } from './actions'
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -17,6 +17,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         authenticated: action.payload,
+      }
+    }
+    case AUTH_SET_ACCESS_TOKEN: {
+      return {
+        ...state,
+        accessToken: action.payload,
       }
     }
     case AUTH_LOGOUT: {

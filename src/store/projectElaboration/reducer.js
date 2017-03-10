@@ -1,5 +1,5 @@
 import { initialState } from './selectors'
-import { PROJECT_ELABORATION_REPLY } from './actions'
+import { PROJECT_ELABORATION_REPLY, PROJECT_ELABORATION_SET_USER } from './actions'
 
 const addQuestions = (conversation, questions) => {
   const updatedConversation = conversation.slice()
@@ -30,6 +30,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         conversation: addQuestions(state.conversation, Object.values(action.payload)),
+      }
+    case PROJECT_ELABORATION_SET_USER:
+      return {
+        ...state,
+        user: action.payload,
       }
     default:
       return state
