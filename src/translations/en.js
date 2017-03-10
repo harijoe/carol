@@ -61,11 +61,13 @@ const en = {
   'project.list.empty': 'No project yet',
   'project.validate_link': 'Validate',
   'project.transmitted_to_firms': 'Your project is transmitted to ES',
+  'project.question': 'Question & Answers',
 
   'project.elaboration.submit': 'Submit',
   'project.elaboration.response': 'Response',
   'project.elaboration.title': 'Project Elaboration',
-  'project.question': 'Question & Answers',
+  'project.elaboration.reset': 'Reset',
+  'project.elaboration.back': 'Back',
 
   'user.gender': 'Gender',
   'user.forget_password': 'Forget password ?',

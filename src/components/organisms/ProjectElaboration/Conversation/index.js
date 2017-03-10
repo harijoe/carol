@@ -46,11 +46,15 @@ class Conversation extends Component {
           conversation.map((field, index) => (
             <div key={index}>
               <Question question={field.message.text} />
-              <QuickReplies
-                quick_replies={field.message.quick_replies}
-                reply={reply}
-                response={field.response}
-              />
+              {
+                conversation.length - 1 === index ?
+                  <QuickReplies
+                    quick_replies={field.message.quick_replies}
+                    reply={reply}
+                    response={field.response}
+                  />
+                  : null
+              }
               <Response response={field.response} />
             </div>
           ))

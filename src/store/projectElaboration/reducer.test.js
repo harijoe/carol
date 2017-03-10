@@ -45,8 +45,8 @@ it('returns the initial state', () => {
 
 it('handles PROJECT_ELABORATION_REPLY_REQUEST', () => {
   const action = {
-    type: actions.PROJECT_ELABORATION_REPLY.REQUEST,
-    text: 'response',
+    type: actions.PROJECT_ELABORATION_SET_RESPONSE,
+    payload: 'response',
   }
 
   const expected = {

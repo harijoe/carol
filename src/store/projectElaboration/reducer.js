@@ -1,5 +1,5 @@
 import { initialState } from './selectors'
-import { PROJECT_ELABORATION_REPLY, PROJECT_ELABORATION_SET_USER } from './actions'
+import { PROJECT_ELABORATION_REPLY, PROJECT_ELABORATION_SET_USER, PROJECT_ELABORATION_SET_RESPONSE } from './actions'
 
 const addQuestions = (conversation, questions) => {
   const updatedConversation = conversation.slice()
@@ -21,10 +21,10 @@ const addResponse = (conversation, response) => {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case PROJECT_ELABORATION_REPLY.REQUEST:
+    case PROJECT_ELABORATION_SET_RESPONSE:
       return {
         ...state,
-        conversation: addResponse(state.conversation, action.text),
+        conversation: addResponse(state.conversation, action.payload),
       }
     case PROJECT_ELABORATION_REPLY.SUCCESS:
       return {

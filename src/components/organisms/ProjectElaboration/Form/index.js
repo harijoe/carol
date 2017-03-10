@@ -41,6 +41,12 @@ class Form extends Component {
           autoFocus
           innerRef={(field) => { this.field = field }}
         />
+        <Button onClick={() => submit({ response: 'FLOW_RESET' })}>
+          <FormattedMessage id="project.elaboration.reset" tagName="span" />
+        </Button>
+        <Button onClick={() => submit({ response: 'FLOW_BACK' })}>
+          <FormattedMessage id="project.elaboration.back" tagName="span" />
+        </Button>
         <Button disabled={pristine || submitting} type="submit">
           <FormattedMessage id="project.elaboration.submit" tagName="span" />
         </Button>
