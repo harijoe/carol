@@ -5,8 +5,7 @@ import { theme } from 'utils/style'
 
 const styles = ({ kind }) => css`
   text-decoration: none;
-  font-weight: 500;
-  color: ${theme(`branding.${kind}`)};
+  color: ${theme(`colors.${kind}`)};
 
   &:hover {
     text-decoration: underline;
@@ -31,7 +30,7 @@ Link.propTypes = {
 }
 
 Link.defaultProps = {
-  kind: 'primary',
+  kind: 'secondary',
 }
 
 export default Link

@@ -40,6 +40,16 @@ ShallowWrapper {
                   "success": "#388e3c",
                   "white": "#FFF",
                 },
+                "flexboxgrid": Object {
+                  "breakpoints": Object {
+                    "lg": 62,
+                    "md": 48,
+                    "sm": 36,
+                    "xs": 0,
+                  },
+                  "gutterWidth": 1.6,
+                  "outerMargin": 1.6,
+                },
                 "fonts": Object {
                   "size": Object {
                     "base": "1.4rem",
@@ -100,6 +110,16 @@ ShallowWrapper {
                           "secondary": "#FDB63F",
                           "success": "#388e3c",
                           "white": "#FFF",
+                        },
+                        "flexboxgrid": Object {
+                          "breakpoints": Object {
+                            "lg": 62,
+                            "md": 48,
+                            "sm": 36,
+                            "xs": 0,
+                          },
+                          "gutterWidth": 1.6,
+                          "outerMargin": 1.6,
                         },
                         "fonts": Object {
                           "size": Object {
@@ -162,6 +182,16 @@ ShallowWrapper {
                           "success": "#388e3c",
                           "white": "#FFF",
                         },
+                        "flexboxgrid": Object {
+                          "breakpoints": Object {
+                            "lg": 62,
+                            "md": 48,
+                            "sm": 36,
+                            "xs": 0,
+                          },
+                          "gutterWidth": 1.6,
+                          "outerMargin": 1.6,
+                        },
                         "fonts": Object {
                           "size": Object {
                             "base": "1.4rem",
@@ -218,6 +248,16 @@ ShallowWrapper {
                                   "secondary": "#FDB63F",
                                   "success": "#388e3c",
                                   "white": "#FFF",
+                                },
+                                "flexboxgrid": Object {
+                                  "breakpoints": Object {
+                                    "lg": 62,
+                                    "md": 48,
+                                    "sm": 36,
+                                    "xs": 0,
+                                  },
+                                  "gutterWidth": 1.6,
+                                  "outerMargin": 1.6,
                                 },
                                 "fonts": Object {
                                   "size": Object {
@@ -287,6 +327,16 @@ ShallowWrapper {
                                             "success": "#388e3c",
                                             "white": "#FFF",
                                           },
+                                          "flexboxgrid": Object {
+                                            "breakpoints": Object {
+                                              "lg": 62,
+                                              "md": 48,
+                                              "sm": 36,
+                                              "xs": 0,
+                                            },
+                                            "gutterWidth": 1.6,
+                                            "outerMargin": 1.6,
+                                          },
                                           "fonts": Object {
                                             "size": Object {
                                               "base": "1.4rem",
@@ -338,6 +388,16 @@ ShallowWrapper {
               "secondary": "#FDB63F",
               "success": "#388e3c",
               "white": "#FFF",
+            },
+            "flexboxgrid": Object {
+              "breakpoints": Object {
+                "lg": 62,
+                "md": 48,
+                "sm": 36,
+                "xs": 0,
+              },
+              "gutterWidth": 1.6,
+              "outerMargin": 1.6,
             },
             "fonts": Object {
               "size": Object {
@@ -392,6 +452,16 @@ ShallowWrapper {
               "secondary": "#FDB63F",
               "success": "#388e3c",
               "white": "#FFF",
+            },
+            "flexboxgrid": Object {
+              "breakpoints": Object {
+                "lg": 62,
+                "md": 48,
+                "sm": 36,
+                "xs": 0,
+              },
+              "gutterWidth": 1.6,
+              "outerMargin": 1.6,
             },
             "fonts": Object {
               "size": Object {
@@ -470,6 +540,16 @@ ShallowWrapper {
                                           "success": "#388e3c",
                                           "white": "#FFF",
                                         },
+                                        "flexboxgrid": Object {
+                                          "breakpoints": Object {
+                                            "lg": 62,
+                                            "md": 48,
+                                            "sm": 36,
+                                            "xs": 0,
+                                          },
+                                          "gutterWidth": 1.6,
+                                          "outerMargin": 1.6,
+                                        },
                                         "fonts": Object {
                                           "size": Object {
                                             "base": "1.4rem",
@@ -530,6 +610,16 @@ ShallowWrapper {
                                           "secondary": "#FDB63F",
                                           "success": "#388e3c",
                                           "white": "#FFF",
+                                        },
+                                        "flexboxgrid": Object {
+                                          "breakpoints": Object {
+                                            "lg": 62,
+                                            "md": 48,
+                                            "sm": 36,
+                                            "xs": 0,
+                                          },
+                                          "gutterWidth": 1.6,
+                                          "outerMargin": 1.6,
                                         },
                                         "fonts": Object {
                                           "size": Object {
@@ -596,6 +686,16 @@ ShallowWrapper {
               "success": "#388e3c",
               "white": "#FFF",
             },
+            "flexboxgrid": Object {
+              "breakpoints": Object {
+                "lg": 62,
+                "md": 48,
+                "sm": 36,
+                "xs": 0,
+              },
+              "gutterWidth": 1.6,
+              "outerMargin": 1.6,
+            },
             "fonts": Object {
               "size": Object {
                 "base": "1.4rem",
@@ -652,6 +752,16 @@ ShallowWrapper {
                   "secondary": "#FDB63F",
                   "success": "#388e3c",
                   "white": "#FFF",
+                },
+                "flexboxgrid": Object {
+                  "breakpoints": Object {
+                    "lg": 62,
+                    "md": 48,
+                    "sm": 36,
+                    "xs": 0,
+                  },
+                  "gutterWidth": 1.6,
+                  "outerMargin": 1.6,
                 },
                 "fonts": Object {
                   "size": Object {

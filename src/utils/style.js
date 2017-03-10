@@ -7,6 +7,11 @@ import { injectGlobal, css } from 'styled-components'
 export const theme = key => props => get(props.theme, key)
 
 /*
+  Same as theme, removing units
+ */
+export const raw = key => props => get(props.theme, key).replace(/\s*(em|px|%|rem|vw|vh|pt)$/, '')
+
+/*
   Merges multiple template literals
  */
 // eslint-disable-next-line no-param-reassign

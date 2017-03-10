@@ -55,6 +55,19 @@ theme.breakpoints = {
   xl: '1200px',
 }
 
+// @TODO refacto react-styled-flexboxgrid
+theme.flexboxgrid = {
+  // Defaults
+  gutterWidth: 1.6, // rem
+  outerMargin: 1.6, // rem
+  breakpoints: {
+    xs: 0,
+    sm: 36,
+    md: 48,
+    lg: 62,
+  },
+}
+
 export default theme
 export const resets = resetsBase
 export const scaffolding = scaffoldingBase(theme)

@@ -95,6 +95,7 @@ const scaffolding = theme => css`
     font-size: ${theme.fonts.size.base};
     line-height: 2.1rem;
     color: ${theme.colors.grayscale.darker};
+    white-space: normal;
   }
 
   abbr[title],

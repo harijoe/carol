@@ -4,31 +4,38 @@ import { Grid, Col, Row } from 'react-styled-flexboxgrid'
 import { Section, TipsAndTricksBlock, Button } from 'components'
 
 const TipsAndTricks = () => (
-  <Section title="Coucou">
+  <Section title="Conseils et astuces">
     <Grid>
       <Row>
-        <Col>
+        <Col xs={12}>
           <TipsAndTricksBlock
-            header=""
-            tags={['tag1', 'tag2']}
-            imgLink="Coucou"
-            title="Coucou"
+            header="Fenêtre"
+            tags={[
+              { label: 'preparer mes travaux', link: '' },
+              { label: 'budget', link: '' },
+            ]}
+            title="Passer au <strong>double vitrage</strong> combien ça coute"
           />
         </Col>
-        <Col>
+        <Col xs={12}>
           <TipsAndTricksBlock
-            header=""
-            tags={['tag1', 'tag2']}
-            imgLink="Coucou"
-            title="Coucou"
+            header="Electricité"
+            tags={[
+              { label: 'preparer mes travaux', link: '' },
+              { label: 'budget', link: '' },
+            ]}
+            imgLink="http://placehold.it/350x160"
+            title="Les <strong>normes électriques</strong> pour une renovation"
           />
         </Col>
-        <Col>
+        <Col xs={12}>
           <TipsAndTricksBlock
-            header=""
-            tags={['tag1', 'tag2']}
-            imgLink="Coucou"
-            title="Coucou"
+            header="Rénovation"
+            tags={[
+              { label: 'découvrir', link: '' },
+              { label: 'tendance', link: '' },
+            ]}
+            title="Salon <strong>maison et travaux</strong>, ce qu'on a retenu!"
           />
         </Col>
       </Row>

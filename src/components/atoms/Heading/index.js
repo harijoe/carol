@@ -38,15 +38,25 @@ const styles = ({ level }) => {
       break
   }
 
-  const extraStyle = css`
+  const commonStyle = css`
     line-height: 1;
     font-family: 'andes-black', sans-serif;
+    margin-top: 0;
+    margin-bottom: ${theme('spaces.m')};
   `
 
-  return merge(baseStyle, extraStyle)
+  return merge(baseStyle, commonStyle)
 }
 
-const Heading = styled(({ level, children, ...props }) => React.createElement(`h${level}`, props, children))`${styles}`
+const Heading = styled(({ level, children, html, ...props }) => {
+  if (html === true) {
+    const newProps = { ...props, dangerouslySetInnerHTML: { __html: children } }
+
+    return React.createElement(`h${level}`, newProps)
+  }
+
+  return React.createElement(`h${level}`, props, children)
+})`${styles}`
 
 Heading.propTypes = {
   level: PropTypes.number,
