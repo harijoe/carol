@@ -7,7 +7,7 @@ import bodyParser from 'body-parser'
 import path from 'path'
 import https from 'https'
 import fs from 'fs'
-import { ssl, env, ip, port } from 'config'
+import { ssl, env } from 'config'
 
 const root = path.join(__dirname, '../../..')
 
@@ -33,7 +33,6 @@ export default (routes) => {
 
     const compiler = webpack(webpackConfig)
     const serverOptions = {
-      contentBase: `https://${ip}:${port}`,
       quiet: true,
       noInfo: true,
       https: true,
@@ -41,7 +40,7 @@ export default (routes) => {
       inline: true,
       lazy: false,
       historyApiFallback: true,
-      publicPath: webpackConfig.output.publicPath,
+      path: '/__webpack_hmr',
       headers: { 'Access-Control-Allow-Origin': '*' },
       stats: { colors: true },
     }

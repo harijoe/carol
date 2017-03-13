@@ -3,14 +3,15 @@ const webpack = require('webpack')
 const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin')
 
 const plugins = [
-  new webpack.HotModuleReplacementPlugin(), // Tell webpack we want hot reloading
   new WebpackIsomorphicToolsPlugin(require('./webpack-isomorphic-tools')).development(),
+  new webpack.HotModuleReplacementPlugin(), // Tell webpack we want hot reloading
+  new webpack.NoEmitOnErrorsPlugin(),
 ]
 
 module.exports = require('./base.config')({
   entry: [
     'babel-polyfill',
-    'webpack-hot-middleware/client',
+    'webpack-hot-middleware/client?path=/__webpack_hmr',
     'react-hot-loader/patch',
     path.resolve(process.cwd(), 'src/client.js'),
   ],
