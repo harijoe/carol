@@ -4,7 +4,7 @@ set -xe
 
 if [ ${NODE_ENV} = 'development' ]; then
     export NODE_ENV=development
-    yarn run dev
+    yarn start
     exit
 fi;
 

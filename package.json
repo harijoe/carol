@@ -8,7 +8,6 @@
   },
   "scripts": {
     "start": "node .",
-    "dev": "concurrently --kill-others \"webpack --config webpack/dev.config.js\" \"node .\"",
     "test": "jest",
     "coverage": "yarn test -- --coverage && opn coverage/lcov-report/index.html",
     "lint": "eslint src",
