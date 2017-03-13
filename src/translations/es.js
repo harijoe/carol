@@ -141,6 +141,18 @@ const es = {
   'validators.user.fixedPhone.invalid_type': 'Field "Fixe phone" is not valid ES',
   'validators.forgot_password.unexpired_token': 'Une demande de réinitialisation de mot de passe est est en cours. ES',
   'validators.forgot_password.user_not_found': 'User not found ES',
+
+  'how_it_works.section_title': 'How it works ES',
+  'how_it_works.describe_project.title': 'Décrivez votre projet ES',
+  'how_it_works.describe_project': 'En quelques questions, nous déterminons ensemble les informations nécessaires pour démarrer votre projet de rénovation, construction ou amélioration de votre habitat. ES',
+  'how_it_works.verified_pros.title': 'Quotatis sélectionne pour vous jusqu\'à 3 pros vérifiés ES',
+  'how_it_works.verified_pros.first_part': 'Nous recherchons autour de vous les pros disponibles ES',
+  'how_it_works.verified_pros.link': 'dans notre réseau de professionnels vérifiés ES',
+  'how_it_works.verified_pros.second_part': '. Les artisans établissent un devis complet, et vous pouvez lancer les travaux avec celui que vous avez choisi ES',
+  'how_it_works.guide.title': 'On vous guide ES',
+  'how_it_works.guide.first_part': 'Nous vous accompagnons tout au long de votre projet de travaux avec des  ES',
+  'how_it_works.guide.link': 'conseils personnalisés ES',
+  'how_it_works.guide.second_part': ' et des guides dédiés. ES',
 }
 
 export default es

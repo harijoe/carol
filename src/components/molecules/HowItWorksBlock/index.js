@@ -1,32 +1,31 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
+import { theme } from 'utils/style'
 
-import { Heading, Image, Paragraph } from 'components'
+import { Image, Heading } from 'components'
 
 const Wrapper = styled.div`
+  margin-bottom: ${theme('spaces.xl')};
+  padding-right: ${theme('spaces.m')};
+  padding-left: ${theme('spaces.m')};
 `
 
 const StyledImage = styled(Image)`
-`
-
-const StyledHeading = styled(Heading)`
-`
-
-const StyledParagraph = styled(Paragraph)`
+  width: 100%;
 `
 
 const HowItWorksBlock = ({ imgLink, title, content }) => (
   <Wrapper>
     <StyledImage link={imgLink} />
-    <StyledHeading level={3}>{title}</StyledHeading>
-    <StyledParagraph>{content}</StyledParagraph>
+    <Heading level={3}>{title}</Heading>
+    {content}
   </Wrapper>
 )
 
 HowItWorksBlock.propTypes = {
   imgLink: PropTypes.string,
   title: PropTypes.string,
-  content: PropTypes.string,
+  content: PropTypes.element,
 }
 
 export default HowItWorksBlock

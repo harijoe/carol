@@ -35,6 +35,7 @@ const config = {
       appId: '233630107058419',
       scope: 'public_profile, email, user_birthday, user_location',
     },
+    cloudinaryUrl: 'https://res.cloudinary.com/quotatis/image/upload/FrontApp/',
     defaultProUrl: 'https://www.quotatispro.co.uk',
     defaultLocale: 'en_GB',
     locales: {

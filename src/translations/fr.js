@@ -142,6 +142,17 @@ const fr = {
   'validators.forgot_password.unexpired_token': 'Une demande de réinitialisation de mot de passe est est en cours.',
   'validators.forgot_password.user_not_found': 'User not found FR',
 
+  'how_it_works.section_title': 'Comment ça marche',
+  'how_it_works.describe_project.title': 'Décrivez votre projet',
+  'how_it_works.describe_project': 'En quelques questions, nous déterminons ensemble les informations nécessaires pour démarrer votre projet de rénovation, construction ou amélioration de votre habitat. ',
+  'how_it_works.verified_pros.title': 'Quotatis sélectionne pour vous jusqu\'à 3 pros vérifiés',
+  'how_it_works.verified_pros.first_part': 'Nous recherchons autour de vous les pros disponibles ',
+  'how_it_works.verified_pros.link': 'dans notre réseau de professionnels vérifiés',
+  'how_it_works.verified_pros.second_part': '. Les artisans établissent un devis complet, et vous pouvez lancer les travaux avec celui que vous avez choisi.',
+  'how_it_works.guide.title': 'On vous guide',
+  'how_it_works.guide.first_part': 'Nous vous accompagnons tout au long de votre projet de travaux avec des  ',
+  'how_it_works.guide.link': 'conseils personnalisés',
+  'how_it_works.guide.second_part': ' et des guides dédiés.',
 }
 
 export default fr

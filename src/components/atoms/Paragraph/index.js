@@ -3,9 +3,9 @@ import { theme } from 'utils/style'
 
 const Paragraph = styled.p`
   color: ${theme('colors.darkest')};
-  font-size: 1rem;
+  font-size: ${theme('fonts.size.base')};
   line-height: 1.3;
-  margin: 1rem 0 0;
+  margin: ${theme('spaces.m')} 0 0 0;
 `
 
 export default Paragraph
