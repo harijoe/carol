@@ -20,6 +20,7 @@ const Header = styled(Link)`
 const Title = styled(Heading)`
   strong {
     color: blue;
+    font-weight: normal;
   }
 `
 

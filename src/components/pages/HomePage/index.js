@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { FormattedMessage } from 'react-intl'
 
-import { MainLayout, List, Link, HowItWorks, TipsAndTricks } from 'components'
+import { MainLayout, List, Link, HowItWorks, Testimonial, TipsAndTricks, Reinsurance } from 'components'
 import { PostList, GoogleMap, FirmSearchForm } from 'containers'
 
 class HomePage extends Component {
@@ -36,6 +36,7 @@ class HomePage extends Component {
       <MainLayout {...this.props}>
         <FirmSearchForm />
         <GoogleMap scope="latestProjectsOnMap" onMarkerClick={this.onMarkerClick} />
+        <Testimonial />
         <HowItWorks />
         <TipsAndTricks />
         <PostList scope="latestProjectsOnMap" tags={['inspiration', 'last-project']} limit={3} active={this.state.activeProject} />
@@ -47,6 +48,7 @@ class HomePage extends Component {
         </List>
         <PostList scope="testimonialArticles" tags={['testimony']} limit={10} active={this.state.activeTopic} />
         <PostList scope="reinsuranceArticles" tags={['quotatis-reinsurance']} limit={3} active="quotatis-reinsurance" />
+        <Reinsurance />
       </MainLayout>
     )
   }

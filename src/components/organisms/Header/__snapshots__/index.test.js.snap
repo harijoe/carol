@@ -51,6 +51,10 @@ ShallowWrapper {
                   "outerMargin": 1.6,
                 },
                 "fonts": Object {
+                  "family": Object {
+                    "andesBlack": "andes-black, sans-serif",
+                    "andesLight": "andes-extralight, sans-serif",
+                  },
                   "size": Object {
                     "base": "1.4rem",
                     "l": "1.8rem",
@@ -122,6 +126,10 @@ ShallowWrapper {
                           "outerMargin": 1.6,
                         },
                         "fonts": Object {
+                          "family": Object {
+                            "andesBlack": "andes-black, sans-serif",
+                            "andesLight": "andes-extralight, sans-serif",
+                          },
                           "size": Object {
                             "base": "1.4rem",
                             "l": "1.8rem",
@@ -193,6 +201,10 @@ ShallowWrapper {
                           "outerMargin": 1.6,
                         },
                         "fonts": Object {
+                          "family": Object {
+                            "andesBlack": "andes-black, sans-serif",
+                            "andesLight": "andes-extralight, sans-serif",
+                          },
                           "size": Object {
                             "base": "1.4rem",
                             "l": "1.8rem",
@@ -260,6 +272,10 @@ ShallowWrapper {
                                   "outerMargin": 1.6,
                                 },
                                 "fonts": Object {
+                                  "family": Object {
+                                    "andesBlack": "andes-black, sans-serif",
+                                    "andesLight": "andes-extralight, sans-serif",
+                                  },
                                   "size": Object {
                                     "base": "1.4rem",
                                     "l": "1.8rem",
@@ -338,6 +354,10 @@ ShallowWrapper {
                                             "outerMargin": 1.6,
                                           },
                                           "fonts": Object {
+                                            "family": Object {
+                                              "andesBlack": "andes-black, sans-serif",
+                                              "andesLight": "andes-extralight, sans-serif",
+                                            },
                                             "size": Object {
                                               "base": "1.4rem",
                                               "l": "1.8rem",
@@ -400,6 +420,10 @@ ShallowWrapper {
               "outerMargin": 1.6,
             },
             "fonts": Object {
+              "family": Object {
+                "andesBlack": "andes-black, sans-serif",
+                "andesLight": "andes-extralight, sans-serif",
+              },
               "size": Object {
                 "base": "1.4rem",
                 "l": "1.8rem",
@@ -464,6 +488,10 @@ ShallowWrapper {
               "outerMargin": 1.6,
             },
             "fonts": Object {
+              "family": Object {
+                "andesBlack": "andes-black, sans-serif",
+                "andesLight": "andes-extralight, sans-serif",
+              },
               "size": Object {
                 "base": "1.4rem",
                 "l": "1.8rem",
@@ -551,6 +579,10 @@ ShallowWrapper {
                                           "outerMargin": 1.6,
                                         },
                                         "fonts": Object {
+                                          "family": Object {
+                                            "andesBlack": "andes-black, sans-serif",
+                                            "andesLight": "andes-extralight, sans-serif",
+                                          },
                                           "size": Object {
                                             "base": "1.4rem",
                                             "l": "1.8rem",
@@ -622,6 +654,10 @@ ShallowWrapper {
                                           "outerMargin": 1.6,
                                         },
                                         "fonts": Object {
+                                          "family": Object {
+                                            "andesBlack": "andes-black, sans-serif",
+                                            "andesLight": "andes-extralight, sans-serif",
+                                          },
                                           "size": Object {
                                             "base": "1.4rem",
                                             "l": "1.8rem",
@@ -697,6 +733,10 @@ ShallowWrapper {
               "outerMargin": 1.6,
             },
             "fonts": Object {
+              "family": Object {
+                "andesBlack": "andes-black, sans-serif",
+                "andesLight": "andes-extralight, sans-serif",
+              },
               "size": Object {
                 "base": "1.4rem",
                 "l": "1.8rem",
@@ -764,6 +804,10 @@ ShallowWrapper {
                   "outerMargin": 1.6,
                 },
                 "fonts": Object {
+                  "family": Object {
+                    "andesBlack": "andes-black, sans-serif",
+                    "andesLight": "andes-extralight, sans-serif",
+                  },
                   "size": Object {
                     "base": "1.4rem",
                     "l": "1.8rem",

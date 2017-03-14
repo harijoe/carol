@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { Heading, Paragraph } from 'components'
 
-const Block = styled.div`
+const Wrapper = styled.div`
   position: 'absolute';
   width: 5em;
   height: 8em;
@@ -17,10 +17,10 @@ const Block = styled.div`
 `
 
 const Marker = ({ title, trade }) => (
-  <Block>
+  <Wrapper>
     <Heading level={4}>{title}</Heading>
     <Paragraph>{trade}</Paragraph>
-  </Block>
+  </Wrapper>
 )
 
 Marker.propTypes = {

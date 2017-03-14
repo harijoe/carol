@@ -36,6 +36,10 @@ theme.fonts = {
     xxl: '3.2rem',
     xxxl: '5rem',
   },
+  family: {
+    andesLight: 'andes-extralight, sans-serif',
+    andesBlack: 'andes-black, sans-serif',
+  },
 }
 
 theme.spaces = {

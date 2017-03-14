@@ -41,6 +41,7 @@ const styles = ({ level }) => {
   const commonStyle = css`
     line-height: 1;
     font-family: 'andes-black', sans-serif;
+    font-weight: normal;
     margin-top: 0;
     margin-bottom: ${theme('spaces.m')};
   `
