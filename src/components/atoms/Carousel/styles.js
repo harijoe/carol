@@ -205,7 +205,7 @@ p {
   left: 0;
   width: 20px;
   height: 20px;
-  content: 'â€¢';
+  content: '•';
   text-align: center;
   opacity: .25;
   color: #000;

@@ -45,21 +45,21 @@ const HowItWorks = ({ intl: { formatMessage } }) => (
       <Row>
         <Col xs={12}>
           <HowItWorksBlock
-            imgLink={`${cloudinaryUrl}project-info_step1.svg`}
+            imageLink={`${cloudinaryUrl}project-info_step1.svg`}
             title={formatMessage(messages('how_it_works.describe_project.title').label)}
             content={DescribeProject}
           />
         </Col>
         <Col xs={12}>
           <HowItWorksBlock
-            imgLink={`${cloudinaryUrl}verified-pros_step2.svg`}
+            imageLink={`${cloudinaryUrl}verified-pros_step2.svg`}
             title={formatMessage(messages('how_it_works.verified_pros.title').label)}
             content={VerifiedPros}
           />
         </Col>
         <Col xs={12}>
           <HowItWorksBlock
-            imgLink={`${cloudinaryUrl}guide_step3.svg`}
+            imageLink={`${cloudinaryUrl}guide_step3.svg`}
             title={formatMessage(messages('how_it_works.guide.title').label)}
             content={Guide}
           />

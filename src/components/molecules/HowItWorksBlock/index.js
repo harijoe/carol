@@ -14,16 +14,16 @@ const StyledImage = styled(Image)`
   width: 100%;
 `
 
-const HowItWorksBlock = ({ imgLink, title, content }) => (
+const HowItWorksBlock = ({ imageLink, title, content }) => (
   <Wrapper>
-    <StyledImage link={imgLink} />
+    <StyledImage link={imageLink} />
     <Heading level={3}>{title}</Heading>
     {content}
   </Wrapper>
 )
 
 HowItWorksBlock.propTypes = {
-  imgLink: PropTypes.string,
+  imageLink: PropTypes.string,
   title: PropTypes.string,
   content: PropTypes.element,
 }
