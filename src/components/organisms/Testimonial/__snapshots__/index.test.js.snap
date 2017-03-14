@@ -1,0 +1,215 @@
+exports[`test renders Testimonial 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <Mock
+    title="Témoignages">
+    <Grid>
+        <Row>
+            <Col
+                xs={12}>
+                <Mock>
+                    <Mock>
+                        <Mock
+                            content="Je voulais faire quelque chose qui me permettrait de rencontrer de novuelles personnes et de sortir de chez moi …"
+                            imageLink="http://placehold.it/350x190"
+                            label="Bergerac, 32000"
+                            link="http://google.com"
+                            subtitle="32 ans"
+                            title="Joanne" />
+                    </Mock>
+                    <Mock>
+                        <Mock
+                            content="Je voulais faire quelque chose qui me permettrait de rencontrer de novuelles personnes et de sortir de chez moi …"
+                            imageLink="http://placehold.it/350x190"
+                            label="Marseille, 13000"
+                            link="http://google.com"
+                            subtitle="20 ans"
+                            title="Bob" />
+                    </Mock>
+                    <Mock>
+                        <Mock
+                            content="Je voulais faire quelque chose qui me permettrait de rencontrer de novuelles personnes et de sortir de chez moi …"
+                            imageLink="http://placehold.it/350x190"
+                            label="Paris, 75001"
+                            link="http://google.com"
+                            subtitle="40 ans"
+                            title="Eric" />
+                    </Mock>
+                </Mock>
+            </Col>
+        </Row>
+    </Grid>
+</Mock>,
+  "nodes": Array [
+    <Mock
+      title="Témoignages">
+      <Grid>
+            <Row>
+                  <Col
+                        xs={12}>
+                        <Mock>
+                              <Mock>
+                                    <Mock
+                                          content="Je voulais faire quelque chose qui me permettrait de rencontrer de novuelles personnes et de sortir de chez moi …"
+                                          imageLink="http://placehold.it/350x190"
+                                          label="Bergerac, 32000"
+                                          link="http://google.com"
+                                          subtitle="32 ans"
+                                          title="Joanne" />
+                              </Mock>
+                              <Mock>
+                                    <Mock
+                                          content="Je voulais faire quelque chose qui me permettrait de rencontrer de novuelles personnes et de sortir de chez moi …"
+                                          imageLink="http://placehold.it/350x190"
+                                          label="Marseille, 13000"
+                                          link="http://google.com"
+                                          subtitle="20 ans"
+                                          title="Bob" />
+                              </Mock>
+                              <Mock>
+                                    <Mock
+                                          content="Je voulais faire quelque chose qui me permettrait de rencontrer de novuelles personnes et de sortir de chez moi …"
+                                          imageLink="http://placehold.it/350x190"
+                                          label="Paris, 75001"
+                                          link="http://google.com"
+                                          subtitle="40 ans"
+                                          title="Eric" />
+                              </Mock>
+                        </Mock>
+                  </Col>
+            </Row>
+      </Grid>
+</Mock>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 2,
+      "_context": Object {},
+      "_currentElement": <Testimonial />,
+      "_debugID": 1,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": StatelessComponent {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {},
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 1,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <Mock
+          title="Témoignages">
+          <Grid>
+                    <Row>
+                              <Col
+                                        xs={12}>
+                                        <Mock>
+                                                  <Mock>
+                                                            <Mock
+                                                                      content="Je voulais faire quelque chose qui me permettrait de rencontrer de novuelles personnes et de sortir de chez moi …"
+                                                                      imageLink="http://placehold.it/350x190"
+                                                                      label="Bergerac, 32000"
+                                                                      link="http://google.com"
+                                                                      subtitle="32 ans"
+                                                                      title="Joanne" />
+                                                  </Mock>
+                                                  <Mock>
+                                                            <Mock
+                                                                      content="Je voulais faire quelque chose qui me permettrait de rencontrer de novuelles personnes et de sortir de chez moi …"
+                                                                      imageLink="http://placehold.it/350x190"
+                                                                      label="Marseille, 13000"
+                                                                      link="http://google.com"
+                                                                      subtitle="20 ans"
+                                                                      title="Bob" />
+                                                  </Mock>
+                                                  <Mock>
+                                                            <Mock
+                                                                      content="Je voulais faire quelque chose qui me permettrait de rencontrer de novuelles personnes et de sortir de chez moi …"
+                                                                      imageLink="http://placehold.it/350x190"
+                                                                      label="Paris, 75001"
+                                                                      link="http://google.com"
+                                                                      subtitle="40 ans"
+                                                                      title="Eric" />
+                                                  </Mock>
+                                        </Mock>
+                              </Col>
+                    </Row>
+          </Grid>
+</Mock>,
+        "_debugID": 2,
+        "_renderedOutput": <Mock
+          title="Témoignages">
+          <Grid>
+                    <Row>
+                              <Col
+                                        xs={12}>
+                                        <Mock>
+                                                  <Mock>
+                                                            <Mock
+                                                                      content="Je voulais faire quelque chose qui me permettrait de rencontrer de novuelles personnes et de sortir de chez moi …"
+                                                                      imageLink="http://placehold.it/350x190"
+                                                                      label="Bergerac, 32000"
+                                                                      link="http://google.com"
+                                                                      subtitle="32 ans"
+                                                                      title="Joanne" />
+                                                  </Mock>
+                                                  <Mock>
+                                                            <Mock
+                                                                      content="Je voulais faire quelque chose qui me permettrait de rencontrer de novuelles personnes et de sortir de chez moi …"
+                                                                      imageLink="http://placehold.it/350x190"
+                                                                      label="Marseille, 13000"
+                                                                      link="http://google.com"
+                                                                      subtitle="20 ans"
+                                                                      title="Bob" />
+                                                  </Mock>
+                                                  <Mock>
+                                                            <Mock
+                                                                      content="Je voulais faire quelque chose qui me permettrait de rencontrer de novuelles personnes et de sortir de chez moi …"
+                                                                      imageLink="http://placehold.it/350x190"
+                                                                      label="Paris, 75001"
+                                                                      link="http://google.com"
+                                                                      subtitle="40 ans"
+                                                                      title="Eric" />
+                                                  </Mock>
+                                        </Mock>
+                              </Col>
+                    </Row>
+          </Grid>
+</Mock>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Testimonial />,
+}
+`;
