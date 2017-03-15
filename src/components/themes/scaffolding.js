@@ -24,55 +24,60 @@ import montserratLightWebfontWoff2 from './default/fonts/montserrat-light-webfon
 const scaffolding = theme => css`
   @font-face {
     font-family: 'andes-black';
-    src: url('${andesBlackWebfontEot}');
-    src: url('${andesBlackWebfontTtf}?#iefix') format('embedded-opentype'),
-         url('${andesBlackWebfontWoff2}') format('woff2'),
-         url('${andesBlackWebfontWoff}') format('woff'),
-         url('${andesBlackWebfontTtf}') format('truetype');
+    src:
+      url('${andesBlackWebfontEot}'),
+      url('${andesBlackWebfontTtf}?#iefix') format('embedded-opentype'),
+      url('${andesBlackWebfontWoff2}') format('woff2'),
+      url('${andesBlackWebfontWoff}') format('woff'),
+      url('${andesBlackWebfontTtf}') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
-  
+
   @font-face {
     font-family: 'andes-extralight';
-    src: url('${andesExtralightWebfontEot}');
-    src: url('${andesExtralightWebfontEot}?#iefix') format('embedded-opentype'),
-         url('${andesExtralightWebfontWoff2}') format('woff2'),
-         url('${andesExtralightWebfontWoff}') format('woff'),
-         url('${andesExtralightWebfontTtf}') format('truetype');
+    src:
+      url('${andesExtralightWebfontEot}'),
+      url('${andesExtralightWebfontEot}?#iefix') format('embedded-opentype'),
+      url('${andesExtralightWebfontWoff2}') format('woff2'),
+      url('${andesExtralightWebfontWoff}') format('woff'),
+      url('${andesExtralightWebfontTtf}') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
-  
+
   @font-face {
     font-family: 'montserrat-black';
-    src: url('${montserratBlackWebfontEot}');
-    src: url('${montserratBlackWebfontEot}?#iefix') format('embedded-opentype'),
-         url('${montserratBlackWebfontWoff2}') format('woff2'),
-         url('${montserratBlackWebfontWoff}') format('woff'),
-         url('${montserratBlackWebfontTtf}') format('truetype');
+    src:
+      url('${montserratBlackWebfontEot}'),
+      url('${montserratBlackWebfontEot}?#iefix') format('embedded-opentype'),
+      url('${montserratBlackWebfontWoff2}') format('woff2'),
+      url('${montserratBlackWebfontWoff}') format('woff'),
+      url('${montserratBlackWebfontTtf}') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
-  
+
   @font-face {
     font-family: 'montserrat-bold';
-    src: url('${montserratBoldWebfontEot}');
-    src: url('${montserratBoldWebfontEot}?#iefix') format('embedded-opentype'),
-         url('${montserratBoldWebfontWoff2}') format('woff2'),
-         url('${montserratBoldWebfontWoff}') format('woff'),
-         url('${montserratBoldWebfontTtf}') format('truetype');
+    src:
+      url('${montserratBoldWebfontEot}'),
+      url('${montserratBoldWebfontEot}?#iefix') format('embedded-opentype'),
+      url('${montserratBoldWebfontWoff2}') format('woff2'),
+      url('${montserratBoldWebfontWoff}') format('woff'),
+      url('${montserratBoldWebfontTtf}') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
-  
+
   @font-face {
     font-family: 'montserrat-light';
-    src: url('${montserratLightWebfontEot}');
-    src: url('${montserratLightWebfontEot}?#iefix') format('embedded-opentype'),
-         url('${montserratLightWebfontWoff2}') format('woff2'),
-         url('${montserratLightWebfontWoff}') format('woff'),
-         url('${montserratLightWebfontTtf}') format('truetype');
+    src:
+      url('${montserratLightWebfontEot}'),
+      url('${montserratLightWebfontEot}?#iefix') format('embedded-opentype'),
+      url('${montserratLightWebfontWoff2}') format('woff2'),
+      url('${montserratLightWebfontWoff}') format('woff'),
+      url('${montserratLightWebfontTtf}') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
@@ -80,8 +85,8 @@ const scaffolding = theme => css`
   html {
     box-sizing: border-box;
     font-size: ${theme.fonts.size.reset};
-   -ms-overflow-style: scrollbar;
-   -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -ms-overflow-style: scrollbar;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
 
   *,

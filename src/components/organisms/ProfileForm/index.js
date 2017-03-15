@@ -10,7 +10,7 @@ const Form = styled.form`
   width: 100%;
   box-sizing: border-box;
   padding: 1rem;
-  border: 1px solid #000
+  border: 1px solid #000;
 `
 
 class ProfileForm extends Component {

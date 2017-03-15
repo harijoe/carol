@@ -6,7 +6,7 @@ import Response from './Response'
 import QuickReplies from './QuickReplies'
 
 const Wrapper = styled.div`
-  maxHeight: 400px;
+  max-height: 400px;
   overflow: scroll;
   bottom: 0;
 `

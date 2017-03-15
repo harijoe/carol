@@ -4,7 +4,9 @@ import { FormattedMessage } from 'react-intl'
 
 import { Heading, DateTime, Paragraph, Link, Firm } from 'components'
 
-const Article = styled.article``
+const Article = styled.div`
+  display: flex;
+`
 
 const listView = (items, ...props) => (
   <Article {...props}>

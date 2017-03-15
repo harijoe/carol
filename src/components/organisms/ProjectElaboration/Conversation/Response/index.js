@@ -3,13 +3,13 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
   float: right;
-  textAlign: right;
+  text-align: right;
   padding: 5px 10px;
-  background: #0000FF;
-  borderRadius: 10px;
-  color: #FFF;
-  maxWidth: 50%;
-  overflowWrap: break-word;
+  background: #00f;
+  border-radius: 10px;
+  color: #fff;
+  max-width: 50%;
+  overflow-wrap: break-word;
 `
 
 const Response = ({ response }) => {

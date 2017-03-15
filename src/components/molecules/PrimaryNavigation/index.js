@@ -25,8 +25,12 @@ const StyledLink = styled(Link)`
   }
 `
 
-const StyledAccountMenu = styled(AccountMenu)``
-const StyledSignInDropDownMenu = styled(SignInDropDownMenu)``
+const StyledAccountMenu = styled(AccountMenu)`
+  display: block;
+`
+const StyledSignInDropDownMenu = styled(SignInDropDownMenu)`
+  display: block;
+`
 
 StyledAccountMenu.displayName = 'AccountMenu'
 StyledSignInDropDownMenu.displayName = 'SignInDropDownMenu'

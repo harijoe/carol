@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 `
 
 const Header = styled(Link)`
-  color: ${theme('colors.black')}
+  color: ${theme('colors.black')};
   display: block;
   margin-bottom: ${theme('spaces.s')};
 `

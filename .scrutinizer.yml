@@ -1,12 +1,12 @@
 filter:
     excluded_paths:
         - 'docker/*'
-        - 'public/*'
 build:
     tests:
         override:
             -
-                command: 'npm run lint'
+                command: 'yarn run lint'
+
 checks:
     javascript: true
 build_failure_conditions:

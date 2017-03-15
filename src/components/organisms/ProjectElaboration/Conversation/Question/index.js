@@ -6,7 +6,7 @@ import { Image } from 'components'
 const Wrapper = styled.div`
   float: left;
   width: 100%;
-  textAlign: left;
+  text-align: left;
 `
 
 const StyledImage = styled(Image)`
@@ -16,10 +16,10 @@ const StyledImage = styled(Image)`
 const BubbleQuestion = styled.p`
   float: left;
   padding: 5px 10px;
-  background: #D8D8D8;
-  borderRadius: 10px;
-  maxWidth: 50%;
-  overflowWrap: break-word;
+  background: #d8d8d8;
+  border-radius: 10px;
+  max-width: 50%;
+  overflow-wrap: break-word;
 `
 BubbleQuestion.displayName = 'BubbleQuestion'
 

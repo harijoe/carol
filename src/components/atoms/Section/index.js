@@ -9,20 +9,20 @@ const Title = styled.h2`
   display: block;
   width: 100%;
   text-align: center;
-  letter-spacing: .075rem;
+  letter-spacing: 0.075rem;
   color: ${theme('colors.black')};
   font-size: ${theme('fonts.size.m')};
   margin-bottom: ${theme('spaces.m')};
   padding-bottom: ${theme('spaces.m')};
 
-  &::before{
-    position:absolute;
-    bottom:0;
-    left:50%;
-    height:.1rem;
-    width:2.5rem;
-    content:'';
-    margin-left:-1.25rem;
+  &::before {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 0.1rem;
+    width: 2.5rem;
+    content: '';
+    margin-left: -1.25rem;
     background: ${theme('colors.black')};
   }
 `

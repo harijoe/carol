@@ -5,7 +5,7 @@ import { Button, List } from 'components'
 
 const StyledList = styled(List)`
   float: right;
-  textAlign: right;
+  text-align: right;
 `
 StyledList.displayName = 'List'
 

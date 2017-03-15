@@ -3,7 +3,9 @@ import styled from 'styled-components'
 
 import { Image, Heading, DateTime, Paragraph } from 'components'
 
-const Article = styled.article``
+const Article = styled.article`
+  display: block;
+`
 
 const setDisplay = (active = true) => (active ? { display: 'block' } : { display: 'none' })
 

@@ -85,7 +85,6 @@ const resets = css`
     font-size: 80%;
   }
 
-
   sub,
   sup {
     font-size: 75%;
@@ -114,7 +113,7 @@ const resets = css`
   kbd,
   pre,
   samp {
-    font-family: monospace, monospace;
+    font-family: monospace;
     font-size: 1em;
   }
 
@@ -181,15 +180,13 @@ const resets = css`
     padding: 0;
   }
 
-
   button:-moz-focusring,
   input:-moz-focusring {
     outline: 1px dotted ButtonText;
   }
 
-
   fieldset {
-    border: 1px solid #c0c0c0 ;
+    border: 1px solid #c0c0c0;
     margin: 0 2px;
     padding: 0.35em 0.625em 0.75em;
   }
@@ -211,7 +208,7 @@ const resets = css`
   [type="radio"] {
     box-sizing: border-box;
     padding: 0;
-
+  }
 
   [type="number"]::-webkit-inner-spin-button,
   [type="number"]::-webkit-outer-spin-button {

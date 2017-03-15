@@ -47,7 +47,18 @@ Add this line to your hosts file:
 
 To view your project, go to: [https://carol-fr-dev.qarx.io/](https://carol-fr-dev.qarx.io/)
 
-## 4. Deployment
+## 4. CSS integration
+
+We use web components and [atomic-design](http://bradfrost.com/blog/post/atomic-web-design/) principles coupled to [styled-components](https://github.com/styled-components/styled-components) to design our application.
+
+To avoid mistakes and errors in your css syntax you must run :
+```
+yarn run lint:css
+```
+ 
+If you got `CssSyntaxError` using css function from styled-components and all seems good for you, it's probably linked to this [issue](https://github.com/styled-components/stylelint-processor-styled-components/issues/6) in stylelint package.   
+
+## 5. Deployment
 
 In order to deploy into pre-production for the SPA you will have to push to the branch develop.
 Travis will be able to build the docker container, run the tests than deploy to kubernetes using the last develop build.
