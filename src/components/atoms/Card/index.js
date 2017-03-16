@@ -22,8 +22,8 @@ const styles = ({ strongShadow }) => {
 
 const Wrapper = styled.div`${styles}`
 
-const Card = ({ strongShadow, children }) => (
-  <Wrapper strongShadow={strongShadow}>
+const Card = ({ strongShadow, children, ...props }) => (
+  <Wrapper strongShadow={strongShadow} {...props}>
     {children}
   </Wrapper>
 )

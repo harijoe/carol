@@ -32,8 +32,8 @@ const StyledSection = styled.section`
   padding-right: ${theme('spaces.m')};
 `
 
-const Section = ({ children, title }) => (
-  <StyledSection>
+const Section = ({ children, title, ...props }) => (
+  <StyledSection {...props}>
     {title != null && <Title>{title}</Title>}
     {children}
   </StyledSection>

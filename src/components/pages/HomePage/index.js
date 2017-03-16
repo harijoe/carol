@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { FormattedMessage } from 'react-intl'
 
-import { MainLayout, List, Link, HowItWorks, Testimonial, TipsAndTricks, Reinsurance } from 'components'
+import { MainLayout, List, Link, HowItWorks, Testimonial, TipsAndTricks, Reinsurance, Hero } from 'components'
 import { PostList, GoogleMap, FirmSearchForm } from 'containers'
 
 class HomePage extends Component {
@@ -34,6 +34,7 @@ class HomePage extends Component {
   render() {
     return (
       <MainLayout {...this.props}>
+        <Hero />
         <FirmSearchForm />
         <GoogleMap scope="latestProjectsOnMap" onMarkerClick={this.onMarkerClick} />
         <HowItWorks />
