@@ -33,6 +33,7 @@ class HomePage extends Component {
   render() {
     return (
       <MainLayout {...this.props}>
+        <Hero />
         <FirmSearchForm />
         <GoogleMap scope="latestProjectsOnMap" onMarkerClick={this.onMarkerClick} />
         <LastProjects active={this.state.activeProject} />
