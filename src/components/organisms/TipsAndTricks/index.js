@@ -1,5 +1,6 @@
 import React from 'react'
 import { Grid, Col, Row } from 'react-styled-flexboxgrid'
+import { FormattedMessage } from 'react-intl'
 
 import { Section, TipsAndTricksBlock, Button } from 'components'
 
@@ -41,7 +42,9 @@ const TipsAndTricks = () => (
       </Row>
       <Row>
         <Col>
-          <Button type="button" href="">Call to action</Button>
+          <Button type="button" href="">
+            <FormattedMessage id="tips_and_tricks.call_to_action" />
+          </Button>
         </Col>
       </Row>
     </Grid>

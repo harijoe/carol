@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { FormattedMessage } from 'react-intl'
 
-import { MainLayout, List, Link, HowItWorks, Testimonial, TipsAndTricks, Reinsurance } from 'components'
-import { PostList, GoogleMap, FirmSearchForm } from 'containers'
+import { MainLayout, HowItWorks, Testimonial, TipsAndTricks, Reinsurance, LastProjects } from 'components'
+import { GoogleMap, FirmSearchForm } from 'containers'
 
 class HomePage extends Component {
   constructor() {
@@ -36,22 +35,28 @@ class HomePage extends Component {
       <MainLayout {...this.props}>
         <FirmSearchForm />
         <GoogleMap scope="latestProjectsOnMap" onMarkerClick={this.onMarkerClick} />
+        <LastProjects />
         <HowItWorks />
         <Testimonial />
         <TipsAndTricks />
-        <PostList scope="latestProjectsOnMap" tags={['inspiration', 'last-project']} limit={3} active={this.state.activeProject} />
-        <PostList scope="latestProjectsResources" tags={['work-resources']} limit={5} active="all" />
-        <List>
-          <li><Link to="#" id="construction" onClick={this.onTopicClick}><FormattedMessage id="construction" /></Link></li>
-          <li><Link to="#" id="renovation" onClick={this.onTopicClick}><FormattedMessage id="renovation" /></Link></li>
-          <li><Link to="#" id="fixing" onClick={this.onTopicClick}><FormattedMessage id="fixing" /></Link></li>
-        </List>
-        <PostList scope="testimonialArticles" tags={['testimony']} limit={10} active={this.state.activeTopic} />
-        <PostList scope="reinsuranceArticles" tags={['quotatis-reinsurance']} limit={3} active="quotatis-reinsurance" />
         <Reinsurance />
       </MainLayout>
     )
   }
 }
+
+/*
+  @todo: To be used as reference when wordpress will be plugged in
+
+   <PostList scope="latestProjectsOnMap" tags={['inspiration', 'last-project']} limit={3} active={this.state.activeProject} />
+   <PostList scope="latestProjectsResources" tags={['work-resources']} limit={5} active="all" />
+   <List>
+   <li><Link to="#" id="construction" onClick={this.onTopicClick}><FormattedMessage id="construction" /></Link></li>
+   <li><Link to="#" id="renovation" onClick={this.onTopicClick}><FormattedMessage id="renovation" /></Link></li>
+   <li><Link to="#" id="fixing" onClick={this.onTopicClick}><FormattedMessage id="fixing" /></Link></li>
+   </List>
+   <PostList scope="testimonialArticles" tags={['testimony']} limit={10} active={this.state.activeTopic} />
+   <PostList scope="reinsuranceArticles" tags={['quotatis-reinsurance']} limit={3} active="quotatis-reinsurance" />
+ */
 
 export default HomePage

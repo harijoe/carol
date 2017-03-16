@@ -52,8 +52,11 @@ ShallowWrapper {
                 },
                 "fonts": Object {
                   "family": Object {
-                    "andesBlack": "andes-black, sans-serif",
-                    "andesLight": "andes-extralight, sans-serif",
+                    "andesBlack": "andes-black, serif",
+                    "andesLight": "andes-extralight, serif",
+                    "montserratBlack": "montserrat-black, sans-serif",
+                    "montserratBold": "montserrat-bold, sans-serif",
+                    "montserratLight": "montserrat-light, sans-serif",
                   },
                   "size": Object {
                     "base": "1.4rem",
@@ -127,8 +130,11 @@ ShallowWrapper {
                         },
                         "fonts": Object {
                           "family": Object {
-                            "andesBlack": "andes-black, sans-serif",
-                            "andesLight": "andes-extralight, sans-serif",
+                            "andesBlack": "andes-black, serif",
+                            "andesLight": "andes-extralight, serif",
+                            "montserratBlack": "montserrat-black, sans-serif",
+                            "montserratBold": "montserrat-bold, sans-serif",
+                            "montserratLight": "montserrat-light, sans-serif",
                           },
                           "size": Object {
                             "base": "1.4rem",
@@ -202,8 +208,11 @@ ShallowWrapper {
                         },
                         "fonts": Object {
                           "family": Object {
-                            "andesBlack": "andes-black, sans-serif",
-                            "andesLight": "andes-extralight, sans-serif",
+                            "andesBlack": "andes-black, serif",
+                            "andesLight": "andes-extralight, serif",
+                            "montserratBlack": "montserrat-black, sans-serif",
+                            "montserratBold": "montserrat-bold, sans-serif",
+                            "montserratLight": "montserrat-light, sans-serif",
                           },
                           "size": Object {
                             "base": "1.4rem",
@@ -273,8 +282,11 @@ ShallowWrapper {
                                 },
                                 "fonts": Object {
                                   "family": Object {
-                                    "andesBlack": "andes-black, sans-serif",
-                                    "andesLight": "andes-extralight, sans-serif",
+                                    "andesBlack": "andes-black, serif",
+                                    "andesLight": "andes-extralight, serif",
+                                    "montserratBlack": "montserrat-black, sans-serif",
+                                    "montserratBold": "montserrat-bold, sans-serif",
+                                    "montserratLight": "montserrat-light, sans-serif",
                                   },
                                   "size": Object {
                                     "base": "1.4rem",
@@ -355,8 +367,11 @@ ShallowWrapper {
                                           },
                                           "fonts": Object {
                                             "family": Object {
-                                              "andesBlack": "andes-black, sans-serif",
-                                              "andesLight": "andes-extralight, sans-serif",
+                                              "andesBlack": "andes-black, serif",
+                                              "andesLight": "andes-extralight, serif",
+                                              "montserratBlack": "montserrat-black, sans-serif",
+                                              "montserratBold": "montserrat-bold, sans-serif",
+                                              "montserratLight": "montserrat-light, sans-serif",
                                             },
                                             "size": Object {
                                               "base": "1.4rem",
@@ -421,8 +436,11 @@ ShallowWrapper {
             },
             "fonts": Object {
               "family": Object {
-                "andesBlack": "andes-black, sans-serif",
-                "andesLight": "andes-extralight, sans-serif",
+                "andesBlack": "andes-black, serif",
+                "andesLight": "andes-extralight, serif",
+                "montserratBlack": "montserrat-black, sans-serif",
+                "montserratBold": "montserrat-bold, sans-serif",
+                "montserratLight": "montserrat-light, sans-serif",
               },
               "size": Object {
                 "base": "1.4rem",
@@ -489,8 +507,11 @@ ShallowWrapper {
             },
             "fonts": Object {
               "family": Object {
-                "andesBlack": "andes-black, sans-serif",
-                "andesLight": "andes-extralight, sans-serif",
+                "andesBlack": "andes-black, serif",
+                "andesLight": "andes-extralight, serif",
+                "montserratBlack": "montserrat-black, sans-serif",
+                "montserratBold": "montserrat-bold, sans-serif",
+                "montserratLight": "montserrat-light, sans-serif",
               },
               "size": Object {
                 "base": "1.4rem",
@@ -580,8 +601,11 @@ ShallowWrapper {
                                         },
                                         "fonts": Object {
                                           "family": Object {
-                                            "andesBlack": "andes-black, sans-serif",
-                                            "andesLight": "andes-extralight, sans-serif",
+                                            "andesBlack": "andes-black, serif",
+                                            "andesLight": "andes-extralight, serif",
+                                            "montserratBlack": "montserrat-black, sans-serif",
+                                            "montserratBold": "montserrat-bold, sans-serif",
+                                            "montserratLight": "montserrat-light, sans-serif",
                                           },
                                           "size": Object {
                                             "base": "1.4rem",
@@ -655,8 +679,11 @@ ShallowWrapper {
                                         },
                                         "fonts": Object {
                                           "family": Object {
-                                            "andesBlack": "andes-black, sans-serif",
-                                            "andesLight": "andes-extralight, sans-serif",
+                                            "andesBlack": "andes-black, serif",
+                                            "andesLight": "andes-extralight, serif",
+                                            "montserratBlack": "montserrat-black, sans-serif",
+                                            "montserratBold": "montserrat-bold, sans-serif",
+                                            "montserratLight": "montserrat-light, sans-serif",
                                           },
                                           "size": Object {
                                             "base": "1.4rem",
@@ -734,8 +761,11 @@ ShallowWrapper {
             },
             "fonts": Object {
               "family": Object {
-                "andesBlack": "andes-black, sans-serif",
-                "andesLight": "andes-extralight, sans-serif",
+                "andesBlack": "andes-black, serif",
+                "andesLight": "andes-extralight, serif",
+                "montserratBlack": "montserrat-black, sans-serif",
+                "montserratBold": "montserrat-bold, sans-serif",
+                "montserratLight": "montserrat-light, sans-serif",
               },
               "size": Object {
                 "base": "1.4rem",
@@ -805,8 +835,11 @@ ShallowWrapper {
                 },
                 "fonts": Object {
                   "family": Object {
-                    "andesBlack": "andes-black, sans-serif",
-                    "andesLight": "andes-extralight, sans-serif",
+                    "andesBlack": "andes-black, serif",
+                    "andesLight": "andes-extralight, serif",
+                    "montserratBlack": "montserrat-black, sans-serif",
+                    "montserratBold": "montserrat-bold, sans-serif",
+                    "montserratLight": "montserrat-light, sans-serif",
                   },
                   "size": Object {
                     "base": "1.4rem",

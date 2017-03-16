@@ -13,6 +13,14 @@ const StyledLink = styled.a`
   text-decoration: none;
 `
 
+const StyledCol = styled(Col)`
+  margin-bottom: ${theme('spaces.xl')};
+
+  &:last-child{
+    margin-bottom: 0;
+  }
+`
+
 const DescribeProject = (
   <Paragraph>
     <FormattedMessage id="how_it_works.describe_project" />
@@ -43,27 +51,27 @@ const HowItWorks = ({ intl: { formatMessage } }) => (
   <Section title={formatMessage(messages('how_it_works.section_title').label)}>
     <Grid>
       <Row>
-        <Col xs={12}>
+        <StyledCol xs={12}>
           <HowItWorksBlock
             imageLink={`${cloudinaryUrl}project-info_step1.svg`}
             title={formatMessage(messages('how_it_works.describe_project.title').label)}
             content={DescribeProject}
           />
-        </Col>
-        <Col xs={12}>
+        </StyledCol>
+        <StyledCol xs={12}>
           <HowItWorksBlock
             imageLink={`${cloudinaryUrl}verified-pros_step2.svg`}
             title={formatMessage(messages('how_it_works.verified_pros.title').label)}
             content={VerifiedPros}
           />
-        </Col>
-        <Col xs={12}>
+        </StyledCol>
+        <StyledCol xs={12}>
           <HowItWorksBlock
             imageLink={`${cloudinaryUrl}guide_step3.svg`}
             title={formatMessage(messages('how_it_works.guide.title').label)}
             content={Guide}
           />
-        </Col>
+        </StyledCol>
       </Row>
     </Grid>
   </Section>

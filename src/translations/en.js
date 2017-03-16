@@ -153,6 +153,8 @@ const en = {
   'how_it_works.guide.first_part': 'Nous vous accompagnons tout au long de votre projet de travaux avec des  EN',
   'how_it_works.guide.link': 'conseils personnalisés EN',
   'how_it_works.guide.second_part': ' et des guides dédiés. EN',
+
+  'tips_and_tricks.call_to_action': 'Tous nos conseils & astuces EN',
 }
 
 export default en

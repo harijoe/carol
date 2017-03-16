@@ -4,12 +4,12 @@ import { theme, merge } from 'utils/style'
 
 const styles = ({ strongShadow }) => {
   let baseStyle = css`
-    box-shadow: 1px 1px 4px 0 rgba(19, 19, 19, .1);
+    box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, .15);
   `
 
   if (strongShadow) {
     baseStyle = css`
-      box-shadow: 0 0 10px 0 rgba(19, 19, 19, .1);
+      box-shadow: 0 0 10px 0 rgba(19, 19, 19, .15);
     `
   }
 

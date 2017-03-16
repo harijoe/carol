@@ -37,8 +37,11 @@ theme.fonts = {
     xxxl: '5rem',
   },
   family: {
-    andesLight: 'andes-extralight, sans-serif',
-    andesBlack: 'andes-black, sans-serif',
+    andesLight: 'andes-extralight, serif',
+    andesBlack: 'andes-black, serif',
+    montserratLight: 'montserrat-light, sans-serif',
+    montserratBold: 'montserrat-bold, sans-serif',
+    montserratBlack: 'montserrat-black, sans-serif',
   },
 }
 
