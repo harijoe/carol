@@ -26,14 +26,14 @@ const Wrapper = styled.figure`
 
 const StyledImage = styled(Image)`
   position: absolute;
-  top: -100%;
-  bottom: -100%;
-  left: -100%;
-  right: -100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   min-width: 100%;
   min-height: 100%;
   height: auto;
-  width: auto;
+  width: 100%;
   margin: auto;
   z-index: 0;
 `
@@ -46,16 +46,16 @@ const StyledHeading = styled(Heading)`
   z-index: 2;
 `
 
-const ThumbnailPoster = ({ imageLink, title }) => (
+const ThumbnailPoster = ({ categoryImage, categoryTitle }) => (
   <Wrapper>
-    <StyledImage link={imageLink} />
-    <StyledHeading level={3}>{title}</StyledHeading>
+    <StyledImage link={categoryImage} />
+    <StyledHeading level={3}>{categoryTitle}</StyledHeading>
   </Wrapper>
 )
 
 ThumbnailPoster.propTypes = {
-  imageLink: PropTypes.string,
-  title: PropTypes.string,
+  categoryImage: PropTypes.string,
+  categoryTitle: PropTypes.string,
 }
 
 export default ThumbnailPoster
