@@ -12,8 +12,8 @@ export function* handleReadFirmListRequest({ params }) {
   return yield* fetch(firmList, { params }, 'get', `/firms/search?country-code=${country}${filters}`)
 }
 
-export function* handleReadFirmListSuccess({ params }) {
-  yield put(push(`/search-firm?${params.join('&')}`))
+export function* handleReadFirmListSuccess({ payload }) {
+  yield put(push(`/search-firm?${payload.params.join('&')}`))
 }
 
 export function* readFirmDetails({ id }) {
