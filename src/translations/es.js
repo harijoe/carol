@@ -180,7 +180,12 @@ const es = {
   'footer.corporate.notice': 'Legal notice ES',
   'footer.corporate.use': 'Terms & conditions of use ES',
 
+  'testimonials.section_title': 'Témoignages ES',
+
   'tips_and_tricks.call_to_action': 'Tous nos conseils & astuces ES',
+  'tips_and_tricks.section_title': 'Conseils & astuces ES',
+
+  'last_projects.section_title': 'Derniers projets ES',
 }
 
 export default es

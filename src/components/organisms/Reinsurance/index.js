@@ -1,33 +1,32 @@
 import React from 'react'
 import { Grid, Col, Row } from 'react-styled-flexboxgrid'
+import stripTags from 'utils/stripTags'
 
-import { Card, Carousel, Section, SimpleCardContent } from 'components'
+import { Card, Section, SimpleCardContent } from 'components'
+import { PostList } from 'containers'
+
+const generateChild = (i, items) => (
+  <Card key={i}>
+    <SimpleCardContent
+      title={items.title}
+      content={stripTags(items.body)}
+    />
+  </Card>
+)
 
 const Reinsurance = () => (
   <Section>
     <Grid>
       <Row>
         <Col xs={12}>
-          <Carousel>
-            <Card>
-              <SimpleCardContent
-                title="1. Quotatis vous aide à concrétiser vos projets"
-                content="Lorem Ipsum Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
-              />
-            </Card>
-            <Card>
-              <SimpleCardContent
-                title="2. Quotatis vous aide à concrétiser vos projets"
-                content="Lorem Ipsum Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
-              />
-            </Card>
-            <Card>
-              <SimpleCardContent
-                title="3. Quotatis vous aide à concrétiser vos projets"
-                content="Lorem Ipsum Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
-              />
-            </Card>
-          </Carousel>
+          <PostList
+            scope="reinsuranceArticles"
+            tags={['quotatis-reinsurance']}
+            limit={3}
+            active="quotatis-reinsurance"
+            generateChild={generateChild}
+            carousel
+          />
         </Col>
       </Row>
     </Grid>

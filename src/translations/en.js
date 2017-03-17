@@ -180,7 +180,12 @@ const en = {
   'footer.corporate.notice': 'Legal notice',
   'footer.corporate.use': 'Terms & conditions of use',
 
+  'testimonials.section_title': 'Testimonials',
+
   'tips_and_tricks.call_to_action': 'Tous nos conseils & astuces EN',
+  'tips_and_tricks.section_title': 'Conseils & astuces EN',
+
+  'last_projects.section_title': 'Derniers projets EN',
 }
 
 export default en

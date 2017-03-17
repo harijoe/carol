@@ -11,23 +11,17 @@ ShallowWrapper {
         <Row>
             <Col
                 xs={12}>
-                <Mock>
-                    <Mock>
-                        <Mock
-                            content="Lorem Ipsum Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
-                            title="1. Quotatis vous aide à concrétiser vos projets" />
-                    </Mock>
-                    <Mock>
-                        <Mock
-                            content="Lorem Ipsum Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
-                            title="2. Quotatis vous aide à concrétiser vos projets" />
-                    </Mock>
-                    <Mock>
-                        <Mock
-                            content="Lorem Ipsum Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
-                            title="3. Quotatis vous aide à concrétiser vos projets" />
-                    </Mock>
-                </Mock>
+                <Mock
+                    active="quotatis-reinsurance"
+                    carousel={true}
+                    generateChild={[Function]}
+                    limit={3}
+                    scope="reinsuranceArticles"
+                    tags={
+                        Array [
+                            "quotatis-reinsurance",
+                          ]
+                    } />
             </Col>
         </Row>
     </Grid>
@@ -38,23 +32,17 @@ ShallowWrapper {
             <Row>
                   <Col
                         xs={12}>
-                        <Mock>
-                              <Mock>
-                                    <Mock
-                                          content="Lorem Ipsum Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
-                                          title="1. Quotatis vous aide à concrétiser vos projets" />
-                              </Mock>
-                              <Mock>
-                                    <Mock
-                                          content="Lorem Ipsum Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
-                                          title="2. Quotatis vous aide à concrétiser vos projets" />
-                              </Mock>
-                              <Mock>
-                                    <Mock
-                                          content="Lorem Ipsum Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
-                                          title="3. Quotatis vous aide à concrétiser vos projets" />
-                              </Mock>
-                        </Mock>
+                        <Mock
+                              active="quotatis-reinsurance"
+                              carousel={true}
+                              generateChild={[Function]}
+                              limit={3}
+                              scope="reinsuranceArticles"
+                              tags={
+                                    Array [
+                                          "quotatis-reinsurance",
+                                        ]
+                              } />
                   </Col>
             </Row>
       </Grid>
@@ -99,23 +87,17 @@ ShallowWrapper {
                     <Row>
                               <Col
                                         xs={12}>
-                                        <Mock>
-                                                  <Mock>
-                                                            <Mock
-                                                                      content="Lorem Ipsum Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
-                                                                      title="1. Quotatis vous aide à concrétiser vos projets" />
-                                                  </Mock>
-                                                  <Mock>
-                                                            <Mock
-                                                                      content="Lorem Ipsum Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
-                                                                      title="2. Quotatis vous aide à concrétiser vos projets" />
-                                                  </Mock>
-                                                  <Mock>
-                                                            <Mock
-                                                                      content="Lorem Ipsum Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
-                                                                      title="3. Quotatis vous aide à concrétiser vos projets" />
-                                                  </Mock>
-                                        </Mock>
+                                        <Mock
+                                                  active="quotatis-reinsurance"
+                                                  carousel={true}
+                                                  generateChild={[Function]}
+                                                  limit={3}
+                                                  scope="reinsuranceArticles"
+                                                  tags={
+                                                            Array [
+                                                                      "quotatis-reinsurance",
+                                                                    ]
+                                                  } />
                               </Col>
                     </Row>
           </Grid>
@@ -126,23 +108,17 @@ ShallowWrapper {
                     <Row>
                               <Col
                                         xs={12}>
-                                        <Mock>
-                                                  <Mock>
-                                                            <Mock
-                                                                      content="Lorem Ipsum Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
-                                                                      title="1. Quotatis vous aide à concrétiser vos projets" />
-                                                  </Mock>
-                                                  <Mock>
-                                                            <Mock
-                                                                      content="Lorem Ipsum Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
-                                                                      title="2. Quotatis vous aide à concrétiser vos projets" />
-                                                  </Mock>
-                                                  <Mock>
-                                                            <Mock
-                                                                      content="Lorem Ipsum Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit"
-                                                                      title="3. Quotatis vous aide à concrétiser vos projets" />
-                                                  </Mock>
-                                        </Mock>
+                                        <Mock
+                                                  active="quotatis-reinsurance"
+                                                  carousel={true}
+                                                  generateChild={[Function]}
+                                                  limit={3}
+                                                  scope="reinsuranceArticles"
+                                                  tags={
+                                                            Array [
+                                                                      "quotatis-reinsurance",
+                                                                    ]
+                                                  } />
                               </Col>
                     </Row>
           </Grid>

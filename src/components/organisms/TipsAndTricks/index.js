@@ -1,44 +1,35 @@
 import React from 'react'
+import { injectIntl, intlShape, FormattedMessage } from 'react-intl'
 import { Grid, Col, Row } from 'react-styled-flexboxgrid'
-import { FormattedMessage } from 'react-intl'
+import messages from 'utils/messages'
 
+import { PostList } from 'containers'
 import { Section, TipsAndTricksBlock, Button } from 'components'
 
-const TipsAndTricks = () => (
-  <Section title="Conseils et astuces">
+const generateChild = (i, items) => (
+  <Col xs={12} key={i}>
+    <TipsAndTricksBlock
+      header="Fenêtre"
+      tags={[
+        { label: 'preparer mes travaux', link: '' },
+        { label: 'budget', link: '' },
+      ]}
+      title={items.title}
+    />
+  </Col>
+)
+
+const TipsAndTricks = ({ intl: { formatMessage } }) => (
+  <Section title={formatMessage(messages('tips_and_tricks.section_title').label)}>
     <Grid>
       <Row>
-        <Col xs={12}>
-          <TipsAndTricksBlock
-            header="Fenêtre"
-            tags={[
-              { label: 'preparer mes travaux', link: '' },
-              { label: 'budget', link: '' },
-            ]}
-            title="Passer au <strong>double vitrage</strong> combien ça coute"
-          />
-        </Col>
-        <Col xs={12}>
-          <TipsAndTricksBlock
-            header="Electricité"
-            tags={[
-              { label: 'preparer mes travaux', link: '' },
-              { label: 'budget', link: '' },
-            ]}
-            imgLink="http://placehold.it/350x160"
-            title="Les <strong>normes électriques</strong> pour une renovation"
-          />
-        </Col>
-        <Col xs={12}>
-          <TipsAndTricksBlock
-            header="Rénovation"
-            tags={[
-              { label: 'découvrir', link: '' },
-              { label: 'tendance', link: '' },
-            ]}
-            title="Salon <strong>maison et travaux</strong>, ce qu'on a retenu!"
-          />
-        </Col>
+        <PostList
+          scope="latestProjectsResources"
+          tags={['work-resources']}
+          limit={5}
+          active="all"
+          generateChild={generateChild}
+        />
       </Row>
       <Row>
         <Col>
@@ -51,4 +42,8 @@ const TipsAndTricks = () => (
   </Section>
 )
 
-export default TipsAndTricks
+TipsAndTricks.propTypes = {
+  intl: intlShape.isRequired,
+}
+
+export default injectIntl(TipsAndTricks)

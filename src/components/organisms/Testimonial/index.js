@@ -1,49 +1,47 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
+import { injectIntl, intlShape } from 'react-intl'
 import { Grid, Col, Row } from 'react-styled-flexboxgrid'
+import stripTags from 'utils/stripTags'
+import messages from 'utils/messages'
 
-import { Card, Carousel, Section, TestimonialCardContent } from 'components'
+import { Card, Section, TestimonialCardContent } from 'components'
+import { PostList } from 'containers'
 
-const Testimonial = () => (
-  <Section title="Témoignages">
+const generateChild = (i, items) => (
+  <Card key={i}>
+    <TestimonialCardContent
+      imageLink={items.featuredMedia}
+      title={items.title}
+      subtitle="32 ans"
+      label="Bergerac, 32000"
+      content={stripTags(items.body)}
+      link="http://google.com"
+    />
+  </Card>
+)
+
+const Testimonial = ({ active, intl: { formatMessage } }) => (
+  <Section title={formatMessage(messages('testimonials.section_title').label)}>
     <Grid>
       <Row>
         <Col xs={12}>
-          <Carousel>
-            <Card>
-              <TestimonialCardContent
-                imageLink="http://placehold.it/350x190"
-                title="Joanne"
-                subtitle="32 ans"
-                label="Bergerac, 32000"
-                content="Je voulais faire quelque chose qui me permettrait de rencontrer de novuelles personnes et de sortir de chez moi …"
-                link="http://google.com"
-              />
-            </Card>
-            <Card>
-              <TestimonialCardContent
-                imageLink="http://placehold.it/350x190"
-                title="Bob"
-                subtitle="20 ans"
-                label="Marseille, 13000"
-                content="Je voulais faire quelque chose qui me permettrait de rencontrer de novuelles personnes et de sortir de chez moi …"
-                link="http://google.com"
-              />
-            </Card>
-            <Card>
-              <TestimonialCardContent
-                imageLink="http://placehold.it/350x190"
-                title="Eric"
-                subtitle="40 ans"
-                label="Paris, 75001"
-                content="Je voulais faire quelque chose qui me permettrait de rencontrer de novuelles personnes et de sortir de chez moi …"
-                link="http://google.com"
-              />
-            </Card>
-          </Carousel>
+          <PostList
+            scope="testimonialArticles"
+            tags={['testimony']}
+            limit={10}
+            active={active}
+            generateChild={generateChild}
+            carousel
+          />
         </Col>
       </Row>
     </Grid>
   </Section>
 )
 
-export default Testimonial
+Testimonial.propTypes = {
+  active: PropTypes.any,
+  intl: intlShape.isRequired,
+}
+
+export default injectIntl(Testimonial)

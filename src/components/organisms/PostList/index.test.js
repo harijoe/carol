@@ -8,10 +8,10 @@ const list = [
   { id: 3, title: 'title 3', body: 'body 3' },
 ]
 
-const wrap = (props = {}) => mount(<PostList list={list} {...props} />)
+const wrap = (props = {}) => mount(<PostList list={list} generateChild={() => <Mock></Mock>} {...props} />)
 
 it('renders PostList', () => {
   const wrapper = wrap()
 
-  expect(wrapper.find('Mock').length).toEqual(4)
+  expect(wrapper.find('Mock').length).toEqual(1)
 })

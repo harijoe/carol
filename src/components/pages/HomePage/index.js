@@ -35,9 +35,9 @@ class HomePage extends Component {
       <MainLayout {...this.props}>
         <FirmSearchForm />
         <GoogleMap scope="latestProjectsOnMap" onMarkerClick={this.onMarkerClick} />
-        <LastProjects />
+        <LastProjects active={this.state.activeProject} />
         <HowItWorks />
-        <Testimonial />
+        <Testimonial active={this.state.activeTopic} />
         <TipsAndTricks />
         <Reinsurance />
       </MainLayout>
