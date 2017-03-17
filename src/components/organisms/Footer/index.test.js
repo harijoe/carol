@@ -1,11 +1,11 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Footer from '.'
 
-const wrap = (props = {}) => shallow(<Footer {...props} />)
+import mockIntl from '../../../../test/intlMock'
+import Footer from './'
 
-it('renders props when passed in', () => {
-  const wrapper = wrap({ id: 'foo' })
+it('renders the Footer component', () => {
+  const wrapper = shallow(mockIntl(<Footer />))
 
-  expect(wrapper.find({ id: 'foo' }).length).toBeGreaterThan(0)
+  expect(wrapper).toMatchSnapshot()
 })

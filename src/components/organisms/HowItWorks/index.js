@@ -1,22 +1,17 @@
 import React from 'react'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
-import { Grid, Col, Row } from 'react-styled-flexboxgrid'
 import styled from 'styled-components'
-import { theme } from 'utils/style'
+import { Grid, Col, Row } from 'react-styled-flexboxgrid'
 import messages from 'utils/messages'
+import { theme } from 'utils/style'
 import { cloudinaryUrl } from 'config'
 
-import { Section, HowItWorksBlock, Paragraph } from 'components'
-
-const StyledLink = styled.a`
-  color: ${theme('colors.secondary')};
-  text-decoration: none;
-`
+import { Section, HowItWorksBlock, Paragraph, Link } from 'components'
 
 const StyledCol = styled(Col)`
   margin-bottom: ${theme('spaces.xl')};
 
-  &:last-child{
+  &:last-child {
     margin-bottom: 0;
   }
 `
@@ -30,9 +25,9 @@ const DescribeProject = (
 const VerifiedPros = (
   <Paragraph>
     <FormattedMessage id="how_it_works.verified_pros.first_part" />
-    <StyledLink href="https://conseils-travaux.quotatis.fr">
+    <Link href="https://conseils-travaux.quotatis.fr">
       <FormattedMessage id="how_it_works.verified_pros.link" />
-    </StyledLink>
+    </Link>
     <FormattedMessage id="how_it_works.verified_pros.second_part" />
   </Paragraph>
 )
@@ -40,9 +35,9 @@ const VerifiedPros = (
 const Guide = (
   <Paragraph>
     <FormattedMessage id="how_it_works.guide.first_part" />
-    <StyledLink href="https://conseils-travaux.quotatis.fr">
+    <Link href="https://conseils-travaux.quotatis.fr">
       <FormattedMessage id="how_it_works.guide.link" />
-    </StyledLink>
+    </Link>
     <FormattedMessage id="how_it_works.guide.second_part" />
   </Paragraph>
 )

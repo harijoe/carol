@@ -3,31 +3,51 @@ import styled, { css } from 'styled-components'
 
 import { theme, merge } from 'utils/style'
 
-const Title = styled.h2`
-  font-family: 'montserrat-light', sans-serif;
-  position: relative;
-  display: block;
-  width: 100%;
-  text-align: center;
-  letter-spacing: 0.075rem;
-  color: ${theme('colors.black')};
-  font-size: ${theme('fonts.size.m')};
-  margin-top: 0;
-  margin-bottom: ${theme('spaces.m')};
-  padding-bottom: ${theme('spaces.m')};
+const titleStyles = ({ dark }) => {
+  let baseStyle = css`
+    color: ${theme('colors.black')};
+    &::before {
+      background: ${theme('colors.black')};
+    }  
+  `
 
-  &::before {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    height: 0.1rem;
-    width: 2.5rem;
-    content: '';
-    margin-left: -1.25rem;
-    background: ${theme('colors.black')};
+  if (dark) {
+    baseStyle = css`
+      color: ${theme('colors.white')};
+      &::before {
+        background: ${theme('colors.white')};
+      }
+    `
   }
-`
-const styles = ({ light, primary, dark }) => {
+
+  const commonStyle = css`
+    font-family: 'montserrat-light', sans-serif;
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: center;
+    letter-spacing: 0.075rem;
+    font-size: ${theme('fonts.size.m')};
+    margin-top: 0;
+    margin-bottom: ${theme('spaces.m')};
+    padding-bottom: ${theme('spaces.m')};
+    &::before {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      height: 0.1rem;
+      width: 2.5rem;
+      content: '';
+      margin-left: -1.25rem;
+    }
+  `
+
+  return merge(baseStyle, commonStyle)
+}
+
+const Title = styled.h2`${titleStyles}`
+
+const sectionStyles = ({ light, primary, dark }) => {
   let baseStyle = css`
     background: ${theme('colors.white')};
   `
@@ -55,11 +75,11 @@ const styles = ({ light, primary, dark }) => {
   return merge(baseStyle, commonStyle)
 }
 
-const StyledSection = styled.section`${styles}`
+const StyledSection = styled.section`${sectionStyles}`
 
 const Section = ({ light, primary, dark, children, title, ...props }) => (
   <StyledSection light={light} primary={primary} dark={dark} {...props}>
-    {title != null && <Title>{title}</Title>}
+    {title != null && <Title light={light} primary={primary} dark={dark} {...props}>{title}</Title>}
     {children}
   </StyledSection>
 )

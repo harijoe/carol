@@ -10,7 +10,7 @@ const iconStyles = ({ hasText, right, responsive }) => {
     margin: ${hasText ? margin : 0};
     padding-top: 0.25em;
     @media screen and (max-width: 420px) {
-      margin: ${responsive && 0};
+    margin: ${responsive && 0};
     }
   `
 }
