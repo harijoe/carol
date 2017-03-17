@@ -4,7 +4,7 @@ import { reduxForm } from 'redux-form'
 
 import { ProfileForm } from 'components'
 import { userDetails, userUpdate } from 'store/actions'
-import { fromUser, fromLocale } from 'store/selectors'
+import { fromUser, fromContext } from 'store/selectors'
 import { createValidator, required } from 'services/validation'
 import transformDate from 'utils/transformDate'
 
@@ -37,7 +37,7 @@ const mapStateToProps = (state) => {
       ...details,
       imageBase64: details.imageUrl,
       birthday: transformDate(details.birthday),
-      country: fromLocale.getCountry(state),
+      country: fromContext.getCountry(state),
     },
   }
 }

@@ -6,9 +6,9 @@ it('returns the initial state', () => {
   expect(reducer(undefined, {})).toEqual(initialState)
 })
 
-it('handles LOCALE_SET_COUNTRY', () => {
+it('handles CONTEXT_SET_COUNTRY', () => {
   expect(reducer(initialState, {
-    type: actions.LOCALE_SET_COUNTRY,
+    type: actions.CONTEXT_SET_COUNTRY,
     payload: 'myCountry',
   })).toEqual({
     ...initialState,
@@ -16,9 +16,9 @@ it('handles LOCALE_SET_COUNTRY', () => {
   })
 })
 
-it('handles LOCALE_SET_LANG', () => {
+it('handles CONTEXT_SET_LANG', () => {
   expect(reducer(initialState, {
-    type: actions.LOCALE_SET_LANG,
+    type: actions.CONTEXT_SET_LANG,
     payload: 'myLang',
   })).toEqual({
     ...initialState,

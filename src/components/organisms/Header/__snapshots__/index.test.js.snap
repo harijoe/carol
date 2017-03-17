@@ -8,6 +8,7 @@ ShallowWrapper {
   "length": 1,
   "node": <div
     className="bNrTqf">
+    <Mock />
     <Styled(Mock)
         icon="quotatis"
         size={100}
@@ -86,6 +87,7 @@ ShallowWrapper {
   "nodes": Array [
     <div
       className="bNrTqf">
+      <Mock />
       <Styled(Mock)
             icon="quotatis"
             size={100}
@@ -238,6 +240,7 @@ ShallowWrapper {
                         },
                       }
         }>
+        <Mock />
         <Styled(Mock)
                 icon="quotatis"
                 size={100}
@@ -323,6 +326,7 @@ ShallowWrapper {
         },
         "props": Object {
           "children": Array [
+            <Mock />,
             <Styled(Mock)
               icon="quotatis"
               size={100}
@@ -557,6 +561,7 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <div
           className="bNrTqf">
+          <Mock />
           <Styled(Mock)
                     icon="quotatis"
                     size={100}
@@ -635,6 +640,7 @@ ShallowWrapper {
         "_debugID": 4,
         "_renderedOutput": <div
           className="bNrTqf">
+          <Mock />
           <Styled(Mock)
                     icon="quotatis"
                     size={100}
@@ -791,6 +797,7 @@ ShallowWrapper {
             },
           }
     }>
+    <Mock />
     <Styled(Mock)
         icon="quotatis"
         size={100}

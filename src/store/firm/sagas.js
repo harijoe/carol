@@ -1,5 +1,5 @@
 import { fork, select, put, takeLatest } from 'redux-saga/effects'
-import { fromLocale } from 'store/selectors'
+import { fromContext } from 'store/selectors'
 import fetch from 'sagas/fetch'
 import { push } from 'react-router-redux'
 
@@ -7,7 +7,7 @@ import { firmList, firmDetails, FIRM_LIST, FIRM_DETAILS } from './actions'
 
 export function* handleReadFirmListRequest({ params }) {
   const filters = params.length > 0 ? `&${params.join('&')}` : ''
-  const country = yield select(fromLocale.getCountry)
+  const country = yield select(fromContext.getCountry)
 
   return yield* fetch(firmList, { params }, 'get', `/firms/search?country-code=${country}${filters}`)
 }

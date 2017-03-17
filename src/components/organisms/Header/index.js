@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { IconLink } from 'components'
-import { PrimaryNavigation } from 'containers'
+import { PrimaryNavigation, FullscreenNavigation } from 'containers'
 import { theme } from 'utils/style'
 
 const Wrapper = styled.div`
@@ -24,6 +24,7 @@ const StyledIconLink = styled(IconLink)`
 
 const Header = props => (
   <Wrapper {...props}>
+    <FullscreenNavigation />
     <StyledIconLink to="/" icon="quotatis" size={100} />
     <PrimaryNavigation {...props} />
   </Wrapper>

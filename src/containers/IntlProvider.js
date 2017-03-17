@@ -12,8 +12,8 @@ IntlProviderContainer.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  locale: state.locale.lang,
-  messages: translations[state.locale.lang],
+  locale: state.context.lang,
+  messages: translations[state.context.lang],
 })
 
 export default connect(mapStateToProps)(IntlProviderContainer)

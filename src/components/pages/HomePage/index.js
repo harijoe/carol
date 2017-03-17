@@ -46,7 +46,7 @@ class HomePage extends Component {
 }
 
 /*
-  @todo: To be used as reference when wordpress will be plugged in
+  @TODO: To be used as reference when wordpress will be plugged in
 
    <PostList scope="latestProjectsOnMap" tags={['inspiration', 'last-project']} limit={3} active={this.state.activeProject} />
    <PostList scope="latestProjectsResources" tags={['work-resources']} limit={5} active="all" />

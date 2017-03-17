@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
-import { fromPost, fromLocale } from 'store/selectors'
+import { fromPost, fromContext } from 'store/selectors'
 
 import { Map } from 'components'
 
@@ -47,7 +47,7 @@ class GoogleMapContainer extends Component {
 
 const mapStateToProps = (state, { scope }) => ({
   list: fromPost.getList(state, scope),
-  country: fromLocale.getCountry(state),
+  country: fromContext.getCountry(state),
 })
 
 export default connect(mapStateToProps)(GoogleMapContainer)
