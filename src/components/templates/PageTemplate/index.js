@@ -18,9 +18,7 @@ addLocaleData([...es, ...en, ...fr])
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 3.75rem;
   min-height: 100vh;
-  box-sizing: border-box;
 `
 
 const Header = styled.header`
@@ -32,8 +30,7 @@ const Header = styled.header`
 
 const Content = styled.section`
   width: 100%;
-  box-sizing: border-box;
-  margin: 2rem auto;
+  margin: 0;
   max-width: 920px;
 `
 
