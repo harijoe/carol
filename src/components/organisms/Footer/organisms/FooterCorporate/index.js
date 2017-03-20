@@ -8,7 +8,7 @@ import { List, ListItem, Link, Icon } from 'components'
 
 const Wrapper = styled.div`
   width: 100%;
-  padding: ${theme('spaces.m')} ${theme('spaces.xl')} ${theme('spaces.m')} ${theme('spaces.xl')};
+  padding: ${theme('spaces.m')};
   background-color: #000;
 `
 
@@ -51,7 +51,7 @@ const FooterCorporate = () => (
   <Wrapper>
     <Grid>
       <Row>
-        <Col>
+        <Col xs={6}>
           <StyledList>
             <StyledListItem>
               <StyledLink>
@@ -75,7 +75,7 @@ const FooterCorporate = () => (
             </StyledListItem>
           </StyledList>
         </Col>
-        <Col>
+        <Col xs={6}>
           <StyledList>
             <StyledListItem>
               <StyledLink>
