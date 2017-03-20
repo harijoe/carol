@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { MainLayout, HowItWorks, Testimonial, TipsAndTricks, Reinsurance, LastProjects } from 'components'
+import { MainLayout, HowItWorks, Testimonial, TipsAndTricks, Reinsurance, LastProjects, Hero } from 'components'
 import { GoogleMap, FirmSearchForm } from 'containers'
 
 class HomePage extends Component {

@@ -46,16 +46,16 @@ const StyledHeading = styled(Heading)`
   z-index: 2;
 `
 
-const ThumbnailPoster = ({ categoryImage, categoryTitle }) => (
+const ThumbnailPoster = ({ image, title }) => (
   <Wrapper>
-    <StyledImage link={categoryImage} />
-    <StyledHeading level={3}>{categoryTitle}</StyledHeading>
+    <StyledImage link={image} />
+    <StyledHeading level={3}>{title}</StyledHeading>
   </Wrapper>
 )
 
 ThumbnailPoster.propTypes = {
-  categoryImage: PropTypes.string,
-  categoryTitle: PropTypes.string,
+  image: PropTypes.string,
+  title: PropTypes.string,
 }
 
 export default ThumbnailPoster

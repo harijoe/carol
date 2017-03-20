@@ -15,6 +15,7 @@ const styles = ({ strongShadow }) => {
 
   const commonStyle = css`
     background: ${theme('colors.white')};
+    transition: all .3s ease;
   `
 
   return merge(baseStyle, commonStyle)

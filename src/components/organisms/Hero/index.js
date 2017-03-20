@@ -1,8 +1,8 @@
-import React, { PropTypes }  from 'react'
+import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 import { Grid, Col, Row } from 'react-styled-flexboxgrid'
 
-import { Section, Card, Bubble, CardBlock } from 'components'
+import { Section, Bubble, CardBlock } from 'components'
 import { theme } from 'utils/style'
 import { cloudinaryUrl } from 'config'
 
@@ -13,7 +13,7 @@ const Header = styled.header`
   align-items: center;
   height: 95vh;
   width: 100%;
-  background: url(http://res.cloudinary.com/quotatis/image/upload/v1489742789/FrontApp/hero-fullscreen_image.jpg) center center no-repeat;
+  background: url(${cloudinaryUrl}hero-fullscreen_image.jpg) center center no-repeat;
   background-size: cover;
 
   &::before {
@@ -40,7 +40,21 @@ const StyledDescribe = styled.p`
   margin: 0 ;
 `
 
-const Hero = ({ content, children }) => (
+const ScrollWrapper = styled.div`
+  position: relative;
+  display: flex;
+  flex-wrap: flex-wrap;
+  margin-bottom: 0;
+  margin-top: 0;
+  margin-left: -3.2rem;
+  margin-right: -3.2rem;
+  padding-bottom: .5rem;
+  padding-left: 2rem;
+  overflow-y: hidden;
+  overflow-x: visible;
+`
+
+const Hero = ({ children }) => (
   <Header>
     <StyledSection>
       <div>
@@ -56,12 +70,27 @@ const Hero = ({ content, children }) => (
                 </StyledDescribe>
               </Col>
             </Row>
-          </StyledGrid>
-          <CardBlock
-            link="http://google.fr"
-            categoryImage={`${cloudinaryUrl}thumbnail-poster-keyone.jpg`}
-            categoryTitle="Fenêtres et ouvertures extérieures"
-          />
+          </StyledGrid>         
+          <ScrollWrapper>
+            <CardBlock
+              link="http://google.fr"
+              image={`${cloudinaryUrl}thumbnail-poster-keyone.jpg`}
+              title="Fenêtres et ouvertures extérieures"
+              items={['sqdfsqdf', 'sdfsdf']}
+            />
+            <CardBlock
+              link="http://google.fr"
+              image={`${cloudinaryUrl}thumbnail-poster-keyone.jpg`}
+              title="Fenêtres et ouvertures extérieures"
+              items={['sqdfsqdf', 'sdfsdf']}
+            />
+            <CardBlock
+              link="http://google.fr"
+              image={`${cloudinaryUrl}thumbnail-poster-keyone.jpg`}
+              title="Fenêtres et ouvertures extérieures"
+              items={['sqdfsqdf', 'sdfsdf']}
+            />
+          </ScrollWrapper>
         </Bubble>
       </div>
 
