@@ -6,7 +6,7 @@ export default (state = initialState, action) => {
     case POST_LIST.SUCCESS: {
       return {
         ...state,
-        [action.payload.scope]: action.payload['hydra:member'],
+        [action.actionParams.scope]: action.payload['hydra:member'],
       }
     }
     default: {

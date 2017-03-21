@@ -1,64 +1,49 @@
-import { call, fork, put, take, takeEvery, takeLatest } from 'redux-saga/effects'
-import cookie from 'react-cookie'
+import { call, fork, put, take, takeLatest } from 'redux-saga/effects'
 import { stopSubmit } from 'redux-form'
+import cookie from 'react-cookie'
 
 import config from 'config'
 import { resetUser } from 'store/actions'
-import { rawFetch as fetch } from 'sagas/fetch'
+import { fetchWithoutRefreshingToken } from 'sagas/fetch'
 import { requestChannel, responseChannel } from 'sagas/refreshToken'
+import saveToken from 'sagas/saveToken'
+import removeToken from 'sagas/removeToken'
 import { AUTH_LOGIN, AUTH_LOGOUT, authLogin } from './actions'
 
-export function* handleAuthLoginRequest({ grantType = 'client_credentials', formName, credentials = '' } = {}) {
-  const token = yield cookie.load('access_token')
+/*
+  returns :
+    - true if a token has been successfully fetched
+    - false if an error occured
+    - ${token} if nothing has been done because a token is already in the cookies
+ */
+export function* handleAuthLoginRequest({ grantType = 'client_credentials', formName = null, credentials = '' } = {}) {
+  try {
+    const token = yield cookie.load('access_token')
 
-  if (credentials === '' && token != null) {
-    return null
+    if (credentials === '' && token != null) {
+      // Notice: Token is expected to already be in the state thanks to SSR, there is nothing more to do
+      return token
+    }
+
+    const url = `/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api.clientSecret}&grant_type=${grantType}${credentials}`
+
+    yield* fetchWithoutRefreshingToken(authLogin(grantType), 'get', url)
+    yield* saveToken(grantType)
+
+    return true
+  } catch ({ _error }) {
+    if (formName != null) {
+      yield put(stopSubmit(formName, { _error }))
+    }
+
+    return false
   }
-
-  const url = `/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api.clientSecret}&grant_type=${grantType}${credentials}`
-
-  return yield* fetch(authLogin(grantType, formName), null, 'get', url)
-}
-
-function* handleAuthLoginSuccess(token) {
-  const { accessToken, refreshToken, grantType, expiresIn } = token.payload
-  const secure = location.protocol === 'https:'
-
-  yield [
-    cookie.save('access_token', accessToken, { path: '/', maxAge: expiresIn, secure }),
-    cookie.save('refresh_token', refreshToken, { secure }),
-    cookie.save('grant_type', grantType, { path: '/', maxAge: expiresIn, secure }),
-  ]
 }
 
 function* handleAuthLogout() {
-  yield [
-    cookie.remove('access_token'),
-    cookie.remove('refresh_token'),
-    cookie.remove('grant_type'),
-  ]
+  yield* removeToken
 
   yield put(resetUser())
-}
-
-function* handleAuthLoginFailure({ formName, error }) {
-  yield put(stopSubmit(formName, { _error: error }))
-}
-
-function* watchAuthRequest() {
-  yield takeLatest(AUTH_LOGIN.REQUEST, handleAuthLoginRequest)
-}
-
-function* watchAuthSuccess() {
-  yield takeEvery(AUTH_LOGIN.SUCCESS, handleAuthLoginSuccess)
-}
-
-function* watchAuthFailure() {
-  yield takeEvery(AUTH_LOGIN.FAILURE, handleAuthLoginFailure)
-}
-
-function* watchAuthLogout() {
-  yield takeEvery(AUTH_LOGOUT, handleAuthLogout)
 }
 
 /*
@@ -71,18 +56,16 @@ function* watchAuthChannelRequest() {
   // eslint-disable-next-line no-constant-condition
   while (true) {
     const payload = yield take(requestChannel)
+    const authSuccessful = yield call(handleAuthLoginRequest, payload)
 
-    yield call(handleAuthLoginRequest, payload)
-    yield put(responseChannel, {})
+    yield put(responseChannel, authSuccessful)
   }
 }
 
 export default function* () {
   yield [
-    fork(watchAuthRequest),
+    takeLatest(AUTH_LOGIN.REQUEST, handleAuthLoginRequest),
+    takeLatest(AUTH_LOGOUT, handleAuthLogout),
     fork(watchAuthChannelRequest),
-    fork(watchAuthSuccess),
-    fork(watchAuthLogout),
-    fork(watchAuthFailure),
   ]
 }

@@ -17,7 +17,7 @@ export const authLogin = (grantType = 'client_credentials', formName) => ({
       },
     })
   ),
-  failure: error => (actionTypes(AUTH_LOGIN.FAILURE, { error, formName })),
+  failure: error => (actionTypes(AUTH_LOGIN.FAILURE, { error })),
 })
 
 export const authLogout = () => (actionTypes(AUTH_LOGOUT))

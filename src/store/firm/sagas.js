@@ -1,4 +1,4 @@
-import { fork, select, put, takeLatest } from 'redux-saga/effects'
+import { select, put, takeLatest } from 'redux-saga/effects'
 import { fromContext } from 'store/selectors'
 import fetch from 'sagas/fetch'
 import { push } from 'react-router-redux'
@@ -16,24 +16,11 @@ export function* handleReadFirmListSuccess({ payload }) {
   yield put(push(`/search-firm?${payload.params.join('&')}`))
 }
 
-export function* readFirmDetails({ id }) {
-  return yield* fetch(firmDetails, null, 'get', `/firms/${id}`)
-}
-
-export function* watchFirmListRequest() {
-  yield takeLatest(FIRM_LIST.REQUEST, handleReadFirmListRequest)
-}
-
-export function* watchFirmListSuccess() {
-  yield takeLatest(FIRM_LIST.SUCCESS, handleReadFirmListSuccess)
-}
-
-export function* watchFirmDetailsRequest() {
-  yield takeLatest(FIRM_DETAILS.REQUEST, readFirmDetails)
+export function* handleReadFirmDetailsRequest({ id }) {
+  yield* fetch(firmDetails, 'get', `/firms/${id}`)
 }
 
 export default function* () {
-  yield fork(watchFirmDetailsRequest)
-  yield fork(watchFirmListRequest)
-  yield fork(watchFirmListSuccess)
+  yield takeLatest(FIRM_LIST.REQUEST, handleReadFirmListRequest)
+  yield takeLatest(FIRM_DETAILS.REQUEST, handleReadFirmDetailsRequest)
 }

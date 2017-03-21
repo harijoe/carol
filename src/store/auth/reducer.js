@@ -5,12 +5,13 @@ import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_SET_AUTHENTICATED, AUTH_SET_ACCESS_TOKEN 
 export default (state = initialState, action) => {
   switch (action.type) {
     case AUTH_LOGIN.SUCCESS: {
-      const { grantType, accessToken } = action.payload
+      const { grantType, accessToken, expiresIn } = action.payload
 
       return {
         ...state,
-        authenticated: isAuthenticated(grantType), // @TODO: Move it elsewhere, no logic in reducer
+        authenticated: isAuthenticated(grantType),
         accessToken,
+        expiresIn: expiresIn / 2, // Refresh front token way before back invalidates it, "/ 2" is arbitrary
       }
     }
     case AUTH_SET_AUTHENTICATED: {

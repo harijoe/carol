@@ -7,6 +7,7 @@ const StyledList = styled(List)`
   float: right;
   text-align: right;
 `
+
 StyledList.displayName = 'List'
 
 const Item = styled.li`

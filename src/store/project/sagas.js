@@ -1,4 +1,4 @@
-import { put, fork, takeLatest } from 'redux-saga/effects'
+import { put, takeLatest } from 'redux-saga/effects'
 
 import fetch from 'sagas/fetch'
 import {
@@ -10,45 +10,36 @@ import {
   PROJECT_DETAILS,
 } from './actions'
 
-export function* submitProject() {
+export function* handleSubmitProjectRequest() {
   // @TODO deserves a comment...
   const request = yield Math.floor((Math.random() * 2) + 1)
 
   switch (request) {
     case 1: {
-      return yield put(projectSubmit.failure())
+      yield put(projectSubmit.failure())
+      break
     }
     case 2: {
-      return yield put(projectSubmit.success())
+      yield put(projectSubmit.success())
+      break
     }
     default: {
-      return yield put(projectSubmit.success())
+      yield put(projectSubmit.success())
+      break
     }
   }
 }
 
-export function* readProjectList() {
-  return yield* fetch(projectList, null, 'get', '/projects')
+export function* handleReadProjectListRequest() {
+  yield* fetch(projectList, 'get', '/projects')
 }
 
-export function* readProjectDetails({ id }) {
-  return yield* fetch(projectDetails, null, 'get', `/projects/${id}`)
-}
-
-export function* watchProjectSubmitRequest() {
-  yield takeLatest(PROJECT_SUBMIT.REQUEST, submitProject)
-}
-
-export function* watchProjectListRequest() {
-  yield takeLatest(PROJECT_LIST.REQUEST, readProjectList)
-}
-
-export function* watchProjectDetailsRequest() {
-  yield takeLatest(PROJECT_DETAILS.REQUEST, readProjectDetails)
+export function* handleReadProjectDetailsRequest({ id }) {
+  yield* fetch(projectDetails, 'get', `/projects/${id}`)
 }
 
 export default function* () {
-  yield fork(watchProjectSubmitRequest)
-  yield fork(watchProjectListRequest)
-  yield fork(watchProjectDetailsRequest)
+  yield takeLatest(PROJECT_SUBMIT.REQUEST, handleSubmitProjectRequest)
+  yield takeLatest(PROJECT_LIST.REQUEST, handleReadProjectListRequest)
+  yield takeLatest(PROJECT_DETAILS.REQUEST, handleReadProjectDetailsRequest)
 }

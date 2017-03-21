@@ -11,6 +11,7 @@ const Form = styled.form`
   box-sizing: border-box;
   padding: 1em;
 `
+
 Form.displayName = 'Form'
 
 const StyledLink = styled(Link)`
