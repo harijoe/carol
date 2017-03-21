@@ -9,11 +9,12 @@ it('returns the initial state', () => {
 it('handles AUTH_SUCCESS', () => {
   expect(reducer(initialState, {
     type: actions.AUTH_LOGIN.SUCCESS,
-    payload: { grantType: 'password', accessToken: '123test' },
+    payload: { grantType: 'password', accessToken: '123test', expiresIn: 12000 },
   })).toEqual({
     ...initialState,
     authenticated: true,
     accessToken: '123test',
+    expiresIn: 6000,
   })
 })
 

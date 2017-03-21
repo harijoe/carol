@@ -1,4 +1,4 @@
-import { put, fork, select, takeEvery } from 'redux-saga/effects'
+import { put, select, takeEvery } from 'redux-saga/effects'
 
 import { fromProjectElaboration } from 'store/selectors'
 import fetch from 'sagas/fetch'
@@ -19,15 +19,9 @@ function* replyProjectElaboration({ text, payload = null }) {
     yield put(setProjectElaborationResponse(text))
   }
 
-  yield* fetch(projectElaborationReply, null, 'post', '/chatbot', {}, response)
-}
-
-function* watchReplyRequest() {
-  yield takeEvery(PROJECT_ELABORATION_REPLY.REQUEST, replyProjectElaboration)
+  yield* fetch(projectElaborationReply, 'post', '/chatbot', {}, response)
 }
 
 export default function* () {
-  yield [
-    fork(watchReplyRequest),
-  ]
+  yield takeEvery(PROJECT_ELABORATION_REPLY.REQUEST, replyProjectElaboration)
 }

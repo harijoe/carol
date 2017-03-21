@@ -10,7 +10,6 @@ import { Section, List, ListItem, Link } from 'components'
 
 const Wrapper = styled.div`
   width: 100%;
-  padding: 0 ${theme('spaces.m')} 0 ${theme('spaces.m')};
   color: ${theme('colors.white')};
 `
 

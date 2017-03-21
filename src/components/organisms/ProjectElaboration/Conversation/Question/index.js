@@ -21,6 +21,7 @@ const BubbleQuestion = styled.p`
   max-width: 50%;
   overflow-wrap: break-word;
 `
+
 BubbleQuestion.displayName = 'BubbleQuestion'
 
 const Question = ({ question }) => {

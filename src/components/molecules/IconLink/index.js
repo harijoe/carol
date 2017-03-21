@@ -35,6 +35,7 @@ const IconLink = ({ color, size, icon, right, responsive, children, ...props }) 
       color={color}
     />
   )
+
   return (
     <Link {...props}>
       {right || iconElement}
