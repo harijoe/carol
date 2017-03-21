@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 
-import { Post, Loading } from 'components'
+import { Carousel, Loading } from 'components'
 
 const Wrapper = styled.div`
   & > * {
@@ -21,19 +21,21 @@ const setDisplay = (active, i, tags) => {
   return active === i
 }
 
-const PostList = ({ list, active, loading }) => (
-  <Wrapper>
-    <Loading loading={loading}>
-      {list.map((items, i) =>
-        <Post
-          key={i}
-          items={items}
-          active={setDisplay(active, i, items.tags)}
-        />
-      )}
-    </Loading>
-  </Wrapper>
-)
+const PostList = ({ list, active, loading, generateChild, carousel }) => {
+  let children = list
+    .filter((items, i) => setDisplay(active, i, items.tags))
+    .map((items, i) => generateChild(i, items))
+
+  children = carousel ? <Carousel>{children}</Carousel> : children
+
+  return (
+    <Wrapper>
+      <Loading loading={loading}>
+        {children}
+      </Loading>
+    </Wrapper>
+  )
+}
 
 PostList.propTypes = {
   list: PropTypes.array.isRequired,
@@ -42,6 +44,8 @@ PostList.propTypes = {
     PropTypes.string,
     PropTypes.number,
   ]),
+  generateChild: PropTypes.func.isRequired,
+  carousel: PropTypes.bool,
 }
 
 export default PostList

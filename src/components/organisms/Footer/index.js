@@ -1,25 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Paragraph, Link, Icon } from 'components'
-import config from 'config'
+import { FooterAdvices, FooterCorporate, FooterSocialNetworks } from 'components'
 import { theme } from 'utils/style'
 
-const Credits = styled(Paragraph)`
-  text-align: center;
-  margin: 0;
-`
-
 const StyledFooter = styled.div`
-  background-color: ${theme('reverseColors.grayscale.darker')};
-  padding: 2rem;
+  background-color: ${theme('colors.black')};
 `
 
-const Footer = props => (
-  <StyledFooter {...props}>
-    <Credits>
-      Made with <Icon icon="heart" /> by <Link href={config.baseUrl}>Quotatis</Link>
-    </Credits>
+const Footer = () => (
+  <StyledFooter>
+    <FooterAdvices />
+    <FooterCorporate />
+    <FooterSocialNetworks />
   </StyledFooter>
 )
 

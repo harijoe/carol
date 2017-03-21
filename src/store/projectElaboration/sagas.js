@@ -15,7 +15,7 @@ function* replyProjectElaboration({ text, payload = null }) {
     channel: 'project',
   }
 
-  if (!['FLOW_RESET', 'FLOW_BACK'].includes(text)) {
+  if (!['new_project.reset', 'new_project.back'].includes(text)) {
     yield put(setProjectElaborationResponse(text))
   }
 

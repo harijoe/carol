@@ -13,6 +13,7 @@ class PostListContainer extends Component {
     ]),
     loading: PropTypes.bool,
     request: PropTypes.func.isRequired,
+    generateChild: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
@@ -24,9 +25,9 @@ class PostListContainer extends Component {
   }
 
   render() {
-    const { list, active, loading } = this.props
+    const { list, active, loading, generateChild } = this.props
 
-    return <PostList {...{ list, active, loading }} />
+    return <PostList {...{ list, active, loading, generateChild }} />
   }
 }
 

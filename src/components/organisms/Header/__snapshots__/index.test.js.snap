@@ -8,6 +8,7 @@ ShallowWrapper {
   "length": 1,
   "node": <div
     className="bNrTqf">
+    <Mock />
     <Styled(Mock)
         icon="quotatis"
         size={100}
@@ -52,8 +53,11 @@ ShallowWrapper {
                 },
                 "fonts": Object {
                   "family": Object {
-                    "andesBlack": "andes-black, sans-serif",
-                    "andesLight": "andes-extralight, sans-serif",
+                    "andesBlack": "andes-black, serif",
+                    "andesLight": "andes-extralight, serif",
+                    "montserratBlack": "montserrat-black, sans-serif",
+                    "montserratBold": "montserrat-bold, sans-serif",
+                    "montserratLight": "montserrat-light, sans-serif",
                   },
                   "size": Object {
                     "base": "1.4rem",
@@ -83,6 +87,7 @@ ShallowWrapper {
   "nodes": Array [
     <div
       className="bNrTqf">
+      <Mock />
       <Styled(Mock)
             icon="quotatis"
             size={100}
@@ -127,8 +132,11 @@ ShallowWrapper {
                         },
                         "fonts": Object {
                           "family": Object {
-                            "andesBlack": "andes-black, sans-serif",
-                            "andesLight": "andes-extralight, sans-serif",
+                            "andesBlack": "andes-black, serif",
+                            "andesLight": "andes-extralight, serif",
+                            "montserratBlack": "montserrat-black, sans-serif",
+                            "montserratBold": "montserrat-bold, sans-serif",
+                            "montserratLight": "montserrat-light, sans-serif",
                           },
                           "size": Object {
                             "base": "1.4rem",
@@ -202,8 +210,11 @@ ShallowWrapper {
                         },
                         "fonts": Object {
                           "family": Object {
-                            "andesBlack": "andes-black, sans-serif",
-                            "andesLight": "andes-extralight, sans-serif",
+                            "andesBlack": "andes-black, serif",
+                            "andesLight": "andes-extralight, serif",
+                            "montserratBlack": "montserrat-black, sans-serif",
+                            "montserratBold": "montserrat-bold, sans-serif",
+                            "montserratLight": "montserrat-light, sans-serif",
                           },
                           "size": Object {
                             "base": "1.4rem",
@@ -229,6 +240,7 @@ ShallowWrapper {
                         },
                       }
         }>
+        <Mock />
         <Styled(Mock)
                 icon="quotatis"
                 size={100}
@@ -273,8 +285,11 @@ ShallowWrapper {
                                 },
                                 "fonts": Object {
                                   "family": Object {
-                                    "andesBlack": "andes-black, sans-serif",
-                                    "andesLight": "andes-extralight, sans-serif",
+                                    "andesBlack": "andes-black, serif",
+                                    "andesLight": "andes-extralight, serif",
+                                    "montserratBlack": "montserrat-black, sans-serif",
+                                    "montserratBold": "montserrat-bold, sans-serif",
+                                    "montserratLight": "montserrat-light, sans-serif",
                                   },
                                   "size": Object {
                                     "base": "1.4rem",
@@ -311,6 +326,7 @@ ShallowWrapper {
         },
         "props": Object {
           "children": Array [
+            <Mock />,
             <Styled(Mock)
               icon="quotatis"
               size={100}
@@ -355,8 +371,11 @@ ShallowWrapper {
                                           },
                                           "fonts": Object {
                                             "family": Object {
-                                              "andesBlack": "andes-black, sans-serif",
-                                              "andesLight": "andes-extralight, sans-serif",
+                                              "andesBlack": "andes-black, serif",
+                                              "andesLight": "andes-extralight, serif",
+                                              "montserratBlack": "montserrat-black, sans-serif",
+                                              "montserratBold": "montserrat-bold, sans-serif",
+                                              "montserratLight": "montserrat-light, sans-serif",
                                             },
                                             "size": Object {
                                               "base": "1.4rem",
@@ -421,8 +440,11 @@ ShallowWrapper {
             },
             "fonts": Object {
               "family": Object {
-                "andesBlack": "andes-black, sans-serif",
-                "andesLight": "andes-extralight, sans-serif",
+                "andesBlack": "andes-black, serif",
+                "andesLight": "andes-extralight, serif",
+                "montserratBlack": "montserrat-black, sans-serif",
+                "montserratBold": "montserrat-bold, sans-serif",
+                "montserratLight": "montserrat-light, sans-serif",
               },
               "size": Object {
                 "base": "1.4rem",
@@ -489,8 +511,11 @@ ShallowWrapper {
             },
             "fonts": Object {
               "family": Object {
-                "andesBlack": "andes-black, sans-serif",
-                "andesLight": "andes-extralight, sans-serif",
+                "andesBlack": "andes-black, serif",
+                "andesLight": "andes-extralight, serif",
+                "montserratBlack": "montserrat-black, sans-serif",
+                "montserratBold": "montserrat-bold, sans-serif",
+                "montserratLight": "montserrat-light, sans-serif",
               },
               "size": Object {
                 "base": "1.4rem",
@@ -536,6 +561,7 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <div
           className="bNrTqf">
+          <Mock />
           <Styled(Mock)
                     icon="quotatis"
                     size={100}
@@ -580,8 +606,11 @@ ShallowWrapper {
                                         },
                                         "fonts": Object {
                                           "family": Object {
-                                            "andesBlack": "andes-black, sans-serif",
-                                            "andesLight": "andes-extralight, sans-serif",
+                                            "andesBlack": "andes-black, serif",
+                                            "andesLight": "andes-extralight, serif",
+                                            "montserratBlack": "montserrat-black, sans-serif",
+                                            "montserratBold": "montserrat-bold, sans-serif",
+                                            "montserratLight": "montserrat-light, sans-serif",
                                           },
                                           "size": Object {
                                             "base": "1.4rem",
@@ -611,6 +640,7 @@ ShallowWrapper {
         "_debugID": 4,
         "_renderedOutput": <div
           className="bNrTqf">
+          <Mock />
           <Styled(Mock)
                     icon="quotatis"
                     size={100}
@@ -655,8 +685,11 @@ ShallowWrapper {
                                         },
                                         "fonts": Object {
                                           "family": Object {
-                                            "andesBlack": "andes-black, sans-serif",
-                                            "andesLight": "andes-extralight, sans-serif",
+                                            "andesBlack": "andes-black, serif",
+                                            "andesLight": "andes-extralight, serif",
+                                            "montserratBlack": "montserrat-black, sans-serif",
+                                            "montserratBold": "montserrat-bold, sans-serif",
+                                            "montserratLight": "montserrat-light, sans-serif",
                                           },
                                           "size": Object {
                                             "base": "1.4rem",
@@ -734,8 +767,11 @@ ShallowWrapper {
             },
             "fonts": Object {
               "family": Object {
-                "andesBlack": "andes-black, sans-serif",
-                "andesLight": "andes-extralight, sans-serif",
+                "andesBlack": "andes-black, serif",
+                "andesLight": "andes-extralight, serif",
+                "montserratBlack": "montserrat-black, sans-serif",
+                "montserratBold": "montserrat-bold, sans-serif",
+                "montserratLight": "montserrat-light, sans-serif",
               },
               "size": Object {
                 "base": "1.4rem",
@@ -761,6 +797,7 @@ ShallowWrapper {
             },
           }
     }>
+    <Mock />
     <Styled(Mock)
         icon="quotatis"
         size={100}
@@ -805,8 +842,11 @@ ShallowWrapper {
                 },
                 "fonts": Object {
                   "family": Object {
-                    "andesBlack": "andes-black, sans-serif",
-                    "andesLight": "andes-extralight, sans-serif",
+                    "andesBlack": "andes-black, serif",
+                    "andesLight": "andes-extralight, serif",
+                    "montserratBlack": "montserrat-black, sans-serif",
+                    "montserratBold": "montserrat-bold, sans-serif",
+                    "montserratLight": "montserrat-light, sans-serif",
                   },
                   "size": Object {
                     "base": "1.4rem",

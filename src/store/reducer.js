@@ -6,7 +6,7 @@ import { reducer as notifications } from 'reapop'
 import post from './post/reducer'
 import firm from './firm/reducer'
 import status from './status/reducer'
-import locale from './locale/reducer'
+import context from './context/reducer'
 import auth from './auth/reducer'
 import user from './user/reducer'
 import projectElaboration from './projectElaboration/reducer'
@@ -18,7 +18,7 @@ const reducers = {
   firm,
   form,
   status,
-  locale,
+  context,
   auth,
   user,
   projectElaboration,

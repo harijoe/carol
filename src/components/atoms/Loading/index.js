@@ -17,7 +17,7 @@ class Loading extends Component {
   render() {
     const { loading, children } = this.props
 
-    // @Todo: Implement a spinner here instead of Loading...
+    // @TODO: Implement a spinner here instead of Loading...
     const content = loading === true ? 'Loading...' : children
 
     return <div>{content}</div>

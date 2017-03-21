@@ -4,7 +4,7 @@ import config from 'config'
 
 import { CountryMenu } from 'components'
 import { DropDownMenu } from 'containers'
-import { fromLocale } from 'store/selectors'
+import { fromContext } from 'store/selectors'
 
 const CountryMenuContainer = ({ locale, ...props }) => (
   <DropDownMenu label={config.locales[locale].countryLabel}>
@@ -16,6 +16,6 @@ CountryMenuContainer.propTypes = {
   locale: PropTypes.string,
 }
 
-const mapStateToProps = state => ({ locale: fromLocale.getLocale(state) })
+const mapStateToProps = state => ({ locale: fromContext.getLocale(state) })
 
 export default connect(mapStateToProps)(CountryMenuContainer)

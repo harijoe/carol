@@ -1,11 +1,11 @@
 import { put, call, select } from 'redux-saga/effects'
 
-import { fromAuth, fromLocale } from 'store/selectors'
+import { fromAuth, fromContext } from 'store/selectors'
 import api from 'services/api'
 import refreshToken from '../refreshToken'
 
 export function* rawFetch(actions, payload, method, url, settings = {}, data = null) {
-  const lang = yield select(fromLocale.getLocale)
+  const lang = yield select(fromContext.getLocale)
   const accessToken = yield select(fromAuth.getToken)
 
   try {

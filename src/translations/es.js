@@ -153,6 +153,41 @@ const es = {
   'how_it_works.guide.first_part': 'Nous vous accompagnons tout au long de votre projet de travaux avec des  ES',
   'how_it_works.guide.link': 'conseils personnalisés ES',
   'how_it_works.guide.second_part': ' et des guides dédiés. ES',
+
+  'hero.welcome_message': 'Bonjour, Je suis Quota ! Laissez-moi vous guider dans l\'élaboration de votre projet de... ES',
+
+  'footer.advices.section_title': 'Nos guides travaux ES',
+  'footer.advices.window': 'Fenêtres, Portes & Volets ES',
+  'footer.advices.heat': 'Chauffage ES',
+  'footer.advices.air': 'Climatisation & Ventilation ES',
+  'footer.advices.wall': 'Revêtement des murs ES',
+  'footer.advices.ground': 'Revêtement du sol ES',
+  'footer.advices.roof': 'Toiture & Façade ES',
+  'footer.advices.insulation': 'Isolation & Etanchéité ES',
+  'footer.advices.plumbing': 'Plomberie ES',
+  'footer.advices.masonry': 'Maçonnerie ES',
+  'footer.advices.renovation': 'Rénovation, Construction complète ES',
+  'footer.advices.bathroom': 'Salle de bain ES',
+  'footer.advices.kitchen': 'Cuisine ES',
+  'footer.advices.outside': 'Extérieur ES',
+  'footer.advices.wellness': 'Bien-être ES',
+
+  'footer.corporate.language': 'Español',
+  'footer.corporate.help': 'Help ES',
+  'footer.corporate.about': 'About ES',
+  'footer.corporate.press': 'Press ES',
+  'footer.corporate.phone_help': 'Need help ? ES',
+  'footer.corporate.phone_pros': 'Vous êtes un pro ? ES',
+  'footer.corporate.privacy_policy': 'Privacy policy ES',
+  'footer.corporate.notice': 'Legal notice ES',
+  'footer.corporate.use': 'Terms & conditions of use ES',
+
+  'testimonials.section_title': 'Témoignages ES',
+
+  'tips_and_tricks.call_to_action': 'Tous nos conseils & astuces ES',
+  'tips_and_tricks.section_title': 'Conseils & astuces ES',
+
+  'last_projects.section_title': 'Derniers projets ES',
 }
 
 export default es

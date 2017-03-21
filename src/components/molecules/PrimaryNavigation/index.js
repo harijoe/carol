@@ -2,16 +2,27 @@ import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 import { theme } from 'utils/style'
-import { Link, BurgerButton } from 'components'
-import { BurgerMenu, DropDownMenu, AccountMenu, CountryMenu } from 'containers'
+
+import { Link } from 'components'
+import { DropDownMenu, AccountMenu, BurgerButton } from 'containers'
 import SignInDropDownMenu from './SignInDropDownMenu'
 
 const Nav = styled.nav`
   display: flex;
+  align-items: center;
   list-style: none;
+  margin-left: auto;
 
-  & > :not(:first-child) {
-    margin-left: 1rem;
+  & > :nth-child(2) {
+    margin-right: 1.6rem;
+  }
+
+  & > :last-child {
+    position: relative;
+    box-sizing: content-box;
+    height: 2.4rem;
+    width: 2.4rem;
+    padding: ${theme('spaces.s')};
   }
 `
 
@@ -37,8 +48,6 @@ StyledSignInDropDownMenu.displayName = 'SignInDropDownMenu'
 
 const PrimaryNavigation = ({ isAuthenticated, ...props }) => (
   <Nav>
-    <li><BurgerButton /></li>
-    <li><BurgerMenu /></li>
     <li>
       <StyledLink to="/" onlyActiveOnIndex activeClassName="active">
         <FormattedMessage id="home" tagName="span" />
@@ -51,7 +60,7 @@ const PrimaryNavigation = ({ isAuthenticated, ...props }) => (
           : <StyledSignInDropDownMenu {...props} />
       }
     </li>
-    <li><CountryMenu /></li>
+    <li><BurgerButton /></li>
   </Nav>
 )
 
