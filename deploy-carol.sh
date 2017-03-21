@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-export DEPLOY=1;
-if [ "$(git log -2 --pretty=%B | grep "deploy:")" = "" ]; then echo $(git log -2 --pretty=%B | grep "deploy:"); export DEPLOY=0; fi;
-
-if [ "${BRANCH}" = "" ]; then BRANCH=develop; export DEPLOY=1; fi;
-if [ ${DEPLOY} = 0 ]; then
-    echo 'Not deployed';
-    exit 0;
-fi;
+#export DEPLOY=1;
+#if [ "$(git log -2 --pretty=%B | grep "deploy:")" = "" ]; then echo $(git log -2 --pretty=%B | grep "deploy:"); export DEPLOY=0; fi;
+#
+#if [ "${BRANCH}" = "" ]; then BRANCH=develop; export DEPLOY=1; fi;
+#if [ ${DEPLOY} = 0 ]; then
+#    echo 'Not deployed';
+#    exit 0;
+#fi;
 
 gcloud auth activate-service-account "travis@quotatis-152617.iam.gserviceaccount.com" --key-file=quotatis-01d6e02592a9.json
 gcloud container clusters get-credentials cluster-1 --zone europe-west1-b --project quotatis-152617
