@@ -4,5 +4,5 @@ import theme from '../../themes/default'
 import Card from './'
 
 it('renders the Card component', () => {
-  expect(shallow(<Card />)).toMatchSnapshot()
+  expect(shallow(<Card theme={theme} />)).toMatchSnapshot()
 })

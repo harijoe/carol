@@ -19,7 +19,7 @@ const Wrapper = styled(Link)`
 
 const StyledCard = styled(Card)`
   &:hover {
-    box-shadow: 0 0 10px 0 rgba(19, 19, 19, .2);
+    box-shadow: 0 0 10px 0 rgba(19, 19, 19, 0.2);
     transform: translateY(-${theme('spaces.xs')});
   }
 `
