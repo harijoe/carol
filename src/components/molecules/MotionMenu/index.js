@@ -1,20 +1,26 @@
 import React, { Component } from 'react'
 import { Motion, spring } from 'react-motion'
 import range from 'lodash.range'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { theme } from 'utils/style'
+import { Link } from 'react-router'
 
 import { Icon } from 'components'
 
 const Background = styled.div`
-  position: fixed;
-  background-color: rgba(0, 0, 0, .9);
+  position: fixed;  
+  transition: background-color 0.3s ${props => props.isOpen ? 'ease' : 'ease-out'};
+  ${props => props.isOpen ? 'background-color: rgba(0, 0, 0, .9);' : ''}
   border-radius: 100%;
   z-index: 999;
+`
+const StyledMainIcon = styled(Icon)`
+  margin: 0 auto;
 `
 const StyledChildIcon = styled(Icon)`
   width: 30px;
   height: 30px;
+  margin: 0 auto;
 `
 const StyledMainButton = styled.button`
   position: fixed;
@@ -36,7 +42,7 @@ const StyledMainButton = styled.button`
     outline: none;
   }
 `
-const StyledChildButton = styled.button`
+const childButtonCss = css`
   position: fixed;
   display: flex;
   justify-content: center;
@@ -52,6 +58,10 @@ const StyledChildButton = styled.button`
     outline: none;
   }
 `
+const backgroundInitialScale = 0.5
+const backgroundFinalScale = 40
+const StyledChildLink = styled(Link)(childButtonCss)
+const StyledChildButton = styled.button(childButtonCss)
 const mainButtonDiam = 60
 const mainButtonMargin = 20
 const mainButtonInitialRotation = 0
@@ -61,9 +71,35 @@ const childButtonInitialRotation = -140
 const childButtonFinalRotation = 0
 const childButtonInitialScale = 0.5
 const childButtonFinalScale = 1
-const childButtonIcons = ['follow', 'help', 'bot']
+const childButtonIcons = [
+  {
+    type: 'springBar',
+    element: {
+      icon: 'follow',
+    },
+  },
+  {
+    type: 'link',
+    element: {
+      icon: 'bot',
+      url: '/project-elaboration',
+      style: {
+        width: '100%',
+        height: '100%',
+      },
+    },
+  },
+  {
+    type: 'link',
+    element: {
+      icon: 'help',
+      url: '/help',
+    },
+  },
+]
 const numChildren = childButtonIcons.length
-const springConfig = [300, 10]
+const childButtonSpringConfig = { stiffness: 300, damping: 20, precision: 50 }
+const backgroundSpringConfig = { stiffness: 200, damping: 20, precision: 10 }
 const flyOutRadius = 100 // distance between main button and child button
 const separationAngle = 45 // degrees
 const baseAngle = 90 // degrees
@@ -91,6 +127,8 @@ class MotionMenu extends Component {
       childButtons: [],
       mainButtonPositionX: window.innerWidth - (mainButtonDiam / 2) - mainButtonMargin,
       mainButtonPositionY: window.innerHeight - (mainButtonDiam / 2) - mainButtonMargin,
+      backgroundPositionX: window.innerWidth,
+      backgroundPositionY: window.innerHeight,
     }
   }
 
@@ -104,32 +142,16 @@ class MotionMenu extends Component {
     this.setState({ childButtons: childButtons.slice(0) })
   }
 
-  componentDidMount() {
-    window.addEventListener('click', this.closeMenu)
-  }
-
   initialChildButtonStyles() {
     const { mainButtonPositionX, mainButtonPositionY } = this.state
 
     return {
       width: childButtonDiam,
       height: childButtonDiam,
-      top: spring(mainButtonPositionY - (childButtonDiam / 2), springConfig),
-      left: spring(mainButtonPositionX - (childButtonDiam / 2), springConfig),
-      rotate: spring(childButtonInitialRotation, springConfig),
-      scale: spring(childButtonInitialScale, springConfig),
-    }
-  }
-
-  initialBackgroundStyles() {
-    const { mainButtonPositionX, mainButtonPositionY } = this.state
-
-    return {
-      width: mainButtonDiam,
-      height: mainButtonDiam,
-      top: spring(mainButtonPositionY - (childButtonDiam / 2), springConfig),
-      left: spring(mainButtonPositionX - (childButtonDiam / 2), springConfig),
-      scale: spring(0.5, springConfig),
+      top: spring(mainButtonPositionY - (childButtonDiam / 2), childButtonSpringConfig),
+      left: spring(mainButtonPositionX - (childButtonDiam / 2), childButtonSpringConfig),
+      rotate: spring(childButtonInitialRotation, childButtonSpringConfig),
+      scale: spring(childButtonInitialScale, childButtonSpringConfig),
     }
   }
 
@@ -140,10 +162,22 @@ class MotionMenu extends Component {
     return {
       width: childButtonDiam,
       height: childButtonDiam,
-      top: spring(mainButtonPositionY - deltaY, springConfig),
-      left: spring(mainButtonPositionX + deltaX, springConfig),
-      rotate: spring(childButtonFinalRotation, springConfig),
-      scale: spring(childButtonFinalScale, springConfig),
+      top: spring(mainButtonPositionY - deltaY, childButtonSpringConfig),
+      left: spring(mainButtonPositionX + deltaX, childButtonSpringConfig),
+      rotate: spring(childButtonFinalRotation, childButtonSpringConfig),
+      scale: spring(childButtonFinalScale, childButtonSpringConfig),
+    }
+  }
+
+  initialBackgroundStyles() {
+    const { mainButtonPositionX, mainButtonPositionY } = this.state
+
+    return {
+      width: mainButtonDiam,
+      height: mainButtonDiam,
+      top: spring(mainButtonPositionY - (childButtonDiam / 2), childButtonSpringConfig),
+      left: spring(mainButtonPositionX - (childButtonDiam / 2), childButtonSpringConfig),
+      scale: spring(backgroundInitialScale, backgroundSpringConfig),
     }
   }
 
@@ -153,9 +187,9 @@ class MotionMenu extends Component {
     return {
       width: mainButtonDiam,
       height: mainButtonDiam,
-      top: spring(mainButtonPositionY - (mainButtonDiam / 2), springConfig),
-      left: spring(mainButtonPositionX - (mainButtonDiam / 2), springConfig),
-      scale: spring(20, springConfig),
+      top: spring(mainButtonPositionY - (mainButtonDiam / 2), childButtonSpringConfig),
+      left: spring(mainButtonPositionX - (mainButtonDiam / 2), childButtonSpringConfig),
+      scale: spring(backgroundFinalScale, backgroundSpringConfig),
     }
   }
 
@@ -190,22 +224,51 @@ class MotionMenu extends Component {
   renderChildButton(index) {
     const { isOpen } = this.state
     const style = isOpen ? this.finalChildButtonStyles(index) : this.initialChildButtonStyles()
+    const childButton = (type, element, elementStyle) => {
+      switch (type) {
+        case 'link':
+          return (
+            <StyledChildLink
+              to={element.url}
+              style={elementStyle}
+            >
+              <StyledChildIcon
+                icon={element.icon}
+                style={element.style}
+              />
+            </StyledChildLink>
+          )
+        case 'springBar':
+          return (
+            <StyledChildButton
+              style={elementStyle}
+            >
+              <StyledChildIcon
+                icon={element.icon}
+                style={element.style}
+              />
+            </StyledChildButton>
+          )
+        default:
+          return ''
+      }
+    }
 
     return (
       <Motion style={style} key={index}>
         {
           ({ width, height, top, left, rotate, scale }) =>
-            <StyledChildButton
-              style={{
-                width,
-                height,
-                top,
-                left,
-                transform: `rotate(${rotate}deg) scale(${scale})`,
-              }}
-            >
-              <StyledChildIcon icon={childButtonIcons[index]} />
-            </StyledChildButton>
+          childButton(
+            childButtonIcons[index].type,
+            childButtonIcons[index].element,
+            {
+              width,
+              height,
+              top,
+              left,
+              transform: `rotate(${rotate}deg) scale(${scale})`,
+            }
+          )
         }
       </Motion>
     )
@@ -220,16 +283,17 @@ class MotionMenu extends Component {
       <div>
         <Motion style={style}>
           {
-            ({ width, height, top, left, scale }) =>
+            ({ width, height, scale }) =>
               <Background
                 isOpen={this.state.isOpen}
                 style={{
                   width,
                   height,
-                  top,
-                  left,
+                  top: this.state.backgroundPositionY,
+                  left: this.state.backgroundPositionX,
                   transform: `scale(${scale})`,
                 }}
+                onClick={this.closeMenu}
               />
             }
 
@@ -250,7 +314,7 @@ class MotionMenu extends Component {
                 }}
                 onClick={this.toggleMenu}
               >
-                <Icon icon="more" />
+                <StyledMainIcon icon="more" />
               </StyledMainButton>
           }
         </Motion>
