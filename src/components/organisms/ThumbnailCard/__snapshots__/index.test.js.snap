@@ -8,7 +8,7 @@ ShallowWrapper {
   "length": 1,
   "node": <InjectIntl(ThumbnailCard)
     icon="icon"
-    image="test.jps"
+    image="test.jpg"
     items={
         Array [
             "item1",
@@ -20,7 +20,7 @@ ShallowWrapper {
   "nodes": Array [
     <InjectIntl(ThumbnailCard)
       icon="icon"
-      image="test.jps"
+      image="test.jpg"
       items={
             Array [
                   "item1",
@@ -222,7 +222,7 @@ ShallowWrapper {
         }>
         <InjectIntl(ThumbnailCard)
                 icon="icon"
-                image="test.jps"
+                image="test.jpg"
                 items={
                         Array [
                                 "item1",
@@ -243,7 +243,7 @@ ShallowWrapper {
         "props": Object {
           "children": <InjectIntl(ThumbnailCard)
             icon="icon"
-            image="test.jps"
+            image="test.jpg"
             items={
                         Array [
                                     "item1",
@@ -463,7 +463,7 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <InjectIntl(ThumbnailCard)
           icon="icon"
-          image="test.jps"
+          image="test.jpg"
           items={
                     Array [
                               "item1",
@@ -475,7 +475,7 @@ ShallowWrapper {
         "_debugID": 2,
         "_renderedOutput": <InjectIntl(ThumbnailCard)
           icon="icon"
-          image="test.jps"
+          image="test.jpg"
           items={
                     Array [
                               "item1",
@@ -681,7 +681,7 @@ ShallowWrapper {
     }>
     <InjectIntl(ThumbnailCard)
         icon="icon"
-        image="test.jps"
+        image="test.jpg"
         items={
             Array [
                 "item1",

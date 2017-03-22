@@ -1,9 +1,9 @@
 import React from 'react'
+import { injectIntl, intlShape, FormattedMessage } from 'react-intl'
 import styled from 'styled-components'
+import { Grid, Col, Row } from 'react-styled-flexboxgrid'
 import { theme } from 'utils/style'
 import { cloudinaryUrl, contentSiteUrl } from 'config'
-import { injectIntl, intlShape, FormattedMessage } from 'react-intl'
-import { Grid, Col, Row } from 'react-styled-flexboxgrid'
 
 import { Section, Bubble, ThumbnailCard, Image, Paragraph } from 'components'
 

@@ -5,7 +5,7 @@ import mockIntl from '../../../../test/intlMock'
 import ThumbnailCard from './'
 
 it('renders the ThumbnailCard component', () => {
-  const wrapper = shallow(mockIntl(<ThumbnailCard link="Test link" title="Test" image="test.jps" icon="icon" items={['item1', 'item2']} />))
+  const wrapper = shallow(mockIntl(<ThumbnailCard link="Test link" title="Test" image="test.jpg" icon="icon" items={['item1', 'item2']} />))
 
   expect(wrapper).toMatchSnapshot()
 })
