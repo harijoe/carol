@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
+import { injectIntl, FormattedMessage } from 'react-intl'
+import { theme } from 'utils/style'
 
 import { Card, ThumbnailPoster, Link, List, Icon } from 'components'
-
-import { theme } from 'utils/style'
 
 const Wrapper = styled(Link)`
   display: block;
@@ -49,7 +49,7 @@ const StyledList = styled(List)`
   padding: 0;
   list-style: none;
 
-  li{
+  li {
     padding-top: ${theme('spaces.s')};
   }
 `
@@ -68,7 +68,9 @@ const ThumbnailCard = ({ link, image, title, items, icon }) => (
         <StyledList>
           {items.map(item => <li>{item}</li>)}
         </StyledList>
-        <StyledParagraph>Allons-y ➔</StyledParagraph>
+        <StyledParagraph>
+          <FormattedMessage id="thumbnailcard.link" />
+        </StyledParagraph>
       </CardContent>
     </StyledCard>
   </Wrapper>
@@ -78,8 +80,8 @@ ThumbnailCard.propTypes = {
   link: PropTypes.string.isRequired,
   image: PropTypes.string,
   title: PropTypes.string,
-  items: PropTypes.array,
+  items: PropTypes.array.isRequired,
   icon: PropTypes.string,
 }
 
-export default ThumbnailCard
+export default injectIntl(ThumbnailCard)

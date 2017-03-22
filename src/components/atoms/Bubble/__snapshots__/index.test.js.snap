@@ -7,10 +7,10 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <div
-    className="dusrBV" />,
+    className="iOiBOa" />,
   "nodes": Array [
     <div
-      className="dusrBV" />,
+      className="iOiBOa" />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -30,7 +30,7 @@ ShallowWrapper {
         "props": Object {},
         "refs": Object {},
         "state": Object {
-          "generatedClassName": "dusrBV",
+          "generatedClassName": "iOiBOa",
           "theme": Object {},
         },
         "updater": Object {
@@ -52,10 +52,10 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <div
-          className="dusrBV" />,
+          className="iOiBOa" />,
         "_debugID": 2,
         "_renderedOutput": <div
-          className="dusrBV" />,
+          className="iOiBOa" />,
       },
       "_renderedNodeType": 0,
       "_rootNodeID": 0,

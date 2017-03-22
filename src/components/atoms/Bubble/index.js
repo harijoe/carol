@@ -5,9 +5,9 @@ const Bubble = styled.div`
   position: relative;
   padding: ${theme('spaces.m')};
   background: ${theme('colors.white')};
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 
-  &::before{
+  &::before {
     position: absolute;
     top: -${theme('spaces.m')};
     left: 33.33%;

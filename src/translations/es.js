@@ -156,6 +156,8 @@ const es = {
 
   'hero.welcome_message': 'Bonjour, Je suis Quota ! Laissez-moi vous guider dans l\'élaboration de votre projet de... ES',
 
+  'thumbnailcard.link': 'Allons-y ➔ ES',
+
   'footer.advices.section_title': 'Nos guides travaux ES',
   'footer.advices.window': 'Fenêtres, Portes & Volets ES',
   'footer.advices.heat': 'Chauffage ES',

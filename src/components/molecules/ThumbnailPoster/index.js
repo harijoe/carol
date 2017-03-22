@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 import { theme } from 'utils/style'
+
 import { Heading, Image } from 'components'
 
 const Wrapper = styled.figure`
@@ -43,7 +44,7 @@ const StyledHeading = styled(Heading)`
   margin: 0;
   color: ${theme('colors.white')};
   text-align: center;
-  text-shadow: 0 1px 0 rgba(0,0,0, .38);
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.38);
   z-index: 2;
 `
 

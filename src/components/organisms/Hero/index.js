@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import { theme } from 'utils/style'
+import { cloudinaryUrl, contentSiteUrl } from 'config'
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl'
 import { Grid, Col, Row } from 'react-styled-flexboxgrid'
 
 import { Section, Bubble, ThumbnailCard, Image, Paragraph } from 'components'
-import { theme } from 'utils/style'
-import { cloudinaryUrl } from 'config'
 
 const Header = styled.header`
   position: relative;
@@ -51,59 +51,56 @@ const ScrollWrapper = styled.div`
   margin-top: 0;
   margin-left: -3.2rem;
   margin-right: -3.2rem;
-  padding-bottom: .5rem;
+  padding-bottom: 0.5rem;
   padding-left: 2rem;
   overflow-y: hidden;
   overflow-x: visible;
 `
 
 const WelcomeMessage = styled(Paragraph)`
-  margin: 0 ;
+  margin: 0;
 `
 
 const Hero = () => (
   <Header>
     <StyledSection>
-      <div>
-        <Bubble>
-          <StyledGrid>
-            <Row>
-              <Col xs={4}>
-                <StyledImage link={`${cloudinaryUrl}chatbot-head.svg`} />
-              </Col>
-              <Col xs={8}>
-                <WelcomeMessage>
-                  <FormattedMessage id="hero.welcome_message" />
-                </WelcomeMessage>
-              </Col>
-            </Row>
-          </StyledGrid>
-          <ScrollWrapper>
-            <ThumbnailCard
-              link="http://google.fr"
-              image={`${cloudinaryUrl}thumbnail-poster-keyone.jpg`}
-              title="Fenêtres et ouvertures extérieures"
-              icon="windowkey-pin"
-              items={['item 1', 'item 2']}
-            />
-            <ThumbnailCard
-              link="http://google.fr"
-              image={`${cloudinaryUrl}thumbnail-poster-keyone.jpg`}
-              title="Fenêtres et ouvertures extérieures"
-              icon="windowkey-pin"
-              items={['item 3', 'item 4']}
-            />
-            <ThumbnailCard
-              link="http://google.fr"
-              image={`${cloudinaryUrl}thumbnail-poster-keyone.jpg`}
-              title="Fenêtres et ouvertures extérieures"
-              icon="windowkey-pin"
-              items={['item 5', 'item 6']}
-            />
-          </ScrollWrapper>
-        </Bubble>
-      </div>
-
+      <Bubble>
+        <StyledGrid>
+          <Row>
+            <Col xs={4}>
+              <StyledImage link={`${cloudinaryUrl}bot.png`} />
+            </Col>
+            <Col xs={8}>
+              <WelcomeMessage>
+                <FormattedMessage id="hero.welcome_message" />
+              </WelcomeMessage>
+            </Col>
+          </Row>
+        </StyledGrid>
+        <ScrollWrapper>
+          <ThumbnailCard
+            link={`${contentSiteUrl}`}
+            image={`${cloudinaryUrl}thumbnail-poster-keyone.jpg`}
+            title="Fenêtres et ouvertures extérieures"
+            icon="windowkey-pin"
+            items={['item 1', 'item 2']}
+          />
+          <ThumbnailCard
+            link={`${contentSiteUrl}`}
+            image={`${cloudinaryUrl}thumbnail-poster-keyone.jpg`}
+            title="Fenêtres et ouvertures extérieures"
+            icon="windowkey-pin"
+            items={['item 3', 'item 4']}
+          />
+          <ThumbnailCard
+            link={`${contentSiteUrl}`}
+            image={`${cloudinaryUrl}thumbnail-poster-keyone.jpg`}
+            title="Fenêtres et ouvertures extérieures"
+            icon="windowkey-pin"
+            items={['item 5', 'item 6']}
+          />
+        </ScrollWrapper>
+      </Bubble>
     </StyledSection>
   </Header>
 )
