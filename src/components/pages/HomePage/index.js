@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { MainLayout, HowItWorks, Testimonial, TipsAndTricks, Reinsurance, LastProjects, Hero } from 'components'
+import { MainLayout, HowItWorks, Testimonial, TipsAndTricks, Reinsurance, LastProjects, Hero, MotionMenu } from 'components'
 import { GoogleMap, FirmSearchForm } from 'containers'
 
 class HomePage extends Component {
@@ -41,6 +41,7 @@ class HomePage extends Component {
         <Testimonial active={this.state.activeTopic} />
         <TipsAndTricks />
         <Reinsurance />
+        <MotionMenu />
       </MainLayout>
     )
   }
