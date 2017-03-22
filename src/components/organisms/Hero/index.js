@@ -47,10 +47,7 @@ const ScrollWrapper = styled.div`
   position: relative;
   display: flex;
   flex-wrap: flex-wrap;
-  margin-bottom: 0;
-  margin-top: 0;
-  margin-left: -3.2rem;
-  margin-right: -3.2rem;
+  margin: 0 -3.2rem;
   padding-bottom: 0.5rem;
   padding-left: 2rem;
   overflow-y: hidden;
