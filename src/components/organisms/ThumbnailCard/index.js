@@ -66,7 +66,7 @@ const ThumbnailCard = ({ link, image, title, items, icon }) => (
       <CardContent>
         <StyledIcon icon={icon} />
         <StyledList>
-          {items.map(item => <li>{item}</li>)}
+          {items.map((item, i) => <li key={i}>{item}</li>)}
         </StyledList>
         <StyledParagraph>
           <FormattedMessage id="thumbnailcard.link" />
