@@ -154,6 +154,10 @@ const en = {
   'how_it_works.guide.link': 'conseils personnalisés EN',
   'how_it_works.guide.second_part': ' et des guides dédiés. EN',
 
+  'hero.welcome_message': 'Bonjour, Je suis Quota ! Laissez-moi vous guider dans l\'élaboration de votre projet de... EN',
+
+  'thumbnailcard.link': 'Let\'s Go ➔',
+
   'footer.advices.section_title': 'Nos guides travaux EN',
   'footer.advices.window': 'Fenêtres, Portes & Volets EN',
   'footer.advices.heat': 'Chauffage EN',

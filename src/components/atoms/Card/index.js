@@ -15,6 +15,7 @@ const styles = ({ strongShadow }) => {
 
   const commonStyle = css`
     background: ${theme('colors.white')};
+    transition: all .3s ease;
   `
 
   return merge(baseStyle, commonStyle)
@@ -22,8 +23,8 @@ const styles = ({ strongShadow }) => {
 
 const Wrapper = styled.div`${styles}`
 
-const Card = ({ strongShadow, children }) => (
-  <Wrapper strongShadow={strongShadow}>
+const Card = ({ strongShadow, children, ...props }) => (
+  <Wrapper strongShadow={strongShadow} {...props}>
     {children}
   </Wrapper>
 )

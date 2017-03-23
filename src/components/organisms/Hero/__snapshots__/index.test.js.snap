@@ -1,4 +1,4 @@
-exports[`test renders SignUpForm component 1`] = `
+exports[`test renders the Hero component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -6,9 +6,9 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <InjectIntl(SignUpForm) />,
+  "node": <InjectIntl(Hero) />,
   "nodes": Array [
-    <InjectIntl(SignUpForm) />,
+    <InjectIntl(Hero) />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -200,7 +200,7 @@ ShallowWrapper {
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
         }>
-        <InjectIntl(SignUpForm) />
+        <InjectIntl(Hero) />
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -211,7 +211,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <InjectIntl(SignUpForm) />,
+          "children": <InjectIntl(Hero) />,
           "locale": "en",
           "messages": Object {
             "Invalid username and password combination": "Invalid username and password combination",
@@ -421,9 +421,9 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <InjectIntl(SignUpForm) />,
+        "_currentElement": <InjectIntl(Hero) />,
         "_debugID": 2,
-        "_renderedOutput": <InjectIntl(SignUpForm) />,
+        "_renderedOutput": <InjectIntl(Hero) />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -619,7 +619,7 @@ ShallowWrapper {
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }
     }>
-    <InjectIntl(SignUpForm) />
+    <InjectIntl(Hero) />
 </IntlProvider>,
 }
 `;
