@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
-import { injectIntl, FormattedMessage } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
 import { theme } from 'utils/style'
 
 import { Card, ThumbnailPoster, Link, List, Icon } from 'components'
@@ -84,4 +84,4 @@ ThumbnailCard.propTypes = {
   icon: PropTypes.string,
 }
 
-export default injectIntl(ThumbnailCard)
+export default ThumbnailCard

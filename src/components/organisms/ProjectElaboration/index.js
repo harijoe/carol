@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import { FormattedMessage, injectIntl } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
 
 import { Block, Heading } from 'components'
 import Conversation from './Conversation'
@@ -28,4 +28,4 @@ ProjectElaboration.propTypes = {
   reply: PropTypes.func,
 }
 
-export default injectIntl(ProjectElaboration)
+export default ProjectElaboration

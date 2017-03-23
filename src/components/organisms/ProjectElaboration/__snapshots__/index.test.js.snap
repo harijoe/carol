@@ -6,7 +6,7 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <InjectIntl(ProjectElaboration)
+  "node": <ProjectElaboration
     conversation={
         Array [
             Object {
@@ -18,7 +18,7 @@ ShallowWrapper {
           ]
     } />,
   "nodes": Array [
-    <InjectIntl(ProjectElaboration)
+    <ProjectElaboration
       conversation={
             Array [
                   Object {
@@ -220,7 +220,7 @@ ShallowWrapper {
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
         }>
-        <InjectIntl(ProjectElaboration)
+        <ProjectElaboration
                 conversation={
                         Array [
                                 Object {
@@ -241,7 +241,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <InjectIntl(ProjectElaboration)
+          "children": <ProjectElaboration
             conversation={
                         Array [
                                     Object {
@@ -461,7 +461,7 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <InjectIntl(ProjectElaboration)
+        "_currentElement": <ProjectElaboration
           conversation={
                     Array [
                               Object {
@@ -473,7 +473,7 @@ ShallowWrapper {
                             ]
           } />,
         "_debugID": 2,
-        "_renderedOutput": <InjectIntl(ProjectElaboration)
+        "_renderedOutput": <ProjectElaboration
           conversation={
                     Array [
                               Object {
@@ -679,7 +679,7 @@ ShallowWrapper {
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }
     }>
-    <InjectIntl(ProjectElaboration)
+    <ProjectElaboration
         conversation={
             Array [
                 Object {

@@ -6,7 +6,7 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <InjectIntl(ThumbnailCard)
+  "node": <ThumbnailCard
     icon="icon"
     image="test.jpg"
     items={
@@ -18,7 +18,7 @@ ShallowWrapper {
     link="Test link"
     title="Test" />,
   "nodes": Array [
-    <InjectIntl(ThumbnailCard)
+    <ThumbnailCard
       icon="icon"
       image="test.jpg"
       items={
@@ -220,7 +220,7 @@ ShallowWrapper {
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
         }>
-        <InjectIntl(ThumbnailCard)
+        <ThumbnailCard
                 icon="icon"
                 image="test.jpg"
                 items={
@@ -241,7 +241,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <InjectIntl(ThumbnailCard)
+          "children": <ThumbnailCard
             icon="icon"
             image="test.jpg"
             items={
@@ -461,7 +461,7 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <InjectIntl(ThumbnailCard)
+        "_currentElement": <ThumbnailCard
           icon="icon"
           image="test.jpg"
           items={
@@ -473,7 +473,7 @@ ShallowWrapper {
           link="Test link"
           title="Test" />,
         "_debugID": 2,
-        "_renderedOutput": <InjectIntl(ThumbnailCard)
+        "_renderedOutput": <ThumbnailCard
           icon="icon"
           image="test.jpg"
           items={
@@ -679,7 +679,7 @@ ShallowWrapper {
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }
     }>
-    <InjectIntl(ThumbnailCard)
+    <ThumbnailCard
         icon="icon"
         image="test.jpg"
         items={

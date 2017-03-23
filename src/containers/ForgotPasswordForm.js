@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
-import { injectIntl } from 'react-intl'
 
 import { createValidator, required, email } from 'services/validation'
 import { fromForm } from 'store/selectors'
@@ -30,4 +29,4 @@ export const config = {
   validate,
 }
 
-export default connect(mapStateToProps)(injectIntl(reduxForm(config)(ForgotPasswordFormContainer)))
+export default connect(mapStateToProps)(reduxForm(config)(ForgotPasswordFormContainer))

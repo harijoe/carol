@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
-import { injectIntl } from 'react-intl'
 
 import { createValidator, required, email, match, captcha } from 'services/validation'
 import { fromForm } from 'store/selectors'
@@ -36,4 +35,4 @@ const mapStateToProps = state => ({
   },
 })
 
-export default connect(mapStateToProps)(injectIntl(reduxForm(config)(SignUpFormContainer)))
+export default connect(mapStateToProps)(reduxForm(config)(SignUpFormContainer))
