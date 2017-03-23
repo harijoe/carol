@@ -3,8 +3,13 @@ import { takeEvery } from 'redux-saga/effects'
 import fetch from 'sagas/fetch'
 import { postList, POST_LIST } from './actions'
 
-export function* handlePostListRequest({ scope, tags, limit }) {
-  yield* fetch(postList, 'get', `/posts?tag[]=${tags.join('&tag[]=')}&itemsPerPage=${limit}&order[project_date]=DESC`, {}, null, { scope })
+function* handlePostListRequest({ scope, tags, limit }) {
+  try {
+    yield* fetch(postList, 'get', `/posts?tag[]=${tags.join('&tag[]=')}&itemsPerPage=${limit}&order[project_date]=DESC`, {}, null, { scope })
+  } catch (e) {
+    // An error 500 can be thrown and break the application
+    // @Todo
+  }
 }
 
 export default function* () {

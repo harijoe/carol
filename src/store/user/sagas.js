@@ -18,6 +18,8 @@ import {
     resetPassword,
 } from './actions'
 
+// @Todo: Refacto saga
+
 function* handleCreateUserRequest({ data }) {
   return yield* fetch(userCreate, null, 'post', '/users', {}, data)
 }
