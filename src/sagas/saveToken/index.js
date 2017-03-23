@@ -2,7 +2,7 @@ import { fromAuth } from 'store/selectors'
 import cookie from 'react-cookie'
 import { select } from 'redux-saga/effects'
 
-export default grantType => function* actualSaveToken() {
+export default function* (grantType) {
   const accessToken = yield select(fromAuth.getAccessToken)
   const expiresIn = yield select(fromAuth.getExpiresIn)
 
