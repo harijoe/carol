@@ -41,7 +41,7 @@ export function* handleAuthLoginRequest({ grantType = 'client_credentials', form
 }
 
 function* handleAuthLogout() {
-  yield* removeToken
+  yield* removeToken()
 
   yield put(resetUser())
 }
