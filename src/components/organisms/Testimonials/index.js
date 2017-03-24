@@ -7,20 +7,20 @@ import messages from 'utils/messages'
 import { Card, Section, TestimonialCardContent } from 'components'
 import { PostList } from 'containers'
 
-const generateChild = (i, items) => (
+const generateChild = (i, { link, featuredMedia, customFields }) => (
   <Card key={i}>
     <TestimonialCardContent
-      imageLink={items.featuredMedia}
-      title={items.title}
-      subtitle="32 ans"
-      label="Bergerac, 32000"
-      content={stripTags(items.body)}
-      link="http://google.com"
+      link={link}
+      image={featuredMedia}
+      firstName={customFields.ttml_firstname}
+      age={customFields.ttml_age}
+      location={`${customFields.ttml_city}, ${customFields.ttml_postal_code}`}
+      quote={stripTags(customFields.ttml_quote)}
     />
   </Card>
 )
 
-const Testimonial = ({ active, intl: { formatMessage } }) => (
+const Testimonials = ({ active, intl: { formatMessage } }) => (
   <Section title={formatMessage(messages('testimonials.section_title').label)}>
     <Grid>
       <Row>
@@ -39,9 +39,9 @@ const Testimonial = ({ active, intl: { formatMessage } }) => (
   </Section>
 )
 
-Testimonial.propTypes = {
+Testimonials.propTypes = {
   active: PropTypes.any,
   intl: intlShape.isRequired,
 }
 
-export default injectIntl(Testimonial)
+export default injectIntl(Testimonials)

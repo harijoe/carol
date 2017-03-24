@@ -185,6 +185,7 @@ const en = {
   'footer.corporate.use': 'Terms & conditions of use',
 
   'testimonials.section_title': 'Testimonials',
+  'testimonials.read_it': 'Read the testimonial ➔',
 
   'tips_and_tricks.call_to_action': 'Tous nos conseils & astuces EN',
   'tips_and_tricks.section_title': 'Conseils & astuces EN',

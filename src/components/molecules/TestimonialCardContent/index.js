@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { FormattedMessage } from 'react-intl'
 import styled from 'styled-components'
 import { theme } from 'utils/style'
 
@@ -22,7 +23,7 @@ const StyledSubtitle = styled.span`
   font-family: ${theme('fonts.family.andesLight')};
   font-size: ${theme('fonts.size.l')};
 `
-const StyledLabel = styled(Paragraph)`
+const StyledLocation = styled(Paragraph)`
   margin-top: ${theme('spaces.s')};
   margin-bottom: ${theme('spaces.m')};
 `
@@ -31,29 +32,31 @@ const StyledLink = styled(Link)`
   display: block;
 `
 
-const TestimonialCardContent = ({ imageLink, title, subtitle, label, content, link }) => (
+const TestimonialCardContent = ({ image, firstName, age, location, quote, link }) => (
   <div>
-    <StyledImage link={imageLink} />
+    <StyledImage link={image} />
     <ContentWrapper>
       <HeaderWrapper>
         <StyledHeading level={3}>
-          {title}{', '}
-          <StyledSubtitle>{subtitle}</StyledSubtitle>
+          {firstName}{', '}
+          <StyledSubtitle>{age}</StyledSubtitle>
         </StyledHeading>
-        <StyledLabel>{label}</StyledLabel>
+        <StyledLocation>{location}</StyledLocation>
       </HeaderWrapper>
-      <Paragraph>« {content} »</Paragraph>
-      <StyledLink to={link}>Lire le témoignage ➔</StyledLink>
+      <Paragraph>« {quote} »</Paragraph>
+      <StyledLink href={link} target="_blank">
+        <FormattedMessage id="testimonials.read_it" />
+      </StyledLink>
     </ContentWrapper>
   </div>
 )
 
 TestimonialCardContent.propTypes = {
-  imageLink: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  firstName: PropTypes.string.isRequired,
+  age: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  quote: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
 }
 

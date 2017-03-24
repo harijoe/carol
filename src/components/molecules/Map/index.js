@@ -53,8 +53,6 @@ class Map extends Component {
             key={i}
             lat={marker.position.lat}
             lng={marker.position.lng}
-            title={marker.title}
-            trade={marker.trade}
           />
         ))}
       </GoogleMap>

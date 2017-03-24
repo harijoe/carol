@@ -26,13 +26,11 @@ class GoogleMapContainer extends Component {
   updateMarkers(projects) {
     const list = []
 
-    projects.map(project => list.push({
+    projects.map(({ customFields: { latitude, longitude } }) => list.push({
       position: {
-        lat: parseFloat(project.latitude),
-        lng: parseFloat(project.longitude),
+        lat: parseFloat(latitude),
+        lng: parseFloat(longitude),
       },
-      title: 'Gio',
-      trade: 'dev',
     }))
 
     this.setState({ markers: list })

@@ -185,6 +185,7 @@ const es = {
   'footer.corporate.use': 'Terms & conditions of use ES',
 
   'testimonials.section_title': 'Témoignages ES',
+  'testimonials.read_it': 'Lea la historia ➔',
 
   'tips_and_tricks.call_to_action': 'Tous nos conseils & astuces ES',
   'tips_and_tricks.section_title': 'Conseils & astuces ES',

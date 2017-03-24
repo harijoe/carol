@@ -1,4 +1,4 @@
-exports[`test renders the FooterSocialNetworks component 1`] = `
+exports[`test renders TestimonialCardContent 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -6,9 +6,21 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <FooterSocialNetworks />,
+  "node": <TestimonialCardContent
+    age="30"
+    firstName="John"
+    image="image.jpg"
+    link="http://www.google.fr"
+    location="Paris"
+    quote="Hi" />,
   "nodes": Array [
-    <FooterSocialNetworks />,
+    <TestimonialCardContent
+      age="30"
+      firstName="John"
+      image="image.jpg"
+      link="http://www.google.fr"
+      location="Paris"
+      quote="Hi" />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -201,7 +213,13 @@ ShallowWrapper {
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
         }>
-        <FooterSocialNetworks />
+        <TestimonialCardContent
+                age="30"
+                firstName="John"
+                image="image.jpg"
+                link="http://www.google.fr"
+                location="Paris"
+                quote="Hi" />
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -212,7 +230,13 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <FooterSocialNetworks />,
+          "children": <TestimonialCardContent
+            age="30"
+            firstName="John"
+            image="image.jpg"
+            link="http://www.google.fr"
+            location="Paris"
+            quote="Hi" />,
           "locale": "en",
           "messages": Object {
             "Invalid username and password combination": "Invalid username and password combination",
@@ -423,9 +447,21 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <FooterSocialNetworks />,
+        "_currentElement": <TestimonialCardContent
+          age="30"
+          firstName="John"
+          image="image.jpg"
+          link="http://www.google.fr"
+          location="Paris"
+          quote="Hi" />,
         "_debugID": 2,
-        "_renderedOutput": <FooterSocialNetworks />,
+        "_renderedOutput": <TestimonialCardContent
+          age="30"
+          firstName="John"
+          image="image.jpg"
+          link="http://www.google.fr"
+          location="Paris"
+          quote="Hi" />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -622,7 +658,13 @@ ShallowWrapper {
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }
     }>
-    <FooterSocialNetworks />
+    <TestimonialCardContent
+        age="30"
+        firstName="John"
+        image="image.jpg"
+        link="http://www.google.fr"
+        location="Paris"
+        quote="Hi" />
 </IntlProvider>,
 }
 `;

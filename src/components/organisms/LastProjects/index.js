@@ -1,21 +1,20 @@
 import React, { PropTypes } from 'react'
 import { injectIntl, intlShape } from 'react-intl'
 import { Grid, Col, Row } from 'react-styled-flexboxgrid'
-import stripTags from 'utils/stripTags'
 import messages from 'utils/messages'
 
 import { Card, Section, LastProjectCardContent } from 'components'
 import { PostList } from 'containers'
 
-const generateChild = (i, items) => (
+const generateChild = (i, { title, featuredMedia, customFields }) => (
   <Card key={i}>
-    <LastProjectCardContent // @TODO: To be updated with relevant wordpress fields
-      imageLink={items.featuredMedia}
-      firmImage="http://lorempixel.com/90/90/people"
-      firmName={stripTags(items.body)}
-      firmJob="Electricien"
-      title={items.title}
-      place="Bergerac, 32000"
+    <LastProjectCardContent
+      title={title}
+      image={featuredMedia}
+      place={customFields.project_city}
+      firmName={customFields.project_firm}
+      firmImage={customFields.project_bg}
+      firmTrade={customFields.project_trade}
     />
   </Card>
 )

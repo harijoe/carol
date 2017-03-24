@@ -1,4 +1,4 @@
-exports[`test renders Testimonial 1`] = `
+exports[`test renders Testimonials 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -6,9 +6,9 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <InjectIntl(Testimonial) />,
+  "node": <InjectIntl(Testimonials) />,
   "nodes": Array [
-    <InjectIntl(Testimonial) />,
+    <InjectIntl(Testimonials) />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -124,6 +124,7 @@ ShallowWrapper {
                         "search": "Search",
                         "server_error": "An error occured, please try again later",
                         "test": "test",
+                        "testimonials.read_it": "Read the testimonial ➔",
                         "testimonials.section_title": "Testimonials",
                         "thumbnailcard.link": "Let\'s Go ➔",
                         "tips_and_tricks.call_to_action": "Tous nos conseils & astuces EN",
@@ -200,7 +201,7 @@ ShallowWrapper {
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
         }>
-        <InjectIntl(Testimonial) />
+        <InjectIntl(Testimonials) />
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -211,7 +212,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <InjectIntl(Testimonial) />,
+          "children": <InjectIntl(Testimonials) />,
           "locale": "en",
           "messages": Object {
             "Invalid username and password combination": "Invalid username and password combination",
@@ -318,6 +319,7 @@ ShallowWrapper {
             "search": "Search",
             "server_error": "An error occured, please try again later",
             "test": "test",
+            "testimonials.read_it": "Read the testimonial ➔",
             "testimonials.section_title": "Testimonials",
             "thumbnailcard.link": "Let\'s Go ➔",
             "tips_and_tricks.call_to_action": "Tous nos conseils & astuces EN",
@@ -421,9 +423,9 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <InjectIntl(Testimonial) />,
+        "_currentElement": <InjectIntl(Testimonials) />,
         "_debugID": 2,
-        "_renderedOutput": <InjectIntl(Testimonial) />,
+        "_renderedOutput": <InjectIntl(Testimonials) />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -543,6 +545,7 @@ ShallowWrapper {
             "search": "Search",
             "server_error": "An error occured, please try again later",
             "test": "test",
+            "testimonials.read_it": "Read the testimonial ➔",
             "testimonials.section_title": "Testimonials",
             "thumbnailcard.link": "Let\'s Go ➔",
             "tips_and_tricks.call_to_action": "Tous nos conseils & astuces EN",
@@ -619,7 +622,7 @@ ShallowWrapper {
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }
     }>
-    <InjectIntl(Testimonial) />
+    <InjectIntl(Testimonials) />
 </IntlProvider>,
 }
 `;

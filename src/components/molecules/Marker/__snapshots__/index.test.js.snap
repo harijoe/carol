@@ -6,25 +6,11 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <styled.div>
-    <Mock
-        level={4}>
-        test
-    </Mock>
-    <Mock>
-        trade
-    </Mock>
-</styled.div>,
+  "node": <Styled(Mock)
+    icon="marker-window" />,
   "nodes": Array [
-    <styled.div>
-      <Mock
-            level={4}>
-            test
-      </Mock>
-      <Mock>
-            trade
-      </Mock>
-</styled.div>,
+    <Styled(Mock)
+      icon="marker-window" />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -65,25 +51,11 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <styled.div>
-          <Mock
-                    level={4}>
-                    test
-          </Mock>
-          <Mock>
-                    trade
-          </Mock>
-</styled.div>,
+        "_currentElement": <Styled(Mock)
+          icon="marker-window" />,
         "_debugID": 2,
-        "_renderedOutput": <styled.div>
-          <Mock
-                    level={4}>
-                    test
-          </Mock>
-          <Mock>
-                    trade
-          </Mock>
-</styled.div>,
+        "_renderedOutput": <Styled(Mock)
+          icon="marker-window" />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,

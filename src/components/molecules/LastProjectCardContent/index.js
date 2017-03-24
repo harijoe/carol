@@ -56,16 +56,16 @@ const StyledPlace = styled.address`
   display: block;
 `
 
-const LastProjectCardContent = ({ imageLink, firmImage, firmName, firmJob, title, place }) => (
+const LastProjectCardContent = ({ image, firmImage, firmName, firmTrade, title, place }) => (
   <div>
-    <StyledImage link={imageLink} />
+    <StyledImage link={image} />
     <ContentWrapper>
       <HeaderWrapper>
         <StyledFigure>
           <Image link={firmImage} />
         </StyledFigure>
         <StyledName level={5}>{firmName}</StyledName>
-        <StyledJob>{firmJob}</StyledJob>
+        <StyledJob>{firmTrade}</StyledJob>
       </HeaderWrapper>
       <StyledHeading level={3}>{title}</StyledHeading>
       <StyledPlace>{place}</StyledPlace>
@@ -75,10 +75,10 @@ const LastProjectCardContent = ({ imageLink, firmImage, firmName, firmJob, title
 
 LastProjectCardContent.propTypes = {
   firmImage: PropTypes.string,
-  imageLink: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   firmName: PropTypes.string.isRequired,
-  firmJob: PropTypes.string.isRequired,
+  firmTrade: PropTypes.string.isRequired,
   place: PropTypes.string.isRequired,
 }
 

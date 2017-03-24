@@ -36,9 +36,7 @@ ShallowWrapper {
     yesIWantToUseGoogleMapApiInternals={false}>
     <Mock
         lat={48.857767}
-        lng={2.293604}
-        title={undefined}
-        trade={undefined} />
+        lng={2.293604} />
 </GoogleMap>,
   "nodes": Array [
     <GoogleMap
@@ -71,9 +69,7 @@ ShallowWrapper {
       yesIWantToUseGoogleMapApiInternals={false}>
       <Mock
             lat={48.857767}
-            lng={2.293604}
-            title={undefined}
-            trade={undefined} />
+            lng={2.293604} />
 </GoogleMap>,
   ],
   "options": Object {},
@@ -193,9 +189,7 @@ ShallowWrapper {
           yesIWantToUseGoogleMapApiInternals={false}>
           <Mock
                     lat={48.857767}
-                    lng={2.293604}
-                    title={undefined}
-                    trade={undefined} />
+                    lng={2.293604} />
 </GoogleMap>,
         "_debugID": 2,
         "_renderedOutput": <GoogleMap
@@ -228,9 +222,7 @@ ShallowWrapper {
           yesIWantToUseGoogleMapApiInternals={false}>
           <Mock
                     lat={48.857767}
-                    lng={2.293604}
-                    title={undefined}
-                    trade={undefined} />
+                    lng={2.293604} />
 </GoogleMap>,
       },
       "_renderedNodeType": 1,
