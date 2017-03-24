@@ -7,12 +7,12 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <div
-    className="bNrTqf">
+    className="VuPGm">
     <Mock />
     <Styled(Mock)
-        icon="quotatis"
-        size={100}
-        to="/" />
+        icon="quotatis-white"
+        size={480}
+        to="https://0.0.0.0:443" />
     <Mock
         theme={
             Object {
@@ -86,12 +86,12 @@ ShallowWrapper {
 </div>,
   "nodes": Array [
     <div
-      className="bNrTqf">
+      className="VuPGm">
       <Mock />
       <Styled(Mock)
-            icon="quotatis"
-            size={100}
-            to="/" />
+            icon="quotatis-white"
+            size={480}
+            to="https://0.0.0.0:443" />
       <Mock
             theme={
                   Object {
@@ -242,9 +242,9 @@ ShallowWrapper {
         }>
         <Mock />
         <Styled(Mock)
-                icon="quotatis"
-                size={100}
-                to="/" />
+                icon="quotatis-white"
+                size={480}
+                to="https://0.0.0.0:443" />
         <Mock
                 theme={
                         Object {
@@ -328,9 +328,9 @@ ShallowWrapper {
           "children": Array [
             <Mock />,
             <Styled(Mock)
-              icon="quotatis"
-              size={100}
-              to="/" />,
+              icon="quotatis-white"
+              size={480}
+              to="https://0.0.0.0:443" />,
             <Mock
               theme={
                             Object {
@@ -472,7 +472,7 @@ ShallowWrapper {
         },
         "refs": Object {},
         "state": Object {
-          "generatedClassName": "bNrTqf",
+          "generatedClassName": "VuPGm",
           "theme": Object {
             "breakpoints": Object {
               "l": "992px",
@@ -560,12 +560,12 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <div
-          className="bNrTqf">
+          className="VuPGm">
           <Mock />
           <Styled(Mock)
-                    icon="quotatis"
-                    size={100}
-                    to="/" />
+                    icon="quotatis-white"
+                    size={480}
+                    to="https://0.0.0.0:443" />
           <Mock
                     theme={
                               Object {
@@ -639,12 +639,12 @@ ShallowWrapper {
 </div>,
         "_debugID": 4,
         "_renderedOutput": <div
-          className="bNrTqf">
+          className="VuPGm">
           <Mock />
           <Styled(Mock)
-                    icon="quotatis"
-                    size={100}
-                    to="/" />
+                    icon="quotatis-white"
+                    size={480}
+                    to="https://0.0.0.0:443" />
           <Mock
                     theme={
                               Object {
@@ -799,9 +799,9 @@ ShallowWrapper {
     }>
     <Mock />
     <Styled(Mock)
-        icon="quotatis"
-        size={100}
-        to="/" />
+        icon="quotatis-white"
+        size={480}
+        to="https://0.0.0.0:443" />
     <Mock
         theme={
             Object {

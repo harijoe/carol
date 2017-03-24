@@ -8,17 +8,6 @@ ShallowWrapper {
   "length": 1,
   "node": <styled.nav>
     <li>
-        <Styled(Mock)
-            activeClassName="active"
-            onlyActiveOnIndex={true}
-            to="/">
-            <FormattedMessage
-                id="home"
-                tagName="span"
-                values={Object {}} />
-        </Styled(Mock)>
-    </li>
-    <li>
         <Mock
             label="user.my_account">
             <AccountMenu />
@@ -27,25 +16,20 @@ ShallowWrapper {
     <li>
         <Mock />
     </li>
+    <li>
+        <Mock />
+    </li>
 </styled.nav>,
   "nodes": Array [
     <styled.nav>
-      <li>
-            <Styled(Mock)
-                  activeClassName="active"
-                  onlyActiveOnIndex={true}
-                  to="/">
-                  <FormattedMessage
-                        id="home"
-                        tagName="span"
-                        values={Object {}} />
-            </Styled(Mock)>
-      </li>
       <li>
             <Mock
                   label="user.my_account">
                   <AccountMenu />
             </Mock>
+      </li>
+      <li>
+            <Mock />
       </li>
       <li>
             <Mock />
@@ -91,17 +75,6 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <styled.nav>
           <li>
-                    <Styled(Mock)
-                              activeClassName="active"
-                              onlyActiveOnIndex={true}
-                              to="/">
-                              <FormattedMessage
-                                        id="home"
-                                        tagName="span"
-                                        values={Object {}} />
-                    </Styled(Mock)>
-          </li>
-          <li>
                     <Mock
                               label="user.my_account">
                               <AccountMenu />
@@ -110,25 +83,20 @@ ShallowWrapper {
           <li>
                     <Mock />
           </li>
+          <li>
+                    <Mock />
+          </li>
 </styled.nav>,
         "_debugID": 2,
         "_renderedOutput": <styled.nav>
-          <li>
-                    <Styled(Mock)
-                              activeClassName="active"
-                              onlyActiveOnIndex={true}
-                              to="/">
-                              <FormattedMessage
-                                        id="home"
-                                        tagName="span"
-                                        values={Object {}} />
-                    </Styled(Mock)>
-          </li>
           <li>
                     <Mock
                               label="user.my_account">
                               <AccountMenu />
                     </Mock>
+          </li>
+          <li>
+                    <Mock />
           </li>
           <li>
                     <Mock />
@@ -160,18 +128,10 @@ ShallowWrapper {
   "length": 1,
   "node": <styled.nav>
     <li>
-        <Styled(Mock)
-            activeClassName="active"
-            onlyActiveOnIndex={true}
-            to="/">
-            <FormattedMessage
-                id="home"
-                tagName="span"
-                values={Object {}} />
-        </Styled(Mock)>
+        <SignInDropDownMenu />
     </li>
     <li>
-        <SignInDropDownMenu />
+        <Mock />
     </li>
     <li>
         <Mock />
@@ -180,18 +140,10 @@ ShallowWrapper {
   "nodes": Array [
     <styled.nav>
       <li>
-            <Styled(Mock)
-                  activeClassName="active"
-                  onlyActiveOnIndex={true}
-                  to="/">
-                  <FormattedMessage
-                        id="home"
-                        tagName="span"
-                        values={Object {}} />
-            </Styled(Mock)>
+            <SignInDropDownMenu />
       </li>
       <li>
-            <SignInDropDownMenu />
+            <Mock />
       </li>
       <li>
             <Mock />
@@ -237,18 +189,10 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <styled.nav>
           <li>
-                    <Styled(Mock)
-                              activeClassName="active"
-                              onlyActiveOnIndex={true}
-                              to="/">
-                              <FormattedMessage
-                                        id="home"
-                                        tagName="span"
-                                        values={Object {}} />
-                    </Styled(Mock)>
+                    <SignInDropDownMenu />
           </li>
           <li>
-                    <SignInDropDownMenu />
+                    <Mock />
           </li>
           <li>
                     <Mock />
@@ -257,18 +201,10 @@ ShallowWrapper {
         "_debugID": 4,
         "_renderedOutput": <styled.nav>
           <li>
-                    <Styled(Mock)
-                              activeClassName="active"
-                              onlyActiveOnIndex={true}
-                              to="/">
-                              <FormattedMessage
-                                        id="home"
-                                        tagName="span"
-                                        values={Object {}} />
-                    </Styled(Mock)>
+                    <SignInDropDownMenu />
           </li>
           <li>
-                    <SignInDropDownMenu />
+                    <Mock />
           </li>
           <li>
                     <Mock />

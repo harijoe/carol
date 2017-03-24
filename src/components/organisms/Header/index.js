@@ -1,31 +1,33 @@
 import React from 'react'
 import styled from 'styled-components'
+import { theme } from 'utils/style'
+import { baseUrl } from 'config'
 
 import { IconLink } from 'components'
 import { PrimaryNavigation, FullscreenNavigation } from 'containers'
-import { theme } from 'utils/style'
 
 const Wrapper = styled.div`
   display: flex;
-  align-items: center;
-  background-color: ${theme('colors.grayscale.darker')};
-  padding: 1rem;
 
   & > :not(:first-child) {
-    margin-left: 1rem;
+    margin-left: 0;
   }
 `
 
 const StyledIconLink = styled(IconLink)`
-  display: inline-block;
-  transform-origin: center;
+  padding-top: 0;
+  margin: 0;
   color: ${theme('colors.branding.primary')};
 `
 
 const Header = props => (
   <Wrapper {...props}>
     <FullscreenNavigation />
-    <StyledIconLink to="/" icon="quotatis" size={100} />
+    <StyledIconLink
+      to={baseUrl}
+      icon="quotatis-white"
+      size={480}
+    />
     <PrimaryNavigation {...props} />
   </Wrapper>
 )

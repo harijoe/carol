@@ -1,38 +1,38 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
-import { FormattedMessage } from 'react-intl'
 import { theme } from 'utils/style'
 
-import { Link } from 'components'
-import { DropDownMenu, AccountMenu, BurgerButton } from 'containers'
+import { LogInButton } from 'components'
+import { AccountMenu, BurgerButton, DropDownMenu } from 'containers'
 import SignInDropDownMenu from './SignInDropDownMenu'
 
 const Nav = styled.nav`
+  position: absolute;
+  right: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  height: ${theme('spaces.xxl')};
+  margin-right: ${theme('spaces.m')};
+  margin-top: ${theme('spaces.m')};
   list-style: none;
-  margin-left: auto;
 
-  & > :nth-child(2) {
-    margin-right: 1.6rem;
+  & > :first-child {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: ${theme('spaces.xxl')};
+    width: ${theme('spaces.xxl')};
+    padding: ${theme('spaces.s')};
   }
 
   & > :last-child {
-    position: relative;
-    box-sizing: content-box;
-    height: 2.4rem;
-    width: 2.4rem;
-    padding: ${theme('spaces.s')};
-  }
-`
-
-const StyledLink = styled(Link)`
-  font-weight: 300;
-  color: ${theme('reverseColors.grayscale.medium')};
-  font-size: 1.25rem;
-
-  &.active {
-    color: ${theme('reverseColors.grayscale.lightest')};
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: ${theme('spaces.xxl')};
+    width: ${theme('spaces.xxl')};
   }
 `
 
@@ -49,17 +49,13 @@ StyledSignInDropDownMenu.displayName = 'SignInDropDownMenu'
 const PrimaryNavigation = ({ isAuthenticated, ...props }) => (
   <Nav>
     <li>
-      <StyledLink to="/" onlyActiveOnIndex activeClassName="active">
-        <FormattedMessage id="home" tagName="span" />
-      </StyledLink>
-    </li>
-    <li>
       {
         isAuthenticated ?
           <DropDownMenu label="user.my_account"><StyledAccountMenu /></DropDownMenu>
           : <StyledSignInDropDownMenu {...props} />
       }
     </li>
+    <li><LogInButton /></li>
     <li><BurgerButton /></li>
   </Nav>
 )
