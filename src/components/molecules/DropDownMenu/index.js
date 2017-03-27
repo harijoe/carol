@@ -1,9 +1,7 @@
 import React, { Component, PropTypes } from 'react'
-import { injectIntl, intlShape } from 'react-intl'
-import RaisedButton from 'material-ui/RaisedButton'
 import Popover from 'material-ui/Popover'
 
-import messages from 'utils/messages'
+import { LogInButton } from 'components'
 
 class DropDownMenu extends Component {
   constructor() {
@@ -43,14 +41,13 @@ class DropDownMenu extends Component {
   }
 
   render() {
-    const { intl: { formatMessage }, children, label } = this.props
+    const { children } = this.props
     const { open, anchorEl } = this.state
 
     return (
       <div>
-        <RaisedButton
+        <LogInButton
           onClick={this.handleTouchTap}
-          label={formatMessage(messages(label).label)}
         />
         <Popover
           open={open}
@@ -68,8 +65,6 @@ class DropDownMenu extends Component {
 
 DropDownMenu.propTypes = {
   children: PropTypes.any,
-  label: PropTypes.string,
-  intl: intlShape.isRequired,
 }
 
-export default injectIntl(DropDownMenu)
+export default DropDownMenu

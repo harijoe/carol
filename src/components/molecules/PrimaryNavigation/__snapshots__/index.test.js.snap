@@ -16,9 +16,6 @@ ShallowWrapper {
     <li>
         <Mock />
     </li>
-    <li>
-        <Mock />
-    </li>
 </styled.nav>,
   "nodes": Array [
     <styled.nav>
@@ -27,9 +24,6 @@ ShallowWrapper {
                   label="user.my_account">
                   <AccountMenu />
             </Mock>
-      </li>
-      <li>
-            <Mock />
       </li>
       <li>
             <Mock />
@@ -83,9 +77,6 @@ ShallowWrapper {
           <li>
                     <Mock />
           </li>
-          <li>
-                    <Mock />
-          </li>
 </styled.nav>,
         "_debugID": 2,
         "_renderedOutput": <styled.nav>
@@ -94,9 +85,6 @@ ShallowWrapper {
                               label="user.my_account">
                               <AccountMenu />
                     </Mock>
-          </li>
-          <li>
-                    <Mock />
           </li>
           <li>
                     <Mock />
@@ -133,17 +121,11 @@ ShallowWrapper {
     <li>
         <Mock />
     </li>
-    <li>
-        <Mock />
-    </li>
 </styled.nav>,
   "nodes": Array [
     <styled.nav>
       <li>
             <SignInDropDownMenu />
-      </li>
-      <li>
-            <Mock />
       </li>
       <li>
             <Mock />
@@ -194,17 +176,11 @@ ShallowWrapper {
           <li>
                     <Mock />
           </li>
-          <li>
-                    <Mock />
-          </li>
 </styled.nav>,
         "_debugID": 4,
         "_renderedOutput": <styled.nav>
           <li>
                     <SignInDropDownMenu />
-          </li>
-          <li>
-                    <Mock />
           </li>
           <li>
                     <Mock />

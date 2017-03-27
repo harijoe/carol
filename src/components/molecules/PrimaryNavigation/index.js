@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 import { theme } from 'utils/style'
 
-import { LogInButton } from 'components'
 import { AccountMenu, BurgerButton, DropDownMenu } from 'containers'
 import SignInDropDownMenu from './SignInDropDownMenu'
 
@@ -55,7 +54,6 @@ const PrimaryNavigation = ({ isAuthenticated, ...props }) => (
           : <StyledSignInDropDownMenu {...props} />
       }
     </li>
-    <li><LogInButton /></li>
     <li><BurgerButton /></li>
   </Nav>
 )
