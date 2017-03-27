@@ -4,6 +4,11 @@ services:
   carol:
       build: .
       network_mode: 'bridge'
+      extra_hosts:
+        - "146.148.119.175:carol-fr.qarx.io"
+        - "146.148.119.175:carol-es.qarx.io"
+        - "146.148.119.175:carol-co-uk.qarx.io"
+        - "104.199.107.196:api.qarx.io"
       environment:
         NODE_ENV: development # development / staging / production - this is required for production
       volumes:
