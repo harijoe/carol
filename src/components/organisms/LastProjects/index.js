@@ -1,9 +1,8 @@
 import React, { PropTypes } from 'react'
 import { injectIntl, intlShape } from 'react-intl'
-import { Grid, Col, Row } from 'react-styled-flexboxgrid'
 import messages from 'utils/messages'
 
-import { Card, Section, LastProjectCardContent } from 'components'
+import { Card, Section, LastProjectCardContent, Grid, Col, Row } from 'components'
 import { PostList } from 'containers'
 
 const generateChild = (i, { title, featuredMedia, customFields }) => (

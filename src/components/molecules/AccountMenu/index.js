@@ -1,8 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router'
 import { FormattedMessage } from 'react-intl'
 
-import { List, Button } from 'components'
+import { List, Button, Link } from 'components'
 
 const AccountMenu = ({ logout }) => (
   <List>

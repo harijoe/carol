@@ -7,9 +7,9 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <Mock>
-    <Grid>
-        <Row>
-            <Col
+    <Mock>
+        <Mock>
+            <Mock
                 xs={12}>
                 <Mock
                     active="quotatis-reinsurance"
@@ -22,15 +22,15 @@ ShallowWrapper {
                             "quotatis-reinsurance",
                           ]
                     } />
-            </Col>
-        </Row>
-    </Grid>
+            </Mock>
+        </Mock>
+    </Mock>
 </Mock>,
   "nodes": Array [
     <Mock>
-      <Grid>
-            <Row>
-                  <Col
+      <Mock>
+            <Mock>
+                  <Mock
                         xs={12}>
                         <Mock
                               active="quotatis-reinsurance"
@@ -43,9 +43,9 @@ ShallowWrapper {
                                           "quotatis-reinsurance",
                                         ]
                               } />
-                  </Col>
-            </Row>
-      </Grid>
+                  </Mock>
+            </Mock>
+      </Mock>
 </Mock>,
   ],
   "options": Object {},
@@ -83,9 +83,9 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Mock>
-          <Grid>
-                    <Row>
-                              <Col
+          <Mock>
+                    <Mock>
+                              <Mock
                                         xs={12}>
                                         <Mock
                                                   active="quotatis-reinsurance"
@@ -98,15 +98,15 @@ ShallowWrapper {
                                                                       "quotatis-reinsurance",
                                                                     ]
                                                   } />
-                              </Col>
-                    </Row>
-          </Grid>
+                              </Mock>
+                    </Mock>
+          </Mock>
 </Mock>,
         "_debugID": 2,
         "_renderedOutput": <Mock>
-          <Grid>
-                    <Row>
-                              <Col
+          <Mock>
+                    <Mock>
+                              <Mock
                                         xs={12}>
                                         <Mock
                                                   active="quotatis-reinsurance"
@@ -119,9 +119,9 @@ ShallowWrapper {
                                                                       "quotatis-reinsurance",
                                                                     ]
                                                   } />
-                              </Col>
-                    </Row>
-          </Grid>
+                              </Mock>
+                    </Mock>
+          </Mock>
 </Mock>,
       },
       "_renderedNodeType": 1,

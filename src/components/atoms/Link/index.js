@@ -16,11 +16,12 @@ const StyledLink = styled(RouterLink)`${styles}`
 const Anchor = styled.a`${styles}`
 
 const Link = ({ ...props, to }) => {
-  if (to) {
-    return <StyledLink {...props} />
+  // Checks if URL is absolute
+  if (to == null || to.indexOf('http://') === 0 || to.indexOf('https://') === 0) {
+    return <Anchor {...props} href={to || ''} />
   }
 
-  return <Anchor {...props} />
+  return <StyledLink {...props} />
 }
 
 Link.propTypes = {

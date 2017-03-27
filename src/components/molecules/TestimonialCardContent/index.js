@@ -44,7 +44,7 @@ const TestimonialCardContent = ({ image, firstName, age, location, quote, link }
         <StyledLocation>{location}</StyledLocation>
       </HeaderWrapper>
       <Paragraph>« {quote} »</Paragraph>
-      <StyledLink href={link} target="_blank">
+      <StyledLink to={link} target="_blank">
         <FormattedMessage id="testimonials.read_it" />
       </StyledLink>
     </ContentWrapper>

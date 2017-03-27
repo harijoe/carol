@@ -51,6 +51,7 @@ IconLink.propTypes = {
   size: PropTypes.number,
   color: PropTypes.string,
   children: PropTypes.any,
+  onClick: PropTypes.func,
 }
 
 export default IconLink

@@ -1,11 +1,10 @@
 import React from 'react'
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl'
 import styled from 'styled-components'
-import { Grid, Col, Row } from 'react-styled-flexboxgrid'
 import { theme } from 'utils/style'
 import { cloudinaryUrl, contentSiteUrl } from 'config'
 
-import { Section, Bubble, ThumbnailCard, Image, Paragraph } from 'components'
+import { Section, Bubble, ThumbnailCard, Image, Paragraph, Grid, Col, Row } from 'components'
 
 const Header = styled.header`
   position: relative;
@@ -23,7 +22,7 @@ const Header = styled.header`
     left: 0;
     height: 100%;
     width: 100%;
-    background: #3333FE;
+    background: #3333fe;
     opacity: 0.95;
     content: '';
   }
@@ -64,7 +63,7 @@ const Hero = () => (
       <Bubble>
         <StyledGrid>
           <Row>
-            <Col xs={4}>
+            <Col xs={4} reverse>
               <StyledImage link={`${cloudinaryUrl}bot.png`} />
             </Col>
             <Col xs={8}>
@@ -81,6 +80,7 @@ const Hero = () => (
             title="Fenêtres et ouvertures extérieures"
             icon="windowkey-pin"
             items={['item 1', 'item 2']}
+            key={1}
           />
           <ThumbnailCard
             link={`${contentSiteUrl}`}
@@ -88,6 +88,7 @@ const Hero = () => (
             title="Fenêtres et ouvertures extérieures"
             icon="windowkey-pin"
             items={['item 3', 'item 4']}
+            key={2}
           />
           <ThumbnailCard
             link={`${contentSiteUrl}`}
@@ -95,6 +96,7 @@ const Hero = () => (
             title="Fenêtres et ouvertures extérieures"
             icon="windowkey-pin"
             items={['item 5', 'item 6']}
+            key={3}
           />
         </ScrollWrapper>
       </Bubble>

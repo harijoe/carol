@@ -4,6 +4,7 @@ import Link from '.'
 import theme from '../../themes/default'
 
 const wrap = (props = {}) => shallow(<Link theme={theme} {...props} />).dive()
+const wrapMounted = (props = {}) => mount(<Link theme={theme} {...props} />)
 
 it('mounts with different combination of props', () => {
   mount(<Link theme={theme} />)
@@ -30,7 +31,7 @@ it('renders anchor by default', () => {
 })
 
 it('renders Link when prop to is passed in', () => {
-  const wrapper = wrap({ to: 'test' })
+  const wrapper = wrapMounted({ to: 'test' })
 
-  expect(wrapper.find('Link').length).toBeGreaterThan(0)
+  expect(wrapper.prop('to')).toEqual('test')
 })

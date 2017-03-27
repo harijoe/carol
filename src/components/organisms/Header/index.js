@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 const StyledIconLink = styled(IconLink)`
   padding-top: 0;
   margin: 0;
-  color: ${theme('colors.branding.primary')};
+  color: ${theme('colors.primary')};
 `
 
 const Header = props => (

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 import { theme } from 'utils/style'
 
@@ -10,8 +10,16 @@ const StyledIcon = styled(Icon)`
   padding-top: 0;
 `
 
-const LogInButton = () => (
-  <StyledIcon size={32} icon="login" />
+const LogInButton = ({ onClick }) => (
+  <StyledIcon
+    onClick={onClick}
+    size={32}
+    icon="login"
+  />
 )
+
+LogInButton.propTypes = {
+  onClick: PropTypes.func,
+}
 
 export default LogInButton
