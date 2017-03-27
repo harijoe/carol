@@ -1,10 +1,9 @@
 import React from 'react'
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl'
-import { Grid, Col, Row } from 'react-styled-flexboxgrid'
 import messages from 'utils/messages'
 
 import { PostList } from 'containers'
-import { Section, TipsAndTricksBlock, Button } from 'components'
+import { Section, TipsAndTricksBlock, Button, Grid, Col, Row } from 'components'
 
 const generateChild = (i, items) => (
   <Col xs={12} key={i}>
@@ -33,7 +32,7 @@ const TipsAndTricks = ({ intl: { formatMessage } }) => (
       </Row>
       <Row>
         <Col>
-          <Button type="button" href="">
+          <Button type="button">
             <FormattedMessage id="tips_and_tricks.call_to_action" />
           </Button>
         </Col>

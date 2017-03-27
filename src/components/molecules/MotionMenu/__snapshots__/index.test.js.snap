@@ -6,293 +6,9 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <div>
-    <Motion
-        style={
-            Object {
-                "height": 60,
-                "left": Object {
-                  "damping": 20,
-                  "precision": 50,
-                  "stiffness": 300,
-                  "val": 944,
-                },
-                "scale": Object {
-                  "damping": 20,
-                  "precision": 10,
-                  "stiffness": 200,
-                  "val": 0.5,
-                },
-                "top": Object {
-                  "damping": 20,
-                  "precision": 50,
-                  "stiffness": 300,
-                  "val": 688,
-                },
-                "width": 60,
-              }
-        }>
-        [Function]
-    </Motion>
-    <Motion
-        style={
-            Object {
-                "height": 60,
-                "left": Object {
-                  "damping": 20,
-                  "precision": 50,
-                  "stiffness": 300,
-                  "val": 944,
-                },
-                "rotate": Object {
-                  "damping": 20,
-                  "precision": 50,
-                  "stiffness": 300,
-                  "val": -140,
-                },
-                "scale": Object {
-                  "damping": 20,
-                  "precision": 50,
-                  "stiffness": 300,
-                  "val": 0.5,
-                },
-                "top": Object {
-                  "damping": 20,
-                  "precision": 50,
-                  "stiffness": 300,
-                  "val": 688,
-                },
-                "width": 60,
-              }
-        }>
-        [Function]
-    </Motion>
-    <Motion
-        style={
-            Object {
-                "height": 60,
-                "left": Object {
-                  "damping": 20,
-                  "precision": 50,
-                  "stiffness": 300,
-                  "val": 944,
-                },
-                "rotate": Object {
-                  "damping": 20,
-                  "precision": 50,
-                  "stiffness": 300,
-                  "val": -140,
-                },
-                "scale": Object {
-                  "damping": 20,
-                  "precision": 50,
-                  "stiffness": 300,
-                  "val": 0.5,
-                },
-                "top": Object {
-                  "damping": 20,
-                  "precision": 50,
-                  "stiffness": 300,
-                  "val": 688,
-                },
-                "width": 60,
-              }
-        }>
-        [Function]
-    </Motion>
-    <Motion
-        style={
-            Object {
-                "height": 60,
-                "left": Object {
-                  "damping": 20,
-                  "precision": 50,
-                  "stiffness": 300,
-                  "val": 944,
-                },
-                "rotate": Object {
-                  "damping": 20,
-                  "precision": 50,
-                  "stiffness": 300,
-                  "val": -140,
-                },
-                "scale": Object {
-                  "damping": 20,
-                  "precision": 50,
-                  "stiffness": 300,
-                  "val": 0.5,
-                },
-                "top": Object {
-                  "damping": 20,
-                  "precision": 50,
-                  "stiffness": 300,
-                  "val": 688,
-                },
-                "width": 60,
-              }
-        }>
-        [Function]
-    </Motion>
-    <Motion
-        style={
-            Object {
-                "rotate": Object {
-                  "0": 500,
-                  "1": 30,
-                  "damping": 26,
-                  "precision": 0.01,
-                  "stiffness": 170,
-                  "val": 0,
-                },
-              }
-        }>
-        [Function]
-    </Motion>
-</div>,
+  "node": <MotionMenu />,
   "nodes": Array [
-    <div>
-      <Motion
-            style={
-                  Object {
-                        "height": 60,
-                        "left": Object {
-                          "damping": 20,
-                          "precision": 50,
-                          "stiffness": 300,
-                          "val": 944,
-                        },
-                        "scale": Object {
-                          "damping": 20,
-                          "precision": 10,
-                          "stiffness": 200,
-                          "val": 0.5,
-                        },
-                        "top": Object {
-                          "damping": 20,
-                          "precision": 50,
-                          "stiffness": 300,
-                          "val": 688,
-                        },
-                        "width": 60,
-                      }
-            }>
-            [Function]
-      </Motion>
-      <Motion
-            style={
-                  Object {
-                        "height": 60,
-                        "left": Object {
-                          "damping": 20,
-                          "precision": 50,
-                          "stiffness": 300,
-                          "val": 944,
-                        },
-                        "rotate": Object {
-                          "damping": 20,
-                          "precision": 50,
-                          "stiffness": 300,
-                          "val": -140,
-                        },
-                        "scale": Object {
-                          "damping": 20,
-                          "precision": 50,
-                          "stiffness": 300,
-                          "val": 0.5,
-                        },
-                        "top": Object {
-                          "damping": 20,
-                          "precision": 50,
-                          "stiffness": 300,
-                          "val": 688,
-                        },
-                        "width": 60,
-                      }
-            }>
-            [Function]
-      </Motion>
-      <Motion
-            style={
-                  Object {
-                        "height": 60,
-                        "left": Object {
-                          "damping": 20,
-                          "precision": 50,
-                          "stiffness": 300,
-                          "val": 944,
-                        },
-                        "rotate": Object {
-                          "damping": 20,
-                          "precision": 50,
-                          "stiffness": 300,
-                          "val": -140,
-                        },
-                        "scale": Object {
-                          "damping": 20,
-                          "precision": 50,
-                          "stiffness": 300,
-                          "val": 0.5,
-                        },
-                        "top": Object {
-                          "damping": 20,
-                          "precision": 50,
-                          "stiffness": 300,
-                          "val": 688,
-                        },
-                        "width": 60,
-                      }
-            }>
-            [Function]
-      </Motion>
-      <Motion
-            style={
-                  Object {
-                        "height": 60,
-                        "left": Object {
-                          "damping": 20,
-                          "precision": 50,
-                          "stiffness": 300,
-                          "val": 944,
-                        },
-                        "rotate": Object {
-                          "damping": 20,
-                          "precision": 50,
-                          "stiffness": 300,
-                          "val": -140,
-                        },
-                        "scale": Object {
-                          "damping": 20,
-                          "precision": 50,
-                          "stiffness": 300,
-                          "val": 0.5,
-                        },
-                        "top": Object {
-                          "damping": 20,
-                          "precision": 50,
-                          "stiffness": 300,
-                          "val": 688,
-                        },
-                        "width": 60,
-                      }
-            }>
-            [Function]
-      </Motion>
-      <Motion
-            style={
-                  Object {
-                        "rotate": Object {
-                          "0": 500,
-                          "1": 30,
-                          "damping": 26,
-                          "precision": 0.01,
-                          "stiffness": 170,
-                          "val": 0,
-                        },
-                      }
-            }>
-            [Function]
-      </Motion>
-</div>,
+    <MotionMenu />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -300,125 +16,195 @@ ShallowWrapper {
       "_calledComponentWillUnmount": false,
       "_compositeType": 0,
       "_context": Object {},
-      "_currentElement": <MotionMenu />,
+      "_currentElement": <ThemeProvider
+        theme={
+                Object {
+                        "colors": Object {
+                          "alert": "#ffa000",
+                          "black": "#262626",
+                          "danger": "#d32f2f",
+                          "grayscale": Object {
+                            "dark": "#5E5E5E",
+                            "darker": "#383838",
+                            "darkest": "#131313",
+                            "light": "#D1D1D1",
+                            "lighter": "#EBEBEB",
+                            "lightest": "#F9F9F9",
+                            "medium": "#ABABAB",
+                          },
+                          "grey": "#EEE",
+                          "primary": "#3333FE",
+                          "secondary": "#FDB63F",
+                          "success": "#388e3c",
+                          "white": "#FFF",
+                        },
+                        "fonts": Object {
+                          "family": Object {
+                            "andesBlack": "andes-black, serif",
+                            "andesLight": "andes-extralight, serif",
+                            "montserratBlack": "montserrat-black, sans-serif",
+                            "montserratBold": "montserrat-bold, sans-serif",
+                            "montserratLight": "montserrat-light, sans-serif",
+                          },
+                          "size": Object {
+                            "base": "1.4rem",
+                            "l": "1.8rem",
+                            "m": "1.5rem",
+                            "reset": "62.5%",
+                            "root": "1rem",
+                            "s": "1.2rem",
+                            "xl": "2.4rem",
+                            "xs": "1rem",
+                            "xxl": "3.2rem",
+                            "xxxl": "5rem",
+                          },
+                        },
+                        "grid": Object {
+                          "breakpoints": Object {
+                            "l": 992,
+                            "m": 768,
+                            "s": 576,
+                            "xl": 1200,
+                            "xs": 0,
+                          },
+                          "container": 120,
+                          "gridSize": 12,
+                          "gutterWidth": Object {
+                            "l": 1.6,
+                            "m": 1.6,
+                            "s": 1.6,
+                            "xl": 1.6,
+                            "xs": 1.6,
+                          },
+                          "outerMargin": Object {
+                            "l": 1.6,
+                            "m": 1.6,
+                            "s": 1.6,
+                            "xl": 1.6,
+                            "xs": 1.6,
+                          },
+                          "padding": Object {
+                            "l": 2.5,
+                            "m": 2.5,
+                            "s": 1.6,
+                            "xl": 2.5,
+                            "xs": 1.6,
+                          },
+                        },
+                        "spaces": Object {
+                          "l": "2.5rem",
+                          "m": "1.6rem",
+                          "s": ".8rem",
+                          "xl": "3.2rem",
+                          "xs": ".4rem",
+                          "xxl": "5rem",
+                          "xxxl": "10rem",
+                        },
+                      }
+        }>
+        <MotionMenu />
+</ThemeProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
-      "_instance": MotionMenu {
+      "_instance": ThemeProvider {
         "_reactInternalInstance": [Circular],
-        "closeMenu": [Function],
-        "context": Object {},
-        "props": Object {},
-        "refs": Object {},
-        "state": Object {
-          "backgroundPositionX": 1024,
-          "backgroundPositionY": 768,
-          "childButtons": Array [
-            <Motion
-              style={
-                            Object {
-                                          "height": 60,
-                                          "left": Object {
-                                            "damping": 20,
-                                            "precision": 50,
-                                            "stiffness": 300,
-                                            "val": 944,
-                                          },
-                                          "rotate": Object {
-                                            "damping": 20,
-                                            "precision": 50,
-                                            "stiffness": 300,
-                                            "val": -140,
-                                          },
-                                          "scale": Object {
-                                            "damping": 20,
-                                            "precision": 50,
-                                            "stiffness": 300,
-                                            "val": 0.5,
-                                          },
-                                          "top": Object {
-                                            "damping": 20,
-                                            "precision": 50,
-                                            "stiffness": 300,
-                                            "val": 688,
-                                          },
-                                          "width": 60,
-                                        }
-              }>
-              [Function]
-</Motion>,
-            <Motion
-              style={
-                            Object {
-                                          "height": 60,
-                                          "left": Object {
-                                            "damping": 20,
-                                            "precision": 50,
-                                            "stiffness": 300,
-                                            "val": 944,
-                                          },
-                                          "rotate": Object {
-                                            "damping": 20,
-                                            "precision": 50,
-                                            "stiffness": 300,
-                                            "val": -140,
-                                          },
-                                          "scale": Object {
-                                            "damping": 20,
-                                            "precision": 50,
-                                            "stiffness": 300,
-                                            "val": 0.5,
-                                          },
-                                          "top": Object {
-                                            "damping": 20,
-                                            "precision": 50,
-                                            "stiffness": 300,
-                                            "val": 688,
-                                          },
-                                          "width": 60,
-                                        }
-              }>
-              [Function]
-</Motion>,
-            <Motion
-              style={
-                            Object {
-                                          "height": 60,
-                                          "left": Object {
-                                            "damping": 20,
-                                            "precision": 50,
-                                            "stiffness": 300,
-                                            "val": 944,
-                                          },
-                                          "rotate": Object {
-                                            "damping": 20,
-                                            "precision": 50,
-                                            "stiffness": 300,
-                                            "val": -140,
-                                          },
-                                          "scale": Object {
-                                            "damping": 20,
-                                            "precision": 50,
-                                            "stiffness": 300,
-                                            "val": 0.5,
-                                          },
-                                          "top": Object {
-                                            "damping": 20,
-                                            "precision": 50,
-                                            "stiffness": 300,
-                                            "val": 688,
-                                          },
-                                          "width": 60,
-                                        }
-              }>
-              [Function]
-</Motion>,
-          ],
-          "isOpen": false,
-          "mainButtonPositionX": 974,
-          "mainButtonPositionY": 718,
+        "broadcast": Object {
+          "publish": [Function],
+          "subscribe": [Function],
         },
-        "toggleMenu": [Function],
+        "context": Object {
+          "__styled-components__": undefined,
+        },
+        "getTheme": [Function],
+        "props": Object {
+          "children": <MotionMenu />,
+          "theme": Object {
+            "colors": Object {
+              "alert": "#ffa000",
+              "black": "#262626",
+              "danger": "#d32f2f",
+              "grayscale": Object {
+                "dark": "#5E5E5E",
+                "darker": "#383838",
+                "darkest": "#131313",
+                "light": "#D1D1D1",
+                "lighter": "#EBEBEB",
+                "lightest": "#F9F9F9",
+                "medium": "#ABABAB",
+              },
+              "grey": "#EEE",
+              "primary": "#3333FE",
+              "secondary": "#FDB63F",
+              "success": "#388e3c",
+              "white": "#FFF",
+            },
+            "fonts": Object {
+              "family": Object {
+                "andesBlack": "andes-black, serif",
+                "andesLight": "andes-extralight, serif",
+                "montserratBlack": "montserrat-black, sans-serif",
+                "montserratBold": "montserrat-bold, sans-serif",
+                "montserratLight": "montserrat-light, sans-serif",
+              },
+              "size": Object {
+                "base": "1.4rem",
+                "l": "1.8rem",
+                "m": "1.5rem",
+                "reset": "62.5%",
+                "root": "1rem",
+                "s": "1.2rem",
+                "xl": "2.4rem",
+                "xs": "1rem",
+                "xxl": "3.2rem",
+                "xxxl": "5rem",
+              },
+            },
+            "grid": Object {
+              "breakpoints": Object {
+                "l": 992,
+                "m": 768,
+                "s": 576,
+                "xl": 1200,
+                "xs": 0,
+              },
+              "container": 120,
+              "gridSize": 12,
+              "gutterWidth": Object {
+                "l": 1.6,
+                "m": 1.6,
+                "s": 1.6,
+                "xl": 1.6,
+                "xs": 1.6,
+              },
+              "outerMargin": Object {
+                "l": 1.6,
+                "m": 1.6,
+                "s": 1.6,
+                "xl": 1.6,
+                "xs": 1.6,
+              },
+              "padding": Object {
+                "l": 2.5,
+                "m": 2.5,
+                "s": 1.6,
+                "xl": 2.5,
+                "xs": 1.6,
+              },
+            },
+            "spaces": Object {
+              "l": "2.5rem",
+              "m": "1.6rem",
+              "s": ".8rem",
+              "xl": "3.2rem",
+              "xs": ".4rem",
+              "xxl": "5rem",
+              "xxxl": "10rem",
+            },
+          },
+        },
+        "refs": Object {},
+        "state": null,
         "updater": Object {
           "enqueueCallback": [Function],
           "enqueueCallbackInternal": [Function],
@@ -437,295 +223,11 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <div>
-          <Motion
-                    style={
-                              Object {
-                                        "height": 60,
-                                        "left": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 944,
-                                        },
-                                        "scale": Object {
-                                          "damping": 20,
-                                          "precision": 10,
-                                          "stiffness": 200,
-                                          "val": 0.5,
-                                        },
-                                        "top": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 688,
-                                        },
-                                        "width": 60,
-                                      }
-                    }>
-                    [Function]
-          </Motion>
-          <Motion
-                    style={
-                              Object {
-                                        "height": 60,
-                                        "left": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 944,
-                                        },
-                                        "rotate": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": -140,
-                                        },
-                                        "scale": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 0.5,
-                                        },
-                                        "top": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 688,
-                                        },
-                                        "width": 60,
-                                      }
-                    }>
-                    [Function]
-          </Motion>
-          <Motion
-                    style={
-                              Object {
-                                        "height": 60,
-                                        "left": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 944,
-                                        },
-                                        "rotate": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": -140,
-                                        },
-                                        "scale": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 0.5,
-                                        },
-                                        "top": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 688,
-                                        },
-                                        "width": 60,
-                                      }
-                    }>
-                    [Function]
-          </Motion>
-          <Motion
-                    style={
-                              Object {
-                                        "height": 60,
-                                        "left": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 944,
-                                        },
-                                        "rotate": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": -140,
-                                        },
-                                        "scale": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 0.5,
-                                        },
-                                        "top": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 688,
-                                        },
-                                        "width": 60,
-                                      }
-                    }>
-                    [Function]
-          </Motion>
-          <Motion
-                    style={
-                              Object {
-                                        "rotate": Object {
-                                          "0": 500,
-                                          "1": 30,
-                                          "damping": 26,
-                                          "precision": 0.01,
-                                          "stiffness": 170,
-                                          "val": 0,
-                                        },
-                                      }
-                    }>
-                    [Function]
-          </Motion>
-</div>,
+        "_currentElement": <MotionMenu />,
         "_debugID": 2,
-        "_renderedOutput": <div>
-          <Motion
-                    style={
-                              Object {
-                                        "height": 60,
-                                        "left": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 944,
-                                        },
-                                        "scale": Object {
-                                          "damping": 20,
-                                          "precision": 10,
-                                          "stiffness": 200,
-                                          "val": 0.5,
-                                        },
-                                        "top": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 688,
-                                        },
-                                        "width": 60,
-                                      }
-                    }>
-                    [Function]
-          </Motion>
-          <Motion
-                    style={
-                              Object {
-                                        "height": 60,
-                                        "left": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 944,
-                                        },
-                                        "rotate": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": -140,
-                                        },
-                                        "scale": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 0.5,
-                                        },
-                                        "top": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 688,
-                                        },
-                                        "width": 60,
-                                      }
-                    }>
-                    [Function]
-          </Motion>
-          <Motion
-                    style={
-                              Object {
-                                        "height": 60,
-                                        "left": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 944,
-                                        },
-                                        "rotate": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": -140,
-                                        },
-                                        "scale": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 0.5,
-                                        },
-                                        "top": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 688,
-                                        },
-                                        "width": 60,
-                                      }
-                    }>
-                    [Function]
-          </Motion>
-          <Motion
-                    style={
-                              Object {
-                                        "height": 60,
-                                        "left": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 944,
-                                        },
-                                        "rotate": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": -140,
-                                        },
-                                        "scale": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 0.5,
-                                        },
-                                        "top": Object {
-                                          "damping": 20,
-                                          "precision": 50,
-                                          "stiffness": 300,
-                                          "val": 688,
-                                        },
-                                        "width": 60,
-                                      }
-                    }>
-                    [Function]
-          </Motion>
-          <Motion
-                    style={
-                              Object {
-                                        "rotate": Object {
-                                          "0": 500,
-                                          "1": 30,
-                                          "damping": 26,
-                                          "precision": 0.01,
-                                          "stiffness": 170,
-                                          "val": 0,
-                                        },
-                                      }
-                    }>
-                    [Function]
-          </Motion>
-</div>,
+        "_renderedOutput": <MotionMenu />,
       },
-      "_renderedNodeType": 0,
+      "_renderedNodeType": 1,
       "_rootNodeID": 0,
       "_topLevelWrapper": null,
       "_updateBatchNumber": null,
@@ -735,6 +237,93 @@ ShallowWrapper {
     "render": [Function],
   },
   "root": [Circular],
-  "unrendered": <MotionMenu />,
+  "unrendered": <ThemeProvider
+    theme={
+        Object {
+            "colors": Object {
+              "alert": "#ffa000",
+              "black": "#262626",
+              "danger": "#d32f2f",
+              "grayscale": Object {
+                "dark": "#5E5E5E",
+                "darker": "#383838",
+                "darkest": "#131313",
+                "light": "#D1D1D1",
+                "lighter": "#EBEBEB",
+                "lightest": "#F9F9F9",
+                "medium": "#ABABAB",
+              },
+              "grey": "#EEE",
+              "primary": "#3333FE",
+              "secondary": "#FDB63F",
+              "success": "#388e3c",
+              "white": "#FFF",
+            },
+            "fonts": Object {
+              "family": Object {
+                "andesBlack": "andes-black, serif",
+                "andesLight": "andes-extralight, serif",
+                "montserratBlack": "montserrat-black, sans-serif",
+                "montserratBold": "montserrat-bold, sans-serif",
+                "montserratLight": "montserrat-light, sans-serif",
+              },
+              "size": Object {
+                "base": "1.4rem",
+                "l": "1.8rem",
+                "m": "1.5rem",
+                "reset": "62.5%",
+                "root": "1rem",
+                "s": "1.2rem",
+                "xl": "2.4rem",
+                "xs": "1rem",
+                "xxl": "3.2rem",
+                "xxxl": "5rem",
+              },
+            },
+            "grid": Object {
+              "breakpoints": Object {
+                "l": 992,
+                "m": 768,
+                "s": 576,
+                "xl": 1200,
+                "xs": 0,
+              },
+              "container": 120,
+              "gridSize": 12,
+              "gutterWidth": Object {
+                "l": 1.6,
+                "m": 1.6,
+                "s": 1.6,
+                "xl": 1.6,
+                "xs": 1.6,
+              },
+              "outerMargin": Object {
+                "l": 1.6,
+                "m": 1.6,
+                "s": 1.6,
+                "xl": 1.6,
+                "xs": 1.6,
+              },
+              "padding": Object {
+                "l": 2.5,
+                "m": 2.5,
+                "s": 1.6,
+                "xl": 2.5,
+                "xs": 1.6,
+              },
+            },
+            "spaces": Object {
+              "l": "2.5rem",
+              "m": "1.6rem",
+              "s": ".8rem",
+              "xl": "3.2rem",
+              "xs": ".4rem",
+              "xxl": "5rem",
+              "xxxl": "10rem",
+            },
+          }
+    }>
+    <MotionMenu />
+</ThemeProvider>,
 }
 `;

@@ -55,23 +55,36 @@ theme.spaces = {
   xxxl: '10rem',
 }
 
-theme.breakpoints = {
-  s: '576px',
-  m: '768px',
-  l: '992px',
-  xl: '1200px',
-}
-
-// @TODO refacto react-styled-flexboxgrid
-theme.flexboxgrid = {
-  // Defaults
-  gutterWidth: 1.6, // rem
-  outerMargin: 1.6, // rem
+theme.grid = {
+  gridSize: 12,
+  container: 120,
+  gutterWidth: {
+    xs: 1.6,
+    s: 1.6,
+    m: 1.6,
+    l: 1.6,
+    xl: 1.6,
+  },
+  outerMargin: {
+    xs: 1.6,
+    s: 1.6,
+    m: 1.6,
+    l: 1.6,
+    xl: 1.6,
+  },
   breakpoints: {
     xs: 0,
-    sm: 36,
-    md: 48,
-    lg: 62,
+    s: 576,
+    m: 768,
+    l: 992,
+    xl: 1200,
+  },
+  padding: {
+    xs: 1.6,
+    s: 1.6,
+    m: 2.5,
+    l: 2.5,
+    xl: 2.5,
   },
 }
 

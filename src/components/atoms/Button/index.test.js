@@ -1,15 +1,12 @@
 import React from 'react'
 import { mount, shallow } from 'enzyme'
 import Button from './'
-import theme from '../../themes/default'
 
-const wrap = (props = {}) => shallow(<Button theme={theme} {...props} />).dive()
-const wrapMounted = (props = {}) => mount(<Button theme={theme} {...props} />)
+const wrap = (props = {}) => shallow(<Button {...props} />)
+const wrapMounted = (props = {}) => mount(<Button {...props} />)
 
 it('renders with different combination of props', () => {
   wrap({ disabled: true })
-  wrap({ transparent: true })
-  wrap({ disabled: true, transparent: true })
 })
 
 it('renders children when passed in', () => {
@@ -28,16 +25,4 @@ it('renders button by default', () => {
   const wrapper = wrapMounted()
 
   expect(wrapper.find('button')).toHaveLength(1)
-})
-
-it('renders anchor when href is passed in', () => {
-  const wrapper = wrapMounted({ href: 'test' })
-
-  expect(wrapper.find('a')).toHaveLength(1)
-})
-
-it('renders Link when to is passed in', () => {
-  const wrapper = wrap({ to: 'test' }).dive()
-
-  expect(wrapper.find('Link')).toHaveLength(1)
 })

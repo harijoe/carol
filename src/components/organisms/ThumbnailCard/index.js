@@ -10,7 +10,8 @@ const Wrapper = styled(Link)`
   width: 11.2rem;
   margin: 0 ${theme('spaces.xs')};
 
-  *, & {
+  *,
+  & {
     &:hover {
       text-decoration: none;
     }

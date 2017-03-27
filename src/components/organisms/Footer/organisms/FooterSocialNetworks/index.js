@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Grid, Col, Row } from 'react-styled-flexboxgrid'
 
-import { Icon, Link } from 'components'
+import { Icon, Link, Grid, Col, Row } from 'components'
 import { theme } from 'utils/style'
 
 const Wrapper = styled.div`
@@ -12,7 +11,6 @@ const Wrapper = styled.div`
 `
 
 const StyledIcon = styled(Icon)`
-  height: ${theme('sapces.l')};
   margin-right: ${theme('spaces.l')};
 `
 

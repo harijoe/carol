@@ -1,11 +1,10 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { FormattedMessage } from 'react-intl'
-import { Link } from 'react-router'
 import { theme } from 'utils/style'
 import { locales } from 'config'
 
-import { List, Section } from 'components'
+import { List, Section, Link } from 'components'
 
 const styles = css`
   margin: 0;
@@ -56,7 +55,7 @@ const BurgerMenu = ({ locale }) => (
         </StyledLink>
       </li>
       <li>
-        <StyledLink href={locales[locale].proUrl}>
+        <StyledLink to={locales[locale].proUrl}>
           <FormattedMessage id="firm.i_am_pro" />
         </StyledLink>
       </li>

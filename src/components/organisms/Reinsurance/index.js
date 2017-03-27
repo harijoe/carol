@@ -1,8 +1,7 @@
 import React from 'react'
-import { Grid, Col, Row } from 'react-styled-flexboxgrid'
 import stripTags from 'utils/stripTags'
 
-import { Card, Section, SimpleCardContent } from 'components'
+import { Card, Section, SimpleCardContent, Grid, Col, Row } from 'components'
 import { PostList } from 'containers'
 
 const generateChild = (i, items) => (

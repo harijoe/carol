@@ -10,12 +10,6 @@ ShallowWrapper {
     strongShadow={undefined}
     theme={
         Object {
-            "breakpoints": Object {
-              "l": "992px",
-              "m": "768px",
-              "s": "576px",
-              "xl": "1200px",
-            },
             "colors": Object {
               "alert": "#ffa000",
               "black": "#262626",
@@ -34,16 +28,6 @@ ShallowWrapper {
               "secondary": "#FDB63F",
               "success": "#388e3c",
               "white": "#FFF",
-            },
-            "flexboxgrid": Object {
-              "breakpoints": Object {
-                "lg": 62,
-                "md": 48,
-                "sm": 36,
-                "xs": 0,
-              },
-              "gutterWidth": 1.6,
-              "outerMargin": 1.6,
             },
             "fonts": Object {
               "family": Object {
@@ -66,6 +50,38 @@ ShallowWrapper {
                 "xxxl": "5rem",
               },
             },
+            "grid": Object {
+              "breakpoints": Object {
+                "l": 992,
+                "m": 768,
+                "s": 576,
+                "xl": 1200,
+                "xs": 0,
+              },
+              "container": 120,
+              "gridSize": 12,
+              "gutterWidth": Object {
+                "l": 1.6,
+                "m": 1.6,
+                "s": 1.6,
+                "xl": 1.6,
+                "xs": 1.6,
+              },
+              "outerMargin": Object {
+                "l": 1.6,
+                "m": 1.6,
+                "s": 1.6,
+                "xl": 1.6,
+                "xs": 1.6,
+              },
+              "padding": Object {
+                "l": 2.5,
+                "m": 2.5,
+                "s": 1.6,
+                "xl": 2.5,
+                "xs": 1.6,
+              },
+            },
             "spaces": Object {
               "l": "2.5rem",
               "m": "1.6rem",
@@ -82,12 +98,6 @@ ShallowWrapper {
       strongShadow={undefined}
       theme={
             Object {
-                  "breakpoints": Object {
-                    "l": "992px",
-                    "m": "768px",
-                    "s": "576px",
-                    "xl": "1200px",
-                  },
                   "colors": Object {
                     "alert": "#ffa000",
                     "black": "#262626",
@@ -106,16 +116,6 @@ ShallowWrapper {
                     "secondary": "#FDB63F",
                     "success": "#388e3c",
                     "white": "#FFF",
-                  },
-                  "flexboxgrid": Object {
-                    "breakpoints": Object {
-                      "lg": 62,
-                      "md": 48,
-                      "sm": 36,
-                      "xs": 0,
-                    },
-                    "gutterWidth": 1.6,
-                    "outerMargin": 1.6,
                   },
                   "fonts": Object {
                     "family": Object {
@@ -136,6 +136,38 @@ ShallowWrapper {
                       "xs": "1rem",
                       "xxl": "3.2rem",
                       "xxxl": "5rem",
+                    },
+                  },
+                  "grid": Object {
+                    "breakpoints": Object {
+                      "l": 992,
+                      "m": 768,
+                      "s": 576,
+                      "xl": 1200,
+                      "xs": 0,
+                    },
+                    "container": 120,
+                    "gridSize": 12,
+                    "gutterWidth": Object {
+                      "l": 1.6,
+                      "m": 1.6,
+                      "s": 1.6,
+                      "xl": 1.6,
+                      "xs": 1.6,
+                    },
+                    "outerMargin": Object {
+                      "l": 1.6,
+                      "m": 1.6,
+                      "s": 1.6,
+                      "xl": 1.6,
+                      "xs": 1.6,
+                    },
+                    "padding": Object {
+                      "l": 2.5,
+                      "m": 2.5,
+                      "s": 1.6,
+                      "xl": 2.5,
+                      "xs": 1.6,
                     },
                   },
                   "spaces": Object {
@@ -159,12 +191,6 @@ ShallowWrapper {
       "_currentElement": <Card
         theme={
                 Object {
-                        "breakpoints": Object {
-                          "l": "992px",
-                          "m": "768px",
-                          "s": "576px",
-                          "xl": "1200px",
-                        },
                         "colors": Object {
                           "alert": "#ffa000",
                           "black": "#262626",
@@ -183,16 +209,6 @@ ShallowWrapper {
                           "secondary": "#FDB63F",
                           "success": "#388e3c",
                           "white": "#FFF",
-                        },
-                        "flexboxgrid": Object {
-                          "breakpoints": Object {
-                            "lg": 62,
-                            "md": 48,
-                            "sm": 36,
-                            "xs": 0,
-                          },
-                          "gutterWidth": 1.6,
-                          "outerMargin": 1.6,
                         },
                         "fonts": Object {
                           "family": Object {
@@ -215,6 +231,38 @@ ShallowWrapper {
                             "xxxl": "5rem",
                           },
                         },
+                        "grid": Object {
+                          "breakpoints": Object {
+                            "l": 992,
+                            "m": 768,
+                            "s": 576,
+                            "xl": 1200,
+                            "xs": 0,
+                          },
+                          "container": 120,
+                          "gridSize": 12,
+                          "gutterWidth": Object {
+                            "l": 1.6,
+                            "m": 1.6,
+                            "s": 1.6,
+                            "xl": 1.6,
+                            "xs": 1.6,
+                          },
+                          "outerMargin": Object {
+                            "l": 1.6,
+                            "m": 1.6,
+                            "s": 1.6,
+                            "xl": 1.6,
+                            "xs": 1.6,
+                          },
+                          "padding": Object {
+                            "l": 2.5,
+                            "m": 2.5,
+                            "s": 1.6,
+                            "xl": 2.5,
+                            "xs": 1.6,
+                          },
+                        },
                         "spaces": Object {
                           "l": "2.5rem",
                           "m": "1.6rem",
@@ -234,12 +282,6 @@ ShallowWrapper {
         "context": Object {},
         "props": Object {
           "theme": Object {
-            "breakpoints": Object {
-              "l": "992px",
-              "m": "768px",
-              "s": "576px",
-              "xl": "1200px",
-            },
             "colors": Object {
               "alert": "#ffa000",
               "black": "#262626",
@@ -258,16 +300,6 @@ ShallowWrapper {
               "secondary": "#FDB63F",
               "success": "#388e3c",
               "white": "#FFF",
-            },
-            "flexboxgrid": Object {
-              "breakpoints": Object {
-                "lg": 62,
-                "md": 48,
-                "sm": 36,
-                "xs": 0,
-              },
-              "gutterWidth": 1.6,
-              "outerMargin": 1.6,
             },
             "fonts": Object {
               "family": Object {
@@ -288,6 +320,38 @@ ShallowWrapper {
                 "xs": "1rem",
                 "xxl": "3.2rem",
                 "xxxl": "5rem",
+              },
+            },
+            "grid": Object {
+              "breakpoints": Object {
+                "l": 992,
+                "m": 768,
+                "s": 576,
+                "xl": 1200,
+                "xs": 0,
+              },
+              "container": 120,
+              "gridSize": 12,
+              "gutterWidth": Object {
+                "l": 1.6,
+                "m": 1.6,
+                "s": 1.6,
+                "xl": 1.6,
+                "xs": 1.6,
+              },
+              "outerMargin": Object {
+                "l": 1.6,
+                "m": 1.6,
+                "s": 1.6,
+                "xl": 1.6,
+                "xs": 1.6,
+              },
+              "padding": Object {
+                "l": 2.5,
+                "m": 2.5,
+                "s": 1.6,
+                "xl": 2.5,
+                "xs": 1.6,
               },
             },
             "spaces": Object {
@@ -325,12 +389,6 @@ ShallowWrapper {
           strongShadow={undefined}
           theme={
                     Object {
-                              "breakpoints": Object {
-                                "l": "992px",
-                                "m": "768px",
-                                "s": "576px",
-                                "xl": "1200px",
-                              },
                               "colors": Object {
                                 "alert": "#ffa000",
                                 "black": "#262626",
@@ -349,16 +407,6 @@ ShallowWrapper {
                                 "secondary": "#FDB63F",
                                 "success": "#388e3c",
                                 "white": "#FFF",
-                              },
-                              "flexboxgrid": Object {
-                                "breakpoints": Object {
-                                  "lg": 62,
-                                  "md": 48,
-                                  "sm": 36,
-                                  "xs": 0,
-                                },
-                                "gutterWidth": 1.6,
-                                "outerMargin": 1.6,
                               },
                               "fonts": Object {
                                 "family": Object {
@@ -379,6 +427,38 @@ ShallowWrapper {
                                   "xs": "1rem",
                                   "xxl": "3.2rem",
                                   "xxxl": "5rem",
+                                },
+                              },
+                              "grid": Object {
+                                "breakpoints": Object {
+                                  "l": 992,
+                                  "m": 768,
+                                  "s": 576,
+                                  "xl": 1200,
+                                  "xs": 0,
+                                },
+                                "container": 120,
+                                "gridSize": 12,
+                                "gutterWidth": Object {
+                                  "l": 1.6,
+                                  "m": 1.6,
+                                  "s": 1.6,
+                                  "xl": 1.6,
+                                  "xs": 1.6,
+                                },
+                                "outerMargin": Object {
+                                  "l": 1.6,
+                                  "m": 1.6,
+                                  "s": 1.6,
+                                  "xl": 1.6,
+                                  "xs": 1.6,
+                                },
+                                "padding": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 2.5,
+                                  "xs": 1.6,
                                 },
                               },
                               "spaces": Object {
@@ -397,12 +477,6 @@ ShallowWrapper {
           strongShadow={undefined}
           theme={
                     Object {
-                              "breakpoints": Object {
-                                "l": "992px",
-                                "m": "768px",
-                                "s": "576px",
-                                "xl": "1200px",
-                              },
                               "colors": Object {
                                 "alert": "#ffa000",
                                 "black": "#262626",
@@ -421,16 +495,6 @@ ShallowWrapper {
                                 "secondary": "#FDB63F",
                                 "success": "#388e3c",
                                 "white": "#FFF",
-                              },
-                              "flexboxgrid": Object {
-                                "breakpoints": Object {
-                                  "lg": 62,
-                                  "md": 48,
-                                  "sm": 36,
-                                  "xs": 0,
-                                },
-                                "gutterWidth": 1.6,
-                                "outerMargin": 1.6,
                               },
                               "fonts": Object {
                                 "family": Object {
@@ -451,6 +515,38 @@ ShallowWrapper {
                                   "xs": "1rem",
                                   "xxl": "3.2rem",
                                   "xxxl": "5rem",
+                                },
+                              },
+                              "grid": Object {
+                                "breakpoints": Object {
+                                  "l": 992,
+                                  "m": 768,
+                                  "s": 576,
+                                  "xl": 1200,
+                                  "xs": 0,
+                                },
+                                "container": 120,
+                                "gridSize": 12,
+                                "gutterWidth": Object {
+                                  "l": 1.6,
+                                  "m": 1.6,
+                                  "s": 1.6,
+                                  "xl": 1.6,
+                                  "xs": 1.6,
+                                },
+                                "outerMargin": Object {
+                                  "l": 1.6,
+                                  "m": 1.6,
+                                  "s": 1.6,
+                                  "xl": 1.6,
+                                  "xs": 1.6,
+                                },
+                                "padding": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 2.5,
+                                  "xs": 1.6,
                                 },
                               },
                               "spaces": Object {
@@ -478,12 +574,6 @@ ShallowWrapper {
   "unrendered": <Card
     theme={
         Object {
-            "breakpoints": Object {
-              "l": "992px",
-              "m": "768px",
-              "s": "576px",
-              "xl": "1200px",
-            },
             "colors": Object {
               "alert": "#ffa000",
               "black": "#262626",
@@ -502,16 +592,6 @@ ShallowWrapper {
               "secondary": "#FDB63F",
               "success": "#388e3c",
               "white": "#FFF",
-            },
-            "flexboxgrid": Object {
-              "breakpoints": Object {
-                "lg": 62,
-                "md": 48,
-                "sm": 36,
-                "xs": 0,
-              },
-              "gutterWidth": 1.6,
-              "outerMargin": 1.6,
             },
             "fonts": Object {
               "family": Object {
@@ -532,6 +612,38 @@ ShallowWrapper {
                 "xs": "1rem",
                 "xxl": "3.2rem",
                 "xxxl": "5rem",
+              },
+            },
+            "grid": Object {
+              "breakpoints": Object {
+                "l": 992,
+                "m": 768,
+                "s": 576,
+                "xl": 1200,
+                "xs": 0,
+              },
+              "container": 120,
+              "gridSize": 12,
+              "gutterWidth": Object {
+                "l": 1.6,
+                "m": 1.6,
+                "s": 1.6,
+                "xl": 1.6,
+                "xs": 1.6,
+              },
+              "outerMargin": Object {
+                "l": 1.6,
+                "m": 1.6,
+                "s": 1.6,
+                "xl": 1.6,
+                "xs": 1.6,
+              },
+              "padding": Object {
+                "l": 2.5,
+                "m": 2.5,
+                "s": 1.6,
+                "xl": 2.5,
+                "xs": 1.6,
               },
             },
             "spaces": Object {

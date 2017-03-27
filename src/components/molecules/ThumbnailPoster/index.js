@@ -19,7 +19,7 @@ const Wrapper = styled.figure`
     height: 100%;
     width: 100%;
     background: ${theme('colors.grayscale.darkest')};
-    opacity: 0.30;
+    opacity: 0.3;
     content: '';
     z-index: 1;
   }

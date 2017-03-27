@@ -1,10 +1,9 @@
 import React from 'react'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import styled from 'styled-components'
-import { Grid, Col, Row } from 'react-styled-flexboxgrid'
 import { theme } from 'utils/style'
 
-import { List, ListItem, Link, Icon } from 'components'
+import { List, ListItem, Link, Icon, Grid, Col, Row } from 'components'
 
 const Wrapper = styled.div`
   width: 100%;

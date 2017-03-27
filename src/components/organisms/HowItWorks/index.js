@@ -1,12 +1,11 @@
 import React from 'react'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import styled from 'styled-components'
-import { Grid, Col, Row } from 'react-styled-flexboxgrid'
 import messages from 'utils/messages'
 import { theme } from 'utils/style'
-import { cloudinaryUrl } from 'config'
+import { cloudinaryUrl, contentSiteUrl } from 'config'
 
-import { Section, HowItWorksBlock, Paragraph, Link } from 'components'
+import { Section, HowItWorksBlock, Paragraph, Link, Col, Grid, Row } from 'components'
 
 const StyledCol = styled(Col)`
   margin-bottom: ${theme('spaces.xl')};
@@ -25,7 +24,7 @@ const DescribeProject = (
 const VerifiedPros = (
   <Paragraph>
     <FormattedMessage id="how_it_works.verified_pros.first_part" />
-    <Link href="https://conseils-travaux.quotatis.fr">
+    <Link to={contentSiteUrl}>
       <FormattedMessage id="how_it_works.verified_pros.link" />
     </Link>
     <FormattedMessage id="how_it_works.verified_pros.second_part" />
@@ -35,7 +34,7 @@ const VerifiedPros = (
 const Guide = (
   <Paragraph>
     <FormattedMessage id="how_it_works.guide.first_part" />
-    <Link href="https://conseils-travaux.quotatis.fr">
+    <Link to={contentSiteUrl}>
       <FormattedMessage id="how_it_works.guide.link" />
     </Link>
     <FormattedMessage id="how_it_works.guide.second_part" />

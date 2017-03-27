@@ -1,10 +1,12 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
+import theme from 'components/themes/default'
+import { ThemeProvider } from 'styled-components'
 
 import MotionMenu from './'
 
-const wrapper = shallow(<MotionMenu />)
-const wrapperMounted = mount(<MotionMenu />)
+const wrapper = shallow(<ThemeProvider theme={theme}><MotionMenu /></ThemeProvider>)
+const wrapperMounted = mount(<ThemeProvider theme={theme}><MotionMenu /></ThemeProvider>)
 
 const clickMainButton = () => {
   wrapperMounted.find('Motion').last().simulate('click')
@@ -19,21 +21,21 @@ it('renders MotionMenu', () => {
 
 it('toggles menu', () => {
   // closed
-  expect(wrapperMounted.state().isOpen).toEqual(false)
+  expect(wrapperMounted.find('MotionMenu').node.state.isOpen).toEqual(false)
   expect(wrapperMounted.find('Motion').at(0).prop('style').scale.val).toEqual(.5)
   expect(wrapperMounted.find('Motion').last().prop('style').rotate.val).toEqual(0)
 
   clickMainButton()
 
   // opened
-  expect(wrapperMounted.state().isOpen).toEqual(true)
+  expect(wrapperMounted.find('MotionMenu').node.state.isOpen).toEqual(true)
   expect(wrapperMounted.find('Motion').at(0).prop('style').scale.val).toEqual(40)
   expect(wrapperMounted.find('Motion').last().prop('style').rotate.val).toEqual(135)
 
   clickMainButton()
 
   // closed
-  expect(wrapperMounted.state().isOpen).toEqual(false)
+  expect(wrapperMounted.find('MotionMenu').node.state.isOpen).toEqual(false)
   expect(wrapperMounted.find('Motion').at(0).prop('style').scale.val).toEqual(.5)
   expect(wrapperMounted.find('Motion').last().prop('style').rotate.val).toEqual(0)
 
@@ -41,5 +43,5 @@ it('toggles menu', () => {
   clickBackground()
 
   // opened
-  expect(wrapperMounted.state().isOpen).toEqual(false)
+  expect(wrapperMounted.find('MotionMenu').node.state.isOpen).toEqual(false)
 })

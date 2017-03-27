@@ -3,25 +3,27 @@ import { Motion, spring } from 'react-motion'
 import range from 'lodash.range'
 import styled, { css } from 'styled-components'
 import { theme } from 'utils/style'
-import { Link } from 'react-router'
 
-import { Icon } from 'components'
+import { Icon, Link } from 'components'
 
 const Background = styled.div`
-  position: fixed;  
+  position: fixed;
   transition: background-color 0.3s ${props => props.isOpen ? 'ease' : 'ease-out'};
   ${props => props.isOpen ? 'background-color: rgba(0, 0, 0, .9);' : ''}
   border-radius: 100%;
   z-index: 999;
 `
+
 const StyledMainIcon = styled(Icon)`
   margin: 0 auto;
 `
+
 const StyledChildIcon = styled(Icon)`
   width: 30px;
   height: 30px;
   margin: 0 auto;
 `
+
 const StyledMainButton = styled.button`
   position: fixed;
   border-radius: 100%;
@@ -30,18 +32,19 @@ const StyledMainButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
+  color: ${theme('colors.white')};
   font-weight: lighter;
   border: 1px solid rgba(0, 0, 0, 0.1);
   right: 10px;
   z-index: 1002;
   width: 60px;
   height: 60px;
-  
+
   &:focus {
     outline: none;
   }
 `
+
 const childButtonCss = css`
   position: fixed;
   display: flex;
@@ -49,11 +52,11 @@ const childButtonCss = css`
   align-items: center;
   border-radius: 100%;
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px;
-  color: #8898A5;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 3px;
+  color: #8898a5;
   border: none;
   z-index: 1001;
-  
+
   &:focus {
     outline: none;
   }
