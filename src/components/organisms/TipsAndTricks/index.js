@@ -10,7 +10,7 @@ const generateChild = (i, items) => (
     <TipsAndTricksBlock
       header="Fenêtre"
       tags={[
-        { label: 'preparer mes travaux', link: '' },
+        { label: 'préparer mes travaux', link: '' },
         { label: 'budget', link: '' },
       ]}
       title={items.title}
@@ -24,7 +24,7 @@ const TipsAndTricks = ({ intl: { formatMessage } }) => (
       <Row>
         <PostList
           scope="latestProjectsResources"
-          tags={['work-resources']}
+          tags={['api-work-resources']}
           limit={5}
           active="all"
           generateChild={generateChild}

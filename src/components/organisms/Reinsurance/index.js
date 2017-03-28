@@ -20,7 +20,7 @@ const Reinsurance = () => (
         <Col xs={12}>
           <PostList
             scope="reinsuranceArticles"
-            tags={['quotatis-reinsurance']}
+            tags={['api-quotatis-reinsurance']}
             limit={3}
             active="quotatis-reinsurance"
             generateChild={generateChild}

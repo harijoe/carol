@@ -19,7 +19,7 @@ ShallowWrapper {
                     scope="reinsuranceArticles"
                     tags={
                         Array [
-                            "quotatis-reinsurance",
+                            "api-quotatis-reinsurance",
                           ]
                     } />
             </Mock>
@@ -40,7 +40,7 @@ ShallowWrapper {
                               scope="reinsuranceArticles"
                               tags={
                                     Array [
-                                          "quotatis-reinsurance",
+                                          "api-quotatis-reinsurance",
                                         ]
                               } />
                   </Mock>
@@ -95,7 +95,7 @@ ShallowWrapper {
                                                   scope="reinsuranceArticles"
                                                   tags={
                                                             Array [
-                                                                      "quotatis-reinsurance",
+                                                                      "api-quotatis-reinsurance",
                                                                     ]
                                                   } />
                               </Mock>
@@ -116,7 +116,7 @@ ShallowWrapper {
                                                   scope="reinsuranceArticles"
                                                   tags={
                                                             Array [
-                                                                      "quotatis-reinsurance",
+                                                                      "api-quotatis-reinsurance",
                                                                     ]
                                                   } />
                               </Mock>

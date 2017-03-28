@@ -21,7 +21,7 @@ const setDisplay = (active, i, tags) => {
   return active === i
 }
 
-const PostList = ({ list, active, loading, generateChild, carousel }) => {
+const PostList = ({ list, active = 'all', loading, generateChild, carousel }) => {
   let children = list
     .filter((items, i) => setDisplay(active, i, items.tags))
     .map((items, i) => generateChild(i, items))

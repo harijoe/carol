@@ -4,31 +4,11 @@ import { MainLayout, HowItWorks, Testimonials, TipsAndTricks, Reinsurance, LastP
 import { GoogleMap, FirmSearchForm } from 'containers'
 
 class HomePage extends Component {
-  constructor() {
-    super()
-
-    this.onMarkerClick = this.onMarkerClick.bind(this)
-    this.onTopicClick = this.onTopicClick.bind(this)
-
-    this.state = {
-      activeProject: 0,
-      activeTopic: 'construction',
-    }
+  state = {
+    activeProject: 0,
   }
 
-  onMarkerClick(id) {
-    this.setState({
-      activeProject: Number(id),
-    })
-  }
-
-  onTopicClick(event) {
-    event.preventDefault()
-
-    this.setState({
-      activeTopic: event.currentTarget.id,
-    })
-  }
+  onMarkerClick = id => this.setState({ activeProject: Number(id) })
 
   render() {
     return (
@@ -38,7 +18,7 @@ class HomePage extends Component {
         <GoogleMap scope="latestProjectsOnMap" onMarkerClick={this.onMarkerClick} />
         <LastProjects active={this.state.activeProject} />
         <HowItWorks />
-        <Testimonials active={this.state.activeTopic} />
+        <Testimonials />
         <TipsAndTricks />
         <Reinsurance />
         <MotionMenu />

@@ -15,8 +15,7 @@ ShallowWrapper {
     <Mock
         active={0} />
     <Mock />
-    <Mock
-        active="construction" />
+    <Mock />
     <Mock />
     <Mock />
     <Mock />
@@ -31,8 +30,7 @@ ShallowWrapper {
       <Mock
             active={0} />
       <Mock />
-      <Mock
-            active="construction" />
+      <Mock />
       <Mock />
       <Mock />
       <Mock />
@@ -52,12 +50,10 @@ ShallowWrapper {
         "_reactInternalInstance": [Circular],
         "context": Object {},
         "onMarkerClick": [Function],
-        "onTopicClick": [Function],
         "props": Object {},
         "refs": Object {},
         "state": Object {
           "activeProject": 0,
-          "activeTopic": "construction",
         },
         "updater": Object {
           "enqueueCallback": [Function],
@@ -86,8 +82,7 @@ ShallowWrapper {
           <Mock
                     active={0} />
           <Mock />
-          <Mock
-                    active="construction" />
+          <Mock />
           <Mock />
           <Mock />
           <Mock />
@@ -102,8 +97,7 @@ ShallowWrapper {
           <Mock
                     active={0} />
           <Mock />
-          <Mock
-                    active="construction" />
+          <Mock />
           <Mock />
           <Mock />
           <Mock />

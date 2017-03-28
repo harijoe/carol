@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import { injectIntl, intlShape } from 'react-intl'
 import stripTags from 'utils/stripTags'
 import messages from 'utils/messages'
@@ -19,16 +19,15 @@ const generateChild = (i, { link, featuredMedia, customFields }) => (
   </Card>
 )
 
-const Testimonials = ({ active, intl: { formatMessage } }) => (
+const Testimonials = ({ intl: { formatMessage } }) => (
   <Section title={formatMessage(messages('testimonials.section_title').label)}>
     <Grid>
       <Row>
         <Col xs={12}>
           <PostList
             scope="testimonialArticles"
-            tags={['testimony']}
+            tags={['api-testimony']}
             limit={10}
-            active={active}
             generateChild={generateChild}
             carousel
           />
@@ -39,7 +38,6 @@ const Testimonials = ({ active, intl: { formatMessage } }) => (
 )
 
 Testimonials.propTypes = {
-  active: PropTypes.any,
   intl: intlShape.isRequired,
 }
 

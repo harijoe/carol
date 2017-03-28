@@ -25,7 +25,7 @@ const LastProjects = ({ active, intl: { formatMessage } }) => (
         <Col xs={12}>
           <PostList
             scope="latestProjectsOnMap"
-            tags={['inspiration', 'last-project']}
+            tags={['api-last-project']}
             limit={3}
             active={active}
             generateChild={generateChild}
