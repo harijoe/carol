@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { injectIntl, intlShape } from 'react-intl'
 import messages from 'utils/messages'
+import stripTags from 'utils/stripTags'
 
 import { Card, Section, LastProjectCardContent, Grid, Col, Row } from 'components'
 import { PostList } from 'containers'
@@ -8,12 +9,12 @@ import { PostList } from 'containers'
 const generateChild = (i, { title, featuredMedia, customFields }) => (
   <Card key={i}>
     <LastProjectCardContent
-      title={title}
+      title={stripTags(title)}
       image={featuredMedia}
-      place={customFields.project_city}
-      firmName={customFields.project_firm}
+      place={stripTags(customFields.project_city)}
+      firmName={stripTags(customFields.project_firm)}
       firmImage={customFields.project_bg}
-      firmTrade={customFields.project_trade}
+      firmTrade={stripTags(customFields.project_trade)}
     />
   </Card>
 )

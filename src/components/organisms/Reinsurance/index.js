@@ -7,7 +7,7 @@ import { PostList } from 'containers'
 const generateChild = (i, items) => (
   <Card key={i}>
     <SimpleCardContent
-      title={items.title}
+      title={stripTags(items.title)}
       content={stripTags(items.body)}
     />
   </Card>

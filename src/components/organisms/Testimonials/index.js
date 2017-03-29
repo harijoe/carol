@@ -11,9 +11,9 @@ const generateChild = (i, { link, featuredMedia, customFields }) => (
     <TestimonialCardContent
       link={link}
       image={featuredMedia}
-      firstName={customFields.ttml_firstname}
+      firstName={stripTags(customFields.ttml_firstname)}
       age={customFields.ttml_age}
-      location={`${customFields.ttml_city}, ${customFields.ttml_postal_code}`}
+      location={stripTags(`${customFields.ttml_city}, ${customFields.ttml_postal_code}`)}
       quote={stripTags(customFields.ttml_quote)}
     />
   </Card>
