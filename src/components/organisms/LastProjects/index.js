@@ -10,10 +10,10 @@ const generateChild = (i, { title, featuredMedia, customFields }) => (
   <Card key={i}>
     <LastProjectCardContent
       title={stripTags(title)}
-      image={featuredMedia}
+      image={customFields.project_bg}
       place={stripTags(customFields.project_city)}
       firmName={stripTags(customFields.project_firm)}
-      firmImage={customFields.project_bg}
+      firmImage={featuredMedia}
       firmTrade={stripTags(customFields.project_trade)}
     />
   </Card>

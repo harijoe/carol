@@ -14,6 +14,7 @@ class PostListContainer extends Component {
     loading: PropTypes.bool,
     request: PropTypes.func.isRequired,
     generateChild: PropTypes.func.isRequired,
+    carousel: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -25,9 +26,9 @@ class PostListContainer extends Component {
   }
 
   render() {
-    const { list, active, loading, generateChild } = this.props
+    const { list, active, loading, generateChild, carousel } = this.props
 
-    return <PostList {...{ list, active, loading, generateChild }} />
+    return <PostList {...{ list, active, loading, generateChild, carousel }} />
   }
 }
 
