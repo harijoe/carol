@@ -45,7 +45,10 @@ QuickReplies.propTypes = {
       title: PropTypes.string.isRequired,
     }),
   ),
-  response: PropTypes.string,
+  response: PropTypes.shape({
+    text: PropTypes.string,
+    payload: PropTypes.string,
+  }),
   reply: PropTypes.func,
 }
 

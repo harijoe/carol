@@ -155,6 +155,7 @@ const es = {
   'how_it_works.guide.second_part': ' et des guides dédiés. ES',
 
   'hero.welcome_message': 'Bonjour, Je suis Quota ! Laissez-moi vous guider dans l\'élaboration de votre projet de... ES',
+  'hero.conversation_in_progress': 'Vous avez déjà une converation en cours. ES',
 
   'thumbnailcard.link': 'Allons-y ➔ ES',
 

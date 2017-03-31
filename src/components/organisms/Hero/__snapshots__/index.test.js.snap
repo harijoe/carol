@@ -6,9 +6,9 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <InjectIntl(Hero) />,
+  "node": <Hero />,
   "nodes": Array [
-    <InjectIntl(Hero) />,
+    <Hero />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -79,6 +79,7 @@ ShallowWrapper {
                         "footer.corporate.use": "Terms & conditions of use",
                         "form.input.button.phone": "Phone",
                         "help": "Help",
+                        "hero.conversation_in_progress": "Vous avez déjà une converation en cours. EN",
                         "hero.welcome_message": "Bonjour, Je suis Quota ! Laissez-moi vous guider dans l\'élaboration de votre projet de... EN",
                         "home": "Home",
                         "how_it_works.describe_project": "En quelques questions, nous déterminons ensemble les informations nécessaires pour démarrer votre projet de rénovation, construction ou amélioration de votre habitat. EN",
@@ -201,7 +202,7 @@ ShallowWrapper {
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
         }>
-        <InjectIntl(Hero) />
+        <Hero />
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -212,7 +213,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <InjectIntl(Hero) />,
+          "children": <Hero />,
           "locale": "en",
           "messages": Object {
             "Invalid username and password combination": "Invalid username and password combination",
@@ -274,6 +275,7 @@ ShallowWrapper {
             "footer.corporate.use": "Terms & conditions of use",
             "form.input.button.phone": "Phone",
             "help": "Help",
+            "hero.conversation_in_progress": "Vous avez déjà une converation en cours. EN",
             "hero.welcome_message": "Bonjour, Je suis Quota ! Laissez-moi vous guider dans l\'élaboration de votre projet de... EN",
             "home": "Home",
             "how_it_works.describe_project": "En quelques questions, nous déterminons ensemble les informations nécessaires pour démarrer votre projet de rénovation, construction ou amélioration de votre habitat. EN",
@@ -423,9 +425,9 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <InjectIntl(Hero) />,
+        "_currentElement": <Hero />,
         "_debugID": 2,
-        "_renderedOutput": <InjectIntl(Hero) />,
+        "_renderedOutput": <Hero />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -500,6 +502,7 @@ ShallowWrapper {
             "footer.corporate.use": "Terms & conditions of use",
             "form.input.button.phone": "Phone",
             "help": "Help",
+            "hero.conversation_in_progress": "Vous avez déjà une converation en cours. EN",
             "hero.welcome_message": "Bonjour, Je suis Quota ! Laissez-moi vous guider dans l\'élaboration de votre projet de... EN",
             "home": "Home",
             "how_it_works.describe_project": "En quelques questions, nous déterminons ensemble les informations nécessaires pour démarrer votre projet de rénovation, construction ou amélioration de votre habitat. EN",
@@ -622,7 +625,7 @@ ShallowWrapper {
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }
     }>
-    <InjectIntl(Hero) />
+    <Hero />
 </IntlProvider>,
 }
 `;

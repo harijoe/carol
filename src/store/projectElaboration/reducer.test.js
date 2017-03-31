@@ -79,7 +79,9 @@ it('handles PROJECT_ELABORATION_REPLY_REQUEST', () => {
             },
           ],
         },
-        response: 'response'
+        response: {
+          text: 'response'
+        }
       },
     ],
   }

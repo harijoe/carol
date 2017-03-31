@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 import { theme } from 'utils/style'
 
-import { Card, ThumbnailPoster, Link, List, Icon } from 'components'
+import { Card, ThumbnailPoster, Link, List } from 'components'
 
 const Wrapper = styled(Link)`
   display: block;
@@ -32,19 +32,6 @@ const CardContent = styled.div`
   line-height: 1;
 `
 
-const StyledIcon = styled(Icon)`
-  position: absolute;
-  top: -1.1rem;
-  right: ${theme('spaces.s')};
-  display: block;
-  height: 2.2rem;
-  width: 2.2rem;
-  border-radius: 6rem;
-  border: 2px solid ${theme('colors.white')};
-  background-color: ${theme('colors.white')};
-  z-index: 1;
-`
-
 const StyledList = styled(List)`
   margin: 0;
   padding: 0;
@@ -60,12 +47,11 @@ const StyledParagraph = styled.p`
   color: ${theme('colors.primary')};
 `
 
-const ThumbnailCard = ({ link, image, title, items, icon }) => (
-  <Wrapper to={link}>
+const ThumbnailCard = ({ link, image, title, items, onClick }) => (
+  <Wrapper to={link} onClick={onClick}>
     <StyledCard>
       <ThumbnailPoster image={image} title={title} />
       <CardContent>
-        <StyledIcon icon={icon} />
         <StyledList>
           {items.map((item, i) => <li key={i}>{item}</li>)}
         </StyledList>
@@ -82,7 +68,7 @@ ThumbnailCard.propTypes = {
   image: PropTypes.string,
   title: PropTypes.string,
   items: PropTypes.array.isRequired,
-  icon: PropTypes.string,
+  onClick: PropTypes.func,
 }
 
 export default ThumbnailCard

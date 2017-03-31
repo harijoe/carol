@@ -1,10 +1,10 @@
-import React from 'react'
-import { injectIntl, intlShape, FormattedMessage } from 'react-intl'
+import React, { PropTypes } from 'react'
+import { FormattedMessage } from 'react-intl'
 import styled from 'styled-components'
 import { theme } from 'utils/style'
-import { cloudinaryUrl, contentSiteUrl } from 'config'
+import { cloudinaryUrl } from 'config'
 
-import { Section, Bubble, ThumbnailCard, Image, Paragraph, Grid, Col, Row } from 'components'
+import { Section, Bubble, ThumbnailCard, Image, Paragraph, Grid, Col, Row, Link } from 'components'
 
 const Header = styled.header`
   position: relative;
@@ -57,55 +57,54 @@ const WelcomeMessage = styled(Paragraph)`
   margin: 0;
 `
 
-const Hero = () => (
+
+const Hero = ({ hasConversation, firstChoices, reply }) => (
   <Header>
     <StyledSection>
-      <Bubble>
-        <StyledGrid>
-          <Row>
-            <Col xs={4} reverse>
-              <StyledImage link={`${cloudinaryUrl}bot.png`} />
-            </Col>
-            <Col xs={8}>
-              <WelcomeMessage>
-                <FormattedMessage id="hero.welcome_message" />
-              </WelcomeMessage>
-            </Col>
-          </Row>
-        </StyledGrid>
-        <ScrollWrapper>
-          <ThumbnailCard
-            link={`${contentSiteUrl}`}
-            image={`${cloudinaryUrl}thumbnail-poster-keyone.jpg`}
-            title="Fenêtres et ouvertures extérieures"
-            icon="windowkey-pin"
-            items={['item 1', 'item 2']}
-            key={1}
-          />
-          <ThumbnailCard
-            link={`${contentSiteUrl}`}
-            image={`${cloudinaryUrl}thumbnail-poster-keyone.jpg`}
-            title="Fenêtres et ouvertures extérieures"
-            icon="windowkey-pin"
-            items={['item 3', 'item 4']}
-            key={2}
-          />
-          <ThumbnailCard
-            link={`${contentSiteUrl}`}
-            image={`${cloudinaryUrl}thumbnail-poster-keyone.jpg`}
-            title="Fenêtres et ouvertures extérieures"
-            icon="windowkey-pin"
-            items={['item 5', 'item 6']}
-            key={3}
-          />
-        </ScrollWrapper>
-      </Bubble>
+      {
+        hasConversation ?
+          <Bubble>
+            <Link to="project-elaboration"><FormattedMessage id="hero.conversation_in_progress" /></Link>
+          </Bubble>
+          :
+          <Bubble>
+            <StyledGrid>
+              <Row>
+                <Col xs={4} reverse>
+                  <StyledImage link={`${cloudinaryUrl}bot.png`} />
+                </Col>
+                <Col xs={8}>
+                  <WelcomeMessage>
+                    <FormattedMessage id="hero.welcome_message" />
+                  </WelcomeMessage>
+                </Col>
+              </Row>
+            </StyledGrid>
+            <ScrollWrapper>
+              {
+                firstChoices.length > 0 && firstChoices.map(({ title, image_url, buttons, subtitle }, i) => (
+                  <ThumbnailCard
+                    key={i}
+                    link="project-elaboration"
+                    // eslint-disable-next-line camelcase
+                    image={`${image_url}`}
+                    title={title}
+                    items={subtitle.split(' | ')}
+                    onClick={() => reply(title, buttons[0].payload)}
+                  />
+                ))
+              }
+            </ScrollWrapper>
+          </Bubble>
+      }
     </StyledSection>
   </Header>
 )
 
 Hero.propTypes = {
-  intl: intlShape.isRequired,
+  hasConversation: PropTypes.bool,
+  firstChoices: PropTypes.array,
+  reply: PropTypes.func,
 }
 
-export default injectIntl(Hero)
+export default Hero

@@ -2,17 +2,17 @@ import React, { PropTypes } from 'react'
 import { FormattedMessage } from 'react-intl'
 
 import { Block, Heading } from 'components'
-import Conversation from './Conversation'
-import Form from './Form'
+import Conversation from './organisms/Conversation'
+import Form from './organisms/Form'
 
 const ProjectElaboration = ({ conversation, reply }) => {
-  const quickReplies = conversation[conversation.length - 1].message.quick_replies
+  const quickReplies = conversation.length > 0 ? conversation[conversation.length - 1].message.quick_replies : null
 
   return (
     <Block>
       <Heading><FormattedMessage id="project.elaboration.title" /></Heading>
       <Conversation conversation={conversation} reply={reply} />
-      <Form reply={reply} disabled={quickReplies.length !== 0} />
+      <Form reply={reply} disabled={quickReplies != null ? quickReplies.length !== 0 : true} />
     </Block>
   )
 }

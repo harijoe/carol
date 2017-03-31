@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-import { MainLayout, HowItWorks, Testimonials, TipsAndTricks, Reinsurance, LastProjects, Hero, MotionMenu } from 'components'
-import { GoogleMap, FirmSearchForm } from 'containers'
+import { MainLayout, HowItWorks, Testimonials, TipsAndTricks, Reinsurance, LastProjects, MotionMenu } from 'components'
+import { GoogleMap, FirmSearchForm, Hero } from 'containers'
 
 class HomePage extends Component {
   state = {
