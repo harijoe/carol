@@ -98,7 +98,7 @@ const FooterCorporate = () => (
       <hr />
       <Row>
         <Col>
-          <Link><StyledIcon icon="logo-white-withoutsignet" /></Link>
+          <Link to="/"><StyledIcon icon="logo-white-withoutsignet" /></Link>
         </Col>
         <Col>
           <StyledList>

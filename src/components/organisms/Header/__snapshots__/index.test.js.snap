@@ -12,7 +12,7 @@ ShallowWrapper {
     <Styled(Mock)
         icon="quotatis-white"
         size={480}
-        to="https://0.0.0.0:443" />
+        to="/" />
     <Mock
         theme={
             Object {
@@ -107,7 +107,7 @@ ShallowWrapper {
       <Styled(Mock)
             icon="quotatis-white"
             size={480}
-            to="https://0.0.0.0:443" />
+            to="/" />
       <Mock
             theme={
                   Object {
@@ -292,7 +292,7 @@ ShallowWrapper {
         <Styled(Mock)
                 icon="quotatis-white"
                 size={480}
-                to="https://0.0.0.0:443" />
+                to="/" />
         <Mock
                 theme={
                         Object {
@@ -394,7 +394,7 @@ ShallowWrapper {
             <Styled(Mock)
               icon="quotatis-white"
               size={480}
-              to="https://0.0.0.0:443" />,
+              to="/" />,
             <Mock
               theme={
                             Object {
@@ -677,7 +677,7 @@ ShallowWrapper {
           <Styled(Mock)
                     icon="quotatis-white"
                     size={480}
-                    to="https://0.0.0.0:443" />
+                    to="/" />
           <Mock
                     theme={
                               Object {
@@ -772,7 +772,7 @@ ShallowWrapper {
           <Styled(Mock)
                     icon="quotatis-white"
                     size={480}
-                    to="https://0.0.0.0:443" />
+                    to="/" />
           <Mock
                     theme={
                               Object {
@@ -961,7 +961,7 @@ ShallowWrapper {
     <Styled(Mock)
         icon="quotatis-white"
         size={480}
-        to="https://0.0.0.0:443" />
+        to="/" />
     <Mock
         theme={
             Object {

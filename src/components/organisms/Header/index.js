@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { theme } from 'utils/style'
-import { baseUrl } from 'config'
 
 import { IconLink } from 'components'
 import { PrimaryNavigation, FullscreenNavigation } from 'containers'
@@ -24,7 +23,7 @@ const Header = props => (
   <Wrapper {...props}>
     <FullscreenNavigation />
     <StyledIconLink
-      to={baseUrl}
+      to="/"
       icon="quotatis-white"
       size={480}
     />
