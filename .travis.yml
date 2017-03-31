@@ -27,6 +27,7 @@ after_success:
   - echo ${BRANCH}
   - curl https://sdk.cloud.google.com | bash
   - source /home/travis/.bashrc
+  - export PATH=$HOME/google-cloud-sdk/bin:$PATH
   - gcloud components update kubectl
   - gcloud auth activate-service-account "travis@quotatis-152617.iam.gserviceaccount.com" --key-file=quotatis-01d6e02592a9.json
   - gcloud container clusters get-credentials cluster-1 --zone europe-west1-b --project quotatis-152617
