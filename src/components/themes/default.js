@@ -45,9 +45,21 @@ theme.fonts = {
   },
 }
 
+theme.icons = {
+  size: {
+    xs: '1.2rem',
+    s: '1.6rem',
+    m: '2rem',
+    l: '2.4rem',
+    xl: '3.6rem',
+    xxl: '4.8rem',
+    xxxl: '5.6rem',
+  },
+}
+
 theme.spaces = {
-  xs: '.4rem',
-  s: '.8rem',
+  xs: '0.4rem',
+  s: '0.8rem',
   m: '1.6rem',
   l: '2.5rem',
   xl: '3.2rem',
@@ -61,16 +73,16 @@ theme.grid = {
   gutterWidth: {
     xs: 1.6,
     s: 1.6,
-    m: 1.6,
-    l: 1.6,
-    xl: 1.6,
+    m: 2.5,
+    l: 2.5,
+    xl: 5,
   },
   outerMargin: {
     xs: 1.6,
     s: 1.6,
-    m: 1.6,
-    l: 1.6,
-    xl: 1.6,
+    m: 2.5,
+    l: 2.5,
+    xl: 5,
   },
   breakpoints: {
     xs: 0,
@@ -84,7 +96,7 @@ theme.grid = {
     s: 1.6,
     m: 2.5,
     l: 2.5,
-    xl: 2.5,
+    xl: 5,
   },
 }
 

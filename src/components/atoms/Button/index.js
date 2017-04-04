@@ -1,6 +1,15 @@
 import React, { PropTypes } from 'react'
+import styled, { css } from 'styled-components'
 
-const Button = ({ type, ...props }) => <button {...props} type={type} />
+const styles = css`
+  display: block;
+  border: 0;
+  outline: 0;
+`
+
+const StyledButton = styled.button`${styles}`
+
+const Button = ({ type, ...props }) => <StyledButton {...props} type={type} />
 
 Button.propTypes = {
   disabled: PropTypes.bool,
