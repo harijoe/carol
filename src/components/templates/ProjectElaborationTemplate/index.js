@@ -24,7 +24,7 @@ const Header = styled.header`
   left: 0;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 3;
   background: ${theme('colors.white')};
   box-shadow: 0.1rem 0.1rem 0.3rem 0 rgba(0, 0, 0, .1);
 `

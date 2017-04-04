@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
-import { theme, mapBreakpoints, breakpoint } from 'utils/style'
+import { theme, mapBreakpoints } from 'utils/style'
 
 const Wrapper = styled.div`
   position: relative;
@@ -46,10 +46,6 @@ const BubbleAnswer = styled.p`
     background: ${theme('colors.grayscale.lightest')};
     border-top-left-radius: 6rem;
   }
-
-  ${breakpoint('l')`
-    padding: ${theme('spaces.m')};
-  `}
 `
 
 BubbleAnswer.displayName = 'BubbleAnswer'

@@ -53,45 +53,32 @@ const StyledList = styled(List)`
   display: flex;
   flex-wrap: nowrap;
   margin: 0;
+  padding-bottom: ${theme('spaces.m')};
   padding-top: ${theme('spaces.m')};
   overflow-y: hidden;
   overflow-x: visible;
   list-style: none;
 
+  &::-webkit-scrollbar-track {
+    border-radius: 6rem;
+    background-color: ${theme('colors.grayscale.lightest')};
+  }
+
+  &::-webkit-scrollbar {
+    height: ${theme('spaces.xs')};
+    width: ${theme('spaces.xs')};
+    background-color: ${theme('colors.grayscale.lightest')};
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 6rem;
+    background-color: ${theme('colors.grayscale.light')};
+  }
+
   ${mapBreakpoints(bp => css`
     padding-left: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
   `)}
 
-  ${breakpoint('l')`
-    position: absolute;
-    left: 0;
-    width: calc(100vw - 25%);
-
-    &::before {
-      position: absolute;
-      left: 0;
-      height: 100%;
-      width: ${theme('spaces.l')};
-      background: linear-gradient(to right, ${theme('colors.grayscale.lightest')}, rgba(249, 249, 249, 0));
-      content: '';
-    }
-
-    &::-webkit-scrollbar-track {
-      border-radius: 6rem;
-      background-color: ${theme('colors.grayscale.lightest')};
-    }
-
-    &::-webkit-scrollbar {
-      height: ${theme('spaces.xs')};
-      width: ${theme('spaces.xs')};
-      background-color: ${theme('colors.grayscale.lightest')};
-    }
-
-    &::-webkit-scrollbar-thumb {
-      border-radius: 6rem;
-      background-color: ${theme('colors.grayscale.light')};
-    }
-  `}
 `
 
 const Attachment = ({ attachment, reply, response }) => {
@@ -106,6 +93,7 @@ const Attachment = ({ attachment, reply, response }) => {
           <StyledListItem key={i}>
             <StyledButton onClick={() => { reply(title, buttons[0].payload) }}>
               <ThumbnailPoster
+                // eslint-disable-next-line camelcase
                 image={image_url}
                 title={title}
               />

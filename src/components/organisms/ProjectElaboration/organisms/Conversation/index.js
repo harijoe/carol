@@ -40,15 +40,23 @@ const Block = styled.div`
   position: relative;
 
   ${breakpoint('l')`
-    height: 25rem;
-
-    &::before {
+    &::before, &::after {
       position: absolute;
-      left: 0;
+      top: 0;
       height: 100%;
       width: ${theme('spaces.l')};
-      background: linear-gradient(to right, ${theme('colors.grayscale.lightest')}, rgba(249, 249, 249, 0));
+      z-index: 3;
       content: '';
+    }
+
+    &::before {
+      left: 0;
+      background: linear-gradient(to right, ${theme('colors.grayscale.lightest')}, rgba(249, 249, 249, 0));
+    }
+
+    &::after {
+      right: 0;
+      background: linear-gradient(to left, ${theme('colors.grayscale.lightest')}, rgba(249, 249, 249, 0));
     }
   `}
 `
