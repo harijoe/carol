@@ -11,7 +11,7 @@ export const projectSubmit = {
 }
 
 export const projectList = {
-  request: params => (actionTypes(PROJECT_LIST.REQUEST, { params })),
+  request: () => (actionTypes(PROJECT_LIST.REQUEST)),
   success: payload => (actionTypes(PROJECT_LIST.SUCCESS, { payload })),
   failure: error => (actionTypes(PROJECT_LIST.FAILURE, { error })),
 }

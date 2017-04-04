@@ -1,8 +1,9 @@
-import { call, fork, put, take, takeLatest } from 'redux-saga/effects'
+import { call, fork, put, take } from 'redux-saga/effects'
 import { stopSubmit } from 'redux-form'
 import cookie from 'react-cookie'
 
 import config from 'config'
+import { takeLatest } from 'utils/effects'
 import { resetUser } from 'store/actions'
 import { fetchWithoutRefreshingToken } from 'sagas/fetch'
 import { requestChannel, responseChannel } from 'sagas/refreshToken'

@@ -10,6 +10,7 @@ const Form = styled.form`
   width: 100%;
   box-sizing: border-box;
   padding: 1em;
+  margin-top: 100px;
 `
 
 const StyledButton = styled(Button)`

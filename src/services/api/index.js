@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch'
 import config from 'config'
+import { HTTPError } from 'utils/errors'
 
 const api = {}
 const headers = {}
@@ -37,7 +38,7 @@ api.checkStatus = (response) => {
 
   return response.json()
     .then((err) => {
-      throw err.violations || err.error_description || err.message
+      throw new HTTPError(err.violations || err.error_description || err.message)
     })
 }
 

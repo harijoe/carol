@@ -28,7 +28,8 @@
     "react/no-danger": 0,
     "import/no-dynamic-require": 0,
     "newline-after-var": "error",
-    "newline-before-return": "error"
+    "newline-before-return": "error",
+    "func-names": 0
   },
   "settings": {
     "import/resolver": {

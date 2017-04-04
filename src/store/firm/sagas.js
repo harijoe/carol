@@ -1,8 +1,9 @@
-import { select, put, takeLatest } from 'redux-saga/effects'
-import { fromContext } from 'store/selectors'
-import fetch from 'sagas/fetch'
+import { select, put } from 'redux-saga/effects'
 import { push } from 'react-router-redux'
 
+import { fromContext } from 'store/selectors'
+import fetch from 'sagas/fetch'
+import { takeLatest } from 'utils/effects'
 import { firmList, firmDetails, FIRM_LIST, FIRM_DETAILS } from './actions'
 
 export function* handleReadFirmListRequest({ params }) {
@@ -21,6 +22,8 @@ export function* handleReadFirmDetailsRequest({ id }) {
 }
 
 export default function* () {
-  yield takeLatest(FIRM_LIST.REQUEST, handleReadFirmListRequest)
-  yield takeLatest(FIRM_DETAILS.REQUEST, handleReadFirmDetailsRequest)
+  yield [
+    takeLatest(FIRM_LIST.REQUEST, handleReadFirmListRequest),
+    takeLatest(FIRM_DETAILS.REQUEST, handleReadFirmDetailsRequest),
+  ]
 }

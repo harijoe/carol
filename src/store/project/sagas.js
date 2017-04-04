@@ -1,6 +1,7 @@
-import { put, takeLatest } from 'redux-saga/effects'
+import { put } from 'redux-saga/effects'
 
 import fetch from 'sagas/fetch'
+import { takeLatest } from 'utils/effects'
 import {
   projectSubmit,
   projectList,
@@ -39,7 +40,9 @@ export function* handleReadProjectDetailsRequest({ id }) {
 }
 
 export default function* () {
-  yield takeLatest(PROJECT_SUBMIT.REQUEST, handleSubmitProjectRequest)
-  yield takeLatest(PROJECT_LIST.REQUEST, handleReadProjectListRequest)
-  yield takeLatest(PROJECT_DETAILS.REQUEST, handleReadProjectDetailsRequest)
+  yield [
+    takeLatest(PROJECT_SUBMIT.REQUEST, handleSubmitProjectRequest),
+    takeLatest(PROJECT_LIST.REQUEST, handleReadProjectListRequest),
+    takeLatest(PROJECT_DETAILS.REQUEST, handleReadProjectDetailsRequest),
+  ]
 }

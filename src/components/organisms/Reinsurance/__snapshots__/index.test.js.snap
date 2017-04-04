@@ -12,7 +12,6 @@ ShallowWrapper {
             <Mock
                 xs={12}>
                 <Mock
-                    active="quotatis-reinsurance"
                     carousel={true}
                     generateChild={[Function]}
                     limit={3}
@@ -33,7 +32,6 @@ ShallowWrapper {
                   <Mock
                         xs={12}>
                         <Mock
-                              active="quotatis-reinsurance"
                               carousel={true}
                               generateChild={[Function]}
                               limit={3}
@@ -88,7 +86,6 @@ ShallowWrapper {
                               <Mock
                                         xs={12}>
                                         <Mock
-                                                  active="quotatis-reinsurance"
                                                   carousel={true}
                                                   generateChild={[Function]}
                                                   limit={3}
@@ -109,7 +106,6 @@ ShallowWrapper {
                               <Mock
                                         xs={12}>
                                         <Mock
-                                                  active="quotatis-reinsurance"
                                                   carousel={true}
                                                   generateChild={[Function]}
                                                   limit={3}

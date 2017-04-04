@@ -1,6 +1,6 @@
-import { put, select, takeEvery, takeLatest } from 'redux-saga/effects'
-
+import { put, select, takeLatest } from 'redux-saga/effects'
 import { fromProjectElaboration } from 'store/selectors'
+
 import fetch from 'sagas/fetch'
 import {
   PROJECT_ELABORATION_REPLY,
@@ -58,7 +58,7 @@ function* requestHero() {
 
 export default function* () {
   yield [
-    takeEvery(PROJECT_ELABORATION_REPLY.REQUEST, replyProjectElaboration),
+    takeLatest(PROJECT_ELABORATION_REPLY.REQUEST, replyProjectElaboration),
     takeLatest(PROJECT_ELABORATION_HERO_DETAILS.REQUEST, requestHero),
     takeLatest(PROJECT_ELABORATION_HERO_SET_RESPONSE, replyHero),
   ]

@@ -59,7 +59,7 @@ Project.propTypes = {
     createdAt: PropTypes.string,
     updatedAt: PropTypes.string,
     status: PropTypes.string,
-    answers: PropTypes.object,
+    answers: PropTypes.array,
     firms: PropTypes.array,
   }).isRequired,
   full: PropTypes.bool,

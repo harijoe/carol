@@ -29,6 +29,7 @@ const LastProjects = ({ active, intl: { formatMessage } }) => (
             tags={['api-last-project']}
             limit={3}
             active={active}
+            carousel
             generateChild={generateChild}
           />
         </Col>

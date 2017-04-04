@@ -22,7 +22,6 @@ const Reinsurance = () => (
             scope="reinsuranceArticles"
             tags={['api-quotatis-reinsurance']}
             limit={3}
-            active="quotatis-reinsurance"
             generateChild={generateChild}
             carousel
           />

@@ -26,7 +26,7 @@ const PostList = ({ list, active = 'all', loading, generateChild, carousel }) =>
     .filter((items, i) => setDisplay(active, i, items.tags))
     .map((items, i) => generateChild(i, items))
 
-  children = carousel ? <Carousel>{children}</Carousel> : children
+  children = carousel === true && children.length !== 0 ? <Carousel>{children}</Carousel> : children
 
   return (
     <Wrapper>
