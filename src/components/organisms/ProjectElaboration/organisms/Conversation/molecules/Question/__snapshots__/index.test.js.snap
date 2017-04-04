@@ -14,7 +14,7 @@ ShallowWrapper {
                 "default": "file",
               }
         }
-        width="40" />
+        width="32" />
     <BubbleQuestion>
         my question
     </BubbleQuestion>
@@ -28,7 +28,7 @@ ShallowWrapper {
                         "default": "file",
                       }
             }
-            width="40" />
+            width="32" />
       <BubbleQuestion>
             my question
       </BubbleQuestion>
@@ -79,7 +79,7 @@ ShallowWrapper {
                                         "default": "file",
                                       }
                     }
-                    width="40" />
+                    width="32" />
           <BubbleQuestion>
                     my question
           </BubbleQuestion>
@@ -93,7 +93,7 @@ ShallowWrapper {
                                         "default": "file",
                                       }
                     }
-                    width="40" />
+                    width="32" />
           <BubbleQuestion>
                     my question
           </BubbleQuestion>

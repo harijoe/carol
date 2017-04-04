@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import styled from 'styled-components'
+import { theme, breakpoint } from 'utils/style'
 
 import Response from './atoms/Response'
 import QuickReplies from './molecules/QuickReplies'
@@ -7,9 +8,49 @@ import Question from './molecules/Question'
 import Attachment from './molecules/Attachment'
 
 const Wrapper = styled.div`
-  max-height: 400px;
-  overflow: scroll;
   bottom: 0;
+  display:flex;
+  flex-direction: column;
+  max-height: 67vh;
+  width: 100%;
+  overflow-y: auto;
+
+  ${breakpoint('m')`
+    min-height: 29rem;
+    max-height: 80rem;
+  `}
+
+  &::-webkit-scrollbar-track {
+    border-radius: 6rem;
+    background-color: ${theme('colors.grayscale.lightest')};
+  }
+  &::-webkit-scrollbar {
+    height: ${theme('spaces.xs')};
+    width: ${theme('spaces.xs')};
+    background-color: ${theme('colors.grayscale.lightest')};
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 6rem;
+    background-color: ${theme('colors.grayscale.light')};
+  }
+`
+
+const Block = styled.div`
+  position: relative;
+
+  ${breakpoint('l')`
+    height: 25rem;
+
+    &::before {
+      position: absolute;
+      left: 0;
+      height: 100%;
+      width: ${theme('spaces.l')};
+      background: linear-gradient(to right, ${theme('colors.grayscale.lightest')}, rgba(249, 249, 249, 0));
+      content: '';
+    }
+  `}
 `
 
 class Conversation extends Component {
@@ -55,7 +96,7 @@ class Conversation extends Component {
               <Question question={text || null} />
               {
                 isLastQuestion(index) ?
-                  <div>
+                  <Block>
                     <Attachment
                       attachment={attachment || null}
                       reply={reply}
@@ -67,7 +108,7 @@ class Conversation extends Component {
                       reply={reply}
                       response={response}
                     />
-                  </div>
+                  </Block>
                   : null
               }
               <Response response={response != null ? response.text : null} />

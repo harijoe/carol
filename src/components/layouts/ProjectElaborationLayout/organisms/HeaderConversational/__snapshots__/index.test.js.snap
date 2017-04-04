@@ -1,4 +1,4 @@
-exports[`test renders the Card component 1`] = `
+exports[`test renders the HeaderConversational component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -6,8 +6,7 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <styled.div
-    strongShadow={undefined}
+  "node": <Styled(Mock)
     theme={
         Object {
             "colors": Object {
@@ -103,10 +102,25 @@ ShallowWrapper {
               "xxxl": "10rem",
             },
           }
-    } />,
+    }>
+    <Styled(Mock)
+        to="/">
+        <Styled(Mock)
+            icon="quotatis" />
+    </Styled(Mock)>
+    <Styled(Mock)
+        level={3}>
+        <FormattedMessage
+            id="project.elaboration.title"
+            values={Object {}} />
+    </Styled(Mock)>
+    <styled.div>
+        <Styled(Mock)
+            icon="close" />
+    </styled.div>
+</Styled(Mock)>,
   "nodes": Array [
-    <styled.div
-      strongShadow={undefined}
+    <Styled(Mock)
       theme={
             Object {
                   "colors": Object {
@@ -202,7 +216,23 @@ ShallowWrapper {
                     "xxxl": "10rem",
                   },
                 }
-      } />,
+      }>
+      <Styled(Mock)
+            to="/">
+            <Styled(Mock)
+                  icon="quotatis" />
+      </Styled(Mock)>
+      <Styled(Mock)
+            level={3}>
+            <FormattedMessage
+                  id="project.elaboration.title"
+                  values={Object {}} />
+      </Styled(Mock)>
+      <styled.div>
+            <Styled(Mock)
+                  icon="close" />
+      </styled.div>
+</Styled(Mock)>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -210,7 +240,7 @@ ShallowWrapper {
       "_calledComponentWillUnmount": false,
       "_compositeType": 2,
       "_context": Object {},
-      "_currentElement": <Card
+      "_currentElement": <HeaderConversational
         theme={
                 Object {
                         "colors": Object {
@@ -429,8 +459,7 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <styled.div
-          strongShadow={undefined}
+        "_currentElement": <Styled(Mock)
           theme={
                     Object {
                               "colors": Object {
@@ -526,10 +555,25 @@ ShallowWrapper {
                                 "xxxl": "10rem",
                               },
                             }
-          } />,
+          }>
+          <Styled(Mock)
+                    to="/">
+                    <Styled(Mock)
+                              icon="quotatis" />
+          </Styled(Mock)>
+          <Styled(Mock)
+                    level={3}>
+                    <FormattedMessage
+                              id="project.elaboration.title"
+                              values={Object {}} />
+          </Styled(Mock)>
+          <styled.div>
+                    <Styled(Mock)
+                              icon="close" />
+          </styled.div>
+</Styled(Mock)>,
         "_debugID": 2,
-        "_renderedOutput": <styled.div
-          strongShadow={undefined}
+        "_renderedOutput": <Styled(Mock)
           theme={
                     Object {
                               "colors": Object {
@@ -625,7 +669,23 @@ ShallowWrapper {
                                 "xxxl": "10rem",
                               },
                             }
-          } />,
+          }>
+          <Styled(Mock)
+                    to="/">
+                    <Styled(Mock)
+                              icon="quotatis" />
+          </Styled(Mock)>
+          <Styled(Mock)
+                    level={3}>
+                    <FormattedMessage
+                              id="project.elaboration.title"
+                              values={Object {}} />
+          </Styled(Mock)>
+          <styled.div>
+                    <Styled(Mock)
+                              icon="close" />
+          </styled.div>
+</Styled(Mock)>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -637,7 +697,7 @@ ShallowWrapper {
     "render": [Function],
   },
   "root": [Circular],
-  "unrendered": <Card
+  "unrendered": <HeaderConversational
     theme={
         Object {
             "colors": Object {
