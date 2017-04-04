@@ -96,6 +96,7 @@ const scaffolding = theme => css`
   }
 
   body {
+    overflow-x: hidden;
     font-family: 'montserrat-light', sans-serif;
     font-size: ${theme.fonts.size.base};
     line-height: 2.1rem;
@@ -106,7 +107,7 @@ const scaffolding = theme => css`
       border-radius: 6rem;
       background-color: ${theme.colors.grayscale.lightest};
     }
-    
+
     &::-webkit-scrollbar {
       height: ${theme.spaces.xs};
       width: ${theme.spaces.xs};
@@ -136,11 +137,10 @@ const scaffolding = theme => css`
   @keyframes bounceIn {
     from, 20%, 40%, 60%, 80%, to {
       animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-    }
 
     0% {
       opacity: 0;
-      transform: scale3d(.3, .3, .3);
+      transform: scale3d(0.3, 0.3, 0.3);
     }
 
     20% {
@@ -148,7 +148,7 @@ const scaffolding = theme => css`
     }
 
     40% {
-      transform: scale3d(.9, .9, .9);
+      transform: scale3d(0.9, 0.9, 0.9);
     }
 
     60% {
@@ -157,7 +157,7 @@ const scaffolding = theme => css`
     }
 
     80% {
-      transform: scale3d(.97, .97, .97);
+      transform: scale3d(0.97, 0.97, 0.97);
     }
 
     to {
