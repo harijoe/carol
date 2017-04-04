@@ -42,7 +42,7 @@ const Title = styled.h2`${titleStyles}`
 const sectionStyles = ({ light, primary, dark }) => css`
   background: ${theme('colors.white')};
   ${mapBreakpoints(bp => css`
-      padding: calc(${theme(`grid.padding.${bp}`, 'rem')} * 2) ${theme(`grid.padding.${bp}`, 'rem')}
+    padding: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} * 2) ${theme(`grid.gutterWidth.${bp}`, 'rem')}
   `)}
   ${ifThen(light, css`background: ${theme('colors.grayscale.lightest')};`)}
   ${ifThen(primary, css`background: ${theme('colors.primary')};`)}   
@@ -54,7 +54,7 @@ const StyledSection = styled.section`${sectionStyles}`
 
 const Section = ({ light, primary, dark, children, title, ...props }) => (
   <StyledSection light={light} primary={primary} dark={dark} {...props}>
-    {title != null && <Title light={light} primary={primary} dark={dark} {...props}>{title}</Title>}
+    {title != null && <Title light={light} primary={primary} dark={dark}>{title}</Title>}
     {children}
   </StyledSection>
 )

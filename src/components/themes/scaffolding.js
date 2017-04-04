@@ -96,11 +96,28 @@ const scaffolding = theme => css`
   }
 
   body {
+    overflow-x: hidden;
     font-family: 'montserrat-light', sans-serif;
     font-size: ${theme.fonts.size.base};
     line-height: 2.1rem;
     color: ${theme.colors.grayscale.darker};
     white-space: normal;
+
+    &::-webkit-scrollbar-track {
+      border-radius: 6rem;
+      background-color: ${theme.colors.grayscale.lightest};
+    }
+
+    &::-webkit-scrollbar {
+      height: ${theme.spaces.xs};
+      width: ${theme.spaces.xs};
+      background-color: ${theme.colors.grayscale.lightest};
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 6rem;
+      background-color: ${theme.colors.grayscale.light};
+    }
   }
 
   abbr[title],
@@ -114,6 +131,45 @@ const scaffolding = theme => css`
 
   [tabindex="-1"]:focus {
     outline: none !important;
+  }
+
+  /* Animations */
+  @keyframes bounceIn {
+    from,
+    20%,
+    40%,
+    60%,
+    80%,
+    to {
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    0% {
+      opacity: 0;
+      transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    20% {
+      transform: scale3d(1, 1, 1);
+    }
+
+    40% {
+      transform: scale3d(0.9, 0.9, 0.9);
+    }
+
+    60% {
+      opacity: 1;
+      transform: scale3d(1.03, 1.03, 1.03);
+    }
+
+    80% {
+      transform: scale3d(0.97, 0.97, 0.97);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale3d(1, 1, 1);
+    }
   }
 `
 

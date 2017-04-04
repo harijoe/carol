@@ -4,14 +4,13 @@ import styled, { css } from 'styled-components'
 import { theme, breakpoint, ifThen, mapBreakpoints } from 'utils/style'
 
 const styles = ({ reverse, start, center, end, top, middle, bottom, around, between, first, last }) => css`
-  box-sizing: border-box;
   display: flex;
   flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
   ${mapBreakpoints(bp => css`
-    padding-right: calc(${theme(`grid.padding.${bp}`, 'rem')} / 2 * -1);
-    padding-left: calc(${theme(`grid.padding.${bp}`, 'rem')} / 2 * -1);
+    margin-right: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} / 2 * -1);
+    margin-left: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} / 2 * -1);
   `)}
   ${ifThen(reverse, 'flex-direction: row-reverse;')}
   ${ifThen(start, breakpoint(start)`

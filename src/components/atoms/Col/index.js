@@ -6,8 +6,8 @@ const styles = props => css`
   box-sizing: border-box;
   flex: 0 0 auto;
   ${mapBreakpoints(bp => css`
-    padding-right: calc(${theme(`grid.padding.${bp}`, 'rem')} / 2);
-    padding-left: calc(${theme(`grid.padding.${bp}`, 'rem')} / 2);
+    padding-right: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} / 2);
+    padding-left: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} / 2);
   `)}
   ${ifThen(props.reverse, css`flex-direction: column-reverse;`)}
   ${(p) => {
