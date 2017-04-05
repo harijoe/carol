@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { FormattedMessage } from 'react-intl'
 import styled from 'styled-components'
-import { theme } from 'utils/style'
+import { theme, breakpoint } from 'utils/style'
 import { cloudinaryUrl } from 'config'
 
 import { Section, Bubble, ThumbnailCard, Image, Paragraph, Grid, Col, Row, Link } from 'components'
@@ -11,6 +11,7 @@ const Header = styled.header`
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
+  justify-content: center;
   height: 97vh;
   width: 100%;
   background: url(${cloudinaryUrl}hero-fullscreen_image.jpg) center center no-repeat;
@@ -30,6 +31,10 @@ const Header = styled.header`
 
 const StyledSection = styled(Section)`
   width: 100%;
+  max-width: 1200px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
 `
 
 const StyledGrid = styled(Grid)`
@@ -39,7 +44,11 @@ const StyledGrid = styled(Grid)`
 const StyledImage = styled(Image)`
   height: 7rem;
   width: 7rem;
-  margin-top: -3.5rem;
+  margin-top: -5rem;
+
+  ${breakpoint('m')`
+    margin-left: ${theme('spaces.xl')};
+  `}
 `
 
 const ScrollWrapper = styled.div`
@@ -49,12 +58,23 @@ const ScrollWrapper = styled.div`
   margin: 0 -3.2rem;
   padding-bottom: 0.5rem;
   padding-left: 2rem;
-  overflow-y: hidden;
+  overflow-y: visible;
   overflow-x: visible;
+
+  ${breakpoint('m')`
+    top: 5rem;
+    padding-left: ${theme('spaces.xxl')};
+  `}
 `
 
 const WelcomeMessage = styled(Paragraph)`
   margin: 0;
+
+  ${breakpoint('m')`
+    margin-left: calc(${theme('spaces.xxl')}*3);
+    font-size: ${theme('fonts.size.m')};
+    margin-bottom: 0;
+  `}
 `
 
 
@@ -73,7 +93,7 @@ const Hero = ({ hasConversation, firstChoices, reply }) => (
                 <Col xs={4} reverse>
                   <StyledImage link={`${cloudinaryUrl}bot.png`} />
                 </Col>
-                <Col xs={8}>
+                <Col xs={8} m={12}>
                   <WelcomeMessage>
                     <FormattedMessage id="hero.welcome_message" />
                   </WelcomeMessage>

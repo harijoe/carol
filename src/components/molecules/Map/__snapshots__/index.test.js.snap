@@ -28,7 +28,7 @@ ShallowWrapper {
     options={[Function]}
     style={
         Object {
-            "height": "300px",
+            "height": "100%",
             "position": "relative",
             "width": "100%",
           }
@@ -61,7 +61,7 @@ ShallowWrapper {
       options={[Function]}
       style={
             Object {
-                  "height": "300px",
+                  "height": "100%",
                   "position": "relative",
                   "width": "100%",
                 }
@@ -181,7 +181,7 @@ ShallowWrapper {
           options={[Function]}
           style={
                     Object {
-                              "height": "300px",
+                              "height": "100%",
                               "position": "relative",
                               "width": "100%",
                             }
@@ -214,7 +214,7 @@ ShallowWrapper {
           options={[Function]}
           style={
                     Object {
-                              "height": "300px",
+                              "height": "100%",
                               "position": "relative",
                               "width": "100%",
                             }

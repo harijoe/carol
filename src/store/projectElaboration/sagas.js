@@ -1,6 +1,7 @@
-import { put, select, takeLatest } from 'redux-saga/effects'
+import { put, select } from 'redux-saga/effects'
 import { fromProjectElaboration } from 'store/selectors'
 
+import { takeLatest } from 'utils/effects'
 import fetch from 'sagas/fetch'
 import {
   PROJECT_ELABORATION_REPLY,

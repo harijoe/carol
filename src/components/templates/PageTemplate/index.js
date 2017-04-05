@@ -17,6 +17,8 @@ addLocaleData([...es, ...en, ...fr])
 
 const Wrapper = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   min-height: 100vh;
 `
@@ -25,13 +27,13 @@ const Header = styled.header`
   position: absolute;
   top: 0;
   width: 100%;
+  max-width: 1200px;
   z-index: 999;
 `
 
 const Content = styled.section`
   width: 100%;
   margin: 0;
-  max-width: 920px;
 `
 
 const Footer = styled.footer`

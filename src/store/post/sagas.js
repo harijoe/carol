@@ -1,4 +1,4 @@
-import { takeEvery } from 'redux-saga/effects'
+import { takeEvery } from 'utils/effects'
 
 import fetch from 'sagas/fetch'
 import { postList, POST_LIST } from './actions'

@@ -14,11 +14,6 @@ const root = path.join(__dirname, '../../..')
 export default (routes) => {
   const app = express()
 
-  app.set('forceSSLOptions', {
-    enable301Redirects: true,
-    trustXFPHeader: true,
-  })
-  app.use(forceSSL)
   app.use(compression())
   app.use(morgan('dev'))
   app.use(cookieParser())
@@ -47,13 +42,21 @@ export default (routes) => {
 
     app.use(require('webpack-dev-middleware')(compiler, serverOptions))
     app.use(require('webpack-hot-middleware')(compiler))
+
+    app.set('forceSSLOptions', {
+      enable301Redirects: true,
+      trustXFPHeader: true,
+    })
+    app.use(forceSSL)
+
+    const server = https.createServer({
+      key: fs.readFileSync(path.join(root, ssl.privateKey)),
+      cert: fs.readFileSync(path.join(root, ssl.certificate)),
+      ca: fs.readFileSync(path.join(root, ssl.intermediate)),
+    }, app)
+
+    return server
   }
 
-  const server = https.createServer({
-    key: fs.readFileSync(path.join(root, ssl.privateKey)),
-    cert: fs.readFileSync(path.join(root, ssl.certificate)),
-    ca: fs.readFileSync(path.join(root, ssl.intermediate)),
-  }, app)
-
-  return server
+  return app
 }

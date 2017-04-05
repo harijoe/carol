@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
-import { theme } from 'utils/style'
+import { theme, breakpoint } from 'utils/style'
 
 import { Card, ThumbnailPoster, Link, List } from 'components'
 
@@ -16,13 +16,22 @@ const Wrapper = styled(Link)`
       text-decoration: none;
     }
   }
+
+  ${breakpoint('m')`
+    width: 20rem;
+    margin: 0 ${theme('spaces.s')};
+  `}
 `
 
 const StyledCard = styled(Card)`
   &:hover {
-    box-shadow: 0 0 10px 0 rgba(19, 19, 19, 0.2);
-    transform: translateY(-${theme('spaces.xs')});
+    box-shadow: 0 0 40px 0 rgba(19, 19, 19, 0.2);
+    transform: translateY(-${theme('spaces.s')});
   }
+
+  ${breakpoint('m')`
+    height: 35rem;
+  `}
 `
 
 const CardContent = styled.div`
@@ -39,6 +48,9 @@ const StyledList = styled(List)`
 
   li {
     padding-top: ${theme('spaces.s')};
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 `
 

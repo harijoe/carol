@@ -17,6 +17,7 @@ const titleStyles = ({ dark }) => css`
   `)}
 
   font-family: 'montserrat-light', sans-serif;
+  font-weight: normal;
   position: relative;
   display: block;
   width: 100%;

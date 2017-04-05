@@ -1,22 +1,45 @@
 import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
-import { theme } from 'utils/style'
+import { theme, breakpoint } from 'utils/style'
 
 import { Heading, Image } from 'components'
 
+const Wrapper = styled.div`
+  ${breakpoint('m')`
+    min-width: 30rem;
+  `}
+`
+
+const CardHeader = styled.header`
+  height: 14.5rem;
+  display: block;
+  overflow: hidden;
+
+  ${breakpoint('m')`
+    height: 20rem;
+  `}
+`
+
 const ContentWrapper = styled.div`
   padding: ${theme('spaces.m')};
+
+  ${breakpoint('m')`
+    padding: ${theme('spaces.m')} ${theme('spaces.l')} ${theme('spaces.l')} ${theme('spaces.l')};
+  `}
 `
-const HeaderWrapper = styled.div`
+const FirmHeader = styled.div`
   min-height: 4.8rem;
   margin-bottom: ${theme('spaces.m')};
   padding-left: 8rem;
   position: relative;
+
+  ${breakpoint('m')`
+    padding-left: 9.1rem;
+  `}
 `
 const StyledImage = styled(Image)`
-  height: 14.5rem;
-  max-width: 100%;
-  display: block;
+  width: 100%;
+  height: auto;
 `
 const styles = css`
   position: absolute;
@@ -26,12 +49,19 @@ const styles = css`
   width: 6.4rem;
   display: block;
   overflow: hidden;
+  background-color: ${theme('colors.white')};
   border-radius: 6rem;
   border: 3px solid ${theme('colors.white')};
 
   > img {
     max-width: 100%;
   }
+
+  ${breakpoint('m')`
+    top: -3.75rem;
+    height: 7.5rem;
+    width: 7.5rem;
+  `}  
 `
 const StyledFigure = styled.figure`${styles}`
 
@@ -43,6 +73,10 @@ const StyledName = styled(Heading)`
 `
 const StyledHeading = styled(Heading)`
   margin-bottom: ${theme('spaces.s')};
+
+  ${breakpoint('m')`
+    font-size: ${theme('fonts.size.xl')};
+  `}
 `
 const StyledJob = styled.strong`
   font-family: ${theme('fonts.family.montserratBold')};
@@ -57,20 +91,22 @@ const StyledPlace = styled.address`
 `
 
 const LastProjectCardContent = ({ image, firmImage, firmName, firmTrade, title, place }) => (
-  <div>
-    <StyledImage link={image} />
+  <Wrapper>
+    <CardHeader>
+      <StyledImage link={image} />
+    </CardHeader>
     <ContentWrapper>
-      <HeaderWrapper>
+      <FirmHeader>
         <StyledFigure>
           <Image link={firmImage} />
         </StyledFigure>
         <StyledName level={5}>{firmName}</StyledName>
         <StyledJob>{firmTrade}</StyledJob>
-      </HeaderWrapper>
+      </FirmHeader>
       <StyledHeading level={3}>{title}</StyledHeading>
       <StyledPlace>{place}</StyledPlace>
     </ContentWrapper>
-  </div>
+  </Wrapper>
 )
 
 LastProjectCardContent.propTypes = {
