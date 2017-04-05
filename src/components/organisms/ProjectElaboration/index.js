@@ -20,12 +20,10 @@ const ProjectElaboration = ({ conversation, reply }) => {
   const quickReplies = conversation.length > 0 ? conversation[conversation.length - 1].message.quick_replies : null
 
   return (
-    <Container>
-      <StyledGrid narrow>
-        <Conversation conversation={conversation} reply={reply} />
-        <Form reply={reply} disabled={quickReplies != null ? quickReplies.length !== 0 : true} />
-      </StyledGrid>
-    </Container>
+    <StyledGrid narrow>
+      <Conversation conversation={conversation} reply={reply} />
+      <Form reply={reply} disabled={quickReplies != null ? quickReplies.length !== 0 : true} />
+    </StyledGrid>
   )
 }
 
