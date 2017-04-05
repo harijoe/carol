@@ -24,6 +24,7 @@ const Wrapper = styled.div`
     border-radius: 6rem;
     background-color: ${theme('colors.grayscale.lightest')};
   }
+  
   &::-webkit-scrollbar {
     height: ${theme('spaces.xs')};
     width: ${theme('spaces.xs')};

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
 import { ProjectElaborationTemplate, HeaderConversational } from 'components'
 
@@ -9,7 +9,7 @@ const ProjectElaborationLayout = ({ children, ...props }) => (
 )
 
 ProjectElaborationLayout.propTypes = {
-  children: React.PropTypes.any,
+  children: PropTypes.any,
 }
 
 export default ProjectElaborationLayout

@@ -15,7 +15,6 @@ const StyledGrid = styled(Grid)`
   padding-top: 5.6rem;
 `
 
-
 const ProjectElaboration = ({ conversation, reply }) => {
   const quickReplies = conversation.length > 0 ? conversation[conversation.length - 1].message.quick_replies : null
 

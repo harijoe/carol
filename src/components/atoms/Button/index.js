@@ -1,14 +1,12 @@
 import React, { PropTypes } from 'react'
 
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
-const styles = css`
+const StyledButton = styled.button`
   display: block;
   border: 0;
   outline: 0;
 `
-
-const StyledButton = styled.button`${styles}`
 
 const Button = ({ type, ...props }) => <StyledButton {...props} type={type} />
 

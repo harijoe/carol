@@ -7,15 +7,15 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <styled.div>
-    <BubbleAnswer>
+    <BubbleResponse>
         response
-    </BubbleAnswer>
+    </BubbleResponse>
 </styled.div>,
   "nodes": Array [
     <styled.div>
-      <BubbleAnswer>
+      <BubbleResponse>
             response
-      </BubbleAnswer>
+      </BubbleResponse>
 </styled.div>,
   ],
   "options": Object {},
@@ -56,15 +56,15 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <styled.div>
-          <BubbleAnswer>
+          <BubbleResponse>
                     response
-          </BubbleAnswer>
+          </BubbleResponse>
 </styled.div>,
         "_debugID": 2,
         "_renderedOutput": <styled.div>
-          <BubbleAnswer>
+          <BubbleResponse>
                     response
-          </BubbleAnswer>
+          </BubbleResponse>
 </styled.div>,
       },
       "_renderedNodeType": 1,

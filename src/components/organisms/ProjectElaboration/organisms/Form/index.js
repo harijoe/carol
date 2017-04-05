@@ -31,8 +31,6 @@ const BottomBar = styled.div`
   background-color: ${theme('colors.white')};
   border-top: 0.1rem solid ${theme('colors.grayscale.light')};
 
-  
-
   input {
     background: transparent;
     border-radius: 0.2rem;

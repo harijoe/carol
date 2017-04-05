@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   `)}
 `
 
-const BubbleAnswer = styled.p`
+const BubbleResponse = styled.p`
   position: relative;
   margin: 0;
   padding: ${theme('spaces.s')} ${theme('spaces.m')};
@@ -48,7 +48,7 @@ const BubbleAnswer = styled.p`
   }
 `
 
-BubbleAnswer.displayName = 'BubbleAnswer'
+BubbleResponse.displayName = 'BubbleResponse'
 
 const Response = ({ response }) => {
   if (response == null) {
@@ -57,7 +57,7 @@ const Response = ({ response }) => {
 
   return (
     <Wrapper>
-      <BubbleAnswer>{response}</BubbleAnswer>
+      <BubbleResponse>{response}</BubbleResponse>
     </Wrapper>
   )
 }

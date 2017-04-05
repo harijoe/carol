@@ -6,6 +6,7 @@ Object.defineProperty(window.location, 'hostname', {
 import React from 'react'
 import { Provider } from 'react-redux'
 import { shallow } from 'enzyme'
+
 import ProjectElaborationTemplate from './'
 import mockStore from '../../../../test/storeMock'
 import muiMock from '../../../../test/muiMock'
