@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { MainLayout } from 'components'
+import { ProjectElaborationLayout } from 'components'
 import { ProjectElaboration } from 'containers'
 
 const ProjectElaborationPage = props => (
-  <MainLayout {...props}>
+  <ProjectElaborationLayout {...props}>
     <ProjectElaboration />
-  </MainLayout>
+  </ProjectElaborationLayout>
 )
 
 export default ProjectElaborationPage

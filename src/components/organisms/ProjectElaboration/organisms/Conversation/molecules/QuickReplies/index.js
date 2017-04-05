@@ -1,19 +1,36 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
+import { theme } from 'utils/style'
 
 import { Button, List } from 'components'
 
 const StyledList = styled(List)`
-  float: right;
-  text-align: right;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin: 0;
+  padding: ${theme('spaces.m')};
+  padding-bottom: 0;
+  list-style: none;
 `
 
 StyledList.displayName = 'List'
 
 const Item = styled.li`
-  float: left;
-  list-style: none;
-  margin: 0 5px;
+  margin: ${theme('spaces.xs')};
+`
+
+const StyledButton = styled(Button)`
+  min-width: 7rem;
+  max-width: 100%;
+  padding: ${theme('spaces.s')} ${theme('spaces.m')};
+  font-size: ${theme('fonts.size.s')};
+  line-height: 1;
+  background: transparent;
+  border: 0.1rem solid ${theme('colors.primary')};
+  border-radius: 6rem;
+  color: ${theme('colors.primary')};
+  text-align: left;
 `
 
 const QuickReplies = ({ quick_replies, response, reply }) => {
@@ -27,7 +44,7 @@ const QuickReplies = ({ quick_replies, response, reply }) => {
   const quickRepliesList = () => (
     quick_replies.map(({ title, payload }, i) => (
       <Item key={i}>
-        <Button onClick={() => reply(title, payload)}>{title}</Button>
+        <StyledButton onClick={() => reply(title, payload)}>{title}</StyledButton>
       </Item>
     ))
   )

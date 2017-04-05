@@ -11,7 +11,7 @@ ShallowWrapper {
     <div>
         <Question
             question="message" />
-        <div>
+        <styled.div>
             <Attachment
                 attachment={null}
                 reply={undefined}
@@ -30,7 +30,7 @@ ShallowWrapper {
                         "text": "response",
                       }
                 } />
-        </div>
+        </styled.div>
         <Response
             response="response" />
     </div>
@@ -41,7 +41,7 @@ ShallowWrapper {
       <div>
             <Question
                   question="message" />
-            <div>
+            <styled.div>
                   <Attachment
                         attachment={null}
                         reply={undefined}
@@ -60,7 +60,7 @@ ShallowWrapper {
                                     "text": "response",
                                   }
                         } />
-            </div>
+            </styled.div>
             <Response
                   response="response" />
       </div>
@@ -132,7 +132,7 @@ ShallowWrapper {
           <div>
                     <Question
                               question="message" />
-                    <div>
+                    <styled.div>
                               <Attachment
                                         attachment={null}
                                         reply={undefined}
@@ -151,7 +151,7 @@ ShallowWrapper {
                                                             "text": "response",
                                                           }
                                         } />
-                    </div>
+                    </styled.div>
                     <Response
                               response="response" />
           </div>
@@ -162,7 +162,7 @@ ShallowWrapper {
           <div>
                     <Question
                               question="message" />
-                    <div>
+                    <styled.div>
                               <Attachment
                                         attachment={null}
                                         reply={undefined}
@@ -181,7 +181,7 @@ ShallowWrapper {
                                                             "text": "response",
                                                           }
                                         } />
-                    </div>
+                    </styled.div>
                     <Response
                               response="response" />
           </div>

@@ -8,27 +8,23 @@ ShallowWrapper {
   "length": 1,
   "node": <Styled(Mock)>
     <Styled(Mock)>
-        <Mock
+        <Styled(Mock)
             onClick={[Function]}>
-            <Mock>
-                test title
-            </Mock>
             <Mock
-                src="test_img.png" />
-        </Mock>
+                image="test_img.png"
+                title="test title" />
+        </Styled(Mock)>
     </Styled(Mock)>
 </Styled(Mock)>,
   "nodes": Array [
     <Styled(Mock)>
       <Styled(Mock)>
-            <Mock
+            <Styled(Mock)
                   onClick={[Function]}>
-                  <Mock>
-                        test title
-                  </Mock>
                   <Mock
-                        src="test_img.png" />
-            </Mock>
+                        image="test_img.png"
+                        title="test title" />
+            </Styled(Mock)>
       </Styled(Mock)>
 </Styled(Mock)>,
   ],
@@ -103,27 +99,23 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Styled(Mock)>
           <Styled(Mock)>
-                    <Mock
+                    <Styled(Mock)
                               onClick={[Function]}>
-                              <Mock>
-                                        test title
-                              </Mock>
                               <Mock
-                                        src="test_img.png" />
-                    </Mock>
+                                        image="test_img.png"
+                                        title="test title" />
+                    </Styled(Mock)>
           </Styled(Mock)>
 </Styled(Mock)>,
         "_debugID": 2,
         "_renderedOutput": <Styled(Mock)>
           <Styled(Mock)>
-                    <Mock
+                    <Styled(Mock)
                               onClick={[Function]}>
-                              <Mock>
-                                        test title
-                              </Mock>
                               <Mock
-                                        src="test_img.png" />
-                    </Mock>
+                                        image="test_img.png"
+                                        title="test title" />
+                    </Styled(Mock)>
           </Styled(Mock)>
 </Styled(Mock)>,
       },

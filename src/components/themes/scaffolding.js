@@ -135,14 +135,8 @@ const scaffolding = theme => css`
 
   /* Animations */
   @keyframes bounceIn {
-    from,
-    20%,
-    40%,
-    60%,
-    80%,
-    to {
-      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-    }
+    from, 20%, 40%, 60%, 80%, to {
+      animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
 
     0% {
       opacity: 0;
