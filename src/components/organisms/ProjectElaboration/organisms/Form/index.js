@@ -42,7 +42,7 @@ const BottomBar = styled.div`
       opacity: 0.2;
     }
 
-    &:focus{
+    &:focus {
       border: 0;
       outline: 0;
       background: ${theme('colors.grayscale.lightest')};
@@ -90,12 +90,12 @@ const SubmitButton = styled(Button)`
   &:disabled {
     opacity: 0.2;
 
-    span svg path{
+    span svg path {
       fill: ${theme('colors.grayscale.medium')};
     }
   }
 
-  span svg path{
+  span svg path {
     fill: ${theme('colors.secondary')};
   }
 `

@@ -78,7 +78,6 @@ const StyledList = styled(List)`
   ${mapBreakpoints(bp => css`
     padding-left: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
   `)}
-
 `
 
 const Attachment = ({ attachment, reply, response }) => {

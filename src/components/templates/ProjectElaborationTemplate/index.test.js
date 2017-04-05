@@ -21,5 +21,4 @@ const wrapper = shallow(muiMock(
 
 it('renders ProjectElaborationTemplate', () => {
   expect(wrapper).toMatchSnapshot()
-  expect(wrapper.find(ProjectElaborationTemplate)).toHaveLength(1)
 })
