@@ -25,7 +25,6 @@ const BubbleResponse = styled.p`
   background: ${theme('colors.primary')};
   border-radius: 1rem 0 1rem 1rem;
   color: ${theme('colors.white')};
-
   animation: bounceIn 1s;
 
   &::before, 
