@@ -38,7 +38,7 @@ after_success:
   - while [ $? -ne 0 ]; do
         kubectl get svc --namespace=develop dora-develop -o jsonpath='{.status.loadBalancer.ingress[0].ip}';
     done;
-  - kubectl run carol-${BRANCH} --namespace=${BRANCH} --image=eu.gcr.io/quotatis-152617/carol:${BRANCH} --port=443  --replicas=1 --labels="branch=${BRANCH},app=quotatis,run=carol-${BRANCH}" --env="PUB_IP=${CAROL_IP}" --env="NODE_ENV=staging" --env="PORT=443" --env="API_PORT=443" --env="API_IP=`kubectl get svc --namespace=develop dora-develop -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`" --image-pull-policy=Always
+  - kubectl run carol-${BRANCH} --namespace=${BRANCH} --image=eu.gcr.io/quotatis-152617/carol:${BRANCH} --port=443  --replicas=1 --labels="branch=${BRANCH},app=quotatis,run=carol-${BRANCH}" --env="PUB_IP=${CAROL_IP}" --env="NODE_ENV=developement" --env="PORT=443" --env="API_PORT=443" --env="API_IP=`kubectl get svc --namespace=develop dora-develop -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`" --image-pull-policy=Always
   - kubectl expose --port=443 deploy carol-${BRANCH} --type=LoadBalancer --name=carol-${BRANCH} --namespace=${BRANCH}
   - kubectl get svc --namespace=${BRANCH} carol-${BRANCH} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
   - while [ $? -ne 0 ]; do
