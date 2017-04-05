@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
 
-import { Container, Grid } from 'components'
+import { Grid } from 'components'
 import Conversation from './organisms/Conversation'
 import Form from './organisms/Form'
 
