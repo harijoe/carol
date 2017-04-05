@@ -1,13 +1,6 @@
 import React, { PropTypes } from 'react'
-import styled from 'styled-components'
 
 import { Carousel, Loading } from 'components'
-
-const Wrapper = styled.div`
-  & > * {
-    margin: 1rem;
-  }
-`
 
 const setDisplay = (active, i, tags) => {
   if (typeof active === 'string') {
@@ -29,11 +22,9 @@ const PostList = ({ list, active = 'all', loading, generateChild, carousel }) =>
   children = carousel === true && children.length !== 0 ? <Carousel>{children}</Carousel> : children
 
   return (
-    <Wrapper>
-      <Loading loading={loading}>
-        {children}
-      </Loading>
-    </Wrapper>
+    <Loading loading={loading}>
+      {children}
+    </Loading>
   )
 }
 

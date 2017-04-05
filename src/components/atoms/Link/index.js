@@ -8,7 +8,7 @@ const styles = ({ kind }) => css`
   color: ${theme(`colors.${kind}`)};
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
   }
 `
 

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
-import { theme } from 'utils/style'
+import { theme, breakpoint } from 'utils/style'
 
 import { Heading, Image } from 'components'
 
@@ -23,6 +23,10 @@ const Wrapper = styled.figure`
     content: '';
     z-index: 1;
   }
+
+  ${breakpoint('m')`
+    height: 22rem;
+  `}
 `
 
 const StyledImage = styled(Image)`
@@ -46,6 +50,10 @@ const StyledHeading = styled(Heading)`
   text-align: center;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.38);
   z-index: 2;
+
+  ${breakpoint('m')`
+    font-size: ${theme('fonts.size.xl')};
+  `}
 `
 
 const ThumbnailPoster = ({ image, title }) => (

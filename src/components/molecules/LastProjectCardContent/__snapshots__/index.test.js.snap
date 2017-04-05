@@ -6,9 +6,11 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <div>
-    <Styled(Mock)
-        link="image.jpg" />
+  "node": <styled.div>
+    <styled.header>
+        <Styled(Mock)
+            link="image.jpg" />
+    </styled.header>
     <styled.div>
         <styled.div>
             <styled.figure>
@@ -31,11 +33,13 @@ ShallowWrapper {
             place
         </styled.address>
     </styled.div>
-</div>,
+</styled.div>,
   "nodes": Array [
-    <div>
-      <Styled(Mock)
-            link="image.jpg" />
+    <styled.div>
+      <styled.header>
+            <Styled(Mock)
+                  link="image.jpg" />
+      </styled.header>
       <styled.div>
             <styled.div>
                   <styled.figure>
@@ -58,7 +62,7 @@ ShallowWrapper {
                   place
             </styled.address>
       </styled.div>
-</div>,
+</styled.div>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -105,9 +109,11 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <div>
-          <Styled(Mock)
-                    link="image.jpg" />
+        "_currentElement": <styled.div>
+          <styled.header>
+                    <Styled(Mock)
+                              link="image.jpg" />
+          </styled.header>
           <styled.div>
                     <styled.div>
                               <styled.figure>
@@ -130,11 +136,13 @@ ShallowWrapper {
                               place
                     </styled.address>
           </styled.div>
-</div>,
+</styled.div>,
         "_debugID": 2,
-        "_renderedOutput": <div>
-          <Styled(Mock)
-                    link="image.jpg" />
+        "_renderedOutput": <styled.div>
+          <styled.header>
+                    <Styled(Mock)
+                              link="image.jpg" />
+          </styled.header>
           <styled.div>
                     <styled.div>
                               <styled.figure>
@@ -157,9 +165,9 @@ ShallowWrapper {
                               place
                     </styled.address>
           </styled.div>
-</div>,
+</styled.div>,
       },
-      "_renderedNodeType": 0,
+      "_renderedNodeType": 1,
       "_rootNodeID": 0,
       "_topLevelWrapper": null,
       "_updateBatchNumber": null,

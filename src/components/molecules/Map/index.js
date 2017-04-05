@@ -7,7 +7,7 @@ import { Marker } from 'components'
 const styles = {
   position: 'relative',
   width: '100%',
-  height: '300px',
+  height: '100%',
 }
 
 class Map extends Component {

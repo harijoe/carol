@@ -6,23 +6,19 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <styled.div>
-    <Mock
-        loading={undefined}>
-        <div />
-        <div />
-        <div />
-    </Mock>
-</styled.div>,
+  "node": <Mock
+    loading={undefined}>
+    <div />
+    <div />
+    <div />
+</Mock>,
   "nodes": Array [
-    <styled.div>
-      <Mock
-            loading={undefined}>
-            <div />
-            <div />
-            <div />
-      </Mock>
-</styled.div>,
+    <Mock
+      loading={undefined}>
+      <div />
+      <div />
+      <div />
+</Mock>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -97,23 +93,19 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <styled.div>
-          <Mock
-                    loading={undefined}>
-                    <div />
-                    <div />
-                    <div />
-          </Mock>
-</styled.div>,
+        "_currentElement": <Mock
+          loading={undefined}>
+          <div />
+          <div />
+          <div />
+</Mock>,
         "_debugID": 2,
-        "_renderedOutput": <styled.div>
-          <Mock
-                    loading={undefined}>
-                    <div />
-                    <div />
-                    <div />
-          </Mock>
-</styled.div>,
+        "_renderedOutput": <Mock
+          loading={undefined}>
+          <div />
+          <div />
+          <div />
+</Mock>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
