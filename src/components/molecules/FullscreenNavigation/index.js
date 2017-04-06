@@ -30,7 +30,6 @@ const style = ({ show }) => {
     z-index: 99;
     transition: height .3s linear, padding-top .3s linear, padding-bottom .3s linear, border-top-width .3s linear, border-top-width .3s linear;
     overflow: hidden;
-    margin-top: 10px;
   `
 
   return merge(commonStyles, showStyle)

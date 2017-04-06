@@ -6,9 +6,9 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <LogInButton />,
+  "node": <injectScrollWrapper />,
   "nodes": Array [
-    <LogInButton />,
+    <injectScrollWrapper />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -202,7 +202,7 @@ ShallowWrapper {
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
         }>
-        <LogInButton />
+        <injectScrollWrapper />
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -213,7 +213,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <LogInButton />,
+          "children": <injectScrollWrapper />,
           "locale": "en",
           "messages": Object {
             "Invalid username and password combination": "Invalid username and password combination",
@@ -425,9 +425,9 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <LogInButton />,
+        "_currentElement": <injectScrollWrapper />,
         "_debugID": 2,
-        "_renderedOutput": <LogInButton />,
+        "_renderedOutput": <injectScrollWrapper />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -625,7 +625,7 @@ ShallowWrapper {
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }
     }>
-    <LogInButton />
+    <injectScrollWrapper />
 </IntlProvider>,
 }
 `;

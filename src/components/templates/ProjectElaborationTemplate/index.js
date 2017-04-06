@@ -26,7 +26,7 @@ const Header = styled.header`
   width: 100%;
   z-index: 3;
   background: ${theme('colors.white')};
-  box-shadow: 0.1rem 0.1rem 0.3rem 0 rgba(0, 0, 0, .1);
+  box-shadow: 0.1rem 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.1);
 `
 
 const Content = styled.div`

@@ -59,7 +59,7 @@ const ScrollWrapper = styled.div`
   padding-bottom: 0.5rem;
   padding-left: 2rem;
   overflow-y: visible;
-  overflow-x: visible;
+  overflow-x: hidden;
 
   ${breakpoint('m')`
     top: 5rem;

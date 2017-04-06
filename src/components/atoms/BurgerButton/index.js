@@ -73,7 +73,6 @@ const Wrapper = styled.span`
   width: calc(2rem * 2);
   z-index: 999;
   display: block;
-  position: absolute;
 `
 
 const BurgerButton = ({ toggleFullscreenNavigation, fullscreenNavigation }) => (

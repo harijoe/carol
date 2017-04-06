@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import stripTags from 'utils/stripTags'
 import messages from 'utils/messages'
 
-import { Card, Section, TestimonialCardContent } from 'components'
+import { Card, Section, TestimonialCardContent, Grid, Col, Row } from 'components'
 import { PostList } from 'containers'
 
 const StyledCard = styled(Card)`
@@ -26,13 +26,19 @@ const generateChild = (i, { link, featuredMedia, customFields }) => (
 
 const Testimonials = ({ intl: { formatMessage } }) => (
   <Section title={formatMessage(messages('testimonials.section_title').label)} light>
-    <PostList
-      scope="testimonialArticles"
-      tags={['api-testimony']}
-      limit={10}
-      generateChild={generateChild}
-      carousel
-    />
+    <Grid>
+      <Row>
+        <Col xs={12}>
+          <PostList
+            scope="testimonialArticles"
+            tags={['api-testimony']}
+            limit={10}
+            generateChild={generateChild}
+            carousel
+          />
+        </Col>
+      </Row>
+    </Grid>
   </Section>
 )
 

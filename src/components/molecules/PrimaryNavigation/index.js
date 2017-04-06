@@ -38,6 +38,7 @@ const Nav = styled.nav`
 const StyledAccountMenu = styled(AccountMenu)`
   display: block;
 `
+
 const StyledSignInDropDownMenu = styled(SignInDropDownMenu)`
   display: block;
 `
@@ -45,16 +46,28 @@ const StyledSignInDropDownMenu = styled(SignInDropDownMenu)`
 StyledAccountMenu.displayName = 'AccountMenu'
 StyledSignInDropDownMenu.displayName = 'SignInDropDownMenu'
 
+const StyledItemLogin = styled.li`
+  position: fixed;
+  right: 60px;
+`
+const StyledItemBurger = styled.li`
+  position: fixed;
+  right: 20px;
+  z-index: 999;
+`
+
 const PrimaryNavigation = ({ isAuthenticated, ...props }) => (
   <Nav>
-    <li>
+    <StyledItemLogin>
       {
         isAuthenticated ?
           <DropDownMenu label="user.my_account"><StyledAccountMenu /></DropDownMenu>
           : <StyledSignInDropDownMenu {...props} />
       }
-    </li>
-    <li><BurgerButton /></li>
+    </StyledItemLogin>
+    <StyledItemBurger>
+      <BurgerButton />
+    </StyledItemBurger>
   </Nav>
 )
 

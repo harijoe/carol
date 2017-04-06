@@ -7,27 +7,27 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <styled.nav>
-    <li>
+    <styled.li>
         <Mock
             label="user.my_account">
             <AccountMenu />
         </Mock>
-    </li>
-    <li>
+    </styled.li>
+    <styled.li>
         <Mock />
-    </li>
+    </styled.li>
 </styled.nav>,
   "nodes": Array [
     <styled.nav>
-      <li>
+      <styled.li>
             <Mock
                   label="user.my_account">
                   <AccountMenu />
             </Mock>
-      </li>
-      <li>
+      </styled.li>
+      <styled.li>
             <Mock />
-      </li>
+      </styled.li>
 </styled.nav>,
   ],
   "options": Object {},
@@ -68,27 +68,27 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <styled.nav>
-          <li>
+          <styled.li>
                     <Mock
                               label="user.my_account">
                               <AccountMenu />
                     </Mock>
-          </li>
-          <li>
+          </styled.li>
+          <styled.li>
                     <Mock />
-          </li>
+          </styled.li>
 </styled.nav>,
         "_debugID": 2,
         "_renderedOutput": <styled.nav>
-          <li>
+          <styled.li>
                     <Mock
                               label="user.my_account">
                               <AccountMenu />
                     </Mock>
-          </li>
-          <li>
+          </styled.li>
+          <styled.li>
                     <Mock />
-          </li>
+          </styled.li>
 </styled.nav>,
       },
       "_renderedNodeType": 1,
@@ -115,21 +115,21 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <styled.nav>
-    <li>
+    <styled.li>
         <SignInDropDownMenu />
-    </li>
-    <li>
+    </styled.li>
+    <styled.li>
         <Mock />
-    </li>
+    </styled.li>
 </styled.nav>,
   "nodes": Array [
     <styled.nav>
-      <li>
+      <styled.li>
             <SignInDropDownMenu />
-      </li>
-      <li>
+      </styled.li>
+      <styled.li>
             <Mock />
-      </li>
+      </styled.li>
 </styled.nav>,
   ],
   "options": Object {},
@@ -170,21 +170,21 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <styled.nav>
-          <li>
+          <styled.li>
                     <SignInDropDownMenu />
-          </li>
-          <li>
+          </styled.li>
+          <styled.li>
                     <Mock />
-          </li>
+          </styled.li>
 </styled.nav>,
         "_debugID": 4,
         "_renderedOutput": <styled.nav>
-          <li>
+          <styled.li>
                     <SignInDropDownMenu />
-          </li>
-          <li>
+          </styled.li>
+          <styled.li>
                     <Mock />
-          </li>
+          </styled.li>
 </styled.nav>,
       },
       "_renderedNodeType": 1,

@@ -1,11 +1,14 @@
-import React from 'react'
-import styled from 'styled-components'
-import { theme } from 'utils/style'
+import React, { PropTypes } from 'react'
+import styled, { css } from 'styled-components'
+import { ifThen } from 'utils/style'
+import injectScroll from 'hoc/component/injectScroll'
 
 import { IconLink } from 'components'
-import { PrimaryNavigation, FullscreenNavigation } from 'containers'
+import { PrimaryNavigation } from 'containers'
 
 const Wrapper = styled.div`
+  position: absolute;
+  width: 100%;
   display: flex;
 
   & > :not(:first-child) {
@@ -13,22 +16,41 @@ const Wrapper = styled.div`
   }
 `
 
+const backgroundStyles = ({ atTop }) => css`
+  position: fixed;
+  width: 100%;
+  height: 20%;
+  transition: background-color 200ms linear;
+  transition: height 300ms linear, background-color 200ms linear;
+  ${ifThen(!atTop, `
+    background: white;
+    height: 12%;
+  `)};
+`
+
+const Background = styled.div`${backgroundStyles}`
+
 const StyledIconLink = styled(IconLink)`
   padding-top: 0;
   margin: 0;
-  color: ${theme('colors.primary')};
+  position: fixed;
 `
 
-const Header = props => (
-  <Wrapper {...props}>
-    <FullscreenNavigation />
+const Header = ({ atTop, ...props }) => (
+  <Wrapper>
+    <Background atTop={atTop} />
     <StyledIconLink
       to="/"
-      icon="quotatis-white"
+      icon={atTop ? 'quotatis-white' : 'quotatis'}
       size={480}
+      atTop={atTop}
     />
-    <PrimaryNavigation {...props} />
+    <PrimaryNavigation {...props} atTop={atTop} />
   </Wrapper>
 )
 
-export default Header
+Header.propTypes = {
+  atTop: PropTypes.bool,
+}
+
+export default injectScroll(Header)
