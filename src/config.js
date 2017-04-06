@@ -1,18 +1,12 @@
 import merge from 'lodash/merge'
 
-const browser = typeof window !== 'undefined'
-const ip = (typeof process.env.IP !== 'undefined' && process.env.IP.toString()) || '0.0.0.0'
-const port = process.env.PORT || 443
-const basename = `/${process.env.PUBLIC_PATH || ''}`.replace('//', '/') // Accepts: '/', '/path', 'path', undefined
-
 const config = {
   all: {
     env: (typeof process.env.NODE_ENV !== 'undefined' && process.env.NODE_ENV.toString()) || 'development',
-    baseUrl: `https://${ip}:${port}`,
-    ip,
-    port,
-    basename,
-    browser,
+    ip: (typeof process.env.IP !== 'undefined' && process.env.IP.toString()) || '0.0.0.0',
+    port: process.env.PORT || 443,
+    basename: `/${process.env.PUBLIC_PATH || ''}`.replace('//', '/'), // Accepts: '/', '/path', 'path', undefined,
+    browser: typeof window !== 'undefined',
     api: {
       url: 'https://api-dev.qarx.io:8080/app_dev.php',
       clientId: '4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k',
@@ -61,7 +55,6 @@ const config = {
     },
   },
   staging: {
-    baseUrl: 'carol-fr.qarx.io',
     api: {
       url: 'https://api.qarx.io',
     },
@@ -78,7 +71,6 @@ const config = {
     },
   },
   production: {
-    baseUrl: 'https://www.quotatis.com',
     api: {
       url: 'https://api.quotatis.com',
     },

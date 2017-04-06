@@ -15,13 +15,14 @@ export default (routes) => {
   const app = express()
 
   app.use(compression())
-  app.use(morgan('dev'))
+  app.use(morgan(env === 'production' ? 'common' : 'dev'))
   app.use(cookieParser())
   app.use(express.static(path.join(root, 'dist')))
   app.use(bodyParser.urlencoded({ extended: false }))
   app.use(bodyParser.json())
   app.use(routes)
 
+  // We use hot reloading with webpack in dev environment
   if (env === 'development') {
     const webpack = require('webpack')
     const webpackConfig = require('../../../webpack/dev.config')
@@ -42,7 +43,10 @@ export default (routes) => {
 
     app.use(require('webpack-dev-middleware')(compiler, serverOptions))
     app.use(require('webpack-hot-middleware')(compiler))
+  }
 
+  // We use SSL in dev & staging env but not in prod due to varnish
+  if (env === 'development' || env === 'staging') {
     app.set('forceSSLOptions', {
       enable301Redirects: true,
       trustXFPHeader: true,

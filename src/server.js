@@ -113,7 +113,7 @@ app.listen(port, (error) => {
   if (error) {
     console.error(error)
   } else {
-    console.info(`Server listening on https://${ip}:${port}`)
+    console.info(`Server listening on ${ip}:${port}`)
   }
 })
 
