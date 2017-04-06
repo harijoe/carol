@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import Helmet from 'react-helmet'
 
-import { IntlProvider } from 'containers'
+import { IntlProvider, GoogleTagManager } from 'containers'
 
 class App extends Component {
   static propTypes = {
@@ -36,6 +36,7 @@ class App extends Component {
         <IntlProvider>
           {children}
         </IntlProvider>
+        <GoogleTagManager />
       </div>
     )
   }

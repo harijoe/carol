@@ -23,6 +23,11 @@ const config = {
       grantType: 'https://www.quotatis.com/google',
       clientId: '726740106708-5fh1f42gq45ek5a5g2p7olldjt679qjg.apps.googleusercontent.com',
       scope: 'https://www.googleapis.com/auth/plus.login',
+      tagManagerId: {
+        FR: 'GTM-N58NQW',
+        GB: 'GTM-N58NQW',
+        ES: 'GTM-N58NQW',
+      },
     },
     facebook: {
       grantType: 'https://www.quotatis.com/facebook',

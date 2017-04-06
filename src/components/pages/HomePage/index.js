@@ -1,6 +1,14 @@
 import React from 'react'
 
-import { MainLayout, HowItWorks, Testimonials, TipsAndTricks, Reinsurance, LastProjects, MotionMenu } from 'components'
+import {
+  MainLayout,
+  HowItWorks,
+  Testimonials,
+  TipsAndTricks,
+  Reinsurance,
+  LastProjects,
+  MotionMenu,
+} from 'components'
 import { Hero } from 'containers'
 
 const HomePage = props => (

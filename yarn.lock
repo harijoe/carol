@@ -5856,6 +5856,10 @@ react-google-recaptcha@^0.5.4:
     babel-runtime "^5.8.0"
     react-async-script "~0.5.0"
 
+react-google-tag-manager:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-google-tag-manager/-/react-google-tag-manager-2.1.0.tgz#3857792875a47dc9c4738e2bde34483c421d0369"
+
 react-helmet@^3.3.1:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/react-helmet/-/react-helmet-3.3.2.tgz#0d5a985aca6fba0331331fb567ca3d96681a381c"
