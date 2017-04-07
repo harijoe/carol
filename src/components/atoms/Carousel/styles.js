@@ -1,7 +1,8 @@
 export default `
 .slick-list, .slick-slider, .slick-track {
   position: relative;
-  display: block;
+  display: flex;
+  flex-wrap: nowrap;
 }
 .slick-loading .slick-slide, .slick-loading .slick-track {
   visibility: hidden;
@@ -49,7 +50,6 @@ export default `
 }
 .slick-slide {
   display: none;
-  float: left;
   height: 100%;
   min-height: 1px;
 }

@@ -14,15 +14,21 @@ const setDisplay = (active, i, tags) => {
   return active === i
 }
 
-const PostList = ({ list, active = 'all', loading, generateChild, carousel }) => {
+const PostList = ({ list, active = 'all', loading, generateChild, generateBackground, carousel }) => {
   let children = list
     .filter((items, i) => setDisplay(active, i, items.tags))
     .map((items, i) => generateChild(i, items))
 
-  children = carousel === true && children.length !== 0 ? <Carousel>{children}</Carousel> : children
+  children = typeof carousel !== 'undefined' && children.length !== 0 ? <Carousel {...carousel}>{children}</Carousel> : children
+
+  const background = generateBackground != null ? list
+    .filter((items, i) => setDisplay(active, i, items.tags))
+    .map((items, i) => generateBackground(i, items))
+    : null
 
   return (
     <Loading loading={loading}>
+      {background}
       {children}
     </Loading>
   )
@@ -36,7 +42,8 @@ PostList.propTypes = {
     PropTypes.number,
   ]),
   generateChild: PropTypes.func.isRequired,
-  carousel: PropTypes.bool,
+  generateBackground: PropTypes.func,
+  carousel: PropTypes.object,
 }
 
 export default PostList

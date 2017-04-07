@@ -7,14 +7,12 @@ import { PostList } from 'components'
 class PostListContainer extends Component {
   static propTypes = {
     list: PropTypes.array,
-    active: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-    ]),
     loading: PropTypes.bool,
+    scope: PropTypes.string,
+    tags: PropTypes.array,
+    limit: PropTypes.number,
     request: PropTypes.func.isRequired,
     generateChild: PropTypes.func.isRequired,
-    carousel: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -26,9 +24,9 @@ class PostListContainer extends Component {
   }
 
   render() {
-    const { list, active, loading, generateChild, carousel } = this.props
+    const { list, loading, ...props } = this.props
 
-    return <PostList {...{ list, active, loading, generateChild, carousel }} />
+    return <PostList list={list} loading={loading} {...props} />
   }
 }
 

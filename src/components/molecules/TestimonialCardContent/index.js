@@ -12,8 +12,7 @@ const HeaderWrapper = styled.div`
   margin-bottom: ${theme('spaces.m')};
 `
 const StyledImage = styled(Image)`
-  height: 19rem;
-  max-width: 100%;
+  background-size: cover;
 `
 const StyledHeading = styled(Heading)`
   font-size: ${theme('fonts.size.xl')};

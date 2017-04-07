@@ -9,8 +9,8 @@ const styles = ({ reverse, start, center, end, top, middle, bottom, around, betw
   flex-direction: row;
   flex-wrap: wrap;
   ${mapBreakpoints(bp => css`
-    padding-right: calc(${theme(`grid.padding.${bp}`, 'rem')} / 2);
-    padding-left: calc(${theme(`grid.padding.${bp}`, 'rem')} / 2);
+    margin-right: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} / 2 * -1);
+    margin-left: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} / 2 * -1);
   `)}
   ${ifThen(reverse, 'flex-direction: row-reverse;')}
   ${ifThen(start, breakpoint(start)`

@@ -22,7 +22,7 @@ Post.propTypes = {
   items: PropTypes.shape({
     title: PropTypes.string,
     body: PropTypes.string,
-    image: PropTypes.string,
+    featuredMedia: PropTypes.string,
     date: PropTypes.string,
   }).isRequired,
   active: React.PropTypes.bool,

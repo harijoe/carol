@@ -1,27 +1,35 @@
 import React, { PropTypes } from 'react'
 import SlickCarousel from 'react-slick'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { theme, mapBreakpoints } from 'utils/style'
 
 import styles from './styles'
 
 const Wrapper = styled.div`${styles}`
 
-const Carousel = ({ children }) => (
+const StyledSlickCarousel = styled(SlickCarousel)`
+  ${mapBreakpoints(bp => css`
+    margin-left: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} * -1);
+    margin-right: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} * -1);
+
+    > .slick-list {
+      padding-left: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
+      padding-right: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
+    }
+ `)}
+`
+
+const Carousel = ({ children, ...props }) => (
   <Wrapper>
-    <SlickCarousel
-      dots
-      infinite
-      speed={500}
-      slidesToShow={1}
-      slidesToScroll={1}
-      draggable
+    <StyledSlickCarousel
+      {...props}
     >
       {
         children.map((element, i) => (
           <div key={i}>{element}</div>
         ))
       }
-    </SlickCarousel>
+    </StyledSlickCarousel>
   </Wrapper>
 )
 

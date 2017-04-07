@@ -6,6 +6,7 @@ import { Heading, Image } from 'components'
 
 const Wrapper = styled.div`
   ${breakpoint('m')`
+    width: 100%;
     min-width: 30rem;
   `}
 `

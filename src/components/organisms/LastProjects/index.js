@@ -90,7 +90,7 @@ const LastProjects = ({ active, intl }) => (
             limit={3}
             active={active}
             generateChild={generateChild}
-            carousel
+            carousel={{}}
           />
         </Col>
       </StyledRow>
