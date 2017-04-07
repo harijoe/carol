@@ -22,7 +22,6 @@ export default `
 .slick-list {
   overflow: hidden;
   margin: 0;
-  padding: 0;
 }
 .slick-list:focus {
   outline: 0;
@@ -172,8 +171,8 @@ p {
 .slick-dots li {
   position: relative;
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 8px;
+  height: 8px;
   margin: 0 5px;
   padding: 0;
   cursor: pointer;
@@ -182,8 +181,8 @@ p {
   font-size: 0;
   line-height: 0;
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 8px;
+  height: 8px;
   padding: 5px;
   cursor: pointer;
   color: transparent;
@@ -198,20 +197,17 @@ p {
   opacity: 1;
 }
 .slick-dots li button:before {
-  font-size: 6px;
-  line-height: 20px;
   position: absolute;
   top: 0;
   left: 0;
-  width: 20px;
-  height: 20px;
-  content: '•';
+  width: 8px;
+  height: 8px;
+  content: '';
+  background-color: #d2d2d2;
+  border-radius: 4px;
   text-align: center;
-  opacity: .25;
-  color: #000;
 }
 .slick-dots li.slick-active button:before {
-  opacity: .75;
-  color: #000;
+  background-color: #3333fe;
 }
 `

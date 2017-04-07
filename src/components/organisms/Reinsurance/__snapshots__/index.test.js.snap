@@ -16,7 +16,11 @@ ShallowWrapper {
                     carousel={
                         Object {
                             "afterChange": [Function],
+                            "dots": true,
                             "infinite": false,
+                            "slidesToScroll": 1,
+                            "slidesToShow": 1,
+                            "variableWidth": true,
                           }
                     }
                     generateBackground={[Function]}
@@ -43,7 +47,11 @@ ShallowWrapper {
                               carousel={
                                     Object {
                                           "afterChange": [Function],
+                                          "dots": true,
                                           "infinite": false,
+                                          "slidesToScroll": 1,
+                                          "slidesToShow": 1,
+                                          "variableWidth": true,
                                         }
                               }
                               generateBackground={[Function]}
@@ -108,7 +116,11 @@ ShallowWrapper {
                                                   carousel={
                                                             Object {
                                                                       "afterChange": [Function],
+                                                                      "dots": true,
                                                                       "infinite": false,
+                                                                      "slidesToScroll": 1,
+                                                                      "slidesToShow": 1,
+                                                                      "variableWidth": true,
                                                                     }
                                                   }
                                                   generateBackground={[Function]}
@@ -135,7 +147,11 @@ ShallowWrapper {
                                                   carousel={
                                                             Object {
                                                                       "afterChange": [Function],
+                                                                      "dots": true,
                                                                       "infinite": false,
+                                                                      "slidesToScroll": 1,
+                                                                      "slidesToShow": 1,
+                                                                      "variableWidth": true,
                                                                     }
                                                   }
                                                   generateBackground={[Function]}

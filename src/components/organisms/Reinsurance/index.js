@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import stripTags from 'utils/stripTags'
-import styled from 'styled-components'
-import { ifThen } from 'utils/style'
+import styled, { css } from 'styled-components'
+import { ifThen, theme, mapBreakpoints } from 'utils/style'
 
 import { Card, Section, SimpleCardContent, Grid, Col, Row, Image } from 'components'
 import { PostList } from 'containers'
@@ -12,13 +12,21 @@ const StyledImageWrapper = styled.div`${({ active }) => `
 
 const StyledImage = styled(Image)`
   z-index: -2;
-  margin: -3.2rem 3.2rem -6.4rem -3.2rem;
   width: 100vw;
-  height: 32rem;
+  margin: -3.2rem auto -17rem -1.6rem;
+  background-size: cover;
 `
 
 const StyledCard = styled(Card)`
+  ${mapBreakpoints(bp => css`
+    margin-left: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} / 2);
+    margin-right: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} / 2);
+  `)}
+
   min-height: 20rem;
+  width: calc(100vw - 4.8rem);
+  margin-bottom: 0.8rem;
+  margin-top: 0.8rem;
 `
 
 const generateChild = (i, items) => (
@@ -59,7 +67,14 @@ class Reinsurance extends Component {
                 limit={3}
                 generateChild={generateChild}
                 generateBackground={this.generateBackground}
-                carousel={{ infinite: false, afterChange: this.afterChange }}
+                carousel={{
+                  infinite: false,
+                  afterChange: this.afterChange,
+                  variableWidth: true,
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                  dots: true,
+                }}
               />
             </Col>
           </Row>

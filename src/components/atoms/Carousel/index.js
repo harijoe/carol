@@ -8,6 +8,8 @@ import styles from './styles'
 const Wrapper = styled.div`${styles}`
 
 const StyledSlickCarousel = styled(SlickCarousel)`
+  overflow: hidden;
+
   ${mapBreakpoints(bp => css`
     margin-left: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} * -1);
     margin-right: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} * -1);

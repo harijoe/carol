@@ -1,15 +1,27 @@
 import React, { PropTypes } from 'react'
 import { injectIntl, intlShape } from 'react-intl'
-import styled from 'styled-components'
-import { theme, breakpoint } from 'utils/style'
+import styled, { css } from 'styled-components'
+import { theme, breakpoint, mapBreakpoints } from 'utils/style'
 import stripTags from 'utils/stripTags'
 import messages from 'utils/messages'
 
-import { Card, Section, LastProjectCardContent, Col, Row } from 'components'
+import { Card, Section, LastProjectCardContent, Col, Row, Grid } from 'components'
 import { PostList, GoogleMap } from 'containers'
 
+const StyledCard = styled(Card)`
+  ${mapBreakpoints(bp => css`
+    margin-left: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} / 2);
+    margin-right: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} / 2);
+  `)}
+
+  min-height: 20rem;
+  width: calc(100vw - 4.8rem);
+  margin-bottom: 0.8rem;
+  margin-top: 0.8rem;
+`
+
 const generateChild = (i, { title, featuredMedia, customFields }) => (
-  <Card key={i}>
+  <StyledCard key={i}>
     <LastProjectCardContent
       title={stripTags(title)}
       image={customFields.project_bg}
@@ -18,7 +30,7 @@ const generateChild = (i, { title, featuredMedia, customFields }) => (
       firmImage={featuredMedia}
       firmTrade={stripTags(customFields.project_trade)}
     />
-  </Card>
+  </StyledCard>
 )
 
 const StyledSection = styled(Section)`
@@ -82,18 +94,26 @@ const LastProjects = ({ active, intl }) => (
       <MapWrapper>
         <GoogleMap scope="latestProjectsOnMap" />
       </MapWrapper>
-      <StyledRow>
-        <Col xs={12}>
-          <PostList
-            scope="latestProjectsOnMap"
-            tags={['api-last-project']}
-            limit={3}
-            active={active}
-            generateChild={generateChild}
-            carousel={{}}
-          />
-        </Col>
-      </StyledRow>
+      <Grid>
+        <StyledRow>
+          <Col xs={12}>
+            <PostList
+              scope="latestProjectsOnMap"
+              tags={['api-last-project']}
+              limit={3}
+              active={active}
+              generateChild={generateChild}
+              carousel={{
+                infinite: true,
+                variableWidth: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: true,
+              }}
+            />
+          </Col>
+        </StyledRow>
+      </Grid>
     </Wrapper>
   </StyledSection>
 )
