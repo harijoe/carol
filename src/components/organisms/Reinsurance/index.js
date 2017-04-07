@@ -7,14 +7,15 @@ import { Card, Section, SimpleCardContent, Grid, Col, Row, Image } from 'compone
 import { PostList } from 'containers'
 
 const StyledImageWrapper = styled.div`${({ active }) => `
-  display: ${ifThen(active, 'block', 'none')};
+  transition: opacity 0.4s ease-in;
+  opacity: ${ifThen(active, '1', '0')};
 `}`
 
 const StyledImage = styled(Image)`
-  z-index: -2;
+  z-index: 0;
   width: 100vw;
+  position: absolute;
   margin: -3.2rem auto -17rem -1.6rem;
-  background-size: cover;
 `
 
 const StyledCard = styled(Card)`
@@ -26,7 +27,7 @@ const StyledCard = styled(Card)`
   min-height: 20rem;
   width: calc(100vw - 4.8rem);
   margin-bottom: 0.8rem;
-  margin-top: 0.8rem;
+  margin-top: 50%;
 `
 
 const generateChild = (i, items) => (

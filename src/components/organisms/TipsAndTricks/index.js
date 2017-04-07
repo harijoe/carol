@@ -48,7 +48,6 @@ const TipsAndTricks = ({ intl: { formatMessage } }) => (
           scope="latestProjectsResources"
           tags={['api-work-resources']}
           limit={5}
-          active="all"
           generateChild={generateChild}
         />
       </Row>

@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import { injectIntl, intlShape } from 'react-intl'
 import styled, { css } from 'styled-components'
 import { theme, breakpoint, mapBreakpoints } from 'utils/style'
@@ -88,7 +88,7 @@ const StyledRow = styled(Row)`
   `}
 `
 
-const LastProjects = ({ active, intl }) => (
+const LastProjects = ({ intl }) => (
   <StyledSection title={intl.formatMessage(messages('last_projects.section_title').label)} light>
     <Wrapper>
       <MapWrapper>
@@ -101,7 +101,6 @@ const LastProjects = ({ active, intl }) => (
               scope="latestProjectsOnMap"
               tags={['api-last-project']}
               limit={3}
-              active={active}
               generateChild={generateChild}
               carousel={{
                 infinite: true,
@@ -119,7 +118,6 @@ const LastProjects = ({ active, intl }) => (
 )
 
 LastProjects.propTypes = {
-  active: PropTypes.any,
   intl: intlShape.isRequired,
 }
 
