@@ -7,8 +7,9 @@ import { addLocaleData } from 'react-intl'
 import fr from 'react-intl/locale-data/fr'
 import en from 'react-intl/locale-data/en'
 import es from 'react-intl/locale-data/es'
-
 import { injectGlobals } from 'utils/style'
+
+import { PopinNavigation, PopinAccount, BurgerButton, QuotatisLogo } from 'containers'
 import defaultTheme, { resets, scaffolding } from '../../themes/default'
 
 injectGlobals([resets, scaffolding])
@@ -25,11 +26,11 @@ const Wrapper = styled.div`
 `
 
 const Header = styled.header`
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   max-width: 1200px;
-  z-index: 999;
+  z-index: 20;
 `
 
 const Content = styled.section`
@@ -55,7 +56,11 @@ const PageTemplate = ({ header, children, footer, ...props }) => (
     <ThemeProvider theme={defaultTheme}>
       <Wrapper {...props}>
         <NotificationsSystem theme={theme} defaultValues={notificationsDefaultValues} />
+        <PopinNavigation />
+        <PopinAccount />
         <Header {...props}>{header}</Header>
+        <QuotatisLogo />
+        <BurgerButton />
         <Content>{children}</Content>
         <Footer>{footer}</Footer>
       </Wrapper>

@@ -116,6 +116,10 @@ const scaffolding = theme => css`
       border-radius: 6rem;
       background-color: ${theme.colors.grayscale.light};
     }
+
+    &.noscroll {
+      overflow: hidden;
+    }
   }
 
   abbr[title],

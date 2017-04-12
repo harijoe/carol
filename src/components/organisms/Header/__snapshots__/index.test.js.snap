@@ -8,220 +8,214 @@ ShallowWrapper {
   "length": 1,
   "node": <styled.div>
     <styled.div
-        atTop={true} />
-    <Styled(Mock)
-        icon="quotatis-white"
-        size={480}
-        to="/" />
-    <Mock
-        atTop={true}
-        scrollX={null}
-        scrollY={null}
-        theme={
-            Object {
-                "colors": Object {
-                  "alert": "#ffa000",
-                  "black": "#262626",
-                  "danger": "#d32f2f",
-                  "grayscale": Object {
-                    "dark": "#5E5E5E",
-                    "darker": "#383838",
-                    "darkest": "#131313",
-                    "light": "#D1D1D1",
-                    "lighter": "#EBEBEB",
-                    "lightest": "#F9F9F9",
-                    "medium": "#ABABAB",
-                  },
-                  "grey": "#EEE",
-                  "primary": "#3333FE",
-                  "secondary": "#FDB63F",
-                  "success": "#388e3c",
-                  "white": "#FFF",
-                },
-                "fonts": Object {
-                  "family": Object {
-                    "andesBlack": "andes-black, serif",
-                    "andesLight": "andes-extralight, serif",
-                    "montserratBlack": "montserrat-black, sans-serif",
-                    "montserratBold": "montserrat-bold, sans-serif",
-                    "montserratLight": "montserrat-light, sans-serif",
-                  },
-                  "size": Object {
-                    "base": "1.4rem",
-                    "l": "1.8rem",
-                    "m": "1.5rem",
-                    "reset": "62.5%",
-                    "root": "1rem",
-                    "s": "1.2rem",
-                    "xl": "2.4rem",
-                    "xs": "1rem",
-                    "xxl": "3.2rem",
-                    "xxxl": "5rem",
-                  },
-                },
-                "grid": Object {
-                  "breakpoints": Object {
-                    "l": 992,
-                    "m": 768,
-                    "s": 576,
-                    "xl": 1200,
-                    "xs": 0,
-                  },
-                  "container": 120,
-                  "gridSize": 12,
-                  "gutterWidth": Object {
-                    "l": 2.5,
-                    "m": 2.5,
-                    "s": 1.6,
-                    "xl": 5,
-                    "xs": 1.6,
-                  },
-                  "outerMargin": Object {
-                    "l": 2.5,
-                    "m": 2.5,
-                    "s": 1.6,
-                    "xl": 5,
-                    "xs": 1.6,
-                  },
-                  "padding": Object {
-                    "l": 2.5,
-                    "m": 2.5,
-                    "s": 1.6,
-                    "xl": 5,
-                    "xs": 1.6,
-                  },
-                },
-                "icons": Object {
-                  "size": Object {
-                    "l": "2.4rem",
-                    "m": "2rem",
-                    "s": "1.6rem",
-                    "xl": "3.6rem",
-                    "xs": "1.2rem",
-                    "xxl": "4.8rem",
-                    "xxxl": "5.6rem",
-                  },
-                },
-                "spaces": Object {
-                  "l": "2.5rem",
-                  "m": "1.6rem",
-                  "s": "0.8rem",
-                  "xl": "3.2rem",
-                  "xs": "0.4rem",
-                  "xxl": "5rem",
-                  "xxxl": "10rem",
-                },
-              }
-        } />
-</styled.div>,
-  "nodes": Array [
-    <styled.div>
-      <styled.div
-            atTop={true} />
-      <Styled(Mock)
-            icon="quotatis-white"
-            size={480}
-            to="/" />
-      <Mock
+        atTop={true}>
+        <Mock
             atTop={true}
             scrollX={null}
             scrollY={null}
             theme={
-                  Object {
-                        "colors": Object {
-                          "alert": "#ffa000",
-                          "black": "#262626",
-                          "danger": "#d32f2f",
-                          "grayscale": Object {
-                            "dark": "#5E5E5E",
-                            "darker": "#383838",
-                            "darkest": "#131313",
-                            "light": "#D1D1D1",
-                            "lighter": "#EBEBEB",
-                            "lightest": "#F9F9F9",
-                            "medium": "#ABABAB",
-                          },
-                          "grey": "#EEE",
-                          "primary": "#3333FE",
-                          "secondary": "#FDB63F",
-                          "success": "#388e3c",
-                          "white": "#FFF",
-                        },
-                        "fonts": Object {
-                          "family": Object {
-                            "andesBlack": "andes-black, serif",
-                            "andesLight": "andes-extralight, serif",
-                            "montserratBlack": "montserrat-black, sans-serif",
-                            "montserratBold": "montserrat-bold, sans-serif",
-                            "montserratLight": "montserrat-light, sans-serif",
-                          },
-                          "size": Object {
-                            "base": "1.4rem",
-                            "l": "1.8rem",
-                            "m": "1.5rem",
-                            "reset": "62.5%",
-                            "root": "1rem",
-                            "s": "1.2rem",
-                            "xl": "2.4rem",
-                            "xs": "1rem",
-                            "xxl": "3.2rem",
-                            "xxxl": "5rem",
-                          },
-                        },
-                        "grid": Object {
-                          "breakpoints": Object {
-                            "l": 992,
-                            "m": 768,
-                            "s": 576,
-                            "xl": 1200,
-                            "xs": 0,
-                          },
-                          "container": 120,
-                          "gridSize": 12,
-                          "gutterWidth": Object {
-                            "l": 2.5,
-                            "m": 2.5,
-                            "s": 1.6,
-                            "xl": 5,
-                            "xs": 1.6,
-                          },
-                          "outerMargin": Object {
-                            "l": 2.5,
-                            "m": 2.5,
-                            "s": 1.6,
-                            "xl": 5,
-                            "xs": 1.6,
-                          },
-                          "padding": Object {
-                            "l": 2.5,
-                            "m": 2.5,
-                            "s": 1.6,
-                            "xl": 5,
-                            "xs": 1.6,
-                          },
-                        },
-                        "icons": Object {
-                          "size": Object {
-                            "l": "2.4rem",
-                            "m": "2rem",
-                            "s": "1.6rem",
-                            "xl": "3.6rem",
-                            "xs": "1.2rem",
-                            "xxl": "4.8rem",
-                            "xxxl": "5.6rem",
-                          },
-                        },
-                        "spaces": Object {
-                          "l": "2.5rem",
-                          "m": "1.6rem",
-                          "s": "0.8rem",
-                          "xl": "3.2rem",
-                          "xs": "0.4rem",
-                          "xxl": "5rem",
-                          "xxxl": "10rem",
-                        },
-                      }
+                Object {
+                    "colors": Object {
+                      "alert": "#ffa000",
+                      "black": "#262626",
+                      "danger": "#d32f2f",
+                      "grayscale": Object {
+                        "dark": "#5E5E5E",
+                        "darker": "#383838",
+                        "darkest": "#131313",
+                        "light": "#D1D1D1",
+                        "lighter": "#EBEBEB",
+                        "lightest": "#F9F9F9",
+                        "medium": "#ABABAB",
+                      },
+                      "grey": "#EEE",
+                      "primary": "#3333FE",
+                      "secondary": "#FDB63F",
+                      "success": "#388e3c",
+                      "white": "#FFF",
+                    },
+                    "fonts": Object {
+                      "family": Object {
+                        "andesBlack": "andes-black, serif",
+                        "andesLight": "andes-extralight, serif",
+                        "montserratBlack": "montserrat-black, sans-serif",
+                        "montserratBold": "montserrat-bold, sans-serif",
+                        "montserratLight": "montserrat-light, sans-serif",
+                      },
+                      "size": Object {
+                        "base": "1.4rem",
+                        "l": "1.8rem",
+                        "m": "1.5rem",
+                        "reset": "62.5%",
+                        "root": "1rem",
+                        "s": "1.2rem",
+                        "xl": "2.4rem",
+                        "xs": "1rem",
+                        "xxl": "3.2rem",
+                        "xxxl": "5rem",
+                      },
+                    },
+                    "grid": Object {
+                      "breakpoints": Object {
+                        "l": 992,
+                        "m": 768,
+                        "s": 576,
+                        "xl": 1200,
+                        "xs": 0,
+                      },
+                      "container": 120,
+                      "gridSize": 12,
+                      "gutterWidth": Object {
+                        "l": 2.5,
+                        "m": 2.5,
+                        "s": 1.6,
+                        "xl": 5,
+                        "xs": 1.6,
+                      },
+                      "outerMargin": Object {
+                        "l": 2.5,
+                        "m": 2.5,
+                        "s": 1.6,
+                        "xl": 5,
+                        "xs": 1.6,
+                      },
+                      "padding": Object {
+                        "l": 2.5,
+                        "m": 2.5,
+                        "s": 1.6,
+                        "xl": 5,
+                        "xs": 1.6,
+                      },
+                    },
+                    "icons": Object {
+                      "size": Object {
+                        "l": "2.4rem",
+                        "m": "2rem",
+                        "s": "1.6rem",
+                        "xl": "3.6rem",
+                        "xs": "1.2rem",
+                        "xxl": "4.8rem",
+                        "xxxl": "5.6rem",
+                      },
+                    },
+                    "spaces": Object {
+                      "l": "2.5rem",
+                      "m": "1.6rem",
+                      "s": "0.8rem",
+                      "xl": "3.2rem",
+                      "xs": "0.4rem",
+                      "xxl": "5rem",
+                      "xxxl": "10rem",
+                    },
+                  }
             } />
+    </styled.div>
+</styled.div>,
+  "nodes": Array [
+    <styled.div>
+      <styled.div
+            atTop={true}>
+            <Mock
+                  atTop={true}
+                  scrollX={null}
+                  scrollY={null}
+                  theme={
+                        Object {
+                              "colors": Object {
+                                "alert": "#ffa000",
+                                "black": "#262626",
+                                "danger": "#d32f2f",
+                                "grayscale": Object {
+                                  "dark": "#5E5E5E",
+                                  "darker": "#383838",
+                                  "darkest": "#131313",
+                                  "light": "#D1D1D1",
+                                  "lighter": "#EBEBEB",
+                                  "lightest": "#F9F9F9",
+                                  "medium": "#ABABAB",
+                                },
+                                "grey": "#EEE",
+                                "primary": "#3333FE",
+                                "secondary": "#FDB63F",
+                                "success": "#388e3c",
+                                "white": "#FFF",
+                              },
+                              "fonts": Object {
+                                "family": Object {
+                                  "andesBlack": "andes-black, serif",
+                                  "andesLight": "andes-extralight, serif",
+                                  "montserratBlack": "montserrat-black, sans-serif",
+                                  "montserratBold": "montserrat-bold, sans-serif",
+                                  "montserratLight": "montserrat-light, sans-serif",
+                                },
+                                "size": Object {
+                                  "base": "1.4rem",
+                                  "l": "1.8rem",
+                                  "m": "1.5rem",
+                                  "reset": "62.5%",
+                                  "root": "1rem",
+                                  "s": "1.2rem",
+                                  "xl": "2.4rem",
+                                  "xs": "1rem",
+                                  "xxl": "3.2rem",
+                                  "xxxl": "5rem",
+                                },
+                              },
+                              "grid": Object {
+                                "breakpoints": Object {
+                                  "l": 992,
+                                  "m": 768,
+                                  "s": 576,
+                                  "xl": 1200,
+                                  "xs": 0,
+                                },
+                                "container": 120,
+                                "gridSize": 12,
+                                "gutterWidth": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 5,
+                                  "xs": 1.6,
+                                },
+                                "outerMargin": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 5,
+                                  "xs": 1.6,
+                                },
+                                "padding": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 5,
+                                  "xs": 1.6,
+                                },
+                              },
+                              "icons": Object {
+                                "size": Object {
+                                  "l": "2.4rem",
+                                  "m": "2rem",
+                                  "s": "1.6rem",
+                                  "xl": "3.6rem",
+                                  "xs": "1.2rem",
+                                  "xxl": "4.8rem",
+                                  "xxxl": "5.6rem",
+                                },
+                              },
+                              "spaces": Object {
+                                "l": "2.5rem",
+                                "m": "1.6rem",
+                                "s": "0.8rem",
+                                "xl": "3.2rem",
+                                "xs": "0.4rem",
+                                "xxl": "5rem",
+                                "xxxl": "10rem",
+                              },
+                            }
+                  } />
+      </styled.div>
 </styled.div>,
   ],
   "options": Object {},
@@ -457,220 +451,214 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <styled.div>
           <styled.div
-                    atTop={true} />
-          <Styled(Mock)
-                    icon="quotatis-white"
-                    size={480}
-                    to="/" />
-          <Mock
-                    atTop={true}
-                    scrollX={null}
-                    scrollY={null}
-                    theme={
-                              Object {
-                                        "colors": Object {
-                                          "alert": "#ffa000",
-                                          "black": "#262626",
-                                          "danger": "#d32f2f",
-                                          "grayscale": Object {
-                                            "dark": "#5E5E5E",
-                                            "darker": "#383838",
-                                            "darkest": "#131313",
-                                            "light": "#D1D1D1",
-                                            "lighter": "#EBEBEB",
-                                            "lightest": "#F9F9F9",
-                                            "medium": "#ABABAB",
-                                          },
-                                          "grey": "#EEE",
-                                          "primary": "#3333FE",
-                                          "secondary": "#FDB63F",
-                                          "success": "#388e3c",
-                                          "white": "#FFF",
-                                        },
-                                        "fonts": Object {
-                                          "family": Object {
-                                            "andesBlack": "andes-black, serif",
-                                            "andesLight": "andes-extralight, serif",
-                                            "montserratBlack": "montserrat-black, sans-serif",
-                                            "montserratBold": "montserrat-bold, sans-serif",
-                                            "montserratLight": "montserrat-light, sans-serif",
-                                          },
-                                          "size": Object {
-                                            "base": "1.4rem",
-                                            "l": "1.8rem",
-                                            "m": "1.5rem",
-                                            "reset": "62.5%",
-                                            "root": "1rem",
-                                            "s": "1.2rem",
-                                            "xl": "2.4rem",
-                                            "xs": "1rem",
-                                            "xxl": "3.2rem",
-                                            "xxxl": "5rem",
-                                          },
-                                        },
-                                        "grid": Object {
-                                          "breakpoints": Object {
-                                            "l": 992,
-                                            "m": 768,
-                                            "s": 576,
-                                            "xl": 1200,
-                                            "xs": 0,
-                                          },
-                                          "container": 120,
-                                          "gridSize": 12,
-                                          "gutterWidth": Object {
-                                            "l": 2.5,
-                                            "m": 2.5,
-                                            "s": 1.6,
-                                            "xl": 5,
-                                            "xs": 1.6,
-                                          },
-                                          "outerMargin": Object {
-                                            "l": 2.5,
-                                            "m": 2.5,
-                                            "s": 1.6,
-                                            "xl": 5,
-                                            "xs": 1.6,
-                                          },
-                                          "padding": Object {
-                                            "l": 2.5,
-                                            "m": 2.5,
-                                            "s": 1.6,
-                                            "xl": 5,
-                                            "xs": 1.6,
-                                          },
-                                        },
-                                        "icons": Object {
-                                          "size": Object {
-                                            "l": "2.4rem",
-                                            "m": "2rem",
-                                            "s": "1.6rem",
-                                            "xl": "3.6rem",
-                                            "xs": "1.2rem",
-                                            "xxl": "4.8rem",
-                                            "xxxl": "5.6rem",
-                                          },
-                                        },
-                                        "spaces": Object {
-                                          "l": "2.5rem",
-                                          "m": "1.6rem",
-                                          "s": "0.8rem",
-                                          "xl": "3.2rem",
-                                          "xs": "0.4rem",
-                                          "xxl": "5rem",
-                                          "xxxl": "10rem",
-                                        },
-                                      }
-                    } />
+                    atTop={true}>
+                    <Mock
+                              atTop={true}
+                              scrollX={null}
+                              scrollY={null}
+                              theme={
+                                        Object {
+                                                  "colors": Object {
+                                                    "alert": "#ffa000",
+                                                    "black": "#262626",
+                                                    "danger": "#d32f2f",
+                                                    "grayscale": Object {
+                                                      "dark": "#5E5E5E",
+                                                      "darker": "#383838",
+                                                      "darkest": "#131313",
+                                                      "light": "#D1D1D1",
+                                                      "lighter": "#EBEBEB",
+                                                      "lightest": "#F9F9F9",
+                                                      "medium": "#ABABAB",
+                                                    },
+                                                    "grey": "#EEE",
+                                                    "primary": "#3333FE",
+                                                    "secondary": "#FDB63F",
+                                                    "success": "#388e3c",
+                                                    "white": "#FFF",
+                                                  },
+                                                  "fonts": Object {
+                                                    "family": Object {
+                                                      "andesBlack": "andes-black, serif",
+                                                      "andesLight": "andes-extralight, serif",
+                                                      "montserratBlack": "montserrat-black, sans-serif",
+                                                      "montserratBold": "montserrat-bold, sans-serif",
+                                                      "montserratLight": "montserrat-light, sans-serif",
+                                                    },
+                                                    "size": Object {
+                                                      "base": "1.4rem",
+                                                      "l": "1.8rem",
+                                                      "m": "1.5rem",
+                                                      "reset": "62.5%",
+                                                      "root": "1rem",
+                                                      "s": "1.2rem",
+                                                      "xl": "2.4rem",
+                                                      "xs": "1rem",
+                                                      "xxl": "3.2rem",
+                                                      "xxxl": "5rem",
+                                                    },
+                                                  },
+                                                  "grid": Object {
+                                                    "breakpoints": Object {
+                                                      "l": 992,
+                                                      "m": 768,
+                                                      "s": 576,
+                                                      "xl": 1200,
+                                                      "xs": 0,
+                                                    },
+                                                    "container": 120,
+                                                    "gridSize": 12,
+                                                    "gutterWidth": Object {
+                                                      "l": 2.5,
+                                                      "m": 2.5,
+                                                      "s": 1.6,
+                                                      "xl": 5,
+                                                      "xs": 1.6,
+                                                    },
+                                                    "outerMargin": Object {
+                                                      "l": 2.5,
+                                                      "m": 2.5,
+                                                      "s": 1.6,
+                                                      "xl": 5,
+                                                      "xs": 1.6,
+                                                    },
+                                                    "padding": Object {
+                                                      "l": 2.5,
+                                                      "m": 2.5,
+                                                      "s": 1.6,
+                                                      "xl": 5,
+                                                      "xs": 1.6,
+                                                    },
+                                                  },
+                                                  "icons": Object {
+                                                    "size": Object {
+                                                      "l": "2.4rem",
+                                                      "m": "2rem",
+                                                      "s": "1.6rem",
+                                                      "xl": "3.6rem",
+                                                      "xs": "1.2rem",
+                                                      "xxl": "4.8rem",
+                                                      "xxxl": "5.6rem",
+                                                    },
+                                                  },
+                                                  "spaces": Object {
+                                                    "l": "2.5rem",
+                                                    "m": "1.6rem",
+                                                    "s": "0.8rem",
+                                                    "xl": "3.2rem",
+                                                    "xs": "0.4rem",
+                                                    "xxl": "5rem",
+                                                    "xxxl": "10rem",
+                                                  },
+                                                }
+                              } />
+          </styled.div>
 </styled.div>,
         "_debugID": 4,
         "_renderedOutput": <styled.div>
           <styled.div
-                    atTop={true} />
-          <Styled(Mock)
-                    icon="quotatis-white"
-                    size={480}
-                    to="/" />
-          <Mock
-                    atTop={true}
-                    scrollX={null}
-                    scrollY={null}
-                    theme={
-                              Object {
-                                        "colors": Object {
-                                          "alert": "#ffa000",
-                                          "black": "#262626",
-                                          "danger": "#d32f2f",
-                                          "grayscale": Object {
-                                            "dark": "#5E5E5E",
-                                            "darker": "#383838",
-                                            "darkest": "#131313",
-                                            "light": "#D1D1D1",
-                                            "lighter": "#EBEBEB",
-                                            "lightest": "#F9F9F9",
-                                            "medium": "#ABABAB",
-                                          },
-                                          "grey": "#EEE",
-                                          "primary": "#3333FE",
-                                          "secondary": "#FDB63F",
-                                          "success": "#388e3c",
-                                          "white": "#FFF",
-                                        },
-                                        "fonts": Object {
-                                          "family": Object {
-                                            "andesBlack": "andes-black, serif",
-                                            "andesLight": "andes-extralight, serif",
-                                            "montserratBlack": "montserrat-black, sans-serif",
-                                            "montserratBold": "montserrat-bold, sans-serif",
-                                            "montserratLight": "montserrat-light, sans-serif",
-                                          },
-                                          "size": Object {
-                                            "base": "1.4rem",
-                                            "l": "1.8rem",
-                                            "m": "1.5rem",
-                                            "reset": "62.5%",
-                                            "root": "1rem",
-                                            "s": "1.2rem",
-                                            "xl": "2.4rem",
-                                            "xs": "1rem",
-                                            "xxl": "3.2rem",
-                                            "xxxl": "5rem",
-                                          },
-                                        },
-                                        "grid": Object {
-                                          "breakpoints": Object {
-                                            "l": 992,
-                                            "m": 768,
-                                            "s": 576,
-                                            "xl": 1200,
-                                            "xs": 0,
-                                          },
-                                          "container": 120,
-                                          "gridSize": 12,
-                                          "gutterWidth": Object {
-                                            "l": 2.5,
-                                            "m": 2.5,
-                                            "s": 1.6,
-                                            "xl": 5,
-                                            "xs": 1.6,
-                                          },
-                                          "outerMargin": Object {
-                                            "l": 2.5,
-                                            "m": 2.5,
-                                            "s": 1.6,
-                                            "xl": 5,
-                                            "xs": 1.6,
-                                          },
-                                          "padding": Object {
-                                            "l": 2.5,
-                                            "m": 2.5,
-                                            "s": 1.6,
-                                            "xl": 5,
-                                            "xs": 1.6,
-                                          },
-                                        },
-                                        "icons": Object {
-                                          "size": Object {
-                                            "l": "2.4rem",
-                                            "m": "2rem",
-                                            "s": "1.6rem",
-                                            "xl": "3.6rem",
-                                            "xs": "1.2rem",
-                                            "xxl": "4.8rem",
-                                            "xxxl": "5.6rem",
-                                          },
-                                        },
-                                        "spaces": Object {
-                                          "l": "2.5rem",
-                                          "m": "1.6rem",
-                                          "s": "0.8rem",
-                                          "xl": "3.2rem",
-                                          "xs": "0.4rem",
-                                          "xxl": "5rem",
-                                          "xxxl": "10rem",
-                                        },
-                                      }
-                    } />
+                    atTop={true}>
+                    <Mock
+                              atTop={true}
+                              scrollX={null}
+                              scrollY={null}
+                              theme={
+                                        Object {
+                                                  "colors": Object {
+                                                    "alert": "#ffa000",
+                                                    "black": "#262626",
+                                                    "danger": "#d32f2f",
+                                                    "grayscale": Object {
+                                                      "dark": "#5E5E5E",
+                                                      "darker": "#383838",
+                                                      "darkest": "#131313",
+                                                      "light": "#D1D1D1",
+                                                      "lighter": "#EBEBEB",
+                                                      "lightest": "#F9F9F9",
+                                                      "medium": "#ABABAB",
+                                                    },
+                                                    "grey": "#EEE",
+                                                    "primary": "#3333FE",
+                                                    "secondary": "#FDB63F",
+                                                    "success": "#388e3c",
+                                                    "white": "#FFF",
+                                                  },
+                                                  "fonts": Object {
+                                                    "family": Object {
+                                                      "andesBlack": "andes-black, serif",
+                                                      "andesLight": "andes-extralight, serif",
+                                                      "montserratBlack": "montserrat-black, sans-serif",
+                                                      "montserratBold": "montserrat-bold, sans-serif",
+                                                      "montserratLight": "montserrat-light, sans-serif",
+                                                    },
+                                                    "size": Object {
+                                                      "base": "1.4rem",
+                                                      "l": "1.8rem",
+                                                      "m": "1.5rem",
+                                                      "reset": "62.5%",
+                                                      "root": "1rem",
+                                                      "s": "1.2rem",
+                                                      "xl": "2.4rem",
+                                                      "xs": "1rem",
+                                                      "xxl": "3.2rem",
+                                                      "xxxl": "5rem",
+                                                    },
+                                                  },
+                                                  "grid": Object {
+                                                    "breakpoints": Object {
+                                                      "l": 992,
+                                                      "m": 768,
+                                                      "s": 576,
+                                                      "xl": 1200,
+                                                      "xs": 0,
+                                                    },
+                                                    "container": 120,
+                                                    "gridSize": 12,
+                                                    "gutterWidth": Object {
+                                                      "l": 2.5,
+                                                      "m": 2.5,
+                                                      "s": 1.6,
+                                                      "xl": 5,
+                                                      "xs": 1.6,
+                                                    },
+                                                    "outerMargin": Object {
+                                                      "l": 2.5,
+                                                      "m": 2.5,
+                                                      "s": 1.6,
+                                                      "xl": 5,
+                                                      "xs": 1.6,
+                                                    },
+                                                    "padding": Object {
+                                                      "l": 2.5,
+                                                      "m": 2.5,
+                                                      "s": 1.6,
+                                                      "xl": 5,
+                                                      "xs": 1.6,
+                                                    },
+                                                  },
+                                                  "icons": Object {
+                                                    "size": Object {
+                                                      "l": "2.4rem",
+                                                      "m": "2rem",
+                                                      "s": "1.6rem",
+                                                      "xl": "3.6rem",
+                                                      "xs": "1.2rem",
+                                                      "xxl": "4.8rem",
+                                                      "xxxl": "5.6rem",
+                                                    },
+                                                  },
+                                                  "spaces": Object {
+                                                    "l": "2.5rem",
+                                                    "m": "1.6rem",
+                                                    "s": "0.8rem",
+                                                    "xl": "3.2rem",
+                                                    "xs": "0.4rem",
+                                                    "xxl": "5rem",
+                                                    "xxxl": "10rem",
+                                                  },
+                                                }
+                              } />
+          </styled.div>
 </styled.div>,
       },
       "_renderedNodeType": 1,

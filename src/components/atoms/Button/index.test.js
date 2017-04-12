@@ -1,9 +1,10 @@
 import React from 'react'
 import { mount, shallow } from 'enzyme'
 import Button from './'
+import theme from '../../themes/default'
 
-const wrap = (props = {}) => shallow(<Button {...props} />)
-const wrapMounted = (props = {}) => mount(<Button {...props} />)
+const wrap = (props = {}) => shallow(<Button theme={theme} {...props} />)
+const wrapMounted = (props = {}) => mount(<Button theme={theme} {...props} />)
 
 it('renders with different combination of props', () => {
   wrap({ disabled: true })

@@ -3,11 +3,9 @@ import styled, { css } from 'styled-components'
 import { ifThen } from 'utils/style'
 import injectScroll from 'hoc/component/injectScroll'
 
-import { IconLink } from 'components'
-import { PrimaryNavigation } from 'containers'
+import { PrimaryNavigation } from 'components'
 
 const Wrapper = styled.div`
-  position: absolute;
   width: 100%;
   display: flex;
 
@@ -16,35 +14,23 @@ const Wrapper = styled.div`
   }
 `
 
-const backgroundStyles = ({ atTop }) => css`
-  position: fixed;
+const Background = styled.div`${({ atTop }) => css`
   width: 100%;
-  height: 20%;
+  height: 120px;
   transition: background-color 200ms linear;
-  transition: height 300ms linear, background-color 200ms linear;
+  transition: height 300ms ease-in-out, background-color 300ms ease-in-out;
   ${ifThen(!atTop, `
+    transition: height 200ms ease-in, background-color 200ms ease-out;
     background: white;
-    height: 12%;
+    height: 80px;
   `)};
-`
-
-const Background = styled.div`${backgroundStyles}`
-
-const StyledIconLink = styled(IconLink)`
-  padding-top: 0;
-  margin: 0;
-  position: fixed;
-`
+`}`
 
 const Header = ({ atTop, ...props }) => (
   <Wrapper>
-    <Background atTop={atTop} />
-    <StyledIconLink
-      to="/"
-      icon={atTop ? 'quotatis-white' : 'quotatis'}
-      size={480}
-    />
-    <PrimaryNavigation {...props} atTop={atTop} />
+    <Background atTop={atTop}>
+      <PrimaryNavigation {...props} atTop={atTop} />
+    </Background>
   </Wrapper>
 )
 

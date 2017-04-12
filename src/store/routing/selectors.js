@@ -1,1 +1,2 @@
-export default state => state.routing.locationBeforeTransitions.pathname
+// eslint-disable-next-line import/prefer-default-export
+export const getPathname = state => state.locationBeforeTransitions.pathname

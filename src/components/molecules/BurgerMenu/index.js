@@ -8,6 +8,7 @@ import { List, Section, Link } from 'components'
 
 const styles = css`
   margin: 0;
+  margin-top: 100px;
   padding: ${theme('spaces.m')} 0;
   list-style: none;
   border-bottom: 1px solid ${theme('colors.grayscale.light')};

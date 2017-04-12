@@ -1,13 +1,13 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { theme } from 'utils/style'
 
-import { AccountMenu, BurgerButton, DropDownMenu } from 'containers'
-import SignInDropDownMenu from './SignInDropDownMenu'
+import { AccountButton } from 'containers'
 
 const Nav = styled.nav`
   position: absolute;
-  right: 0;
+  right: 55px;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,44 +35,16 @@ const Nav = styled.nav`
   }
 `
 
-const StyledAccountMenu = styled(AccountMenu)`
-  display: block;
-`
-
-const StyledSignInDropDownMenu = styled(SignInDropDownMenu)`
-  display: block;
-`
-
-StyledAccountMenu.displayName = 'AccountMenu'
-StyledSignInDropDownMenu.displayName = 'SignInDropDownMenu'
-
 const StyledItemLogin = styled.li`
-  position: fixed;
   right: 60px;
 `
-const StyledItemBurger = styled.li`
-  position: fixed;
-  right: 20px;
-  z-index: 999;
-`
 
-const PrimaryNavigation = ({ isAuthenticated, ...props }) => (
+const PrimaryNavigation = () => (
   <Nav>
     <StyledItemLogin>
-      {
-        isAuthenticated ?
-          <DropDownMenu label="user.my_account"><StyledAccountMenu /></DropDownMenu>
-          : <StyledSignInDropDownMenu {...props} />
-      }
+      <AccountButton />
     </StyledItemLogin>
-    <StyledItemBurger>
-      <BurgerButton />
-    </StyledItemBurger>
   </Nav>
 )
-
-PrimaryNavigation.propTypes = {
-  isAuthenticated: PropTypes.bool,
-}
 
 export default PrimaryNavigation

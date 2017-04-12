@@ -15,6 +15,8 @@ const fr = {
   'country.spain': 'Espagne',
   'country.great_britain': 'Grande-Bretagne',
 
+  'login.coming_back': 'De retour ?',
+
   'firm.find_pro': 'Trouver un artisan',
   'firm.resource': 'Ressource pour mes travaux',
   'firm.i_am_pro': 'Je suis artisan',
@@ -72,7 +74,7 @@ const fr = {
 
   'user.gender': 'Sexe',
   'user.forget_password': 'Mot de passe oublié ?',
-  'user.create_account': 'Je veux créer un compte',
+  'user.create_account': 'Inscripton',
   'user.sign_up': 'S\'inscrire',
   'user.mr': 'Mr',
   'user.mrs': 'Mme',
@@ -86,6 +88,7 @@ const fr = {
   'user.messaging': 'Messagerie',
   'user.log_out': 'Déconnexion',
   'user.sign_in': 'Connexion',
+  'user.no_account_question': 'Vous n\'avez pas de compte ?',
   'user.update': 'Mettre à jour',
   'user.mobile_phone': 'Téléphone mobile',
   'user.fixed_phone': 'Téléphone fixe',
@@ -118,9 +121,9 @@ const fr = {
   'user.social_network': 'Social Networks Parameters FR',
   'user.choose_img': 'Choississez une image',
   'user.drop_img': 'Try dropping some files here, or click to select files to upload. FR',
-  'user.forgot_password.heading': 'Mot de passe oublié',
+  'user.forgot_password.heading': 'Mot de passe oublié ?',
   'user.account_updated': 'Votre compte à été mise à jour',
-  'form.input.button.phone': 'Téléphone',
+  'user.coming_back': 'De retour ?',
 
   'validators.required_field': 'Champs requis',
   'validators.min_length': 'Doit avoir au moins {min} caractères',

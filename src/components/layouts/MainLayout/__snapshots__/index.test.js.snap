@@ -13,7 +13,6 @@ ShallowWrapper {
             test children
         </Mock>
     }>
-    <Mock />
     test children
 </Mock>,
   "nodes": Array [
@@ -24,7 +23,6 @@ ShallowWrapper {
                   test children
             </Mock>
       }>
-      <Mock />
       test children
 </Mock>,
   ],
@@ -73,7 +71,6 @@ ShallowWrapper {
                               test children
                     </Mock>
           }>
-          <Mock />
           test children
 </Mock>,
         "_debugID": 2,
@@ -84,7 +81,6 @@ ShallowWrapper {
                               test children
                     </Mock>
           }>
-          <Mock />
           test children
 </Mock>,
       },

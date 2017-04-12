@@ -72,7 +72,7 @@ const es = {
 
   'user.gender': 'Gender ES',
   'user.forget_password': 'Forget password ES ?',
-  'user.create_account': 'Je veux créer un compte ES',
+  'user.create_account': 'Inscripton ES',
   'user.sign_up': 'Sign up ES',
   'user.mr': 'Mr ES',
   'user.mrs': 'Mrs ES',
@@ -86,6 +86,7 @@ const es = {
   'user.messaging': 'Messaging ES',
   'user.log_out': 'Log out ES',
   'user.sign_in': 'Connexion ES',
+  'user.no_account_question': 'No account yet? ES',
   'user.update': 'Update ES',
   'user.fixed_phone': 'Phone ES',
   'user.mobile_phone': 'Mobile phone number ES',
@@ -120,7 +121,7 @@ const es = {
   'user.drop_img': 'Try dropping some files here, or click to select files to upload. ES',
   'user.forgot_password.heading': 'Contraseña olvidada',
   'user.account_updated': 'Account Updated ES',
-  'form.input.button.phone': 'Phone ES',
+  'user.coming_back': 'Coming back? ES',
 
   'validators.required_field': 'Required field ES',
   'validators.min_length': 'Must be at least {min} characters ES',

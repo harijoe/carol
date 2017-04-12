@@ -2,8 +2,20 @@ import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
 import FacebookLoginBase from 'react-facebook-login'
 import GoogleLoginBase from 'react-google-login'
-
+import styled from 'styled-components'
 import { authLogin } from 'store/actions'
+
+import { Icon } from 'components'
+
+const StyledIcon = styled(Icon)`
+  position: absolute;
+  top: 13px;
+  left: 13px;
+`
+
+const Wrapper = styled.div`
+  position: relative;
+`
 
 class SocialLoginContainer extends Component {
   static propTypes = {
@@ -24,14 +36,24 @@ class SocialLoginContainer extends Component {
 
   render() {
     const { platform, ...props } = this.props
+    let SocialButton
 
     switch (platform) {
       case 'facebook':
-        return (<FacebookLoginBase callback={this.handleResponse} {...props} />)
+        SocialButton = <FacebookLoginBase callback={this.handleResponse} cssClass="social facebook" {...props} />
+        break
       case 'google':
+        SocialButton = <GoogleLoginBase onSuccess={this.handleResponse} className="social google" {...props} />
+        break
       default:
-        return (<GoogleLoginBase onSuccess={this.handleResponse} {...props} />)
     }
+
+    return (
+      <Wrapper>
+        {SocialButton}
+        <StyledIcon icon={`${platform}-login`} size={50} />
+      </Wrapper>
+    )
   }
 }
 

@@ -14,13 +14,13 @@ import {
   AUTH_LOGIN,
   AUTH_LOGOUT,
   authLogin,
+  closeAllPopin,
 } from 'store/actions'
-import { fromAuth } from 'store/selectors'
+import { fromAuth, fromRouting } from 'store/selectors'
 import { fetchWithoutRefreshingToken } from 'sagas/fetch'
 import { requestChannel, responseChannel } from 'sagas/refreshToken'
 import saveToken from 'sagas/saveToken'
 import removeToken from 'sagas/removeToken'
-import getPathname from '../routing/selectors'
 
 /*
   returns :
@@ -42,8 +42,11 @@ export function* handleAuthLoginRequest({ grantType = 'client_credentials', form
     yield* fetchWithoutRefreshingToken(authLogin(grantType), 'get', url)
     yield* saveToken(grantType)
 
-    if (yield select(fromAuth.isAuthenticated)) {
-      if ((yield select(getPathname)) === 'project-elaboration') {
+    const pathName = yield select(fromRouting.getPathname)
+    const isAuthenticated = yield select(fromAuth.isAuthenticated)
+
+    if (isAuthenticated) {
+      if (pathName === 'project-elaboration') {
         yield put(projectElaborationConversationCurrent.request())
       } else {
         yield put(projectElaborationConversationsDetails.request())
@@ -62,14 +65,21 @@ export function* handleAuthLoginRequest({ grantType = 'client_credentials', form
 
 function* handleAuthLogout() {
   yield* removeToken()
+  yield put(closeAllPopin())
   yield put(resetUser())
   yield put(projectElaborationReset)
+  const pathName = yield select(fromRouting.getPathname)
 
-  if ((yield select(getPathname)) === '/') {
+  if (pathName === '/') {
     yield put(projectElaborationHeroDetails.request())
   } else {
     yield put(push('/'))
   }
+}
+
+function* handleAuthLoginSuccess() {
+  yield select(fromAuth.isAuthenticated)
+  yield put(closeAllPopin())
 }
 
 /*
@@ -91,6 +101,7 @@ function* watchAuthChannelRequest() {
 export default function* () {
   yield [
     takeLatest(AUTH_LOGIN.REQUEST, handleAuthLoginRequest),
+    takeLatest(AUTH_LOGIN.SUCCESS, handleAuthLoginSuccess),
     takeLatest(AUTH_LOGOUT, handleAuthLogout),
     fork(watchAuthChannelRequest),
   ]

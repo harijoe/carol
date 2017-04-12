@@ -4,7 +4,7 @@ import { theme, merge } from 'utils/style'
 
 const itemBurgerHeight = 2
 
-const styles = ({ fullscreenNavigation }) => {
+const styles = ({ isPopin }) => {
   let commonStyles = css`
     &, &::before, &::after {
       position: absolute;
@@ -41,7 +41,7 @@ const styles = ({ fullscreenNavigation }) => {
     }
   `
 
-  if (fullscreenNavigation === true) {
+  if (isPopin === true) {
     commonStyles = merge(commonStyles, css`
       & {
         transition-delay: .14s;
@@ -60,6 +60,10 @@ const styles = ({ fullscreenNavigation }) => {
         transition: bottom 0.1s ease, transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.14s, -webkit-transform 0.1s cubic-bezier(0.215, 0.61, 0.355, 1) 0.14s;
         transform: rotate(-90deg);
       }
+
+      &, &::before, &::after {
+        background: ${theme('colors.grayscale.dark')};
+      }
     `)
   }
 
@@ -69,21 +73,24 @@ const styles = ({ fullscreenNavigation }) => {
 const StyledSpan = styled.span`${styles}`
 
 const Wrapper = styled.span`
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 100;
   height: calc(2rem * 2);
   width: calc(2rem * 2);
-  z-index: 999;
-  display: block;
 `
 
-const BurgerButton = ({ toggleFullscreenNavigation, fullscreenNavigation }) => (
-  <Wrapper onClick={toggleFullscreenNavigation}>
-    <StyledSpan fullscreenNavigation={fullscreenNavigation} />
+const BurgerButton = ({ isPopin, togglePopinNavigation, closeAllPopin }) => (
+  <Wrapper onClick={isPopin ? closeAllPopin : togglePopinNavigation}>
+    <StyledSpan isPopin={isPopin} />
   </Wrapper>
 )
 
 BurgerButton.propTypes = {
-  toggleFullscreenNavigation: PropTypes.func.isRequired,
-  fullscreenNavigation: PropTypes.bool,
+  togglePopinNavigation: PropTypes.func.isRequired,
+  closeAllPopin: PropTypes.func.isRequired,
+  isPopin: PropTypes.bool,
 }
 
 export default BurgerButton

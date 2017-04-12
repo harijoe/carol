@@ -1,4 +1,4 @@
-exports[`test renders PrimaryNavigation with AccountMenu 1`] = `
+exports[`test renders PrimaryNavigation component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -8,23 +8,11 @@ ShallowWrapper {
   "length": 1,
   "node": <styled.nav>
     <styled.li>
-        <Mock
-            label="user.my_account">
-            <AccountMenu />
-        </Mock>
-    </styled.li>
-    <styled.li>
         <Mock />
     </styled.li>
 </styled.nav>,
   "nodes": Array [
     <styled.nav>
-      <styled.li>
-            <Mock
-                  label="user.my_account">
-                  <AccountMenu />
-            </Mock>
-      </styled.li>
       <styled.li>
             <Mock />
       </styled.li>
@@ -36,17 +24,14 @@ ShallowWrapper {
       "_calledComponentWillUnmount": false,
       "_compositeType": 2,
       "_context": Object {},
-      "_currentElement": <PrimaryNavigation
-        isAuthenticated={true} />,
+      "_currentElement": <PrimaryNavigation />,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
       "_instance": StatelessComponent {
         "_reactInternalInstance": [Circular],
         "context": Object {},
-        "props": Object {
-          "isAuthenticated": true,
-        },
+        "props": Object {},
         "refs": Object {},
         "state": null,
         "updater": Object {
@@ -69,24 +54,12 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <styled.nav>
           <styled.li>
-                    <Mock
-                              label="user.my_account">
-                              <AccountMenu />
-                    </Mock>
-          </styled.li>
-          <styled.li>
                     <Mock />
           </styled.li>
 </styled.nav>,
         "_debugID": 2,
         "_renderedOutput": <styled.nav>
           <styled.li>
-                    <Mock
-                              label="user.my_account">
-                              <AccountMenu />
-                    </Mock>
-          </styled.li>
-          <styled.li>
                     <Mock />
           </styled.li>
 </styled.nav>,
@@ -101,103 +74,6 @@ ShallowWrapper {
     "render": [Function],
   },
   "root": [Circular],
-  "unrendered": <PrimaryNavigation
-    isAuthenticated={true} />,
-}
-`;
-
-exports[`test renders PrimaryNavigation with SignInDropDownMenu 1`] = `
-ShallowWrapper {
-  "complexSelector": ComplexSelector {
-    "buildPredicate": [Function],
-    "childrenOfNode": [Function],
-    "findWhereUnwrapped": [Function],
-  },
-  "length": 1,
-  "node": <styled.nav>
-    <styled.li>
-        <SignInDropDownMenu />
-    </styled.li>
-    <styled.li>
-        <Mock />
-    </styled.li>
-</styled.nav>,
-  "nodes": Array [
-    <styled.nav>
-      <styled.li>
-            <SignInDropDownMenu />
-      </styled.li>
-      <styled.li>
-            <Mock />
-      </styled.li>
-</styled.nav>,
-  ],
-  "options": Object {},
-  "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
-      "_calledComponentWillUnmount": false,
-      "_compositeType": 2,
-      "_context": Object {},
-      "_currentElement": <PrimaryNavigation
-        isAuthenticated={false} />,
-      "_debugID": 3,
-      "_hostContainerInfo": null,
-      "_hostParent": null,
-      "_instance": StatelessComponent {
-        "_reactInternalInstance": [Circular],
-        "context": Object {},
-        "props": Object {
-          "isAuthenticated": false,
-        },
-        "refs": Object {},
-        "state": null,
-        "updater": Object {
-          "enqueueCallback": [Function],
-          "enqueueCallbackInternal": [Function],
-          "enqueueElementInternal": [Function],
-          "enqueueForceUpdate": [Function],
-          "enqueueReplaceState": [Function],
-          "enqueueSetState": [Function],
-          "isMounted": [Function],
-          "validateCallback": [Function],
-        },
-      },
-      "_mountOrder": 2,
-      "_pendingCallbacks": null,
-      "_pendingElement": null,
-      "_pendingForceUpdate": false,
-      "_pendingReplaceState": false,
-      "_pendingStateQueue": null,
-      "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <styled.nav>
-          <styled.li>
-                    <SignInDropDownMenu />
-          </styled.li>
-          <styled.li>
-                    <Mock />
-          </styled.li>
-</styled.nav>,
-        "_debugID": 4,
-        "_renderedOutput": <styled.nav>
-          <styled.li>
-                    <SignInDropDownMenu />
-          </styled.li>
-          <styled.li>
-                    <Mock />
-          </styled.li>
-</styled.nav>,
-      },
-      "_renderedNodeType": 1,
-      "_rootNodeID": 0,
-      "_topLevelWrapper": null,
-      "_updateBatchNumber": null,
-      "_warnedAboutRefsInRender": false,
-    },
-    "getRenderOutput": [Function],
-    "render": [Function],
-  },
-  "root": [Circular],
-  "unrendered": <PrimaryNavigation
-    isAuthenticated={false} />,
+  "unrendered": <PrimaryNavigation />,
 }
 `;

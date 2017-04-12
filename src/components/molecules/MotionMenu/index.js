@@ -11,7 +11,11 @@ const Background = styled.div`
   transition: background-color 0.3s ${props => props.isOpen ? 'ease' : 'ease-out'};
   ${props => props.isOpen ? 'background-color: rgba(0, 0, 0, .9);' : ''}
   border-radius: 100%;
-  z-index: 999;
+`
+
+const Wrapper = styled.div`
+  position: fixed;
+  ${props => props.isOpen ? 'z-index: 999' : 'z-index: 25'};
 `
 
 const StyledMainIcon = styled(Icon)`
@@ -36,9 +40,10 @@ const StyledMainButton = styled.button`
   font-weight: lighter;
   border: 1px solid rgba(0, 0, 0, 0.1);
   right: 10px;
-  z-index: 1002;
+  z-index: 2;
   width: 60px;
   height: 60px;
+  box-shadow: 0 0 10px 0 rgba(19, 19, 19, 0.15);
 
   &:focus {
     outline: none;
@@ -55,7 +60,7 @@ const childButtonCss = css`
   box-shadow: rgba(0, 0, 0, 0.2) 0 1px 3px;
   color: #8898a5;
   border: none;
-  z-index: 1001;
+  z-index: 1;
 
   &:focus {
     outline: none;
@@ -283,7 +288,7 @@ class MotionMenu extends Component {
     const style = isOpen ? this.finalBackgroundStyles() : this.initialBackgroundStyles()
 
     return (
-      <div>
+      <Wrapper isOpen={this.state.isOpen}>
         <Motion style={style}>
           {
             ({ width, height, scale }) =>
@@ -321,7 +326,7 @@ class MotionMenu extends Component {
               </StyledMainButton>
           }
         </Motion>
-      </div>
+      </Wrapper>
     )
   }
 }

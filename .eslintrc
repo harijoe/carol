@@ -19,6 +19,7 @@
     "max-len": 0,
     "global-require": 0,
     "comma-dangle": ["error", "always-multiline"],
+    "curly": "error",
     "no-confusing-arrow": 0,
     "no-console": ["error", { "allow": ["warn", "error", "info"] }],
     "jsx-quotes": [2, "prefer-double"],

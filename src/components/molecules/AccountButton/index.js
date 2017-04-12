@@ -13,18 +13,18 @@ const StyledIcon = styled(Icon)`${({ atTop }) => css`
   `)}
 `}`
 
-const LogInButton = ({ onClick, atTop }) => (
+const AccountButton = ({ togglePopinAccount, atTop }) => (
   <StyledIcon
-    onClick={onClick}
+    onClick={togglePopinAccount}
     size={32}
     icon="login"
     atTop={atTop}
   />
 )
 
-LogInButton.propTypes = {
-  onClick: PropTypes.func,
+AccountButton.propTypes = {
+  togglePopinAccount: PropTypes.func,
   atTop: PropTypes.bool,
 }
 
-export default injectScroll(LogInButton)
+export default injectScroll(AccountButton)

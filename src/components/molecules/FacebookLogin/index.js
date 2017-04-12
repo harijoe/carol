@@ -6,17 +6,15 @@ import messages from 'utils/messages'
 import { SocialLogin } from 'containers'
 
 const FacebookLogin = ({ intl }) => (
-  <div>
-    <SocialLogin
-      platform="facebook"
-      appId={facebook.appId}
-      grantType={facebook.grantType}
-      icon="fa-facebook"
-      size="small"
-      textButton={intl.formatMessage(messages('user.continue_with_facebook').label)}
-      scope={facebook.scope}
-    />
-  </div>
+  <SocialLogin
+    platform="facebook"
+    appId={facebook.appId}
+    grantType={facebook.grantType}
+    icon="fa-facebook"
+    size="small"
+    textButton={intl.formatMessage(messages('user.continue_with_facebook').label)}
+    scope={facebook.scope}
+  />
 )
 
 FacebookLogin.propTypes = {

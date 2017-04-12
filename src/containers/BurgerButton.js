@@ -3,18 +3,19 @@ import { connect } from 'react-redux'
 
 import { BurgerButton } from 'components'
 import { fromContext } from 'store/selectors'
-import { toggleFullscreenNavigation } from 'store/actions'
+import { togglePopinNavigation, closeAllPopin } from 'store/actions'
 
 const BurgerButtonContainer = props => (
   <BurgerButton {...props} />
 )
 
 const mapStateToProps = state => ({
-  fullscreenNavigation: fromContext.getFullscreenNavigation(state),
+  isPopin: fromContext.isPopin(state),
 })
 
 const mapDispatchToProps = dispatch => ({
-  toggleFullscreenNavigation: () => dispatch(toggleFullscreenNavigation()),
+  togglePopinNavigation: () => dispatch(togglePopinNavigation()),
+  closeAllPopin: () => dispatch(closeAllPopin()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(BurgerButtonContainer)
