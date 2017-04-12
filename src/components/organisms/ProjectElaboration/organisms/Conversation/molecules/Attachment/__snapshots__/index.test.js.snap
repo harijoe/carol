@@ -6,27 +6,45 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <Styled(Mock)>
-    <Styled(Mock)>
-        <Styled(Mock)
-            onClick={[Function]}>
-            <Mock
-                image="test_img.png"
-                title="test title" />
-        </Styled(Mock)>
-    </Styled(Mock)>
-</Styled(Mock)>,
+  "node": <AttachmentGeneric
+    attachment={
+        Object {
+            "payload": Object {
+              "elements": Array [
+                Object {
+                  "buttons": Array [
+                    Object {
+                      "payload": "153-513-545133",
+                    },
+                  ],
+                  "image_url": "test_img.png",
+                  "title": "test title",
+                },
+              ],
+            },
+          }
+    }
+    reply={[Function]} />,
   "nodes": Array [
-    <Styled(Mock)>
-      <Styled(Mock)>
-            <Styled(Mock)
-                  onClick={[Function]}>
-                  <Mock
-                        image="test_img.png"
-                        title="test title" />
-            </Styled(Mock)>
-      </Styled(Mock)>
-</Styled(Mock)>,
+    <AttachmentGeneric
+      attachment={
+            Object {
+                  "payload": Object {
+                    "elements": Array [
+                      Object {
+                        "buttons": Array [
+                          Object {
+                            "payload": "153-513-545133",
+                          },
+                        ],
+                        "image_url": "test_img.png",
+                        "title": "test title",
+                      },
+                    ],
+                  },
+                }
+      }
+      reply={[Function]} />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -97,27 +115,45 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <Styled(Mock)>
-          <Styled(Mock)>
-                    <Styled(Mock)
-                              onClick={[Function]}>
-                              <Mock
-                                        image="test_img.png"
-                                        title="test title" />
-                    </Styled(Mock)>
-          </Styled(Mock)>
-</Styled(Mock)>,
+        "_currentElement": <AttachmentGeneric
+          attachment={
+                    Object {
+                              "payload": Object {
+                                "elements": Array [
+                                  Object {
+                                    "buttons": Array [
+                                      Object {
+                                        "payload": "153-513-545133",
+                                      },
+                                    ],
+                                    "image_url": "test_img.png",
+                                    "title": "test title",
+                                  },
+                                ],
+                              },
+                            }
+          }
+          reply={[Function]} />,
         "_debugID": 2,
-        "_renderedOutput": <Styled(Mock)>
-          <Styled(Mock)>
-                    <Styled(Mock)
-                              onClick={[Function]}>
-                              <Mock
-                                        image="test_img.png"
-                                        title="test title" />
-                    </Styled(Mock)>
-          </Styled(Mock)>
-</Styled(Mock)>,
+        "_renderedOutput": <AttachmentGeneric
+          attachment={
+                    Object {
+                              "payload": Object {
+                                "elements": Array [
+                                  Object {
+                                    "buttons": Array [
+                                      Object {
+                                        "payload": "153-513-545133",
+                                      },
+                                    ],
+                                    "image_url": "test_img.png",
+                                    "title": "test title",
+                                  },
+                                ],
+                              },
+                            }
+          }
+          reply={[Function]} />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
