@@ -1,22 +1,32 @@
 import { put, select } from 'redux-saga/effects'
+import cookie from 'react-cookie'
+import { push } from 'react-router-redux'
+import uuid from 'uuid/v4'
 import { fromProjectElaboration } from 'store/selectors'
-
 import { takeLatest } from 'utils/effects'
 import fetch from 'sagas/fetch'
+
 import {
-  PROJECT_ELABORATION_REPLY,
+  PROJECT_ELABORATION_CONVERSATION_REPLY,
   PROJECT_ELABORATION_HERO_SET_RESPONSE,
   PROJECT_ELABORATION_HERO_DETAILS,
+  PROJECT_ELABORATION_CONVERSATIONS_DETAILS,
+  PROJECT_ELABORATION_CONVERSATIONS_SELECT,
+  PROJECT_ELABORATION_RESET,
+  PROJECT_ELABORATION_CONVERSATION_CURRENT,
   projectElaborationReply,
-  setProjectElaborationResponse,
-  heroDetails,
+  projectElaborationConversationsDetails,
+  setProjectElaborationConversationResponse,
+  projectElaborationConversationDetails,
+  setProjectElaborationSessionId,
+  projectElaborationHeroDetails,
 } from './actions'
 
-function* replyProjectElaboration({ text, payload = null }) {
-  const user = yield select(fromProjectElaboration.getUser)
+function* replyConversation({ text, payload = null }) {
+  const user = yield select(fromProjectElaboration.getSessionId)
 
-  if (!['new_project.reset', 'new_project.back'].includes(text)) {
-    yield put(setProjectElaborationResponse(text))
+  if (!['new_project.reset', 'new_project.back', 'new_project.current'].includes(text)) {
+    yield put(setProjectElaborationConversationResponse(text))
   }
 
   yield* fetch(projectElaborationReply, 'post', '/chatbot', {}, {
@@ -29,12 +39,37 @@ function* replyProjectElaboration({ text, payload = null }) {
   })
 }
 
+function* getConversations() {
+  const sessionId = yield select(fromProjectElaboration.getSessionId)
+
+  yield* fetch(projectElaborationConversationsDetails, 'get', `/chatbot-conversations?sessionId=${sessionId}`)
+}
+
+function* getConversationCurrent() {
+  yield* getConversations()
+
+  if ((yield select(fromProjectElaboration.hasActiveConversation))) {
+    yield* replyConversation({ text: 'new_project.current' })
+  } else if (!(yield select(fromProjectElaboration.hasConversations))) {
+    yield* replyConversation({ text: 'new_project.reset' })
+  }
+}
+
+function* selectConversation({ authType }) {
+  yield put(projectElaborationConversationDetails(authType))
+
+  const sessionId = yield select(fromProjectElaboration.getSessionId)
+
+  cookie.save('project_elaboration_session_id', sessionId)
+  yield* replyConversation({ text: 'new_project.current' })
+}
+
 function* replyHero() {
   const hero = yield select(fromProjectElaboration.getHero)
-  const user = yield select(fromProjectElaboration.getUser)
+  const user = yield select(fromProjectElaboration.getSessionId)
 
-  yield* replyProjectElaboration({ text: 'new_project.reset' })
-  yield put(setProjectElaborationResponse(hero[1].response.text))
+  yield* replyConversation({ text: 'new_project.reset' })
+  yield put(setProjectElaborationConversationResponse(hero[1].response.text))
   yield* fetch(projectElaborationReply, 'post', '/chatbot', {}, {
     message: {
       text: hero[1].response.text,
@@ -43,24 +78,43 @@ function* replyHero() {
     user,
     channel: 'project',
   })
+  yield put(push('/project-elaboration'))
 }
 
 function* requestHero() {
-  const user = yield select(fromProjectElaboration.getUser)
+  const user = yield select(fromProjectElaboration.getSessionId)
 
-  yield* fetch(heroDetails, 'post', '/chatbot', {}, {
-    message: {
-      text: 'new_project.first_question',
-    },
-    user,
-    channel: 'project',
-  })
+  yield* getConversations()
+
+  const conversations = yield select(fromProjectElaboration.getConversations)
+  const hasActiveConversation = yield select(fromProjectElaboration.hasActiveConversation)
+
+  if (!hasActiveConversation && Object.keys(conversations).length === 0) {
+    yield* fetch(projectElaborationHeroDetails, 'post', '/chatbot', {}, {
+      message: {
+        text: 'new_project.first_question',
+      },
+      user,
+      channel: 'project',
+    })
+  }
+}
+
+function* resetAll() {
+  const sessionId = uuid()
+
+  yield cookie.save('project_elaboration_session_id', sessionId, { path: '/', maxAge: 86400, secure: true })
+  yield put(setProjectElaborationSessionId(sessionId))
 }
 
 export default function* () {
   yield [
-    takeLatest(PROJECT_ELABORATION_REPLY.REQUEST, replyProjectElaboration),
+    takeLatest(PROJECT_ELABORATION_CONVERSATION_REPLY.REQUEST, replyConversation),
     takeLatest(PROJECT_ELABORATION_HERO_DETAILS.REQUEST, requestHero),
     takeLatest(PROJECT_ELABORATION_HERO_SET_RESPONSE, replyHero),
+    takeLatest(PROJECT_ELABORATION_CONVERSATIONS_DETAILS.REQUEST, getConversations),
+    takeLatest(PROJECT_ELABORATION_CONVERSATIONS_SELECT.REQUEST, selectConversation),
+    takeLatest(PROJECT_ELABORATION_RESET, resetAll),
+    takeLatest(PROJECT_ELABORATION_CONVERSATION_CURRENT.REQUEST, getConversationCurrent),
   ]
 }

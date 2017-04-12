@@ -78,11 +78,11 @@ const WelcomeMessage = styled(Paragraph)`
 `
 
 
-const Hero = ({ hasConversation, firstChoices, reply }) => (
+const Hero = ({ hasActiveConversation, firstChoices, reply, hasConversations }) => (
   <Header>
     <StyledSection>
       {
-        hasConversation ?
+        hasActiveConversation || hasConversations ?
           <Bubble>
             <Link to="project-elaboration"><FormattedMessage id="hero.conversation_in_progress" /></Link>
           </Bubble>
@@ -122,8 +122,20 @@ const Hero = ({ hasConversation, firstChoices, reply }) => (
 )
 
 Hero.propTypes = {
-  hasConversation: PropTypes.bool,
-  firstChoices: PropTypes.array,
+  hasConversations: PropTypes.bool,
+  hasActiveConversation: PropTypes.bool,
+  firstChoices: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      image_url: PropTypes.string,
+      buttons: PropTypes.arrayOf(
+        PropTypes.shape({
+          payload: PropTypes.string,
+        })
+      ),
+      subtitle: PropTypes.string,
+    })
+  ),
   reply: PropTypes.func,
 }
 

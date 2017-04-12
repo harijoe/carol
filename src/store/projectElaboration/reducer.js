@@ -1,14 +1,16 @@
 import { initialState } from './selectors'
 import {
-  PROJECT_ELABORATION_REPLY,
-  PROJECT_ELABORATION_SET_USER,
-  PROJECT_ELABORATION_SET_RESPONSE,
+  PROJECT_ELABORATION_CONVERSATION_REPLY,
+  PROJECT_ELABORATION_SET_SESSION_ID,
+  PROJECT_ELABORATION_CONVERSATION_SET_RESPONSE,
   PROJECT_ELABORATION_HERO_DETAILS,
   PROJECT_ELABORATION_HERO_SET_RESPONSE,
+  PROJECT_ELABORATION_CONVERSATIONS_DETAILS,
+  PROJECT_ELABORATION_CONVERSATION_DETAILS,
 } from './actions'
 
-const addQuestions = (conversation, questions) => {
-  const updatedConversation = conversation.slice()
+const addQuestions = (activeConversation, questions) => {
+  const updatedConversation = activeConversation.slice()
 
   questions.map(question => (
     updatedConversation.push({ message: question.message })
@@ -17,10 +19,10 @@ const addQuestions = (conversation, questions) => {
   return updatedConversation
 }
 
-const addResponse = (conversation, response) => {
-  const updatedConversation = conversation.slice()
+const addResponse = (activeConversation, response) => {
+  const updatedConversation = activeConversation.slice()
 
-  updatedConversation[conversation.length - 1].response = {
+  updatedConversation[activeConversation.length - 1].response = {
     text: response,
   }
 
@@ -50,33 +52,35 @@ const removeHeroResponse = (hero) => {
 }
 
 const setHero = (hero, questions) => {
-  const updatedHero = hero.slice()
+  let updatedHero = hero.slice()
 
   questions.map((question, i) => (
     updatedHero[i] = { message: question.message }
   ))
 
-  removeHeroResponse(hero)
+  updatedHero = removeHeroResponse(updatedHero)
 
   return updatedHero
 }
 
 export default (state = initialState, action) => {
+  const payload = action.payload
+
   switch (action.type) {
-    case PROJECT_ELABORATION_SET_RESPONSE:
+    case PROJECT_ELABORATION_CONVERSATION_SET_RESPONSE:
       return {
         ...state,
-        conversation: addResponse(state.conversation, action.payload),
+        activeConversation: addResponse(state.activeConversation, action.payload),
       }
-    case PROJECT_ELABORATION_REPLY.SUCCESS:
+    case PROJECT_ELABORATION_CONVERSATION_REPLY.SUCCESS:
       return {
         ...state,
-        conversation: addQuestions(state.conversation, Object.values(action.payload)),
+        activeConversation: addQuestions(state.activeConversation, Object.values(action.payload)),
       }
-    case PROJECT_ELABORATION_SET_USER:
+    case PROJECT_ELABORATION_SET_SESSION_ID:
       return {
         ...state,
-        user: action.payload,
+        sessionId: action.payload,
       }
     case PROJECT_ELABORATION_HERO_SET_RESPONSE:
       return {
@@ -87,6 +91,34 @@ export default (state = initialState, action) => {
       return {
         ...state,
         hero: setHero(state.hero, Object.values(action.payload)),
+      }
+    case PROJECT_ELABORATION_CONVERSATIONS_DETAILS.SUCCESS:
+      if (Object.keys(payload).length === 1) {
+        return {
+          ...state,
+          activeConversation: payload[Object.keys(payload)[0]].conversation,
+          sessionId: payload[Object.keys(payload)[0]].sessionId,
+        }
+      }
+
+      if (Object.keys(payload).length > 1) {
+        return {
+          ...state,
+          conversations: payload,
+        }
+      }
+
+      return {
+        ...state,
+        activeConversation: [],
+        conversations: {},
+      }
+    case PROJECT_ELABORATION_CONVERSATION_DETAILS:
+      return {
+        ...state,
+        activeConversation: state.conversations[payload].conversation,
+        sessionId: state.conversations[payload].sessionId,
+        conversations: {},
       }
     default:
       return state

@@ -68,6 +68,7 @@ const es = {
   'project.elaboration.title': 'Project Elaboration ES',
   'project.elaboration.reset': 'Reset ES',
   'project.elaboration.back': 'Back ES',
+  'project.elaboration.choose_conversation': 'Choose a conversation ES',
 
   'user.gender': 'Gender ES',
   'user.forget_password': 'Forget password ES ?',

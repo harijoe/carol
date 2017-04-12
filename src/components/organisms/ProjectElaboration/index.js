@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import styled from 'styled-components'
+import { FormattedMessage } from 'react-intl'
 
 import { Grid } from 'components'
 import Conversation from './organisms/Conversation'
@@ -15,19 +16,33 @@ const StyledGrid = styled(Grid)`
   padding-top: 5.6rem;
 `
 
-const ProjectElaboration = ({ conversation, reply }) => {
-  const quickReplies = conversation.length > 0 ? conversation[conversation.length - 1].message.quick_replies : null
+const ProjectElaboration = ({ activeConversation, conversations, reply, selectConversation, hasConversations }) => {
+  const quickReplies = activeConversation.length > 0 ? activeConversation[activeConversation.length - 1].message.quick_replies : null
 
   return (
     <StyledGrid narrow>
-      <Conversation conversation={conversation} reply={reply} />
-      <Form reply={reply} disabled={quickReplies != null ? quickReplies.length !== 0 : true} />
+      {
+        hasConversations ?
+          <ul style={{ marginTop: 100 }}>
+            <p><FormattedMessage id="project.elaboration.choose_conversation" /></p>
+            {
+              Object.keys(conversations).map((authType, i) => (
+                <li key={i}><button onClick={() => selectConversation(authType)}>{authType}</button></li>
+              ))
+            }
+          </ul>
+          :
+          <div>
+            <Conversation activeConversation={activeConversation} reply={reply} />
+            <Form reply={reply} disabled={quickReplies != null ? quickReplies.length !== 0 : true} />
+          </div>
+      }
     </StyledGrid>
   )
 }
 
 ProjectElaboration.propTypes = {
-  conversation: PropTypes.arrayOf(
+  activeConversation: PropTypes.arrayOf(
     PropTypes.shape({
       message: PropTypes.shape({
         quick_replies: PropTypes.array,
@@ -35,6 +50,9 @@ ProjectElaboration.propTypes = {
     }),
   ),
   reply: PropTypes.func,
+  selectConversation: PropTypes.func,
+  conversations: PropTypes.object,
+  hasConversations: PropTypes.bool,
 }
 
 export default ProjectElaboration

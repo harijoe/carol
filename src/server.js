@@ -13,7 +13,7 @@ import configureStore from 'store/configure'
 import { env, port, ip } from 'config'
 import isAuthenticated from 'utils/auth'
 import Html from 'components/Html'
-import { setCountry, setLang, setAccessToken, setAuthenticated, setProjectElaborationUser } from 'store/actions'
+import { setCountry, setLang, setAccessToken, setAuthenticated, setProjectElaborationSessionId } from 'store/actions'
 import { getLocaleFromHostname, getLangFromLocale, getCountryFromLocale } from 'utils/locale'
 import reactCookie from 'react-cookie'
 
@@ -70,7 +70,6 @@ router.use((req, res, next) => {
 
       providedStore.dispatch(setLang(lang))
       providedStore.dispatch(setCountry(country))
-      providedStore.dispatch(setProjectElaborationUser(uuid()))
 
       // Initialize auth from cookies
       reactCookie.plugToRequest(req, res)
@@ -79,6 +78,16 @@ router.use((req, res, next) => {
 
       providedStore.dispatch(setAuthenticated(isAuthenticated(grantType)))
       providedStore.dispatch(setAccessToken(accessToken))
+
+      // Initialize projectElaboration sessionId
+      let sessionId = reactCookie.load('project_elaboration_session_id') || null
+
+      if (sessionId === null) {
+        sessionId = uuid()
+        reactCookie.save('project_elaboration_session_id', sessionId, { path: '/', maxAge: 86400000, secure: true })
+      }
+
+      providedStore.dispatch(setProjectElaborationSessionId(sessionId))
 
       const content = renderToString(
         <Provider store={providedStore}>

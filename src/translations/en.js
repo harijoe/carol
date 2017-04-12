@@ -68,6 +68,7 @@ const en = {
   'project.elaboration.title': 'Project Elaboration',
   'project.elaboration.reset': 'Reset',
   'project.elaboration.back': 'Back',
+  'project.elaboration.choose_conversation': 'Choose a conversation',
 
   'user.gender': 'Gender',
   'user.forget_password': 'Forget password ?',

@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
 import { theme, breakpoint, ifThen, mapBreakpoints } from 'utils/style'
 
@@ -19,16 +19,13 @@ const styles = ({ fluid, narrow }) => css`
   `)}
 `
 
-const Grid = styled(props =>
-  React.createElement(props.tagName || 'div', props)
-)`${styles}`
+const Grid = styled.div`${styles}`
 
 Grid.displayName = 'Grid'
 
 Grid.PropTypes = {
   fluid: PropTypes.bool,
   narrow: PropTypes.bool,
-  tagName: PropTypes.string,
   children: PropTypes.node,
 }
 

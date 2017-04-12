@@ -8,7 +8,7 @@ const wrap = (props = {}) => shallow(mockIntl(<ProjectElaboration {...props} />)
 
 it('renders ProjectElaboration', () => {
   expect(wrap({
-    conversation: [{
+    activeConversation: [{
       message: {
         text: 'message',
         quick_replies: []

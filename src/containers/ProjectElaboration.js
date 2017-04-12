@@ -1,6 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { projectElaborationReply } from 'store/actions'
+import { bindActionCreators } from 'redux'
+import {
+  projectElaborationReply,
+  projectElaborationConversationCurrent,
+  projectElaborationConversationsSelect,
+} from 'store/actions'
 import { fromProjectElaboration } from 'store/selectors'
 
 import { ProjectElaboration } from 'components'
@@ -9,36 +14,35 @@ import { ProjectElaboration } from 'components'
 class ProjectElaborationContainer extends Component {
   static propTypes = {
     reply: PropTypes.func,
-    conversation: PropTypes.array,
-    heroResponse: PropTypes.shape({
-      text: PropTypes.string,
-      payload: PropTypes.string,
-    }),
+    request: PropTypes.func,
+    selectConversation: PropTypes.func,
+    activeConversation: PropTypes.array,
+    conversations: PropTypes.object,
+    hasConversations: PropTypes.bool,
   }
 
   componentWillMount() {
-    const { heroResponse, conversation } = this.props
-
-    if (heroResponse.text === null && conversation.length === 0) {
-      this.props.reply('new_project.reset')
-    }
+    this.props.request()
   }
 
   render() {
-    const { conversation, reply } = this.props
+    const { activeConversation, conversations, reply, selectConversation, hasConversations } = this.props
 
-    return <ProjectElaboration {...{ conversation, reply }} />
+    return <ProjectElaboration {...{ activeConversation, conversations, reply, selectConversation, hasConversations }} />
   }
 }
 
 const mapStateToProps = state => ({
-  conversation: fromProjectElaboration.getConversation(state),
+  activeConversation: fromProjectElaboration.getConversation(state),
   hero: fromProjectElaboration.getHero(state),
-  heroResponse: fromProjectElaboration.getHeroResponse(state),
+  conversations: fromProjectElaboration.getConversations(state),
+  hasConversations: fromProjectElaboration.hasConversations(state),
 })
 
-const mapDispatchToProps = dispatch => ({
-  reply: (text, payload) => dispatch(projectElaborationReply.request(text, payload)),
-})
+const mapDispatchToProps = dispatch => bindActionCreators({
+  reply: (text, payload) => projectElaborationReply.request(text, payload),
+  request: () => projectElaborationConversationCurrent.request(),
+  selectConversation: authType => projectElaborationConversationsSelect.request(authType),
+}, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectElaborationContainer)

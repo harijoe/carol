@@ -28,10 +28,3 @@ it('renders QuickReplies', () => {
   expect(wrapper).not.toBe(null)
   expect(wrapper).toMatchSnapshot()
 })
-
-// it('renders null', () => {
-//   const wrapper = wrap({ quick_replies: [{ title: 'quick reply' }], response: 'response' })
-//
-//   expect(wrap().node).toBeNull()
-//   expect(wrapper.node).toBeNull()
-// })

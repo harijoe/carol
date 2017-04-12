@@ -73,7 +73,7 @@ ShallowWrapper {
       "_compositeType": 0,
       "_context": Object {},
       "_currentElement": <Conversation
-        conversation={
+        activeConversation={
                 Array [
                         Object {
                           "message": Object {
@@ -94,7 +94,7 @@ ShallowWrapper {
         "_reactInternalInstance": [Circular],
         "context": Object {},
         "props": Object {
-          "conversation": Array [
+          "activeConversation": Array [
             Object {
               "message": Object {
                 "quick_replies": Array [],
@@ -198,7 +198,7 @@ ShallowWrapper {
   },
   "root": [Circular],
   "unrendered": <Conversation
-    conversation={
+    activeConversation={
         Array [
             Object {
               "message": Object {

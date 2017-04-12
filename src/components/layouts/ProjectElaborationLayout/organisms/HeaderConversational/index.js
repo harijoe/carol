@@ -71,7 +71,7 @@ const HeaderConversational = props => (
     </StyledLink>
     <StyledHeading level={3}><FormattedMessage id="project.elaboration.title" /></StyledHeading>
     <Block>
-      <CloseIcon icon="close" />
+      <Link to="/"><CloseIcon icon="close" /></Link>
     </Block>
   </Wrapper>
 )

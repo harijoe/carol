@@ -7,7 +7,7 @@ const wrap = (props = {}) => shallow(<Conversation {...props} />)
 
 it('renders Conversation', () => {
   expect(wrap({
-    conversation: [{
+    activeConversation: [{
       message: {
         text: 'message',
         quick_replies: []

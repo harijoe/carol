@@ -64,7 +64,7 @@ const Block = styled.div`
 
 class Conversation extends Component {
   static propTypes = {
-    conversation: PropTypes.arrayOf(
+    activeConversation: PropTypes.arrayOf(
       PropTypes.shape({
         message: PropTypes.shape({
           text: PropTypes.string,
@@ -92,15 +92,15 @@ class Conversation extends Component {
   }
 
   render() {
-    const { conversation, reply } = this.props
+    const { activeConversation, reply } = this.props
     const isLastQuestion = index => (
-      conversation.length - 1 === index
+      activeConversation.length - 1 === index
     )
 
     return (
       <Wrapper innerRef={(ref) => { this.history = ref }}>
         {
-          conversation.map(({ message: { text, attachment, quick_replies }, response }, index) => (
+          activeConversation.map(({ message: { text, attachment, quick_replies }, response }, index) => (
             <div key={index}>
               <Question question={text || null} />
               {

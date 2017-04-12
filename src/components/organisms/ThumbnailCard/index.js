@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 import { theme, breakpoint } from 'utils/style'
 
-import { Card, ThumbnailPoster, Link, List } from 'components'
+import { Card, ThumbnailPoster, List } from 'components'
 
-const Wrapper = styled(Link)`
+const Wrapper = styled.div`
   display: block;
   width: 11.2rem;
   margin: 0 ${theme('spaces.xs')};

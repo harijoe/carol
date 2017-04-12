@@ -1,15 +1,26 @@
-import { call, fork, put, take } from 'redux-saga/effects'
+import { call, fork, put, take, select } from 'redux-saga/effects'
 import { stopSubmit } from 'redux-form'
 import cookie from 'react-cookie'
+import { push } from 'react-router-redux'
 
 import config from 'config'
 import { takeLatest } from 'utils/effects'
-import { resetUser } from 'store/actions'
+import {
+  resetUser,
+  projectElaborationReset,
+  projectElaborationConversationCurrent,
+  projectElaborationConversationsDetails,
+  projectElaborationHeroDetails,
+  AUTH_LOGIN,
+  AUTH_LOGOUT,
+  authLogin,
+} from 'store/actions'
+import { fromAuth } from 'store/selectors'
 import { fetchWithoutRefreshingToken } from 'sagas/fetch'
 import { requestChannel, responseChannel } from 'sagas/refreshToken'
 import saveToken from 'sagas/saveToken'
 import removeToken from 'sagas/removeToken'
-import { AUTH_LOGIN, AUTH_LOGOUT, authLogin } from './actions'
+import getPathname from '../routing/selectors'
 
 /*
   returns :
@@ -31,6 +42,14 @@ export function* handleAuthLoginRequest({ grantType = 'client_credentials', form
     yield* fetchWithoutRefreshingToken(authLogin(grantType), 'get', url)
     yield* saveToken(grantType)
 
+    if (yield select(fromAuth.isAuthenticated)) {
+      if ((yield select(getPathname)) === 'project-elaboration') {
+        yield put(projectElaborationConversationCurrent.request())
+      } else {
+        yield put(projectElaborationConversationsDetails.request())
+      }
+    }
+
     return true
   } catch ({ _error }) {
     if (formName != null) {
@@ -43,8 +62,14 @@ export function* handleAuthLoginRequest({ grantType = 'client_credentials', form
 
 function* handleAuthLogout() {
   yield* removeToken()
-
   yield put(resetUser())
+  yield put(projectElaborationReset)
+
+  if ((yield select(getPathname)) === '/') {
+    yield put(projectElaborationHeroDetails.request())
+  } else {
+    yield put(push('/'))
+  }
 }
 
 /*

@@ -109,7 +109,7 @@
     "path": "^0.12.7",
     "raw-loader": "^0.5.1",
     "react": "^15.4.1",
-    "react-cookie": "^1.0.4",
+    "react-cookie": "^1.0.5",
     "react-date-picker": "^5.3.28",
     "react-dom": "^15.4.1",
     "react-dropzone": "^3.8.0",

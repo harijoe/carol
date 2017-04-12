@@ -7,7 +7,7 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <ProjectElaboration
-    conversation={
+    activeConversation={
         Array [
             Object {
               "message": Object {
@@ -19,7 +19,7 @@ ShallowWrapper {
     } />,
   "nodes": Array [
     <ProjectElaboration
-      conversation={
+      activeConversation={
             Array [
                   Object {
                     "message": Object {
@@ -117,6 +117,7 @@ ShallowWrapper {
                         "login": "Login",
                         "project.created_at": "Created at",
                         "project.elaboration.back": "Back",
+                        "project.elaboration.choose_conversation": "Choose a conversation",
                         "project.elaboration.reset": "Reset",
                         "project.elaboration.response": "Response",
                         "project.elaboration.submit": "Submit",
@@ -223,7 +224,7 @@ ShallowWrapper {
                       }
         }>
         <ProjectElaboration
-                conversation={
+                activeConversation={
                         Array [
                                 Object {
                                   "message": Object {
@@ -244,7 +245,7 @@ ShallowWrapper {
         },
         "props": Object {
           "children": <ProjectElaboration
-            conversation={
+            activeConversation={
                         Array [
                                     Object {
                                       "message": Object {
@@ -333,6 +334,7 @@ ShallowWrapper {
             "login": "Login",
             "project.created_at": "Created at",
             "project.elaboration.back": "Back",
+            "project.elaboration.choose_conversation": "Choose a conversation",
             "project.elaboration.reset": "Reset",
             "project.elaboration.response": "Response",
             "project.elaboration.submit": "Submit",
@@ -466,7 +468,7 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <ProjectElaboration
-          conversation={
+          activeConversation={
                     Array [
                               Object {
                                 "message": Object {
@@ -478,7 +480,7 @@ ShallowWrapper {
           } />,
         "_debugID": 2,
         "_renderedOutput": <ProjectElaboration
-          conversation={
+          activeConversation={
                     Array [
                               Object {
                                 "message": Object {
@@ -580,6 +582,7 @@ ShallowWrapper {
             "login": "Login",
             "project.created_at": "Created at",
             "project.elaboration.back": "Back",
+            "project.elaboration.choose_conversation": "Choose a conversation",
             "project.elaboration.reset": "Reset",
             "project.elaboration.response": "Response",
             "project.elaboration.submit": "Submit",
@@ -686,7 +689,7 @@ ShallowWrapper {
           }
     }>
     <ProjectElaboration
-        conversation={
+        activeConversation={
             Array [
                 Object {
                   "message": Object {

@@ -115,8 +115,11 @@ ShallowWrapper {
             values={Object {}} />
     </Styled(Mock)>
     <styled.div>
-        <Styled(Mock)
-            icon="close" />
+        <Mock
+            to="/">
+            <Styled(Mock)
+                icon="close" />
+        </Mock>
     </styled.div>
 </Styled(Mock)>,
   "nodes": Array [
@@ -229,8 +232,11 @@ ShallowWrapper {
                   values={Object {}} />
       </Styled(Mock)>
       <styled.div>
-            <Styled(Mock)
-                  icon="close" />
+            <Mock
+                  to="/">
+                  <Styled(Mock)
+                        icon="close" />
+            </Mock>
       </styled.div>
 </Styled(Mock)>,
   ],
@@ -568,8 +574,11 @@ ShallowWrapper {
                               values={Object {}} />
           </Styled(Mock)>
           <styled.div>
-                    <Styled(Mock)
-                              icon="close" />
+                    <Mock
+                              to="/">
+                              <Styled(Mock)
+                                        icon="close" />
+                    </Mock>
           </styled.div>
 </Styled(Mock)>,
         "_debugID": 2,
@@ -682,8 +691,11 @@ ShallowWrapper {
                               values={Object {}} />
           </Styled(Mock)>
           <styled.div>
-                    <Styled(Mock)
-                              icon="close" />
+                    <Mock
+                              to="/">
+                              <Styled(Mock)
+                                        icon="close" />
+                    </Mock>
           </styled.div>
 </Styled(Mock)>,
       },

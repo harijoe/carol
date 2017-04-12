@@ -2,42 +2,42 @@ import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fromProjectElaboration } from 'store/selectors'
-import { heroDetails, setHeroResponse } from 'store/actions'
+import { projectElaborationHeroDetails, setProjectElaborationHeroResponse } from 'store/actions'
 
 import { Hero } from 'components'
 
 class HeroContainer extends Component {
   static propTypes = {
-    hasConversation: PropTypes.bool,
+    hasConversations: PropTypes.bool,
+    hasActiveConversation: PropTypes.bool,
     firstChoices: PropTypes.array,
     request: PropTypes.func,
     reply: PropTypes.func,
+    conversations: PropTypes.object,
   }
 
   componentWillMount() {
-    const { firstChoices, hasConversation, request } = this.props
-
-    if (firstChoices.length === 0 && !hasConversation) {
-      request()
-    }
+    this.props.request()
   }
 
   render() {
-    const { hasConversation, firstChoices, reply } = this.props
+    const { hasActiveConversation, firstChoices, reply, hasConversations, conversations } = this.props
 
-    return <Hero {...{ firstChoices, reply, hasConversation }} />
+    return <Hero {...{ firstChoices, reply, hasActiveConversation, hasConversations, conversations }} />
   }
 }
 
 const mapStateToProps = state => ({
-  hasConversation: fromProjectElaboration.getConversation(state).length !== 0,
+  hasConversations: fromProjectElaboration.hasConversations(state),
+  hasActiveConversation: fromProjectElaboration.hasActiveConversation(state),
+  conversations: fromProjectElaboration.getConversations(state),
   firstChoices: fromProjectElaboration.getFirstChoices(state),
 })
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
-    request: () => heroDetails.request(),
-    reply: (text, payload) => setHeroResponse(text, payload),
+    request: () => projectElaborationHeroDetails.request(),
+    reply: (text, payload) => setProjectElaborationHeroResponse(text, payload),
   }, dispatch)
 )
 
