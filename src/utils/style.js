@@ -37,13 +37,14 @@ export const injectGlobals = globalArrays => globalArrays.map(e => injectGlobal(
 
 /*
  Renders a media query for a given breakpoint and runs the template literal from this breakpoint
- Input: breakpointKey, templateLiteral
+ Use the invert bool to set max-width instead of min-width
+ Input: (breakpointKey, invert), templateLiteral
  Out: templateLiteral
  */
-export const breakpoint = bp => (...argsMain) => {
+export const breakpoint = (bp, invert = false) => (...argsMain) => {
   // Builds a media query for a given breakpoint width
   const media = (breakpointWidth) => {
-    const query = ` and (min-width: ${breakpointWidth + 1}px)`
+    const query = ` and (${invert ? 'max' : 'min'}-width}: ${invert ? breakpointWidth - 1 : breakpointWidth}px)`
     const mediaString = `only screen ${(breakpointWidth === 0 ? '' : query)}`
 
     return (...args) => css`
@@ -68,6 +69,11 @@ export const breakpoint = bp => (...argsMain) => {
     ${p => media(getBreakpointWidth(bp)(p))(...argsMain)}
   `
 }
+
+/*
+  Alias of breakpoint with invert option to true
+ */
+export const breakpointMax = bp => breakpoint(bp, true)
 
 /*
   Renders a media query for each breakpoint by calling a callback on each of them.
