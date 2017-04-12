@@ -44,7 +44,7 @@ export const injectGlobals = globalArrays => globalArrays.map(e => injectGlobal(
 export const breakpoint = (bp, invert = false) => (...argsMain) => {
   // Builds a media query for a given breakpoint width
   const media = (breakpointWidth) => {
-    const query = ` and (${invert ? 'max' : 'min'}-width}: ${invert ? breakpointWidth - 1 : breakpointWidth}px)`
+    const query = ` and (${invert ? 'max' : 'min'}-width: ${invert ? breakpointWidth - 1 : breakpointWidth}px)`
     const mediaString = `only screen ${(breakpointWidth === 0 ? '' : query)}`
 
     return (...args) => css`
