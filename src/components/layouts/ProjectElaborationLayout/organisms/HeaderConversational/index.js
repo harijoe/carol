@@ -3,9 +3,9 @@ import { FormattedMessage } from 'react-intl'
 import styled, { css } from 'styled-components'
 import { theme, breakpoint, mapBreakpoints } from 'utils/style'
 
-import { Link, Icon, Container, Heading } from 'components'
+import { Link, Icon, MainWrapper, Heading } from 'components'
 
-const Wrapper = styled(Container)`
+const Wrapper = styled(MainWrapper)`
   display: flex;
   align-items: center;
   width: 100%;

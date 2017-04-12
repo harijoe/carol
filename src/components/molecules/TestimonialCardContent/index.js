@@ -12,6 +12,7 @@ const HeaderWrapper = styled.div`
   margin-bottom: ${theme('spaces.m')};
 `
 const StyledImage = styled(Image)`
+  overflow: hidden;
   background-size: cover;
 `
 const StyledHeading = styled(Heading)`

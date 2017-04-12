@@ -96,12 +96,10 @@ const scaffolding = theme => css`
   }
 
   body {
-    overflow-x: hidden;
     font-family: 'montserrat-light', sans-serif;
     font-size: ${theme.fonts.size.base};
     line-height: 2.1rem;
     color: ${theme.colors.grayscale.darker};
-    white-space: normal;
 
     &::-webkit-scrollbar-track {
       border-radius: 6rem;

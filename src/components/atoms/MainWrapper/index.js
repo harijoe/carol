@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { theme, breakpoint } from 'utils/style'
 
-const Container = styled.div`
+const MainWrapper = styled.div`
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -12,4 +12,4 @@ const Container = styled.div`
 `
 // @TODO: test is missing
 
-export default Container
+export default MainWrapper

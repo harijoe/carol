@@ -21,6 +21,7 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   min-height: 100vh;
+  background-color: #eeeeee;
 `
 
 const Header = styled.header`

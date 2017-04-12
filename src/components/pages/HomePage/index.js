@@ -8,17 +8,20 @@ import {
   Reinsurance,
   LastProjects,
   MotionMenu,
+  MainWrapper,
 } from 'components'
 import { Hero } from 'containers'
 
 const HomePage = props => (
   <MainLayout {...props}>
     <Hero />
-    <LastProjects />
-    <HowItWorks />
-    <Testimonials />
-    <TipsAndTricks />
-    <Reinsurance />
+    <MainWrapper>
+      <LastProjects />
+      <HowItWorks />
+      <Testimonials />
+      <TipsAndTricks />
+      <Reinsurance />
+    </MainWrapper>
     <MotionMenu />
   </MainLayout>
 )

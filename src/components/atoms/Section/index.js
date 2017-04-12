@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
 
-import { theme, ifThen, mapBreakpoints } from 'utils/style'
+import { theme, ifThen, mapBreakpoints, breakpoint } from 'utils/style'
 
 const titleStyles = ({ dark }) => css`
   ${ifThen(dark, css`
@@ -36,6 +36,11 @@ const titleStyles = ({ dark }) => css`
     content: '';
     margin-left: -1.25rem;
   }
+
+  ${breakpoint('xl')`
+    margin-bottom: ${theme('spaces.xxl')};
+    padding-bottom: ${theme('spaces.l')};
+  `}
 `
 
 const Title = styled.h2`${titleStyles}`
