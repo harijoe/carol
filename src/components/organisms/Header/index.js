@@ -43,7 +43,6 @@ const Header = ({ atTop, ...props }) => (
       to="/"
       icon={atTop ? 'quotatis-white' : 'quotatis'}
       size={480}
-      atTop={atTop}
     />
     <PrimaryNavigation {...props} atTop={atTop} />
   </Wrapper>

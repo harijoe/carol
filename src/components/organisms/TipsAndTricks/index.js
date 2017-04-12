@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl'
+import { contentSiteUrl } from 'config'
 import messages from 'utils/messages'
 import { theme, breakpoint } from 'utils/style'
 
@@ -12,14 +13,22 @@ const StyledCol = styled(Col)`
   justify-content: center;
 `
 
+const getTags = (items) => {
+  const tags = []
+
+  if (Array.isArray(items)) {
+    items.forEach(item => tags.push({ label: item, link: `${contentSiteUrl}tag/${item}` }))
+  }
+
+  return tags
+}
+
 const generateChild = (i, items) => (
   <Col xs={12} m={9} key={i}>
     <TipsAndTricksBlock
       header="Fenêtre"
-      tags={[
-        { label: 'préparer mes travaux', link: '' },
-        { label: 'budget', link: '' },
-      ]}
+      image={items.featuredMedia}
+      tags={getTags(items.tags)}
       title={items.title}
     />
   </Col>

@@ -42,19 +42,19 @@ const config = {
       fr_FR: {
         url: 'https://carol-fr-dev.qarx.io',
         proUrl: 'https://www.quotatispro.fr',
-        contentUrl: 'https://fr.content.hugo.preprod.qarx.io/',
+        contentUrl: 'http://api-service.hugo.qarx.io/fr/',
         countryLabel: 'country.france',
       },
       es_ES: {
         url: 'https://carol-es-dev.qarx.io',
         proUrl: 'https://www.quotatispro.es',
-        contentUrl: 'https://es.content.hugo.preprod.qarx.io/',
+        contentUrl: 'http://api-service.hugo.qarx.io/es/',
         countryLabel: 'country.spain',
       },
       en_GB: {
         url: 'https://carol-co-uk-dev.qarx.io',
         proUrl: 'https://www.quotatispro.co.uk',
-        contentUrl: 'https://uk.content.hugo.preprod.qarx.io/',
+        contentUrl: 'http://api-service.hugo.qarx.io/uk/',
         countryLabel: 'country.great_britain',
       },
     },

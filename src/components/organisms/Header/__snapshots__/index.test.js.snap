@@ -10,7 +10,6 @@ ShallowWrapper {
     <styled.div
         atTop={true} />
     <Styled(Mock)
-        atTop={true}
         icon="quotatis-white"
         size={480}
         to="/" />
@@ -120,7 +119,6 @@ ShallowWrapper {
       <styled.div
             atTop={true} />
       <Styled(Mock)
-            atTop={true}
             icon="quotatis-white"
             size={480}
             to="/" />
@@ -461,7 +459,6 @@ ShallowWrapper {
           <styled.div
                     atTop={true} />
           <Styled(Mock)
-                    atTop={true}
                     icon="quotatis-white"
                     size={480}
                     to="/" />
@@ -571,7 +568,6 @@ ShallowWrapper {
           <styled.div
                     atTop={true} />
           <Styled(Mock)
-                    atTop={true}
                     icon="quotatis-white"
                     size={480}
                     to="/" />
