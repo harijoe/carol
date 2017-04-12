@@ -15,7 +15,6 @@ const config = {
     ssl: {
       privateKey: 'ssl/qarx.io.key',
       certificate: 'ssl/qarx.io.crt',
-      intermediate: 'ssl/qarx.io.intermediate.crt',
     },
     google: {
       mapsKey: 'AIzaSyCYrFIvVAYqnWCNjjAfGIanmwxVvj1FPj8',
@@ -93,7 +92,6 @@ const config = {
     ssl: {
       privateKey: 'ssl/quotatis.com.key',
       certificate: 'ssl/quotatis.com.crt',
-      intermediate: 'ssl/quotatis.com.intermediate.crt',
     },
   },
 }

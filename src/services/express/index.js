@@ -56,7 +56,6 @@ export default (routes) => {
     const server = https.createServer({
       key: fs.readFileSync(path.join(root, ssl.privateKey)),
       cert: fs.readFileSync(path.join(root, ssl.certificate)),
-      ca: fs.readFileSync(path.join(root, ssl.intermediate)),
     }, app)
 
     return server
