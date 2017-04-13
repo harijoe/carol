@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import stripTags from 'utils/stripTags'
 import styled, { css } from 'styled-components'
-import { ifThen, theme, mapBreakpoints } from 'utils/style'
+import { ifThen, theme, mapBreakpoints, breakpoint } from 'utils/style'
 
-import { Card, Section, SimpleCardContent, Grid, Col, Row, Image } from 'components'
+import { Card, Section, SimpleCardContent, Image } from 'components'
 import { PostList } from 'containers'
 
 const StyledImageWrapper = styled.div`${({ active }) => `
@@ -16,6 +16,25 @@ const StyledImage = styled(Image)`
   width: 100vw;
   position: absolute;
   margin: -3.2rem auto -17rem -1.6rem;
+
+  ${breakpoint('m')`
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    width: 70%;
+  `}
+`
+
+const StyledSection = styled(Section)`
+  ${breakpoint('m')`
+    height: 55rem;
+    padding: 0;
+
+    .slick-slider {
+      max-width: 120rem;
+      margin: 0 auto;
+    }
+  `}
 `
 
 const StyledCard = styled(Card)`
@@ -28,11 +47,31 @@ const StyledCard = styled(Card)`
   width: calc(100vw - 4.8rem);
   margin-bottom: 0.8rem;
   margin-top: 50%;
+  padding: ${theme('spaces.xl')} ${theme('spaces.m')};
+
+  ${breakpoint('m')`
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10rem;
+    margin-left: auto;
+    margin-top: ${theme('spaces.xxl')};
+    padding: ${theme('spaces.xxl')} ${theme('spaces.l')};
+    width: 40rem;
+    min-height: 45rem;
+  `}
+`
+
+const StyledSimpleCardContent = styled(SimpleCardContent)`
+  ${breakpoint('m')`
+    .title {
+      font-size: ${theme('fonts.size.xxl')};
+    }
+  `}
 `
 
 const generateChild = (i, items) => (
   <StyledCard key={i}>
-    <SimpleCardContent
+    <StyledSimpleCardContent
       title={stripTags(items.title)}
       content={stripTags(items.body)}
     />
@@ -58,29 +97,25 @@ class Reinsurance extends Component {
 
   render() {
     return (
-      <Section light>
-        <Grid>
-          <Row>
-            <Col xs={12}>
-              <PostList
-                scope="reinsuranceArticles"
-                tags={['api-quotatis-reinsurance']}
-                limit={3}
-                generateChild={generateChild}
-                generateBackground={this.generateBackground}
-                carousel={{
-                  infinite: false,
-                  afterChange: this.afterChange,
-                  variableWidth: true,
-                  slidesToShow: 1,
-                  slidesToScroll: 1,
-                  dots: true,
-                }}
-              />
-            </Col>
-          </Row>
-        </Grid>
-      </Section>
+      <StyledSection light>
+        <PostList
+          scope="reinsuranceArticles"
+          tags={['api-quotatis-reinsurance']}
+          limit={3}
+          generateChild={generateChild}
+          generateBackground={this.generateBackground}
+          carousel={{
+            infinite: true,
+            afterChange: this.afterChange,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: false,
+            autoplay: true,
+            pauseOnHover: true,
+            responsive: [{ breakpoint: 1200, settings: { arrows: false } }, { breakpoint: 3000, settings: { arrows: true } }],
+          }}
+        />
+      </StyledSection>
     )
   }
 }

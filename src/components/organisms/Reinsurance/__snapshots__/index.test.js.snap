@@ -6,67 +6,83 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <Mock
+  "node": <Styled(Mock)
     light={true}>
-    <Mock>
-        <Mock>
-            <Mock
-                xs={12}>
-                <Mock
-                    carousel={
-                        Object {
-                            "afterChange": [Function],
-                            "dots": true,
-                            "infinite": false,
-                            "slidesToScroll": 1,
-                            "slidesToShow": 1,
-                            "variableWidth": true,
-                          }
-                    }
-                    generateBackground={[Function]}
-                    generateChild={[Function]}
-                    limit={3}
-                    scope="reinsuranceArticles"
-                    tags={
-                        Array [
-                            "api-quotatis-reinsurance",
-                          ]
-                    } />
-            </Mock>
-        </Mock>
-    </Mock>
-</Mock>,
-  "nodes": Array [
     <Mock
+        carousel={
+            Object {
+                "afterChange": [Function],
+                "autoplay": true,
+                "dots": false,
+                "infinite": true,
+                "pauseOnHover": true,
+                "responsive": Array [
+                  Object {
+                    "breakpoint": 1200,
+                    "settings": Object {
+                      "arrows": false,
+                    },
+                  },
+                  Object {
+                    "breakpoint": 3000,
+                    "settings": Object {
+                      "arrows": true,
+                    },
+                  },
+                ],
+                "slidesToScroll": 1,
+                "slidesToShow": 1,
+              }
+        }
+        generateBackground={[Function]}
+        generateChild={[Function]}
+        limit={3}
+        scope="reinsuranceArticles"
+        tags={
+            Array [
+                "api-quotatis-reinsurance",
+              ]
+        } />
+</Styled(Mock)>,
+  "nodes": Array [
+    <Styled(Mock)
       light={true}>
-      <Mock>
-            <Mock>
-                  <Mock
-                        xs={12}>
-                        <Mock
-                              carousel={
-                                    Object {
-                                          "afterChange": [Function],
-                                          "dots": true,
-                                          "infinite": false,
-                                          "slidesToScroll": 1,
-                                          "slidesToShow": 1,
-                                          "variableWidth": true,
-                                        }
-                              }
-                              generateBackground={[Function]}
-                              generateChild={[Function]}
-                              limit={3}
-                              scope="reinsuranceArticles"
-                              tags={
-                                    Array [
-                                          "api-quotatis-reinsurance",
-                                        ]
-                              } />
-                  </Mock>
-            </Mock>
-      </Mock>
-</Mock>,
+      <Mock
+            carousel={
+                  Object {
+                        "afterChange": [Function],
+                        "autoplay": true,
+                        "dots": false,
+                        "infinite": true,
+                        "pauseOnHover": true,
+                        "responsive": Array [
+                          Object {
+                            "breakpoint": 1200,
+                            "settings": Object {
+                              "arrows": false,
+                            },
+                          },
+                          Object {
+                            "breakpoint": 3000,
+                            "settings": Object {
+                              "arrows": true,
+                            },
+                          },
+                        ],
+                        "slidesToScroll": 1,
+                        "slidesToShow": 1,
+                      }
+            }
+            generateBackground={[Function]}
+            generateChild={[Function]}
+            limit={3}
+            scope="reinsuranceArticles"
+            tags={
+                  Array [
+                        "api-quotatis-reinsurance",
+                      ]
+            } />
+</Styled(Mock)>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -106,67 +122,83 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <Mock
+        "_currentElement": <Styled(Mock)
           light={true}>
-          <Mock>
-                    <Mock>
-                              <Mock
-                                        xs={12}>
-                                        <Mock
-                                                  carousel={
-                                                            Object {
-                                                                      "afterChange": [Function],
-                                                                      "dots": true,
-                                                                      "infinite": false,
-                                                                      "slidesToScroll": 1,
-                                                                      "slidesToShow": 1,
-                                                                      "variableWidth": true,
-                                                                    }
-                                                  }
-                                                  generateBackground={[Function]}
-                                                  generateChild={[Function]}
-                                                  limit={3}
-                                                  scope="reinsuranceArticles"
-                                                  tags={
-                                                            Array [
-                                                                      "api-quotatis-reinsurance",
-                                                                    ]
-                                                  } />
-                              </Mock>
-                    </Mock>
-          </Mock>
-</Mock>,
+          <Mock
+                    carousel={
+                              Object {
+                                        "afterChange": [Function],
+                                        "autoplay": true,
+                                        "dots": false,
+                                        "infinite": true,
+                                        "pauseOnHover": true,
+                                        "responsive": Array [
+                                          Object {
+                                            "breakpoint": 1200,
+                                            "settings": Object {
+                                              "arrows": false,
+                                            },
+                                          },
+                                          Object {
+                                            "breakpoint": 3000,
+                                            "settings": Object {
+                                              "arrows": true,
+                                            },
+                                          },
+                                        ],
+                                        "slidesToScroll": 1,
+                                        "slidesToShow": 1,
+                                      }
+                    }
+                    generateBackground={[Function]}
+                    generateChild={[Function]}
+                    limit={3}
+                    scope="reinsuranceArticles"
+                    tags={
+                              Array [
+                                        "api-quotatis-reinsurance",
+                                      ]
+                    } />
+</Styled(Mock)>,
         "_debugID": 2,
-        "_renderedOutput": <Mock
+        "_renderedOutput": <Styled(Mock)
           light={true}>
-          <Mock>
-                    <Mock>
-                              <Mock
-                                        xs={12}>
-                                        <Mock
-                                                  carousel={
-                                                            Object {
-                                                                      "afterChange": [Function],
-                                                                      "dots": true,
-                                                                      "infinite": false,
-                                                                      "slidesToScroll": 1,
-                                                                      "slidesToShow": 1,
-                                                                      "variableWidth": true,
-                                                                    }
-                                                  }
-                                                  generateBackground={[Function]}
-                                                  generateChild={[Function]}
-                                                  limit={3}
-                                                  scope="reinsuranceArticles"
-                                                  tags={
-                                                            Array [
-                                                                      "api-quotatis-reinsurance",
-                                                                    ]
-                                                  } />
-                              </Mock>
-                    </Mock>
-          </Mock>
-</Mock>,
+          <Mock
+                    carousel={
+                              Object {
+                                        "afterChange": [Function],
+                                        "autoplay": true,
+                                        "dots": false,
+                                        "infinite": true,
+                                        "pauseOnHover": true,
+                                        "responsive": Array [
+                                          Object {
+                                            "breakpoint": 1200,
+                                            "settings": Object {
+                                              "arrows": false,
+                                            },
+                                          },
+                                          Object {
+                                            "breakpoint": 3000,
+                                            "settings": Object {
+                                              "arrows": true,
+                                            },
+                                          },
+                                        ],
+                                        "slidesToScroll": 1,
+                                        "slidesToShow": 1,
+                                      }
+                    }
+                    generateBackground={[Function]}
+                    generateChild={[Function]}
+                    limit={3}
+                    scope="reinsuranceArticles"
+                    tags={
+                              Array [
+                                        "api-quotatis-reinsurance",
+                                      ]
+                    } />
+</Styled(Mock)>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,

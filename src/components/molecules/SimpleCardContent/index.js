@@ -8,9 +8,9 @@ const Wrapper = styled.div`
   padding: ${theme('spaces.m')};
 `
 
-const SimpleCardContent = ({ title, content }) => (
-  <Wrapper>
-    <Heading level={3}>{title}</Heading>
+const SimpleCardContent = ({ title, content, ...props }) => (
+  <Wrapper {...props}>
+    <Heading className="title" level={3}>{title}</Heading>
     <Paragraph>{content}</Paragraph>
   </Wrapper>
 )
