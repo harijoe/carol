@@ -29,7 +29,7 @@ const SignInForm = ({ error, handleSubmit, submitting, intl: { formatMessage }, 
       <Field name="email" type="text" component={RenderField} label={formatMessage(messages('user.email').label)} />
       <Field name="password" type="password" component={RenderField} label={formatMessage(messages('user.password').label)} />
       <StyledLink kind="black" to="/forgot-password"><FormattedMessage id="user.forgot_password.heading" /></StyledLink>
-      <Button type="submit" disabled={submitting}><FormattedMessage id="user.sign_in" tagName="span" /></Button>
+      <Button type="submit" block disabled={submitting}><FormattedMessage id="user.sign_in" tagName="span" /></Button>
     </Form>
     <div className="footer">
       <FormattedMessage id="user.no_account_question" />

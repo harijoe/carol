@@ -1,19 +1,28 @@
 import React, { PropTypes } from 'react'
 import { FormattedMessage } from 'react-intl'
 import styled from 'styled-components'
-import { theme } from 'utils/style'
+import { theme, breakpoint } from 'utils/style'
 
 import { Heading, Paragraph, Image, Link } from 'components'
 
 const ContentWrapper = styled.div`
   padding: ${theme('spaces.m')};
+
+  ${breakpoint('m')`
+    padding: ${theme('spaces.l')};
+  `}
 `
 const HeaderWrapper = styled.div`
   margin-bottom: ${theme('spaces.m')};
 `
+const ImageWrapper = styled.div`
+  height: 20rem;
+  overflow: hidden;
+`
 const StyledImage = styled(Image)`
   overflow: hidden;
   background-size: cover;
+  width: 100%;
 `
 const StyledHeading = styled(Heading)`
   font-size: ${theme('fonts.size.xl')};
@@ -34,7 +43,9 @@ const StyledLink = styled(Link)`
 
 const TestimonialCardContent = ({ image, firstName, age, location, quote, link }) => (
   <div>
-    <StyledImage link={image} />
+    <ImageWrapper>
+      <StyledImage link={image} />
+    </ImageWrapper>
     <ContentWrapper>
       <HeaderWrapper>
         <StyledHeading level={3}>
