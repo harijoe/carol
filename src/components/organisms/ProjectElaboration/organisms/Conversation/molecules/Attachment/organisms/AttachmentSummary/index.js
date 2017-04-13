@@ -1,17 +1,42 @@
 import React, { PropTypes } from 'react'
+import { FormattedMessage } from 'react-intl'
+import styled from 'styled-components'
 
-import { ThumbnailPoster, Paragraph } from 'components'
+import { Button, ThumbnailPoster, ProjectElaborationQuestion, Paragraph } from 'components'
+import Question from './molecules/Question'
+import Response from './molecules/Response'
 
-const AttachmentSummary = ({ element: { title, image_url, subtitle } }) => (
-  <div>
-    <ThumbnailPoster
-      // eslint-disable-next-line camelcase
-      image={image_url}
-      title={title}
-    />
-    <Paragraph>{subtitle}</Paragraph>
-  </div>
-)
+const StyledButton = styled(Button)`
+  margin: 0 auto;
+`
+const StyledParagraph = styled(Paragraph)`
+  margin-bottom: 20px
+`
+
+const AttachmentSummary = ({ element: { title, image_url, subtitle } }) => {
+  /*
+   * subtitle contains all the summary in one block. So, we have to split questions (odd) and responses (even)
+   */
+  const summary = subtitle.split('\n').map(((message, i) => (
+    (i % 2) ?
+      <Response key={i}>{message}</Response>
+      :
+      <Question key={i}>{message}</Question>
+  )))
+
+  return (
+    <ProjectElaborationQuestion>
+      <StyledParagraph><FormattedMessage id="project.elaboration.summary.title" /></StyledParagraph>
+      <ThumbnailPoster
+        // eslint-disable-next-line camelcase
+        image={image_url}
+        title={title}
+      />
+      {summary}
+      <StyledButton><FormattedMessage id="project.elaboration.summary.validate" /></StyledButton>
+    </ProjectElaborationQuestion>
+  )
+}
 
 AttachmentSummary.propTypes = {
   element: PropTypes.shape({

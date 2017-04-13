@@ -1,6 +1,8 @@
 import React from 'react'
-import { mount, shallow } from 'enzyme'
+import { shallow } from 'enzyme'
 import { fromJS } from 'immutable'
+
+import theme from '../../themes/default'
 import Post from './'
 
 const items = fromJS({
@@ -9,17 +11,8 @@ const items = fromJS({
   image: 'image.jpg',
   body: 'test body',
 })
-const wrap = (props = {}) => shallow(<Post items={items} {...props} />)
+const wrapper = (props = {}) => shallow(<Post theme={theme} items={items} {...props} />)
 
-it('mounts with different combination of props', () => {
-  const wrapMounted = (props = {}) => mount(<Post items={items} {...props} />)
-
-  wrapMounted()
-  wrapMounted({ loading: true })
-})
-
-it('renders props when passed in', () => {
-  const wrapper = wrap({ id: 'foo' })
-
-  expect(wrapper.find({ id: 'foo' })).toHaveLength(1)
+it('renders Post', () => {
+  expect(wrapper).toMatchSnapshot()
 })

@@ -21,7 +21,7 @@ const StyledImage = styled(Image)`
   z-index: 1;
 `
 
-const BubbleQuestion = styled.p`
+const BubbleQuestion = styled.div`
   position: relative;
   margin: 0 0 0 ${theme('spaces.s')};
   padding: ${theme('spaces.s')} ${theme('spaces.m')};
@@ -53,8 +53,8 @@ const BubbleQuestion = styled.p`
 
 BubbleQuestion.displayName = 'BubbleQuestion'
 
-const Question = ({ question }) => {
-  if (question == null) {
+const ProjectElaborationQuestion = ({ children }) => {
+  if (children == null) {
     return null
   }
 
@@ -65,13 +65,13 @@ const Question = ({ question }) => {
         src={require('./logo.png')}
         width="32"
       />
-      <BubbleQuestion>{question}</BubbleQuestion>
+      <BubbleQuestion>{children}</BubbleQuestion>
     </Wrapper>
   )
 }
 
-Question.propTypes = {
-  question: PropTypes.string,
+ProjectElaborationQuestion.propTypes = {
+  children: PropTypes.any,
 }
 
-export default Question
+export default ProjectElaborationQuestion

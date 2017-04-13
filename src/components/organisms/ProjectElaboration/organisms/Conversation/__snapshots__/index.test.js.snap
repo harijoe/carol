@@ -9,8 +9,9 @@ ShallowWrapper {
   "node": <styled.div
     innerRef={[Function]}>
     <div>
-        <Question
-            question="message" />
+        <Mock>
+            message
+        </Mock>
         <styled.div>
             <Attachment
                 attachment={null}
@@ -39,8 +40,9 @@ ShallowWrapper {
     <styled.div
       innerRef={[Function]}>
       <div>
-            <Question
-                  question="message" />
+            <Mock>
+                  message
+            </Mock>
             <styled.div>
                   <Attachment
                         attachment={null}
@@ -130,8 +132,9 @@ ShallowWrapper {
         "_currentElement": <styled.div
           innerRef={[Function]}>
           <div>
-                    <Question
-                              question="message" />
+                    <Mock>
+                              message
+                    </Mock>
                     <styled.div>
                               <Attachment
                                         attachment={null}
@@ -160,8 +163,9 @@ ShallowWrapper {
         "_renderedOutput": <styled.div
           innerRef={[Function]}>
           <div>
-                    <Question
-                              question="message" />
+                    <Mock>
+                              message
+                    </Mock>
                     <styled.div>
                               <Attachment
                                         attachment={null}

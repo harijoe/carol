@@ -40,8 +40,9 @@ ShallowWrapper {
       "_calledComponentWillUnmount": false,
       "_compositeType": 2,
       "_context": Object {},
-      "_currentElement": <Question
-        question="my question" />,
+      "_currentElement": <ProjectElaborationQuestion>
+        my question
+</ProjectElaborationQuestion>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -49,7 +50,7 @@ ShallowWrapper {
         "_reactInternalInstance": [Circular],
         "context": Object {},
         "props": Object {
-          "question": "my question",
+          "children": "my question",
         },
         "refs": Object {},
         "state": null,
@@ -109,7 +110,8 @@ ShallowWrapper {
     "render": [Function],
   },
   "root": [Circular],
-  "unrendered": <Question
-    question="my question" />,
+  "unrendered": <ProjectElaborationQuestion>
+    my question
+</ProjectElaborationQuestion>,
 }
 `;

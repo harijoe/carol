@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react'
 import styled from 'styled-components'
 import { theme, breakpoint } from 'utils/style'
 
+import { ProjectElaborationQuestion } from 'components'
 import Response from './atoms/Response'
 import QuickReplies from './molecules/QuickReplies'
-import Question from './molecules/Question'
 import Attachment from './molecules/Attachment'
 
 const Wrapper = styled.div`
@@ -102,12 +102,12 @@ class Conversation extends Component {
         {
           activeConversation.map(({ message: { text, attachment, quick_replies }, response }, index) => (
             <div key={index}>
-              <Question question={text || null} />
+              <ProjectElaborationQuestion>{text != null ? text : null}</ProjectElaborationQuestion>
               {
                 isLastQuestion(index) ?
                   <Block>
                     <Attachment
-                      attachment={attachment || null}
+                      attachment={attachment != null ? attachment : null}
                       reply={reply}
                       response={response}
                     />

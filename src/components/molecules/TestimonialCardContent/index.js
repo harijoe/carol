@@ -41,6 +41,11 @@ const StyledLink = styled(Link)`
   display: block;
 `
 
+const StyledParagraph = styled(Paragraph)`
+  font: normal ${theme('fonts.size.base')} montserrat-light, sans-serif !important;
+  line-height: 1.3 !important;
+`
+
 const TestimonialCardContent = ({ image, firstName, age, location, quote, link }) => (
   <div>
     <ImageWrapper>
@@ -54,7 +59,8 @@ const TestimonialCardContent = ({ image, firstName, age, location, quote, link }
         </StyledHeading>
         <StyledLocation>{location}</StyledLocation>
       </HeaderWrapper>
-      <Paragraph>« {quote} »</Paragraph>
+
+      <StyledParagraph>« {quote} »</StyledParagraph>
       <StyledLink to={link} target="_blank">
         <FormattedMessage id="testimonials.read_it" />
       </StyledLink>
