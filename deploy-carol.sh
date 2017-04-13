@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 if [ $BRANCH == "develop" ]; then
+  echo "Start deploy for develop"
   if [ "${BRANCH}" = "" ]; then BRANCH=develop; fi;
   echo ${BRANCH}
   curl https://sdk.cloud.google.com | bash
