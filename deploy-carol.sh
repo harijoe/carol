@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ "$TRAVIS_BRANCH" == "develop" ]; then
+if [ $BRANCH == "develop" ]; then
   if [ "${BRANCH}" = "" ]; then BRANCH=develop; fi;
   echo ${BRANCH}
   curl https://sdk.cloud.google.com | bash
@@ -30,5 +30,5 @@ if [ "$TRAVIS_BRANCH" == "develop" ]; then
   kubectl patch deployment carol-${BRANCH} --namespace=${BRANCH} -p $JSON_PATCH
   kubectl delete pods `kubectl get pod -l "run=carol-${BRANCH}" -o=template --template="{{ with index .items 0}}{{ .metadata.name }}{{ end }}" --namespace=${BRANCH}` --namespace=${BRANCH}
 else
-  echo "Nothing to deploy, TRAVIS_BRANCH != develop."
+  echo "Nothing to deploy, BRANCH != develop"
 fi
