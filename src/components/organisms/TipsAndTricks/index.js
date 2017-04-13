@@ -11,6 +11,34 @@ import { Section, TipsAndTricksBlock, Button, Grid, Col, Row } from 'components'
 const StyledCol = styled(Col)`
   display: flex;
   justify-content: center;
+
+  ${breakpoint('m')`
+    &:first-child {
+      width: 100%;
+    }
+    &:not(:first-child):not(:last-child) {
+      vertical-align: top;
+      display: inline-block;
+      padding-right: ${theme('spaces.l')};
+      width: 50%;
+    }
+    &:last-child {
+      display: inline-block;
+      width: 50%;
+    }
+  `}
+  ${breakpoint('l')`
+    max-width: 100%;
+  `}
+`
+
+const StyledRow = styled(Row)`
+  ${breakpoint('m')`
+    padding: 0 10%;
+  `}
+  ${breakpoint('l')`
+    padding: 0 0;
+  `}
 `
 
 const getTags = (items) => {
@@ -24,49 +52,56 @@ const getTags = (items) => {
 }
 
 const generateChild = (i, items) => (
-  <Col xs={12} m={9} key={i}>
+  <StyledCol xs={12} key={i}>
     <TipsAndTricksBlock
       header="Fenêtre"
       image={items.featuredMedia}
       tags={getTags(items.tags)}
       title={items.title}
+      imageLink={items.featuredMedia}
     />
-  </Col>
+  </StyledCol>
 )
 
 const StyledButton = styled(Button)`
   width: 100%;
   border: none;
   box-sizing: border-box;
-  justify-content: center;
   height: 5.6rem;
   background: ${theme('colors.secondary')};
   color: ${theme('colors.black')};
   font-family: ${theme('fonts.family.montserratBold')};
 
   ${breakpoint('m')`
+    margin-top: ${theme('spaces.m')};
     max-width: 30rem;
   `}
 `
 
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+`
+
 const TipsAndTricks = ({ intl: { formatMessage } }) => (
   <Section title={formatMessage(messages('tips_and_tricks.section_title').label)}>
-    <Grid>
-      <Row>
+    <Grid narrow>
+      <StyledRow>
         <PostList
           scope="latestProjectsResources"
           tags={['api-work-resources']}
           limit={5}
           generateChild={generateChild}
         />
-      </Row>
-      <Row>
-        <StyledCol xs={12}>
-          <StyledButton type="button">
-            <FormattedMessage id="tips_and_tricks.call_to_action" />
-          </StyledButton>
-        </StyledCol>
-      </Row>
+      </StyledRow>
+      <ButtonWrapper>
+        <StyledButton type="button">
+          <FormattedMessage id="tips_and_tricks.call_to_action" />
+        </StyledButton>
+      </ButtonWrapper>
     </Grid>
   </Section>
 )
