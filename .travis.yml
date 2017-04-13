@@ -24,6 +24,7 @@ branches:
 
 after_success:
   - ./deploy-carol.sh
+  
 env:
   global:
     - BRANCH="${TRAVIS_PULL_REQUEST_BRANCH/\//-}"
