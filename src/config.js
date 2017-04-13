@@ -76,17 +76,17 @@ const config = {
   },
   production: {
     api: {
-      url: 'https://api.quotatis.com',
+      url: 'https://api-prod.qarx.io/',
     },
     locales: {
       fr_FR: {
-        contentUrl: 'https://conseils-travaux.quotatis.fr',
+        url: 'https://carol-fr-prod.qarx.io',
       },
       es_ES: {
-        contentUrl: 'https://advice.quotatis.co.uk',
+        url: 'https://carol-es-prod.qarx.io',
       },
       en_GB: {
-        contentUrl: 'https://consejos-reformas.quotatis.es',
+        url: 'https://carol-co-uk-prod.qarx.io',
       },
     },
     ssl: {
