@@ -82,7 +82,7 @@ const fr = {
   'user.last_name': 'Nom',
   'user.email': 'Email',
   'user.password': 'Mot de passe',
-  'user.confirm_password': 'Confirmer le mot de passe',
+  'user.password.show': 'Afficher / cacher le mot de passe',
   'user.my_account': 'Mon compte',
   'user.my_projects': 'Mes projets',
   'user.messaging': 'Messagerie',

@@ -80,7 +80,7 @@ const en = {
   'user.last_name': 'Last Name',
   'user.email': 'Email',
   'user.password': 'Password',
-  'user.confirm_password': 'Confirm your password',
+  'user.password.show': 'Show / hide password',
   'user.my_account': 'My account',
   'user.my_projects': 'My projects',
   'user.messaging': 'Messaging',
