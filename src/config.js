@@ -76,7 +76,7 @@ const config = {
   },
   production: {
     api: {
-      url: 'https://api-prod.qarx.io/',
+      url: 'https://api-prod.qarx.io',
     },
     locales: {
       fr_FR: {
