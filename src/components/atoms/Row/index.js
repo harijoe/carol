@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 
 import { theme, breakpoint, ifThen, mapBreakpoints } from 'utils/style'
 
-const styles = ({ reverse, start, center, end, top, middle, bottom, around, between, first, last }) => css`
+const styles = ({ reverse, column, start, center, end, top, middle, bottom, around, between, first, last }) => css`
   display: flex;
   flex: 0 1 auto;
   flex-direction: row;
@@ -13,6 +13,7 @@ const styles = ({ reverse, start, center, end, top, middle, bottom, around, betw
     margin-left: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} / 2 * -1);
   `)}
   ${ifThen(reverse, 'flex-direction: row-reverse;')}
+  ${ifThen(column, 'flex-direction: column;')}
   ${ifThen(start, breakpoint(start)`
     justify-content: flex-start;
     text-align: start;
@@ -56,6 +57,7 @@ Row.displayName = 'Row'
 
 Row.PropTypes = {
   reverse: PropTypes.bool,
+  column: PropTypes.bool,
   start: PropTypes.string,
   center: PropTypes.string,
   end: PropTypes.string,

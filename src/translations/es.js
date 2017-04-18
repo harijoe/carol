@@ -158,7 +158,8 @@ const es = {
   'how_it_works.guide.link': 'conseils personnalisés ES',
   'how_it_works.guide.second_part': ' et des guides dédiés. ES',
 
-  'hero.welcome_message': 'Bonjour, Je suis Quota ! Laissez-moi vous guider dans l\'élaboration de votre projet de... ES',
+  'hero.title_message': 'Quels travaux souhaitez vous faire ? ES',
+  'hero.welcome_message': 'Quotatis vous aide à trouver l\'artisan qui concrétisera votre projet. ES',
   'hero.conversation_in_progress': 'Vous avez déjà une converation en cours. ES',
 
   'thumbnailcard.link': 'Allons-y ➔ ES',

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
-import { theme, merge } from 'utils/style'
+import { theme, merge, breakpoint } from 'utils/style'
 
 const styles = ({ level }) => {
   let baseStyle
@@ -9,7 +9,15 @@ const styles = ({ level }) => {
     case 1:
       baseStyle = css`
         color: ${theme('colors.black')};
-        size: ${theme('fonts.size.xxl')};
+        font-size: ${theme('fonts.size.xl')};
+
+        ${breakpoint('l')`
+          font-size: ${theme('fonts.size.xxl')};
+        `}
+
+        ${breakpoint('xl')`
+          font-size: ${theme('fonts.size.xxxl')};
+        `}
       `
       break
     case 2:

@@ -1,12 +1,13 @@
 import React, { PropTypes } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { FormattedMessage } from 'react-intl'
-import { theme, breakpoint } from 'utils/style'
+import { theme, breakpoint, mapBreakpoints } from 'utils/style'
 
 import { Card, ThumbnailPoster, List } from 'components'
 
 const Wrapper = styled.div`
   display: block;
+  height: 100%;
   width: 11.2rem;
   margin: 0 ${theme('spaces.xs')};
 
@@ -17,28 +18,47 @@ const Wrapper = styled.div`
     }
   }
 
+  &:hover {
+    cursor: pointer;
+  }
+
   ${breakpoint('m')`
     width: 20rem;
-    margin: 0 ${theme('spaces.s')};
+  `}
+
+  ${mapBreakpoints(bp => css`
+    margin-right: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} / 2);
+    margin-left: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} / 2);
+  `)}
+
+  ${breakpoint('xl')`
+    margin-left: calc(${theme('spaces.l')} / 2);
+    margin-right: calc(${theme('spaces.l')} / 2);
   `}
 `
 
 const StyledCard = styled(Card)`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
   &:hover {
     box-shadow: 0 0 40px 0 rgba(19, 19, 19, 0.2);
     transform: translateY(-${theme('spaces.s')});
   }
-
-  ${breakpoint('m')`
-    height: 35rem;
-  `}
 `
 
 const CardContent = styled.div`
   position: relative;
+  flex-grow: 1;
   padding: ${theme('spaces.s')};
   font-size: ${theme('fonts.size.s')};
   line-height: 1;
+
+  ${breakpoint('m')`
+    padding: ${theme('spaces.m')};
+    font-size: ${theme('fonts.size.base')};
+  `}
 `
 
 const StyledList = styled(List)`
@@ -54,9 +74,15 @@ const StyledList = styled(List)`
   }
 `
 
-const StyledParagraph = styled.p`
-  margin: ${theme('spaces.s')} 0 0 0;
+const CardFooter = styled.footer`
+  padding: ${theme('spaces.s')};
+  font-size: ${theme('fonts.size.s')};
   color: ${theme('colors.primary')};
+
+  ${breakpoint('m')`
+    padding: calc(${theme('spaces.m')} / 2) ${theme('spaces.m')};
+    font-size: ${theme('fonts.size.base')};
+  `}
 `
 
 const ThumbnailCard = ({ link, image, title, items, onClick }) => (
@@ -67,10 +93,10 @@ const ThumbnailCard = ({ link, image, title, items, onClick }) => (
         <StyledList>
           {items.map((item, i) => <li key={i}>{item}</li>)}
         </StyledList>
-        <StyledParagraph>
-          <FormattedMessage id="thumbnailcard.link" />
-        </StyledParagraph>
       </CardContent>
+      <CardFooter>
+        <FormattedMessage id="thumbnailcard.link" />
+      </CardFooter>
     </StyledCard>
   </Wrapper>
 )

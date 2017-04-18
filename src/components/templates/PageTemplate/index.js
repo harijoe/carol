@@ -33,7 +33,7 @@ const Header = styled.header`
   z-index: 20;
 `
 
-const Content = styled.section`
+const Content = styled.div`
   width: 100%;
   margin: 0;
 `

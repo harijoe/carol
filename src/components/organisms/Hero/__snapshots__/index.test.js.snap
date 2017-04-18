@@ -6,21 +6,7 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <Hero
-    firstChoices={
-        Array [
-            Object {
-              "buttons": Array [
-                Object {
-                  "payload": "test",
-                },
-              ],
-              "image_url": "test",
-              "subtitle": "test",
-              "title": "test",
-            },
-          ]
-    }
+  "node": <ThemeProvider
     theme={
         Object {
             "colors": Object {
@@ -116,23 +102,25 @@ ShallowWrapper {
               "xxxl": "10rem",
             },
           }
-    } />,
-  "nodes": Array [
+    }>
     <Hero
-      firstChoices={
+        firstChoices={
             Array [
-                  Object {
-                    "buttons": Array [
-                      Object {
-                        "payload": "test",
-                      },
-                    ],
-                    "image_url": "test",
-                    "subtitle": "test",
-                    "title": "test",
-                  },
-                ]
-      }
+                Object {
+                  "buttons": Array [
+                    Object {
+                      "payload": "test",
+                    },
+                  ],
+                  "image_url": "test",
+                  "subtitle": "test",
+                  "title": "test",
+                },
+              ]
+        } />
+</ThemeProvider>,
+  "nodes": Array [
+    <ThemeProvider
       theme={
             Object {
                   "colors": Object {
@@ -228,7 +216,23 @@ ShallowWrapper {
                     "xxxl": "10rem",
                   },
                 }
-      } />,
+      }>
+      <Hero
+            firstChoices={
+                  Array [
+                        Object {
+                          "buttons": Array [
+                            Object {
+                              "payload": "test",
+                            },
+                          ],
+                          "image_url": "test",
+                          "subtitle": "test",
+                          "title": "test",
+                        },
+                      ]
+            } />
+</ThemeProvider>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -300,7 +304,8 @@ ShallowWrapper {
                         "form.input.button.phone": "Phone",
                         "help": "Help",
                         "hero.conversation_in_progress": "Vous avez déjà une converation en cours. EN",
-                        "hero.welcome_message": "Bonjour, Je suis Quota ! Laissez-moi vous guider dans l\'élaboration de votre projet de... EN",
+                        "hero.title_message": "Quels travaux souhaitez vous faire ? EN",
+                        "hero.welcome_message": "Quotatis vous aide à trouver l\'artisan qui concrétisera votre projet. EN",
                         "home": "Home",
                         "how_it_works.describe_project": "En quelques questions, nous déterminons ensemble les informations nécessaires pour démarrer votre projet de rénovation, construction ou amélioration de votre habitat. EN",
                         "how_it_works.describe_project.title": "Décrivez votre projet EN",
@@ -427,21 +432,7 @@ ShallowWrapper {
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
         }>
-        <Hero
-                firstChoices={
-                        Array [
-                                Object {
-                                  "buttons": Array [
-                                    Object {
-                                      "payload": "test",
-                                    },
-                                  ],
-                                  "image_url": "test",
-                                  "subtitle": "test",
-                                  "title": "test",
-                                },
-                              ]
-                }
+        <ThemeProvider
                 theme={
                         Object {
                                 "colors": Object {
@@ -537,7 +528,23 @@ ShallowWrapper {
                                   "xxxl": "10rem",
                                 },
                               }
-                } />
+                }>
+                <Hero
+                        firstChoices={
+                                Array [
+                                        Object {
+                                          "buttons": Array [
+                                            Object {
+                                              "payload": "test",
+                                            },
+                                          ],
+                                          "image_url": "test",
+                                          "subtitle": "test",
+                                          "title": "test",
+                                        },
+                                      ]
+                        } />
+        </ThemeProvider>
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -548,21 +555,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <Hero
-            firstChoices={
-                        Array [
-                                    Object {
-                                      "buttons": Array [
-                                        Object {
-                                          "payload": "test",
-                                        },
-                                      ],
-                                      "image_url": "test",
-                                      "subtitle": "test",
-                                      "title": "test",
-                                    },
-                                  ]
-            }
+          "children": <ThemeProvider
             theme={
                         Object {
                                     "colors": Object {
@@ -658,7 +651,23 @@ ShallowWrapper {
                                       "xxxl": "10rem",
                                     },
                                   }
-            } />,
+            }>
+            <Hero
+                        firstChoices={
+                                    Array [
+                                                Object {
+                                                  "buttons": Array [
+                                                    Object {
+                                                      "payload": "test",
+                                                    },
+                                                  ],
+                                                  "image_url": "test",
+                                                  "subtitle": "test",
+                                                  "title": "test",
+                                                },
+                                              ]
+                        } />
+</ThemeProvider>,
           "locale": "en",
           "messages": Object {
             "Invalid username and password combination": "Invalid username and password combination",
@@ -721,7 +730,8 @@ ShallowWrapper {
             "form.input.button.phone": "Phone",
             "help": "Help",
             "hero.conversation_in_progress": "Vous avez déjà une converation en cours. EN",
-            "hero.welcome_message": "Bonjour, Je suis Quota ! Laissez-moi vous guider dans l\'élaboration de votre projet de... EN",
+            "hero.title_message": "Quels travaux souhaitez vous faire ? EN",
+            "hero.welcome_message": "Quotatis vous aide à trouver l\'artisan qui concrétisera votre projet. EN",
             "home": "Home",
             "how_it_works.describe_project": "En quelques questions, nous déterminons ensemble les informations nécessaires pour démarrer votre projet de rénovation, construction ou amélioration de votre habitat. EN",
             "how_it_works.describe_project.title": "Décrivez votre projet EN",
@@ -875,21 +885,7 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <Hero
-          firstChoices={
-                    Array [
-                              Object {
-                                "buttons": Array [
-                                  Object {
-                                    "payload": "test",
-                                  },
-                                ],
-                                "image_url": "test",
-                                "subtitle": "test",
-                                "title": "test",
-                              },
-                            ]
-          }
+        "_currentElement": <ThemeProvider
           theme={
                     Object {
                               "colors": Object {
@@ -985,23 +981,25 @@ ShallowWrapper {
                                 "xxxl": "10rem",
                               },
                             }
-          } />,
+          }>
+          <Hero
+                    firstChoices={
+                              Array [
+                                        Object {
+                                          "buttons": Array [
+                                            Object {
+                                              "payload": "test",
+                                            },
+                                          ],
+                                          "image_url": "test",
+                                          "subtitle": "test",
+                                          "title": "test",
+                                        },
+                                      ]
+                    } />
+</ThemeProvider>,
         "_debugID": 2,
-        "_renderedOutput": <Hero
-          firstChoices={
-                    Array [
-                              Object {
-                                "buttons": Array [
-                                  Object {
-                                    "payload": "test",
-                                  },
-                                ],
-                                "image_url": "test",
-                                "subtitle": "test",
-                                "title": "test",
-                              },
-                            ]
-          }
+        "_renderedOutput": <ThemeProvider
           theme={
                     Object {
                               "colors": Object {
@@ -1097,7 +1095,23 @@ ShallowWrapper {
                                 "xxxl": "10rem",
                               },
                             }
-          } />,
+          }>
+          <Hero
+                    firstChoices={
+                              Array [
+                                        Object {
+                                          "buttons": Array [
+                                            Object {
+                                              "payload": "test",
+                                            },
+                                          ],
+                                          "image_url": "test",
+                                          "subtitle": "test",
+                                          "title": "test",
+                                        },
+                                      ]
+                    } />
+</ThemeProvider>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -1173,7 +1187,8 @@ ShallowWrapper {
             "form.input.button.phone": "Phone",
             "help": "Help",
             "hero.conversation_in_progress": "Vous avez déjà une converation en cours. EN",
-            "hero.welcome_message": "Bonjour, Je suis Quota ! Laissez-moi vous guider dans l\'élaboration de votre projet de... EN",
+            "hero.title_message": "Quels travaux souhaitez vous faire ? EN",
+            "hero.welcome_message": "Quotatis vous aide à trouver l\'artisan qui concrétisera votre projet. EN",
             "home": "Home",
             "how_it_works.describe_project": "En quelques questions, nous déterminons ensemble les informations nécessaires pour démarrer votre projet de rénovation, construction ou amélioration de votre habitat. EN",
             "how_it_works.describe_project.title": "Décrivez votre projet EN",
@@ -1300,21 +1315,7 @@ ShallowWrapper {
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }
     }>
-    <Hero
-        firstChoices={
-            Array [
-                Object {
-                  "buttons": Array [
-                    Object {
-                      "payload": "test",
-                    },
-                  ],
-                  "image_url": "test",
-                  "subtitle": "test",
-                  "title": "test",
-                },
-              ]
-        }
+    <ThemeProvider
         theme={
             Object {
                 "colors": Object {
@@ -1410,7 +1411,23 @@ ShallowWrapper {
                   "xxxl": "10rem",
                 },
               }
-        } />
+        }>
+        <Hero
+            firstChoices={
+                Array [
+                    Object {
+                      "buttons": Array [
+                        Object {
+                          "payload": "test",
+                        },
+                      ],
+                      "image_url": "test",
+                      "subtitle": "test",
+                      "title": "test",
+                    },
+                  ]
+            } />
+    </ThemeProvider>
 </IntlProvider>,
 }
 `;
