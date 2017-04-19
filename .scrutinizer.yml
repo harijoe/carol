@@ -1,10 +1,15 @@
+filter:
+    excluded_paths:
+        - 'docker/*'
 build:
     tests:
         override:
             -
-                command: 'npm test'
-                coverage:
-                    file: 'coverage/clover.xml'
-                    format: 'clover'
+                command: 'yarn run lint'
+
 checks:
     javascript: true
+build_failure_conditions:
+    - 'issues.severity(>= CRITICAL).new.exists'
+    - 'project.metric("scrutinizer.quality", < 9)'
+    - 'project.metric_change("scrutinizer.quality", < -0.10)'

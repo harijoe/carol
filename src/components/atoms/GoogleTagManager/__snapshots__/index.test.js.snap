@@ -1,0 +1,180 @@
+exports[`test renders the GoogleTagManager component 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <div>
+    <div>
+        <noscript
+            dangerouslySetInnerHTML={
+                Object {
+                    "__html": "
+                        <iframe src=\"//www.googletagmanager.com/ns.html?id=GTM-123\"
+                            height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe>",
+                  }
+            } />
+    </div>
+    <div
+        id="react-google-tag-manager-gtm">
+        <script
+            dangerouslySetInnerHTML={
+                Object {
+                    "__html": "
+                        (function(w,d,s,l,i){w[l]=w[l]||[];
+                            w[l].push({\'gtm.start\': new Date().getTime(),event:\'gtm.js\', });
+                            var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';
+                            j.async=true;j.src=\'//www.googletagmanager.com/gtm.js?id=\'+i+dl;
+                            f.parentNode.insertBefore(j,f);
+                        })(window,document,\'script\',\'dataLayer\',\'GTM-123\');",
+                  }
+            } />
+    </div>
+</div>,
+  "nodes": Array [
+    <div>
+      <div>
+            <noscript
+                  dangerouslySetInnerHTML={
+                        Object {
+                              "__html": "
+                                <iframe src=\"//www.googletagmanager.com/ns.html?id=GTM-123\"
+                                    height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe>",
+                            }
+                  } />
+      </div>
+      <div
+            id="react-google-tag-manager-gtm">
+            <script
+                  dangerouslySetInnerHTML={
+                        Object {
+                              "__html": "
+                                (function(w,d,s,l,i){w[l]=w[l]||[];
+                                    w[l].push({\'gtm.start\': new Date().getTime(),event:\'gtm.js\', });
+                                    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';
+                                    j.async=true;j.src=\'//www.googletagmanager.com/gtm.js?id=\'+i+dl;
+                                    f.parentNode.insertBefore(j,f);
+                                })(window,document,\'script\',\'dataLayer\',\'GTM-123\');",
+                            }
+                  } />
+      </div>
+</div>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <GoogleTagManager
+        additionalEvents={Object {}}
+        dataLayerName="dataLayer"
+        gtmId="GTM-123"
+        scriptId="react-google-tag-manager-gtm" />,
+      "_debugID": 1,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": GoogleTagManager {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "additionalEvents": Object {},
+          "dataLayerName": "dataLayer",
+          "gtmId": "GTM-123",
+          "scriptId": "react-google-tag-manager-gtm",
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 1,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <div>
+          <div>
+                    <noscript
+                              dangerouslySetInnerHTML={
+                                        Object {
+                                                  "__html": "
+                                                <iframe src=\"//www.googletagmanager.com/ns.html?id=GTM-123\"
+                                                    height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe>",
+                                                }
+                              } />
+          </div>
+          <div
+                    id="react-google-tag-manager-gtm">
+                    <script
+                              dangerouslySetInnerHTML={
+                                        Object {
+                                                  "__html": "
+                                                (function(w,d,s,l,i){w[l]=w[l]||[];
+                                                    w[l].push({\'gtm.start\': new Date().getTime(),event:\'gtm.js\', });
+                                                    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';
+                                                    j.async=true;j.src=\'//www.googletagmanager.com/gtm.js?id=\'+i+dl;
+                                                    f.parentNode.insertBefore(j,f);
+                                                })(window,document,\'script\',\'dataLayer\',\'GTM-123\');",
+                                                }
+                              } />
+          </div>
+</div>,
+        "_debugID": 2,
+        "_renderedOutput": <div>
+          <div>
+                    <noscript
+                              dangerouslySetInnerHTML={
+                                        Object {
+                                                  "__html": "
+                                                <iframe src=\"//www.googletagmanager.com/ns.html?id=GTM-123\"
+                                                    height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe>",
+                                                }
+                              } />
+          </div>
+          <div
+                    id="react-google-tag-manager-gtm">
+                    <script
+                              dangerouslySetInnerHTML={
+                                        Object {
+                                                  "__html": "
+                                                (function(w,d,s,l,i){w[l]=w[l]||[];
+                                                    w[l].push({\'gtm.start\': new Date().getTime(),event:\'gtm.js\', });
+                                                    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';
+                                                    j.async=true;j.src=\'//www.googletagmanager.com/gtm.js?id=\'+i+dl;
+                                                    f.parentNode.insertBefore(j,f);
+                                                })(window,document,\'script\',\'dataLayer\',\'GTM-123\');",
+                                                }
+                              } />
+          </div>
+</div>,
+      },
+      "_renderedNodeType": 0,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <GoogleTagManager
+    additionalEvents={Object {}}
+    dataLayerName="dataLayer"
+    gtmId="GTM-123"
+    scriptId="react-google-tag-manager-gtm" />,
+}
+`;

@@ -1,37 +1,42 @@
 {
   "parser": "babel-eslint",
   "extends": [
-    "standard",
-    "standard-react",
     "airbnb"
   ],
-  "plugins": [
-    "babel",
-    "react"
-  ],
   "env": {
-    "browser" : true
+    "browser": true,
+    "jest": true
   },
-  "globals" : {
-    "Action"       : false,
-    "__DEV__"      : false,
-    "__PROD__"     : false,
-    "__DEBUG__"    : false,
-    "__DEBUG_NEW_WINDOW__" : false,
-    "__BASENAME__" : false
+  "globals": {
+    "__DEV__": true,
+    "__PROD__": true,
+    "__DEBUG__": true,
+    "__COVERAGE__": true,
+    "__BASENAME__": true
   },
   "rules": {
-    "comma-dangle": 0,
-    "no-console": 0,
     "semi": [2, "never"],
-    "func-names": 0,
-    "space-before-function-paren": 0,
-    "no-multi-spaces": 0,
-    "babel/generator-star-spacing": 1,
-    "babel/new-cap": 1,
-    "babel/object-shorthand": 1,
-    "babel/arrow-parens": 1,
-    "babel/no-await-in-loop": 1,
-    "arrow-body-style": ["error", "always"]
+    "max-len": 0,
+    "global-require": 0,
+    "comma-dangle": ["error", "always-multiline"],
+    "curly": "error",
+    "no-confusing-arrow": 0,
+    "no-console": ["error", { "allow": ["warn", "error", "info"] }],
+    "jsx-quotes": [2, "prefer-double"],
+    "jsx-a11y/anchor-has-content": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/forbid-prop-types": 0,
+    "react/no-danger": 0,
+    "import/no-dynamic-require": 0,
+    "newline-after-var": "error",
+    "newline-before-return": "error",
+    "func-names": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack/dev.config.js"
+      }
+    }
   }
 }

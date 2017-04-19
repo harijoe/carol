@@ -1,0 +1,215 @@
+exports[`test renders Reinsurance 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <Styled(Mock)
+    light={true}>
+    <Mock
+        carousel={
+            Object {
+                "afterChange": [Function],
+                "autoplay": true,
+                "dots": false,
+                "infinite": true,
+                "pauseOnHover": true,
+                "responsive": Array [
+                  Object {
+                    "breakpoint": 1200,
+                    "settings": Object {
+                      "arrows": false,
+                    },
+                  },
+                  Object {
+                    "breakpoint": 3000,
+                    "settings": Object {
+                      "arrows": true,
+                    },
+                  },
+                ],
+                "slidesToScroll": 1,
+                "slidesToShow": 1,
+              }
+        }
+        generateBackground={[Function]}
+        generateChild={[Function]}
+        limit={3}
+        scope="reinsuranceArticles"
+        tags={
+            Array [
+                "api-quotatis-reinsurance",
+              ]
+        } />
+</Styled(Mock)>,
+  "nodes": Array [
+    <Styled(Mock)
+      light={true}>
+      <Mock
+            carousel={
+                  Object {
+                        "afterChange": [Function],
+                        "autoplay": true,
+                        "dots": false,
+                        "infinite": true,
+                        "pauseOnHover": true,
+                        "responsive": Array [
+                          Object {
+                            "breakpoint": 1200,
+                            "settings": Object {
+                              "arrows": false,
+                            },
+                          },
+                          Object {
+                            "breakpoint": 3000,
+                            "settings": Object {
+                              "arrows": true,
+                            },
+                          },
+                        ],
+                        "slidesToScroll": 1,
+                        "slidesToShow": 1,
+                      }
+            }
+            generateBackground={[Function]}
+            generateChild={[Function]}
+            limit={3}
+            scope="reinsuranceArticles"
+            tags={
+                  Array [
+                        "api-quotatis-reinsurance",
+                      ]
+            } />
+</Styled(Mock)>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <Reinsurance />,
+      "_debugID": 1,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": Reinsurance {
+        "_reactInternalInstance": [Circular],
+        "afterChange": [Function],
+        "context": Object {},
+        "generateBackground": [Function],
+        "props": Object {},
+        "refs": Object {},
+        "state": Object {
+          "activeImage": 0,
+        },
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 1,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <Styled(Mock)
+          light={true}>
+          <Mock
+                    carousel={
+                              Object {
+                                        "afterChange": [Function],
+                                        "autoplay": true,
+                                        "dots": false,
+                                        "infinite": true,
+                                        "pauseOnHover": true,
+                                        "responsive": Array [
+                                          Object {
+                                            "breakpoint": 1200,
+                                            "settings": Object {
+                                              "arrows": false,
+                                            },
+                                          },
+                                          Object {
+                                            "breakpoint": 3000,
+                                            "settings": Object {
+                                              "arrows": true,
+                                            },
+                                          },
+                                        ],
+                                        "slidesToScroll": 1,
+                                        "slidesToShow": 1,
+                                      }
+                    }
+                    generateBackground={[Function]}
+                    generateChild={[Function]}
+                    limit={3}
+                    scope="reinsuranceArticles"
+                    tags={
+                              Array [
+                                        "api-quotatis-reinsurance",
+                                      ]
+                    } />
+</Styled(Mock)>,
+        "_debugID": 2,
+        "_renderedOutput": <Styled(Mock)
+          light={true}>
+          <Mock
+                    carousel={
+                              Object {
+                                        "afterChange": [Function],
+                                        "autoplay": true,
+                                        "dots": false,
+                                        "infinite": true,
+                                        "pauseOnHover": true,
+                                        "responsive": Array [
+                                          Object {
+                                            "breakpoint": 1200,
+                                            "settings": Object {
+                                              "arrows": false,
+                                            },
+                                          },
+                                          Object {
+                                            "breakpoint": 3000,
+                                            "settings": Object {
+                                              "arrows": true,
+                                            },
+                                          },
+                                        ],
+                                        "slidesToScroll": 1,
+                                        "slidesToShow": 1,
+                                      }
+                    }
+                    generateBackground={[Function]}
+                    generateChild={[Function]}
+                    limit={3}
+                    scope="reinsuranceArticles"
+                    tags={
+                              Array [
+                                        "api-quotatis-reinsurance",
+                                      ]
+                    } />
+</Styled(Mock)>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <Reinsurance />,
+}
+`;

@@ -1,0 +1,98 @@
+exports[`test renders the HowItWorksBlock component 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <div>
+    <Styled(Mock)
+        link={undefined} />
+    <Mock
+        level={3}>
+        Test
+    </Mock>
+</div>,
+  "nodes": Array [
+    <div>
+      <Styled(Mock)
+            link={undefined} />
+      <Mock
+            level={3}>
+            Test
+      </Mock>
+</div>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 2,
+      "_context": Object {},
+      "_currentElement": <HowItWorksBlock
+        Content="Test content"
+        title="Test" />,
+      "_debugID": 1,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": StatelessComponent {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "Content": "Test content",
+          "title": "Test",
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 1,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <div>
+          <Styled(Mock)
+                    link={undefined} />
+          <Mock
+                    level={3}>
+                    Test
+          </Mock>
+</div>,
+        "_debugID": 2,
+        "_renderedOutput": <div>
+          <Styled(Mock)
+                    link={undefined} />
+          <Mock
+                    level={3}>
+                    Test
+          </Mock>
+</div>,
+      },
+      "_renderedNodeType": 0,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <HowItWorksBlock
+    Content="Test content"
+    title="Test" />,
+}
+`;
