@@ -17,6 +17,8 @@ const fr = {
 
   'login.coming_back': 'De retour ?',
 
+  'main.baseline': 'Vos travaux en mieux',
+
   'firm.find_pro': 'Trouver un artisan',
   'firm.resource': 'Ressource pour mes travaux',
   'firm.i_am_pro': 'Je suis artisan',
@@ -188,6 +190,8 @@ const fr = {
   'footer.corporate.press': 'Presse',
   'footer.corporate.phone_help': 'Besoin d\'aide ?',
   'footer.corporate.phone_pros': 'Vous êtes un pro ?',
+  'footer.corporate.phone_help_number': '01 77 86 80 97',
+  'footer.corporate.phone_pros_number': '01 77 86 71 91',
   'footer.corporate.privacy_policy': 'Privacy policy FR',
   'footer.corporate.notice': 'Mentions légales',
   'footer.corporate.use': 'Terms & conditions of use FR',

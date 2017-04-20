@@ -39,6 +39,7 @@ const Content = styled.div`
 
 const Footer = styled.footer`
   margin-top: auto;
+  width: 100%;
 `
 
 const notificationsDefaultValues = {

@@ -15,6 +15,8 @@ const en = {
   'country.spain': 'Spain',
   'country.great_britain': 'Great-Britain',
 
+  'main.baseline': 'Vos travaux en mieux EN',
+
   'firm.find_pro': 'Find a pro',
   'firm.resource': 'Resource for my work',
   'firm.i_am_pro': 'I am a pro',
@@ -188,6 +190,8 @@ const en = {
   'footer.corporate.phone_help': 'Need help ?',
   'footer.corporate.phone_pros': 'Vous êtes un pro ? EN',
   'footer.corporate.privacy_policy': 'Privacy policy EN',
+  'footer.corporate.phone_help_number': '01 77 86 80 97 EN',
+  'footer.corporate.phone_pros_number': '01 77 86 71 91 EN',
   'footer.corporate.notice': 'Legal notice',
   'footer.corporate.use': 'Terms & conditions of use',
 

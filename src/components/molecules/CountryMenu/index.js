@@ -1,39 +1,26 @@
 import React, { PropTypes } from 'react'
 import { FormattedMessage } from 'react-intl'
-import styled from 'styled-components'
-import { locales } from 'config'
 import { getUrlFromLocale } from 'utils/locale'
 
-import { List, Section } from 'components'
+const onChange = e => (location.href = getUrlFromLocale(e.target.value))
 
-const StyledSection = styled(Section)`
-  width: 100%;
-`
+const generateOption = (value, name) => (
+  <FormattedMessage id={name} key={value}>
+    {message => <option value={value}>{message}</option>}
+  </FormattedMessage>
+)
 
-const CountryMenu = ({ currentCountry }) => (
-  <StyledSection title={`locale: ${currentCountry}`}>
-    <List>
-      <li>
-        <a href={getUrlFromLocale(locales.fr_FR)}>
-          <FormattedMessage id="country.france" />
-        </a>
-      </li>
-      <li>
-        <a href={getUrlFromLocale(locales.es_ES)}>
-          <FormattedMessage id="country.spain" />
-        </a>
-      </li>
-      <li>
-        <a href={getUrlFromLocale(locales.en_GB)}>
-          <FormattedMessage id="country.great_britain" />
-        </a>
-      </li>
-    </List>
-  </StyledSection>
+const CountryMenu = ({ currentLocale, className }) => (
+  <select defaultValue={currentLocale} className={className} onChange={onChange}>
+    {generateOption('es_ES', 'country.spain')}
+    {generateOption('fr_FR', 'country.france')}
+    {generateOption('en_GB', 'country.great_britain')}
+  </select>
 )
 
 CountryMenu.propTypes = {
-  currentCountry: PropTypes.string,
+  currentLocale: PropTypes.string,
+  className: PropTypes.string,
 }
 
 export default CountryMenu

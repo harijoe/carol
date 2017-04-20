@@ -1,7 +1,7 @@
 import React from 'react'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import styled from 'styled-components'
-import { theme } from 'utils/style'
+import { theme, breakpoint } from 'utils/style'
 import messages from 'utils/messages'
 import { contentSiteUrl } from 'config'
 
@@ -31,10 +31,23 @@ const StyledListItem = styled(ListItem)`
   padding-bottom: ${theme('spaces.s')};
 `
 
+const StyledCol = styled(Col)`
+  ${breakpoint('m')`
+    width: 25%;
+  `}
+`
+
+const StyledSection = styled(Section)`
+  ${breakpoint('m')`
+    padding-top: ${theme('spaces.xxl')};
+    padding-bottom: ${theme('spaces.xxl')};
+  `}
+`
+
 const FooterAdvices = ({ intl: { formatMessage } }) => (
-  <Section dark title={formatMessage(messages('footer.advices.section_title').label)} >
+  <StyledSection dark title={formatMessage(messages('footer.advices.section_title').label)} >
     <StyledRow>
-      <Col xs={6}>
+      <StyledCol xs={6} m={3}>
         <StyledList>
           <StyledListItem>
             <StyledLink to={`${contentSiteUrl}guide/fenetres-portes-volets/`} target="_blank">
@@ -51,6 +64,15 @@ const FooterAdvices = ({ intl: { formatMessage } }) => (
               <FormattedMessage id="footer.advices.air" />
             </StyledLink>
           </StyledListItem>
+          <StyledListItem>
+            <StyledLink>
+              <FormattedMessage id="footer.advices.outside" />
+            </StyledLink>
+          </StyledListItem>
+        </StyledList>
+      </StyledCol>
+      <StyledCol xs={6} m={3}>
+        <StyledList>
           <StyledListItem>
             <StyledLink>
               <FormattedMessage id="footer.advices.wall" />
@@ -72,8 +94,8 @@ const FooterAdvices = ({ intl: { formatMessage } }) => (
             </StyledLink>
           </StyledListItem>
         </StyledList>
-      </Col>
-      <Col xs={6}>
+      </StyledCol>
+      <StyledCol xs={6} m={3}>
         <StyledList>
           <StyledListItem>
             <StyledLink>
@@ -90,6 +112,10 @@ const FooterAdvices = ({ intl: { formatMessage } }) => (
               <FormattedMessage id="footer.advices.renovation" />
             </StyledLink>
           </StyledListItem>
+        </StyledList>
+      </StyledCol>
+      <StyledCol xs={6} m={3}>
+        <StyledList>
           <StyledListItem>
             <StyledLink>
               <FormattedMessage id="footer.advices.bathroom" />
@@ -102,18 +128,13 @@ const FooterAdvices = ({ intl: { formatMessage } }) => (
           </StyledListItem>
           <StyledListItem>
             <StyledLink>
-              <FormattedMessage id="footer.advices.outside" />
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink>
               <FormattedMessage id="footer.advices.wellness" />
             </StyledLink>
           </StyledListItem>
         </StyledList>
-      </Col>
+      </StyledCol>
     </StyledRow>
-  </Section>
+  </StyledSection>
 )
 
 FooterAdvices.propTypes = {
