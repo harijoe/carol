@@ -1,42 +1,10 @@
 import React, { PropTypes } from 'react'
-import styled, { css } from 'styled-components'
-import { theme, breakpoint, mapBreakpoints } from 'utils/style'
+import styled from 'styled-components'
+import { theme, breakpoint } from 'utils/style'
 
-import { List, ListItem, Button, ThumbnailPoster } from 'components'
+import { Carousel, ThumbnailPoster } from 'components'
 
-const StyledList = styled(List)`
-  position: relative;
-  display: flex;
-  flex-wrap: nowrap;
-  margin: 0;
-  padding-bottom: ${theme('spaces.m')};
-  padding-top: ${theme('spaces.m')};
-  overflow-y: hidden;
-  overflow-x: visible;
-  list-style: none;
-
-  &::-webkit-scrollbar-track {
-    border-radius: 6rem;
-    background-color: ${theme('colors.grayscale.lightest')};
-  }
-
-  &::-webkit-scrollbar {
-    height: ${theme('spaces.xs')};
-    width: ${theme('spaces.xs')};
-    background-color: ${theme('colors.grayscale.lightest')};
-  }
-
-  &::-webkit-scrollbar-thumb {
-    border-radius: 6rem;
-    background-color: ${theme('colors.grayscale.light')};
-  }
-
-  ${mapBreakpoints(bp => css`
-    padding-left: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
-  `)}
-`
-
-const StyledListItem = styled(ListItem)`
+const StyledItem = styled.div`
   margin: 0 ${theme('spaces.xs')};
   padding: 0;
   max-width: 11.5rem;
@@ -60,31 +28,38 @@ const StyledListItem = styled(ListItem)`
   `}
 `
 
-const StyledButton = styled(Button)`
-  padding: 0;
-  width: 100%;
-
-  > figure {
-    height: 17.5rem;
-    box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, .15);
-
-    ${breakpoint('xl')`
-      height: 20rem;
-    `}
-  }
-
-  h3 {
-    ${breakpoint('l')`
-      font-size: ${theme('fonts.size.l')};
-    `}
-  }
+const StyledButton = styled.button`
+  outline: none;
+  border: none;
+  background: ${theme('colors.white')};
 `
 
 const AttachmentGeneric = ({ attachment, reply }) => (
-  <StyledList>
+  <Carousel
+    infinite={false}
+    variableWidth
+    slidesToScroll={3}
+    responsive={[
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 3,
+          arrows: false,
+          swipe: true,
+        },
+      },
+      {
+        breakpoint: 3000,
+        settings: {
+          arrow: true,
+          swipe: false,
+        },
+      },
+    ]}
+  >
     {
       attachment.payload.elements.map(({ title, image_url, buttons }, i) => (
-        <StyledListItem key={i}>
+        <StyledItem key={i}>
           <StyledButton onClick={() => { reply(title, buttons[0].payload) }}>
             <ThumbnailPoster
               // eslint-disable-next-line camelcase
@@ -92,10 +67,10 @@ const AttachmentGeneric = ({ attachment, reply }) => (
               title={title}
             />
           </StyledButton>
-        </StyledListItem>
+        </StyledItem>
       ))
     }
-  </StyledList>
+  </Carousel>
 )
 
 AttachmentGeneric.propTypes = {
