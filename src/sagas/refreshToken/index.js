@@ -16,6 +16,6 @@ export default function* () {
   const refreshTokenResult = yield take(responseChannel)
 
   if (refreshTokenResult === false) {
-    throw new Error(`Token refresh failed ${refreshTokenResult}`)
+    throw new Error('Token refresh failed')
   }
 }

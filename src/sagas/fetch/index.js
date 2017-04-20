@@ -33,6 +33,7 @@ export function* fetchWithoutRefreshingToken(actions, method, url, settings = {}
   const accessToken = yield select(fromAuth.getAccessToken)
 
   try {
+    console.info('fetching — ', url)
     const response = yield* fetchUsingCache(method, url, { ...settings, lang, accessToken }, data)
 
     yield put(actions.success(response, actionParams))
