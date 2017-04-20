@@ -1,4 +1,4 @@
-import { call, fork, put, take, select } from 'redux-saga/effects'
+import { fork, put, take, select } from 'redux-saga/effects'
 import { stopSubmit } from 'redux-form'
 import cookie from 'react-cookie'
 import { push } from 'react-router-redux'
@@ -8,13 +8,12 @@ import { takeLatest } from 'utils/effects'
 import {
   resetUser,
   projectElaborationReset,
-  projectElaborationConversationCurrent,
-  projectElaborationConversationsDetails,
   projectElaborationHeroDetails,
   AUTH_LOGIN,
   AUTH_LOGOUT,
   authLogin,
   closeAllPopin,
+  setAccessToken,
 } from 'store/actions'
 import { fromAuth, fromRouting } from 'store/selectors'
 import { fetchWithoutRefreshingToken } from 'sagas/fetch'
@@ -30,28 +29,23 @@ import removeToken from 'sagas/removeToken'
  */
 export function* handleAuthLoginRequest({ grantType = 'client_credentials', formName = null, credentials = '' } = {}) {
   try {
-    const token = yield cookie.load('access_token')
+    const token = cookie.load('access_token')
 
     if (credentials === '' && token != null) {
-      // Notice: Token is expected to already be in the state thanks to SSR, there is nothing more to do
+      const currentToken = yield select(fromAuth.getAccessToken)
+
+      if (token !== true && token !== currentToken) {
+        yield put(setAccessToken(token))
+      }
+
       return token
     }
 
     const url = `/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api.clientSecret}&grant_type=${grantType}${credentials}`
 
     yield* fetchWithoutRefreshingToken(authLogin(grantType), 'get', url)
+
     yield* saveToken(grantType)
-
-    const pathName = yield select(fromRouting.getPathname)
-    const isAuthenticated = yield select(fromAuth.isAuthenticated)
-
-    if (isAuthenticated) {
-      if (pathName === 'project-elaboration') {
-        yield put(projectElaborationConversationCurrent.request())
-      } else {
-        yield put(projectElaborationConversationsDetails.request())
-      }
-    }
 
     return true
   } catch ({ _error }) {
@@ -92,7 +86,7 @@ function* watchAuthChannelRequest() {
   // eslint-disable-next-line no-constant-condition
   while (true) {
     const payload = yield take(requestChannel)
-    const authSuccessful = yield call(handleAuthLoginRequest, payload)
+    const authSuccessful = yield* handleAuthLoginRequest(payload)
 
     yield put(responseChannel, authSuccessful)
   }

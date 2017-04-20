@@ -7,6 +7,7 @@ import {
   PROJECT_ELABORATION_HERO_SET_RESPONSE,
   PROJECT_ELABORATION_CONVERSATIONS_DETAILS,
   PROJECT_ELABORATION_CONVERSATION_DETAILS,
+  PROJECT_ELABORATION_RESET_CONVERSATION,
 } from './actions'
 
 const addQuestions = (activeConversation, questions) => {
@@ -119,6 +120,11 @@ export default (state = initialState, action) => {
         activeConversation: state.conversations[payload].conversation,
         sessionId: state.conversations[payload].sessionId,
         conversations: {},
+      }
+    case PROJECT_ELABORATION_RESET_CONVERSATION:
+      return {
+        ...state,
+        activeConversation: [],
       }
     default:
       return state

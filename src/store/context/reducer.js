@@ -1,4 +1,4 @@
-import { CONTEXT_SET_COUNTRY, CONTEXT_SET_LANG, CONTEXT_TOGGLE_POPIN_NAV, CONTEXT_TOGGLE_POPIN_ACCOUNT, CONTEXT_CLOSE_ALL_POPIN } from './actions'
+import { CONTEXT_SET_COUNTRY, CONTEXT_SET_LANG, CONTEXT_TOGGLE_POPIN_NAV, CONTEXT_TOGGLE_POPIN_ACCOUNT, CONTEXT_CLOSE_ALL_POPIN, CONTEXT_SET_SSR } from './actions'
 import { initialState } from './selectors'
 
 export default (state = initialState, action) => {
@@ -32,6 +32,12 @@ export default (state = initialState, action) => {
         ...state,
         popinNavigation: false,
         popinAccount: false,
+      }
+    }
+    case CONTEXT_SET_SSR: {
+      return {
+        ...state,
+        ssr: action.payload,
       }
     }
     default: {

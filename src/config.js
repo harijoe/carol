@@ -58,6 +58,7 @@ const config = {
         countryLabel: 'country.great_britain',
       },
     },
+    purgeCacheToken: '41Xdkf2c7lflo2o065BTV21y6V6xhg9t',
   },
   staging: {
     api: {

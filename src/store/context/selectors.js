@@ -6,8 +6,10 @@ export const initialState = {
   lang: getLangFromLocale(defaultLocale),
   popinNavigation: false,
   popinAccount: false,
+  ssr: true,
 }
 
+export const isSSR = (state = initialState) => state.ssr
 export const getLang = (state = initialState) => state.lang
 export const getPopinNavigation = (state = initialState) => state.popinNavigation
 export const getPopinAccount = (state = initialState) => state.popinAccount

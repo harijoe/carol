@@ -3,6 +3,7 @@ export const CONTEXT_SET_LANG = 'CONTEXT_SET_LANG'
 export const CONTEXT_TOGGLE_POPIN_NAV = 'CONTEXT_TOGGLE_POPIN_NAV'
 export const CONTEXT_TOGGLE_POPIN_ACCOUNT = 'CONTEXT_TOGGLE_POPIN_ACCOUNT'
 export const CONTEXT_CLOSE_ALL_POPIN = 'CONTEXT_CLOSE_ALL_POPIN'
+export const CONTEXT_SET_SSR = 'CONTEXT_SET_SSR'
 
 export const setCountry = country => ({
   type: CONTEXT_SET_COUNTRY,
@@ -17,6 +18,11 @@ export const setLang = lang => ({
 export const togglePopinNavigation = (state = null) => ({
   type: CONTEXT_TOGGLE_POPIN_NAV,
   payload: state,
+})
+
+export const setSSR = ssr => ({
+  type: CONTEXT_SET_SSR,
+  payload: ssr,
 })
 
 export const togglePopinAccount = (state = null) => ({

@@ -1,21 +1,12 @@
-import React from 'react'
-import serialize from 'serialize-javascript'
-import styleSheet from 'styled-components/lib/models/StyleSheet'
-import { renderToString, renderToStaticMarkup } from 'react-dom/server'
-import { Provider } from 'react-redux'
-import { createMemoryHistory, RouterContext, match } from 'react-router'
+import { createMemoryHistory, match } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { Router } from 'express'
-import uuid from 'uuid/v4'
+import reactCookie from 'react-cookie'
 import express from 'services/express'
 import routes from 'routes'
 import configureStore from 'store/configure'
 import { env, port, ip } from 'config'
-import isAuthenticated from 'utils/auth'
-import Html from 'components/Html'
-import { setCountry, setLang, setAccessToken, setAuthenticated, setProjectElaborationSessionId } from 'store/actions'
-import { getLocaleFromHostname, getLangFromLocale, getCountryFromLocale } from 'utils/locale'
-import reactCookie from 'react-cookie'
+import renderResponse from './server/index'
 
 global.window = require('utils/windowOrGlobal')
 
@@ -29,8 +20,10 @@ router.use((req, res, next) => {
   }
 
   const memoryHistory = createMemoryHistory(req.url)
-  const store = configureStore({}, memoryHistory)
+  let store = configureStore({}, memoryHistory)
   const history = syncHistoryWithStore(memoryHistory, store)
+
+  reactCookie.plugToRequest(req, res)
 
   match({ history, routes, location: req.url }, (error, redirectLocation, renderProps) => {
     if (redirectLocation) {
@@ -41,78 +34,9 @@ router.use((req, res, next) => {
       return next(error)
     }
 
-    const fetchData = () => new Promise((resolve, reject) => {
-      const method = req.method.toLowerCase()
-      const { params, location, components } = renderProps
-      const promises = []
+    store = configureStore(store.getState(), memoryHistory)
 
-      components.forEach((component) => {
-        if (component) {
-          while (component && !component[method]) {
-            // eslint-disable-next-line no-param-reassign
-            component = component.WrappedComponent
-          }
-          // eslint-disable-next-line no-unused-expressions
-          component &&
-          component[method] &&
-          promises.push(component[method]({ req, res, params, location, store }))
-        }
-      })
-
-      Promise.all(promises).then(resolve).catch(reject)
-    })
-
-    const render = (providedStore) => {
-      // Initialize locale from hostname
-      const locale = getLocaleFromHostname(req.hostname)
-      const lang = getLangFromLocale(locale)
-      const country = getCountryFromLocale(locale)
-
-      providedStore.dispatch(setLang(lang))
-      providedStore.dispatch(setCountry(country))
-
-      // Initialize auth from cookies
-      reactCookie.plugToRequest(req, res)
-      const grantType = reactCookie.load('grant_type')
-      const accessToken = reactCookie.load('access_token') || null
-
-      providedStore.dispatch(setAuthenticated(isAuthenticated(grantType)))
-      providedStore.dispatch(setAccessToken(accessToken))
-
-      // Initialize projectElaboration sessionId
-      let sessionId = reactCookie.load('project_elaboration_session_id') || null
-
-      if (sessionId === null) {
-        sessionId = uuid()
-        reactCookie.save('project_elaboration_session_id', sessionId, { path: '/', maxAge: 86400000, secure: true })
-      }
-
-      providedStore.dispatch(setProjectElaborationSessionId(sessionId))
-
-      const content = renderToString(
-        <Provider store={providedStore}>
-          <RouterContext {...renderProps} />
-        </Provider>
-      )
-
-      const styles = styleSheet.rules().map(rule => rule.cssText).join('\n')
-      const initialState = providedStore.getState()
-      const assets = global.webpackIsomorphicTools.assets()
-      const state = `window.__INITIAL_STATE__ = ${serialize(initialState)}`
-      const markup = <Html {...{ styles, assets, state, content, lang }} />
-      const doctype = '<!doctype html>\n'
-      const html = renderToStaticMarkup(markup)
-
-      res.send(doctype + html)
-    }
-
-    return fetchData()
-      .then(() => render(configureStore(store.getState(), memoryHistory)))
-      .catch((err) => {
-        console.error(err)
-
-        return res.status(500).end()
-      })
+    return renderResponse(store, renderProps, req, res)
   })
 })
 

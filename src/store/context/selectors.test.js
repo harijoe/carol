@@ -1,7 +1,7 @@
 import * as selectors from './selectors'
 
 test('initialState', () => {
-  expect(selectors.initialState).toEqual({country: 'GB', popinAccount: false, popinNavigation: false, lang: 'en'})
+  expect(selectors.initialState).toEqual({country: 'GB', popinAccount: false, popinNavigation: false, lang: 'en', ssr: true})
 })
 
 test('getLang', () => {

@@ -5,6 +5,7 @@ import uuid from 'uuid/v4'
 import { fromProjectElaboration } from 'store/selectors'
 import { takeLatest } from 'utils/effects'
 import fetch from 'sagas/fetch'
+import ssr from 'sagas/ssr'
 
 import {
   PROJECT_ELABORATION_CONVERSATION_REPLY,
@@ -20,6 +21,7 @@ import {
   projectElaborationConversationDetails,
   setProjectElaborationSessionId,
   projectElaborationHeroDetails,
+  projectElaborationResetConversation,
 } from './actions'
 
 function* replyConversation({ text, payload = null }) {
@@ -46,6 +48,7 @@ function* getConversations() {
 }
 
 function* getConversationCurrent() {
+  yield put(projectElaborationResetConversation)
   yield* getConversations()
 
   if ((yield select(fromProjectElaboration.hasActiveConversation))) {
@@ -84,20 +87,13 @@ function* replyHero() {
 function* requestHero() {
   const user = yield select(fromProjectElaboration.getSessionId)
 
-  yield* getConversations()
-
-  const conversations = yield select(fromProjectElaboration.getConversations)
-  const hasActiveConversation = yield select(fromProjectElaboration.hasActiveConversation)
-
-  if (!hasActiveConversation && Object.keys(conversations).length === 0) {
-    yield* fetch(projectElaborationHeroDetails, 'post', '/chatbot', {}, {
-      message: {
-        text: 'new_project.first_question',
-      },
-      user,
-      channel: 'project',
-    })
-  }
+  yield* fetch(projectElaborationHeroDetails, 'post', '/chatbot', {}, {
+    message: {
+      text: 'new_project.first_question',
+    },
+    user,
+    channel: 'project',
+  })
 }
 
 function* resetAll() {
@@ -110,7 +106,8 @@ function* resetAll() {
 export default function* () {
   yield [
     takeLatest(PROJECT_ELABORATION_CONVERSATION_REPLY.REQUEST, replyConversation),
-    takeLatest(PROJECT_ELABORATION_HERO_DETAILS.REQUEST, requestHero),
+    takeLatest(PROJECT_ELABORATION_HERO_DETAILS.REQUEST, getConversations),
+    takeLatest(PROJECT_ELABORATION_HERO_DETAILS.REQUEST, ssr(requestHero)),
     takeLatest(PROJECT_ELABORATION_HERO_SET_RESPONSE, replyHero),
     takeLatest(PROJECT_ELABORATION_CONVERSATIONS_DETAILS.REQUEST, getConversations),
     takeLatest(PROJECT_ELABORATION_CONVERSATIONS_SELECT.REQUEST, selectConversation),
