@@ -158,6 +158,25 @@ const CarouselWrapper = styled.div`
   }
 `
 
+const ModifyLink = styled(Link)`
+  display: block;
+  margin: ${theme('spaces.m')} 0;
+  padding: ${theme('spaces.m')};
+  max-width: 32rem;
+  font-family: ${theme('fonts.family.montserratBold')};
+  font-size: ${theme('fonts.size.base')};
+  letter-spacing: 0.05rem;
+  text-align: center;
+  background-color: ${theme('colors.secondary')};
+  color: ${theme('colors.black')};
+
+  ${breakpoint('m')`
+    padding: ${theme('spaces.l')};
+    margin-bottom: ${theme('spaces.l')};
+    margin-top: ${theme('spaces.l')};
+  `}
+`
+
 const generateChild = (items, reply) => items.map(({ title, image_url, buttons, subtitle }, i) => (
   <ThumbnailCard
     key={i}
@@ -169,6 +188,36 @@ const generateChild = (items, reply) => items.map(({ title, image_url, buttons, 
     onClick={() => reply(title, buttons[0].payload)}
   />
 ))
+
+const FirstChoices = (choices, reply) => (
+  <CarouselWrapper>
+    {
+      choices.length > 0 &&
+      <Carousel
+        variableWidth
+        infinite={false}
+        arrows
+        slidesToScroll={1}
+        dots
+        responsive={[
+          {
+            breakpoint: 767,
+            settings: { arrows: false },
+          },
+          {
+            breakpoint: 3000,
+            settings: {
+              arrows: true,
+              swipe: false,
+            },
+          },
+        ]}
+      >
+        { generateChild(choices, reply) }
+      </Carousel>
+    }
+  </CarouselWrapper>
+)
 
 const Hero = ({ hasActiveConversation, firstChoices, reply, hasConversations }) => (
   <HeroWrapper>
@@ -182,10 +231,15 @@ const Hero = ({ hasActiveConversation, firstChoices, reply, hasConversations }) 
                   <StyledImage link={`${cloudinaryUrl}bot.png`} />
                 </StyledBubble>
                 <StyledHeading level={1}>
-                  <Link to="project-elaboration">
-                    <FormattedMessage id="hero.conversation_in_progress" />
-                  </Link>
+                  <FormattedMessage id="hero.conversation_in_progress" />
                 </StyledHeading>
+                <ModifyLink to="project-elaboration">
+                  <FormattedMessage id="hero.button_message" />
+                </ModifyLink>
+                <SubHeading>
+                  <FormattedMessage id="hero.subheading_in_progress" />
+                </SubHeading>
+                {FirstChoices(firstChoices, reply)}
               </StyledHeader>
             </StyledRow>
             :
@@ -201,33 +255,8 @@ const Hero = ({ hasActiveConversation, firstChoices, reply, hasConversations }) 
                   <SubHeading>
                     <FormattedMessage id="hero.welcome_message" />
                   </SubHeading>
+                  {FirstChoices(firstChoices, reply)}
                 </StyledHeader>
-              </StyledRow>
-              <StyledRow>
-                <CarouselWrapper>
-                  {
-                    firstChoices.length > 0 &&
-                      <Carousel
-                        variableWidth
-                        infinite={false}
-                        arrows
-                        slidesToScroll={1}
-                        dots
-                        responsive={[
-                          {
-                            breakpoint: 767,
-                            settings: { arrows: false },
-                          },
-                          {
-                            breakpoint: 3000,
-                            settings: { arrows: true },
-                          },
-                        ]}
-                      >
-                        { generateChild(firstChoices, reply) }
-                      </Carousel>
-                  }
-                </CarouselWrapper>
               </StyledRow>
             </Grid>
         }

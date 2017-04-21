@@ -163,7 +163,9 @@ const en = {
 
   'hero.title_message': 'Quels travaux souhaitez vous faire ? EN',
   'hero.welcome_message': 'Quotatis vous aide à trouver l\'artisan qui concrétisera votre projet. EN',
-  'hero.conversation_in_progress': 'Vous avez déjà une converation en cours. EN',
+  'hero.conversation_in_progress': 'Vous avez déjà une conversation en cours. Souhaitez-vous la reprendre ? EN',
+  'hero.subheading_in_progress': 'Vous pouvez aussi commencer un nouveau projet! EN',
+  'hero.button_message': 'Continuer mon projet EN',
 
   'thumbnailcard.link': 'Let\'s Go ➔',
 
