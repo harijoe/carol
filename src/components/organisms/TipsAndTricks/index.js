@@ -6,7 +6,7 @@ import messages from 'utils/messages'
 import { theme, breakpoint } from 'utils/style'
 
 import { PostList } from 'containers'
-import { Section, TipsAndTricksBlock, Button, Grid, Col, Row } from 'components'
+import { Section, TipsAndTricksBlock, Link, Grid, Col, Row } from 'components'
 
 const StyledCol = styled(Col)`
   display: flex;
@@ -63,27 +63,10 @@ const generateChild = (i, items) => (
   </StyledCol>
 )
 
-const StyledButton = styled(Button)`
-  width: 100%;
-  border: none;
-  box-sizing: border-box;
-  height: 5.6rem;
-  background: ${theme('colors.secondary')};
-  color: ${theme('colors.black')};
-  font-family: ${theme('fonts.family.montserratBold')};
-
-  ${breakpoint('m')`
-    margin-top: ${theme('spaces.m')};
-    max-width: 30rem;
-  `}
-`
-
-const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-left: 0;
-  margin-right: 0;
+const StyledLink = styled(Link)`
+  max-width: 32rem;
+  margin-left: auto;
+  margin-right: auto;
 `
 
 const TipsAndTricks = ({ intl: { formatMessage } }) => (
@@ -97,11 +80,9 @@ const TipsAndTricks = ({ intl: { formatMessage } }) => (
           generateChild={generateChild}
         />
       </StyledRow>
-      <ButtonWrapper>
-        <StyledButton type="button">
-          <FormattedMessage id="tips_and_tricks.call_to_action" />
-        </StyledButton>
-      </ButtonWrapper>
+      <StyledLink button>
+        <FormattedMessage id="tips_and_tricks.call_to_action" />
+      </StyledLink>
     </Grid>
   </Section>
 )

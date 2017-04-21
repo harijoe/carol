@@ -13,32 +13,15 @@ const styles = ({ kind, highlight, button }) => css`
 
   ${ifThen(highlight, css`
     position: relative;
-    z-index: 0;
     padding-left: ${theme('spaces.xs')};
     padding-right: ${theme('spaces.xs')};
+    box-shadow: inset 0 -0.6rem 0 rgba(51, 51, 254, 0.2);
     color: inherit;
-    transition: color 0.3s 0.1s ease;
-
-    &::before {
-      position: absolute;
-      bottom: -${theme('spaces.xs')};
-      left: 0;
-      z-index: -1;
-      height: calc(50% + ${theme('spaces.xs')});
-      width: 100%;
-      background-color: ${theme('colors.primary')};
-      content: '';
-      opacity: 0.2;
-      transition: all 0.3s ease;
-    }
+    transition: all 0.3s ease;
 
     &:hover {
       color: ${theme('colors.white')};
-
-      &::before {
-        height: calc(100% + ${theme('spaces.s')});
-        opacity: 1;
-      }
+      box-shadow: inset 0 -6rem 0 rgba(51, 51, 254, 1);
     }
   `)};
 

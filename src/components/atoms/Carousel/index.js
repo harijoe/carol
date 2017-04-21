@@ -30,6 +30,7 @@ const StyledSlickCarousel = styled(SlickCarousel)`
 
   > .slick-dots {
     bottom: 0;
+    left: 0;
   }
 
   .slick-arrow {

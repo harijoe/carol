@@ -34,6 +34,13 @@ const StyledSection = styled(Section)`
       max-width: 120rem;
       margin: 0 auto;
     }
+
+    ${breakpoint('m')`
+      .slick-initialized .slick-slide {
+        display: flex;
+        justify-content: flex-end;
+      }
+    `}
   `}
 `
 
@@ -50,10 +57,8 @@ const StyledCard = styled(Card)`
   padding: ${theme('spaces.xl')} ${theme('spaces.m')};
 
   ${breakpoint('m')`
-    display: flex;
-    justify-content: flex-end;
+    margin-left: 0;
     margin-right: 10rem;
-    margin-left: auto;
     margin-top: ${theme('spaces.xxl')};
     padding: ${theme('spaces.xxl')} ${theme('spaces.l')};
     width: 40rem;
