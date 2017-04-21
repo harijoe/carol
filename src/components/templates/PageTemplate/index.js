@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import NotificationsSystem from 'reapop'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import theme from 'reapop-theme-wybo'
 import { addLocaleData } from 'react-intl'
 import fr from 'react-intl/locale-data/fr'
@@ -52,20 +51,18 @@ const notificationsDefaultValues = {
 }
 
 const PageTemplate = ({ header, children, footer, ...props }) => (
-  <MuiThemeProvider>
-    <ThemeProvider theme={defaultTheme}>
-      <Wrapper {...props}>
-        <NotificationsSystem theme={theme} defaultValues={notificationsDefaultValues} />
-        <PopinNavigation />
-        <PopinAccount />
-        <Header {...props}>{header}</Header>
-        <QuotatisLogo />
-        <BurgerButton />
-        <Content>{children}</Content>
-        <Footer>{footer}</Footer>
-      </Wrapper>
-    </ThemeProvider>
-  </MuiThemeProvider>
+  <ThemeProvider theme={defaultTheme}>
+    <Wrapper {...props}>
+      <NotificationsSystem theme={theme} defaultValues={notificationsDefaultValues} />
+      <PopinNavigation />
+      <PopinAccount />
+      <Header {...props}>{header}</Header>
+      <QuotatisLogo />
+      <BurgerButton />
+      <Content>{children}</Content>
+      <Footer>{footer}</Footer>
+    </Wrapper>
+  </ThemeProvider>
 )
 
 PageTemplate.propTypes = {

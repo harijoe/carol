@@ -9,15 +9,14 @@ import { shallow } from 'enzyme'
 
 import ProjectElaborationTemplate from './'
 import mockStore from '../../../../test/storeMock'
-import muiMock from '../../../../test/muiMock'
 
 const store = mockStore()
 
-const wrapper = shallow(muiMock(
+const wrapper = shallow(
   <Provider store={store}>
     <ProjectElaborationTemplate header="header">test</ProjectElaborationTemplate>
   </Provider>
-))
+)
 
 it('renders ProjectElaborationTemplate', () => {
   expect(wrapper).toMatchSnapshot()
