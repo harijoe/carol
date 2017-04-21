@@ -13,7 +13,9 @@ const StyledParagraph = styled(Paragraph)`
   margin-bottom: 20px
 `
 
-const AttachmentSummary = ({ element: { title, image_url, subtitle } }) => {
+const AttachmentSummary = ({ element: { title, image_url, subtitle, buttons }, goToPreValidatePage }) => {
+  const validateButton = buttons[0]
+
   /*
    * subtitle contains all the summary in one block. So, we have to split questions (odd) and responses (even)
    */
@@ -33,16 +35,18 @@ const AttachmentSummary = ({ element: { title, image_url, subtitle } }) => {
         title={title}
       />
       {summary}
-      <StyledButton><FormattedMessage id="project.elaboration.summary.validate" /></StyledButton>
+      <StyledButton onClick={() => goToPreValidatePage(validateButton.url)}>{validateButton.title}</StyledButton>
     </ProjectElaborationQuestion>
   )
 }
 
 AttachmentSummary.propTypes = {
+  goToPreValidatePage: PropTypes.func,
   element: PropTypes.shape({
     title: PropTypes.string.isRequired,
     image_url: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
+    buttons: PropTypes.array.isRequired,
   }).isRequired,
 }
 

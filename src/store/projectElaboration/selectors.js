@@ -25,6 +25,7 @@ export const initialState = {
   ],
   activeConversation: [],
   conversations: {},
+  preValidationUrl: null,
 }
 
 export const getConversation = (state = initialState) => state.activeConversation
@@ -43,3 +44,4 @@ export const getSessionId = (state = initialState) => state.sessionId
 export const getFirstChoices = (state = initialState) => state.hero[1].message.attachment.payload.elements
 export const getHeroResponse = (state = initialState) => state.hero[1].response
 export const getHero = (state = initialState) => state.hero
+export const getPreValidationUrl = (state = initialState) => state.preValidationUrl

@@ -5,6 +5,7 @@ import {
   projectElaborationReply,
   projectElaborationConversationCurrent,
   projectElaborationConversationsSelect,
+  projectElaborationGoToPreValidatePage,
 } from 'store/actions'
 import { fromProjectElaboration } from 'store/selectors'
 
@@ -16,6 +17,7 @@ class ProjectElaborationContainer extends Component {
     reply: PropTypes.func,
     request: PropTypes.func,
     selectConversation: PropTypes.func,
+    goToPreValidatePage: PropTypes.func,
     activeConversation: PropTypes.array,
     conversations: PropTypes.object,
     hasConversations: PropTypes.bool,
@@ -26,9 +28,9 @@ class ProjectElaborationContainer extends Component {
   }
 
   render() {
-    const { activeConversation, conversations, reply, selectConversation, hasConversations } = this.props
+    const { activeConversation, conversations, reply, selectConversation, hasConversations, goToPreValidatePage } = this.props
 
-    return <ProjectElaboration {...{ activeConversation, conversations, reply, selectConversation, hasConversations }} />
+    return <ProjectElaboration {...{ activeConversation, conversations, reply, selectConversation, hasConversations, goToPreValidatePage }} />
   }
 }
 
@@ -43,6 +45,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   reply: (text, payload) => projectElaborationReply.request(text, payload),
   request: () => projectElaborationConversationCurrent.request(),
   selectConversation: authType => projectElaborationConversationsSelect.request(authType),
+  goToPreValidatePage: url => projectElaborationGoToPreValidatePage(url),
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectElaborationContainer)

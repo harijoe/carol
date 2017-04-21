@@ -11,21 +11,21 @@ import refreshToken from '../refreshToken'
 function* fetchUsingCache(method, url, settings, data) {
   const ssr = yield select(fromContext.isSSR)
 
-  if (ssr) {
-    const cachedResponse = getCacheStorage()[method + url]
+  if (!ssr) {
+    return yield call(api[method], url, settings, data)
+  }
 
-    if (cachedResponse == null) {
-      const response = yield call(api[method], url, settings, data)
+  const cachedResponse = getCacheStorage()[method + url]
 
-      getCacheStorage()[method + url] = response
-
-      return response
-    }
-
+  if (cachedResponse != null) {
     return cachedResponse
   }
 
-  return yield call(api[method], url, settings, data)
+  const response = yield call(api[method], url, settings, data)
+
+  getCacheStorage()[method + url] = response
+
+  return response
 }
 
 export function* fetchWithoutRefreshingToken(actions, method, url, settings = {}, data = null, actionParams = null) {

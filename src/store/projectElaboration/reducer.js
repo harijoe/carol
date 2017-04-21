@@ -8,6 +8,7 @@ import {
   PROJECT_ELABORATION_CONVERSATIONS_DETAILS,
   PROJECT_ELABORATION_CONVERSATION_DETAILS,
   PROJECT_ELABORATION_RESET_CONVERSATION,
+  PROJECT_ELABORATION_SET_PRE_VALIDATION_URL,
 } from './actions'
 
 const addQuestions = (activeConversation, questions) => {
@@ -125,6 +126,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         activeConversation: [],
+      }
+    case PROJECT_ELABORATION_SET_PRE_VALIDATION_URL:
+      return {
+        ...state,
+        preValidationUrl: payload,
       }
     default:
       return state

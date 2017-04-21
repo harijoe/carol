@@ -15,6 +15,7 @@ ShallowWrapper {
         <styled.div>
             <Attachment
                 attachment={null}
+                goToPreValidatePage={undefined}
                 reply={undefined}
                 response={
                     Object {
@@ -46,6 +47,7 @@ ShallowWrapper {
             <styled.div>
                   <Attachment
                         attachment={null}
+                        goToPreValidatePage={undefined}
                         reply={undefined}
                         response={
                               Object {
@@ -138,6 +140,7 @@ ShallowWrapper {
                     <styled.div>
                               <Attachment
                                         attachment={null}
+                                        goToPreValidatePage={undefined}
                                         reply={undefined}
                                         response={
                                                   Object {
@@ -169,6 +172,7 @@ ShallowWrapper {
                     <styled.div>
                               <Attachment
                                         attachment={null}
+                                        goToPreValidatePage={undefined}
                                         reply={undefined}
                                         response={
                                                   Object {
