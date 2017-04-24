@@ -59,14 +59,6 @@ const StyledRow = styled(Row)`
   `)}
 `
 
-const StyledHeader = styled.header`
-  margin-bottom: ${theme('spaces.xl')};
-
-  ${breakpoint('m')`
-    margin-bottom: ${theme('spaces.xxxl')};
-  `}
-`
-
 const StyledBubble = styled(Bubble)`
   height: 6.4rem;
   width: 6.4rem;
@@ -226,7 +218,7 @@ const Hero = ({ hasActiveConversation, firstChoices, reply, hasConversations }) 
         {
           hasActiveConversation || hasConversations ?
             <StyledRow>
-              <StyledHeader>
+              <header>
                 <StyledBubble>
                   <StyledImage link={`${cloudinaryUrl}bot.png`} />
                 </StyledBubble>
@@ -240,12 +232,12 @@ const Hero = ({ hasActiveConversation, firstChoices, reply, hasConversations }) 
                   <FormattedMessage id="hero.subheading_in_progress" />
                 </SubHeading>
                 {FirstChoices(firstChoices, reply)}
-              </StyledHeader>
+              </header>
             </StyledRow>
             :
             <Grid>
               <StyledRow column>
-                <StyledHeader>
+                <header>
                   <StyledBubble>
                     <StyledImage link={`${cloudinaryUrl}bot.png`} />
                   </StyledBubble>
@@ -256,7 +248,7 @@ const Hero = ({ hasActiveConversation, firstChoices, reply, hasConversations }) 
                     <FormattedMessage id="hero.welcome_message" />
                   </SubHeading>
                   {FirstChoices(firstChoices, reply)}
-                </StyledHeader>
+                </header>
               </StyledRow>
             </Grid>
         }
