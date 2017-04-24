@@ -89,7 +89,6 @@ const SelectWrap = styled.div`
     width: 80%;
   `}
 
-
   &::after {
     position: absolute;
     display: inline-block;
@@ -108,8 +107,7 @@ const SelectWrap = styled.div`
 const StyledCountryMenu = styled(CountryMenu)`
   padding: ${theme('spaces.s')};
   min-width: 11rem;
-  max-width: 20rem;
-  width: auto;
+  width: 100%;
   appearance: none;
   background-color: transparent;
   border: none;
