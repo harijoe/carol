@@ -9,6 +9,7 @@ import es from 'react-intl/locale-data/es'
 import { injectGlobals } from 'utils/style'
 
 import { PopinNavigation, PopinAccount, BurgerButton, QuotatisLogo } from 'containers'
+import { MotionMenu } from 'components'
 import defaultTheme, { resets, scaffolding } from '../../themes/default'
 
 injectGlobals([resets, scaffolding])
@@ -54,6 +55,7 @@ const PageTemplate = ({ header, children, footer, ...props }) => (
   <ThemeProvider theme={defaultTheme}>
     <Wrapper {...props}>
       <NotificationsSystem theme={theme} defaultValues={notificationsDefaultValues} />
+      <MotionMenu />
       <PopinNavigation />
       <PopinAccount />
       <Header {...props}>{header}</Header>

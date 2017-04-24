@@ -15,7 +15,6 @@ ShallowWrapper {
         <Mock />
         <Mock />
     </Mock>
-    <Mock />
 </Mock>,
   "nodes": Array [
     <Mock>
@@ -27,7 +26,6 @@ ShallowWrapper {
             <Mock />
             <Mock />
       </Mock>
-      <Mock />
 </Mock>,
   ],
   "options": Object {},
@@ -73,7 +71,6 @@ ShallowWrapper {
                     <Mock />
                     <Mock />
           </Mock>
-          <Mock />
 </Mock>,
         "_debugID": 2,
         "_renderedOutput": <Mock>
@@ -85,7 +82,6 @@ ShallowWrapper {
                     <Mock />
                     <Mock />
           </Mock>
-          <Mock />
 </Mock>,
       },
       "_renderedNodeType": 1,

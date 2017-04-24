@@ -15,7 +15,7 @@ const Background = styled.div`
 
 const Wrapper = styled.div`
   position: fixed;
-  ${props => props.isOpen ? 'z-index: 999' : 'z-index: 25'};
+  z-index: 999;
 `
 
 const StyledMainIcon = styled(Icon)`
