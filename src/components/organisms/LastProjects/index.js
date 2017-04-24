@@ -113,6 +113,7 @@ const LastProjects = ({ intl }) => (
             slidesToShow: 1,
             infinite: false,
             dots: true,
+            responsive: [{ breakpoint: 767, settings: { arrows: false } }, { breakpoint: 3000, settings: { arrows: true } }],
           }}
         />
       </ProjectsWrapper>
