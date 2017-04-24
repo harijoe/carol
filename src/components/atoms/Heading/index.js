@@ -11,11 +11,11 @@ const styles = ({ level }) => {
         color: ${theme('colors.black')};
         font-size: ${theme('fonts.size.xl')};
 
-        ${breakpoint('l')`
+        ${breakpoint('m')`
           font-size: ${theme('fonts.size.xxl')};
         `}
 
-        ${breakpoint('xl')`
+        ${breakpoint('l')`
           font-size: ${theme('fonts.size.xxxl')};
         `}
       `
