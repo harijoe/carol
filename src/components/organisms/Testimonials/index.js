@@ -67,7 +67,11 @@ const Testimonials = ({ intl: { formatMessage } }) => (
         carousel={{
           infinite: false,
           variableWidth: true,
-          responsive: [{ breakpoint: 767, settings: { slidesToShow: 1, arrows: false } }, { breakpoint: 3000, settings: { slidesToShow: 3, slidesToScroll: 3 } }],
+          responsive: [
+            { breakpoint: 767, settings: { slidesToShow: 1, arrows: false } },
+            { breakpoint: 1055, settings: { slidesToShow: 2, slidesToScroll: 2, arrows: false } },
+            { breakpoint: 3000, settings: { slidesToShow: 3, slidesToScroll: 3 } },
+          ],
           dots: true,
         }}
       />
