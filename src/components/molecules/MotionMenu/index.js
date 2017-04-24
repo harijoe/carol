@@ -29,10 +29,10 @@ const StyledChildIcon = styled(Icon)`
 `
 
 const StyledMainButton = styled.button`
+  cursor: pointer;
   position: fixed;
   border-radius: 100%;
   background-color: ${theme('colors.primary')};
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,10 +133,7 @@ class MotionMenu extends Component {
     this.state = {
       isOpen: false,
       childButtons: [],
-      mainButtonPositionX: window.innerWidth - (mainButtonDiam / 2) - mainButtonMargin,
-      mainButtonPositionY: window.innerHeight - (mainButtonDiam / 2) - mainButtonMargin,
-      backgroundPositionX: window.innerWidth,
-      backgroundPositionY: window.innerHeight,
+      ...this.recalculatePosition(),
     }
   }
 
@@ -149,6 +146,23 @@ class MotionMenu extends Component {
 
     this.setState({ childButtons: childButtons.slice(0) })
   }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.refreshPosition)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.refreshPosition)
+  }
+
+  recalculatePosition = () => ({
+    mainButtonPositionX: window.innerWidth - (mainButtonDiam / 2) - mainButtonMargin,
+    mainButtonPositionY: window.innerHeight - (mainButtonDiam / 2) - mainButtonMargin,
+    backgroundPositionX: window.innerWidth,
+    backgroundPositionY: window.innerHeight,
+  })
+
+  refreshPosition = () => this.setState(this.recalculatePosition(), this.animateChildButtonsWithDelay)
 
   initialChildButtonStyles() {
     const { mainButtonPositionX, mainButtonPositionY } = this.state
