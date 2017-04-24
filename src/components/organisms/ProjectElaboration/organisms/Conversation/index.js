@@ -65,7 +65,7 @@ const Block = styled.div`
 
 class Conversation extends Component {
   static propTypes = {
-    goToPreValidatePage: PropTypes.func,
+    locale: PropTypes.string,
     activeConversation: PropTypes.arrayOf(
       PropTypes.shape({
         message: PropTypes.shape({
@@ -94,7 +94,7 @@ class Conversation extends Component {
   }
 
   render() {
-    const { activeConversation, reply, goToPreValidatePage } = this.props
+    const { activeConversation, reply, locale } = this.props
     const isLastQuestion = index => (
       activeConversation.length - 1 === index
     )
@@ -110,9 +110,7 @@ class Conversation extends Component {
                   <Block>
                     <Attachment
                       attachment={attachment != null ? attachment : null}
-                      reply={reply}
-                      response={response}
-                      goToPreValidatePage={goToPreValidatePage}
+                      {...{ reply, response, locale }}
                     />
                     <QuickReplies
                       // eslint-disable-next-line camelcase

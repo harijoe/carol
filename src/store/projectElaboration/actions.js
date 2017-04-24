@@ -76,18 +76,8 @@ export const projectElaborationResetConversation = {
   type: PROJECT_ELABORATION_RESET_CONVERSATION,
 }
 
-export const projectElaborationSetPreValidationUrl = url => ({
-  type: PROJECT_ELABORATION_SET_PRE_VALIDATION_URL,
-  payload: url,
-})
-
-export const projectElaborationGoToPreValidatePage = url => ({
-  type: PROJECT_ELABORATION_GO_TO_PRE_VALIDATE_PAGE,
-  payload: url,
-})
-
 export const projectElaborationPreValidate = {
-  request: () => (actionTypes(PROJECT_ELABORATION_PRE_VALIDATE.REQUEST)),
+  request: chatbotStorageId => (actionTypes(PROJECT_ELABORATION_PRE_VALIDATE.REQUEST, { chatbotStorageId })),
   success: payload => (actionTypes(PROJECT_ELABORATION_PRE_VALIDATE.SUCCESS, { payload })),
   failure: error => (actionTypes(PROJECT_ELABORATION_PRE_VALIDATE.FAILURE, { error })),
 }

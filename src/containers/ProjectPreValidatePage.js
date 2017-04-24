@@ -1,22 +1,19 @@
 import { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { projectElaborationPreValidate } from 'store/actions'
-import { fromProjectElaboration } from 'store/selectors'
 
 class ProjectPreValidatePageContainer extends Component {
   static propTypes = {
     request: PropTypes.func,
-    preValidationUrl: PropTypes.string,
+    params: PropTypes.shape({
+      chatbotStorageId: PropTypes.string,
+    }),
   }
 
   componentWillMount() {
-    const { request, preValidationUrl } = this.props
+    const { request, params: { chatbotStorageId } } = this.props
 
-    if (preValidationUrl == null) {
-      return
-    }
-
-    request()
+    request(chatbotStorageId)
   }
 
   render() {
@@ -24,12 +21,8 @@ class ProjectPreValidatePageContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  preValidationUrl: fromProjectElaboration.getPreValidationUrl(state),
-})
-
 const mapDispatchToProps = dispatch => ({
-  request: () => dispatch(projectElaborationPreValidate.request()),
+  request: chatbotStorageId => dispatch(projectElaborationPreValidate.request(chatbotStorageId)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProjectPreValidatePageContainer)
+export default connect(null, mapDispatchToProps)(ProjectPreValidatePageContainer)

@@ -7,7 +7,7 @@ import {
   projectElaborationConversationsSelect,
   projectElaborationGoToPreValidatePage,
 } from 'store/actions'
-import { fromProjectElaboration } from 'store/selectors'
+import { fromProjectElaboration, fromContext } from 'store/selectors'
 
 import { ProjectElaboration } from 'components'
 
@@ -21,6 +21,7 @@ class ProjectElaborationContainer extends Component {
     activeConversation: PropTypes.array,
     conversations: PropTypes.object,
     hasConversations: PropTypes.bool,
+    locale: PropTypes.string,
   }
 
   componentWillMount() {
@@ -28,9 +29,29 @@ class ProjectElaborationContainer extends Component {
   }
 
   render() {
-    const { activeConversation, conversations, reply, selectConversation, hasConversations, goToPreValidatePage } = this.props
+    const {
+      activeConversation,
+      conversations,
+      reply,
+      selectConversation,
+      hasConversations,
+      goToPreValidatePage,
+      locale,
+    } = this.props
 
-    return <ProjectElaboration {...{ activeConversation, conversations, reply, selectConversation, hasConversations, goToPreValidatePage }} />
+    return (
+      <ProjectElaboration
+        {...{
+          activeConversation,
+          conversations,
+          reply,
+          selectConversation,
+          hasConversations,
+          goToPreValidatePage,
+          locale,
+        }}
+      />
+    )
   }
 }
 
@@ -39,6 +60,7 @@ const mapStateToProps = state => ({
   hero: fromProjectElaboration.getHero(state),
   conversations: fromProjectElaboration.getConversations(state),
   hasConversations: fromProjectElaboration.hasConversations(state),
+  locale: fromContext.getLocale(state),
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({

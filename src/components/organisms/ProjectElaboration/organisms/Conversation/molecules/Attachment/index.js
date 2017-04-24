@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react'
 import AttachmentGeneric from './organisms/AttachmentGeneric'
 import AttachmentSummary from './organisms/AttachmentSummary'
 
-const Attachment = ({ attachment, reply, response, goToPreValidatePage }) => {
+const Attachment = ({ attachment, reply, response, locale }) => {
   if (
     attachment == null
     || attachment.payload == null
@@ -17,7 +17,7 @@ const Attachment = ({ attachment, reply, response, goToPreValidatePage }) => {
   switch (attachment.payload.template_type) {
     case 'generic.summary':
       return (
-        <AttachmentSummary element={attachment.payload.elements[0]} goToPreValidatePage={goToPreValidatePage} />
+        <AttachmentSummary element={attachment.payload.elements[0]} {...{ locale }} />
       )
     default:
     case 'generic':
@@ -35,7 +35,7 @@ Attachment.propTypes = {
   }),
   reply: PropTypes.func,
   response: PropTypes.object,
-  goToPreValidatePage: PropTypes.func,
+  locale: PropTypes.string,
 }
 
 export default Attachment

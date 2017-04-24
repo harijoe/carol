@@ -15,7 +15,6 @@ import {
   PROJECT_ELABORATION_CONVERSATIONS_SELECT,
   PROJECT_ELABORATION_RESET,
   PROJECT_ELABORATION_CONVERSATION_CURRENT,
-  PROJECT_ELABORATION_GO_TO_PRE_VALIDATE_PAGE,
   PROJECT_ELABORATION_PRE_VALIDATE,
   projectElaborationReply,
   projectElaborationConversationsDetails,
@@ -24,7 +23,6 @@ import {
   setProjectElaborationSessionId,
   projectElaborationHeroDetails,
   projectElaborationResetConversation,
-  projectElaborationSetPreValidationUrl,
   projectElaborationPreValidate,
 } from './actions'
 
@@ -107,15 +105,8 @@ function* resetAll() {
   yield put(setProjectElaborationSessionId(sessionId))
 }
 
-function* goToPreValidatePage({ payload }) {
-  yield put(projectElaborationSetPreValidationUrl(payload))
-  yield put(push('project-prevalidate'))
-}
-
-function* preValidate() {
-  const url = yield select(fromProjectElaboration.getPreValidationUrl)
-
-  yield* fetch(projectElaborationPreValidate, 'post', url)
+function* preValidate({ chatbotStorageId }) {
+  yield* fetch(projectElaborationPreValidate, 'post', `/project-prevalidate/${chatbotStorageId}`)
 
   // Todo: retrieve postalCode.id and proForm.id to search firm
   yield put(push('search-firm'))
@@ -131,7 +122,6 @@ export default function* () {
     takeLatest(PROJECT_ELABORATION_CONVERSATIONS_SELECT.REQUEST, selectConversation),
     takeLatest(PROJECT_ELABORATION_RESET, resetAll),
     takeLatest(PROJECT_ELABORATION_CONVERSATION_CURRENT.REQUEST, getConversationCurrent),
-    takeLatest(PROJECT_ELABORATION_GO_TO_PRE_VALIDATE_PAGE, goToPreValidatePage),
     takeLatest(PROJECT_ELABORATION_PRE_VALIDATE.REQUEST, preValidate),
   ]
 }

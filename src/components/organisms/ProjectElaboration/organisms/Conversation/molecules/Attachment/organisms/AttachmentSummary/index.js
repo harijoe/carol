@@ -1,19 +1,31 @@
 import React, { PropTypes } from 'react'
 import { FormattedMessage } from 'react-intl'
 import styled from 'styled-components'
+import config from 'config'
+import { theme } from 'utils/style'
 
-import { Button, ThumbnailPoster, ProjectElaborationQuestion, Paragraph } from 'components'
+import { ThumbnailPoster, ProjectElaborationQuestion, Paragraph, Link } from 'components'
 import Question from './molecules/Question'
 import Response from './molecules/Response'
 
-const StyledButton = styled(Button)`
-  margin: 0 auto;
-`
 const StyledParagraph = styled(Paragraph)`
   margin-bottom: 20px
 `
 
-const AttachmentSummary = ({ element: { title, image_url, subtitle, buttons }, goToPreValidatePage }) => {
+const StyledLink = styled(Link)`
+  display: block;
+  margin: ${theme('spaces.m')} 0 0 0;
+  padding: ${theme('spaces.m')};
+  min-width: 20rem;
+  font-family: ${theme('fonts.family.montserratBold')};
+  font-size: ${theme('fonts.size.base')};
+  letter-spacing: 0.05rem;
+  text-align: center;
+  background-color: ${theme('colors.secondary')};
+  color: ${theme('colors.black')};
+`
+
+const AttachmentSummary = ({ element: { title, image_url, subtitle, buttons }, locale }) => {
   const validateButton = buttons[0]
 
   /*
@@ -35,13 +47,13 @@ const AttachmentSummary = ({ element: { title, image_url, subtitle, buttons }, g
         title={title}
       />
       {summary}
-      <StyledButton onClick={() => goToPreValidatePage(validateButton.url)}>{validateButton.title}</StyledButton>
+      <StyledLink to={validateButton.url.replace(config.locales[locale].url, '')}>{validateButton.title}</StyledLink>
     </ProjectElaborationQuestion>
   )
 }
 
 AttachmentSummary.propTypes = {
-  goToPreValidatePage: PropTypes.func,
+  locale: PropTypes.string,
   element: PropTypes.shape({
     title: PropTypes.string.isRequired,
     image_url: PropTypes.string.isRequired,
