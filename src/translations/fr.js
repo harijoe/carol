@@ -75,6 +75,7 @@ const fr = {
   'project.elaboration.choose_conversation': 'Choose a conversation FR',
   'project.elaboration.summary.validate': 'Validate your request FR',
   'project.elaboration.summary.title': 'Vous trouverez ci-joint le résumé de votre demande de projet.',
+  'project.elaboration.project_prevalidation.success': 'The project %name% was created FR',
 
   'user.gender': 'Sexe',
   'user.forget_password': 'Mot de passe oublié ?',

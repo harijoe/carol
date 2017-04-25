@@ -6,6 +6,7 @@ import { fromProjectElaboration } from 'store/selectors'
 import { takeLatest } from 'utils/effects'
 import fetch from 'sagas/fetch'
 import ssr from 'sagas/ssr'
+import notify from 'sagas/notify'
 
 import {
   PROJECT_ELABORATION_CONVERSATION_REPLY,
@@ -107,9 +108,11 @@ function* resetAll() {
 
 function* preValidate({ chatbotStorageId }) {
   yield* fetch(projectElaborationPreValidate, 'post', `/project-prevalidate/${chatbotStorageId}`)
+  const projectName = yield select(fromProjectElaboration.getProjectName)
 
   // Todo: retrieve postalCode.id and proForm.id to search firm
   yield put(push('search-firm'))
+  yield* notify('user.thank_you', 'project.elaboration.project_prevalidation.success', 'success', {}, { name: projectName })
 }
 
 export default function* () {

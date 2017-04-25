@@ -73,6 +73,7 @@ const es = {
   'project.elaboration.choose_conversation': 'Choose a conversation ES',
   'project.elaboration.summary.validate': 'Validate your request ES',
   'project.elaboration.summary.title': 'Vous trouverez ci-joint le résumé de votre demande de projet ES',
+  'project.elaboration.project_prevalidation.success': 'The project %name% was created ES',
 
   'user.gender': 'Gender ES',
   'user.forget_password': 'Forget password ES ?',
