@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import SlickCarousel from 'react-slick'
 import styled, { css } from 'styled-components'
-import { theme, mapBreakpoints, breakpoint } from 'utils/style'
+import { theme, mapBreakpoints, breakpointMax } from 'utils/style'
 
 import styles from './styles'
 
@@ -9,14 +9,6 @@ const Wrapper = styled.div`${styles}`
 
 const StyledSlickCarousel = styled(SlickCarousel)`
   padding-bottom: ${theme('spaces.m')};
-
-  ${breakpoint('xs')`
-    overflow: hidden;
-  `}
-
-  ${breakpoint('m')`
-    overflow: visible;
-  `}
 
   ${mapBreakpoints(bp => css`
     margin-left: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} * -1);
@@ -65,12 +57,24 @@ const StyledSlickCarousel = styled(SlickCarousel)`
       opacity: 0;
     }
 
-    &.slick-prev::before {
-      content: '←';
+    &.slick-prev{
+      ${breakpointMax('xl')`
+        left: 2.5rem;
+      `}
+
+      &::before {
+        content: '←';
+      }
     }
 
-    &.slick-next::before {
-      content: '→';
+    &.slick-next{
+      ${breakpointMax('xl')`
+        right: 2.5rem;
+      `}
+
+      &::before {
+        content: '→';
+      }
     }
   }
 `
