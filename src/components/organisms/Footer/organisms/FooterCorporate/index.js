@@ -85,6 +85,10 @@ const SelectWrap = styled.div`
   margin-bottom: ${theme('spaces.s')};
   border: 0.2rem solid ${theme('colors.white')};
 
+  ${breakpoint('m')`
+    width: 60%;
+  `}
+
   ${breakpoint('l')`
     width: 80%;
   `}
@@ -176,12 +180,12 @@ const FooterCorporate = () => (
         <FirstCol xs={12} l={6}>
           <Row>
             <Col xs={5} l={6}>
-              <Baseline>
-                <FormattedMessage id="main.baseline" />
-              </Baseline>
               <Link to="/">
                 <StyledIcon icon="logo-white-withoutsignet" />
               </Link>
+              <Baseline>
+                <FormattedMessage id="main.baseline" />
+              </Baseline>
             </Col>
             <Col xs={7} l={6}>
               <StyledList>
