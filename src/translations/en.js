@@ -124,7 +124,8 @@ const en = {
   'user.social_network': 'Social Networks Parameters',
   'user.choose_img': 'Choose a picture',
   'user.drop_img': 'Try dropping some files here, or click to select files to upload.',
-  'user.forgot_password.heading': 'Forgotten password',
+  'user.forgot_password.heading': 'Forgotten password ?',
+  'user.forgot_password.description': 'Please enter your e-mail address below to reset your password.',
   'user.account_updated': 'Your account has been updated',
   'user.coming_back': 'Coming back?',
 

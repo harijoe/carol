@@ -125,6 +125,7 @@ const es = {
   'user.choose_img': 'Choose a picture ES',
   'user.drop_img': 'Try dropping some files here, or click to select files to upload. ES',
   'user.forgot_password.heading': 'Contraseña olvidada',
+  'user.forgot_password.description': 'Introduzca su dirección de correo electrónico para restablecer su contraseña.',
   'user.account_updated': 'Account Updated ES',
   'user.coming_back': 'Coming back? ES',
 

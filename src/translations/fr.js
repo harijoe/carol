@@ -85,7 +85,7 @@ const fr = {
   'user.mrs': 'Mme',
   'user.first_name': 'Prénom',
   'user.last_name': 'Nom',
-  'user.email': 'Email',
+  'user.email': 'Adresse e-mail',
   'user.password': 'Mot de passe',
   'user.password.show': 'Afficher / cacher le mot de passe',
   'user.my_account': 'Mon compte',
@@ -126,7 +126,8 @@ const fr = {
   'user.social_network': 'Social Networks Parameters FR',
   'user.choose_img': 'Choississez une image',
   'user.drop_img': 'Try dropping some files here, or click to select files to upload. FR',
-  'user.forgot_password.heading': 'Mot de passe oublié ?',
+  'user.forgot_password.heading': 'Un oubli de mot de passe ?',
+  'user.forgot_password.description': 'Renseignez votre adresse e-mail ci-dessous pour réinitialiser votre mot de passe.',
   'user.account_updated': 'Votre compte à été mise à jour',
   'user.coming_back': 'De retour ?',
 

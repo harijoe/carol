@@ -10,9 +10,8 @@ const styles = css`
   padding: 0 0.44em;
   height: 2.22em;
   color: ${theme('colors.grayscale.darkest')};
-  background-color: ${theme('colors.grayscale.lightest')};
-  border: 1px solid ${theme('colors.grayscale.medium')};
-  border-radius: 2px;
+  background: none;
+  border: none;
 
   &[type=checkbox], &[type=radio] {
     display: inline-block;
@@ -28,7 +27,7 @@ const StyledTextarea = styled.textarea`${styles}`
 const StyledSelect = styled.select`${styles}`
 const StyledInput = styled.input`${styles}`
 
-const Input = ({ ...props, type }) => {
+const Input = ({ type, ...props }) => {
   if (type === 'textarea') {
     return <StyledTextarea {...props} />
   }
