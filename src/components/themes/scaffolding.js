@@ -117,8 +117,10 @@ const scaffolding = theme => css`
       background-color: ${theme.colors.grayscale.light};
     }
 
-    &.noscroll {
-      overflow: hidden;
+    @media (max-width: 768px) {
+      &.noscroll {
+        overflow: hidden;
+      }
     }
   }
 

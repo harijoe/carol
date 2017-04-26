@@ -6526,9 +6526,9 @@ stylelint-config-standard:
   version "16.0.0"
   resolved "https://registry.yarnpkg.com/stylelint-config-standard/-/stylelint-config-standard-16.0.0.tgz#bb7387bff1d7dd7186a52b3ebf885b2405d691bf"
 
-stylelint-processor-styled-components@0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/stylelint-processor-styled-components/-/stylelint-processor-styled-components-0.0.4.tgz#6d1932a692341c7553aeac49ce13122bd62985e0"
+stylelint-processor-styled-components:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/stylelint-processor-styled-components/-/stylelint-processor-styled-components-0.1.0.tgz#47cd66bbf39a94931bb2a445c2fc7017f536df2a"
   dependencies:
     babel-traverse "^6.16.0"
     babylon "^6.12.0"

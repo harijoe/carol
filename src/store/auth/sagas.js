@@ -12,7 +12,7 @@ import {
   AUTH_LOGIN,
   AUTH_LOGOUT,
   authLogin,
-  closeAllPopin,
+  closeAll,
   setAccessToken,
 } from 'store/actions'
 import { fromAuth, fromRouting } from 'store/selectors'
@@ -20,6 +20,7 @@ import { fetchWithoutRefreshingToken } from 'sagas/fetch'
 import { requestChannel, responseChannel } from 'sagas/refreshToken'
 import saveToken from 'sagas/saveToken'
 import removeToken from 'sagas/removeToken'
+import { handleGetUserRequest } from '../user/sagas'
 
 /*
   returns :
@@ -61,8 +62,8 @@ export function* handleAuthLoginRequest({ grantType = 'client_credentials', form
 }
 
 function* handleAuthLogout() {
+  yield put(closeAll())
   yield* removeToken()
-  yield put(closeAllPopin())
   yield put(resetUser())
   yield put(projectElaborationReset)
   const pathName = yield select(fromRouting.getPathname)
@@ -75,8 +76,12 @@ function* handleAuthLogout() {
 }
 
 function* handleAuthLoginSuccess() {
-  yield select(fromAuth.isAuthenticated)
-  yield put(closeAllPopin())
+  yield put(closeAll())
+  const authenticated = yield select(fromAuth.isAuthenticated)
+
+  if (authenticated) {
+    yield* handleGetUserRequest()
+  }
 }
 
 /*

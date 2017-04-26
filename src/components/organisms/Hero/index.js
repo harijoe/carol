@@ -24,7 +24,8 @@ const HeroWrapper = styled.div`
   width: 100%;
   padding-top: 15rem;
 
-  &::before, &::after {
+  &::before,
+  &::after {
     position: absolute;
     top: 0;
     left: 0;
@@ -136,7 +137,7 @@ const CarouselWrapper = styled.div`
     padding-top: ${theme('spaces.m')};
     padding-bottom: ${theme('spaces.m')};
 
-    .slick-slide:first-child  > div {
+    .slick-slide:first-child > div {
       margin-left: 0;
     }
   }

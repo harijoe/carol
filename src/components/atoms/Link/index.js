@@ -6,6 +6,7 @@ import { theme, ifThen, breakpoint } from 'utils/style'
 const styles = ({ kind, highlight, button }) => css`
   text-decoration: none;
   color: ${theme(`colors.${kind}`)};
+  cursor: pointer;
 
   &:hover {
     text-decoration: none;
@@ -32,13 +33,12 @@ const styles = ({ kind, highlight, button }) => css`
     min-width: 20rem;
     font-family: ${theme('fonts.family.montserratBold')};
     font-size: ${theme('fonts.size.base')};
-    letter-spacing: .05rem;
+    letter-spacing: 0.05rem;
     text-align: center;
     background-color: ${theme('colors.secondary')};
     border: 0;
     color: ${theme('colors.black')};
     outline: 0;
-
     ${breakpoint('m')`
       padding: ${theme('spaces.l')};
       margin-bottom: ${theme('spaces.l')};
@@ -52,8 +52,12 @@ const StyledLink = styled(RouterLink)`${styles}`
 const Anchor = styled.a`${styles}`
 
 const Link = ({ ...props, to }) => {
+  if (to == null) {
+    return <Anchor {...props} />
+  }
+
   // Checks if URL is absolute
-  if (to == null || to.indexOf('http://') === 0 || to.indexOf('https://') === 0) {
+  if (to.indexOf('http') === 0) {
     return <Anchor {...props} href={to || ''} />
   }
 

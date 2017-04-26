@@ -19,7 +19,7 @@ const StyledButton = styled.button`
   border: none;
   z-index: 4;
   position: relative;
-  
+
   &:focus {
     outline: none;
   }
@@ -43,7 +43,7 @@ const StyledList = styled(List)`
 const StyledItem = styled(ListItem)`
   padding: 0;
   border-bottom: 1px solid ${theme.colors.grayscale.medium};
-  
+
   &:last-child {
     border-bottom: none;
   }

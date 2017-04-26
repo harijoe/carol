@@ -9,19 +9,17 @@ const StyledButton = styled.button`${({ block, secondary, maxWidth, center }) =>
   min-width: 20rem;
   font-family: ${theme('fonts.family.montserratBold')};
   font-size: ${theme('fonts.size.base')};
-  letter-spacing: .05rem;
+  letter-spacing: 0.05rem;
   text-align: center;
   background-color: ${theme('colors.secondary')};
   border: 0;
   color: ${theme('colors.black')};
   outline: 0;
-
   ${breakpoint('m')`
     padding: ${theme('spaces.l')};
     margin-bottom: ${theme('spaces.l')};
     margin-top: ${theme('spaces.l')};
   `}
-
   ${ifThen(block, 'width: 100%')};
   ${ifThen(secondary, css`
     background-color: ${theme('colors.grayscale.lighter')};

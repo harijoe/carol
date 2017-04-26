@@ -21,3 +21,4 @@ export const initialState = {
 }
 
 export const getDetails = (state = initialState) => state
+export const getFirstName = (state = initialState) => state.firstName

@@ -19,8 +19,8 @@ const StyledLink = styled(Link)`
   margin: 10px 0;
 `
 
-const SignInForm = ({ error, handleSubmit, submitting, intl: { formatMessage }, ...props }) => (
-  <div {...props}>
+const SignInForm = ({ error, handleSubmit, submitting, intl: { formatMessage }, className }) => (
+  <div className={className}>
     <Heading level={2}><FormattedMessage id="login.coming_back" /></Heading>
     <FacebookLogin />
     <GoogleLogin />
@@ -41,6 +41,7 @@ const SignInForm = ({ error, handleSubmit, submitting, intl: { formatMessage }, 
 SignInForm.propTypes = {
   handleSubmit: PropTypes.func,
   submitting: PropTypes.bool,
+  className: PropTypes.string,
   error: PropTypes.string,
   intl: intlShape.isRequired,
 }

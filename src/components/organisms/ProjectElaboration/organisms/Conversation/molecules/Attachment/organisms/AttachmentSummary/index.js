@@ -9,7 +9,7 @@ import Question from './molecules/Question'
 import Response from './molecules/Response'
 
 const StyledParagraph = styled(Paragraph)`
-  margin-bottom: 20px
+  margin-bottom: 20px;
 `
 
 const StyledLink = styled(Link)`

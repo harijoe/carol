@@ -9,7 +9,7 @@ import { Icon, Link } from 'components'
 const Background = styled.div`
   position: fixed;
   transition: background-color 0.3s ${props => props.isOpen ? 'ease' : 'ease-out'};
-  ${props => props.isOpen ? 'background-color: rgba(0, 0, 0, .9);' : ''}
+  ${props => props.isOpen ? 'background-color: rgba(0, 0, 0, 0.9);' : ''}
   border-radius: 100%;
 `
 

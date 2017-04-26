@@ -1,4 +1,4 @@
-import { CONTEXT_SET_COUNTRY, CONTEXT_SET_LANG, CONTEXT_TOGGLE_POPIN_NAV, CONTEXT_TOGGLE_POPIN_ACCOUNT, CONTEXT_CLOSE_ALL_POPIN, CONTEXT_SET_SSR } from './actions'
+import { CONTEXT_SET_COUNTRY, CONTEXT_SET_LANG, CONTEXT_TOGGLE_MAIN_NAVIGATION, CONTEXT_TOGGLE_ACCOUNT_NAVIGATION, CONTEXT_TOGGLE_SIGN_IN_POPIN, CONTEXT_CLOSE_ALL, CONTEXT_SET_SSR } from './actions'
 import { initialState } from './selectors'
 
 export default (state = initialState, action) => {
@@ -15,23 +15,30 @@ export default (state = initialState, action) => {
         lang: action.payload,
       }
     }
-    case CONTEXT_TOGGLE_POPIN_NAV: {
+    case CONTEXT_TOGGLE_MAIN_NAVIGATION: {
       return {
         ...state,
-        popinNavigation: action.payload != null ? action.payload : !state.popinNavigation,
+        mainNavigation: action.payload != null ? action.payload : !state.mainNavigation,
       }
     }
-    case CONTEXT_TOGGLE_POPIN_ACCOUNT: {
+    case CONTEXT_TOGGLE_ACCOUNT_NAVIGATION: {
       return {
         ...state,
-        popinAccount: action.payload != null ? action.payload : !state.popinAccount,
+        accountNavigation: action.payload != null ? action.payload : !state.accountNavigation,
       }
     }
-    case CONTEXT_CLOSE_ALL_POPIN: {
+    case CONTEXT_TOGGLE_SIGN_IN_POPIN: {
       return {
         ...state,
-        popinNavigation: false,
-        popinAccount: false,
+        signInPopin: action.payload != null ? action.payload : !state.signInPopin,
+      }
+    }
+    case CONTEXT_CLOSE_ALL: {
+      return {
+        ...state,
+        mainNavigation: false,
+        accountNavigation: false,
+        signInPopin: false,
       }
     }
     case CONTEXT_SET_SSR: {

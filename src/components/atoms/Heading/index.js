@@ -10,11 +10,9 @@ const styles = ({ level }) => {
       baseStyle = css`
         color: ${theme('colors.black')};
         font-size: ${theme('fonts.size.xl')};
-
         ${breakpoint('m')`
           font-size: ${theme('fonts.size.xxl')};
         `}
-
         ${breakpoint('l')`
           font-size: ${theme('fonts.size.xxxl')};
         `}

@@ -13,7 +13,8 @@ const styles = css`
   background: none;
   border: none;
 
-  &[type=checkbox], &[type=radio] {
+  &[type=checkbox],
+  &[type=radio] {
     display: inline-block;
     border: 0;
     border-radius: 0;

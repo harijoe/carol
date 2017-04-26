@@ -6,10 +6,10 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <BurgerMenu
+  "node": <injectScrollWrapper
     linkPro="https://www.quotatispro.fr/" />,
   "nodes": Array [
-    <BurgerMenu
+    <injectScrollWrapper
       linkPro="https://www.quotatispro.fr/" />,
   ],
   "options": Object {},
@@ -29,6 +29,9 @@ ShallowWrapper {
                         "country.france": "France",
                         "country.great_britain": "Great-Britain",
                         "country.spain": "Spain",
+                        "directory": "Directory artisans EN",
+                        "firm.all": "Tous nos conseils EN",
+                        "firm.and_you": "Les travaux et vous EN",
                         "firm.details.budget": "Budget",
                         "firm.details.certificate": "Certificate",
                         "firm.details.city": "City",
@@ -49,8 +52,11 @@ ShallowWrapper {
                         "firm.details.served_area_cities": "Served Area Postal Codes",
                         "firm.details.website": "Website",
                         "firm.details.website_missing": "No website",
+                        "firm.faq": "FAQ EN",
                         "firm.find_pro": "Find a pro",
+                        "firm.guide": "Guides Travaux EN",
                         "firm.i_am_pro": "I am a pro",
+                        "firm.inspiring": "Inspirations EN",
                         "firm.resource": "Resource for my work",
                         "firm.site_search": "Site search",
                         "firm.site_search.result_link": "More details",
@@ -167,7 +173,7 @@ ShallowWrapper {
                         "user.google_id": "Google id",
                         "user.invalid_login": "Your login and/or password are not valid",
                         "user.last_name": "Last Name",
-                        "user.log_out": "Log out",
+                        "user.log_out": "Log out ➔",
                         "user.message_page": "My Message page",
                         "user.messaging": "Messaging",
                         "user.mobile_phone": "Mobile phone number",
@@ -217,7 +223,7 @@ ShallowWrapper {
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
         }>
-        <BurgerMenu
+        <injectScrollWrapper
                 linkPro="https://www.quotatispro.fr/" />
 </IntlProvider>,
       "_debugID": 1,
@@ -229,7 +235,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <BurgerMenu
+          "children": <injectScrollWrapper
             linkPro="https://www.quotatispro.fr/" />,
           "locale": "en",
           "messages": Object {
@@ -240,6 +246,9 @@ ShallowWrapper {
             "country.france": "France",
             "country.great_britain": "Great-Britain",
             "country.spain": "Spain",
+            "directory": "Directory artisans EN",
+            "firm.all": "Tous nos conseils EN",
+            "firm.and_you": "Les travaux et vous EN",
             "firm.details.budget": "Budget",
             "firm.details.certificate": "Certificate",
             "firm.details.city": "City",
@@ -260,8 +269,11 @@ ShallowWrapper {
             "firm.details.served_area_cities": "Served Area Postal Codes",
             "firm.details.website": "Website",
             "firm.details.website_missing": "No website",
+            "firm.faq": "FAQ EN",
             "firm.find_pro": "Find a pro",
+            "firm.guide": "Guides Travaux EN",
             "firm.i_am_pro": "I am a pro",
+            "firm.inspiring": "Inspirations EN",
             "firm.resource": "Resource for my work",
             "firm.site_search": "Site search",
             "firm.site_search.result_link": "More details",
@@ -378,7 +390,7 @@ ShallowWrapper {
             "user.google_id": "Google id",
             "user.invalid_login": "Your login and/or password are not valid",
             "user.last_name": "Last Name",
-            "user.log_out": "Log out",
+            "user.log_out": "Log out ➔",
             "user.message_page": "My Message page",
             "user.messaging": "Messaging",
             "user.mobile_phone": "Mobile phone number",
@@ -455,10 +467,10 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <BurgerMenu
+        "_currentElement": <injectScrollWrapper
           linkPro="https://www.quotatispro.fr/" />,
         "_debugID": 2,
-        "_renderedOutput": <BurgerMenu
+        "_renderedOutput": <injectScrollWrapper
           linkPro="https://www.quotatispro.fr/" />,
       },
       "_renderedNodeType": 1,
@@ -482,6 +494,9 @@ ShallowWrapper {
             "country.france": "France",
             "country.great_britain": "Great-Britain",
             "country.spain": "Spain",
+            "directory": "Directory artisans EN",
+            "firm.all": "Tous nos conseils EN",
+            "firm.and_you": "Les travaux et vous EN",
             "firm.details.budget": "Budget",
             "firm.details.certificate": "Certificate",
             "firm.details.city": "City",
@@ -502,8 +517,11 @@ ShallowWrapper {
             "firm.details.served_area_cities": "Served Area Postal Codes",
             "firm.details.website": "Website",
             "firm.details.website_missing": "No website",
+            "firm.faq": "FAQ EN",
             "firm.find_pro": "Find a pro",
+            "firm.guide": "Guides Travaux EN",
             "firm.i_am_pro": "I am a pro",
+            "firm.inspiring": "Inspirations EN",
             "firm.resource": "Resource for my work",
             "firm.site_search": "Site search",
             "firm.site_search.result_link": "More details",
@@ -620,7 +638,7 @@ ShallowWrapper {
             "user.google_id": "Google id",
             "user.invalid_login": "Your login and/or password are not valid",
             "user.last_name": "Last Name",
-            "user.log_out": "Log out",
+            "user.log_out": "Log out ➔",
             "user.message_page": "My Message page",
             "user.messaging": "Messaging",
             "user.mobile_phone": "Mobile phone number",
@@ -670,7 +688,7 @@ ShallowWrapper {
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }
     }>
-    <BurgerMenu
+    <injectScrollWrapper
         linkPro="https://www.quotatispro.fr/" />
 </IntlProvider>,
 }

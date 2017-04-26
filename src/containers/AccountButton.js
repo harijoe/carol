@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fromContext } from 'store/selectors'
-import { togglePopinAccount } from 'store/actions'
+import { fromContext, fromAuth, fromRouting, fromUser } from 'store/selectors'
+import { toggleSignInPopin, toggleAccountNavigation } from 'store/actions'
 
 import { AccountButton } from 'components'
 
@@ -10,11 +10,16 @@ const AccountButtonContainer = props => (
 )
 
 const mapStateToProps = state => ({
-  popinAccount: fromContext.getPopinAccount(state),
+  accountNavigation: fromContext.getAccountNavigation(state),
+  authenticated: fromAuth.isAuthenticated(state),
+  homepage: fromRouting.isHomepage(state),
+  firstName: fromUser.getFirstName(state),
 })
 
 const mapDispatchToProps = dispatch => ({
-  togglePopinAccount: () => dispatch(togglePopinAccount()),
+  toggleSignInPopin: () => dispatch(toggleSignInPopin()),
+  toggleAccountNavigation: () => dispatch(toggleAccountNavigation()),
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountButtonContainer)

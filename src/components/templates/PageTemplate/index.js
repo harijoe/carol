@@ -8,7 +8,6 @@ import en from 'react-intl/locale-data/en'
 import es from 'react-intl/locale-data/es'
 import { injectGlobals } from 'utils/style'
 
-import { PopinNavigation, PopinAccount, BurgerButton, QuotatisLogo } from 'containers'
 import { MotionMenu } from 'components'
 import defaultTheme, { resets, scaffolding } from '../../themes/default'
 
@@ -22,7 +21,7 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #eeeeee;
+  background-color: #eee;
 `
 
 const Header = styled.header`
@@ -56,11 +55,7 @@ const PageTemplate = ({ header, children, footer, ...props }) => (
     <Wrapper {...props}>
       <NotificationsSystem theme={theme} defaultValues={notificationsDefaultValues} />
       <MotionMenu />
-      <PopinNavigation />
-      <PopinAccount />
       <Header {...props}>{header}</Header>
-      <QuotatisLogo />
-      <BurgerButton />
       <Content>{children}</Content>
       <Footer>{footer}</Footer>
     </Wrapper>
