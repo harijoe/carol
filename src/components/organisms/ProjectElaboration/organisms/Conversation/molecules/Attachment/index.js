@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react'
 import AttachmentGeneric from './organisms/AttachmentGeneric'
 import AttachmentSummary from './organisms/AttachmentSummary'
 
-const Attachment = ({ attachment, reply, response, locale }) => {
+const Attachment = ({ attachment, reply, response, locale, redirectTo, location }) => {
   if (
     attachment == null
     || attachment.payload == null
@@ -17,7 +17,7 @@ const Attachment = ({ attachment, reply, response, locale }) => {
   switch (attachment.payload.template_type) {
     case 'generic.summary':
       return (
-        <AttachmentSummary element={attachment.payload.elements[0]} {...{ locale }} />
+        <AttachmentSummary element={attachment.payload.elements[0]} {...{ locale, redirectTo, location }} />
       )
     default:
     case 'generic':
@@ -34,7 +34,9 @@ Attachment.propTypes = {
     }),
   }),
   reply: PropTypes.func,
+  redirectTo: PropTypes.func,
   response: PropTypes.object,
+  location: PropTypes.object.isRequired,
   locale: PropTypes.string,
 }
 

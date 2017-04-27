@@ -10,6 +10,7 @@ import { basename } from 'config'
 import configureStore from 'store/configure'
 import { setSSR } from 'store/actions'
 import sagas from 'store/sagas'
+import { anchorate } from 'anchorate'
 
 import routes from 'routes'
 
@@ -19,6 +20,10 @@ const baseHistory = useRouterHistory(createHistory)({ basename })
 const store = configureStore(initialState, baseHistory)
 const history = syncHistoryWithStore(baseHistory, store)
 const root = document.getElementById('app')
+
+history.listen(() => {
+  anchorate()
+})
 
 store.runSaga(sagas)
 store.dispatch(setSSR(false))

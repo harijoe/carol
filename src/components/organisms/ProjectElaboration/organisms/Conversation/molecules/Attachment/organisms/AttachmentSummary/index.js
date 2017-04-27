@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes, Component } from 'react'
 import { FormattedMessage } from 'react-intl'
 import styled from 'styled-components'
 import config from 'config'
@@ -25,35 +25,49 @@ const StyledLink = styled(Link)`
   color: ${theme('colors.black')};
 `
 
-const AttachmentSummary = ({ element: { title, image_url, subtitle, buttons }, locale }) => {
-  const validateButton = buttons[0]
+class AttachmentSummary extends Component {
+  componentDidMount() {
+    const { location: { basename, pathname }, redirectTo } = this.props
 
-  /*
-   * subtitle contains all the summary in one block. So, we have to split questions (odd) and responses (even)
-   */
-  const summary = subtitle.split('\n').map(((message, i) => (
-    (i % 2) ?
-      <Response key={i}>{message}</Response>
-      :
-      <Question key={i}>{message}</Question>
-  )))
+    redirectTo(`${basename}${pathname}#summary`)
+    redirectTo(`${basename}${pathname}`)
+  }
 
-  return (
-    <ProjectElaborationQuestion>
-      <StyledParagraph><FormattedMessage id="project.elaboration.summary.title" /></StyledParagraph>
-      <ThumbnailPoster
-        // eslint-disable-next-line camelcase
-        image={image_url}
-        title={title}
-      />
-      {summary}
-      <StyledLink to={validateButton.url.replace(config.locales[locale].url, '')}>{validateButton.title}</StyledLink>
-    </ProjectElaborationQuestion>
-  )
+  render() {
+    const { element: { title, image_url, subtitle, buttons }, locale } = this.props
+    const validateButton = buttons[0]
+
+    /*
+     * subtitle contains all the summary in one block. So, we have to split questions (odd) and responses (even)
+     */
+    const summary = subtitle.split('\n').map(((message, i) => (
+      (i % 2) ?
+        <Response key={i}>{message}</Response>
+        :
+        <Question key={i}>{message}</Question>
+    )))
+
+    return (
+      <div id="summary">
+        <ProjectElaborationQuestion>
+          <StyledParagraph><FormattedMessage id="project.elaboration.summary.title" /></StyledParagraph>
+          <ThumbnailPoster
+            // eslint-disable-next-line camelcase
+            image={image_url}
+            title={title}
+          />
+          {summary}
+          <StyledLink to={validateButton.url.replace(config.locales[locale].url, '')}>{validateButton.title}</StyledLink>
+        </ProjectElaborationQuestion>
+      </div>
+    )
+  }
 }
 
 AttachmentSummary.propTypes = {
   locale: PropTypes.string,
+  location: PropTypes.object.isRequired,
+  redirectTo: PropTypes.func,
   element: PropTypes.shape({
     title: PropTypes.string.isRequired,
     image_url: PropTypes.string.isRequired,

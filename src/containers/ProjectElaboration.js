@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react'
+import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import {
   projectElaborationReply,
   projectElaborationConversationCurrent,
   projectElaborationConversationsSelect,
-  projectElaborationGoToPreValidatePage,
 } from 'store/actions'
 import { fromProjectElaboration, fromContext } from 'store/selectors'
 
@@ -17,11 +17,12 @@ class ProjectElaborationContainer extends Component {
     reply: PropTypes.func,
     request: PropTypes.func,
     selectConversation: PropTypes.func,
-    goToPreValidatePage: PropTypes.func,
+    redirectTo: PropTypes.func,
     activeConversation: PropTypes.array,
     conversations: PropTypes.object,
     hasConversations: PropTypes.bool,
     locale: PropTypes.string,
+    location: PropTypes.object.isRequired,
   }
 
   componentWillMount() {
@@ -35,8 +36,9 @@ class ProjectElaborationContainer extends Component {
       reply,
       selectConversation,
       hasConversations,
-      goToPreValidatePage,
       locale,
+      redirectTo,
+      location,
     } = this.props
 
     return (
@@ -47,8 +49,9 @@ class ProjectElaborationContainer extends Component {
           reply,
           selectConversation,
           hasConversations,
-          goToPreValidatePage,
           locale,
+          redirectTo,
+          location,
         }}
       />
     )
@@ -67,7 +70,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   reply: (text, payload) => projectElaborationReply.request(text, payload),
   request: () => projectElaborationConversationCurrent.request(),
   selectConversation: authType => projectElaborationConversationsSelect.request(authType),
-  goToPreValidatePage: url => projectElaborationGoToPreValidatePage(url),
+  redirectTo: url => push(url),
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectElaborationContainer)

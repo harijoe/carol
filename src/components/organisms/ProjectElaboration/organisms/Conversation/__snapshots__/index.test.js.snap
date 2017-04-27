@@ -16,6 +16,8 @@ ShallowWrapper {
             <Attachment
                 attachment={null}
                 locale={undefined}
+                location={undefined}
+                redirectTo={undefined}
                 reply={undefined}
                 response={
                     Object {
@@ -48,6 +50,8 @@ ShallowWrapper {
                   <Attachment
                         attachment={null}
                         locale={undefined}
+                        location={undefined}
+                        redirectTo={undefined}
                         reply={undefined}
                         response={
                               Object {
@@ -141,6 +145,8 @@ ShallowWrapper {
                               <Attachment
                                         attachment={null}
                                         locale={undefined}
+                                        location={undefined}
+                                        redirectTo={undefined}
                                         reply={undefined}
                                         response={
                                                   Object {
@@ -173,6 +179,8 @@ ShallowWrapper {
                               <Attachment
                                         attachment={null}
                                         locale={undefined}
+                                        location={undefined}
+                                        redirectTo={undefined}
                                         reply={undefined}
                                         response={
                                                   Object {

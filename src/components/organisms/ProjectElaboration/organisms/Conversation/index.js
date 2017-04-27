@@ -79,6 +79,8 @@ class Conversation extends Component {
       }),
     ),
     reply: PropTypes.func,
+    redirectTo: PropTypes.func,
+    location: PropTypes.object.isRequired,
   }
 
   componentDidMount() {
@@ -94,7 +96,7 @@ class Conversation extends Component {
   }
 
   render() {
-    const { activeConversation, reply, locale } = this.props
+    const { activeConversation, reply, locale, redirectTo, location } = this.props
     const isLastQuestion = index => (
       activeConversation.length - 1 === index
     )
@@ -110,7 +112,7 @@ class Conversation extends Component {
                   <Block>
                     <Attachment
                       attachment={attachment != null ? attachment : null}
-                      {...{ reply, response, locale }}
+                      {...{ reply, response, locale, redirectTo, location }}
                     />
                     <QuickReplies
                       // eslint-disable-next-line camelcase
