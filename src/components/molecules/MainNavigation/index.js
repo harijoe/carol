@@ -23,7 +23,7 @@ const StyledNav = styled.nav`${({ show }) => css`
   `}
 
   @media screen and (max-width: 991px) and (min-width: 768px) {
-    background: rgba(19, 19, 19, 0.85);
+    background: rgba(0, 0, 0, 0.8);
   }
 
   ${breakpoint('l')`

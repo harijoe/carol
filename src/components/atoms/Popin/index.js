@@ -59,7 +59,7 @@ const Background = styled.div`
     position: absolute
     height: 100vh;
     width: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.8);
   `}
 `
 
