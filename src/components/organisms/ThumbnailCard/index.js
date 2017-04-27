@@ -67,7 +67,7 @@ const StyledList = styled(List)`
   list-style: none;
 
   li {
-    padding-top: ${theme('spaces.s')};
+    padding-top: ${theme('spaces.xs')};
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -80,7 +80,7 @@ const CardFooter = styled.footer`
   color: ${theme('colors.primary')};
 
   ${breakpoint('m')`
-    padding: calc(${theme('spaces.m')} / 2) ${theme('spaces.m')};
+    padding: 0 ${theme('spaces.m')} ${theme('spaces.m')} ${theme('spaces.m')};
     font-size: ${theme('fonts.size.base')};
   `}
 `

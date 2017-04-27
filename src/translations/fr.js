@@ -176,7 +176,7 @@ const fr = {
   'hero.subheading_in_progress': 'Vous pouvez aussi commencer un nouveau projet !',
   'hero.button_message': 'Continuer mon projet',
 
-  'thumbnailcard.link': 'Allons-y ➔',
+  'thumbnailcard.link': 'Commencer ➔',
 
   'footer.advices.section_title': 'Nos guides travaux',
   'footer.advices.window': 'Fenêtres, Portes & Volets',
