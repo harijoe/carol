@@ -18,7 +18,6 @@ const Wrapper = styled.div`
 
   ${breakpoint('m')`
     min-height: 29rem;
-    max-height: 80rem;
   `}
 
   &::-webkit-scrollbar-track {
