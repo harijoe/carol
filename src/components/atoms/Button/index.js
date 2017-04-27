@@ -6,7 +6,7 @@ const StyledButton = styled.button`${({ block, secondary, maxWidth, center }) =>
   display: block;
   margin: ${theme('spaces.m')} 0 0 0;
   padding: ${theme('spaces.m')};
-  min-width: 20rem;
+  width: 100%;
   font-family: ${theme('fonts.family.montserratBold')};
   font-size: ${theme('fonts.size.base')};
   letter-spacing: 0.05rem;
@@ -16,9 +16,10 @@ const StyledButton = styled.button`${({ block, secondary, maxWidth, center }) =>
   color: ${theme('colors.black')};
   outline: 0;
   ${breakpoint('m')`
-    padding: ${theme('spaces.l')};
+    padding: ${theme('spaces.m')};
     margin-bottom: ${theme('spaces.l')};
     margin-top: ${theme('spaces.l')};
+    max-width: 32rem;
   `}
   ${ifThen(block, 'width: 100%')};
   ${ifThen(secondary, css`

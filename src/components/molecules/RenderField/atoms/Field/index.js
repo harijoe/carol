@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
 import { FormattedMessage } from 'react-intl'
-import { theme, ifThen } from 'utils/style'
+import { theme, ifThen, breakpoint } from 'utils/style'
 
 import { Label, Input, Block, Icon } from 'components'
 
@@ -22,6 +22,10 @@ const Wrapper = styled.div`
   }
   border-bottom: 1px solid ${theme('colors.grayscale.medium')};
   padding-bottom: 5px;
+  
+  ${breakpoint('m')`
+    max-width: ${theme('ui.size.m')};
+  `}
 `
 
 const StyledInput = styled(Input)`
