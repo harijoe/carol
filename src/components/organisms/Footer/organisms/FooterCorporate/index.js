@@ -20,6 +20,10 @@ const StyledSection = styled(Section)`
   `}
 `
 
+const StyledRow = styled(Row)`
+  width: 100%;
+`
+
 const StyledList = styled(List)`
   padding: ${theme('spaces.s')} 0 ${theme('spaces.s')} 0;
   margin: 0;
@@ -176,7 +180,7 @@ const StyledLinkPhone = styled(Link)`
 const FooterCorporate = () => (
   <StyledSection>
     <Grid>
-      <Row>
+      <StyledRow>
         <FirstCol xs={12} l={6}>
           <Row>
             <Col xs={5} l={6}>
@@ -252,7 +256,7 @@ const FooterCorporate = () => (
             </StyledLinkPhone>
           </PhoneWrapper>
         </ThirdCol>
-      </Row>
+      </StyledRow>
     </Grid>
   </StyledSection>
 )
