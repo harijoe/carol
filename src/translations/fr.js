@@ -164,7 +164,7 @@ const fr = {
   'hero.welcome_message': 'Quotatis vous aide à trouver l\'artisan qui concrétisera votre projet',
   'hero.conversation_in_progress': 'Vous avez déjà une converation en cours.',
 
-  'thumbnailcard.link': 'Allons-y ➔',
+  'thumbnailcard.link': 'Commencer ➔',
 
   'footer.advices.section_title': 'Nos guides travaux',
   'footer.advices.window': 'Fenêtres, Portes & Volets',

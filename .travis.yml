@@ -12,6 +12,7 @@ services:
 
 script:
   - if [ "${BRANCH}" = "" ]; then BRANCH=develop; fi;
+  - if [ "${TRAVIS_BRANCH}" = "master" && $TRAVIS_PULL_REQUEST_BRANCH = "" ]; then BRANCH=master; fi;
   - yarn run lint && yarn test
   - docker build -t eu.gcr.io/quotatis-152617/carol:${BRANCH} .
 
@@ -24,7 +25,7 @@ branches:
 
 after_success:
   - ./deploy-carol.sh
-  
+
 env:
   global:
     - BRANCH="${TRAVIS_PULL_REQUEST_BRANCH/\//-}"
