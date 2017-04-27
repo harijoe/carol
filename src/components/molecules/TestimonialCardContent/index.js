@@ -5,20 +5,7 @@ import { theme, breakpoint } from 'utils/style'
 
 import { Heading, Paragraph, Image, Link } from 'components'
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-`
 const ContentWrapper = styled.div`
-  flex-grow: 1;
-  padding: ${theme('spaces.m')} ${theme('spaces.m')} 0 ${theme('spaces.m')};
-
-  ${breakpoint('m')`
-    padding: ${theme('spaces.l')} ${theme('spaces.l')} 0 ${theme('spaces.l')};
-  `}
-`
-const CardFooter = styled.footer`
   padding: ${theme('spaces.m')};
 
   ${breakpoint('m')`
@@ -49,6 +36,10 @@ const StyledLocation = styled(Paragraph)`
   margin-top: ${theme('spaces.s')};
   margin-bottom: ${theme('spaces.m')};
 `
+const StyledLink = styled(Link)`
+  margin-top: ${theme('spaces.m')};
+  display: block;
+`
 
 const StyledParagraph = styled(Paragraph)`
   font: normal ${theme('fonts.size.base')} montserrat-light, sans-serif !important;
@@ -56,7 +47,7 @@ const StyledParagraph = styled(Paragraph)`
 `
 
 const TestimonialCardContent = ({ image, firstName, age, location, quote, link }) => (
-  <Wrapper>
+  <div>
     <ImageWrapper>
       <StyledImage link={image} />
     </ImageWrapper>
@@ -70,13 +61,11 @@ const TestimonialCardContent = ({ image, firstName, age, location, quote, link }
       </HeaderWrapper>
 
       <StyledParagraph>« {quote} »</StyledParagraph>
-    </ContentWrapper>
-    <CardFooter>
-      <Link to={link} target="_blank" highlight>
+      <StyledLink to={link} target="_blank">
         <FormattedMessage id="testimonials.read_it" />
-      </Link>
-    </CardFooter>
-  </Wrapper>
+      </StyledLink>
+    </ContentWrapper>
+  </div>
 )
 
 TestimonialCardContent.propTypes = {

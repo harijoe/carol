@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fromRouting } from 'store/selectors'
+import { fromContext } from 'store/selectors'
 
 import { QuotatisLogo } from 'components'
 
@@ -9,7 +9,8 @@ const QuotatisLogoContainer = props => (
 )
 
 const mapStateToProps = state => ({
-  homepage: fromRouting.isHomepage(state),
+  popinNavigation: fromContext.getPopinNavigation(state),
+  popinAccount: fromContext.getPopinAccount(state),
 })
 
 export default connect(mapStateToProps)(QuotatisLogoContainer)

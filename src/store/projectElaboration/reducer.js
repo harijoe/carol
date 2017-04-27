@@ -7,8 +7,6 @@ import {
   PROJECT_ELABORATION_HERO_SET_RESPONSE,
   PROJECT_ELABORATION_CONVERSATIONS_DETAILS,
   PROJECT_ELABORATION_CONVERSATION_DETAILS,
-  PROJECT_ELABORATION_RESET_CONVERSATION,
-  PROJECT_ELABORATION_PRE_VALIDATE,
 } from './actions'
 
 const addQuestions = (activeConversation, questions) => {
@@ -72,12 +70,12 @@ export default (state = initialState, action) => {
     case PROJECT_ELABORATION_CONVERSATION_SET_RESPONSE:
       return {
         ...state,
-        activeConversation: addResponse(state.activeConversation, payload),
+        activeConversation: addResponse(state.activeConversation, action.payload),
       }
     case PROJECT_ELABORATION_CONVERSATION_REPLY.SUCCESS:
       return {
         ...state,
-        activeConversation: addQuestions(state.activeConversation, Object.values(payload)),
+        activeConversation: addQuestions(state.activeConversation, Object.values(action.payload)),
       }
     case PROJECT_ELABORATION_SET_SESSION_ID:
       return {
@@ -87,12 +85,12 @@ export default (state = initialState, action) => {
     case PROJECT_ELABORATION_HERO_SET_RESPONSE:
       return {
         ...state,
-        hero: setHeroResponse(state.hero, payload),
+        hero: setHeroResponse(state.hero, action.payload),
       }
     case PROJECT_ELABORATION_HERO_DETAILS.SUCCESS:
       return {
         ...state,
-        hero: setHero(state.hero, Object.values(payload)),
+        hero: setHero(state.hero, Object.values(action.payload)),
       }
     case PROJECT_ELABORATION_CONVERSATIONS_DETAILS.SUCCESS:
       if (Object.keys(payload).length === 1) {
@@ -121,16 +119,6 @@ export default (state = initialState, action) => {
         activeConversation: state.conversations[payload].conversation,
         sessionId: state.conversations[payload].sessionId,
         conversations: {},
-      }
-    case PROJECT_ELABORATION_RESET_CONVERSATION:
-      return {
-        ...state,
-        activeConversation: [],
-      }
-    case PROJECT_ELABORATION_PRE_VALIDATE.SUCCESS:
-      return {
-        ...state,
-        projectName: payload.name,
       }
     default:
       return state

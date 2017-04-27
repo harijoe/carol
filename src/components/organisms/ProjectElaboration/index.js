@@ -16,16 +16,7 @@ const StyledGrid = styled(Grid)`
   padding-top: 5.6rem;
 `
 
-const ProjectElaboration = ({
-  activeConversation,
-  conversations,
-  reply,
-  selectConversation,
-  hasConversations,
-  locale,
-  redirectTo,
-  location,
-}) => {
+const ProjectElaboration = ({ activeConversation, conversations, reply, selectConversation, hasConversations }) => {
   const quickReplies = activeConversation.length > 0 ? activeConversation[activeConversation.length - 1].message.quick_replies : null
 
   return (
@@ -42,7 +33,7 @@ const ProjectElaboration = ({
           </ul>
           :
           <div>
-            <Conversation {...{ activeConversation, reply, locale, redirectTo, location }} />
+            <Conversation activeConversation={activeConversation} reply={reply} />
             <Form reply={reply} disabled={quickReplies != null ? quickReplies.length !== 0 : true} />
           </div>
       }
@@ -59,12 +50,9 @@ ProjectElaboration.propTypes = {
     }),
   ),
   reply: PropTypes.func,
-  redirectTo: PropTypes.func,
   selectConversation: PropTypes.func,
   conversations: PropTypes.object,
-  location: PropTypes.object.isRequired,
   hasConversations: PropTypes.bool,
-  locale: PropTypes.string,
 }
 
 export default ProjectElaboration

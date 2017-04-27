@@ -3,24 +3,22 @@ import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import createSagaMiddleware from 'redux-saga'
 import reducer from './reducer'
+import sagas from './sagas'
 
 const configureStore = (initialState, history) => {
   const hasWindow = typeof window !== 'undefined'
   const sagaMiddleware = createSagaMiddleware()
 
-  const store = createStore(
-    reducer,
-    initialState,
-    compose(
-      applyMiddleware(thunk, sagaMiddleware, routerMiddleware(history)),
-      hasWindow && window.devToolsExtension ? window.devToolsExtension() : f => f
-    )
-  )
+  const finalCreateStore = compose(
+    applyMiddleware(thunk, sagaMiddleware, routerMiddleware(history)),
+    hasWindow && window.devToolsExtension ? window.devToolsExtension() : f => f
+  )(createStore)
 
-  return {
-    ...store,
-    runSaga: sagaMiddleware.run,
-  }
+  const store = finalCreateStore(reducer, initialState)
+
+  sagaMiddleware.run(sagas)
+
+  return store
 }
 
 export default configureStore

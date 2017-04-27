@@ -24,7 +24,7 @@ const DescribeProject = (
 const VerifiedPros = (
   <Paragraph>
     <FormattedMessage id="how_it_works.verified_pros.first_part" />
-    <Link to={contentSiteUrl} highlight>
+    <Link to={contentSiteUrl}>
       <FormattedMessage id="how_it_works.verified_pros.link" />
     </Link>
     <FormattedMessage id="how_it_works.verified_pros.second_part" />
@@ -34,7 +34,7 @@ const VerifiedPros = (
 const Guide = (
   <Paragraph>
     <FormattedMessage id="how_it_works.guide.first_part" />
-    <Link to={contentSiteUrl} highlight>
+    <Link to={contentSiteUrl}>
       <FormattedMessage id="how_it_works.guide.link" />
     </Link>
     <FormattedMessage id="how_it_works.guide.second_part" />

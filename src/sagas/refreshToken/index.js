@@ -13,9 +13,10 @@ export const responseChannel = channel()
 
 export default function* () {
   yield put(requestChannel, {})
-  const refreshTokenResult = yield take(responseChannel)
+  const tokenSuccessfullyRefreshed = yield take(responseChannel)
 
-  if (refreshTokenResult === false) {
+  if (!tokenSuccessfullyRefreshed) {
     throw new Error('Token refresh failed')
   }
 }
+

@@ -15,6 +15,7 @@ const titleStyles = ({ dark }) => css`
       background: ${theme('colors.black')};
     }
   `)}
+
   font-family: 'montserrat-light', sans-serif;
   font-weight: normal;
   position: relative;
@@ -47,9 +48,8 @@ const Title = styled.h2`${titleStyles}`
 const sectionStyles = ({ light, primary, dark }) => css`
   background: ${theme('colors.white')};
   ${mapBreakpoints(bp => css`
-    padding: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} * 2) ${theme(`grid.gutterWidth.${bp}`, 'rem')};
+    padding: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} * 2) ${theme(`grid.gutterWidth.${bp}`, 'rem')}
   `)}
-
   ${ifThen(light, css`background: ${theme('colors.grayscale.lightest')};`)}
   ${ifThen(primary, css`background: ${theme('colors.primary')};`)}   
   ${ifThen(dark, css`background: ${theme('colors.black')};`)}

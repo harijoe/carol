@@ -1,6 +1,5 @@
 const fr = {
   home: 'Accueil',
-  directory: 'Annuaire artisans',
   help: 'Aide',
   login: 'Se connecter',
   burger_menu: 'Menu Burger',
@@ -18,16 +17,9 @@ const fr = {
 
   'login.coming_back': 'De retour ?',
 
-  'main.baseline': 'Vos travaux en mieux',
-
   'firm.find_pro': 'Trouver un artisan',
   'firm.resource': 'Ressource pour mes travaux',
   'firm.i_am_pro': 'Je suis artisan',
-  'firm.all': 'Tous nos conseils',
-  'firm.guide': 'Guides Travaux',
-  'firm.and_you': 'Les travaux et vous',
-  'firm.inspiring': 'Inspirations',
-  'firm.faq': 'FAQ',
   'firm.site_search': 'Recherche sur le site',
   'firm.site_search.result_link': 'Plus de details',
   'firm.details.logo': 'Logo',
@@ -81,7 +73,6 @@ const fr = {
   'project.elaboration.choose_conversation': 'Choose a conversation FR',
   'project.elaboration.summary.validate': 'Validate your request FR',
   'project.elaboration.summary.title': 'Vous trouverez ci-joint le résumé de votre demande de projet.',
-  'project.elaboration.project_prevalidation.success': 'The project %name% was created FR',
 
   'user.gender': 'Sexe',
   'user.forget_password': 'Mot de passe oublié ?',
@@ -91,13 +82,13 @@ const fr = {
   'user.mrs': 'Mme',
   'user.first_name': 'Prénom',
   'user.last_name': 'Nom',
-  'user.email': 'Adresse e-mail',
+  'user.email': 'Email',
   'user.password': 'Mot de passe',
   'user.password.show': 'Afficher / cacher le mot de passe',
   'user.my_account': 'Mon compte',
   'user.my_projects': 'Mes projets',
   'user.messaging': 'Messagerie',
-  'user.log_out': 'Déconnexion ➔',
+  'user.log_out': 'Déconnexion',
   'user.sign_in': 'Connexion',
   'user.no_account_question': 'Vous n\'avez pas de compte ?',
   'user.update': 'Mettre à jour',
@@ -132,8 +123,7 @@ const fr = {
   'user.social_network': 'Social Networks Parameters FR',
   'user.choose_img': 'Choississez une image',
   'user.drop_img': 'Try dropping some files here, or click to select files to upload. FR',
-  'user.forgot_password.heading': 'Un oubli de mot de passe ?',
-  'user.forgot_password.description': 'Renseignez votre adresse e-mail ci-dessous pour réinitialiser votre mot de passe.',
+  'user.forgot_password.heading': 'Mot de passe oublié ?',
   'user.account_updated': 'Votre compte à été mise à jour',
   'user.coming_back': 'De retour ?',
 
@@ -172,9 +162,7 @@ const fr = {
 
   'hero.title_message': 'Quels travaux souhaitez vous faire ?',
   'hero.welcome_message': 'Quotatis vous aide à trouver l\'artisan qui concrétisera votre projet',
-  'hero.conversation_in_progress': 'Vous avez déjà une conversation en cours. Souhaitez-vous la reprendre ?',
-  'hero.subheading_in_progress': 'Vous pouvez aussi commencer un nouveau projet !',
-  'hero.button_message': 'Continuer mon projet',
+  'hero.conversation_in_progress': 'Vous avez déjà une converation en cours.',
 
   'thumbnailcard.link': 'Allons-y ➔',
 
@@ -200,8 +188,6 @@ const fr = {
   'footer.corporate.press': 'Presse',
   'footer.corporate.phone_help': 'Besoin d\'aide ?',
   'footer.corporate.phone_pros': 'Vous êtes un pro ?',
-  'footer.corporate.phone_help_number': '01 77 86 80 97',
-  'footer.corporate.phone_pros_number': '01 77 86 71 91',
   'footer.corporate.privacy_policy': 'Privacy policy FR',
   'footer.corporate.notice': 'Mentions légales',
   'footer.corporate.use': 'Terms & conditions of use FR',

@@ -5,8 +5,6 @@ import uuid from 'uuid/v4'
 import { fromProjectElaboration } from 'store/selectors'
 import { takeLatest } from 'utils/effects'
 import fetch from 'sagas/fetch'
-import ssr from 'sagas/ssr'
-import notify from 'sagas/notify'
 
 import {
   PROJECT_ELABORATION_CONVERSATION_REPLY,
@@ -16,15 +14,12 @@ import {
   PROJECT_ELABORATION_CONVERSATIONS_SELECT,
   PROJECT_ELABORATION_RESET,
   PROJECT_ELABORATION_CONVERSATION_CURRENT,
-  PROJECT_ELABORATION_PRE_VALIDATE,
   projectElaborationReply,
   projectElaborationConversationsDetails,
   setProjectElaborationConversationResponse,
   projectElaborationConversationDetails,
   setProjectElaborationSessionId,
   projectElaborationHeroDetails,
-  projectElaborationResetConversation,
-  projectElaborationPreValidate,
 } from './actions'
 
 function* replyConversation({ text, payload = null }) {
@@ -51,7 +46,6 @@ function* getConversations() {
 }
 
 function* getConversationCurrent() {
-  yield put(projectElaborationResetConversation)
   yield* getConversations()
 
   if ((yield select(fromProjectElaboration.hasActiveConversation))) {
@@ -90,13 +84,20 @@ function* replyHero() {
 function* requestHero() {
   const user = yield select(fromProjectElaboration.getSessionId)
 
-  yield* fetch(projectElaborationHeroDetails, 'post', '/chatbot', {}, {
-    message: {
-      text: 'new_project.first_question',
-    },
-    user,
-    channel: 'project',
-  })
+  yield* getConversations()
+
+  const conversations = yield select(fromProjectElaboration.getConversations)
+  const hasActiveConversation = yield select(fromProjectElaboration.hasActiveConversation)
+
+  if (!hasActiveConversation && Object.keys(conversations).length === 0) {
+    yield* fetch(projectElaborationHeroDetails, 'post', '/chatbot', {}, {
+      message: {
+        text: 'new_project.first_question',
+      },
+      user,
+      channel: 'project',
+    })
+  }
 }
 
 function* resetAll() {
@@ -106,25 +107,14 @@ function* resetAll() {
   yield put(setProjectElaborationSessionId(sessionId))
 }
 
-function* preValidate({ chatbotStorageId }) {
-  yield* fetch(projectElaborationPreValidate, 'post', `/project-prevalidate/${chatbotStorageId}`)
-  const projectName = yield select(fromProjectElaboration.getProjectName)
-
-  // Todo: retrieve postalCode.id and proForm.id to search firm
-  yield put(push('search-firm'))
-  yield* notify('user.thank_you', 'project.elaboration.project_prevalidation.success', 'success', {}, { name: projectName })
-}
-
 export default function* () {
   yield [
     takeLatest(PROJECT_ELABORATION_CONVERSATION_REPLY.REQUEST, replyConversation),
-    takeLatest(PROJECT_ELABORATION_HERO_DETAILS.REQUEST, getConversations),
-    takeLatest(PROJECT_ELABORATION_HERO_DETAILS.REQUEST, ssr(requestHero)),
+    takeLatest(PROJECT_ELABORATION_HERO_DETAILS.REQUEST, requestHero),
     takeLatest(PROJECT_ELABORATION_HERO_SET_RESPONSE, replyHero),
     takeLatest(PROJECT_ELABORATION_CONVERSATIONS_DETAILS.REQUEST, getConversations),
     takeLatest(PROJECT_ELABORATION_CONVERSATIONS_SELECT.REQUEST, selectConversation),
     takeLatest(PROJECT_ELABORATION_RESET, resetAll),
     takeLatest(PROJECT_ELABORATION_CONVERSATION_CURRENT.REQUEST, getConversationCurrent),
-    takeLatest(PROJECT_ELABORATION_PRE_VALIDATE.REQUEST, preValidate),
   ]
 }

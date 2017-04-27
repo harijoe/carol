@@ -5,7 +5,7 @@ import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import { theme, breakpoint } from 'utils/style'
 import messages from 'utils/messages'
 
-import { RenderField, Button, Icon, PopinMenu, PopinMenuLink, PopinMenuButton } from 'components'
+import { RenderField, Button, Icon } from 'components'
 
 const StyledForm = styled.form`
   display: flex;
@@ -100,7 +100,7 @@ const SubmitButton = styled(Button)`
   }
 `
 
-const VerticalDotsButton = styled.div`
+const ResetButton = styled(Button)`
   display: block;
   box-sizing: content-box;
   height: ${theme('icons.size.m')};
@@ -125,7 +125,7 @@ const SubmitIcon = styled(Icon)`
   vertical-align: middle;
 `
 
-const VerticalDotsIcon = styled(Icon)`
+const ResetIcon = styled(Icon)`
   display: block;
   height: ${theme('icons.size.m')};
   width: 0.4rem;
@@ -148,23 +148,10 @@ class Form extends Component {
       submitting,
       disabled,
     } = this.props
-
     const submit = (values) => {
       reply(values.response)
       reset()
     }
-
-    const SubMenuReset = () => (
-      <PopinMenuButton onClick={() => submit({ response: 'new_project.reset' })}>
-        <FormattedMessage id="project.elaboration.reset" tagName="span" />
-      </PopinMenuButton>
-    )
-
-    const SubMenuHelp = () => (
-      <PopinMenuLink to="help">
-        <FormattedMessage id="help" tagName="span" />
-      </PopinMenuLink>
-    )
 
     return (
       <StyledForm onSubmit={handleSubmit(submit)}>
@@ -173,11 +160,10 @@ class Form extends Component {
           <FormattedMessage id="project.elaboration.back" tagName="span" />
         </BackButton>
         <BottomBar>
-          <PopinMenu menu={[<SubMenuReset />, <SubMenuHelp />]}>
-            <VerticalDotsButton>
-              <VerticalDotsIcon icon="vertical-dots" />
-            </VerticalDotsButton>
-          </PopinMenu>
+          <ResetButton onClick={() => submit({ response: 'new_project.reset' })}>
+            <ResetIcon icon="vertical-dots" />
+            <FormattedMessage id="project.elaboration.reset" tagName="span" />
+          </ResetButton>
           <Field
             disabled={disabled}
             name="response"

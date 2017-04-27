@@ -29,6 +29,9 @@ class App extends Component {
             { property: 'og:image:type', content: 'image/jpg' },
             { property: 'og:url', content: 'https://quotatis.fr' },
           ]}
+          link={[
+            { rel: 'icon', href: 'https://quotatis.fr/favicon.ico' },
+          ]}
         />
         <IntlProvider>
           {children}

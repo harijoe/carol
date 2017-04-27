@@ -1,10 +1,8 @@
 export const CONTEXT_SET_COUNTRY = 'CONTEXT_SET_COUNTRY'
 export const CONTEXT_SET_LANG = 'CONTEXT_SET_LANG'
-export const CONTEXT_TOGGLE_MAIN_NAVIGATION = 'CONTEXT_TOGGLE_MAIN_NAVIGATION'
-export const CONTEXT_TOGGLE_ACCOUNT_NAVIGATION = 'CONTEXT_TOGGLE_ACCOUNT_NAVIGATION'
-export const CONTEXT_TOGGLE_SIGN_IN_POPIN = 'CONTEXT_TOGGLE_SIGN_IN_POPIN'
-export const CONTEXT_CLOSE_ALL = 'CONTEXT_CLOSE_ALL'
-export const CONTEXT_SET_SSR = 'CONTEXT_SET_SSR'
+export const CONTEXT_TOGGLE_POPIN_NAV = 'CONTEXT_TOGGLE_POPIN_NAV'
+export const CONTEXT_TOGGLE_POPIN_ACCOUNT = 'CONTEXT_TOGGLE_POPIN_ACCOUNT'
+export const CONTEXT_CLOSE_ALL_POPIN = 'CONTEXT_CLOSE_ALL_POPIN'
 
 export const setCountry = country => ({
   type: CONTEXT_SET_COUNTRY,
@@ -16,26 +14,16 @@ export const setLang = lang => ({
   payload: lang,
 })
 
-export const toggleMainNavigation = (state = null) => ({
-  type: CONTEXT_TOGGLE_MAIN_NAVIGATION,
+export const togglePopinNavigation = (state = null) => ({
+  type: CONTEXT_TOGGLE_POPIN_NAV,
   payload: state,
 })
 
-export const setSSR = ssr => ({
-  type: CONTEXT_SET_SSR,
-  payload: ssr,
-})
-
-export const toggleAccountNavigation = (state = null) => ({
-  type: CONTEXT_TOGGLE_ACCOUNT_NAVIGATION,
+export const togglePopinAccount = (state = null) => ({
+  type: CONTEXT_TOGGLE_POPIN_ACCOUNT,
   payload: state,
 })
 
-export const toggleSignInPopin = (state = null) => ({
-  type: CONTEXT_TOGGLE_SIGN_IN_POPIN,
-  payload: state,
-})
-
-export const closeAll = () => ({
-  type: CONTEXT_CLOSE_ALL,
+export const closeAllPopin = () => ({
+  type: CONTEXT_CLOSE_ALL_POPIN,
 })

@@ -8,14 +8,15 @@ import { Provider } from 'react-redux'
 import { shallow } from 'enzyme'
 import PageTemplate from './'
 import mockStore from '../../../../test/storeMock'
+import muiMock from '../../../../test/muiMock'
 
 const store = mockStore()
 
-const wrapper = shallow(
+const wrapper = shallow(muiMock(
   <Provider store={store}>
     <PageTemplate header="header" footer="footer">test</PageTemplate>
   </Provider>
-)
+))
 
 it('renders PageTemplate', () => {
   expect(wrapper).toMatchSnapshot()

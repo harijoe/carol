@@ -15,7 +15,6 @@ const config = {
     ssl: {
       privateKey: 'ssl/qarx.io.key',
       certificate: 'ssl/qarx.io.crt',
-      intermediate: 'ssl/qarx.intermediate.io.crt',
     },
     google: {
       mapsKey: 'AIzaSyCYrFIvVAYqnWCNjjAfGIanmwxVvj1FPj8',
@@ -58,7 +57,6 @@ const config = {
         countryLabel: 'country.great_britain',
       },
     },
-    purgeCacheToken: '41Xdkf2c7lflo2o065BTV21y6V6xhg9t',
   },
   staging: {
     api: {
@@ -94,7 +92,6 @@ const config = {
     ssl: {
       privateKey: 'ssl/quotatis.com.key',
       certificate: 'ssl/quotatis.com.crt',
-      intermediate: 'ssl/quotatis.intermediate.com.crt',
     },
   },
 }

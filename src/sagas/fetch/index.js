@@ -1,44 +1,19 @@
 import { put, call, select } from 'redux-saga/effects'
 
 import { fromAuth, fromContext } from 'store/selectors'
-import getCacheStorage from 'sagas/ssr/cache'
 import api from 'services/api'
 import refreshToken from '../refreshToken'
-
-/*
-  Tries to use cached responses during ssr
- */
-function* fetchUsingCache(method, url, settings, data) {
-  const ssr = yield select(fromContext.isSSR)
-
-  if (!ssr) {
-    return yield call(api[method], url, settings, data)
-  }
-
-  const cachedResponse = getCacheStorage()[method + url]
-
-  if (cachedResponse != null) {
-    return cachedResponse
-  }
-
-  const response = yield call(api[method], url, settings, data)
-
-  getCacheStorage()[method + url] = response
-
-  return response
-}
 
 export function* fetchWithoutRefreshingToken(actions, method, url, settings = {}, data = null, actionParams = null) {
   const lang = yield select(fromContext.getLocale)
   const accessToken = yield select(fromAuth.getAccessToken)
 
   try {
-    console.info('fetching — ', url)
-    const response = yield* fetchUsingCache(method, url, { ...settings, lang, accessToken }, data)
+    const response = yield call(api[method], url, { ...settings, lang, accessToken }, data)
 
     yield put(actions.success(response, actionParams))
   } catch (e) {
-    yield put(actions.failure(e, actionParams))
+    yield put(actions.failure(e))
     throw e
   }
 }

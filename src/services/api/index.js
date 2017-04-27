@@ -10,6 +10,7 @@ api.request = (endpoint, method, settings, body) => {
 
   return fetch(url, api.init(method, settings, body))
     .then(api.checkStatus)
+    .then(response => response)
     .catch(error => Promise.reject(error))
 }
 
@@ -19,7 +20,7 @@ api.init = (method = 'GET', settings = {}, body = null) => {
   if (settings.accessToken != null) { headers.Authorization = `Bearer ${settings.accessToken}` }
   if (settings.lang != null) { headers['Accept-Language'] = settings.lang }
 
-  const fetchInit = { method, headers, rejectUnauthorized: false }
+  const fetchInit = { method, headers }
 
   if (body) { fetchInit.body = JSON.stringify(body) }
 

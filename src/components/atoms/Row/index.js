@@ -1,4 +1,4 @@
-import { PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
 
 import { theme, breakpoint, ifThen, mapBreakpoints } from 'utils/style'
@@ -49,7 +49,9 @@ const styles = ({ reverse, column, start, center, end, top, middle, bottom, arou
   `)}
 `
 
-const Row = styled.div`${styles}`
+const Row = styled(props =>
+  React.createElement(props.tagName || 'div', props)
+)`${styles}`
 
 Row.displayName = 'Row'
 
@@ -66,6 +68,7 @@ Row.PropTypes = {
   between: PropTypes.string,
   first: PropTypes.string,
   last: PropTypes.string,
+  tagName: PropTypes.string,
   children: PropTypes.node,
 }
 

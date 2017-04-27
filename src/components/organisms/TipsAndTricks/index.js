@@ -3,40 +3,41 @@ import styled from 'styled-components'
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl'
 import { contentSiteUrl } from 'config'
 import messages from 'utils/messages'
-import { breakpoint } from 'utils/style'
+import { theme, breakpoint } from 'utils/style'
 
 import { PostList } from 'containers'
-import { Section, TipsAndTricksBlock, Link, Grid, Col, Row } from 'components'
-
-const StyledRow = styled(Row)`
-  ${breakpoint('m')`
-    margin: 0;
-  `}
-
-  > div {
-    display: flex;
-    flex-wrap: wrap;
-  }
-`
+import { Section, TipsAndTricksBlock, Button, Grid, Col, Row } from 'components'
 
 const StyledCol = styled(Col)`
   display: flex;
   justify-content: center;
 
   ${breakpoint('m')`
-    padding: 0;
-
     &:first-child {
       width: 100%;
     }
     &:not(:first-child):not(:last-child) {
-      flex-basis: 50%;
+      vertical-align: top;
+      display: inline-block;
+      padding-right: ${theme('spaces.l')};
       width: 50%;
     }
     &:last-child {
-      flex-basis: 50%;
+      display: inline-block;
       width: 50%;
     }
+  `}
+  ${breakpoint('l')`
+    max-width: 100%;
+  `}
+`
+
+const StyledRow = styled(Row)`
+  ${breakpoint('m')`
+    padding: 0 10%;
+  `}
+  ${breakpoint('l')`
+    padding: 0 0;
   `}
 `
 
@@ -62,10 +63,27 @@ const generateChild = (i, items) => (
   </StyledCol>
 )
 
-const StyledLink = styled(Link)`
-  max-width: 32rem;
-  margin-left: auto;
-  margin-right: auto;
+const StyledButton = styled(Button)`
+  width: 100%;
+  border: none;
+  box-sizing: border-box;
+  height: 5.6rem;
+  background: ${theme('colors.secondary')};
+  color: ${theme('colors.black')};
+  font-family: ${theme('fonts.family.montserratBold')};
+
+  ${breakpoint('m')`
+    margin-top: ${theme('spaces.m')};
+    max-width: 30rem;
+  `}
+`
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
 `
 
 const TipsAndTricks = ({ intl: { formatMessage } }) => (
@@ -79,9 +97,11 @@ const TipsAndTricks = ({ intl: { formatMessage } }) => (
           generateChild={generateChild}
         />
       </StyledRow>
-      <StyledLink button>
-        <FormattedMessage id="tips_and_tricks.call_to_action" />
-      </StyledLink>
+      <ButtonWrapper>
+        <StyledButton type="button">
+          <FormattedMessage id="tips_and_tricks.call_to_action" />
+        </StyledButton>
+      </ButtonWrapper>
     </Grid>
   </Section>
 )

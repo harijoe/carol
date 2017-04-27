@@ -5,8 +5,6 @@ import fr from 'react-intl/locale-data/fr'
 import en from 'react-intl/locale-data/en'
 import es from 'react-intl/locale-data/es'
 import { injectGlobals, theme } from 'utils/style'
-
-import { MotionMenu } from 'components'
 import defaultTheme, { resets, scaffolding } from '../../themes/default'
 
 injectGlobals([resets, scaffolding])
@@ -38,7 +36,6 @@ const Content = styled.div`
 const ProjectElaborationTemplate = ({ header, children, ...props }) => (
   <ThemeProvider theme={defaultTheme}>
     <Wrapper {...props}>
-      <MotionMenu />
       <Header {...props}>{header}</Header>
       <Content>{children}</Content>
     </Wrapper>

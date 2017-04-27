@@ -22,7 +22,6 @@ import {
   SearchPage,
   SignupPage,
 } from 'components'
-import { ProjectPreValidatePage } from 'containers'
 
 const routes = (
   <Route path="/" component={App}>
@@ -37,7 +36,6 @@ const routes = (
     <Route path="projects" component={requiresAuth(ProjectListPage)} />
     <Route path="projects/:projectId" component={requiresAuth(ProjectPage)} />
     <Route path="project-elaboration" component={ProjectElaborationPage} />
-    <Route path="project-prevalidate/:chatbotStorageId" component={requiresAuth(ProjectPreValidatePage)} />
     <Route path="reset-password" component={ResetPasswordPage} />
     <Route path="search" component={requiresAuth(SearchPage)} />
     <Route path="search-firm" component={requiresAuth(FirmListPage)} />

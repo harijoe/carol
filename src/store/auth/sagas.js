@@ -1,4 +1,4 @@
-import { fork, put, take, select } from 'redux-saga/effects'
+import { call, fork, put, take, select } from 'redux-saga/effects'
 import { stopSubmit } from 'redux-form'
 import cookie from 'react-cookie'
 import { push } from 'react-router-redux'
@@ -8,19 +8,19 @@ import { takeLatest } from 'utils/effects'
 import {
   resetUser,
   projectElaborationReset,
+  projectElaborationConversationCurrent,
+  projectElaborationConversationsDetails,
   projectElaborationHeroDetails,
   AUTH_LOGIN,
   AUTH_LOGOUT,
   authLogin,
-  closeAll,
-  setAccessToken,
+  closeAllPopin,
 } from 'store/actions'
 import { fromAuth, fromRouting } from 'store/selectors'
 import { fetchWithoutRefreshingToken } from 'sagas/fetch'
 import { requestChannel, responseChannel } from 'sagas/refreshToken'
 import saveToken from 'sagas/saveToken'
 import removeToken from 'sagas/removeToken'
-import { handleGetUserRequest } from '../user/sagas'
 
 /*
   returns :
@@ -30,40 +30,42 @@ import { handleGetUserRequest } from '../user/sagas'
  */
 export function* handleAuthLoginRequest({ grantType = 'client_credentials', formName = null, credentials = '' } = {}) {
   try {
-    const token = cookie.load('access_token')
+    const token = yield cookie.load('access_token')
 
     if (credentials === '' && token != null) {
-      const currentToken = yield select(fromAuth.getAccessToken)
-
-      if (token !== true && token !== currentToken) {
-        yield put(setAccessToken(token))
-      }
-
+      // Notice: Token is expected to already be in the state thanks to SSR, there is nothing more to do
       return token
     }
 
     const url = `/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api.clientSecret}&grant_type=${grantType}${credentials}`
 
     yield* fetchWithoutRefreshingToken(authLogin(grantType), 'get', url)
-
     yield* saveToken(grantType)
 
-    return true
-  } catch (e) {
-    if (formName != null) {
-      // eslint-disable-next-line no-underscore-dangle
-      yield put(stopSubmit(formName, { _error: e._error }))
+    const pathName = yield select(fromRouting.getPathname)
+    const isAuthenticated = yield select(fromAuth.isAuthenticated)
+
+    if (isAuthenticated) {
+      if (pathName === 'project-elaboration') {
+        yield put(projectElaborationConversationCurrent.request())
+      } else {
+        yield put(projectElaborationConversationsDetails.request())
+      }
     }
 
-    console.error(e)
+    return true
+  } catch ({ _error }) {
+    if (formName != null) {
+      yield put(stopSubmit(formName, { _error }))
+    }
 
     return false
   }
 }
 
 function* handleAuthLogout() {
-  yield put(closeAll())
   yield* removeToken()
+  yield put(closeAllPopin())
   yield put(resetUser())
   yield put(projectElaborationReset)
   const pathName = yield select(fromRouting.getPathname)
@@ -76,12 +78,8 @@ function* handleAuthLogout() {
 }
 
 function* handleAuthLoginSuccess() {
-  yield put(closeAll())
-  const authenticated = yield select(fromAuth.isAuthenticated)
-
-  if (authenticated) {
-    yield* handleGetUserRequest()
-  }
+  yield select(fromAuth.isAuthenticated)
+  yield put(closeAllPopin())
 }
 
 /*
@@ -94,7 +92,7 @@ function* watchAuthChannelRequest() {
   // eslint-disable-next-line no-constant-condition
   while (true) {
     const payload = yield take(requestChannel)
-    const authSuccessful = yield* handleAuthLoginRequest(payload)
+    const authSuccessful = yield call(handleAuthLoginRequest, payload)
 
     yield put(responseChannel, authSuccessful)
   }

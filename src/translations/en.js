@@ -1,6 +1,5 @@
 const en = {
   home: 'Home',
-  directory: 'Directory artisans EN',
   help: 'Help',
   login: 'Login',
   burger_menu: 'Burger Menu',
@@ -16,16 +15,9 @@ const en = {
   'country.spain': 'Spain',
   'country.great_britain': 'Great-Britain',
 
-  'main.baseline': 'Vos travaux en mieux EN',
-
   'firm.find_pro': 'Find a pro',
   'firm.resource': 'Resource for my work',
   'firm.i_am_pro': 'I am a pro',
-  'firm.all': 'Tous nos conseils EN',
-  'firm.guide': 'Guides Travaux EN',
-  'firm.and_you': 'Les travaux et vous EN',
-  'firm.inspiring': 'Inspirations EN',
-  'firm.faq': 'FAQ EN',
   'firm.site_search': 'Site search',
   'firm.site_search.result_link': 'More details',
   'firm.details.logo': 'Logo',
@@ -79,7 +71,6 @@ const en = {
   'project.elaboration.choose_conversation': 'Choose a conversation',
   'project.elaboration.summary.validate': 'Validate your request',
   'project.elaboration.summary.title': 'Vous trouverez ci-joint le résumé de votre demande de projet EN',
-  'project.elaboration.project_prevalidation.success': 'The project %name% was created',
 
   'user.gender': 'Gender',
   'user.forget_password': 'Forget password ?',
@@ -95,7 +86,7 @@ const en = {
   'user.my_account': 'My account',
   'user.my_projects': 'My projects',
   'user.messaging': 'Messaging',
-  'user.log_out': 'Log out ➔',
+  'user.log_out': 'Log out',
   'user.sign_in': 'Sign in',
   'user.no_account_question': 'No account yet?',
   'user.update': 'Update',
@@ -130,8 +121,7 @@ const en = {
   'user.social_network': 'Social Networks Parameters',
   'user.choose_img': 'Choose a picture',
   'user.drop_img': 'Try dropping some files here, or click to select files to upload.',
-  'user.forgot_password.heading': 'Forgotten password ?',
-  'user.forgot_password.description': 'Please enter your e-mail address below to reset your password.',
+  'user.forgot_password.heading': 'Forgotten password',
   'user.account_updated': 'Your account has been updated',
   'user.coming_back': 'Coming back?',
 
@@ -171,9 +161,7 @@ const en = {
 
   'hero.title_message': 'Quels travaux souhaitez vous faire ? EN',
   'hero.welcome_message': 'Quotatis vous aide à trouver l\'artisan qui concrétisera votre projet. EN',
-  'hero.conversation_in_progress': 'Vous avez déjà une conversation en cours. Souhaitez-vous la reprendre ? EN',
-  'hero.subheading_in_progress': 'Vous pouvez aussi commencer un nouveau projet! EN',
-  'hero.button_message': 'Continuer mon projet EN',
+  'hero.conversation_in_progress': 'Vous avez déjà une converation en cours. EN',
 
   'thumbnailcard.link': 'Let\'s Go ➔',
 
@@ -200,8 +188,6 @@ const en = {
   'footer.corporate.phone_help': 'Need help ?',
   'footer.corporate.phone_pros': 'Vous êtes un pro ? EN',
   'footer.corporate.privacy_policy': 'Privacy policy EN',
-  'footer.corporate.phone_help_number': '01 77 86 80 97 EN',
-  'footer.corporate.phone_pros_number': '01 77 86 71 91 EN',
   'footer.corporate.notice': 'Legal notice',
   'footer.corporate.use': 'Terms & conditions of use',
 

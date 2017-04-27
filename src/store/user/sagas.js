@@ -43,7 +43,7 @@ function* handleUpdateUserRequest({ data, id }) {
   }
 }
 
-export function* handleGetUserRequest() {
+function* handleGetUserRequest() {
   yield* fetch(userDetails, 'get', '/users/me')
 }
 

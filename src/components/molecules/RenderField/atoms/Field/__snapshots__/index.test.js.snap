@@ -6,209 +6,13 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <ThemeProvider
-    theme={
-        Object {
-            "colors": Object {
-              "alert": "#ffa000",
-              "black": "#262626",
-              "danger": "#d32f2f",
-              "grayscale": Object {
-                "dark": "#5E5E5E",
-                "darker": "#383838",
-                "darkest": "#131313",
-                "light": "#D1D1D1",
-                "lighter": "#EBEBEB",
-                "lightest": "#F9F9F9",
-                "medium": "#ABABAB",
-              },
-              "grey": "#EEE",
-              "primary": "#3333FE",
-              "secondary": "#FDB63F",
-              "success": "#388e3c",
-              "white": "#FFF",
-            },
-            "fonts": Object {
-              "family": Object {
-                "andesBlack": "andes-black, serif",
-                "andesLight": "andes-extralight, serif",
-                "montserratBlack": "montserrat-black, sans-serif",
-                "montserratBold": "montserrat-bold, sans-serif",
-                "montserratLight": "montserrat-light, sans-serif",
-              },
-              "size": Object {
-                "base": "1.4rem",
-                "l": "1.8rem",
-                "m": "1.5rem",
-                "reset": "62.5%",
-                "root": "1rem",
-                "s": "1.2rem",
-                "xl": "2.4rem",
-                "xs": "1rem",
-                "xxl": "3.2rem",
-                "xxxl": "5rem",
-              },
-            },
-            "grid": Object {
-              "breakpoints": Object {
-                "l": 992,
-                "m": 768,
-                "s": 576,
-                "xl": 1200,
-                "xs": 0,
-              },
-              "container": 120,
-              "gridSize": 12,
-              "gutterWidth": Object {
-                "l": 2.5,
-                "m": 2.5,
-                "s": 1.6,
-                "xl": 5,
-                "xs": 1.6,
-              },
-              "outerMargin": Object {
-                "l": 2.5,
-                "m": 2.5,
-                "s": 1.6,
-                "xl": 5,
-                "xs": 1.6,
-              },
-              "padding": Object {
-                "l": 2.5,
-                "m": 2.5,
-                "s": 1.6,
-                "xl": 5,
-                "xs": 1.6,
-              },
-            },
-            "icons": Object {
-              "size": Object {
-                "l": "2.4rem",
-                "m": "2rem",
-                "s": "1.6rem",
-                "xl": "3.6rem",
-                "xs": "1.2rem",
-                "xxl": "4.8rem",
-                "xxxl": "5.6rem",
-              },
-            },
-            "spaces": Object {
-              "l": "2.5rem",
-              "m": "1.6rem",
-              "s": "0.8rem",
-              "xl": "3.2rem",
-              "xs": "0.4rem",
-              "xxl": "5rem",
-              "xxxl": "10rem",
-            },
-          }
-    }>
-    <Field
-        name="name"
-        type="text" />
-</ThemeProvider>,
+  "node": <Field
+    name="name"
+    type="text" />,
   "nodes": Array [
-    <ThemeProvider
-      theme={
-            Object {
-                  "colors": Object {
-                    "alert": "#ffa000",
-                    "black": "#262626",
-                    "danger": "#d32f2f",
-                    "grayscale": Object {
-                      "dark": "#5E5E5E",
-                      "darker": "#383838",
-                      "darkest": "#131313",
-                      "light": "#D1D1D1",
-                      "lighter": "#EBEBEB",
-                      "lightest": "#F9F9F9",
-                      "medium": "#ABABAB",
-                    },
-                    "grey": "#EEE",
-                    "primary": "#3333FE",
-                    "secondary": "#FDB63F",
-                    "success": "#388e3c",
-                    "white": "#FFF",
-                  },
-                  "fonts": Object {
-                    "family": Object {
-                      "andesBlack": "andes-black, serif",
-                      "andesLight": "andes-extralight, serif",
-                      "montserratBlack": "montserrat-black, sans-serif",
-                      "montserratBold": "montserrat-bold, sans-serif",
-                      "montserratLight": "montserrat-light, sans-serif",
-                    },
-                    "size": Object {
-                      "base": "1.4rem",
-                      "l": "1.8rem",
-                      "m": "1.5rem",
-                      "reset": "62.5%",
-                      "root": "1rem",
-                      "s": "1.2rem",
-                      "xl": "2.4rem",
-                      "xs": "1rem",
-                      "xxl": "3.2rem",
-                      "xxxl": "5rem",
-                    },
-                  },
-                  "grid": Object {
-                    "breakpoints": Object {
-                      "l": 992,
-                      "m": 768,
-                      "s": 576,
-                      "xl": 1200,
-                      "xs": 0,
-                    },
-                    "container": 120,
-                    "gridSize": 12,
-                    "gutterWidth": Object {
-                      "l": 2.5,
-                      "m": 2.5,
-                      "s": 1.6,
-                      "xl": 5,
-                      "xs": 1.6,
-                    },
-                    "outerMargin": Object {
-                      "l": 2.5,
-                      "m": 2.5,
-                      "s": 1.6,
-                      "xl": 5,
-                      "xs": 1.6,
-                    },
-                    "padding": Object {
-                      "l": 2.5,
-                      "m": 2.5,
-                      "s": 1.6,
-                      "xl": 5,
-                      "xs": 1.6,
-                    },
-                  },
-                  "icons": Object {
-                    "size": Object {
-                      "l": "2.4rem",
-                      "m": "2rem",
-                      "s": "1.6rem",
-                      "xl": "3.6rem",
-                      "xs": "1.2rem",
-                      "xxl": "4.8rem",
-                      "xxxl": "5.6rem",
-                    },
-                  },
-                  "spaces": Object {
-                    "l": "2.5rem",
-                    "m": "1.6rem",
-                    "s": "0.8rem",
-                    "xl": "3.2rem",
-                    "xs": "0.4rem",
-                    "xxl": "5rem",
-                    "xxxl": "10rem",
-                  },
-                }
-      }>
-      <Field
-            name="name"
-            type="text" />
-</ThemeProvider>,
+    <Field
+      name="name"
+      type="text" />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -227,9 +31,6 @@ ShallowWrapper {
                         "country.france": "France",
                         "country.great_britain": "Great-Britain",
                         "country.spain": "Spain",
-                        "directory": "Directory artisans EN",
-                        "firm.all": "Tous nos conseils EN",
-                        "firm.and_you": "Les travaux et vous EN",
                         "firm.details.budget": "Budget",
                         "firm.details.certificate": "Certificate",
                         "firm.details.city": "City",
@@ -250,11 +51,8 @@ ShallowWrapper {
                         "firm.details.served_area_cities": "Served Area Postal Codes",
                         "firm.details.website": "Website",
                         "firm.details.website_missing": "No website",
-                        "firm.faq": "FAQ EN",
                         "firm.find_pro": "Find a pro",
-                        "firm.guide": "Guides Travaux EN",
                         "firm.i_am_pro": "I am a pro",
-                        "firm.inspiring": "Inspirations EN",
                         "firm.resource": "Resource for my work",
                         "firm.site_search": "Site search",
                         "firm.site_search.result_link": "More details",
@@ -279,17 +77,13 @@ ShallowWrapper {
                         "footer.corporate.language": "English",
                         "footer.corporate.notice": "Legal notice",
                         "footer.corporate.phone_help": "Need help ?",
-                        "footer.corporate.phone_help_number": "01 77 86 80 97 EN",
                         "footer.corporate.phone_pros": "Vous êtes un pro ? EN",
-                        "footer.corporate.phone_pros_number": "01 77 86 71 91 EN",
                         "footer.corporate.press": "Press",
                         "footer.corporate.privacy_policy": "Privacy policy EN",
                         "footer.corporate.use": "Terms & conditions of use",
                         "form.input.button.phone": "Phone",
                         "help": "Help",
-                        "hero.button_message": "Continuer mon projet EN",
-                        "hero.conversation_in_progress": "Vous avez déjà une conversation en cours. Souhaitez-vous la reprendre ? EN",
-                        "hero.subheading_in_progress": "Vous pouvez aussi commencer un nouveau projet! EN",
+                        "hero.conversation_in_progress": "Vous avez déjà une converation en cours. EN",
                         "hero.title_message": "Quels travaux souhaitez vous faire ? EN",
                         "hero.welcome_message": "Quotatis vous aide à trouver l\'artisan qui concrétisera votre projet. EN",
                         "home": "Home",
@@ -306,11 +100,9 @@ ShallowWrapper {
                         "how_it_works.verified_pros.title": "Quotatis sélectionne pour vous jusqu\'à 3 pros vérifiés EN",
                         "last_projects.section_title": "Derniers projets EN",
                         "login": "Login",
-                        "main.baseline": "Vos travaux en mieux EN",
                         "project.created_at": "Created at",
                         "project.elaboration.back": "Back",
                         "project.elaboration.choose_conversation": "Choose a conversation",
-                        "project.elaboration.project_prevalidation.success": "The project %name% was created",
                         "project.elaboration.reset": "Reset",
                         "project.elaboration.response": "Response",
                         "project.elaboration.submit": "Submit",
@@ -365,13 +157,12 @@ ShallowWrapper {
                         "user.first_name": "First Name",
                         "user.fixed_phone": "Phone",
                         "user.forget_password": "Forget password ?",
-                        "user.forgot_password.description": "Please enter your e-mail address below to reset your password.",
-                        "user.forgot_password.heading": "Forgotten password ?",
+                        "user.forgot_password.heading": "Forgotten password",
                         "user.gender": "Gender",
                         "user.google_id": "Google id",
                         "user.invalid_login": "Your login and/or password are not valid",
                         "user.last_name": "Last Name",
-                        "user.log_out": "Log out ➔",
+                        "user.log_out": "Log out",
                         "user.message_page": "My Message page",
                         "user.messaging": "Messaging",
                         "user.mobile_phone": "Mobile phone number",
@@ -421,107 +212,9 @@ ShallowWrapper {
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
         }>
-        <ThemeProvider
-                theme={
-                        Object {
-                                "colors": Object {
-                                  "alert": "#ffa000",
-                                  "black": "#262626",
-                                  "danger": "#d32f2f",
-                                  "grayscale": Object {
-                                    "dark": "#5E5E5E",
-                                    "darker": "#383838",
-                                    "darkest": "#131313",
-                                    "light": "#D1D1D1",
-                                    "lighter": "#EBEBEB",
-                                    "lightest": "#F9F9F9",
-                                    "medium": "#ABABAB",
-                                  },
-                                  "grey": "#EEE",
-                                  "primary": "#3333FE",
-                                  "secondary": "#FDB63F",
-                                  "success": "#388e3c",
-                                  "white": "#FFF",
-                                },
-                                "fonts": Object {
-                                  "family": Object {
-                                    "andesBlack": "andes-black, serif",
-                                    "andesLight": "andes-extralight, serif",
-                                    "montserratBlack": "montserrat-black, sans-serif",
-                                    "montserratBold": "montserrat-bold, sans-serif",
-                                    "montserratLight": "montserrat-light, sans-serif",
-                                  },
-                                  "size": Object {
-                                    "base": "1.4rem",
-                                    "l": "1.8rem",
-                                    "m": "1.5rem",
-                                    "reset": "62.5%",
-                                    "root": "1rem",
-                                    "s": "1.2rem",
-                                    "xl": "2.4rem",
-                                    "xs": "1rem",
-                                    "xxl": "3.2rem",
-                                    "xxxl": "5rem",
-                                  },
-                                },
-                                "grid": Object {
-                                  "breakpoints": Object {
-                                    "l": 992,
-                                    "m": 768,
-                                    "s": 576,
-                                    "xl": 1200,
-                                    "xs": 0,
-                                  },
-                                  "container": 120,
-                                  "gridSize": 12,
-                                  "gutterWidth": Object {
-                                    "l": 2.5,
-                                    "m": 2.5,
-                                    "s": 1.6,
-                                    "xl": 5,
-                                    "xs": 1.6,
-                                  },
-                                  "outerMargin": Object {
-                                    "l": 2.5,
-                                    "m": 2.5,
-                                    "s": 1.6,
-                                    "xl": 5,
-                                    "xs": 1.6,
-                                  },
-                                  "padding": Object {
-                                    "l": 2.5,
-                                    "m": 2.5,
-                                    "s": 1.6,
-                                    "xl": 5,
-                                    "xs": 1.6,
-                                  },
-                                },
-                                "icons": Object {
-                                  "size": Object {
-                                    "l": "2.4rem",
-                                    "m": "2rem",
-                                    "s": "1.6rem",
-                                    "xl": "3.6rem",
-                                    "xs": "1.2rem",
-                                    "xxl": "4.8rem",
-                                    "xxxl": "5.6rem",
-                                  },
-                                },
-                                "spaces": Object {
-                                  "l": "2.5rem",
-                                  "m": "1.6rem",
-                                  "s": "0.8rem",
-                                  "xl": "3.2rem",
-                                  "xs": "0.4rem",
-                                  "xxl": "5rem",
-                                  "xxxl": "10rem",
-                                },
-                              }
-                }>
-                <Field
-                        name="name"
-                        type="text" />
-        </ThemeProvider>
+        <Field
+                name="name"
+                type="text" />
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -532,107 +225,9 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <ThemeProvider
-            theme={
-                        Object {
-                                    "colors": Object {
-                                      "alert": "#ffa000",
-                                      "black": "#262626",
-                                      "danger": "#d32f2f",
-                                      "grayscale": Object {
-                                        "dark": "#5E5E5E",
-                                        "darker": "#383838",
-                                        "darkest": "#131313",
-                                        "light": "#D1D1D1",
-                                        "lighter": "#EBEBEB",
-                                        "lightest": "#F9F9F9",
-                                        "medium": "#ABABAB",
-                                      },
-                                      "grey": "#EEE",
-                                      "primary": "#3333FE",
-                                      "secondary": "#FDB63F",
-                                      "success": "#388e3c",
-                                      "white": "#FFF",
-                                    },
-                                    "fonts": Object {
-                                      "family": Object {
-                                        "andesBlack": "andes-black, serif",
-                                        "andesLight": "andes-extralight, serif",
-                                        "montserratBlack": "montserrat-black, sans-serif",
-                                        "montserratBold": "montserrat-bold, sans-serif",
-                                        "montserratLight": "montserrat-light, sans-serif",
-                                      },
-                                      "size": Object {
-                                        "base": "1.4rem",
-                                        "l": "1.8rem",
-                                        "m": "1.5rem",
-                                        "reset": "62.5%",
-                                        "root": "1rem",
-                                        "s": "1.2rem",
-                                        "xl": "2.4rem",
-                                        "xs": "1rem",
-                                        "xxl": "3.2rem",
-                                        "xxxl": "5rem",
-                                      },
-                                    },
-                                    "grid": Object {
-                                      "breakpoints": Object {
-                                        "l": 992,
-                                        "m": 768,
-                                        "s": 576,
-                                        "xl": 1200,
-                                        "xs": 0,
-                                      },
-                                      "container": 120,
-                                      "gridSize": 12,
-                                      "gutterWidth": Object {
-                                        "l": 2.5,
-                                        "m": 2.5,
-                                        "s": 1.6,
-                                        "xl": 5,
-                                        "xs": 1.6,
-                                      },
-                                      "outerMargin": Object {
-                                        "l": 2.5,
-                                        "m": 2.5,
-                                        "s": 1.6,
-                                        "xl": 5,
-                                        "xs": 1.6,
-                                      },
-                                      "padding": Object {
-                                        "l": 2.5,
-                                        "m": 2.5,
-                                        "s": 1.6,
-                                        "xl": 5,
-                                        "xs": 1.6,
-                                      },
-                                    },
-                                    "icons": Object {
-                                      "size": Object {
-                                        "l": "2.4rem",
-                                        "m": "2rem",
-                                        "s": "1.6rem",
-                                        "xl": "3.6rem",
-                                        "xs": "1.2rem",
-                                        "xxl": "4.8rem",
-                                        "xxxl": "5.6rem",
-                                      },
-                                    },
-                                    "spaces": Object {
-                                      "l": "2.5rem",
-                                      "m": "1.6rem",
-                                      "s": "0.8rem",
-                                      "xl": "3.2rem",
-                                      "xs": "0.4rem",
-                                      "xxl": "5rem",
-                                      "xxxl": "10rem",
-                                    },
-                                  }
-            }>
-            <Field
-                        name="name"
-                        type="text" />
-</ThemeProvider>,
+          "children": <Field
+            name="name"
+            type="text" />,
           "locale": "en",
           "messages": Object {
             "Invalid username and password combination": "Invalid username and password combination",
@@ -642,9 +237,6 @@ ShallowWrapper {
             "country.france": "France",
             "country.great_britain": "Great-Britain",
             "country.spain": "Spain",
-            "directory": "Directory artisans EN",
-            "firm.all": "Tous nos conseils EN",
-            "firm.and_you": "Les travaux et vous EN",
             "firm.details.budget": "Budget",
             "firm.details.certificate": "Certificate",
             "firm.details.city": "City",
@@ -665,11 +257,8 @@ ShallowWrapper {
             "firm.details.served_area_cities": "Served Area Postal Codes",
             "firm.details.website": "Website",
             "firm.details.website_missing": "No website",
-            "firm.faq": "FAQ EN",
             "firm.find_pro": "Find a pro",
-            "firm.guide": "Guides Travaux EN",
             "firm.i_am_pro": "I am a pro",
-            "firm.inspiring": "Inspirations EN",
             "firm.resource": "Resource for my work",
             "firm.site_search": "Site search",
             "firm.site_search.result_link": "More details",
@@ -694,17 +283,13 @@ ShallowWrapper {
             "footer.corporate.language": "English",
             "footer.corporate.notice": "Legal notice",
             "footer.corporate.phone_help": "Need help ?",
-            "footer.corporate.phone_help_number": "01 77 86 80 97 EN",
             "footer.corporate.phone_pros": "Vous êtes un pro ? EN",
-            "footer.corporate.phone_pros_number": "01 77 86 71 91 EN",
             "footer.corporate.press": "Press",
             "footer.corporate.privacy_policy": "Privacy policy EN",
             "footer.corporate.use": "Terms & conditions of use",
             "form.input.button.phone": "Phone",
             "help": "Help",
-            "hero.button_message": "Continuer mon projet EN",
-            "hero.conversation_in_progress": "Vous avez déjà une conversation en cours. Souhaitez-vous la reprendre ? EN",
-            "hero.subheading_in_progress": "Vous pouvez aussi commencer un nouveau projet! EN",
+            "hero.conversation_in_progress": "Vous avez déjà une converation en cours. EN",
             "hero.title_message": "Quels travaux souhaitez vous faire ? EN",
             "hero.welcome_message": "Quotatis vous aide à trouver l\'artisan qui concrétisera votre projet. EN",
             "home": "Home",
@@ -721,11 +306,9 @@ ShallowWrapper {
             "how_it_works.verified_pros.title": "Quotatis sélectionne pour vous jusqu\'à 3 pros vérifiés EN",
             "last_projects.section_title": "Derniers projets EN",
             "login": "Login",
-            "main.baseline": "Vos travaux en mieux EN",
             "project.created_at": "Created at",
             "project.elaboration.back": "Back",
             "project.elaboration.choose_conversation": "Choose a conversation",
-            "project.elaboration.project_prevalidation.success": "The project %name% was created",
             "project.elaboration.reset": "Reset",
             "project.elaboration.response": "Response",
             "project.elaboration.submit": "Submit",
@@ -780,13 +363,12 @@ ShallowWrapper {
             "user.first_name": "First Name",
             "user.fixed_phone": "Phone",
             "user.forget_password": "Forget password ?",
-            "user.forgot_password.description": "Please enter your e-mail address below to reset your password.",
-            "user.forgot_password.heading": "Forgotten password ?",
+            "user.forgot_password.heading": "Forgotten password",
             "user.gender": "Gender",
             "user.google_id": "Google id",
             "user.invalid_login": "Your login and/or password are not valid",
             "user.last_name": "Last Name",
-            "user.log_out": "Log out ➔",
+            "user.log_out": "Log out",
             "user.message_page": "My Message page",
             "user.messaging": "Messaging",
             "user.mobile_phone": "Mobile phone number",
@@ -863,209 +445,13 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <ThemeProvider
-          theme={
-                    Object {
-                              "colors": Object {
-                                "alert": "#ffa000",
-                                "black": "#262626",
-                                "danger": "#d32f2f",
-                                "grayscale": Object {
-                                  "dark": "#5E5E5E",
-                                  "darker": "#383838",
-                                  "darkest": "#131313",
-                                  "light": "#D1D1D1",
-                                  "lighter": "#EBEBEB",
-                                  "lightest": "#F9F9F9",
-                                  "medium": "#ABABAB",
-                                },
-                                "grey": "#EEE",
-                                "primary": "#3333FE",
-                                "secondary": "#FDB63F",
-                                "success": "#388e3c",
-                                "white": "#FFF",
-                              },
-                              "fonts": Object {
-                                "family": Object {
-                                  "andesBlack": "andes-black, serif",
-                                  "andesLight": "andes-extralight, serif",
-                                  "montserratBlack": "montserrat-black, sans-serif",
-                                  "montserratBold": "montserrat-bold, sans-serif",
-                                  "montserratLight": "montserrat-light, sans-serif",
-                                },
-                                "size": Object {
-                                  "base": "1.4rem",
-                                  "l": "1.8rem",
-                                  "m": "1.5rem",
-                                  "reset": "62.5%",
-                                  "root": "1rem",
-                                  "s": "1.2rem",
-                                  "xl": "2.4rem",
-                                  "xs": "1rem",
-                                  "xxl": "3.2rem",
-                                  "xxxl": "5rem",
-                                },
-                              },
-                              "grid": Object {
-                                "breakpoints": Object {
-                                  "l": 992,
-                                  "m": 768,
-                                  "s": 576,
-                                  "xl": 1200,
-                                  "xs": 0,
-                                },
-                                "container": 120,
-                                "gridSize": 12,
-                                "gutterWidth": Object {
-                                  "l": 2.5,
-                                  "m": 2.5,
-                                  "s": 1.6,
-                                  "xl": 5,
-                                  "xs": 1.6,
-                                },
-                                "outerMargin": Object {
-                                  "l": 2.5,
-                                  "m": 2.5,
-                                  "s": 1.6,
-                                  "xl": 5,
-                                  "xs": 1.6,
-                                },
-                                "padding": Object {
-                                  "l": 2.5,
-                                  "m": 2.5,
-                                  "s": 1.6,
-                                  "xl": 5,
-                                  "xs": 1.6,
-                                },
-                              },
-                              "icons": Object {
-                                "size": Object {
-                                  "l": "2.4rem",
-                                  "m": "2rem",
-                                  "s": "1.6rem",
-                                  "xl": "3.6rem",
-                                  "xs": "1.2rem",
-                                  "xxl": "4.8rem",
-                                  "xxxl": "5.6rem",
-                                },
-                              },
-                              "spaces": Object {
-                                "l": "2.5rem",
-                                "m": "1.6rem",
-                                "s": "0.8rem",
-                                "xl": "3.2rem",
-                                "xs": "0.4rem",
-                                "xxl": "5rem",
-                                "xxxl": "10rem",
-                              },
-                            }
-          }>
-          <Field
-                    name="name"
-                    type="text" />
-</ThemeProvider>,
+        "_currentElement": <Field
+          name="name"
+          type="text" />,
         "_debugID": 2,
-        "_renderedOutput": <ThemeProvider
-          theme={
-                    Object {
-                              "colors": Object {
-                                "alert": "#ffa000",
-                                "black": "#262626",
-                                "danger": "#d32f2f",
-                                "grayscale": Object {
-                                  "dark": "#5E5E5E",
-                                  "darker": "#383838",
-                                  "darkest": "#131313",
-                                  "light": "#D1D1D1",
-                                  "lighter": "#EBEBEB",
-                                  "lightest": "#F9F9F9",
-                                  "medium": "#ABABAB",
-                                },
-                                "grey": "#EEE",
-                                "primary": "#3333FE",
-                                "secondary": "#FDB63F",
-                                "success": "#388e3c",
-                                "white": "#FFF",
-                              },
-                              "fonts": Object {
-                                "family": Object {
-                                  "andesBlack": "andes-black, serif",
-                                  "andesLight": "andes-extralight, serif",
-                                  "montserratBlack": "montserrat-black, sans-serif",
-                                  "montserratBold": "montserrat-bold, sans-serif",
-                                  "montserratLight": "montserrat-light, sans-serif",
-                                },
-                                "size": Object {
-                                  "base": "1.4rem",
-                                  "l": "1.8rem",
-                                  "m": "1.5rem",
-                                  "reset": "62.5%",
-                                  "root": "1rem",
-                                  "s": "1.2rem",
-                                  "xl": "2.4rem",
-                                  "xs": "1rem",
-                                  "xxl": "3.2rem",
-                                  "xxxl": "5rem",
-                                },
-                              },
-                              "grid": Object {
-                                "breakpoints": Object {
-                                  "l": 992,
-                                  "m": 768,
-                                  "s": 576,
-                                  "xl": 1200,
-                                  "xs": 0,
-                                },
-                                "container": 120,
-                                "gridSize": 12,
-                                "gutterWidth": Object {
-                                  "l": 2.5,
-                                  "m": 2.5,
-                                  "s": 1.6,
-                                  "xl": 5,
-                                  "xs": 1.6,
-                                },
-                                "outerMargin": Object {
-                                  "l": 2.5,
-                                  "m": 2.5,
-                                  "s": 1.6,
-                                  "xl": 5,
-                                  "xs": 1.6,
-                                },
-                                "padding": Object {
-                                  "l": 2.5,
-                                  "m": 2.5,
-                                  "s": 1.6,
-                                  "xl": 5,
-                                  "xs": 1.6,
-                                },
-                              },
-                              "icons": Object {
-                                "size": Object {
-                                  "l": "2.4rem",
-                                  "m": "2rem",
-                                  "s": "1.6rem",
-                                  "xl": "3.6rem",
-                                  "xs": "1.2rem",
-                                  "xxl": "4.8rem",
-                                  "xxxl": "5.6rem",
-                                },
-                              },
-                              "spaces": Object {
-                                "l": "2.5rem",
-                                "m": "1.6rem",
-                                "s": "0.8rem",
-                                "xl": "3.2rem",
-                                "xs": "0.4rem",
-                                "xxl": "5rem",
-                                "xxxl": "10rem",
-                              },
-                            }
-          }>
-          <Field
-                    name="name"
-                    type="text" />
-</ThemeProvider>,
+        "_renderedOutput": <Field
+          name="name"
+          type="text" />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -1088,9 +474,6 @@ ShallowWrapper {
             "country.france": "France",
             "country.great_britain": "Great-Britain",
             "country.spain": "Spain",
-            "directory": "Directory artisans EN",
-            "firm.all": "Tous nos conseils EN",
-            "firm.and_you": "Les travaux et vous EN",
             "firm.details.budget": "Budget",
             "firm.details.certificate": "Certificate",
             "firm.details.city": "City",
@@ -1111,11 +494,8 @@ ShallowWrapper {
             "firm.details.served_area_cities": "Served Area Postal Codes",
             "firm.details.website": "Website",
             "firm.details.website_missing": "No website",
-            "firm.faq": "FAQ EN",
             "firm.find_pro": "Find a pro",
-            "firm.guide": "Guides Travaux EN",
             "firm.i_am_pro": "I am a pro",
-            "firm.inspiring": "Inspirations EN",
             "firm.resource": "Resource for my work",
             "firm.site_search": "Site search",
             "firm.site_search.result_link": "More details",
@@ -1140,17 +520,13 @@ ShallowWrapper {
             "footer.corporate.language": "English",
             "footer.corporate.notice": "Legal notice",
             "footer.corporate.phone_help": "Need help ?",
-            "footer.corporate.phone_help_number": "01 77 86 80 97 EN",
             "footer.corporate.phone_pros": "Vous êtes un pro ? EN",
-            "footer.corporate.phone_pros_number": "01 77 86 71 91 EN",
             "footer.corporate.press": "Press",
             "footer.corporate.privacy_policy": "Privacy policy EN",
             "footer.corporate.use": "Terms & conditions of use",
             "form.input.button.phone": "Phone",
             "help": "Help",
-            "hero.button_message": "Continuer mon projet EN",
-            "hero.conversation_in_progress": "Vous avez déjà une conversation en cours. Souhaitez-vous la reprendre ? EN",
-            "hero.subheading_in_progress": "Vous pouvez aussi commencer un nouveau projet! EN",
+            "hero.conversation_in_progress": "Vous avez déjà une converation en cours. EN",
             "hero.title_message": "Quels travaux souhaitez vous faire ? EN",
             "hero.welcome_message": "Quotatis vous aide à trouver l\'artisan qui concrétisera votre projet. EN",
             "home": "Home",
@@ -1167,11 +543,9 @@ ShallowWrapper {
             "how_it_works.verified_pros.title": "Quotatis sélectionne pour vous jusqu\'à 3 pros vérifiés EN",
             "last_projects.section_title": "Derniers projets EN",
             "login": "Login",
-            "main.baseline": "Vos travaux en mieux EN",
             "project.created_at": "Created at",
             "project.elaboration.back": "Back",
             "project.elaboration.choose_conversation": "Choose a conversation",
-            "project.elaboration.project_prevalidation.success": "The project %name% was created",
             "project.elaboration.reset": "Reset",
             "project.elaboration.response": "Response",
             "project.elaboration.submit": "Submit",
@@ -1226,13 +600,12 @@ ShallowWrapper {
             "user.first_name": "First Name",
             "user.fixed_phone": "Phone",
             "user.forget_password": "Forget password ?",
-            "user.forgot_password.description": "Please enter your e-mail address below to reset your password.",
-            "user.forgot_password.heading": "Forgotten password ?",
+            "user.forgot_password.heading": "Forgotten password",
             "user.gender": "Gender",
             "user.google_id": "Google id",
             "user.invalid_login": "Your login and/or password are not valid",
             "user.last_name": "Last Name",
-            "user.log_out": "Log out ➔",
+            "user.log_out": "Log out",
             "user.message_page": "My Message page",
             "user.messaging": "Messaging",
             "user.mobile_phone": "Mobile phone number",
@@ -1282,107 +655,9 @@ ShallowWrapper {
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }
     }>
-    <ThemeProvider
-        theme={
-            Object {
-                "colors": Object {
-                  "alert": "#ffa000",
-                  "black": "#262626",
-                  "danger": "#d32f2f",
-                  "grayscale": Object {
-                    "dark": "#5E5E5E",
-                    "darker": "#383838",
-                    "darkest": "#131313",
-                    "light": "#D1D1D1",
-                    "lighter": "#EBEBEB",
-                    "lightest": "#F9F9F9",
-                    "medium": "#ABABAB",
-                  },
-                  "grey": "#EEE",
-                  "primary": "#3333FE",
-                  "secondary": "#FDB63F",
-                  "success": "#388e3c",
-                  "white": "#FFF",
-                },
-                "fonts": Object {
-                  "family": Object {
-                    "andesBlack": "andes-black, serif",
-                    "andesLight": "andes-extralight, serif",
-                    "montserratBlack": "montserrat-black, sans-serif",
-                    "montserratBold": "montserrat-bold, sans-serif",
-                    "montserratLight": "montserrat-light, sans-serif",
-                  },
-                  "size": Object {
-                    "base": "1.4rem",
-                    "l": "1.8rem",
-                    "m": "1.5rem",
-                    "reset": "62.5%",
-                    "root": "1rem",
-                    "s": "1.2rem",
-                    "xl": "2.4rem",
-                    "xs": "1rem",
-                    "xxl": "3.2rem",
-                    "xxxl": "5rem",
-                  },
-                },
-                "grid": Object {
-                  "breakpoints": Object {
-                    "l": 992,
-                    "m": 768,
-                    "s": 576,
-                    "xl": 1200,
-                    "xs": 0,
-                  },
-                  "container": 120,
-                  "gridSize": 12,
-                  "gutterWidth": Object {
-                    "l": 2.5,
-                    "m": 2.5,
-                    "s": 1.6,
-                    "xl": 5,
-                    "xs": 1.6,
-                  },
-                  "outerMargin": Object {
-                    "l": 2.5,
-                    "m": 2.5,
-                    "s": 1.6,
-                    "xl": 5,
-                    "xs": 1.6,
-                  },
-                  "padding": Object {
-                    "l": 2.5,
-                    "m": 2.5,
-                    "s": 1.6,
-                    "xl": 5,
-                    "xs": 1.6,
-                  },
-                },
-                "icons": Object {
-                  "size": Object {
-                    "l": "2.4rem",
-                    "m": "2rem",
-                    "s": "1.6rem",
-                    "xl": "3.6rem",
-                    "xs": "1.2rem",
-                    "xxl": "4.8rem",
-                    "xxxl": "5.6rem",
-                  },
-                },
-                "spaces": Object {
-                  "l": "2.5rem",
-                  "m": "1.6rem",
-                  "s": "0.8rem",
-                  "xl": "3.2rem",
-                  "xs": "0.4rem",
-                  "xxl": "5rem",
-                  "xxxl": "10rem",
-                },
-              }
-        }>
-        <Field
-            name="name"
-            type="text" />
-    </ThemeProvider>
+    <Field
+        name="name"
+        type="text" />
 </IntlProvider>,
 }
 `;
@@ -1395,223 +670,27 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <ThemeProvider
-    theme={
+  "node": <Field
+    error={
         Object {
-            "colors": Object {
-              "alert": "#ffa000",
-              "black": "#262626",
-              "danger": "#d32f2f",
-              "grayscale": Object {
-                "dark": "#5E5E5E",
-                "darker": "#383838",
-                "darkest": "#131313",
-                "light": "#D1D1D1",
-                "lighter": "#EBEBEB",
-                "lightest": "#F9F9F9",
-                "medium": "#ABABAB",
-              },
-              "grey": "#EEE",
-              "primary": "#3333FE",
-              "secondary": "#FDB63F",
-              "success": "#388e3c",
-              "white": "#FFF",
-            },
-            "fonts": Object {
-              "family": Object {
-                "andesBlack": "andes-black, serif",
-                "andesLight": "andes-extralight, serif",
-                "montserratBlack": "montserrat-black, sans-serif",
-                "montserratBold": "montserrat-bold, sans-serif",
-                "montserratLight": "montserrat-light, sans-serif",
-              },
-              "size": Object {
-                "base": "1.4rem",
-                "l": "1.8rem",
-                "m": "1.5rem",
-                "reset": "62.5%",
-                "root": "1rem",
-                "s": "1.2rem",
-                "xl": "2.4rem",
-                "xs": "1rem",
-                "xxl": "3.2rem",
-                "xxxl": "5rem",
-              },
-            },
-            "grid": Object {
-              "breakpoints": Object {
-                "l": 992,
-                "m": 768,
-                "s": 576,
-                "xl": 1200,
-                "xs": 0,
-              },
-              "container": 120,
-              "gridSize": 12,
-              "gutterWidth": Object {
-                "l": 2.5,
-                "m": 2.5,
-                "s": 1.6,
-                "xl": 5,
-                "xs": 1.6,
-              },
-              "outerMargin": Object {
-                "l": 2.5,
-                "m": 2.5,
-                "s": 1.6,
-                "xl": 5,
-                "xs": 1.6,
-              },
-              "padding": Object {
-                "l": 2.5,
-                "m": 2.5,
-                "s": 1.6,
-                "xl": 5,
-                "xs": 1.6,
-              },
-            },
-            "icons": Object {
-              "size": Object {
-                "l": "2.4rem",
-                "m": "2rem",
-                "s": "1.6rem",
-                "xl": "3.6rem",
-                "xs": "1.2rem",
-                "xxl": "4.8rem",
-                "xxxl": "5.6rem",
-              },
-            },
-            "spaces": Object {
-              "l": "2.5rem",
-              "m": "1.6rem",
-              "s": "0.8rem",
-              "xl": "3.2rem",
-              "xs": "0.4rem",
-              "xxl": "5rem",
-              "xxxl": "10rem",
-            },
+            "id": "test",
+            "values": Object {},
           }
-    }>
-    <Field
-        error={
-            Object {
-                "id": "test",
-                "values": Object {},
-              }
-        }
-        invalid={true}
-        name="name"
-        type="text" />
-</ThemeProvider>,
+    }
+    invalid={true}
+    name="name"
+    type="text" />,
   "nodes": Array [
-    <ThemeProvider
-      theme={
+    <Field
+      error={
             Object {
-                  "colors": Object {
-                    "alert": "#ffa000",
-                    "black": "#262626",
-                    "danger": "#d32f2f",
-                    "grayscale": Object {
-                      "dark": "#5E5E5E",
-                      "darker": "#383838",
-                      "darkest": "#131313",
-                      "light": "#D1D1D1",
-                      "lighter": "#EBEBEB",
-                      "lightest": "#F9F9F9",
-                      "medium": "#ABABAB",
-                    },
-                    "grey": "#EEE",
-                    "primary": "#3333FE",
-                    "secondary": "#FDB63F",
-                    "success": "#388e3c",
-                    "white": "#FFF",
-                  },
-                  "fonts": Object {
-                    "family": Object {
-                      "andesBlack": "andes-black, serif",
-                      "andesLight": "andes-extralight, serif",
-                      "montserratBlack": "montserrat-black, sans-serif",
-                      "montserratBold": "montserrat-bold, sans-serif",
-                      "montserratLight": "montserrat-light, sans-serif",
-                    },
-                    "size": Object {
-                      "base": "1.4rem",
-                      "l": "1.8rem",
-                      "m": "1.5rem",
-                      "reset": "62.5%",
-                      "root": "1rem",
-                      "s": "1.2rem",
-                      "xl": "2.4rem",
-                      "xs": "1rem",
-                      "xxl": "3.2rem",
-                      "xxxl": "5rem",
-                    },
-                  },
-                  "grid": Object {
-                    "breakpoints": Object {
-                      "l": 992,
-                      "m": 768,
-                      "s": 576,
-                      "xl": 1200,
-                      "xs": 0,
-                    },
-                    "container": 120,
-                    "gridSize": 12,
-                    "gutterWidth": Object {
-                      "l": 2.5,
-                      "m": 2.5,
-                      "s": 1.6,
-                      "xl": 5,
-                      "xs": 1.6,
-                    },
-                    "outerMargin": Object {
-                      "l": 2.5,
-                      "m": 2.5,
-                      "s": 1.6,
-                      "xl": 5,
-                      "xs": 1.6,
-                    },
-                    "padding": Object {
-                      "l": 2.5,
-                      "m": 2.5,
-                      "s": 1.6,
-                      "xl": 5,
-                      "xs": 1.6,
-                    },
-                  },
-                  "icons": Object {
-                    "size": Object {
-                      "l": "2.4rem",
-                      "m": "2rem",
-                      "s": "1.6rem",
-                      "xl": "3.6rem",
-                      "xs": "1.2rem",
-                      "xxl": "4.8rem",
-                      "xxxl": "5.6rem",
-                    },
-                  },
-                  "spaces": Object {
-                    "l": "2.5rem",
-                    "m": "1.6rem",
-                    "s": "0.8rem",
-                    "xl": "3.2rem",
-                    "xs": "0.4rem",
-                    "xxl": "5rem",
-                    "xxxl": "10rem",
-                  },
+                  "id": "test",
+                  "values": Object {},
                 }
-      }>
-      <Field
-            error={
-                  Object {
-                        "id": "test",
-                        "values": Object {},
-                      }
-            }
-            invalid={true}
-            name="name"
-            type="text" />
-</ThemeProvider>,
+      }
+      invalid={true}
+      name="name"
+      type="text" />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -1630,9 +709,6 @@ ShallowWrapper {
                         "country.france": "France",
                         "country.great_britain": "Great-Britain",
                         "country.spain": "Spain",
-                        "directory": "Directory artisans EN",
-                        "firm.all": "Tous nos conseils EN",
-                        "firm.and_you": "Les travaux et vous EN",
                         "firm.details.budget": "Budget",
                         "firm.details.certificate": "Certificate",
                         "firm.details.city": "City",
@@ -1653,11 +729,8 @@ ShallowWrapper {
                         "firm.details.served_area_cities": "Served Area Postal Codes",
                         "firm.details.website": "Website",
                         "firm.details.website_missing": "No website",
-                        "firm.faq": "FAQ EN",
                         "firm.find_pro": "Find a pro",
-                        "firm.guide": "Guides Travaux EN",
                         "firm.i_am_pro": "I am a pro",
-                        "firm.inspiring": "Inspirations EN",
                         "firm.resource": "Resource for my work",
                         "firm.site_search": "Site search",
                         "firm.site_search.result_link": "More details",
@@ -1682,17 +755,13 @@ ShallowWrapper {
                         "footer.corporate.language": "English",
                         "footer.corporate.notice": "Legal notice",
                         "footer.corporate.phone_help": "Need help ?",
-                        "footer.corporate.phone_help_number": "01 77 86 80 97 EN",
                         "footer.corporate.phone_pros": "Vous êtes un pro ? EN",
-                        "footer.corporate.phone_pros_number": "01 77 86 71 91 EN",
                         "footer.corporate.press": "Press",
                         "footer.corporate.privacy_policy": "Privacy policy EN",
                         "footer.corporate.use": "Terms & conditions of use",
                         "form.input.button.phone": "Phone",
                         "help": "Help",
-                        "hero.button_message": "Continuer mon projet EN",
-                        "hero.conversation_in_progress": "Vous avez déjà une conversation en cours. Souhaitez-vous la reprendre ? EN",
-                        "hero.subheading_in_progress": "Vous pouvez aussi commencer un nouveau projet! EN",
+                        "hero.conversation_in_progress": "Vous avez déjà une converation en cours. EN",
                         "hero.title_message": "Quels travaux souhaitez vous faire ? EN",
                         "hero.welcome_message": "Quotatis vous aide à trouver l\'artisan qui concrétisera votre projet. EN",
                         "home": "Home",
@@ -1709,11 +778,9 @@ ShallowWrapper {
                         "how_it_works.verified_pros.title": "Quotatis sélectionne pour vous jusqu\'à 3 pros vérifiés EN",
                         "last_projects.section_title": "Derniers projets EN",
                         "login": "Login",
-                        "main.baseline": "Vos travaux en mieux EN",
                         "project.created_at": "Created at",
                         "project.elaboration.back": "Back",
                         "project.elaboration.choose_conversation": "Choose a conversation",
-                        "project.elaboration.project_prevalidation.success": "The project %name% was created",
                         "project.elaboration.reset": "Reset",
                         "project.elaboration.response": "Response",
                         "project.elaboration.submit": "Submit",
@@ -1768,13 +835,12 @@ ShallowWrapper {
                         "user.first_name": "First Name",
                         "user.fixed_phone": "Phone",
                         "user.forget_password": "Forget password ?",
-                        "user.forgot_password.description": "Please enter your e-mail address below to reset your password.",
-                        "user.forgot_password.heading": "Forgotten password ?",
+                        "user.forgot_password.heading": "Forgotten password",
                         "user.gender": "Gender",
                         "user.google_id": "Google id",
                         "user.invalid_login": "Your login and/or password are not valid",
                         "user.last_name": "Last Name",
-                        "user.log_out": "Log out ➔",
+                        "user.log_out": "Log out",
                         "user.message_page": "My Message page",
                         "user.messaging": "Messaging",
                         "user.mobile_phone": "Mobile phone number",
@@ -1824,114 +890,16 @@ ShallowWrapper {
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
         }>
-        <ThemeProvider
-                theme={
+        <Field
+                error={
                         Object {
-                                "colors": Object {
-                                  "alert": "#ffa000",
-                                  "black": "#262626",
-                                  "danger": "#d32f2f",
-                                  "grayscale": Object {
-                                    "dark": "#5E5E5E",
-                                    "darker": "#383838",
-                                    "darkest": "#131313",
-                                    "light": "#D1D1D1",
-                                    "lighter": "#EBEBEB",
-                                    "lightest": "#F9F9F9",
-                                    "medium": "#ABABAB",
-                                  },
-                                  "grey": "#EEE",
-                                  "primary": "#3333FE",
-                                  "secondary": "#FDB63F",
-                                  "success": "#388e3c",
-                                  "white": "#FFF",
-                                },
-                                "fonts": Object {
-                                  "family": Object {
-                                    "andesBlack": "andes-black, serif",
-                                    "andesLight": "andes-extralight, serif",
-                                    "montserratBlack": "montserrat-black, sans-serif",
-                                    "montserratBold": "montserrat-bold, sans-serif",
-                                    "montserratLight": "montserrat-light, sans-serif",
-                                  },
-                                  "size": Object {
-                                    "base": "1.4rem",
-                                    "l": "1.8rem",
-                                    "m": "1.5rem",
-                                    "reset": "62.5%",
-                                    "root": "1rem",
-                                    "s": "1.2rem",
-                                    "xl": "2.4rem",
-                                    "xs": "1rem",
-                                    "xxl": "3.2rem",
-                                    "xxxl": "5rem",
-                                  },
-                                },
-                                "grid": Object {
-                                  "breakpoints": Object {
-                                    "l": 992,
-                                    "m": 768,
-                                    "s": 576,
-                                    "xl": 1200,
-                                    "xs": 0,
-                                  },
-                                  "container": 120,
-                                  "gridSize": 12,
-                                  "gutterWidth": Object {
-                                    "l": 2.5,
-                                    "m": 2.5,
-                                    "s": 1.6,
-                                    "xl": 5,
-                                    "xs": 1.6,
-                                  },
-                                  "outerMargin": Object {
-                                    "l": 2.5,
-                                    "m": 2.5,
-                                    "s": 1.6,
-                                    "xl": 5,
-                                    "xs": 1.6,
-                                  },
-                                  "padding": Object {
-                                    "l": 2.5,
-                                    "m": 2.5,
-                                    "s": 1.6,
-                                    "xl": 5,
-                                    "xs": 1.6,
-                                  },
-                                },
-                                "icons": Object {
-                                  "size": Object {
-                                    "l": "2.4rem",
-                                    "m": "2rem",
-                                    "s": "1.6rem",
-                                    "xl": "3.6rem",
-                                    "xs": "1.2rem",
-                                    "xxl": "4.8rem",
-                                    "xxxl": "5.6rem",
-                                  },
-                                },
-                                "spaces": Object {
-                                  "l": "2.5rem",
-                                  "m": "1.6rem",
-                                  "s": "0.8rem",
-                                  "xl": "3.2rem",
-                                  "xs": "0.4rem",
-                                  "xxl": "5rem",
-                                  "xxxl": "10rem",
-                                },
+                                "id": "test",
+                                "values": Object {},
                               }
-                }>
-                <Field
-                        error={
-                                Object {
-                                        "id": "test",
-                                        "values": Object {},
-                                      }
-                        }
-                        invalid={true}
-                        name="name"
-                        type="text" />
-        </ThemeProvider>
+                }
+                invalid={true}
+                name="name"
+                type="text" />
 </IntlProvider>,
       "_debugID": 3,
       "_hostContainerInfo": null,
@@ -1942,114 +910,16 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <ThemeProvider
-            theme={
+          "children": <Field
+            error={
                         Object {
-                                    "colors": Object {
-                                      "alert": "#ffa000",
-                                      "black": "#262626",
-                                      "danger": "#d32f2f",
-                                      "grayscale": Object {
-                                        "dark": "#5E5E5E",
-                                        "darker": "#383838",
-                                        "darkest": "#131313",
-                                        "light": "#D1D1D1",
-                                        "lighter": "#EBEBEB",
-                                        "lightest": "#F9F9F9",
-                                        "medium": "#ABABAB",
-                                      },
-                                      "grey": "#EEE",
-                                      "primary": "#3333FE",
-                                      "secondary": "#FDB63F",
-                                      "success": "#388e3c",
-                                      "white": "#FFF",
-                                    },
-                                    "fonts": Object {
-                                      "family": Object {
-                                        "andesBlack": "andes-black, serif",
-                                        "andesLight": "andes-extralight, serif",
-                                        "montserratBlack": "montserrat-black, sans-serif",
-                                        "montserratBold": "montserrat-bold, sans-serif",
-                                        "montserratLight": "montserrat-light, sans-serif",
-                                      },
-                                      "size": Object {
-                                        "base": "1.4rem",
-                                        "l": "1.8rem",
-                                        "m": "1.5rem",
-                                        "reset": "62.5%",
-                                        "root": "1rem",
-                                        "s": "1.2rem",
-                                        "xl": "2.4rem",
-                                        "xs": "1rem",
-                                        "xxl": "3.2rem",
-                                        "xxxl": "5rem",
-                                      },
-                                    },
-                                    "grid": Object {
-                                      "breakpoints": Object {
-                                        "l": 992,
-                                        "m": 768,
-                                        "s": 576,
-                                        "xl": 1200,
-                                        "xs": 0,
-                                      },
-                                      "container": 120,
-                                      "gridSize": 12,
-                                      "gutterWidth": Object {
-                                        "l": 2.5,
-                                        "m": 2.5,
-                                        "s": 1.6,
-                                        "xl": 5,
-                                        "xs": 1.6,
-                                      },
-                                      "outerMargin": Object {
-                                        "l": 2.5,
-                                        "m": 2.5,
-                                        "s": 1.6,
-                                        "xl": 5,
-                                        "xs": 1.6,
-                                      },
-                                      "padding": Object {
-                                        "l": 2.5,
-                                        "m": 2.5,
-                                        "s": 1.6,
-                                        "xl": 5,
-                                        "xs": 1.6,
-                                      },
-                                    },
-                                    "icons": Object {
-                                      "size": Object {
-                                        "l": "2.4rem",
-                                        "m": "2rem",
-                                        "s": "1.6rem",
-                                        "xl": "3.6rem",
-                                        "xs": "1.2rem",
-                                        "xxl": "4.8rem",
-                                        "xxxl": "5.6rem",
-                                      },
-                                    },
-                                    "spaces": Object {
-                                      "l": "2.5rem",
-                                      "m": "1.6rem",
-                                      "s": "0.8rem",
-                                      "xl": "3.2rem",
-                                      "xs": "0.4rem",
-                                      "xxl": "5rem",
-                                      "xxxl": "10rem",
-                                    },
+                                    "id": "test",
+                                    "values": Object {},
                                   }
-            }>
-            <Field
-                        error={
-                                    Object {
-                                                "id": "test",
-                                                "values": Object {},
-                                              }
-                        }
-                        invalid={true}
-                        name="name"
-                        type="text" />
-</ThemeProvider>,
+            }
+            invalid={true}
+            name="name"
+            type="text" />,
           "locale": "en",
           "messages": Object {
             "Invalid username and password combination": "Invalid username and password combination",
@@ -2059,9 +929,6 @@ ShallowWrapper {
             "country.france": "France",
             "country.great_britain": "Great-Britain",
             "country.spain": "Spain",
-            "directory": "Directory artisans EN",
-            "firm.all": "Tous nos conseils EN",
-            "firm.and_you": "Les travaux et vous EN",
             "firm.details.budget": "Budget",
             "firm.details.certificate": "Certificate",
             "firm.details.city": "City",
@@ -2082,11 +949,8 @@ ShallowWrapper {
             "firm.details.served_area_cities": "Served Area Postal Codes",
             "firm.details.website": "Website",
             "firm.details.website_missing": "No website",
-            "firm.faq": "FAQ EN",
             "firm.find_pro": "Find a pro",
-            "firm.guide": "Guides Travaux EN",
             "firm.i_am_pro": "I am a pro",
-            "firm.inspiring": "Inspirations EN",
             "firm.resource": "Resource for my work",
             "firm.site_search": "Site search",
             "firm.site_search.result_link": "More details",
@@ -2111,17 +975,13 @@ ShallowWrapper {
             "footer.corporate.language": "English",
             "footer.corporate.notice": "Legal notice",
             "footer.corporate.phone_help": "Need help ?",
-            "footer.corporate.phone_help_number": "01 77 86 80 97 EN",
             "footer.corporate.phone_pros": "Vous êtes un pro ? EN",
-            "footer.corporate.phone_pros_number": "01 77 86 71 91 EN",
             "footer.corporate.press": "Press",
             "footer.corporate.privacy_policy": "Privacy policy EN",
             "footer.corporate.use": "Terms & conditions of use",
             "form.input.button.phone": "Phone",
             "help": "Help",
-            "hero.button_message": "Continuer mon projet EN",
-            "hero.conversation_in_progress": "Vous avez déjà une conversation en cours. Souhaitez-vous la reprendre ? EN",
-            "hero.subheading_in_progress": "Vous pouvez aussi commencer un nouveau projet! EN",
+            "hero.conversation_in_progress": "Vous avez déjà une converation en cours. EN",
             "hero.title_message": "Quels travaux souhaitez vous faire ? EN",
             "hero.welcome_message": "Quotatis vous aide à trouver l\'artisan qui concrétisera votre projet. EN",
             "home": "Home",
@@ -2138,11 +998,9 @@ ShallowWrapper {
             "how_it_works.verified_pros.title": "Quotatis sélectionne pour vous jusqu\'à 3 pros vérifiés EN",
             "last_projects.section_title": "Derniers projets EN",
             "login": "Login",
-            "main.baseline": "Vos travaux en mieux EN",
             "project.created_at": "Created at",
             "project.elaboration.back": "Back",
             "project.elaboration.choose_conversation": "Choose a conversation",
-            "project.elaboration.project_prevalidation.success": "The project %name% was created",
             "project.elaboration.reset": "Reset",
             "project.elaboration.response": "Response",
             "project.elaboration.submit": "Submit",
@@ -2197,13 +1055,12 @@ ShallowWrapper {
             "user.first_name": "First Name",
             "user.fixed_phone": "Phone",
             "user.forget_password": "Forget password ?",
-            "user.forgot_password.description": "Please enter your e-mail address below to reset your password.",
-            "user.forgot_password.heading": "Forgotten password ?",
+            "user.forgot_password.heading": "Forgotten password",
             "user.gender": "Gender",
             "user.google_id": "Google id",
             "user.invalid_login": "Your login and/or password are not valid",
             "user.last_name": "Last Name",
-            "user.log_out": "Log out ➔",
+            "user.log_out": "Log out",
             "user.message_page": "My Message page",
             "user.messaging": "Messaging",
             "user.mobile_phone": "Mobile phone number",
@@ -2280,223 +1137,27 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <ThemeProvider
-          theme={
+        "_currentElement": <Field
+          error={
                     Object {
-                              "colors": Object {
-                                "alert": "#ffa000",
-                                "black": "#262626",
-                                "danger": "#d32f2f",
-                                "grayscale": Object {
-                                  "dark": "#5E5E5E",
-                                  "darker": "#383838",
-                                  "darkest": "#131313",
-                                  "light": "#D1D1D1",
-                                  "lighter": "#EBEBEB",
-                                  "lightest": "#F9F9F9",
-                                  "medium": "#ABABAB",
-                                },
-                                "grey": "#EEE",
-                                "primary": "#3333FE",
-                                "secondary": "#FDB63F",
-                                "success": "#388e3c",
-                                "white": "#FFF",
-                              },
-                              "fonts": Object {
-                                "family": Object {
-                                  "andesBlack": "andes-black, serif",
-                                  "andesLight": "andes-extralight, serif",
-                                  "montserratBlack": "montserrat-black, sans-serif",
-                                  "montserratBold": "montserrat-bold, sans-serif",
-                                  "montserratLight": "montserrat-light, sans-serif",
-                                },
-                                "size": Object {
-                                  "base": "1.4rem",
-                                  "l": "1.8rem",
-                                  "m": "1.5rem",
-                                  "reset": "62.5%",
-                                  "root": "1rem",
-                                  "s": "1.2rem",
-                                  "xl": "2.4rem",
-                                  "xs": "1rem",
-                                  "xxl": "3.2rem",
-                                  "xxxl": "5rem",
-                                },
-                              },
-                              "grid": Object {
-                                "breakpoints": Object {
-                                  "l": 992,
-                                  "m": 768,
-                                  "s": 576,
-                                  "xl": 1200,
-                                  "xs": 0,
-                                },
-                                "container": 120,
-                                "gridSize": 12,
-                                "gutterWidth": Object {
-                                  "l": 2.5,
-                                  "m": 2.5,
-                                  "s": 1.6,
-                                  "xl": 5,
-                                  "xs": 1.6,
-                                },
-                                "outerMargin": Object {
-                                  "l": 2.5,
-                                  "m": 2.5,
-                                  "s": 1.6,
-                                  "xl": 5,
-                                  "xs": 1.6,
-                                },
-                                "padding": Object {
-                                  "l": 2.5,
-                                  "m": 2.5,
-                                  "s": 1.6,
-                                  "xl": 5,
-                                  "xs": 1.6,
-                                },
-                              },
-                              "icons": Object {
-                                "size": Object {
-                                  "l": "2.4rem",
-                                  "m": "2rem",
-                                  "s": "1.6rem",
-                                  "xl": "3.6rem",
-                                  "xs": "1.2rem",
-                                  "xxl": "4.8rem",
-                                  "xxxl": "5.6rem",
-                                },
-                              },
-                              "spaces": Object {
-                                "l": "2.5rem",
-                                "m": "1.6rem",
-                                "s": "0.8rem",
-                                "xl": "3.2rem",
-                                "xs": "0.4rem",
-                                "xxl": "5rem",
-                                "xxxl": "10rem",
-                              },
+                              "id": "test",
+                              "values": Object {},
                             }
-          }>
-          <Field
-                    error={
-                              Object {
-                                        "id": "test",
-                                        "values": Object {},
-                                      }
-                    }
-                    invalid={true}
-                    name="name"
-                    type="text" />
-</ThemeProvider>,
+          }
+          invalid={true}
+          name="name"
+          type="text" />,
         "_debugID": 4,
-        "_renderedOutput": <ThemeProvider
-          theme={
+        "_renderedOutput": <Field
+          error={
                     Object {
-                              "colors": Object {
-                                "alert": "#ffa000",
-                                "black": "#262626",
-                                "danger": "#d32f2f",
-                                "grayscale": Object {
-                                  "dark": "#5E5E5E",
-                                  "darker": "#383838",
-                                  "darkest": "#131313",
-                                  "light": "#D1D1D1",
-                                  "lighter": "#EBEBEB",
-                                  "lightest": "#F9F9F9",
-                                  "medium": "#ABABAB",
-                                },
-                                "grey": "#EEE",
-                                "primary": "#3333FE",
-                                "secondary": "#FDB63F",
-                                "success": "#388e3c",
-                                "white": "#FFF",
-                              },
-                              "fonts": Object {
-                                "family": Object {
-                                  "andesBlack": "andes-black, serif",
-                                  "andesLight": "andes-extralight, serif",
-                                  "montserratBlack": "montserrat-black, sans-serif",
-                                  "montserratBold": "montserrat-bold, sans-serif",
-                                  "montserratLight": "montserrat-light, sans-serif",
-                                },
-                                "size": Object {
-                                  "base": "1.4rem",
-                                  "l": "1.8rem",
-                                  "m": "1.5rem",
-                                  "reset": "62.5%",
-                                  "root": "1rem",
-                                  "s": "1.2rem",
-                                  "xl": "2.4rem",
-                                  "xs": "1rem",
-                                  "xxl": "3.2rem",
-                                  "xxxl": "5rem",
-                                },
-                              },
-                              "grid": Object {
-                                "breakpoints": Object {
-                                  "l": 992,
-                                  "m": 768,
-                                  "s": 576,
-                                  "xl": 1200,
-                                  "xs": 0,
-                                },
-                                "container": 120,
-                                "gridSize": 12,
-                                "gutterWidth": Object {
-                                  "l": 2.5,
-                                  "m": 2.5,
-                                  "s": 1.6,
-                                  "xl": 5,
-                                  "xs": 1.6,
-                                },
-                                "outerMargin": Object {
-                                  "l": 2.5,
-                                  "m": 2.5,
-                                  "s": 1.6,
-                                  "xl": 5,
-                                  "xs": 1.6,
-                                },
-                                "padding": Object {
-                                  "l": 2.5,
-                                  "m": 2.5,
-                                  "s": 1.6,
-                                  "xl": 5,
-                                  "xs": 1.6,
-                                },
-                              },
-                              "icons": Object {
-                                "size": Object {
-                                  "l": "2.4rem",
-                                  "m": "2rem",
-                                  "s": "1.6rem",
-                                  "xl": "3.6rem",
-                                  "xs": "1.2rem",
-                                  "xxl": "4.8rem",
-                                  "xxxl": "5.6rem",
-                                },
-                              },
-                              "spaces": Object {
-                                "l": "2.5rem",
-                                "m": "1.6rem",
-                                "s": "0.8rem",
-                                "xl": "3.2rem",
-                                "xs": "0.4rem",
-                                "xxl": "5rem",
-                                "xxxl": "10rem",
-                              },
+                              "id": "test",
+                              "values": Object {},
                             }
-          }>
-          <Field
-                    error={
-                              Object {
-                                        "id": "test",
-                                        "values": Object {},
-                                      }
-                    }
-                    invalid={true}
-                    name="name"
-                    type="text" />
-</ThemeProvider>,
+          }
+          invalid={true}
+          name="name"
+          type="text" />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -2519,9 +1180,6 @@ ShallowWrapper {
             "country.france": "France",
             "country.great_britain": "Great-Britain",
             "country.spain": "Spain",
-            "directory": "Directory artisans EN",
-            "firm.all": "Tous nos conseils EN",
-            "firm.and_you": "Les travaux et vous EN",
             "firm.details.budget": "Budget",
             "firm.details.certificate": "Certificate",
             "firm.details.city": "City",
@@ -2542,11 +1200,8 @@ ShallowWrapper {
             "firm.details.served_area_cities": "Served Area Postal Codes",
             "firm.details.website": "Website",
             "firm.details.website_missing": "No website",
-            "firm.faq": "FAQ EN",
             "firm.find_pro": "Find a pro",
-            "firm.guide": "Guides Travaux EN",
             "firm.i_am_pro": "I am a pro",
-            "firm.inspiring": "Inspirations EN",
             "firm.resource": "Resource for my work",
             "firm.site_search": "Site search",
             "firm.site_search.result_link": "More details",
@@ -2571,17 +1226,13 @@ ShallowWrapper {
             "footer.corporate.language": "English",
             "footer.corporate.notice": "Legal notice",
             "footer.corporate.phone_help": "Need help ?",
-            "footer.corporate.phone_help_number": "01 77 86 80 97 EN",
             "footer.corporate.phone_pros": "Vous êtes un pro ? EN",
-            "footer.corporate.phone_pros_number": "01 77 86 71 91 EN",
             "footer.corporate.press": "Press",
             "footer.corporate.privacy_policy": "Privacy policy EN",
             "footer.corporate.use": "Terms & conditions of use",
             "form.input.button.phone": "Phone",
             "help": "Help",
-            "hero.button_message": "Continuer mon projet EN",
-            "hero.conversation_in_progress": "Vous avez déjà une conversation en cours. Souhaitez-vous la reprendre ? EN",
-            "hero.subheading_in_progress": "Vous pouvez aussi commencer un nouveau projet! EN",
+            "hero.conversation_in_progress": "Vous avez déjà une converation en cours. EN",
             "hero.title_message": "Quels travaux souhaitez vous faire ? EN",
             "hero.welcome_message": "Quotatis vous aide à trouver l\'artisan qui concrétisera votre projet. EN",
             "home": "Home",
@@ -2598,11 +1249,9 @@ ShallowWrapper {
             "how_it_works.verified_pros.title": "Quotatis sélectionne pour vous jusqu\'à 3 pros vérifiés EN",
             "last_projects.section_title": "Derniers projets EN",
             "login": "Login",
-            "main.baseline": "Vos travaux en mieux EN",
             "project.created_at": "Created at",
             "project.elaboration.back": "Back",
             "project.elaboration.choose_conversation": "Choose a conversation",
-            "project.elaboration.project_prevalidation.success": "The project %name% was created",
             "project.elaboration.reset": "Reset",
             "project.elaboration.response": "Response",
             "project.elaboration.submit": "Submit",
@@ -2657,13 +1306,12 @@ ShallowWrapper {
             "user.first_name": "First Name",
             "user.fixed_phone": "Phone",
             "user.forget_password": "Forget password ?",
-            "user.forgot_password.description": "Please enter your e-mail address below to reset your password.",
-            "user.forgot_password.heading": "Forgotten password ?",
+            "user.forgot_password.heading": "Forgotten password",
             "user.gender": "Gender",
             "user.google_id": "Google id",
             "user.invalid_login": "Your login and/or password are not valid",
             "user.last_name": "Last Name",
-            "user.log_out": "Log out ➔",
+            "user.log_out": "Log out",
             "user.message_page": "My Message page",
             "user.messaging": "Messaging",
             "user.mobile_phone": "Mobile phone number",
@@ -2713,114 +1361,16 @@ ShallowWrapper {
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }
     }>
-    <ThemeProvider
-        theme={
+    <Field
+        error={
             Object {
-                "colors": Object {
-                  "alert": "#ffa000",
-                  "black": "#262626",
-                  "danger": "#d32f2f",
-                  "grayscale": Object {
-                    "dark": "#5E5E5E",
-                    "darker": "#383838",
-                    "darkest": "#131313",
-                    "light": "#D1D1D1",
-                    "lighter": "#EBEBEB",
-                    "lightest": "#F9F9F9",
-                    "medium": "#ABABAB",
-                  },
-                  "grey": "#EEE",
-                  "primary": "#3333FE",
-                  "secondary": "#FDB63F",
-                  "success": "#388e3c",
-                  "white": "#FFF",
-                },
-                "fonts": Object {
-                  "family": Object {
-                    "andesBlack": "andes-black, serif",
-                    "andesLight": "andes-extralight, serif",
-                    "montserratBlack": "montserrat-black, sans-serif",
-                    "montserratBold": "montserrat-bold, sans-serif",
-                    "montserratLight": "montserrat-light, sans-serif",
-                  },
-                  "size": Object {
-                    "base": "1.4rem",
-                    "l": "1.8rem",
-                    "m": "1.5rem",
-                    "reset": "62.5%",
-                    "root": "1rem",
-                    "s": "1.2rem",
-                    "xl": "2.4rem",
-                    "xs": "1rem",
-                    "xxl": "3.2rem",
-                    "xxxl": "5rem",
-                  },
-                },
-                "grid": Object {
-                  "breakpoints": Object {
-                    "l": 992,
-                    "m": 768,
-                    "s": 576,
-                    "xl": 1200,
-                    "xs": 0,
-                  },
-                  "container": 120,
-                  "gridSize": 12,
-                  "gutterWidth": Object {
-                    "l": 2.5,
-                    "m": 2.5,
-                    "s": 1.6,
-                    "xl": 5,
-                    "xs": 1.6,
-                  },
-                  "outerMargin": Object {
-                    "l": 2.5,
-                    "m": 2.5,
-                    "s": 1.6,
-                    "xl": 5,
-                    "xs": 1.6,
-                  },
-                  "padding": Object {
-                    "l": 2.5,
-                    "m": 2.5,
-                    "s": 1.6,
-                    "xl": 5,
-                    "xs": 1.6,
-                  },
-                },
-                "icons": Object {
-                  "size": Object {
-                    "l": "2.4rem",
-                    "m": "2rem",
-                    "s": "1.6rem",
-                    "xl": "3.6rem",
-                    "xs": "1.2rem",
-                    "xxl": "4.8rem",
-                    "xxxl": "5.6rem",
-                  },
-                },
-                "spaces": Object {
-                  "l": "2.5rem",
-                  "m": "1.6rem",
-                  "s": "0.8rem",
-                  "xl": "3.2rem",
-                  "xs": "0.4rem",
-                  "xxl": "5rem",
-                  "xxxl": "10rem",
-                },
+                "id": "test",
+                "values": Object {},
               }
-        }>
-        <Field
-            error={
-                Object {
-                    "id": "test",
-                    "values": Object {},
-                  }
-            }
-            invalid={true}
-            name="name"
-            type="text" />
-    </ThemeProvider>
+        }
+        invalid={true}
+        name="name"
+        type="text" />
 </IntlProvider>,
 }
 `;

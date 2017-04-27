@@ -1,7 +1,6 @@
 import React from 'react'
 
-import { PageTemplate, Footer } from 'components'
-import { Header } from 'containers'
+import { PageTemplate, Header, Footer } from 'components'
 
 const Layout = props => (
   <PageTemplate header={<Header {...props} />} footer={<Footer />}>

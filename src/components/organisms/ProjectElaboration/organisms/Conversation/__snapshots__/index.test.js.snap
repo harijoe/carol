@@ -15,9 +15,6 @@ ShallowWrapper {
         <styled.div>
             <Attachment
                 attachment={null}
-                locale={undefined}
-                location={undefined}
-                redirectTo={undefined}
                 reply={undefined}
                 response={
                     Object {
@@ -49,9 +46,6 @@ ShallowWrapper {
             <styled.div>
                   <Attachment
                         attachment={null}
-                        locale={undefined}
-                        location={undefined}
-                        redirectTo={undefined}
                         reply={undefined}
                         response={
                               Object {
@@ -144,9 +138,6 @@ ShallowWrapper {
                     <styled.div>
                               <Attachment
                                         attachment={null}
-                                        locale={undefined}
-                                        location={undefined}
-                                        redirectTo={undefined}
                                         reply={undefined}
                                         response={
                                                   Object {
@@ -178,9 +169,6 @@ ShallowWrapper {
                     <styled.div>
                               <Attachment
                                         attachment={null}
-                                        locale={undefined}
-                                        location={undefined}
-                                        redirectTo={undefined}
                                         reply={undefined}
                                         response={
                                                   Object {

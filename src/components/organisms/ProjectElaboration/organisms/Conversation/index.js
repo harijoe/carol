@@ -14,7 +14,6 @@ const Wrapper = styled.div`
   max-height: 67vh;
   width: 100%;
   overflow-y: auto;
-  overflow-x: hidden;
 
   ${breakpoint('m')`
     min-height: 29rem;
@@ -65,7 +64,6 @@ const Block = styled.div`
 
 class Conversation extends Component {
   static propTypes = {
-    locale: PropTypes.string,
     activeConversation: PropTypes.arrayOf(
       PropTypes.shape({
         message: PropTypes.shape({
@@ -79,8 +77,6 @@ class Conversation extends Component {
       }),
     ),
     reply: PropTypes.func,
-    redirectTo: PropTypes.func,
-    location: PropTypes.object.isRequired,
   }
 
   componentDidMount() {
@@ -96,7 +92,7 @@ class Conversation extends Component {
   }
 
   render() {
-    const { activeConversation, reply, locale, redirectTo, location } = this.props
+    const { activeConversation, reply } = this.props
     const isLastQuestion = index => (
       activeConversation.length - 1 === index
     )
@@ -112,7 +108,8 @@ class Conversation extends Component {
                   <Block>
                     <Attachment
                       attachment={attachment != null ? attachment : null}
-                      {...{ reply, response, locale, redirectTo, location }}
+                      reply={reply}
+                      response={response}
                     />
                     <QuickReplies
                       // eslint-disable-next-line camelcase

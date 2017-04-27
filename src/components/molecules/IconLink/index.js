@@ -8,9 +8,8 @@ const iconStyles = ({ hasText, right, responsive }) => {
 
   return css`
     margin: ${hasText ? margin : 0};
-
     @media screen and (max-width: 420px) {
-      margin: ${responsive && 0};
+    margin: ${responsive && 0};
     }
   `
 }

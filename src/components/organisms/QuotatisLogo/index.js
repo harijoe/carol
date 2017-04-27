@@ -1,43 +1,38 @@
 import React, { PropTypes } from 'react'
 import styled, { css } from 'styled-components'
 import injectScroll from 'hoc/component/injectScroll'
-import { breakpoint } from 'utils/style'
+import { ifThen } from 'utils/style'
 
 import { IconLink } from 'components'
 
-// https://goo.gl/RZjY64
-// eslint-disable-next-line no-unused-vars
-const StyledIconLink = styled(({ ...props }) => <IconLink {...props} />)`${() => css`
-  position: absolute;
-  top: -0.1rem;
-  z-index: 20;
-  display: inline-block;
-  height: 9.6rem;
-  width: 7.6rem;
-
-  ${breakpoint('l')`
-    height: 11.4rem;
-    width: 8rem; 
-  `}
-
-  span {
-    height: 100%;
-    width: 100%;
-  }
-
+const StyledIconLink = styled(IconLink)`${({ popinAccount }) => css`
+  ${ifThen(popinAccount, `
+    opacity: 0
+    transition: opacity .1s;
+  `, `
+    opacity: 1
+    transition: opacity .1s .3s;
+  `)};
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
 `}`
 
-const QuotatisLogo = ({ atTop, homepage }) => (
+const QuotatisLogo = ({ atTop, popinNavigation, popinAccount }) => (
   <StyledIconLink
     to="/"
-    icon={atTop && homepage ? 'quotatis-white' : 'quotatis'}
+    icon={!popinNavigation && atTop ? 'quotatis-white' : 'quotatis'}
     size={480}
+    atTop={atTop}
+    popinAccount={popinAccount}
   />
 )
 
 QuotatisLogo.propTypes = {
   atTop: PropTypes.bool,
-  homepage: PropTypes.bool,
+  popinNavigation: PropTypes.bool,
+  popinAccount: PropTypes.bool,
 }
 
 export default injectScroll(QuotatisLogo)
