@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
 import styled from 'styled-components'
 import config from 'config'

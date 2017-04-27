@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fromContext } from 'store/selectors'
 import { toggleSignInPopin } from 'store/actions'
@@ -10,7 +11,7 @@ const SignInPopinContainer = ({ show }) => (
 )
 
 SignInPopinContainer.propTypes = {
-  show: React.PropTypes.bool,
+  show: PropTypes.bool,
 }
 
 const mapStateToProps = state => ({

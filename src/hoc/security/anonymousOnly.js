@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { fromAuth } from 'store/selectors'
@@ -6,13 +7,13 @@ import { fromAuth } from 'store/selectors'
 const anonymousOnly = (AnonymousComponent) => {
   class Anonymous extends Component {
     static propTypes = {
-      dispatch: React.PropTypes.func.isRequired,
-      location: React.PropTypes.shape({
-        state: React.PropTypes.shape({
-          redirectPathname: React.PropTypes.string,
+      dispatch: PropTypes.func.isRequired,
+      location: PropTypes.shape({
+        state: PropTypes.shape({
+          redirectPathname: PropTypes.string,
         }),
       }),
-      isAuthenticated: React.PropTypes.bool,
+      isAuthenticated: PropTypes.bool,
     }
 
     componentDidMount() {

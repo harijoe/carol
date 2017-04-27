@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fromContext, fromAuth } from 'store/selectors'
 import { toggleAccountNavigation } from 'store/actions'
@@ -10,7 +11,7 @@ const AccountNavigationContainer = (({ ...props }) => (
 ))
 
 AccountNavigationContainer.propTypes = {
-  show: React.PropTypes.bool,
+  show: PropTypes.bool,
 }
 
 const mapStateToProps = state => ({

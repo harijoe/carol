@@ -241,7 +241,7 @@ const FooterCorporate = () => (
             <TitlePhone>
               <FormattedMessage id="footer.corporate.phone_help" />
             </TitlePhone>
-            <StyledLinkPhone to="tel:">
+            <StyledLinkPhone to="/tel:">
               <Icon icon="support-phone" />
               <FormattedMessage id="footer.corporate.phone_help_number" />
             </StyledLinkPhone>
@@ -250,7 +250,7 @@ const FooterCorporate = () => (
             <TitlePhone>
               <FormattedMessage id="footer.corporate.phone_pros" />
             </TitlePhone>
-            <StyledLinkPhone to="tel:">
+            <StyledLinkPhone to="/tel:">
               <Icon icon="support-pro" />
               <FormattedMessage id="footer.corporate.phone_pros_number" />
             </StyledLinkPhone>

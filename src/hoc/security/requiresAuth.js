@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { fromAuth } from 'store/selectors'
@@ -6,11 +7,11 @@ import { fromAuth } from 'store/selectors'
 const requiresAuth = (AuthenticatedComponent) => {
   class Authentication extends Component {
     static propTypes = {
-      dispatch: React.PropTypes.func.isRequired,
-      location: React.PropTypes.shape({
-        pathname: React.PropTypes.string,
+      dispatch: PropTypes.func.isRequired,
+      location: PropTypes.shape({
+        pathname: PropTypes.string,
       }),
-      isAuthenticated: React.PropTypes.bool,
+      isAuthenticated: PropTypes.bool,
     }
 
     componentDidMount() {

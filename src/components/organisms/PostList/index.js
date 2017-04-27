@@ -1,6 +1,8 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { Carousel, Loading } from 'components'
+import { Loading } from 'components'
+import { Carousel } from 'containers'
 
 const PostList = ({ list, loading, generateChild, generateBackground, carousel }) => {
   let children = list

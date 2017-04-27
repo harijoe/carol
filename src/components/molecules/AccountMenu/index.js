@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import { FormattedMessage } from 'react-intl'
@@ -104,7 +105,7 @@ const AccountMenu = ({ logout }) => (
 )
 
 AccountMenu.propTypes = {
-  logout: React.PropTypes.func.isRequired,
+  logout: PropTypes.func.isRequired,
 }
 
 export default AccountMenu

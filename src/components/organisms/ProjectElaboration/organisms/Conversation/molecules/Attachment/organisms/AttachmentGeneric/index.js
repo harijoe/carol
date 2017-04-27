@@ -1,8 +1,10 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { theme, breakpoint } from 'utils/style'
 
-import { Carousel, ThumbnailPoster } from 'components'
+import { ThumbnailPoster } from 'components'
+import { Carousel } from 'containers'
 
 const StyledItem = styled.div`
   margin: 0 ${theme('spaces.xs')};

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import styled, { ThemeProvider } from 'styled-components'
 import NotificationsSystem from 'reapop'
 import theme from 'reapop-theme-wybo'
@@ -51,11 +52,11 @@ const notificationsDefaultValues = {
   closeButton: false,
 }
 
-const PageTemplate = ({ header, children, footer, ...props }) => (
+const PageTemplate = ({ header, children, footer, ssr, ...props }) => (
   <ThemeProvider theme={defaultTheme}>
     <Wrapper {...props}>
-      <NotificationsSystem theme={theme} defaultValues={notificationsDefaultValues} />
-      <MotionMenu />
+      { !ssr && <NotificationsSystem theme={theme} defaultValues={notificationsDefaultValues} /> }
+      { !ssr && <MotionMenu /> }
       <Header {...props}>{header}</Header>
       <Content>{children}</Content>
       <Footer>{footer}</Footer>
@@ -67,6 +68,7 @@ PageTemplate.propTypes = {
   header: PropTypes.any.isRequired,
   children: PropTypes.any.isRequired,
   footer: PropTypes.any.isRequired,
+  ssr: PropTypes.bool,
 }
 
 export default PageTemplate

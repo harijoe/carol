@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 import { theme, ifThen, breakpoint, breakpointMax } from 'utils/style'

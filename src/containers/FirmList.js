@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fromFirm, fromStatus } from 'store/selectors'
 import { firmList, FIRM_LIST } from 'store/actions'

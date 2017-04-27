@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
 import styled, { css } from 'styled-components'
 import { theme, breakpoint, breakpointMax, mapBreakpoints } from 'utils/style'
@@ -15,8 +16,8 @@ import {
   Link,
   MainWrapper,
   Heading,
-  Carousel,
 } from 'components'
+import { Carousel } from 'containers'
 
 const HeroWrapper = styled.div`
   position: relative;

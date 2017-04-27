@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { theme } from 'utils/style'
 
@@ -31,7 +32,7 @@ Post.propTypes = {
     featuredMedia: PropTypes.string,
     date: PropTypes.string,
   }).isRequired,
-  active: React.PropTypes.bool,
+  active: PropTypes.bool,
 }
 
 export default Post

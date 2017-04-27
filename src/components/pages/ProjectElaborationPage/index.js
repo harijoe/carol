@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { ProjectElaborationLayout } from 'components'
 import { ProjectElaboration } from 'containers'
@@ -10,7 +11,7 @@ const ProjectElaborationPage = ({ location, ...props }) => (
 )
 
 ProjectElaborationPage.propTypes = {
-  location: React.PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
 }
 
 export default ProjectElaborationPage

@@ -1,4 +1,6 @@
-import React, { PropTypes, Component } from 'react'
+import React, { Component } from 'react'
+
+import PropTypes from 'prop-types'
 import GoogleMap from 'google-map-react'
 
 import { google } from 'config'

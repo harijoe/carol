@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { theme, ifThen, breakpoint } from 'utils/style'
 import styled, { css } from 'styled-components'
 

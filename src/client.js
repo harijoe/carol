@@ -8,9 +8,9 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import { basename } from 'config'
 import configureStore from 'store/configure'
-import { setSSR } from 'store/actions'
 import sagas from 'store/sagas'
 import { anchorate } from 'anchorate'
+import { setSSR } from 'store/actions'
 
 import routes from 'routes'
 
@@ -26,7 +26,6 @@ history.listen(() => {
 })
 
 store.runSaga(sagas)
-store.dispatch(setSSR(false))
 
 const renderApp = () => (
   <AppContainer>
@@ -38,7 +37,32 @@ const renderApp = () => (
 
 injectTapEventPlugin()
 
-render(renderApp(), root)
+/*
+  SSR explanation
+  ==============
+
+  Here is what happens when a page is requested :
+   1 - Markup is generated on server side, sagas are triggered to retrieve the data.
+       SSR state value : *true*
+          Consequences:
+            * Sagas triggered during the mount are blocked and stored by the collector
+            * The server manually runs the stored sagas
+   2 - The client receives the state and the html, it tries to match the html with the markup he generates from the state
+       SSR state value : *true*
+          Consequence :
+            * Sagas triggered by the mount are also stored in the collector, but nobody uses it
+            * Thus, sagas triggered are *never run* during ths step
+   3 - The client dispatches a setSSR(false)
+          Consequence :
+            * All the ssr non-compatible components are switched on, components are already mounted so no saga is triggered
+   4 - Page is ready :-)
+
+   Examples of ssr non-compatible components :
+      * SlickCarousel (with responsive prop set)
+      * MotionMenu
+      * NotificationsSystem
+ */
+render(renderApp(), root, () => store.dispatch(setSSR(false)))
 
 if (module.hot) {
   module.hot.accept('routes', () => {

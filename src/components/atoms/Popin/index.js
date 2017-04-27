@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { CloseAllButton } from 'containers'
 import { theme, ifThen, breakpoint, mapBreakpoints } from 'utils/style'
