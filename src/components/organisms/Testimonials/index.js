@@ -18,7 +18,7 @@ const StyledCard = styled(Card)`
   ${breakpoint('m')`
     width: 30rem;
     margin-left: calc(${theme('spaces.l')} / 2);
-    margin-right: calc(${theme('spaces.xxl')} / 2)
+    margin-right: calc(${theme('spaces.l')} / 2)
   `}
 
   width: calc(100vw - 4.8rem);
