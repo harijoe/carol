@@ -6,15 +6,11 @@ import { theme, raw, breakpoint } from 'utils/style'
 
 const Wrapper = styled.div`
   margin-bottom: ${theme('spaces.m')};
-  margin-top: ${theme('spaces.m')};
-  padding-left: ${theme('spaces.m')};
-  padding-right: ${theme('spaces.m')};
+  padding: 0 ${theme('spaces.m')};
 
   ${breakpoint('m')`
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: -${theme('spaces.l')};
-    margin-right: -${theme('spaces.l')};
+    margin-bottom: ${theme('spaces.l')};
+    padding: 0 ${theme('spaces.l')};
   `}
 `
 
@@ -44,9 +40,15 @@ const StyledImage = styled(Image)`
   margin-right: -${theme('spaces.m')};
   margin-bottom: ${theme('spaces.m')};
   width: calc(100% + ${raw('spaces.m')}rem * 2);
+  height: auto;
+  max-height: 26rem;
 
   ${breakpoint('m')`
-    height: 26rem; 
+    margin-left: -${theme('spaces.l')};
+    margin-right: -${theme('spaces.l')};
+    margin-bottom: ${theme('spaces.l')};
+    height: 26rem;
+    width: calc(100% + ${raw('spaces.l')}rem * 2);
   `}
 `
 

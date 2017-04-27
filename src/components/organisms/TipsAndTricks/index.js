@@ -3,41 +3,40 @@ import styled from 'styled-components'
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl'
 import { contentSiteUrl } from 'config'
 import messages from 'utils/messages'
-import { theme, breakpoint } from 'utils/style'
+import { breakpoint } from 'utils/style'
 
 import { PostList } from 'containers'
 import { Section, TipsAndTricksBlock, Link, Grid, Col, Row } from 'components'
+
+const StyledRow = styled(Row)`
+  ${breakpoint('m')`
+    margin: 0;
+  `}
+
+  > div {
+    display: flex;
+    flex-wrap: wrap;
+  }
+`
 
 const StyledCol = styled(Col)`
   display: flex;
   justify-content: center;
 
   ${breakpoint('m')`
+    padding: 0;
+
     &:first-child {
       width: 100%;
     }
     &:not(:first-child):not(:last-child) {
-      vertical-align: top;
-      display: inline-block;
-      padding-right: ${theme('spaces.l')};
+      flex-basis: 50%;
       width: 50%;
     }
     &:last-child {
-      display: inline-block;
+      flex-basis: 50%;
       width: 50%;
     }
-  `}
-  ${breakpoint('l')`
-    max-width: 100%;
-  `}
-`
-
-const StyledRow = styled(Row)`
-  ${breakpoint('m')`
-    padding: 0 10%;
-  `}
-  ${breakpoint('l')`
-    padding: 0 0;
   `}
 `
 
