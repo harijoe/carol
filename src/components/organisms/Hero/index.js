@@ -7,9 +7,7 @@ import { cloudinaryUrl } from 'config'
 
 import {
   Section,
-  Bubble,
   ThumbnailCard,
-  Image,
   Paragraph,
   Grid,
   Row,
@@ -50,7 +48,6 @@ const StyledSection = styled(Section)`
   position: relative;
   z-index: 1;
   padding-bottom: 0;
-  padding-top: 0;
   width: 100%;
   background: transparent;
 `
@@ -59,36 +56,6 @@ const StyledRow = styled(Row)`
   ${mapBreakpoints(() => css`
     margin: 0;
   `)}
-`
-
-const StyledBubble = styled(Bubble)`
-  height: 6.4rem;
-  width: 6.4rem;
-  margin-bottom: ${theme('spaces.xl')};
-  padding: ${theme('spaces.xs')};
-  border-radius: 6rem;
-
-  &::before {
-    top: calc(100% - 0.5rem);
-    left: calc(50% + 0.5rem);
-    margin-left: 0;
-    transform: rotate(150deg);
-  }
-
-  ${breakpoint('m')`
-    margin-bottom: ${theme('spaces.xl')};
-  `}
-
-  ${breakpoint('l')`
-    margin-bottom: ${theme('spaces.xxl')};
-    height: 8.4rem;
-    width: 8.4rem;
-  `}
-`
-
-const StyledImage = styled(Image)`
-  height: auto;
-  max-width: 100%;
 `
 
 const StyledHeading = styled(Heading)`
@@ -118,9 +85,7 @@ const CarouselWrapper = styled.div`
   ${mapBreakpoints(bp => css`
     margin-right: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} * -1);
     margin-left: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} * -1);
-    padding-right: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
-    padding-left: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
-    padding-bottom: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
+    padding: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
   `)}
 
   &::before {
@@ -221,9 +186,6 @@ const Hero = ({ hasActiveConversation, firstChoices, reply, hasConversations }) 
           hasActiveConversation || hasConversations ?
             <StyledRow>
               <header>
-                <StyledBubble>
-                  <StyledImage link={`${cloudinaryUrl}bot.png`} />
-                </StyledBubble>
                 <StyledHeading level={1}>
                   <FormattedMessage id="hero.conversation_in_progress" />
                 </StyledHeading>
@@ -240,9 +202,6 @@ const Hero = ({ hasActiveConversation, firstChoices, reply, hasConversations }) 
             <Grid>
               <StyledRow column>
                 <header>
-                  <StyledBubble>
-                    <StyledImage link={`${cloudinaryUrl}bot.png`} />
-                  </StyledBubble>
                   <StyledHeading level={1}>
                     <FormattedMessage id="hero.title_message" />
                   </StyledHeading>
