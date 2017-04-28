@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import stripTags from 'utils/stripTags'
-import { ifThen, theme } from 'utils/style'
+import { theme } from 'utils/style'
 
 import { Section, Heading, Paragraph } from 'components'
 import { PostList } from 'containers'
@@ -24,18 +24,20 @@ const StyledSection = styled(Section)`
     display: flex;
     justify-content: flex-end;
   }
+
+  .slick-dots {
+    padding-bottom: ${theme('spaces.l')};
+  }
 `
 
-const StyledItem = styled.div`${({ active, link }) => `
+const StyledItem = styled.div`${({ link }) => `
   position: relative;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
-  width: 36rem;
+  width: 37rem;
   min-height: 65rem;
   padding: ${theme('spaces.xxl')};
-  transition: opacity 0.4s ease-in;
-  opacity: ${ifThen(active, '1', '0')};
   background-image: url(${link});
   background-size: cover;
   
