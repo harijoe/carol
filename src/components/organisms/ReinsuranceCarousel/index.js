@@ -105,7 +105,7 @@ class ReinsuranceCarousel extends Component {
             slidesToShow: 1,
             slidesToScroll: 1,
             dots: true,
-            autoplay: false,
+            autoplay: true,
             pauseOnHover: true,
             arrows: false,
           }}

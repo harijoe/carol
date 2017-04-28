@@ -12,7 +12,7 @@ ShallowWrapper {
             Object {
                 "afterChange": [Function],
                 "arrows": false,
-                "autoplay": false,
+                "autoplay": true,
                 "dots": true,
                 "infinite": true,
                 "pauseOnHover": true,
@@ -36,7 +36,7 @@ ShallowWrapper {
                   Object {
                         "afterChange": [Function],
                         "arrows": false,
-                        "autoplay": false,
+                        "autoplay": true,
                         "dots": true,
                         "infinite": true,
                         "pauseOnHover": true,
@@ -98,7 +98,7 @@ ShallowWrapper {
                               Object {
                                         "afterChange": [Function],
                                         "arrows": false,
-                                        "autoplay": false,
+                                        "autoplay": true,
                                         "dots": true,
                                         "infinite": true,
                                         "pauseOnHover": true,
@@ -122,7 +122,7 @@ ShallowWrapper {
                               Object {
                                         "afterChange": [Function],
                                         "arrows": false,
-                                        "autoplay": false,
+                                        "autoplay": true,
                                         "dots": true,
                                         "infinite": true,
                                         "pauseOnHover": true,
