@@ -20,7 +20,9 @@ class PostListContainer extends Component {
   }
 
   componentWillMount() {
-    this.props.request()
+    if (this.props.list.length === 0) {
+      this.props.request()
+    }
   }
 
   render() {

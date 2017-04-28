@@ -30,6 +30,12 @@ const StyledIconLink = styled(({ ...props }) => <IconLink {...props} />)`${() =>
 
 const QuotatisLogo = ({ atTop, homepage }) => (
   <StyledIconLink
+    // On homepage, scroll to the top instead of doing nothing
+    onClick={() => {
+      if (homepage === true) {
+        window.scrollTo(0, 0)
+      }
+    }}
     to="/"
     icon={atTop && homepage ? 'quotatis-white' : 'quotatis'}
     size={480}

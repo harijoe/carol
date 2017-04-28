@@ -18,7 +18,9 @@ class HeroContainer extends Component {
   }
 
   componentWillMount() {
-    this.props.request()
+    if (this.props.firstChoices.length === 0) {
+      this.props.request()
+    }
   }
 
   render() {

@@ -62,7 +62,13 @@ const Link = ({ ...props, to }) => {
     return <Anchor {...props} href={to || ''} />
   }
 
-  return <StyledLink {...props} />
+  /*
+    Chrome rendering adds a '/' automatically before href value
+    It is messing with the ssr as node rendering does not do it
+   */
+  const normalizedTo = to.indexOf('/') !== 0 ? `/${to}` : to
+
+  return <StyledLink {... { ...props, to: normalizedTo }} />
 }
 
 Link.propTypes = {

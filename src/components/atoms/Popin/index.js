@@ -40,7 +40,7 @@ const InnerWrapper = styled.div`${({ show }) => css`
   position: relative;
   width: 100%;
   height: 100%;
-  ${ifThen(show, '', 'left: 100%')};
+  ${ifThen(show, '', 'display: none')};
   pointer-events: auto;
   ${mapBreakpoints(bp => css`
     padding: ${theme(`grid.gutterWidth.${bp}`, 'rem')};

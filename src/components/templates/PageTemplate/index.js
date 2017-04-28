@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styled, { ThemeProvider } from 'styled-components'
+import styled, { css, ThemeProvider } from 'styled-components'
 import NotificationsSystem from 'reapop'
 import theme from 'reapop-theme-wybo'
 import { addLocaleData } from 'react-intl'
 import fr from 'react-intl/locale-data/fr'
 import en from 'react-intl/locale-data/en'
 import es from 'react-intl/locale-data/es'
-import { injectGlobals } from 'utils/style'
+import { injectGlobals, ifThen } from 'utils/style'
 
 import { MotionMenu } from 'components'
 import defaultTheme, { resets, scaffolding } from '../../themes/default'
@@ -25,13 +25,13 @@ const Wrapper = styled.div`
   background-color: #eee;
 `
 
-const Header = styled.header`
-  position: fixed;
+const Header = styled.div`${({ loaded }) => css`
+  ${ifThen(loaded, 'position: fixed', 'position: absolute')};
   left: 0;
   top: 0;
   width: 100%;
   z-index: 20;
-`
+`}`
 
 const Content = styled.div`
   width: 100%;
@@ -52,23 +52,52 @@ const notificationsDefaultValues = {
   closeButton: false,
 }
 
-const PageTemplate = ({ header, children, footer, ssr, ...props }) => (
-  <ThemeProvider theme={defaultTheme}>
-    <Wrapper {...props}>
-      { !ssr && <NotificationsSystem theme={theme} defaultValues={notificationsDefaultValues} /> }
-      { !ssr && <MotionMenu /> }
-      <Header {...props}>{header}</Header>
-      <Content>{children}</Content>
-      <Footer>{footer}</Footer>
-    </Wrapper>
-  </ThemeProvider>
-)
+class PageTemplate extends Component {
+  static propTypes = {
+    header: PropTypes.any.isRequired,
+    children: PropTypes.any.isRequired,
+    footer: PropTypes.any.isRequired,
+    ssr: PropTypes.bool,
+  }
 
-PageTemplate.propTypes = {
-  header: PropTypes.any.isRequired,
-  children: PropTypes.any.isRequired,
-  footer: PropTypes.any.isRequired,
-  ssr: PropTypes.bool,
+  state = {
+    loaded: false,
+  }
+
+  /*
+   This sets loaded to true once the component is mounted and ssr is set to false
+   This allows a smoother header apparition, transitioning from absolute positioning to fixed once the js
+   is loaded and thus atTop is taken correctly into account
+   (Try to disable it if you want to witness the ugly header this mechanism fixes)
+   */
+  componentWillMount() {
+    if (this.props.ssr === false) {
+      this.setState({ loaded: true })
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.ssr === false) {
+      this.setState({ loaded: true })
+    }
+  }
+
+  render() {
+    const { header, children, footer, ssr, ...props } = this.props
+    const { loaded } = this.state
+
+    return (
+      <ThemeProvider theme={defaultTheme}>
+        <Wrapper {...props}>
+          { !ssr && <NotificationsSystem theme={theme} defaultValues={notificationsDefaultValues} /> }
+          { !ssr && <MotionMenu /> }
+          <Header {...{ ...props, loaded }}>{header}</Header>
+          <Content>{children}</Content>
+          <Footer>{footer}</Footer>
+        </Wrapper>
+      </ThemeProvider>
+    )
+  }
 }
 
 export default PageTemplate
