@@ -6,7 +6,7 @@ import { theme } from 'utils/style'
 import { Link } from 'components'
 
 const StyledLink = styled(Link)`
-  padding: 10px 0;
+  padding: ${theme('spaces.s')} 0;
   color: ${theme('colors.grayscale.darker')};
   width: 100%;
   display: block;

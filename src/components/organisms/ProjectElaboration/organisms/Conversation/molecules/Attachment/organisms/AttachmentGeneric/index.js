@@ -1,59 +1,101 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { theme, breakpoint } from 'utils/style'
+import { theme, breakpoint, breakpointMax } from 'utils/style'
 
 import { ThumbnailPoster } from 'components'
 import { Carousel } from 'containers'
 
+const StyledCarousel = styled(Carousel)`
+  margin: 0;
+  padding: 0;
+
+  > .slick-list {
+    padding: 0;
+  }
+
+  .slick-arrow.slick-next {
+    right: -2rem;
+  }
+
+  .slick-arrow.slick-prev {
+    left: -2rem;
+  }
+
+  ${breakpointMax('l')`
+    .slick-arrow.slick-next {
+      right: 0;
+    }
+
+    .slick-arrow.slick-prev {
+      left: 0;
+    }
+  `}
+
+  ${breakpointMax('m')`
+    margin-left: -${theme('spaces.m')};
+    margin-right: -${theme('spaces.m')};
+
+    > .slick-list {
+      padding-left: ${theme('spaces.m')};
+      padding-right: ${theme('spaces.m')};
+    }
+  `}
+
+  ${breakpoint('m')`
+    padding-bottom: ${theme('spaces.l')};
+  `}
+`
+
 const StyledItem = styled.div`
   margin: 0 ${theme('spaces.xs')};
   padding: 0;
-  max-width: 11.5rem;
-  flex: 0 0 11.5rem;
-  width: 100%;
+  width: 11.5rem;
 
   &:first-child {
     margin-left: 0;
   }
 
   ${breakpoint('m')`
-    max-width: 12.6rem;
-    flex: 0 0 12.6rem;
+    width: 15rem;
     margin-left: ${theme('spaces.s')};
     margin-right: ${theme('spaces.s')};
-  `}
-
-  ${breakpoint('xl')`
-    max-width: 15rem;
-    flex: 0 0 15rem;
   `}
 `
 
 const StyledButton = styled.button`
-  outline: none;
-  border: none;
   background: ${theme('colors.white')};
+  padding: 0;
 `
 
 const AttachmentGeneric = ({ attachment, reply }) => (
-  <Carousel
-    infinite={false}
-    variableWidth
+  <StyledCarousel
+    slidesToShow={1}
     slidesToScroll={3}
+    variableWidth
+    infinite={false}
+    dots
     responsive={[
       {
         breakpoint: 767,
         settings: {
-          slidesToShow: 3,
           arrows: false,
+          swipe: true,
+          slidesToScroll: 2,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 991,
+        settings: {
+          arrows: true,
           swipe: true,
         },
       },
       {
         breakpoint: 3000,
         settings: {
-          arrow: true,
+          arrows: true,
           swipe: false,
         },
       },
@@ -72,7 +114,7 @@ const AttachmentGeneric = ({ attachment, reply }) => (
         </StyledItem>
       ))
     }
-  </Carousel>
+  </StyledCarousel>
 )
 
 AttachmentGeneric.propTypes = {

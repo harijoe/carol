@@ -110,11 +110,9 @@ ShallowWrapper {
             },
           }
     }>
-    <Styled(Mock)
-        to="/">
-        <Styled(Mock)
-            icon="quotatis" />
-    </Styled(Mock)>
+    <styled.div>
+        <Mock />
+    </styled.div>
     <Styled(Mock)
         level={3}>
         <FormattedMessage
@@ -234,11 +232,9 @@ ShallowWrapper {
                   },
                 }
       }>
-      <Styled(Mock)
-            to="/">
-            <Styled(Mock)
-                  icon="quotatis" />
-      </Styled(Mock)>
+      <styled.div>
+            <Mock />
+      </styled.div>
       <Styled(Mock)
             level={3}>
             <FormattedMessage
@@ -597,11 +593,9 @@ ShallowWrapper {
                               },
                             }
           }>
-          <Styled(Mock)
-                    to="/">
-                    <Styled(Mock)
-                              icon="quotatis" />
-          </Styled(Mock)>
+          <styled.div>
+                    <Mock />
+          </styled.div>
           <Styled(Mock)
                     level={3}>
                     <FormattedMessage
@@ -721,11 +715,9 @@ ShallowWrapper {
                               },
                             }
           }>
-          <Styled(Mock)
-                    to="/">
-                    <Styled(Mock)
-                              icon="quotatis" />
-          </Styled(Mock)>
+          <styled.div>
+                    <Mock />
+          </styled.div>
           <Styled(Mock)
                     level={3}>
                     <FormattedMessage

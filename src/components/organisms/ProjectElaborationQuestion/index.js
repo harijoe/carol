@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
-import { theme, mapBreakpoints } from 'utils/style'
+import styled from 'styled-components'
+import { theme } from 'utils/style'
 
 import { Image } from 'components'
 
@@ -10,11 +10,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-wrap: nowrap;
   align-items: flex-start;
-  margin: ${theme('spaces.m')} 0 ${theme('spaces.s')} 0;
-
-  ${mapBreakpoints(bp => css`
-    padding-left: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
-  `)}
+  padding-bottom: ${theme('spaces.s')};
+  padding-top: ${theme('spaces.m')};
 `
 
 const StyledImage = styled(Image)`

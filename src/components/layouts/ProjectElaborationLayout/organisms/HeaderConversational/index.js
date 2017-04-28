@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl'
 import styled, { css } from 'styled-components'
 import { theme, breakpoint, mapBreakpoints } from 'utils/style'
 
-import { Link, Icon, MainWrapper, Heading } from 'components'
+import { Icon, Link, MainWrapper, Heading, QuotatisLogo } from 'components'
 
 const Wrapper = styled(MainWrapper)`
   display: flex;
@@ -32,19 +32,6 @@ const StyledHeading = styled(Heading)`
   `}
 `
 
-const StyledLink = styled(Link)`
-  position: absolute;
-  top: 0;
-  display: none;
-  height: 2.6rem;
-  width: 9.4rem;
-  z-index: 10;
-
-  ${breakpoint('m')`
-    display: block;
-  `}
-`
-
 const Block = styled.div`
   box-sizing: content-box;
   height: ${theme('icons.size.s')};
@@ -53,22 +40,23 @@ const Block = styled.div`
   padding: ${theme('spaces.xs')};
 `
 
-const StyledIcon = styled(Icon)`
-  height: auto;
-  width: 100%;
-  margin: 0;
-`
-
 const CloseIcon = styled(Icon)`
   height: ${theme('icons.size.s')};
   width: ${theme('icons.size.s')};
 `
+const LogoWrapper = styled.div`
+  display: none;
+
+  ${breakpoint('m')`
+    display: block;
+  `}
+`
 
 const HeaderConversational = props => (
   <Wrapper {...props}>
-    <StyledLink to="/">
-      <StyledIcon icon="quotatis" />
-    </StyledLink>
+    <LogoWrapper>
+      <QuotatisLogo />
+    </LogoWrapper>
     <StyledHeading level={3}><FormattedMessage id="project.elaboration.title" /></StyledHeading>
     <Block>
       <Link to="/"><CloseIcon icon="close" /></Link>

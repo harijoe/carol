@@ -3,14 +3,14 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { theme } from 'utils/style'
 
-import { Button, List } from 'components'
+import { List } from 'components'
 
 const StyledList = styled(List)`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
   margin: 0;
-  padding: ${theme('spaces.m')};
+  padding: ${theme('spaces.m')} 0;
   padding-bottom: 0;
   list-style: none;
 `
@@ -21,7 +21,7 @@ const Item = styled.li`
   margin: ${theme('spaces.xs')};
 `
 
-const StyledButton = styled(Button)`
+const StyledButton = styled.button`
   min-width: 7rem;
   max-width: 100%;
   padding: ${theme('spaces.s')} ${theme('spaces.m')};

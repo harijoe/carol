@@ -137,6 +137,11 @@ const scaffolding = theme => css`
     outline: none !important;
   }
 
+  button {
+    border: 0;
+    outline: 0;
+  }
+
   /* Animations */
   @keyframes bounceIn {
     from, 20%, 40%, 60%, 80%, to {

@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { theme } from 'utils/style'
 
 import { Paragraph } from 'components'
 
 const StyledParagraph = styled(Paragraph)`
-  margin-top: 10px;
-  margin-bottom: 30px;
+  margin: ${theme('spaces.m')} 0;
 `
 
 const Question = ({ children }) => (

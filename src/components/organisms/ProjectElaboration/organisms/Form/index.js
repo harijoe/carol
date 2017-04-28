@@ -6,7 +6,7 @@ import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import { theme, breakpoint } from 'utils/style'
 import messages from 'utils/messages'
 
-import { RenderField, Button, Icon, PopinMenu, PopinMenuLink, PopinMenuButton } from 'components'
+import { RenderField, Icon, PopinMenu, PopinMenuLink, PopinMenuButton } from 'components'
 
 const StyledForm = styled.form`
   display: flex;
@@ -18,8 +18,8 @@ const StyledForm = styled.form`
   `}
 
   ${breakpoint('xl')`
-    padding-left: ${theme('spaces.xl')};
-    padding-right: ${theme('spaces.xl')};
+    padding-left: ${theme('spaces.xxl')};
+    padding-right: ${theme('spaces.xxl')};
   `}
 `
 
@@ -50,9 +50,10 @@ const BottomBar = styled.div`
     }
   }
 
-  div {
-    flex: 1 1 0;
+  div:nth-child(2) {
+    flex-grow: 1;
     margin: 0;
+    border: none;
   }
 
   ${breakpoint('l')`
@@ -61,7 +62,7 @@ const BottomBar = styled.div`
   `}
 `
 
-const BackButton = styled(Button)`
+const BackButton = styled.button`
   display: block;
   align-self: flex-end;
   min-width: 7rem;
@@ -77,7 +78,7 @@ const BackButton = styled(Button)`
   white-space: nowrap;
 `
 
-const SubmitButton = styled(Button)`
+const SubmitButton = styled.button`
   display: block;
   box-sizing: content-box;
   height: ${theme('icons.size.m')};
@@ -169,7 +170,7 @@ class Form extends Component {
 
     return (
       <StyledForm onSubmit={handleSubmit(submit)}>
-        <BackButton onClick={() => submit({ response: 'new_project.back' })}>
+        <BackButton type="button" onClick={() => submit({ response: 'new_project.back' })}>
           <BackIcon icon="back" />
           <FormattedMessage id="project.elaboration.back" tagName="span" />
         </BackButton>

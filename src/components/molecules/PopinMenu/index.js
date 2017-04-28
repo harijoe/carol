@@ -17,7 +17,6 @@ const Background = styled.div`
 
 const StyledButton = styled.button`
   background: inherit;
-  border: none;
   z-index: 4;
   position: relative;
 
@@ -32,18 +31,20 @@ const Menu = styled.div`
   position: absolute;
   z-index: 5;
   background-color: ${theme.colors.white};
-  bottom: 50px;
-  box-shadow: 0 0 40px 0 rgba(19, 19, 19, 0.2);
+  bottom: 5rem;
+  box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, 0.15);
 `
 
 const StyledList = styled(List)`
-  padding: 0 20px;
+  margin: 0;
+  padding: ${theme.spaces.s} ${theme.spaces.m};
   list-style: none;
 `
 
 const StyledItem = styled(ListItem)`
+  margin: 0;
   padding: 0;
-  border-bottom: 1px solid ${theme.colors.grayscale.medium};
+  border-bottom: 1px solid ${theme.colors.grayscale.light};
 
   &:last-child {
     border-bottom: none;

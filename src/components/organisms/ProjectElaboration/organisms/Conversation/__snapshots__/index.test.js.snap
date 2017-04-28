@@ -12,7 +12,7 @@ ShallowWrapper {
         <Mock>
             message
         </Mock>
-        <styled.div>
+        <div>
             <Attachment
                 attachment={null}
                 locale={undefined}
@@ -34,7 +34,7 @@ ShallowWrapper {
                         "text": "response",
                       }
                 } />
-        </styled.div>
+        </div>
         <Response
             response="response" />
     </div>
@@ -46,7 +46,7 @@ ShallowWrapper {
             <Mock>
                   message
             </Mock>
-            <styled.div>
+            <div>
                   <Attachment
                         attachment={null}
                         locale={undefined}
@@ -68,7 +68,7 @@ ShallowWrapper {
                                     "text": "response",
                                   }
                         } />
-            </styled.div>
+            </div>
             <Response
                   response="response" />
       </div>
@@ -141,7 +141,7 @@ ShallowWrapper {
                     <Mock>
                               message
                     </Mock>
-                    <styled.div>
+                    <div>
                               <Attachment
                                         attachment={null}
                                         locale={undefined}
@@ -163,7 +163,7 @@ ShallowWrapper {
                                                             "text": "response",
                                                           }
                                         } />
-                    </styled.div>
+                    </div>
                     <Response
                               response="response" />
           </div>
@@ -175,7 +175,7 @@ ShallowWrapper {
                     <Mock>
                               message
                     </Mock>
-                    <styled.div>
+                    <div>
                               <Attachment
                                         attachment={null}
                                         locale={undefined}
@@ -197,7 +197,7 @@ ShallowWrapper {
                                                             "text": "response",
                                                           }
                                         } />
-                    </styled.div>
+                    </div>
                     <Response
                               response="response" />
           </div>

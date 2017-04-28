@@ -8,19 +8,19 @@ ShallowWrapper {
   "length": 1,
   "node": <List>
     <styled.li>
-        <Styled(Mock)
+        <styled.button
             onClick={[Function]}>
             quick reply
-        </Styled(Mock)>
+        </styled.button>
     </styled.li>
 </List>,
   "nodes": Array [
     <List>
       <styled.li>
-            <Styled(Mock)
+            <styled.button
                   onClick={[Function]}>
                   quick reply
-            </Styled(Mock)>
+            </styled.button>
       </styled.li>
 </List>,
   ],
@@ -73,19 +73,19 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <List>
           <styled.li>
-                    <Styled(Mock)
+                    <styled.button
                               onClick={[Function]}>
                               quick reply
-                    </Styled(Mock)>
+                    </styled.button>
           </styled.li>
 </List>,
         "_debugID": 2,
         "_renderedOutput": <List>
           <styled.li>
-                    <Styled(Mock)
+                    <styled.button
                               onClick={[Function]}>
                               quick reply
-                    </Styled(Mock)>
+                    </styled.button>
           </styled.li>
 </List>,
       },

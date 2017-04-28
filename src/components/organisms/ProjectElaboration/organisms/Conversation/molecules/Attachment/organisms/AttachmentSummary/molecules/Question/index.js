@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { theme } from 'utils/style'
 
 import { Paragraph } from 'components'
 
 const StyledParagraph = styled(Paragraph)`
-  font-weight: bold;
+  margin-top: ${theme('spaces.xl')};
+  font-family: ${theme('fonts.family.montserratBold')};
 `
 
 const Response = ({ children }) => (

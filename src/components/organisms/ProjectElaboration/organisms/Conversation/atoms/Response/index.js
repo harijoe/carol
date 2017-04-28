@@ -1,20 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
-import { theme, mapBreakpoints } from 'utils/style'
+import styled from 'styled-components'
+import { theme } from 'utils/style'
 
 const Wrapper = styled.div`
   position: relative;
   display: flex;
   flex-wrap: nowrap;
   justify-content: flex-end;
-  margin-top: ${theme('spaces.s')};
-  margin-bottom: ${theme('spaces.m')};
+  padding-top: ${theme('spaces.s')};
+  padding-bottom: ${theme('spaces.m')};
   padding-right: ${theme('spaces.m')};
-
-  ${mapBreakpoints(bp => css`
-    margin-right: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
-  `)}
 `
 
 const BubbleResponse = styled.p`
@@ -26,7 +22,6 @@ const BubbleResponse = styled.p`
   background: ${theme('colors.primary')};
   border-radius: 1rem 0 1rem 1rem;
   color: ${theme('colors.white')};
-  animation: bounceIn 1s;
 
   &::before, 
   &::after {

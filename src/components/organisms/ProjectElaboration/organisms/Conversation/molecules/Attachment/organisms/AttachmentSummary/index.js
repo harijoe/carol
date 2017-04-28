@@ -1,29 +1,45 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
-import styled from 'styled-components'
 import config from 'config'
-import { theme } from 'utils/style'
+import styled from 'styled-components'
+import { theme, breakpoint } from 'utils/style'
 
 import { ThumbnailPoster, ProjectElaborationQuestion, Paragraph, Link } from 'components'
 import Question from './molecules/Question'
 import Response from './molecules/Response'
 
 const StyledParagraph = styled(Paragraph)`
-  margin-bottom: 20px;
+  margin-bottom: ${theme('spaces.m')};
+`
+
+const StyledThumbnailPosterWrapper = styled.div`
+  margin-left: -${theme('spaces.m')};
+  margin-right: -${theme('spaces.m')};
+
+  figure {
+    justify-content: center;
+    height: 14rem;
+
+    ${breakpoint('m')`
+      height: 18rem;
+    `}
+  }
+`
+
+const Wrapper = styled.div`
+  > div > div {
+    max-width: 80%;
+
+    ${breakpoint('m')`
+      max-width: 50%;
+    `}
+  }
 `
 
 const StyledLink = styled(Link)`
-  display: block;
-  margin: ${theme('spaces.m')} 0 0 0;
-  padding: ${theme('spaces.m')};
-  min-width: 20rem;
-  font-family: ${theme('fonts.family.montserratBold')};
-  font-size: ${theme('fonts.size.base')};
-  letter-spacing: 0.05rem;
-  text-align: center;
-  background-color: ${theme('colors.secondary')};
-  color: ${theme('colors.black')};
+  margin-bottom: ${theme('spaces.s')};
+  min-width: 100%;
 `
 
 class AttachmentSummary extends Component {
@@ -49,18 +65,20 @@ class AttachmentSummary extends Component {
     )))
 
     return (
-      <div id="summary">
+      <Wrapper id="summary">
         <ProjectElaborationQuestion>
           <StyledParagraph><FormattedMessage id="project.elaboration.summary.title" /></StyledParagraph>
-          <ThumbnailPoster
-            // eslint-disable-next-line camelcase
-            image={image_url}
-            title={title}
-          />
+          <StyledThumbnailPosterWrapper>
+            <ThumbnailPoster
+              // eslint-disable-next-line camelcase
+              image={image_url}
+              title={title}
+            />
+          </StyledThumbnailPosterWrapper>
           {summary}
-          <StyledLink to={validateButton.url.replace(config.locales[locale].url, '')}>{validateButton.title}</StyledLink>
+          <StyledLink to={validateButton.url.replace(config.locales[locale].url, '')} button>{validateButton.title}</StyledLink>
         </ProjectElaborationQuestion>
-      </div>
+      </Wrapper>
     )
   }
 }

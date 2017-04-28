@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { theme, breakpoint } from 'utils/style'
+import styled, { css } from 'styled-components'
+import { theme, breakpoint, mapBreakpoints } from 'utils/style'
 
 import { ProjectElaborationQuestion } from 'components'
 import Response from './atoms/Response'
@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   bottom: 0;
   display:flex;
   flex-direction: column;
-  max-height: 67vh;
+  max-height: calc(100vh - 5.6rem - 13rem);
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -20,6 +20,11 @@ const Wrapper = styled.div`
   ${breakpoint('m')`
     min-height: 29rem;
   `}
+
+  ${mapBreakpoints(bp => css`
+    padding-left: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
+    padding-right: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
+  `)}
 
   &::-webkit-scrollbar-track {
     border-radius: 6rem;
@@ -36,31 +41,6 @@ const Wrapper = styled.div`
     border-radius: 6rem;
     background-color: ${theme('colors.grayscale.light')};
   }
-`
-
-const Block = styled.div`
-  position: relative;
-
-  ${breakpoint('l')`
-    &::before, &::after {
-      position: absolute;
-      top: 0;
-      height: 100%;
-      width: ${theme('spaces.l')};
-      z-index: 3;
-      content: '';
-    }
-
-    &::before {
-      left: 0;
-      background: linear-gradient(to right, ${theme('colors.grayscale.lightest')}, rgba(249, 249, 249, 0));
-    }
-
-    &::after {
-      right: 0;
-      background: linear-gradient(to left, ${theme('colors.grayscale.lightest')}, rgba(249, 249, 249, 0));
-    }
-  `}
 `
 
 class Conversation extends Component {
@@ -109,7 +89,7 @@ class Conversation extends Component {
               <ProjectElaborationQuestion>{text != null ? text : null}</ProjectElaborationQuestion>
               {
                 isLastQuestion(index) ?
-                  <Block>
+                  <div>
                     <Attachment
                       attachment={attachment != null ? attachment : null}
                       {...{ reply, response, locale, redirectTo, location }}
@@ -120,7 +100,7 @@ class Conversation extends Component {
                       reply={reply}
                       response={response}
                     />
-                  </Block>
+                  </div>
                   : null
               }
               <Response response={response != null ? response.text : null} />
