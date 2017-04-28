@@ -28,6 +28,7 @@ const StyledThumbnailPosterWrapper = styled.div`
 `
 
 const Wrapper = styled.div`
+  padding-top: 5.6rem;
   > div > div {
     max-width: 80%;
 
