@@ -27,8 +27,10 @@ const StyledSubmenu = styled.ul`${({ isOpen }) => css`
     background: ${theme('colors.white')};
     border-top: 0.2rem solid ${theme('colors.primary')};
     box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, .15);
-    transition: transform 0.3s ease;
-    transform: translateY(-150%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    
 
     &::before {
       position: absolute;
@@ -70,7 +72,8 @@ const StyledSubmenu = styled.ul`${({ isOpen }) => css`
     `}
 
     ${breakpoint('l')`
-      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
     `}
   `)};
 `}`
@@ -87,7 +90,6 @@ const HitBox = styled.div`
 `
 
 const StyledLink = styled(Link)`${({ linkStyle }) => css`
-  // @TODO: use homepage, isOpen
   ${linkStyle}
 `}`
 

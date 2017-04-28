@@ -7,12 +7,14 @@ import { AccountMenu } from 'containers'
 
 const StyledNav = styled.div`${({ show }) => css`
   background: ${theme('colors.white')};
-  transform: translateY(-150%);
-  transition: transform 0.3s ease-in;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease-in;
   pointer-events: none;
 
   ${ifThen(show, css`
-    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
   `)}
 
   ${breakpointMax('l')`
@@ -45,7 +47,7 @@ const AccountNavigation = ({ show, toggleAccountNavigation }) => (
   <div>
     {show && <HitBox onClick={toggleAccountNavigation} />}
     <StyledNav show={show}>
-      <AccountMenu />
+      {show && <AccountMenu />}
     </StyledNav>
   </div>
 )

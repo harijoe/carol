@@ -9,6 +9,8 @@ import { Icon } from 'components'
 
 const Wrapper = styled.div`${({ homepage, atTop }) => css`
   position: relative;
+  display: flex;
+  align-items: center;
   box-sizing: content-box;
   cursor: pointer;
   margin: 0;
@@ -16,13 +18,8 @@ const Wrapper = styled.div`${({ homepage, atTop }) => css`
 
   ${breakpointMax('l')`
     margin-right: ${theme('spaces.s')};
-    height: ${theme('icons.size.l')};
-    width: ${theme('icons.size.l')};
-  `}
-
-  ${breakpoint('l')`
-    display: flex;
-    align-items: center;
+    min-height: ${theme('icons.size.l')};
+    min-width: ${theme('icons.size.l')};
   `}
 
   ${ifThen(homepage, css`
@@ -32,6 +29,10 @@ const Wrapper = styled.div`${({ homepage, atTop }) => css`
 
     p {
       color: ${theme('colors.white')};
+
+      &::after {
+        border-top-color: ${theme('colors.white')};
+      }
     }
   `)} 
 
@@ -42,6 +43,10 @@ const Wrapper = styled.div`${({ homepage, atTop }) => css`
 
     p {
       color: ${theme('colors.black')};
+
+      &::after {
+        border-top-color: ${theme('colors.black')};
+      }
     }
   `)}
 
@@ -52,13 +57,17 @@ const Wrapper = styled.div`${({ homepage, atTop }) => css`
 
     p {
       color: ${theme('colors.secondary')};
+
+      &::after {
+        border-top-color: ${theme('colors.secondary')};
+      }
     }
   }
 `}`
 
 const SignLabel = styled.p`
   display: inline-block;
-  margin: 0 0 0 ${theme('spaces.m')} ;
+  margin: 0 0 0 ${theme('spaces.m')};
   font-family: ${theme('fonts.family.montserratBold')};
   font-size: ${theme('fonts.size.s')};
   transition: color 0.3s ease;
@@ -76,15 +85,48 @@ const SignLabel = styled.p`
   `}
 `
 
+const LogInLabel = styled.p`
+  position: relative;
+  display: inline-block;
+  margin: 0 0 0 ${theme('spaces.m')};
+  padding-right: ${theme('spaces.m')}
+  overflow: hidden;
+  font-family: ${theme('fonts.family.andesBlack')};
+  font-size: ${theme('fonts.size.base')};
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+
+  &::after {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -0.25rem;
+    width: 0; 
+    height: 0; 
+    border-left: 0.5rem solid transparent;
+    border-right: 0.5rem solid transparent;
+    border-top: 0.5rem solid ${theme('colors.black')};
+    content: '';
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    color: ${theme('colors.secondary')};
+  }
+
+  ${breakpoint('xl')`
+    font-size: ${theme('fonts.size.l')};
+  `}
+`
+
 const AccountButton = ({ atTop, authenticated, toggleAccountNavigation, toggleSignInPopin, homepage, firstName }) => (
   <Wrapper homepage={homepage} atTop={atTop} onClick={authenticated ? toggleAccountNavigation : toggleSignInPopin}>
     <Icon
       size={32}
       icon="login"
     />
-    <SignLabel>
-      {authenticated ? firstName : <FormattedMessage id="login" />}
-    </SignLabel>
+    {authenticated ? <LogInLabel>{firstName}</LogInLabel> : <SignLabel><FormattedMessage id="login" /></SignLabel>}
   </Wrapper>
 )
 

@@ -5,6 +5,13 @@ import { theme, ifThen, breakpointMax, breakpoint } from 'utils/style'
 
 import { MainMenu } from 'containers'
 
+const Wrapper = styled.div`
+  ${breakpoint('l')`
+    margin-left: auto;
+    padding-left: 7.8rem;
+  `}
+`
+
 const StyledNav = styled.nav`${({ show }) => css`
   ${breakpointMax('l')`
     position: fixed;
@@ -24,13 +31,8 @@ const StyledNav = styled.nav`${({ show }) => css`
   `}
 
   @media screen and (max-width: 991px) and (min-width: 768px) {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(19, 19, 19, 0.8);
   }
-
-  ${breakpoint('l')`
-    margin-left: auto;
-    padding-left: 7.8rem;
-  `}
 `}`
 
 const HitBox = styled.div`
@@ -42,12 +44,12 @@ const HitBox = styled.div`
 `
 
 const MainNavigation = ({ show, toggleMainNavigation }) => (
-  <div>
+  <Wrapper>
     {show && <HitBox onClick={toggleMainNavigation} />}
     <StyledNav {...{ show }}>
       <MainMenu />
     </StyledNav>
-  </div>
+  </Wrapper>
 )
 
 MainNavigation.propTypes = {
