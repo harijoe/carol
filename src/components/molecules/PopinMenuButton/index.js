@@ -10,15 +10,15 @@ const StyledButton = styled.button`
   color: ${theme('colors.grayscale.darker')};
 `
 
-const PopinMenuLink = ({ children, onClick }) => (
+const PopinMenuButton = ({ children, onClick }) => (
   <StyledButton type="button" onClick={onClick}>
     {children}
   </StyledButton>
 )
 
-PopinMenuLink.propTypes = {
+PopinMenuButton.propTypes = {
   children: PropTypes.any.isRequired,
   onClick: PropTypes.func.isRequired,
 }
 
-export default PopinMenuLink
+export default PopinMenuButton

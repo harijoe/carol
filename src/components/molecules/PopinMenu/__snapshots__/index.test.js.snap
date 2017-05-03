@@ -12,7 +12,8 @@ ShallowWrapper {
         onClick={[Function]} />
     <styled.div
         display={false}>
-        <Styled(Mock)>
+        <Styled(Mock)
+            active={false}>
             <Styled(Mock)
                 onClick={[Function]}>
                 hello
@@ -32,7 +33,8 @@ ShallowWrapper {
             onClick={[Function]} />
       <styled.div
             display={false}>
-            <Styled(Mock)>
+            <Styled(Mock)
+                  active={false}>
                   <Styled(Mock)
                         onClick={[Function]}>
                         hello
@@ -66,6 +68,7 @@ ShallowWrapper {
       "_instance": PopinMenu {
         "_reactInternalInstance": [Circular],
         "context": Object {},
+        "disableMenu": [Function],
         "hide": [Function],
         "props": Object {
           "children": "Test",
@@ -75,6 +78,7 @@ ShallowWrapper {
         },
         "refs": Object {},
         "state": Object {
+          "active": false,
           "display": false,
         },
         "toggle": [Function],
@@ -102,7 +106,8 @@ ShallowWrapper {
                     onClick={[Function]} />
           <styled.div
                     display={false}>
-                    <Styled(Mock)>
+                    <Styled(Mock)
+                              active={false}>
                               <Styled(Mock)
                                         onClick={[Function]}>
                                         hello
@@ -122,7 +127,8 @@ ShallowWrapper {
                     onClick={[Function]} />
           <styled.div
                     display={false}>
-                    <Styled(Mock)>
+                    <Styled(Mock)
+                              active={false}>
                               <Styled(Mock)
                                         onClick={[Function]}>
                                         hello

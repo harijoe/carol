@@ -24,10 +24,10 @@ ShallowWrapper {
       "_calledComponentWillUnmount": false,
       "_compositeType": 2,
       "_context": Object {},
-      "_currentElement": <PopinMenuLink
+      "_currentElement": <PopinMenuButton
         onClick={[Function]}>
         Test
-</PopinMenuLink>,
+</PopinMenuButton>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -80,9 +80,9 @@ ShallowWrapper {
     "render": [Function],
   },
   "root": [Circular],
-  "unrendered": <PopinMenuLink
+  "unrendered": <PopinMenuButton
     onClick={[Function]}>
     Test
-</PopinMenuLink>,
+</PopinMenuButton>,
 }
 `;

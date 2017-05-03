@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { List, ListItem } from 'components'
 import theme from '../../themes/default'
 
+const transitionTime = 200
 const Background = styled.div`
   display: ${props => props.display ? 'block' : 'none'};
   position: fixed;
@@ -26,7 +27,7 @@ const StyledButton = styled.button`
 `
 
 const Menu = styled.div`
-  transition: visibility 0.2s, opacity 0.2s linear;
+  transition: opacity ${transitionTime / 1000}s linear;
   opacity: ${props => props.display ? '1' : '0'};
   position: absolute;
   z-index: 5;
@@ -39,6 +40,7 @@ const StyledList = styled(List)`
   margin: 0;
   padding: ${theme.spaces.s} ${theme.spaces.m};
   list-style: none;
+  display: ${props => props.active ? 'block' : 'none'};
 `
 
 const StyledItem = styled(ListItem)`
@@ -59,14 +61,29 @@ class PopinMenu extends Component {
 
   state = {
     display: false,
+    active: false,
+  }
+
+  disableMenu = () => {
+    setTimeout(() => {
+      this.setState({ active: false })
+    }, transitionTime)
   }
 
   toggle = () => {
     this.setState({ display: !this.state.display })
+
+    if (this.state.active === false) {
+      this.setState({ active: true })
+    } else {
+      this.disableMenu()
+    }
   }
 
   hide = () => {
     this.setState({ display: false })
+
+    this.disableMenu()
   }
 
   render() {
@@ -76,7 +93,7 @@ class PopinMenu extends Component {
       <div>
         <Background display={this.state.display} onClick={this.hide} />
         <Menu display={this.state.display}>
-          <StyledList>
+          <StyledList active={this.state.active}>
             {
               menu.map((element, i) => (
                 <StyledItem
