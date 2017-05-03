@@ -74,7 +74,7 @@ const fr = {
   'project.question': 'Question & Réponse',
 
   'project.elaboration.submit': 'Envoyer',
-  'project.elaboration.response': 'Réponse',
+  'project.elaboration.response': 'tapez votre réponse',
   'project.elaboration.title': 'Élaboration du projet',
   'project.elaboration.reset': 'Recommencer',
   'project.elaboration.back': 'Retour',

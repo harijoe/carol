@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Field, reduxForm } from 'redux-form'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
-import { theme, breakpoint } from 'utils/style'
+import { theme, ifThen, breakpoint } from 'utils/style'
 import messages from 'utils/messages'
 
 import { RenderField, Icon, PopinMenu, PopinMenuLink, PopinMenuButton } from 'components'
@@ -31,24 +31,6 @@ const BottomBar = styled.div`
   padding: ${theme('spaces.m')};
   background-color: ${theme('colors.white')};
   border-top: 0.1rem solid ${theme('colors.grayscale.light')};
-
-  input {
-    background: transparent;
-    border-radius: 0.2rem;
-    border: none;
-    color: ${theme('colors.grayscale.darker')};
-    transition: all .3s;
-
-    &:disabled {
-      opacity: 0.2;
-    }
-
-    &:focus {
-      border: 0;
-      outline: 0;
-      background: ${theme('colors.grayscale.lightest')};
-    }
-  }
 
   div:nth-child(2) {
     flex-grow: 1;
@@ -87,7 +69,7 @@ const SubmitButton = styled.button`
   overflow: hidden;
   line-height: 1;
   background: transparent;
-  transition: all .3s;
+  transition: all 0.3s;
 
   &:disabled {
     opacity: 0.2;
@@ -135,6 +117,26 @@ const VerticalDotsIcon = styled(Icon)`
   vertical-align: middle;
 `
 
+const StyledField = styled(Field)`${({ disabled }) => css`
+  ${ifThen(disabled,
+    'border: none',
+    css`border: 1px solid ${theme('colors.primary')}`
+  )};
+  background: transparent;
+  border-radius: 0.2rem;
+  color: ${theme('colors.grayscale.darker')};
+  transition: all 0.3s;
+
+  &:disabled {
+    opacity: 0.2;
+  }
+
+  &:focus {
+    outline: 0;
+    background: ${theme('colors.grayscale.lightest')};
+  }
+`}`
+
 class Form extends Component {
   componentDidUpdate() {
     this.field.focus()
@@ -180,7 +182,7 @@ class Form extends Component {
               <VerticalDotsIcon icon="vertical-dots" />
             </VerticalDotsButton>
           </PopinMenu>
-          <Field
+          <StyledField
             disabled={disabled}
             name="response"
             component={RenderField}

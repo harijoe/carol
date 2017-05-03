@@ -72,7 +72,7 @@ const es = {
   'project.question': 'Question & Answers',
 
   'project.elaboration.submit': 'Submit ES',
-  'project.elaboration.response': 'Response ES',
+  'project.elaboration.response': 'tapez votre réponse ES',
   'project.elaboration.title': 'Project Elaboration ES',
   'project.elaboration.reset': 'Reset ES',
   'project.elaboration.back': 'Back ES',
