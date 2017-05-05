@@ -1,6 +1,7 @@
-import { put } from 'redux-saga/effects'
-import { stopSubmit } from 'redux-form'
+import { put, select } from 'redux-saga/effects'
+import { stopSubmit, reset } from 'redux-form'
 import { push } from 'react-router-redux'
+import { fromUser } from 'store/selectors'
 import { HTTPError } from 'utils/errors'
 
 import fetch from 'sagas/fetch'
@@ -13,11 +14,17 @@ import {
     USER_UPDATE,
     USER_UPDATE_PASSWORD,
     USER_FORGOT_PASSWORD,
+    USER_VALIDATE_PHONE,
+    USER_VALIDATE_PHONE_CODE,
+    USER_VALIDATE_PHONE_AGAIN,
+    USER_CHECK_PHONE_ON_CODE,
     userCreate,
     userDetails,
     userUpdate,
     forgotPassword,
     resetPassword,
+    validatePhone,
+    validatePhoneCode,
 } from './actions'
 
 function* handleCreateUserRequest({ data }) {
@@ -69,12 +76,67 @@ function* handleUpdatePasswordRequest({ data, id }) {
   }
 }
 
+function* handlePhoneValidation({ data }) {
+  const id = yield select(fromUser.getId)
+
+  try {
+    yield* fetch(validatePhone, 'put', `${id}/mobile_phone`, {}, data)
+    yield put(push('validation/phone/code'))
+  } catch (error) {
+    if (error instanceof HTTPError) {
+      yield put(stopSubmit('PhoneForm', { _error: error.message }))
+    }
+  }
+}
+
+function* redirectToNextStep() {
+  // @TODO to be completed
+  const mobilePhoneVerified = yield select(fromUser.getMobilePhoneVerified)
+
+  if (!mobilePhoneVerified) {
+    yield put(push('validation/phone'))
+  }
+}
+
+function* handlePhoneCodeValidation({ data }) {
+  const id = yield select(fromUser.getId)
+
+  try {
+    yield* fetch(validatePhoneCode, 'put', `${id}/mobile_phone_verified`, {}, data)
+    yield* redirectToNextStep()
+  } catch (error) {
+    if (error instanceof HTTPError) {
+      yield put(reset('PhoneCodeForm'))
+      yield put(stopSubmit('PhoneCodeForm', { _error: error.message }))
+    }
+  }
+}
+
+function* handlePhoneValidationAgain() {
+  const mobilePhone = yield select(fromUser.getMobilePhone)
+
+  yield put(reset('PhoneCodeForm'))
+  yield* handlePhoneValidation({ data: { mobilePhone } })
+}
+
+function* checkPhoneOnCodeValidation() {
+  const phone = yield select(fromUser.getMobilePhone)
+
+  if (phone === '') {
+    yield put(push('validation/phone'))
+  }
+}
+
 export default function* () {
   yield [
+    takeLatest(USER_CHECK_PHONE_ON_CODE, checkPhoneOnCodeValidation),
     takeLatest(USER_CREATE.REQUEST, handleCreateUserRequest),
     takeLatest(USER_DETAILS.REQUEST, handleGetUserRequest),
     takeLatest(USER_UPDATE.REQUEST, handleUpdateUserRequest),
     takeLatest(USER_UPDATE_PASSWORD.REQUEST, handleUpdatePasswordRequest),
     takeLatest(USER_FORGOT_PASSWORD.REQUEST, handleNewPasswordRequest),
+    takeLatest(USER_VALIDATE_PHONE.REQUEST, handlePhoneValidation),
+    takeLatest(USER_VALIDATE_PHONE_AGAIN, handlePhoneValidationAgain),
+    takeLatest(USER_VALIDATE_PHONE_CODE.REQUEST, handlePhoneCodeValidation),
   ]
 }

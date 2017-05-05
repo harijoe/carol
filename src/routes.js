@@ -13,6 +13,8 @@ import {
   HomePage,
   LoginPage,
   MessagePage,
+  PhoneValidationPage,
+  PhoneCodeValidationPage,
   ProjectElaborationPage,
   ProfilePage,
   ProjectListPage,
@@ -36,6 +38,10 @@ const routes = (
     <Route path="profile" component={requiresAuth(ProfilePage)} />
     <Route path="projects" component={requiresAuth(ProjectListPage)} />
     <Route path="projects/:projectId" component={requiresAuth(ProjectPage)} />
+    {/* <Route path="projects/:projectId/validation/phone" component={requiresAuth(PhoneValidationPage)} /> */}
+    {/* <Route path="projects/:projectId/validation/phone/code" component={requiresAuth(PhoneCodeValidationPage)} /> */}
+    <Route path="validation/phone" component={requiresAuth(PhoneValidationPage)} />
+    <Route path="validation/phone/code" component={requiresAuth(PhoneCodeValidationPage)} />
     <Route path="project-elaboration" component={ProjectElaborationPage} />
     <Route path="project-prevalidate/:chatbotStorageId" component={requiresAuth(ProjectPreValidatePage)} />
     <Route path="reset-password" component={ResetPasswordPage} />

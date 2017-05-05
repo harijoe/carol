@@ -8,9 +8,11 @@ const headers = {}
 api.request = (endpoint, method, settings, body) => {
   const url = (endpoint.indexOf(config.api.url) === -1) ? config.api.url + endpoint : endpoint
 
+  // @TODO 500 errors are not handled correctly — they throw a generic message instead of a specific one
   return fetch(url, api.init(method, settings, body))
     .then(api.checkStatus)
-    .catch(error => Promise.reject(error))
+    .then(api.checkErrors)
+    .catch(error => Promise.reject(new HTTPError(error.message)))
 }
 
 api.init = (method = 'GET', settings = {}, body = null) => {
@@ -39,6 +41,14 @@ api.checkStatus = (response) => {
     .then((err) => {
       throw new HTTPError(err.violations || err.error_description || err.message)
     })
+}
+
+api.checkErrors = (response) => {
+  if (response.hasErrors) {
+    throw new HTTPError(response.body.message)
+  }
+
+  return response
 }
 
 ;['delete', 'get', 'head'].forEach((method) => {

@@ -11,6 +11,8 @@ const en = {
   fixing: 'Fixing',
   'Invalid username and password combination': 'Invalid username and password combination',
   'Missing parameters. "username" and "password" required': 'Missing parameters. "username" and "password" required',
+  'Phone number is invalid': 'Phone number is invalid',
+  'Verification code is incorrect': 'The validation code is invalid',
 
   'country.france': 'France',
   'country.spain': 'Spain',
@@ -135,6 +137,11 @@ const en = {
   'user.forgot_password.description': 'Please enter your e-mail address below to reset your password.',
   'user.account_updated': 'Your account has been updated',
   'user.coming_back': 'Coming back?',
+  'user.code': 'Confirmation code',
+  'user.new_sms_sent': 'A new sms has been sent',
+  'user.phone_already_verified': 'Your phone number has already been verified',
+  'user.send_sms_again': 'Send sms again',
+  'user.change_phone_number': 'Change my phone number',
 
   'validators.required_field': 'Required field',
   'validators.min_length': 'Must be at least {min} characters',

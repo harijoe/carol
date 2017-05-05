@@ -6,6 +6,10 @@ export const USER_UPDATE = createRequestTypes('USER_UPDATE')
 export const USER_FORGOT_PASSWORD = createRequestTypes('USER_FORGOT_PASSWORD')
 export const USER_UPDATE_PASSWORD = createRequestTypes('USER_UPDATE_PASSWORD')
 export const USER_RESET = 'USER_RESET'
+export const USER_VALIDATE_PHONE = createRequestTypes('USER_VALIDATE_PHONE')
+export const USER_VALIDATE_PHONE_AGAIN = 'USER_VALIDATE_PHONE_AGAIN'
+export const USER_VALIDATE_PHONE_CODE = createRequestTypes('USER_VALIDATE_PHONE_CODE')
+export const USER_CHECK_PHONE_ON_CODE = 'USER_CHECK_PHONE_ON_CODE'
 
 export const userCreate = {
   request: data => (actionTypes(USER_CREATE.REQUEST, { data })),
@@ -38,3 +42,18 @@ export const resetPassword = {
 }
 
 export const resetUser = () => (actionTypes(USER_RESET))
+export const validatePhoneAgain = () => (actionTypes(USER_VALIDATE_PHONE_AGAIN))
+
+export const validatePhone = {
+  request: data => (actionTypes(USER_VALIDATE_PHONE.REQUEST, { data })),
+  success: payload => (actionTypes(USER_VALIDATE_PHONE.SUCCESS, { payload })),
+  failure: error => (actionTypes(USER_VALIDATE_PHONE.FAILURE, { error })),
+}
+
+export const validatePhoneCode = {
+  request: data => (actionTypes(USER_VALIDATE_PHONE_CODE.REQUEST, { data })),
+  success: payload => (actionTypes(USER_VALIDATE_PHONE_CODE.SUCCESS, { payload })),
+  failure: error => (actionTypes(USER_VALIDATE_PHONE_CODE.FAILURE, { error })),
+}
+
+export const checkPhoneOnCode = () => (actionTypes(USER_CHECK_PHONE_ON_CODE))

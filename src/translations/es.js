@@ -11,6 +11,8 @@ const es = {
   fixing: 'Réparation Es',
   'Invalid username and password combination': 'Invalid username and password combination ES',
   'Missing parameters. "username" and "password" required': 'Missing parameters. "username" and "password" required ES',
+  'Phone number is invalid': 'Phone number is invalid ES',
+  'Verification code is incorrect': 'The validation code is invalid ES',
 
   'country.france': 'Francia',
   'country.spain': 'España',
@@ -135,6 +137,11 @@ const es = {
   'user.forgot_password.description': 'Introduzca su dirección de correo electrónico para restablecer su contraseña.',
   'user.account_updated': 'Account Updated ES',
   'user.coming_back': 'Coming back? ES',
+  'user.code': 'Code de confirmation ES',
+  'user.new_sms_sent': 'Un nouveau SMS a été envoyé ES',
+  'user.phone_already_verified': 'Votre numéro de téléphone est déjà vérifié ES',
+  'user.send_sms_again': 'Envoyer à nouveau le sms ES',
+  'user.change_phone_number': 'Change my phone number ES',
 
   'validators.required_field': 'Required field ES',
   'validators.min_length': 'Must be at least {min} characters ES',

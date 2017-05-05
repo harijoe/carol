@@ -1,4 +1,4 @@
-import { USER_DETAILS, USER_UPDATE, USER_RESET } from './actions'
+import { USER_DETAILS, USER_UPDATE, USER_RESET, USER_VALIDATE_PHONE_CODE } from './actions'
 import { initialState } from './selectors'
 
 export default function userReducer(state = initialState, action) {
@@ -11,6 +11,11 @@ export default function userReducer(state = initialState, action) {
         ...state,
         ...payload,
         imageUrl: payload.imageUrl || '',
+      }
+    case USER_VALIDATE_PHONE_CODE.SUCCESS:
+      return {
+        ...state,
+        mobilePhoneVerified: true,
       }
     case USER_RESET:
       return {

@@ -1,5 +1,9 @@
-const getFormErrors = errors => (
-  errors.reduce((acc, { propertyPath, message }) => {
+const getFormErrors = (errors) => {
+  if (!Array.isArray(errors)) {
+    return null
+  }
+
+  return errors.reduce((acc, { propertyPath, message }) => {
     const newAcc = acc
 
     newAcc[propertyPath] = {
@@ -8,6 +12,6 @@ const getFormErrors = errors => (
 
     return newAcc
   }, {})
-)
+}
 
 export default getFormErrors

@@ -160,13 +160,13 @@ class Form extends Component {
 
     const SubMenuReset = () => (
       <PopinMenuButton onClick={() => submit({ response: 'new_project.reset' })}>
-        <FormattedMessage id="project.elaboration.reset" tagName="span" />
+        <FormattedMessage id="project.elaboration.reset" />
       </PopinMenuButton>
     )
 
     const SubMenuHelp = () => (
       <PopinMenuLink to="help">
-        <FormattedMessage id="help" tagName="span" />
+        <FormattedMessage id="help" />
       </PopinMenuLink>
     )
 
@@ -174,7 +174,7 @@ class Form extends Component {
       <StyledForm onSubmit={handleSubmit(submit)}>
         <BackButton type="button" onClick={() => submit({ response: 'new_project.back' })}>
           <BackIcon icon="back" />
-          <FormattedMessage id="project.elaboration.back" tagName="span" />
+          <FormattedMessage id="project.elaboration.back" />
         </BackButton>
         <BottomBar>
           <PopinMenu menu={[<SubMenuReset />, <SubMenuHelp />]}>
@@ -192,7 +192,7 @@ class Form extends Component {
           />
           <SubmitButton disabled={pristine || submitting} type="submit">
             <SubmitIcon icon="send" />
-            <FormattedMessage id="project.elaboration.submit" tagName="span" />
+            <FormattedMessage id="project.elaboration.submit" />
           </SubmitButton>
         </BottomBar>
       </StyledForm>

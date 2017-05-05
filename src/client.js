@@ -18,14 +18,15 @@ import routes from 'routes'
 const initialState = window.__INITIAL_STATE__
 const baseHistory = useRouterHistory(createHistory)({ basename })
 const store = configureStore(initialState, baseHistory)
+
+store.runSaga(sagas)
+
 const history = syncHistoryWithStore(baseHistory, store)
 const root = document.getElementById('app')
 
 history.listen(() => {
   anchorate()
 })
-
-store.runSaga(sagas)
 
 const renderApp = () => (
   <AppContainer>

@@ -95,8 +95,8 @@ class ProfileForm extends Component {
         <div>
           <span><FormattedMessage id="user.gender" tagName="div" /></span>
           <div>
-            <Label htmlFor="mr"><Field name="gender" component="input" type="radio" value="Mr" /><FormattedMessage id="user.mr" tagName="span" /></Label>
-            <Label htmlFor="mrs"><Field name="gender" component="input" type="radio" value="Mrs" /><FormattedMessage id="user.mrs" tagName="span" /></Label>
+            <Label htmlFor="mr"><Field name="gender" component="input" type="radio" value="Mr" /><FormattedMessage id="user.mr" /></Label>
+            <Label htmlFor="mrs"><Field name="gender" component="input" type="radio" value="Mrs" /><FormattedMessage id="user.mrs" /></Label>
           </div>
         </div>
         <Field
@@ -175,7 +175,7 @@ class ProfileForm extends Component {
           placeholder={formatMessage(messages('user.newsletter_subscription').label)}
         />
         <Button type="submit" disabled={submitting}>
-          <FormattedMessage id="user.update" tagName="span" />
+          <FormattedMessage id="user.update" />
         </Button>
       </Form>
     )
