@@ -18,6 +18,8 @@ function* fetchUsingCache(method, url, settings, data) {
   const cachedResponse = getCacheStorage()[method + url]
 
   if (cachedResponse != null) {
+    console.info(`  response from cache — size: ${cachedResponse.toString().length}`)
+
     return cachedResponse
   }
 

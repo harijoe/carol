@@ -11,6 +11,7 @@ import configureStore from 'store/configure'
 import sagas from 'store/sagas'
 import { anchorate } from 'anchorate'
 import { setSSR } from 'store/actions'
+import { list as sagaList } from 'sagas/ssr/collector'
 
 import routes from 'routes'
 
@@ -56,14 +57,25 @@ injectTapEventPlugin()
    3 - The client dispatches a setSSR(false)
           Consequence :
             * All the ssr non-compatible components are switched on, components are already mounted so no saga is triggered
-   4 - Page is ready :-)
+   4 - The sagas stored by the client during mounting are eventually played
+            * This is to make sure the components are rendered, even in the case where the SSR fails
+   5 - Page is ready :-)
 
    Examples of ssr non-compatible components :
       * SlickCarousel (with responsive prop set)
       * MotionMenu
       * NotificationsSystem
  */
-render(renderApp(), root, () => store.dispatch(setSSR(false)))
+function* initSaga(forks) {
+  const tasks = yield forks
+
+  yield tasks
+}
+
+render(renderApp(), root, () => {
+  store.dispatch(setSSR(false))
+  store.runSaga(initSaga, sagaList())
+})
 
 if (module.hot) {
   module.hot.accept('routes', () => {
