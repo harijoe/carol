@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
-import { theme, breakpoint, ifThen, mapBreakpoints } from 'utils/style'
+import { theme, breakpoint, ifThen, mapBreakpoints, breakpointMax } from 'utils/style'
 
 const styles = ({ reverse, column, start, center, end, top, middle, bottom, around, between, first, last }) => css`
   display: flex;
@@ -47,6 +47,10 @@ const styles = ({ reverse, column, start, center, end, top, middle, bottom, arou
   ${ifThen(last, breakpoint(last)`
     order: 1;
   `)}
+  ${breakpointMax('m')`
+    margin: 0;
+    padding: 0;
+  `}
 `
 
 const Row = styled.div`${styles}`

@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 import { theme, ifThen, breakpoint } from 'utils/style'
 
-import { Label, Input, Block, Icon } from 'components'
+import { Label, Input, Block, IconLink } from 'components'
 
 const Error = styled(Block)`
   margin: 0.5rem 0 0;
@@ -12,8 +12,8 @@ const Error = styled(Block)`
   color: ${theme('colors.danger')};
 `
 
-const Wrapper = styled.div`
-  margin-bottom: 1rem;
+const Wrapper = styled.div`${({ hideBorder }) => css`
+  margin-bottom: 2rem;
   input[type="checkbox"],
   input[type="radio"] {
     margin-right: 0.5rem;
@@ -21,34 +21,40 @@ const Wrapper = styled.div`
   label {
     vertical-align: middle;
   }
-  border-bottom: 1px solid ${theme('colors.grayscale.medium')};
+  ${ifThen(hideBorder, '', css`
+    border-bottom: 1px solid ${theme('colors.grayscale.light')};
+  `)};
   padding-bottom: 5px;
   
   ${breakpoint('m')`
     max-width: ${theme('ui.size.m')};
   `}
-`
+`}`
 
 const StyledInput = styled(Input)`
   display: inline-block;
   width: 90%;
 `
 
-const StyledIcon = styled(Icon)`
+const StyledIconLink = styled(IconLink)`
   display: inline-block;
   width: 9%;
 `
 
 const StyledLabel = styled(Label)`${({ hideLabel }) => css`
   visibility: ${ifThen(hideLabel, 'hidden', 'visible')};
+  font-family: ${theme('fonts.family.montserratLight')};
+  font-size: 1.4rem;
+  line-height: 1rem;
+  color: ${theme('colors.grayscale.dark')};
 `}`
 
-const Field = ({ error, name, invalid, label, hideLabel, type, icon, ...props }) => {
+const Field = ({ error, name, invalid, label, hideLabel, hideBorder, onIconClick, type, icon, ...props }) => {
   const inputProps = { id: name, name, type, invalid, 'aria-describedby': `${name}Error`, ...props }
   const renderInputFirst = type === 'checkbox' || type === 'radio'
 
   return (
-    <Wrapper>
+    <Wrapper {...{ hideBorder }}>
       {renderInputFirst && <Input {...inputProps} />}
       {label &&
         <StyledLabel hideLabel={hideLabel} htmlFor={inputProps.id}>{label}</StyledLabel>
@@ -57,7 +63,7 @@ const Field = ({ error, name, invalid, label, hideLabel, type, icon, ...props })
         <StyledInput {...inputProps} />
       }
       {icon &&
-        <StyledIcon icon={icon} />
+        <StyledIconLink onClick={onIconClick} {...{ icon }} />
       }
       {invalid && error &&
         <Error id={`${name}Error`} role="alert" color="danger" transparent>
@@ -79,6 +85,8 @@ Field.propTypes = {
   type: PropTypes.string,
   icon: PropTypes.string,
   hideLabel: PropTypes.bool,
+  hideBorder: PropTypes.bool,
+  onIconClick: PropTypes.func,
 }
 
 Field.defaultProps = {

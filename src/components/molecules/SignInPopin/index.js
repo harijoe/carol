@@ -9,31 +9,6 @@ const StyledSignInForm = styled(SignInForm)`
   margin: auto;
   margin-top: 10px;
 
-  .social {
-    width: calc(100% - 10px);
-    border: none;
-    box-shadow: 0 0 10px 0 rgba(19, 19, 19, 0.15);
-    margin: 5px;
-    padding: 15px;
-
-    &.facebook {
-      background: #3a5a97;
-      color: ${theme('colors.white')};
-    }
-
-    .fa-facebook::before {
-      content: "";
-    }
-
-    &.google {
-      background: ${theme('colors.white')};
-    }
-  }
-
-  form .social {
-    text-align: center;
-  }
-
   .footer {
     text-align: center;
     background: ${theme('colors.grey')};
