@@ -9,15 +9,10 @@ import refreshToken from '../refreshToken'
   Tries to use cached responses during ssr
  */
 function* fetchUsingCache(method, url, settings, data) {
-  const ssr = yield select(fromContext.isSSR)
-
-  if (!ssr) {
-    return yield call(api[method], url, settings, data)
-  }
-
   const cachedResponse = getCacheStorage()[method + url]
 
   if (cachedResponse != null) {
+    // @TODO: To remove before production
     console.info(`  response from cache — size: ${cachedResponse.toString().length}`)
 
     return cachedResponse
@@ -30,13 +25,21 @@ function* fetchUsingCache(method, url, settings, data) {
   return response
 }
 
-export function* fetchWithoutRefreshingToken(actions, method, url, settings = {}, data = null, actionParams = null) {
+export function* fetchWithoutRefreshingToken(actions, method, url, settings = {}, data = null, actionParams = null, allowCaching = true) {
   const lang = yield select(fromContext.getLocale)
   const accessToken = yield select(fromAuth.getAccessToken)
 
   try {
-    console.info('fetching — ', url)
-    const response = yield* fetchUsingCache(method, url, { ...settings, lang, accessToken }, data)
+    // @TODO: To remove before production
+    console.info('fetching — ', url, ' — with token — ', accessToken)
+    let response
+    const ssr = yield select(fromContext.isSSR)
+
+    if (!ssr || !allowCaching) {
+      response = yield call(api[method], url, settings, data)
+    } else {
+      response = yield* fetchUsingCache(method, url, { ...settings, lang, accessToken }, data)
+    }
 
     yield put(actions.success(response, actionParams))
   } catch (e) {

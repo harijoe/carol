@@ -44,7 +44,7 @@ export function* handleAuthLoginRequest({ grantType = 'client_credentials', form
 
     const url = `/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api.clientSecret}&grant_type=${grantType}${credentials}`
 
-    yield* fetchWithoutRefreshingToken(authLogin(grantType), 'get', url)
+    yield* fetchWithoutRefreshingToken(authLogin(grantType), 'get', url, {}, null, null, false)
 
     yield* saveToken(grantType)
 
@@ -54,8 +54,6 @@ export function* handleAuthLoginRequest({ grantType = 'client_credentials', form
       // eslint-disable-next-line no-underscore-dangle
       yield put(stopSubmit(formName, { _error: e._error }))
     }
-
-    console.error(e)
 
     return false
   }

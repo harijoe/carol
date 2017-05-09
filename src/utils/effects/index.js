@@ -11,6 +11,7 @@ export const takeEvery = function* takeEvery(pattern, saga, ...args) {
           yield* saga(action)
         } catch (e) {
           console.error('A saga threw an exception')
+          // @TODO: To remove before production
           console.error(e)
         }
       }
@@ -35,6 +36,7 @@ export const takeLatest = function* takeLatest(pattern, saga, ...args) {
           yield* saga(action)
         } catch (e) {
           console.error('A saga threw an exception')
+          // @TODO: To remove before production
           console.error(e)
         }
       }

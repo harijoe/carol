@@ -14,7 +14,7 @@ it('handles AUTH_SUCCESS', () => {
     ...initialState,
     authenticated: true,
     accessToken: '123test',
-    expiresIn: 6000,
+    expiresIn: 6000000,
   })
 })
 

@@ -12,10 +12,12 @@ export default (store, req) => {
   const lang = getLangFromLocale(locale)
   const country = getCountryFromLocale(locale)
 
+  // Handle cache purge
   if (req.method === 'PURGE' && req.headers.authorization === `Bearer ${config.purgeCacheToken}`) {
     resetCache()
   }
 
+  // Set lang and country
   store.dispatch(setLang(lang))
   store.dispatch(setCountry(country))
 

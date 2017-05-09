@@ -11,7 +11,7 @@ export default (state = initialState, action) => {
         ...state,
         authenticated: isAuthenticated(grantType),
         accessToken,
-        expiresIn: expiresIn / 2, // Refresh front token way before back invalidates it, "/ 2" is arbitrary
+        expiresIn: (expiresIn / 2) * 1000, // Refresh front token way before back invalidates it, "/ 2" is arbitrary
       }
     }
     case AUTH_SET_AUTHENTICATED: {
