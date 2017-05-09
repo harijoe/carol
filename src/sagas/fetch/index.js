@@ -48,7 +48,7 @@ export function* fetchWithoutRefreshingToken(actions, method, url, settings = {}
   }
 }
 
-export default function* (actions, payload, method, url, settings = {}, data = null) {
+export default function* (actions, method, url, settings = {}, data = null, actionParams = null) {
   yield* refreshToken()
-  yield* fetchWithoutRefreshingToken(actions, payload, method, url, settings, data)
+  yield* fetchWithoutRefreshingToken(actions, method, url, settings, data, actionParams)
 }

@@ -1,4 +1,4 @@
-import { PROJECT_SUBMIT, PROJECT_LIST, PROJECT_DETAILS } from './actions'
+import { PROJECT_SUBMIT, PROJECT_LIST, PROJECT_DETAILS, PROJECT_UPDATE } from './actions'
 import { initialState } from './selectors'
 
 export default (state = initialState, action) => {
@@ -21,12 +21,11 @@ export default (state = initialState, action) => {
         list: action.payload['hydra:member'],
       }
     }
+    case PROJECT_UPDATE.SUCCESS:
     case PROJECT_DETAILS.SUCCESS: {
-      const id = action.payload['@id'].split('/')[2]
-
       return {
         ...state,
-        [id]: action.payload,
+        [action.actionParams.id]: action.payload,
       }
     }
     default: {

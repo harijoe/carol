@@ -20,6 +20,7 @@ import {
   ProjectListPage,
   ProjectPage,
   ProjectSubmitPage,
+  ProjectAccountPage,
   ResetPasswordPage,
   SearchPage,
   SignupPage,
@@ -37,6 +38,7 @@ const routes = (
     <Route path="message" component={requiresAuth(MessagePage)} />
     <Route path="profile" component={requiresAuth(ProfilePage)} />
     <Route path="projects" component={requiresAuth(ProjectListPage)} />
+    <Route path="projects/:projectId/account" component={requiresAuth(ProjectAccountPage)} />
     <Route path="projects/:projectId" component={requiresAuth(ProjectPage)} />
     {/* <Route path="projects/:projectId/validation/phone" component={requiresAuth(PhoneValidationPage)} /> */}
     {/* <Route path="projects/:projectId/validation/phone/code" component={requiresAuth(PhoneCodeValidationPage)} /> */}
