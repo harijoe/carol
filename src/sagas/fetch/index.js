@@ -36,7 +36,7 @@ export function* fetchWithoutRefreshingToken(actions, method, url, settings = {}
     const ssr = yield select(fromContext.isSSR)
 
     if (!ssr || !allowCaching) {
-      response = yield call(api[method], url, settings, data)
+      response = yield call(api[method], url, { ...settings, lang, accessToken }, data)
     } else {
       response = yield* fetchUsingCache(method, url, { ...settings, lang, accessToken }, data)
     }
