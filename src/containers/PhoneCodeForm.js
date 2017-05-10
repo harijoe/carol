@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 import { userDetails, validatePhoneCode, validatePhoneAgain, checkPhoneOnCode } from 'store/actions'
 import { fromUser, fromStatus } from 'store/selectors'
-import { createValidator, required } from 'services/validation'
 
 import { PhoneCodeForm } from 'components'
 
@@ -39,16 +38,11 @@ const resendSMS = (dispatch) => {
   dispatch(validatePhoneAgain())
 }
 
-const validate = createValidator({
-  code: [required],
-})
-
 export const config = {
   form: 'PhoneCodeForm',
   enableReinitialize: true,
   destroyOnUnmount: true,
   onSubmit,
-  validate,
 }
 
 const mapDispatchToProps = dispatch => ({
