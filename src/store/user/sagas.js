@@ -8,7 +8,6 @@ import fetch from 'sagas/fetch'
 import notify from 'sagas/notify'
 import getFormErrors from 'utils/formErrors'
 import { takeLatest } from 'utils/effects'
-import transformPhone from 'utils/transformPhone'
 import {
     USER_CREATE,
     USER_DETAILS,
@@ -77,11 +76,11 @@ function* handleUpdatePasswordRequest({ data, id }) {
   }
 }
 
-function* handlePhoneValidation({ data: { mobilePhone } }) {
+function* handlePhoneValidation({ data }) {
   const id = yield select(fromUser.getId)
 
   try {
-    yield* fetch(validatePhone, 'put', `${id}/mobile_phone`, {}, { mobilePhone: transformPhone(mobilePhone) })
+    yield* fetch(validatePhone, 'put', `${id}/mobile_phone`, {}, data)
     yield put(push('validation/phone/code'))
   } catch (error) {
     if (error instanceof HTTPError) {

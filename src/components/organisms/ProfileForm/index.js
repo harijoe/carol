@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Field } from 'redux-form'
 import styled from 'styled-components'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
+import { normalize, format } from 'utils/transformPhone'
 
 import messages from 'utils/messages'
 import { List, RenderField, Heading, Button, RenderDropzone, Label, RenderDatePicker } from 'components'
@@ -130,6 +131,7 @@ class ProfileForm extends Component {
           component={RenderField}
           label={formatMessage(messages('user.mobile_phone').label)}
           placeholder={formatMessage(messages('user.mobile_phone').label)}
+          {...{ format, normalize }}
         />
         <Field
           name="fixedPhone"

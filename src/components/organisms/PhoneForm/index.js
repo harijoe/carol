@@ -4,6 +4,7 @@ import { Field } from 'redux-form'
 import styled from 'styled-components'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import messages from 'utils/messages'
+import { normalize, format } from 'utils/transformPhone'
 
 import { RenderField, Button } from 'components'
 
@@ -25,6 +26,8 @@ const PhoneForm = (props) => {
         label={formatMessage(messages('user.mobile_phone').label)}
         placeholder={formatMessage(messages('user.mobile_phone').label)}
         disabled={loading || disabled}
+        type="phone"
+        {...{ format, normalize }}
       />
       {error && <FormattedMessage id={error} tagName="strong" />}
       <Button type="submit" {...{ disabled, loading }}>
