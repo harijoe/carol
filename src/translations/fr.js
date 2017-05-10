@@ -13,6 +13,7 @@ const fr = {
   'Missing parameters. "username" and "password" required': 'Missing parameters. "username" and "password" required FR',
   'Phone number is invalid': 'Le numéro de téléphone n\'est pas valide',
   'Verification code is incorrect': 'Le code de vérification est incorrect',
+  'mobile_phone.invalid': 'Le numéro de téléphone n\'est pas valide',
 
   'country.france': 'France',
   'country.spain': 'Espagne',

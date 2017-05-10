@@ -11,7 +11,6 @@ api.request = (endpoint, method, settings, body) => {
   // @TODO 500 errors are not handled correctly — they throw a generic message instead of a specific one
   return fetch(url, api.init(method, settings, body))
     .then(api.checkStatus)
-    .then(api.checkErrors)
     .catch(error => Promise.reject(new HTTPError(error.message)))
 }
 
@@ -39,16 +38,12 @@ api.checkStatus = (response) => {
 
   return response.json()
     .then((err) => {
+      if (err.hasErrors) {
+        throw new HTTPError(err.body.message)
+      }
+
       throw new HTTPError(err.violations || err.error_description || err.message)
     })
-}
-
-api.checkErrors = (response) => {
-  if (response.hasErrors) {
-    throw new HTTPError(response.body.message)
-  }
-
-  return response
 }
 
 ;['delete', 'get', 'head'].forEach((method) => {
