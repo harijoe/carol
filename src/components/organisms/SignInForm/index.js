@@ -54,7 +54,6 @@ Form.displayName = 'Form'
 const StyledLink = styled(Link)`
   display: block;
   margin: 10px 0;
-  color: ${theme('colors.alert')};
   font-weight: bold;
 `
 
@@ -100,9 +99,9 @@ const SignInForm = ({ error, handleSubmit, submitting, intl: { formatMessage }, 
                 icon="pwd-login"
                 label={formatMessage(messages('user.password').label)}
               />
-              <StyledLink kind="black" to="/forgot-password">
+              <Link kind="black" to="/forgot-password">
                 <FormattedMessage id="user.forget_password" />
-              </StyledLink>
+              </Link>
               <Button type="submit" block disabled={submitting}>
                 <FormattedMessage id="user.sign_in" />
               </Button>
@@ -118,7 +117,7 @@ const SignInForm = ({ error, handleSubmit, submitting, intl: { formatMessage }, 
             <FormattedMessage id="user.no_account_question" />
           </StyledParagraph>
           <StyledParagraph>
-            <StyledLink kind="black" to="/signup">
+            <StyledLink highlight kind="black" to="/signup">
               <FormattedMessage id="user.create_account" />
             </StyledLink>
           </StyledParagraph>
@@ -145,12 +144,12 @@ const SignInForm = ({ error, handleSubmit, submitting, intl: { formatMessage }, 
             icon="pwd-login"
             label={formatMessage(messages('user.password').label)}
           />
-          <StyledLink kind="black" to="/forgot-password"><FormattedMessage id="user.forgot_password.heading" /></StyledLink>
+          <Link kind="black" to="/forgot-password"><FormattedMessage id="user.forgot_password.heading" /></Link>
           <Button type="submit" block disabled={submitting}><FormattedMessage id="user.sign_in" /></Button>
         </Form>
         <div className="footer">
           <FormattedMessage id="user.no_account_question" />
-          <StyledLink kind="black" to="/signup"><FormattedMessage id="user.create_account" /></StyledLink>
+          <StyledLink highlight kind="black" to="/signup"><FormattedMessage id="user.create_account" /></StyledLink>
         </div>
       </div>
     }
