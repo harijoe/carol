@@ -19,6 +19,10 @@ const Form = styled.form`
   ${breakpoint('m')`
     width: 50%;
   `}
+  
+  strong {
+    color: red;
+  }
 `
 
 const StyledButton = styled(Button)`
@@ -32,13 +36,13 @@ const ForgotPasswordForm = ({ error, handleSubmit, submitting, intl: { formatMes
   >
     <Form onSubmit={handleSubmit}>
       <Field name="_csrf" type="hidden" component="input" />
-      {error && <FormattedMessage id={error} tagName="strong" />}
       <AnimatedLabelField
         name="email"
         type="email"
         icon="mail-login"
         label={formatMessage(messages('user.email').label)}
       />
+      {error && <FormattedMessage id={error} tagName="strong" />}
       <StyledButton type="submit" disabled={submitting}><FormattedMessage id="user.send" /></StyledButton>
     </Form>
   </CarouselPageTemplate>

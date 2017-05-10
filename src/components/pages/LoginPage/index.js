@@ -9,7 +9,7 @@ const LoginPage = (props) => {
 
   return (
     <MainLayout {...props}>
-      <SignInForm {...props} initialValues={{ email }} form="SignInFormLoginPage" />
+      <SignInForm {...props} initialValues={{ email }} carousel form="SignInFormLoginPage" />
     </MainLayout>
   )
 }

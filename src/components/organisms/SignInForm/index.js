@@ -8,6 +8,7 @@ import { theme, breakpointMax } from 'utils/style'
 import {
   CarouselPageTemplate,
   AnimatedLabelField,
+  Heading,
   Button,
   Link,
   FacebookLogin,
@@ -76,12 +77,60 @@ const StyledParagraph = styled(Paragraph)`
   margin: 0;
 `
 
-const SignInForm = ({ error, handleSubmit, submitting, intl: { formatMessage } }) => (
-  <CarouselPageTemplate
-    heading={formatMessage(messages('login.coming_back').label)}
-  >
-    <StyledRow>
-      <LeftColumn m={6} s={12}>
+const SignInForm = ({ error, handleSubmit, submitting, intl: { formatMessage }, className, carousel }) => (
+  <div>
+    {
+      carousel &&
+      <CarouselPageTemplate
+        heading={formatMessage(messages('login.coming_back').label)}
+      >
+        <StyledRow>
+          <LeftColumn m={6} s={12}>
+            <Form onSubmit={handleSubmit}>
+              {error && <FormattedMessage id={error} tagName="strong" />}
+              <AnimatedLabelField
+                name="email"
+                type="email"
+                icon="mail-login"
+                label={formatMessage(messages('user.email').label)}
+              />
+              <AnimatedLabelField
+                name="password"
+                type="password"
+                icon="pwd-login"
+                label={formatMessage(messages('user.password').label)}
+              />
+              <StyledLink kind="black" to="/forgot-password">
+                <FormattedMessage id="user.forget_password" />
+              </StyledLink>
+              <Button type="submit" block disabled={submitting}>
+                <FormattedMessage id="user.sign_in" />
+              </Button>
+            </Form>
+          </LeftColumn>
+          <RightColumn m={6} s={12}>
+            <FacebookLogin />
+            <GoogleLogin />
+          </RightColumn>
+        </StyledRow>
+        <Footer>
+          <StyledParagraph>
+            <FormattedMessage id="user.no_account_question" />
+          </StyledParagraph>
+          <StyledParagraph>
+            <StyledLink kind="black" to="/signup">
+              <FormattedMessage id="user.create_account" />
+            </StyledLink>
+          </StyledParagraph>
+        </Footer>
+      </CarouselPageTemplate>
+    }
+    {
+      !carousel &&
+      <div className={className}>
+        <Heading level={2}><FormattedMessage id="login.coming_back" /></Heading>
+        <FacebookLogin />
+        <GoogleLogin />
         <Form onSubmit={handleSubmit}>
           {error && <FormattedMessage id={error} tagName="strong" />}
           <AnimatedLabelField
@@ -96,35 +145,23 @@ const SignInForm = ({ error, handleSubmit, submitting, intl: { formatMessage } }
             icon="pwd-login"
             label={formatMessage(messages('user.password').label)}
           />
-          <StyledLink kind="black" to="/forgot-password">
-            <FormattedMessage id="user.forget_password" />
-          </StyledLink>
-          <Button type="submit" block disabled={submitting}>
-            <FormattedMessage id="user.sign_in" />
-          </Button>
+          <StyledLink kind="black" to="/forgot-password"><FormattedMessage id="user.forgot_password.heading" /></StyledLink>
+          <Button type="submit" block disabled={submitting}><FormattedMessage id="user.sign_in" /></Button>
         </Form>
-      </LeftColumn>
-      <RightColumn m={6} s={12}>
-        <FacebookLogin />
-        <GoogleLogin />
-      </RightColumn>
-    </StyledRow>
-    <Footer>
-      <StyledParagraph>
-        <FormattedMessage id="user.no_account_question" />
-      </StyledParagraph>
-      <StyledParagraph>
-        <StyledLink kind="black" to="/signup">
-          <FormattedMessage id="user.create_account" />
-        </StyledLink>
-      </StyledParagraph>
-    </Footer>
-  </CarouselPageTemplate>
+        <div className="footer">
+          <FormattedMessage id="user.no_account_question" />
+          <StyledLink kind="black" to="/signup"><FormattedMessage id="user.create_account" /></StyledLink>
+        </div>
+      </div>
+    }
+  </div>
 )
 
 SignInForm.propTypes = {
   handleSubmit: PropTypes.func,
   submitting: PropTypes.bool,
+  className: PropTypes.string,
+  carousel: PropTypes.bool,
   error: PropTypes.string,
   intl: intlShape.isRequired,
 }

@@ -172,7 +172,7 @@ const fr = {
   'validators.must_be_one_of': 'Doit être parmis les valeurs suivantes {values}',
   'validators.user.invalid_email': 'Adresse email non valide',
   'validators.user.invalid_url': 'Url non valide',
-  'validators.user.already_exist': 'Cette utilisateur existe déjà',
+  'validators.user.already_exist': 'Cet utilisateur existe déjà',
   'validators.user.postalCode.not_blank': 'Le champ "Code postal" ne doit pas être vide',
   'validators.user.mobilePhone.not_blank': 'Field "Mobile phone" has not to be blank FR',
   'validators.user.lastName.not_blank': 'Field "Last name" has not to be blank FR',

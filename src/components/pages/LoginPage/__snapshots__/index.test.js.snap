@@ -8,6 +8,7 @@ ShallowWrapper {
   "length": 1,
   "node": <Mock>
     <Mock
+        carousel={true}
         form="SignInFormLoginPage"
         initialValues={
             Object {
@@ -18,6 +19,7 @@ ShallowWrapper {
   "nodes": Array [
     <Mock>
       <Mock
+            carousel={true}
             form="SignInFormLoginPage"
             initialValues={
                   Object {
@@ -62,6 +64,7 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Mock>
           <Mock
+                    carousel={true}
                     form="SignInFormLoginPage"
                     initialValues={
                               Object {
@@ -72,6 +75,7 @@ ShallowWrapper {
         "_debugID": 2,
         "_renderedOutput": <Mock>
           <Mock
+                    carousel={true}
                     form="SignInFormLoginPage"
                     initialValues={
                               Object {

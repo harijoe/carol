@@ -7,25 +7,24 @@ import { SignInForm, Popin } from 'containers'
 
 const StyledSignInForm = styled(SignInForm)`
   margin: auto;
-  margin-top: 10px;
+  margin-top: 40px;
 
   .footer {
     text-align: center;
     background: ${theme('colors.grey')};
     padding: 15px;
+    width: 100%;
     height: 20%;
-    margin: -15px;
+    margin: -16px;
     position: absolute;
     bottom: 0;
-    width: calc(100% + 50px);
-    margin-left: -25px;
-    margin-bottom: -25px;
 
     ${breakpoint('m')`
       position: static;
     `}
 
     ${breakpoint('l')`
+      margin-top: 40px;
       margin-left: -50px;
       margin-bottom: -50px;
       width: calc(100% + 100px);
