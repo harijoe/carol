@@ -54,7 +54,7 @@ const fr = {
   'firm.details.served_area_cities': 'Served Area Postal Codes FR',
   'firm.details.city_code': 'Code Insee',
 
-  'project.validation_page': 'Page Validation FR',
+  'project.validation_page': 'Valider mon projet',
   'project.submit_button': 'OK',
   'project.submit_success_title': 'Félicitation!',
   'project.submit_failed_title': 'Oups!',
@@ -75,8 +75,8 @@ const fr = {
   'project.validate_link': 'Valider',
   'project.transmitted_to_firms': 'Votre projet à été transmis à',
   'project.question': 'Question & Réponse',
-  'project.purpose': 'Purpose of the request FR',
-  'project.startTimeframe': 'Project start timeframe FR',
+  'project.purpose': 'Votre besoin',
+  'project.startTimeframe': 'Début de votre projet',
   'project.startTimeframe.now': 'Maintenant',
   'project.startTimeframe.1_to_3_months': '1 à 3 mois',
   'project.startTimeframe.3_to_6_months': '3 à 6 mois',
@@ -90,9 +90,9 @@ const fr = {
   'project.elaboration.reset': 'Recommencer',
   'project.elaboration.back': 'Retour',
   'project.elaboration.choose_conversation': 'Choose a conversation FR',
-  'project.elaboration.summary.validate': 'Validate your request FR',
+  'project.elaboration.summary.validate': 'Valider ma demande',
   'project.elaboration.summary.title': 'Vous trouverez ci-joint le résumé de votre demande de projet.',
-  'project.elaboration.project_prevalidation.success': 'The project %name% was created FR',
+  'project.elaboration.project_prevalidation.success': 'Le projet %name% a été créé',
 
   'user.gender': 'Sexe',
   'user.forget_password': 'Mot de passe oublié ?',
@@ -142,11 +142,11 @@ const fr = {
   'user.continue_with_facebook': 'Continuer avec Facebook',
   'user.continue_with_google': 'Continuer avec Google',
   'user.newsletter_subscription': 'Je souhaite être tenu informé des actualités sur Quotatis et ses partenaires.',
-  'user.profile_info': 'Profile infos FR',
-  'user.contact_info': 'Contact infos FR',
-  'user.social_network': 'Social Networks Parameters FR',
-  'user.choose_img': 'Choississez une image',
-  'user.drop_img': 'Try dropping some files here, or click to select files to upload. FR',
+  'user.profile_info': 'Vos informations',
+  'user.contact_info': 'Contact',
+  'user.social_network': 'Réseaux sociaux',
+  'user.choose_img': 'Choisir une image',
+  'user.drop_img': 'Déposer mon fichiers ici ou selectioner un fichier',
   'user.forgot_password.heading': 'Un oubli de mot de passe ?',
   'user.forgot_password.description': 'Renseignez votre adresse e-mail ci-dessous pour réinitialiser votre mot de passe.',
   'user.account_updated': 'Votre compte à été mise à jour',
@@ -182,8 +182,8 @@ const fr = {
   'validators.user.password.not_blank': 'Field "Password" has not to be blank FR',
   'validators.user.mobilePhone.invalid_type': 'Field "Mobile phone" is not valid FR',
   'validators.user.fixedPhone.invalid_type': 'Field "Fixe phone" is not valid FR',
-  'validators.forgot_password.unexpired_token': 'Une demande de réinitialisation de mot de passe est est en cours.',
-  'validators.forgot_password.user_not_found': 'User not found FR',
+  'validators.forgot_password.unexpired_token': 'Une demande de réinitialisation de mot de passe est en cours.',
+  'validators.forgot_password.user_not_found': 'Aucun compte ne correspond à cet email',
 
   'how_it_works.section_title': 'Comment ça marche',
   'how_it_works.describe_project.title': 'Décrivez votre projet',
@@ -236,10 +236,10 @@ const fr = {
   'testimonials.section_title': 'Témoignages',
   'testimonials.read_it': 'Lire le témoignage ➔',
 
-  'tips_and_tricks.call_to_action': 'Tous nos conseils & astuces FR',
-  'tips_and_tricks.section_title': 'Conseils & astuces FR',
+  'tips_and_tricks.call_to_action': 'Tous nos conseils & astuces',
+  'tips_and_tricks.section_title': 'Conseils & astuces',
 
-  'last_projects.section_title': 'Derniers projets FR',
+  'last_projects.section_title': 'Derniers projets réalisés',
 }
 
 export default fr
