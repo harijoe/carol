@@ -1,16 +1,51 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Field } from 'redux-form'
 import styled from 'styled-components'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import messages from 'utils/messages'
+import { theme, breakpointMax } from 'utils/style'
 
-import { RenderField, Button, Link, FacebookLogin, GoogleLogin, Heading } from 'components'
+import {
+  CarouselPageTemplate,
+  AnimatedLabelField,
+  Button,
+  Link,
+  FacebookLogin,
+  GoogleLogin,
+  Paragraph,
+  Row,
+  Col,
+} from 'components'
+
+const StyledRow = styled(Row)`
+  padding-right: 20px;
+`
+
+const LeftColumn = styled(Col)`
+  border-right: 1px solid ${theme('colors.grayscale.light')};
+  
+  ${breakpointMax('m')`
+    width: 100%;
+    border-right: none;
+  `}
+`
+
+const RightColumn = styled(Col)`
+  ${breakpointMax('m')`
+    width:  100%;
+    border-top: 1px solid ${theme('colors.grayscale.light')};
+    padding-top: ${theme('spaces.l')};
+    margin: ${theme('spaces.l')} 0;
+  `}
+`
 
 const Form = styled.form`
   width: 100%;
   box-sizing: border-box;
-  padding: 1em;
+  
+  ${breakpointMax('m')`
+    padding: 0;
+  `}
 `
 
 Form.displayName = 'Form'
@@ -18,31 +53,78 @@ Form.displayName = 'Form'
 const StyledLink = styled(Link)`
   display: block;
   margin: 10px 0;
+  color: ${theme('colors.alert')};
+  font-weight: bold;
 `
 
-const SignInForm = ({ error, handleSubmit, submitting, intl: { formatMessage }, className }) => (
-  <div className={className}>
-    <Heading level={2}><FormattedMessage id="login.coming_back" /></Heading>
-    <FacebookLogin />
-    <GoogleLogin />
-    <Form onSubmit={handleSubmit}>
-      {error && <FormattedMessage id={error} tagName="strong" />}
-      <Field name="email" type="text" component={RenderField} label={formatMessage(messages('user.email').label)} />
-      <Field name="password" type="password" component={RenderField} label={formatMessage(messages('user.password').label)} />
-      <StyledLink kind="black" to="/forgot-password"><FormattedMessage id="user.forgot_password.heading" /></StyledLink>
-      <Button type="submit" block disabled={submitting}><FormattedMessage id="user.sign_in" /></Button>
-    </Form>
-    <div className="footer">
-      <FormattedMessage id="user.no_account_question" />
-      <StyledLink kind="black" to="/signup"><FormattedMessage id="user.create_account" /></StyledLink>
-    </div>
-  </div>
+const Footer = styled(Row)`
+  width: 99%;
+  margin-top: ${theme('spaces.xxl')};
+  padding: ${theme('spaces.xl')};
+  border-top: 1px solid ${theme('colors.grayscale.light')};
+  background-color: ${theme('colors.grayscale.lightest')};
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  
+  ${breakpointMax('m')`
+    padding: ${theme('spaces.m')};
+  `}
+`
+
+const StyledParagraph = styled(Paragraph)`
+  margin: 0;
+`
+
+const SignInForm = ({ error, handleSubmit, submitting, intl: { formatMessage } }) => (
+  <CarouselPageTemplate
+    heading={formatMessage(messages('login.coming_back').label)}
+  >
+    <StyledRow>
+      <LeftColumn m={6} s={12}>
+        <Form onSubmit={handleSubmit}>
+          {error && <FormattedMessage id={error} tagName="strong" />}
+          <AnimatedLabelField
+            name="email"
+            type="email"
+            icon="mail-login"
+            label={formatMessage(messages('user.email').label)}
+          />
+          <AnimatedLabelField
+            name="password"
+            type="password"
+            icon="pwd-login"
+            label={formatMessage(messages('user.password').label)}
+          />
+          <StyledLink kind="black" to="/forgot-password">
+            <FormattedMessage id="user.forget_password" />
+          </StyledLink>
+          <Button type="submit" block disabled={submitting}>
+            <FormattedMessage id="user.sign_in" />
+          </Button>
+        </Form>
+      </LeftColumn>
+      <RightColumn m={6} s={12}>
+        <FacebookLogin />
+        <GoogleLogin />
+      </RightColumn>
+    </StyledRow>
+    <Footer>
+      <StyledParagraph>
+        <FormattedMessage id="user.no_account_question" />
+      </StyledParagraph>
+      <StyledParagraph>
+        <StyledLink kind="black" to="/signup">
+          <FormattedMessage id="user.create_account" />
+        </StyledLink>
+      </StyledParagraph>
+    </Footer>
+  </CarouselPageTemplate>
 )
 
 SignInForm.propTypes = {
   handleSubmit: PropTypes.func,
   submitting: PropTypes.bool,
-  className: PropTypes.string,
   error: PropTypes.string,
   intl: intlShape.isRequired,
 }

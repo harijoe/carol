@@ -85,11 +85,6 @@ class SignUpForm extends Component {
         <StyledRow>
           <LeftColumn m={6} s={12}>
             <Form onSubmit={handleSubmit}>
-              <Field
-                name="_csrf"
-                type="hidden"
-                component="input"
-              />
               <AnimatedLabelField
                 name="email"
                 type="email"

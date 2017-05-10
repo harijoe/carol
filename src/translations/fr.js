@@ -95,7 +95,7 @@ const fr = {
 
   'user.gender': 'Sexe',
   'user.forget_password': 'Mot de passe oublié ?',
-  'user.create_account': 'Inscripton',
+  'user.create_account': 'Inscription',
   'user.sign_up': 'S\'inscrire',
   'user.mr': 'Mr',
   'user.mrs': 'Mme',
