@@ -75,7 +75,7 @@ const TipsAndTricks = ({ intl: { formatMessage } }) => (
         <PostList
           scope="latestProjectsResources"
           tags={['api-work-resources']}
-          limit={5}
+          limit={3}
           generateChild={generateChild}
         />
       </StyledRow>
