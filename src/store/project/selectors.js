@@ -15,4 +15,4 @@ const get = (state = initialState, id, field) => {
 
 export const getStartTimeframe = (state = initialState, id) => get(state, id, 'startTimeframe')
 export const getPurpose = (state = initialState, id) => get(state, id, 'purpose')
-export const getProjectId = (state = initialState, id) => get(state, id, '@id')
+export const getProjectPath = (state = initialState, id) => get(state, id, '@id')

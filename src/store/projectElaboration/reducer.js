@@ -131,6 +131,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         projectName: payload.name,
+        projectId: payload.id,
       }
     default:
       return state

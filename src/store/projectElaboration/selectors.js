@@ -26,6 +26,7 @@ export const initialState = {
   activeConversation: [],
   conversations: {},
   projectName: null,
+  projectId: null,
 }
 
 export const getConversation = (state = initialState) => state.activeConversation
@@ -45,3 +46,4 @@ export const getFirstChoices = (state = initialState) => state.hero[1].message.a
 export const getHeroResponse = (state = initialState) => state.hero[1].response
 export const getHero = (state = initialState) => state.hero
 export const getProjectName = (state = initialState) => state.projectName
+export const getProjectId = (state = initialState) => state.projectId

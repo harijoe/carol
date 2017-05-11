@@ -1,7 +1,8 @@
-import { put } from 'redux-saga/effects'
+import { select, put } from 'redux-saga/effects'
 import { stopSubmit } from 'redux-form'
 import notify from 'sagas/notify'
 import { HTTPError } from 'utils/errors'
+import { fromProject, fromUser } from 'store/selectors'
 
 import fetch from 'sagas/fetch'
 import redirectToNextStep from 'sagas/projectAutoValidation'
@@ -39,10 +40,13 @@ export function* handleSubmitProjectRequest() {
   }
 }
 
-function* handleUpdateProjectRequest({ projectData, userData, projectId, userId }) {
+function* handleUpdateProjectRequest({ projectData, userData, projectId }) {
+  const projectPath = yield select(fromProject.getProjectPath, projectId)
+  const userPath = yield select(fromUser.getId)
+
   try {
-    yield* fetch(projectUpdate, 'put', projectId, {}, projectData, { id: projectId })
-    yield* fetch(userUpdate, 'put', userId, {}, userData)
+    yield* fetch(projectUpdate, 'put', projectPath, {}, projectData, { id: projectId })
+    yield* fetch(userUpdate, 'put', userPath, {}, userData)
     yield notify('user.thank_you', 'user.account_updated')
     yield* redirectToNextStep(projectId)
   } catch (error) {

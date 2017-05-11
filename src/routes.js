@@ -40,6 +40,7 @@ const routes = (
     <Route path="projects" component={requiresAuth(ProjectListPage)} />
     <Route path="projects/:projectId/account" component={requiresAuth(ProjectAccountPage)} />
     <Route path="projects/:projectId" component={requiresAuth(ProjectPage)} />
+    <Route path="projects/:projectId/search-firms" component={requiresAuth(FirmListPage)} />
     {/* <Route path="projects/:projectId/validation/phone" component={requiresAuth(PhoneValidationPage)} /> */}
     {/* <Route path="projects/:projectId/validation/phone/code" component={requiresAuth(PhoneCodeValidationPage)} /> */}
     <Route path="validation/phone" component={requiresAuth(PhoneValidationPage)} />
@@ -48,7 +49,6 @@ const routes = (
     <Route path="project-prevalidate/:chatbotStorageId" component={requiresAuth(ProjectPreValidatePage)} />
     <Route path="reset-password" component={ResetPasswordPage} />
     <Route path="search" component={requiresAuth(SearchPage)} />
-    <Route path="search-firm" component={requiresAuth(FirmListPage)} />
     <Route path="signup" component={anonymousOnly(SignupPage)} />
     <Route path="submit-project" component={requiresAuth(ProjectSubmitPage)} />
   </Route>

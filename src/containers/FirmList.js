@@ -9,22 +9,12 @@ import { FirmList } from 'components'
 class FirmListContainer extends Component {
   static propTypes = {
     list: PropTypes.array,
-    filters: PropTypes.shape({
-      homeImprovementId: PropTypes.string,
-      servedAreaCityCode: PropTypes.string,
-    }),
     loading: PropTypes.bool,
     request: PropTypes.func.isRequired,
   }
 
   componentWillMount() {
-    const { homeImprovementId, servedAreaCityCode } = this.props.filters
-    const queryParams = []
-
-    if (homeImprovementId) { queryParams.push(`pro-form-id=${homeImprovementId}`) }
-    if (servedAreaCityCode) { queryParams.push(`served-area-city-code=${servedAreaCityCode}`) }
-
-    this.props.request(queryParams)
+    this.props.request()
   }
 
   render() {
@@ -39,8 +29,8 @@ const mapStateToProps = state => ({
   loading: fromStatus.isLoading(state, FIRM_LIST.prefix),
 })
 
-const mapDispatchToProps = dispatch => ({
-  request: queryParams => dispatch(firmList.request(queryParams)),
+const mapDispatchToProps = (dispatch, { projectId }) => ({
+  request: () => dispatch(firmList.request(projectId)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FirmListContainer)

@@ -109,9 +109,9 @@ function* resetAll() {
 function* preValidate({ chatbotStorageId }) {
   yield* fetch(projectElaborationPreValidate, 'post', `/project-prevalidate/${chatbotStorageId}`)
   const projectName = yield select(fromProjectElaboration.getProjectName)
+  const projectId = yield select(fromProjectElaboration.getProjectId)
 
-  // Todo: retrieve postalCode.id and proForm.id to search firm
-  yield put(push('search-firm'))
+  yield put(push(`/projects/${projectId}/search-firms`))
   yield* notify('user.thank_you', 'project.elaboration.project_prevalidation.success', 'success', {}, { name: projectName })
 }
 

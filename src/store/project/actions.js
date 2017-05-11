@@ -24,12 +24,11 @@ export const projectDetails = {
 }
 
 export const projectUpdate = {
-  request: (projectData, userData, projectId, userId) => (actionTypes(PROJECT_UPDATE.REQUEST, {
+  request: (projectData, userData, projectId) => (actionTypes(PROJECT_UPDATE.REQUEST, {
     projectData,
     userData,
     projectId,
-    userId,
   })),
-  success: payload => (actionTypes(PROJECT_UPDATE.SUCCESS, { payload })),
+  success: (payload, actionParams) => (actionTypes(PROJECT_UPDATE.SUCCESS, { payload, actionParams })),
   failure: error => (actionTypes(PROJECT_UPDATE.FAILURE, { error })),
 }

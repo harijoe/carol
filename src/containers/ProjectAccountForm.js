@@ -28,20 +28,18 @@ class ProjectAccountFormContainer extends Component {
 
 const mapStateToProps = (state, { projectId }) => ({
   initialValues: {
-    userId: fromUser.getId(state),
     gender: fromUser.getGender(state),
     firstName: fromUser.getFirstName(state),
     lastName: fromUser.getLastName(state),
     startTimeframe: fromProject.getStartTimeframe(state, projectId),
     purpose: fromProject.getPurpose(state, projectId),
-    projectId: fromProject.getProjectId(state, projectId),
     contactPreference: fromUser.getContactPreference(state),
     contactComment: fromUser.getContactComment(state),
   },
 })
 
-const onSubmit = (values, dispatch) => {
-  const { gender, firstName, lastName, startTimeframe, purpose, contactPreference, contactComment, userId, projectId } = values
+const onSubmit = (values, dispatch, { projectId }) => {
+  const { gender, firstName, lastName, startTimeframe, purpose, contactPreference, contactComment } = values
 
   dispatch(projectUpdate.request({
     startTimeframe,
@@ -52,7 +50,7 @@ const onSubmit = (values, dispatch) => {
     lastName,
     contactPreference,
     contactComment,
-  }, projectId, userId))
+  }, projectId))
 }
 
 const validate = createValidator({
