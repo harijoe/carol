@@ -53,8 +53,10 @@ Form.displayName = 'Form'
 
 const StyledLink = styled(Link)`
   display: block;
-  margin: 10px 0;
+  width: 80px;
+  margin: 10px auto;
   font-weight: bold;
+  line-height: 1;
 `
 
 const Footer = styled(Row)`
