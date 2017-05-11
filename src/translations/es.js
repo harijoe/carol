@@ -238,6 +238,9 @@ const es = {
   'tips_and_tricks.section_title': 'Conseils & astuces ES',
 
   'last_projects.section_title': 'Derniers projets ES',
+
+  'cookies.message': 'En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour vous proposer des services et des offres adaptés à vos centres d’intérêts. ES',
+  'cookies.more': 'More informations ES',
 }
 
 export default es
