@@ -13,6 +13,6 @@ const get = (state = initialState, id, field) => {
   return projectDetails && projectDetails[field]
 }
 
-export const getStartTimeframe = (state = initialState, id) => get(state, id, 'startTimeframe')
-export const getPurpose = (state = initialState, id) => get(state, id, 'purpose')
+export const getStartTimeframe = (state = initialState, id) => get(state, id, 'startTimeframe') || 'now'
+export const getPurpose = (state = initialState, id) => get(state, id, 'purpose') || 'find_a_pro'
 export const getProjectPath = (state = initialState, id) => get(state, id, '@id')
