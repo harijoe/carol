@@ -243,6 +243,10 @@ const fr = {
   'cookies.more': ' Plus d\'informations',
 
   'last_projects.section_title': 'Derniers projets réalisés',
+
+  'auto-validation.validate.title': 'Merci d\'avoir validé vos informations',
+  'auto-validation.validate.message': 'Vous recevrez très prochainement par e-mail les coordonnées des professionnels de confiance que nous aurons sélectionnés pour vous.',
+  'auto-validation.validate.call_to_action': 'Accéder à mes projets',
 }
 
 export default fr

@@ -239,6 +239,10 @@ const es = {
 
   'last_projects.section_title': 'Derniers projets ES',
 
+  'auto-validation.validate.title': 'Merci d\'avoir validé vos informations ES',
+  'auto-validation.validate.message': 'Vous recevrez très prochainement par e-mail les coordonnées des professionnels de confiance que nous aurons sélectionnés pour vous. ES',
+  'auto-validation.validate.call_to_action': 'Accéder à mes projets ES',
+
   'cookies.message': 'En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour vous proposer des services et des offres adaptés à vos centres d’intérêts. ES',
   'cookies.more': 'More informations ES',
 }
