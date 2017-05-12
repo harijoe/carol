@@ -1,5 +1,6 @@
-import React from 'react'
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
+import React, { Component } from 'react'
+import { FormattedMessage } from 'react-intl'
+import cookie from 'react-cookie'
 import styled from 'styled-components'
 import { theme } from 'utils/style'
 
@@ -12,6 +13,10 @@ const Wrapper = styled.div`
   width: 100%;
   height: auto;
   background-color: rgba(0, 0, 0, 0.9);
+  
+  .hidden {
+    display: none;
+  }
 `
 
 const Container = styled.div`
@@ -36,24 +41,39 @@ const CloseIcon = styled(Icon)`
   }
 `
 
-const CookiesBanner = () => (
-  <Wrapper>
-    <Container>
-      <Col xs={10} m={11}>
-        <StyledParagraph>
-          <FormattedMessage id="cookies.message" />
-          <Link to="/"><FormattedMessage id="cookies.more" /></Link>
-        </StyledParagraph>
-      </Col>
-      <Col xs={2} m={1}>
-        <Link to="/"><CloseIcon icon="close" /></Link>
-      </Col>
-    </Container>
-  </Wrapper>
-)
+class CookiesBanner extends Component {
+  state = {
+    hidden: cookie.load('cookies_banner_hidden') || false,
+  }
 
-CookiesBanner.propTypes = {
-  intl: intlShape.isRequired,
+  handleClose = () => {
+    cookie.save('cookies_banner_hidden', true)
+    this.setState({ hidden: true })
+  }
+
+  render() {
+    const { hidden } = this.state
+
+    if (hidden) {
+      return null
+    }
+
+    return (
+      <Wrapper className={hidden && 'hidden'}>
+        <Container>
+          <Col xs={10} m={11}>
+            <StyledParagraph>
+              <FormattedMessage id="cookies.message" />
+              <Link to="/"><FormattedMessage id="cookies.more" /></Link>
+            </StyledParagraph>
+          </Col>
+          <Col xs={2} m={1}>
+            <Link onClick={this.handleClose}><CloseIcon icon="close" /></Link>
+          </Col>
+        </Container>
+      </Wrapper>
+    )
+  }
 }
 
-export default injectIntl(CookiesBanner)
+export default CookiesBanner
