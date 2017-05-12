@@ -15,7 +15,7 @@ const Background = styled.div`
 
 const Wrapper = styled.div`
   position: fixed;
-  z-index: 999;
+  z-index: 19;
 `
 
 const StyledMainIcon = styled(Icon)`

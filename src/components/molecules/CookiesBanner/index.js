@@ -8,7 +8,7 @@ import { Icon, Paragraph, Col, Link } from 'components'
 
 const Wrapper = styled.div`
   position: fixed;
-  z-index: 1000;
+  z-index: 20;
   bottom: 0;
   width: 100%;
   height: auto;
