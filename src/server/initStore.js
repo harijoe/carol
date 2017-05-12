@@ -3,19 +3,12 @@ import reactCookie from 'react-cookie'
 import isAuthenticated from 'utils/auth'
 import { setCountry, setLang, setAuthenticated, setProjectElaborationSessionId } from 'store/actions'
 import { getLocaleFromHostname, getLangFromLocale, getCountryFromLocale } from 'utils/locale'
-import config from 'config'
-import { reset as resetCache } from 'sagas/ssr/cache'
 
 export default (store, req) => {
   // Initialize locale from hostname
   const locale = getLocaleFromHostname(req.hostname)
   const lang = getLangFromLocale(locale)
   const country = getCountryFromLocale(locale)
-
-  // Handle cache purge
-  if (req.method === 'PURGE' && req.headers.authorization === `Bearer ${config.purgeCacheToken}`) {
-    resetCache()
-  }
 
   // Set lang and country
   store.dispatch(setLang(lang))

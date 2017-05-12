@@ -6,13 +6,17 @@ import { renderToString, renderToStaticMarkup } from 'react-dom/server'
 import { Provider } from 'react-redux'
 import { RouterContext } from 'react-router'
 import { fromContext } from 'store/selectors'
+import { setDryRun } from 'store/actions'
 
 export default (store, renderProps) => {
+  store.dispatch(setDryRun(true))
   const content = renderToString(
     <Provider store={store}>
       <RouterContext {...renderProps} />
     </Provider>
   )
+
+  store.dispatch(setDryRun(false))
 
   const styles = styleSheet.rules().map(rule => rule.cssText).join('\n')
   const initialState = store.getState()

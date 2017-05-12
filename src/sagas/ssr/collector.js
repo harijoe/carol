@@ -12,7 +12,7 @@ function* protectSaga(saga, args) {
   try {
     yield* saga(args)
   } catch (e) {
-    console.error(e)
+    console.error(e.toString())
   }
 }
 

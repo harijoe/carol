@@ -31,7 +31,7 @@ export function* fetchWithoutRefreshingToken(actions, method, url, settings = {}
 
   try {
     // @TODO: To remove before production
-    console.info('fetching — ', url, ' — with token — ', accessToken)
+    console.info(`fetching — ${url} ${accessToken != null ? `— with token — ${accessToken.substr(0, 6)}...` : ''}`)
     let response
     const ssr = yield select(fromContext.isSSR)
 
@@ -43,12 +43,20 @@ export function* fetchWithoutRefreshingToken(actions, method, url, settings = {}
 
     yield put(actions.success(response, actionParams))
   } catch (e) {
+    console.error('FAILURE - ', url)
     yield put(actions.failure(e, actionParams))
     throw e
   }
 }
 
 export default function* (actions, method, url, settings = {}, data = null, actionParams = null) {
+  // dryRun is used to prevent unwanted fetches during SSR
+  const dryRun = yield select(fromContext.isDryRun)
+
+  if (dryRun) {
+    return
+  }
+
   yield* refreshToken()
   yield* fetchWithoutRefreshingToken(actions, method, url, settings, data, actionParams)
 }

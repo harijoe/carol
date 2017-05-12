@@ -31,16 +31,18 @@ api.checkStatus = (stream) => {
 
   if (stream.ok) {
     status = stream.status
+  } else {
+    throw new HTTPError(null, stream.status)
   }
 
   return stream.json()
     .then((response) => {
-      if (response.hasErrors) {
-        throw new HTTPError(response.body.message)
+      if (response != null && response.hasErrors) {
+        throw new HTTPError(response.body.message, status)
       } else if (status != null && status < 400) {
         return response
       } else {
-        throw new HTTPError(response.violations || response.responseor_description || response.message)
+        throw new HTTPError(response.violations || response.responseor_description || response.message, status)
       }
     })
 }

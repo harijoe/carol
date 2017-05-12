@@ -5,7 +5,7 @@ import reactCookie from 'react-cookie'
 import express from 'services/express'
 import routes from 'routes'
 import configureStore from 'store/configure'
-import { env, port, ip } from 'config'
+import { env, port, ip, locales, purgeCacheToken } from 'config'
 import renderResponse from './server/index'
 
 global.window = require('utils/windowOrGlobal')
@@ -44,10 +44,20 @@ const app = express(router)
 
 app.listen(port, (error) => {
   if (error) {
-    console.error(error)
+    console.error('server', error)
   } else {
     console.info(`Server listening on ${ip}:${port}`)
   }
 })
+
+// Init SSR cache for front page
+// CURRENTLY, cache is only reloaded for FR and homepage
+// It needs to be extended later for other languages and other pages as necessary
+router.handle({
+  url: '/',
+  method: 'PURGE',
+  hostname: locales.fr_FR.url.replace('https://', ''),
+  headers: { authorization: `Bearer ${purgeCacheToken}` },
+}, { send: () => console.info('Cache regeneration attempt finished') })
 
 export default app

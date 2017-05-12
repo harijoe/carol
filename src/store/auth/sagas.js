@@ -55,7 +55,7 @@ export function* handleAuthLoginRequest({ grantType = 'client_credentials', form
       yield put(stopSubmit(formName, { _error: e._error }))
     }
 
-    return false
+    throw e
   }
 }
 
@@ -91,8 +91,14 @@ function* handleAuthLoginSuccess() {
 function* watchAuthChannelRequest() {
   // eslint-disable-next-line no-constant-condition
   while (true) {
+    let authSuccessful = null
     const payload = yield take(requestChannel)
-    const authSuccessful = yield* handleAuthLoginRequest(payload)
+
+    try {
+      authSuccessful = yield* handleAuthLoginRequest(payload)
+    } catch (e) {
+      authSuccessful = e
+    }
 
     yield put(responseChannel, authSuccessful)
   }

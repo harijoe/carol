@@ -1,4 +1,4 @@
-import { CONTEXT_SET_COUNTRY, CONTEXT_SET_LANG, CONTEXT_TOGGLE_MAIN_NAVIGATION, CONTEXT_TOGGLE_ACCOUNT_NAVIGATION, CONTEXT_TOGGLE_SIGN_IN_POPIN, CONTEXT_CLOSE_ALL, CONTEXT_SET_SSR } from './actions'
+import { CONTEXT_SET_COUNTRY, CONTEXT_SET_LANG, CONTEXT_TOGGLE_MAIN_NAVIGATION, CONTEXT_TOGGLE_ACCOUNT_NAVIGATION, CONTEXT_TOGGLE_SIGN_IN_POPIN, CONTEXT_CLOSE_ALL, CONTEXT_SET_SSR, CONTEXT_SET_DRY_RUN } from './actions'
 import { initialState } from './selectors'
 
 export default (state = initialState, action) => {
@@ -45,6 +45,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         ssr: action.payload,
+      }
+    }
+    case CONTEXT_SET_DRY_RUN: {
+      return {
+        ...state,
+        dryRun: action.payload,
       }
     }
     default: {

@@ -8,9 +8,11 @@ export const initialState = {
   accountNavigation: false,
   signInPopin: false,
   ssr: true,
+  dryRun: false,
 }
 
 export const isSSR = (state = initialState) => state.ssr
+export const isDryRun = (state = initialState) => state.dryRun
 export const getLang = (state = initialState) => state.lang
 export const getMainNavigation = (state = initialState) => state.mainNavigation
 export const getAccountNavigation = (state = initialState) => state.accountNavigation

@@ -11,9 +11,7 @@ export default saga => function* ({ ...params }) {
    */
   if (ssr) {
     addSaga(saga, params)
-
-    return
+  } else {
+    yield* saga(params)
   }
-
-  yield* saga(params)
 }

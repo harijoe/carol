@@ -5,6 +5,7 @@ export const CONTEXT_TOGGLE_ACCOUNT_NAVIGATION = 'CONTEXT_TOGGLE_ACCOUNT_NAVIGAT
 export const CONTEXT_TOGGLE_SIGN_IN_POPIN = 'CONTEXT_TOGGLE_SIGN_IN_POPIN'
 export const CONTEXT_CLOSE_ALL = 'CONTEXT_CLOSE_ALL'
 export const CONTEXT_SET_SSR = 'CONTEXT_SET_SSR'
+export const CONTEXT_SET_DRY_RUN = 'CONTEXT_SET_DRY_RUN'
 
 export const setCountry = country => ({
   type: CONTEXT_SET_COUNTRY,
@@ -24,6 +25,11 @@ export const toggleMainNavigation = (state = null) => ({
 export const setSSR = ssr => ({
   type: CONTEXT_SET_SSR,
   payload: ssr,
+})
+
+export const setDryRun = dryRun => ({
+  type: CONTEXT_SET_DRY_RUN,
+  payload: dryRun,
 })
 
 export const toggleAccountNavigation = (state = null) => ({
