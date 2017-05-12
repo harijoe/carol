@@ -44,7 +44,7 @@ const getTags = (items) => {
   const tags = []
 
   if (Array.isArray(items)) {
-    items.forEach(item => tags.push({ label: item, link: `${contentSiteUrl}tag/${item}` }))
+    items.forEach(item => tags.push({ label: item, link: `${contentSiteUrl}?s=${item}` }))
   }
 
   return tags
