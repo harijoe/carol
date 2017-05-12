@@ -46,9 +46,16 @@ class CookiesBanner extends Component {
     hidden: cookie.load('cookies_banner_hidden') || false,
   }
 
-  handleClose = () => {
+  componentDidMount() {
     cookie.save('cookies_banner_hidden', true)
+  }
+
+  handleClose = () => {
     this.setState({ hidden: true })
+  }
+
+  handleClickMore = () => {
+    cookie.remove('cookies_banner_hidden')
   }
 
   render() {
@@ -64,7 +71,7 @@ class CookiesBanner extends Component {
           <Col xs={10} m={11}>
             <StyledParagraph>
               <FormattedMessage id="cookies.message" />
-              <Link to="/"><FormattedMessage id="cookies.more" /></Link>
+              <Link to="/" onClick={this.handleClickMore}><FormattedMessage id="cookies.more" /></Link>
             </StyledParagraph>
           </Col>
           <Col xs={2} m={1}>
