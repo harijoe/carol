@@ -33,7 +33,7 @@ const LeftColumn = styled(Col)`
 
 const RightColumn = styled(Col)`
   ${breakpointMax('m')`
-    width:  100%;
+    width: 100%;
     border-top: 1px solid ${theme('colors.grayscale.light')};
     padding-top: ${theme('spaces.l')};
     margin: ${theme('spaces.l')} 0;

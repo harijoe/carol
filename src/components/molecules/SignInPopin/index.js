@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { theme, breakpoint } from 'utils/style'
+import { theme, breakpoint, breakpointMax } from 'utils/style'
 
 import { SignInForm, Popin } from 'containers'
 
@@ -22,13 +22,20 @@ const StyledSignInForm = styled(SignInForm)`
     ${breakpoint('m')`
       position: static;
     `}
+  
+    ${breakpointMax('xl')`
+      margin-top: 40px;
+      margin-left: -25px;
+      margin-bottom: -60px;
+      width: calc(100% + 50px);
+    `}
 
-    ${breakpoint('l')`
+    ${breakpoint('xl')`
       margin-top: 40px;
       margin-left: -50px;
       margin-bottom: -50px;
       width: calc(100% + 100px);
-    `
+    `}
   }
 `
 
