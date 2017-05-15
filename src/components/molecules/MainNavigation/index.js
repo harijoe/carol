@@ -18,9 +18,12 @@ const StyledNav = styled.nav`${({ show }) => css`
     left: 0;
     top: 0;
     z-index: 25;
-    padding: ${theme('spaces.xxxl')} ${theme('spaces.m')} ${theme('spaces.xl')} ${theme('spaces.m')};
     height: 100%;
     width: 100%;
+  `}
+
+  ${breakpointMax('m')`
+    padding: ${theme('spaces.xxxl')} ${theme('spaces.m')} ${theme('spaces.xl')} ${theme('spaces.m')};
     background: ${theme('colors.white')};
     transform: translateY(-100%);
     transition: transform 0.3s ease-in;
@@ -31,7 +34,36 @@ const StyledNav = styled.nav`${({ show }) => css`
   `}
 
   @media screen and (max-width: 991px) and (min-width: 768px) {
-    background: rgba(19, 19, 19, 0.8);
+    background-color: transparent;
+    pointer-events: none;
+
+    &::before {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+      background-color: rgba(19, 19, 19, 0.8);
+      opacity: 0;
+      content: '';
+      transition: opacity 0.1s ease;
+    }
+
+    > ul {
+      transform: translateX(-100%);
+      transition: transform 0.2s 0.2s ease-in;
+    }
+
+    ${ifThen(show, css`
+      pointer-events: auto;
+
+      &::before {
+        opacity: 1;
+      }
+
+      > ul {
+        transform: translateX(0);
+      }
+    `)}
   }
 `}`
 

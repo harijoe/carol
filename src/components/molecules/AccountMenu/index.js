@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { theme, breakpoint, breakpointMax } from 'utils/style'
 import { FormattedMessage } from 'react-intl'
+import { theme, breakpoint } from 'utils/style'
 
 import { List, Link } from 'components'
 
@@ -11,23 +11,19 @@ const StyledList = styled(List)`${() => css`
   display: flex;
   flex-direction: column;
   margin: 0;
-  padding: ${theme('spaces.m')} ${theme('spaces.m')} 0 ${theme('spaces.m')};
+  padding: ${theme('spaces.xxl')} ${theme('spaces.m')} 0 ${theme('spaces.m')};
+  height: 100%;
+  width: 100%;
   list-style: none;
   background-color: ${theme('colors.white')};
+  box-shadow: 0 0 10px 0 rgba(19, 19, 19, 0.5);
   pointer-events: auto;
 
-  ${breakpointMax('l')`
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0 0 10px 0 rgba(19, 19, 19, 0.5);
-  `}
-
   @media screen and (max-width: 991px) and (min-width: 768px) {
-    max-width: 32rem;
-    width: 50%;
+    width: 70%;
   }
 
-  ${breakpoint('m')`
+  ${breakpoint('l')`
     padding: ${theme('spaces.l')} ${theme('spaces.l')} 0 ${theme('spaces.l')};
 
     li:first-child a {
@@ -59,10 +55,10 @@ const StyledList = styled(List)`${() => css`
     border-top: 0.1rem solid ${theme('colors.grayscale.light')};
     margin-left: -${theme('spaces.m')};
     margin-right: -${theme('spaces.m')};
-    margin-top: ${theme('spaces.xxl')};
+    margin-top: auto;
     padding: ${theme('spaces.m')};
 
-    ${breakpoint('m')`
+    ${breakpoint('l')`
       margin-top: ${theme('spaces.l')};
       margin-left: -${theme('spaces.l')};
       margin-right: -${theme('spaces.l')};

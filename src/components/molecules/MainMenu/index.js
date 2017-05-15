@@ -52,10 +52,9 @@ const StyledList = styled(List)`${({ homepage, atTop }) => css`
   }
 
   @media screen and (max-width: 991px) and (min-width: 768px) {
-    margin-left: auto;
-    margin-right: auto;
     padding: ${theme('spaces.l')};
-    width: 50%;
+    height: 100%;
+    width: 70%;
     background-color: ${theme('colors.white')};
     box-shadow: 0 0 10px 0 rgba(19, 19, 19, 0.5);
   }

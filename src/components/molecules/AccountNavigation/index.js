@@ -6,32 +6,69 @@ import { theme, ifThen, breakpoint, breakpointMax } from 'utils/style'
 import { AccountMenu } from 'containers'
 
 const StyledNav = styled.div`${({ show }) => css`
-  background: ${theme('colors.white')};
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s ease-in;
   pointer-events: none;
 
   ${ifThen(show, css`
-    opacity: 1;
     pointer-events: auto;
   `)}
+
+  ${breakpointMax('m')`
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in;
+
+    ${ifThen(show, css`
+      transform: translateY(0);
+    `)}
+  `}
 
   ${breakpointMax('l')`
     position: fixed;
     left: 0;
     top: 0;
     z-index: 25;
-    padding: ${theme('spaces.xxxl')} ${theme('spaces.m')} ${theme('spaces.xl')} ${theme('spaces.m')};
     height: 100%;
     width: 100%;
-    background: rgba(19, 19, 19, 0.85);
   `}
+
+  @media screen and (max-width: 991px) and (min-width: 768px) {
+    &::before {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+      background-color: rgba(19, 19, 19, 0.8);
+      opacity: 0;
+      content: '';
+      transition: opacity 0.1s ease;
+    }
+
+    > ul {
+      transform: translateX(-100%);
+      transition: transform 0.2s 0.2s ease-in;
+    }
+
+    ${ifThen(show, css`
+      &::before {
+        opacity: 1;
+      }
+
+      > ul {
+        transform: translateX(0);
+      }
+    `)}
+  }
 
   ${breakpoint('l')`
     position: absolute;
     right: 0;
     top: 5.2rem;
+    opacity: 0;
+    background: ${theme('colors.white')};
+    transition: opacity 0.15s ease-in;
+
+    ${ifThen(show, css`
+      opacity: 1;
+    `)}
   `}
 `}`
 
