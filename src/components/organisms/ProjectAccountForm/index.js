@@ -16,8 +16,7 @@ const Form = styled.form`
 `
 
 const ProjectAccountForm = (props) => {
-  const { handleSubmit, submitting, intl } = props
-  const formatMessage = intl.formatMessage
+  const { handleSubmit, disabled, loading, intl: { formatMessage }, error } = props
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -116,7 +115,8 @@ const ProjectAccountForm = (props) => {
           },
         ]}
       />
-      <Button type="submit" disabled={submitting}>
+      {error && <FormattedMessage id={error} tagName="strong" />}
+      <Button type="submit" {...{ disabled, loading }}>
         <FormattedMessage id="user.send" tagName="span" />
       </Button>
     </Form>
@@ -125,7 +125,9 @@ const ProjectAccountForm = (props) => {
 
 ProjectAccountForm.propTypes = {
   handleSubmit: PropTypes.func,
-  submitting: PropTypes.bool,
+  disabled: PropTypes.bool,
+  loading: PropTypes.bool,
+  error: PropTypes.string,
   intl: intlShape.isRequired,
 }
 

@@ -1,29 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
-import { userDetails, validatePhoneCode, validatePhoneAgain, checkPhoneOnCode } from 'store/actions'
+import { validatePhoneCode, validatePhoneAgain } from 'store/actions'
 import { fromUser, fromStatus } from 'store/selectors'
 
 import { PhoneCodeForm } from 'components'
 
-class PhoneCodeFormContainer extends Component {
-  static propTypes = {
-    request: PropTypes.func,
-    checkPhone: PropTypes.func,
-  }
-
-  componentDidMount() {
-    this.props.checkPhone()
-    this.props.request()
-  }
-
-  render() {
-    return (
-      <PhoneCodeForm {...this.props} />
-    )
-  }
-}
+const PhoneCodeFormContainer = props => (
+  <PhoneCodeForm {...props} />
+)
 
 const mapStateToProps = state => ({
   disabled: fromUser.getId(state) == null,
@@ -46,9 +32,13 @@ export const config = {
 }
 
 const mapDispatchToProps = dispatch => ({
-  request: () => dispatch(userDetails.request()),
-  checkPhone: () => dispatch(checkPhoneOnCode()),
   resendSMS: () => resendSMS(dispatch),
 })
+
+PhoneCodeFormContainer.propTypes = {
+  disabled: PropTypes.bool,
+  loading: PropTypes.bool,
+  resendSMS: PropTypes.func,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(reduxForm(config)(PhoneCodeFormContainer))

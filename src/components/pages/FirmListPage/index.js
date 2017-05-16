@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
 
 import { MainLayout, Link, MainWrapper } from 'components'
+
 import { FirmList } from 'containers'
 
 const FirmListPage = ({ params: { projectId } }) => (

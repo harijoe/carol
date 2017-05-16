@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { fromProjectElaboration } from 'store/selectors'
+import { fromProjectElaboration, fromContext } from 'store/selectors'
 import { projectElaborationHeroDetails, setProjectElaborationHeroResponse } from 'store/actions'
 
 import { Hero } from 'components'
@@ -14,17 +14,20 @@ class HeroContainer extends Component {
     firstChoices: PropTypes.array,
     request: PropTypes.func,
     reply: PropTypes.func,
+    ssr: PropTypes.bool,
     conversations: PropTypes.object,
   }
 
   componentWillMount() {
-    if (this.props.firstChoices.length === 0) {
-      this.props.request()
-    }
+    this.props.request()
   }
 
   render() {
-    const { hasActiveConversation, firstChoices, reply, hasConversations, conversations } = this.props
+    const { hasActiveConversation, firstChoices, reply, hasConversations, conversations, ssr } = this.props
+
+    if (ssr) {
+      return null
+    }
 
     return <Hero {...{ firstChoices, reply, hasActiveConversation, hasConversations, conversations }} />
   }
@@ -35,6 +38,7 @@ const mapStateToProps = state => ({
   hasActiveConversation: fromProjectElaboration.hasActiveConversation(state),
   conversations: fromProjectElaboration.getConversations(state),
   firstChoices: fromProjectElaboration.getFirstChoices(state),
+  ssr: fromContext.isSSR(state),
 })
 
 const mapDispatchToProps = dispatch => (

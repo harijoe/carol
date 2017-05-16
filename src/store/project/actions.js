@@ -4,6 +4,7 @@ export const PROJECT_SUBMIT = createRequestTypes('PROJECT_SUBMIT')
 export const PROJECT_LIST = createRequestTypes('PROJECT_LIST')
 export const PROJECT_DETAILS = createRequestTypes('PROJECT_DETAILS')
 export const PROJECT_UPDATE = createRequestTypes('PROJECT_UPDATE')
+export const PROJECT_CHECK_VALIDATION_FLOW = 'PROJECT_CHECK_VALIDATION_FLOW'
 
 export const projectSubmit = {
   request: () => (actionTypes(PROJECT_SUBMIT.REQUEST)),
@@ -32,3 +33,5 @@ export const projectUpdate = {
   success: (payload, actionParams) => (actionTypes(PROJECT_UPDATE.SUCCESS, { payload, actionParams })),
   failure: error => (actionTypes(PROJECT_UPDATE.FAILURE, { error })),
 }
+
+export const checkValidationFlow = () => actionTypes(PROJECT_CHECK_VALIDATION_FLOW)

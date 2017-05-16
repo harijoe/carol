@@ -8,7 +8,7 @@ const config = {
     basename: `/${process.env.PUBLIC_PATH || ''}`.replace('//', '/'), // Accepts: '/', '/path', 'path', undefined,
     browser: typeof window !== 'undefined',
     api: {
-      url: 'https://api-dev.qarx.io:8080/app_dev.php',
+      url: 'https://api-dev.qarx.io:8080',
       clientId: '4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k',
       clientSecret: '4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc',
     },

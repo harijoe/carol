@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 import { userDetails, projectDetails, projectUpdate } from 'store/actions'
-import { fromUser, fromProject } from 'store/selectors'
+import { fromUser, fromProject, fromStatus } from 'store/selectors'
 import { createValidator, required } from 'services/validation'
 
 import { ProjectAccountForm } from 'components'
@@ -26,17 +26,24 @@ class ProjectAccountFormContainer extends Component {
   }
 }
 
-const mapStateToProps = (state, { projectId }) => ({
-  initialValues: {
-    gender: fromUser.getGender(state),
-    firstName: fromUser.getFirstName(state),
-    lastName: fromUser.getLastName(state),
-    startTimeframe: fromProject.getStartTimeframe(state, projectId),
-    purpose: fromProject.getPurpose(state, projectId),
-    contactPreference: fromUser.getContactPreference(state),
-    contactComment: fromUser.getContactComment(state),
-  },
-})
+const mapStateToProps = (state, { projectId }) => {
+  const id = fromUser.getId(state)
+  const project = fromProject.getDetails(state, projectId)
+
+  return {
+    initialValues: {
+      gender: fromUser.getGender(state),
+      firstName: fromUser.getFirstName(state),
+      lastName: fromUser.getLastName(state),
+      startTimeframe: fromProject.getStartTimeframe(state, projectId),
+      purpose: fromProject.getPurpose(state, projectId),
+      contactPreference: fromUser.getContactPreference(state),
+      contactComment: fromUser.getContactComment(state),
+    },
+    disabled: id == null || project == null,
+    loading: fromStatus.getLoading(state).PROJECT_UPDATE,
+  }
+}
 
 const onSubmit = (values, dispatch, { projectId }) => {
   const { gender, firstName, lastName, startTimeframe, purpose, contactPreference, contactComment } = values

@@ -1,4 +1,4 @@
-import { USER_DETAILS, USER_UPDATE, USER_RESET, USER_VALIDATE_PHONE_CODE } from './actions'
+import { USER_DETAILS, USER_UPDATE, USER_RESET, USER_VALIDATE_PHONE_CODE, USER_VERIFY_EMAIL } from './actions'
 import { initialState } from './selectors'
 
 export default function userReducer(state = initialState, action) {
@@ -16,6 +16,11 @@ export default function userReducer(state = initialState, action) {
       return {
         ...state,
         mobilePhoneVerified: true,
+      }
+    case USER_VERIFY_EMAIL.SUCCESS:
+      return {
+        ...state,
+        emailVerified: true,
       }
     case USER_RESET:
       return {

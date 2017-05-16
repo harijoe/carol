@@ -28,8 +28,7 @@ export default (state = initialState, action) => {
     }
     case AUTH_LOGOUT: {
       return {
-        ...state,
-        authenticated: false,
+        ...initialState,
       }
     }
     default: {

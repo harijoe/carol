@@ -31,6 +31,9 @@ api.checkStatus = (stream) => {
 
   if (stream.ok) {
     status = stream.status
+    if (status === 204) { // 204 has no body, resulting in a JSON parsing error
+      return ''
+    }
   } else {
     throw new HTTPError(null, stream.status)
   }

@@ -89,6 +89,11 @@ function* replyHero() {
 
 function* requestHero() {
   const user = yield select(fromProjectElaboration.getSessionId)
+  const firstChoices = yield select(fromProjectElaboration.getFirstChoices)
+
+  if (firstChoices.length !== 0) {
+    return
+  }
 
   yield* fetch(projectElaborationHeroDetails, 'post', '/chatbot', {}, {
     message: {

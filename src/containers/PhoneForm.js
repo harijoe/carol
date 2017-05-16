@@ -1,28 +1,16 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
-import { userDetails, validatePhone } from 'store/actions'
+import { validatePhone } from 'store/actions'
 import { fromUser, fromStatus } from 'store/selectors'
 import { createValidator, required } from 'services/validation'
 
 import { PhoneForm } from 'components'
 
-class PhoneFormContainer extends Component {
-  static propTypes = {
-    request: PropTypes.func,
-  }
-
-  componentDidMount() {
-    this.props.request()
-  }
-
-  render() {
-    return (
-      <PhoneForm {...this.props} />
-    )
-  }
-}
+const PhoneFormContainer = props => (
+  <PhoneForm {...props} />
+)
 
 const mapStateToProps = (state) => {
   const details = fromUser.getDetails(state)
@@ -31,7 +19,6 @@ const mapStateToProps = (state) => {
     initialValues: {
       mobilePhone: details.mobilePhone,
     },
-    verified: details.mobilePhoneVerified,
     disabled: details['@id'] == null,
     loading: fromStatus.getLoading(state).USER_VALIDATE_PHONE,
   }
@@ -53,8 +40,12 @@ export const config = {
   validate,
 }
 
-const mapDispatchToProps = dispatch => ({
-  request: () => dispatch(userDetails.request()),
-})
+PhoneFormContainer.propTypes = {
+  disabled: PropTypes.bool,
+  loading: PropTypes.bool,
+  initialValues: PropTypes.shape({
+    mobilePhone: PropTypes.string,
+  }),
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(reduxForm(config)(PhoneFormContainer))
+export default connect(mapStateToProps)(reduxForm(config)(PhoneFormContainer))

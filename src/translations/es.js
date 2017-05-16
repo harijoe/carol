@@ -165,6 +165,9 @@ const es = {
   'user.contactComment.no_preferences': 'No Preference ES',
   'user.contactComment.during_business_hours': 'During business hours ES',
   'user.contactComment.outside_business_hours': 'Outside business hours ES',
+  'user.phone_validated': 'Your phone number has been verified ES',
+  'user.email.sent': 'A confirmation email has been sent to you ES',
+  'user.email.check': 'Validation de l\'email en cours ES',
 
   'validators.required_field': 'Required field ES',
   'validators.min_length': 'Must be at least {min} characters ES',

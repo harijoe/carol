@@ -167,6 +167,9 @@ const fr = {
   'user.contactComment.no_preferences': 'No Preference FR',
   'user.contactComment.during_business_hours': 'During business hours FR',
   'user.contactComment.outside_business_hours': 'Outside business hours FR',
+  'user.phone_validated': 'Votre numéro de téléphone est validé',
+  'user.email.sent': 'Un email de confirmation vous a été envoyé',
+  'user.email.check': 'Validation de l\'email en cours',
 
   'validators.required_field': 'Champs requis',
   'validators.min_length': 'Doit avoir au moins {min} caractères',

@@ -16,6 +16,9 @@ import {
   PhoneValidationPage,
   PhoneCodeValidationPage,
   ProjectElaborationPage,
+  ProjectValidationPage,
+  EmailValidationPage,
+  EmailValidationSentPage,
   ProfilePage,
   ProjectListPage,
   ProjectPage,
@@ -25,7 +28,7 @@ import {
   SearchPage,
   SignupPage,
 } from 'components'
-import { ProjectPreValidatePage } from 'containers'
+import { ProjectPreValidatePage, VerifyEmailPage } from 'containers'
 
 const routes = (
   <Route path="/" component={App}>
@@ -41,12 +44,14 @@ const routes = (
     <Route path="projects/:projectId/account" component={requiresAuth(ProjectAccountPage)} />
     <Route path="projects/:projectId" component={requiresAuth(ProjectPage)} />
     <Route path="projects/:projectId/search-firms" component={requiresAuth(FirmListPage)} />
-    {/* <Route path="projects/:projectId/validation/phone" component={requiresAuth(PhoneValidationPage)} /> */}
-    {/* <Route path="projects/:projectId/validation/phone/code" component={requiresAuth(PhoneCodeValidationPage)} /> */}
-    <Route path="validation/phone" component={requiresAuth(PhoneValidationPage)} />
-    <Route path="validation/phone/code" component={requiresAuth(PhoneCodeValidationPage)} />
     <Route path="project-elaboration" component={ProjectElaborationPage} />
     <Route path="project-prevalidate/:chatbotStorageId" component={requiresAuth(ProjectPreValidatePage)} />
+    <Route path="project-validation" component={requiresAuth(ProjectValidationPage)} />
+    <Route path="validation/email" component={requiresAuth(EmailValidationPage)} />
+    <Route path="validation/email/sent" component={requiresAuth(EmailValidationSentPage)} />
+    <Route path="validation/phone" component={requiresAuth(PhoneValidationPage)} />
+    <Route path="validation/phone/code" component={requiresAuth(PhoneCodeValidationPage)} />
+    <Route path="verify-email" component={requiresAuth(VerifyEmailPage)} />
     <Route path="reset-password" component={ResetPasswordPage} />
     <Route path="search" component={requiresAuth(SearchPage)} />
     <Route path="signup" component={anonymousOnly(SignupPage)} />
