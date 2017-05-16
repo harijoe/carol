@@ -1,5 +1,6 @@
 exports[`test renders Carousel 1`] = `
-<Carousel>
+<Carousel
+  itemProps={null}>
   <div>
     1
   </div>

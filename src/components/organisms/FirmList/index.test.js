@@ -1,5 +1,9 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { shallow } from 'enzyme'
+import { ThemeProvider } from 'styled-components'
+
+import theme from '../../themes/default'
+import mockIntl from '../../../../test/intlMock'
 import FirmList from './'
 
 const list = [
@@ -8,10 +12,10 @@ const list = [
   { id: 3, name: 'firm 3' },
 ]
 
-const wrap = (props = {}) => mount(<FirmList list={list} {...props} />)
+const wrap = (props = {}) => shallow(mockIntl(<ThemeProvider theme={theme}><FirmList {...{ list, ...props }} /></ThemeProvider>))
 
 it('renders FirmList', () => {
   const wrapper = wrap()
 
-  expect(wrapper.find('Mock').length).toEqual(4)
+  expect(wrapper).toMatchSnapshot()
 })

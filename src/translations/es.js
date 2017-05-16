@@ -29,6 +29,8 @@ const es = {
   'firm.and_you': 'Les travaux et vous ES',
   'firm.inspiring': 'Inspirations ES',
   'firm.faq': 'FAQ ES',
+  'firm.good_news': 'Good news ES',
+  'firm.result_description': 'artisans ont été trouvés. Quotatis va maintenant selectionner jusqu\'à 5 pros selon leur spécialisation, localisation et disponibilité. ES',
   'firm.site_search': 'site search ES',
   'firm.site_search.result_link': 'More details ES',
   'firm.details.logo': 'Logo ES',
@@ -51,6 +53,7 @@ const es = {
   'firm.details.notation': 'notation ES',
   'firm.details.served_area_cities': 'Served Area Postal Codes ES',
   'firm.details.city_code': 'City code ES',
+  'firm.details.reviews': 'reviews ES',
 
   'project.validation_page': 'Page Validation ES',
   'project.submit_button': 'OK ES',
@@ -70,7 +73,7 @@ const es = {
   'project.reference': 'Reference ES',
   'project.list.heading': 'My projects ES',
   'project.list.empty': 'No project yet ES',
-  'project.validate_link': 'Valider ES',
+  'project.send_to_firms': 'Envoyer mon projet aux pros disponibles ES',
   'project.transmitted_to_firms': 'Your project is transmitted to',
   'project.question': 'Question & Answers',
   'project.purpose': 'Purpose of the request ES',
@@ -81,6 +84,7 @@ const es = {
   'project.startTimeframe.6_to_12_months': '6 à 12 mois ES',
   'project.find_a_pro': 'Trouver un pro ES',
   'project.quotation': 'Devis ES',
+  'project.modify_my_project': 'Modifier mon projet ES',
 
   'project.elaboration.submit': 'Submit ES',
   'project.elaboration.response': 'tapez votre réponse ES',

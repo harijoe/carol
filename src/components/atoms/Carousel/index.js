@@ -87,13 +87,13 @@ const StyledSlickCarousel = styled(SlickCarousel)`
   }
 `
 
-const Carousel = ({ children, ssr, ...props }) => (
+const Carousel = ({ children, ssr, itemProps, ...props }) => (
   <Wrapper>
     {/* SlickCarousel is not compatible with ssr if responsive prop is set (generated markup different between server and client */}
     <StyledSlickCarousel {...{ ...props, responsive: !ssr && props.responsive != null ? props.responsive : [] }} >
       {
-        children.map((element, i) => (
-          <div key={i}>{element}</div>
+        children.map((item, i) => (
+          <div {...itemProps} key={i}>{item}</div>
         ))
       }
     </StyledSlickCarousel>
@@ -104,6 +104,11 @@ Carousel.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
   ssr: PropTypes.bool,
   responsive: PropTypes.array,
+  itemProps: PropTypes.object,
+}
+
+Carousel.defaultProps = {
+  itemProps: null,
 }
 
 export default Carousel
