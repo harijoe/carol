@@ -147,7 +147,6 @@ function* handleEmailVerification() {
     try {
       yield* fetch(verifyEmail, 'put', `${id}/email-verified`, {}, { token })
     } catch (e) {
-      yield* notify('Error', 'Error', 'error')
       yield put(push('/'))
     }
   }

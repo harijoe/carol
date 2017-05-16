@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import { put, select } from 'redux-saga/effects'
 import { push } from 'react-router-redux'
 import { fromUser, fromProject } from 'store/selectors'
@@ -13,16 +12,12 @@ export default function* redirectToNextStep(projectIdFromParams = null) {
     yield* fetch(projectList, 'get', '/projects')
     const projectsToValidate = yield select(fromProject.getProjectsToValidate)
 
-    // @TODO: To be removed when HIANDU-852 is merged
-    const projectsCompletionInProgress = yield select(fromProject.getProjectsCompletionInProgress)
-    const elligibleProjects = _.merge(projectsToValidate, projectsCompletionInProgress)
-
-    if (elligibleProjects.length === 0) {
+    if (projectsToValidate.length === 0) {
       return yield put(push(''))
     }
 
     // We suppose the first project is the one to be validated
-    projectId = elligibleProjects[0]['@id']
+    projectId = projectsToValidate[0]['@id']
   }
 
   let projectDetails = yield select(fromProject.getDetails, projectId)

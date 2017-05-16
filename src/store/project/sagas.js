@@ -1,5 +1,6 @@
 import { select, put } from 'redux-saga/effects'
 import { stopSubmit } from 'redux-form'
+import { push } from 'react-router-redux'
 import notify from 'sagas/notify'
 import { HTTPError } from 'utils/errors'
 import { fromProject, fromUser, fromRouting } from 'store/selectors'
@@ -14,11 +15,13 @@ import {
   projectList,
   projectDetails,
   projectUpdate,
+  projectAcceptFirm,
   PROJECT_SUBMIT,
   PROJECT_LIST,
   PROJECT_DETAILS,
   PROJECT_UPDATE,
   PROJECT_CHECK_VALIDATION_FLOW,
+  PROJECT_ACCEPT_FIRM,
 } from './actions'
 
 export function* handleSubmitProjectRequest() {
@@ -57,6 +60,12 @@ function* handleUpdateProjectRequest({ projectData, userData, projectId }) {
   }
 }
 
+function* handleProjectAcceptFirmRequest({ id }) {
+  yield* fetch(projectAcceptFirm, 'put', `/projects/${id}`, {}, { status: 'to_validate' }, { id })
+
+  yield put(push(`/projects/${id}/account`))
+}
+
 export function* handleReadProjectListRequest() {
   yield* fetch(projectList, 'get', '/projects')
 }
@@ -77,6 +86,7 @@ export default function* () {
     takeLatest(PROJECT_LIST.REQUEST, handleReadProjectListRequest),
     takeLatest(PROJECT_DETAILS.REQUEST, handleReadProjectDetailsRequest),
     takeLatest(PROJECT_UPDATE.REQUEST, handleUpdateProjectRequest),
+    takeLatest(PROJECT_ACCEPT_FIRM.REQUEST, handleProjectAcceptFirmRequest),
     takeLatest(PROJECT_CHECK_VALIDATION_FLOW, handleCheckValidationFlow),
   ]
 }

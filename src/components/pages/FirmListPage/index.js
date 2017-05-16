@@ -1,16 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FormattedMessage } from 'react-intl'
 
-import { MainLayout, Link, MainWrapper } from 'components'
+import { MainLayout, MainWrapper } from 'components'
 
-import { FirmList } from 'containers'
+import { FirmList, FirmAcceptButton } from 'containers'
 
 const FirmListPage = ({ params: { projectId } }) => (
   <MainLayout>
     <MainWrapper>
       <FirmList {...{ projectId }} />
-      <Link to={`/projects/${projectId}/account`}><FormattedMessage id="project.send_to_firms" /></Link>
+      <FirmAcceptButton projectId={projectId} />
     </MainWrapper>
   </MainLayout>
 )
