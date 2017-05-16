@@ -1,6 +1,6 @@
 import { put, select } from 'redux-saga/effects'
 import { push } from 'react-router-redux'
-import { fromUser, fromProject } from 'store/selectors'
+import { fromUser, fromProject, fromRouting } from 'store/selectors'
 import fetch from 'sagas/fetch'
 import { projectDetails as projectDetailsAction, projectList, userDetails } from 'store/actions'
 
@@ -42,8 +42,22 @@ export default function* redirectToNextStep(projectIdFromParams = null) {
   if (projectDetails.purpose == null || projectDetails.startTimeframe == null) {
     yield put(push(`projects/${projectDetails['@id']}/account`))
   } else if (!mobilePhoneVerified) {
+    const route = yield select(fromRouting.getPathname)
+
+    // Don't redirect if already on good page
+    if (route.indexOf('validation/phone') === 0) {
+      return null
+    }
+
     yield put(push(`validation/phone?projectId=${projectDetails['@id']}`))
   } else if (!emailVerified) {
+    const route = yield select(fromRouting.getPathname)
+
+    // Don't redirect if already on good page
+    if (route.indexOf('validation/email') === 0) {
+      return null
+    }
+
     yield put(push(`validation/email?projectId=${projectDetails['@id']}`))
   } else {
     // @TODO: send project here to backend
