@@ -7,7 +7,7 @@ import { theme, breakpoint } from 'utils/style'
 
 import { ThumbnailPoster, ProjectElaborationQuestion, Paragraph, Link } from 'components'
 import Question from './molecules/Question'
-import Response from './molecules/Response'
+import Answer from './molecules/Answer'
 
 const StyledParagraph = styled(Paragraph)`
   margin-bottom: ${theme('spaces.m')};
@@ -56,11 +56,11 @@ class AttachmentSummary extends Component {
     const validateButton = buttons[0]
 
     /*
-     * subtitle contains all the summary in one block. So, we have to split questions (odd) and responses (even)
+     * subtitle contains all the summary in one block. So, we have to split questions (odd) and answers (even)
      */
     const summary = subtitle.split('\n').map(((message, i) => (
       (i % 2) ?
-        <Response key={i}>{message}</Response>
+        <Answer key={i}>{message}</Answer>
         :
         <Question key={i}>{message}</Question>
     )))

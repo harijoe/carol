@@ -19,7 +19,7 @@ import {
   PROJECT_ELABORATION_PRE_VALIDATE,
   projectElaborationReply,
   projectElaborationConversationsDetails,
-  setProjectElaborationConversationResponse,
+  setProjectElaborationConversationAnswer,
   projectElaborationConversationDetails,
   setProjectElaborationSessionId,
   projectElaborationHeroDetails,
@@ -31,7 +31,7 @@ function* replyConversation({ text, payload = null }) {
   const user = yield select(fromProjectElaboration.getSessionId)
 
   if (!['new_project.reset', 'new_project.back', 'new_project.current'].includes(text)) {
-    yield put(setProjectElaborationConversationResponse(text))
+    yield put(setProjectElaborationConversationAnswer(text))
   }
 
   yield* fetch(projectElaborationReply, 'post', '/chatbot', {}, {
@@ -47,7 +47,7 @@ function* replyConversation({ text, payload = null }) {
 function* getConversations() {
   const sessionId = yield select(fromProjectElaboration.getSessionId)
 
-  yield* fetch(projectElaborationConversationsDetails, 'get', `/chatbot-conversations?sessionId=${sessionId}`)
+  yield* fetch(projectElaborationConversationsDetails, 'get', `/chatbot-conversations/${sessionId}`)
 }
 
 function* getConversationCurrent() {
@@ -75,11 +75,11 @@ function* replyHero() {
   const user = yield select(fromProjectElaboration.getSessionId)
 
   yield* replyConversation({ text: 'new_project.reset' })
-  yield put(setProjectElaborationConversationResponse(hero[1].response.text))
+  yield put(setProjectElaborationConversationAnswer(hero[1].answer.text))
   yield* fetch(projectElaborationReply, 'post', '/chatbot', {}, {
     message: {
-      text: hero[1].response.text,
-      quick_reply: { payload: hero[1].response.payload },
+      text: hero[1].answer.text,
+      quick_reply: { payload: hero[1].answer.payload },
     },
     user,
     channel: 'project',

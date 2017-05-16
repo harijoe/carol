@@ -14,29 +14,29 @@ ShallowWrapper {
         </Mock>
         <div>
             <Attachment
+                answer={
+                    Object {
+                        "payload": "6843531-515-56465",
+                        "text": "response",
+                      }
+                }
                 attachment={null}
                 locale={undefined}
                 location={undefined}
                 redirectTo={undefined}
-                reply={undefined}
-                response={
-                    Object {
-                        "payload": "6843531-515-56465",
-                        "text": "response",
-                      }
-                } />
+                reply={undefined} />
             <QuickReplies
-                quick_replies={Array []}
-                reply={undefined}
-                response={
+                answer={
                     Object {
                         "payload": "6843531-515-56465",
                         "text": "response",
                       }
-                } />
+                }
+                quick_replies={Array []}
+                reply={undefined} />
         </div>
-        <Response
-            response="response" />
+        <Answer
+            answer="response" />
     </div>
 </styled.div>,
   "nodes": Array [
@@ -48,29 +48,29 @@ ShallowWrapper {
             </Mock>
             <div>
                   <Attachment
+                        answer={
+                              Object {
+                                    "payload": "6843531-515-56465",
+                                    "text": "response",
+                                  }
+                        }
                         attachment={null}
                         locale={undefined}
                         location={undefined}
                         redirectTo={undefined}
-                        reply={undefined}
-                        response={
-                              Object {
-                                    "payload": "6843531-515-56465",
-                                    "text": "response",
-                                  }
-                        } />
+                        reply={undefined} />
                   <QuickReplies
-                        quick_replies={Array []}
-                        reply={undefined}
-                        response={
+                        answer={
                               Object {
                                     "payload": "6843531-515-56465",
                                     "text": "response",
                                   }
-                        } />
+                        }
+                        quick_replies={Array []}
+                        reply={undefined} />
             </div>
-            <Response
-                  response="response" />
+            <Answer
+                  answer="response" />
       </div>
 </styled.div>,
   ],
@@ -84,13 +84,13 @@ ShallowWrapper {
         activeConversation={
                 Array [
                         Object {
+                          "answer": Object {
+                            "payload": "6843531-515-56465",
+                            "text": "response",
+                          },
                           "message": Object {
                             "quick_replies": Array [],
                             "text": "message",
-                          },
-                          "response": Object {
-                            "payload": "6843531-515-56465",
-                            "text": "response",
                           },
                         },
                       ]
@@ -104,13 +104,13 @@ ShallowWrapper {
         "props": Object {
           "activeConversation": Array [
             Object {
+              "answer": Object {
+                "payload": "6843531-515-56465",
+                "text": "response",
+              },
               "message": Object {
                 "quick_replies": Array [],
                 "text": "message",
-              },
-              "response": Object {
-                "payload": "6843531-515-56465",
-                "text": "response",
               },
             },
           ],
@@ -143,29 +143,29 @@ ShallowWrapper {
                     </Mock>
                     <div>
                               <Attachment
+                                        answer={
+                                                  Object {
+                                                            "payload": "6843531-515-56465",
+                                                            "text": "response",
+                                                          }
+                                        }
                                         attachment={null}
                                         locale={undefined}
                                         location={undefined}
                                         redirectTo={undefined}
-                                        reply={undefined}
-                                        response={
-                                                  Object {
-                                                            "payload": "6843531-515-56465",
-                                                            "text": "response",
-                                                          }
-                                        } />
+                                        reply={undefined} />
                               <QuickReplies
-                                        quick_replies={Array []}
-                                        reply={undefined}
-                                        response={
+                                        answer={
                                                   Object {
                                                             "payload": "6843531-515-56465",
                                                             "text": "response",
                                                           }
-                                        } />
+                                        }
+                                        quick_replies={Array []}
+                                        reply={undefined} />
                     </div>
-                    <Response
-                              response="response" />
+                    <Answer
+                              answer="response" />
           </div>
 </styled.div>,
         "_debugID": 2,
@@ -177,29 +177,29 @@ ShallowWrapper {
                     </Mock>
                     <div>
                               <Attachment
+                                        answer={
+                                                  Object {
+                                                            "payload": "6843531-515-56465",
+                                                            "text": "response",
+                                                          }
+                                        }
                                         attachment={null}
                                         locale={undefined}
                                         location={undefined}
                                         redirectTo={undefined}
-                                        reply={undefined}
-                                        response={
-                                                  Object {
-                                                            "payload": "6843531-515-56465",
-                                                            "text": "response",
-                                                          }
-                                        } />
+                                        reply={undefined} />
                               <QuickReplies
-                                        quick_replies={Array []}
-                                        reply={undefined}
-                                        response={
+                                        answer={
                                                   Object {
                                                             "payload": "6843531-515-56465",
                                                             "text": "response",
                                                           }
-                                        } />
+                                        }
+                                        quick_replies={Array []}
+                                        reply={undefined} />
                     </div>
-                    <Response
-                              response="response" />
+                    <Answer
+                              answer="response" />
           </div>
 </styled.div>,
       },
@@ -217,13 +217,13 @@ ShallowWrapper {
     activeConversation={
         Array [
             Object {
+              "answer": Object {
+                "payload": "6843531-515-56465",
+                "text": "response",
+              },
               "message": Object {
                 "quick_replies": Array [],
                 "text": "message",
-              },
-              "response": Object {
-                "payload": "6843531-515-56465",
-                "text": "response",
               },
             },
           ]

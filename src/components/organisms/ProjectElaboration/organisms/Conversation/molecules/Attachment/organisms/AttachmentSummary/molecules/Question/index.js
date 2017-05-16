@@ -10,15 +10,15 @@ const StyledParagraph = styled(Paragraph)`
   font-family: ${theme('fonts.family.montserratBold')};
 `
 
-const Response = ({ children }) => (
+const Question = ({ children }) => (
   <StyledParagraph>
     {children}
   </StyledParagraph>
 )
 
-Response.propTypes = {
+Question.propTypes = {
   children: PropTypes.any,
 }
 
 
-export default Response
+export default Question

@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   padding-right: ${theme('spaces.m')};
 `
 
-const BubbleResponse = styled.p`
+const BubbleAnswer = styled.p`
   position: relative;
   margin: 0;
   padding: ${theme('spaces.s')} ${theme('spaces.m')};
@@ -43,22 +43,22 @@ const BubbleResponse = styled.p`
   }
 `
 
-BubbleResponse.displayName = 'BubbleResponse'
+BubbleAnswer.displayName = 'BubbleAnswer'
 
-const Response = ({ response }) => {
-  if (response == null) {
+const Answer = ({ answer }) => {
+  if (answer == null) {
     return null
   }
 
   return (
     <Wrapper>
-      <BubbleResponse>{response}</BubbleResponse>
+      <BubbleAnswer>{answer}</BubbleAnswer>
     </Wrapper>
   )
 }
 
-Response.propTypes = {
-  response: PropTypes.string,
+Answer.propTypes = {
+  answer: PropTypes.string,
 }
 
-export default Response
+export default Answer

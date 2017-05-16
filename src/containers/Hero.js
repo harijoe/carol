@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fromProjectElaboration, fromContext } from 'store/selectors'
-import { projectElaborationHeroDetails, setProjectElaborationHeroResponse } from 'store/actions'
+import { projectElaborationHeroDetails, setProjectElaborationHeroAnswer } from 'store/actions'
 
 import { Hero } from 'components'
 
@@ -44,7 +44,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
     request: () => projectElaborationHeroDetails.request(),
-    reply: (text, payload) => setProjectElaborationHeroResponse(text, payload),
+    reply: (text, payload) => setProjectElaborationHeroAnswer(text, payload),
   }, dispatch)
 )
 

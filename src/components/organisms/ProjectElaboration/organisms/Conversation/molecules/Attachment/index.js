@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 import AttachmentGeneric from './organisms/AttachmentGeneric'
 import AttachmentSummary from './organisms/AttachmentSummary'
 
-const Attachment = ({ attachment, reply, response, locale, redirectTo, location }) => {
+const Attachment = ({ attachment, reply, answer, locale, redirectTo, location }) => {
   if (
     attachment == null
     || attachment.payload == null
     || !Array.isArray(attachment.payload.elements)
     || attachment.payload.elements.length === 0
-    || response != null
+    || answer != null
   ) {
     return null
   }
@@ -23,7 +23,7 @@ const Attachment = ({ attachment, reply, response, locale, redirectTo, location 
     default:
     case 'generic':
       return (
-        <AttachmentGeneric attachment={attachment} reply={reply} />
+        <AttachmentGeneric {...{ attachment, reply }} />
       )
   }
 }
@@ -36,7 +36,7 @@ Attachment.propTypes = {
   }),
   reply: PropTypes.func,
   redirectTo: PropTypes.func,
-  response: PropTypes.object,
+  answer: PropTypes.object,
   location: PropTypes.object.isRequired,
   locale: PropTypes.string,
 }

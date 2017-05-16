@@ -19,7 +19,7 @@ const hero = [
         },
       },
     },
-    response: {
+    answer: {
       text: null,
       payload: null,
     },
@@ -104,7 +104,7 @@ it('handles PROJECT_ELABORATION_REPLY_REQUEST', () => {
             },
           ],
         },
-        response: {
+        answer: {
           text: 'response'
         }
       },
@@ -201,7 +201,7 @@ it('handles PROJECT_ELABORATION_HERO_SET_RESPONSE', () => {
             },
           },
         },
-        response: {
+        answer: {
           text: 'test',
           payload: 'test',
         },
@@ -262,7 +262,7 @@ it('handles PROJECT_ELABORATION_HERO_DETAILS', () => {
             },
           },
         },
-        response: {
+        answer: {
           text: 'test test',
           payload: 'test test',
         },
@@ -289,7 +289,7 @@ it('handles PROJECT_ELABORATION_HERO_DETAILS', () => {
             },
           },
         },
-        response: {
+        answer: {
           text: null,
           payload: null,
         },
@@ -339,7 +339,7 @@ it('handles PROJECT_ELABORATION_CONVERSATIONS_DETAILS with user', () => {
           message: {
             text: 'My message test',
           },
-          response: {
+          answer: {
             text: 'My response test',
           },
         }],
@@ -367,7 +367,7 @@ it('handles PROJECT_ELABORATION_CONVERSATIONS_DETAILS with user', () => {
             },
           },
         },
-        response: {
+        answer: {
           text: 'test',
           payload: 'test',
         },
@@ -376,7 +376,7 @@ it('handles PROJECT_ELABORATION_CONVERSATIONS_DETAILS with user', () => {
     activeConversation: [
       {
         message: { text: 'My message test' },
-        response: {
+        answer: {
           text: 'My response test',
         },
       },
@@ -395,7 +395,7 @@ it('handles PROJECT_ELABORATION_CONVERSATIONS_DETAILS with user and anonym', () 
           message: {
             text: 'My message test',
           },
-          response: {
+          answer: {
             text: 'My response test',
           },
         }],
@@ -406,7 +406,7 @@ it('handles PROJECT_ELABORATION_CONVERSATIONS_DETAILS with user and anonym', () 
           message: {
             text: 'My message test',
           },
-          response: {
+          answer: {
             text: 'My response test',
           },
         }],
@@ -423,7 +423,7 @@ it('handles PROJECT_ELABORATION_CONVERSATIONS_DETAILS with user and anonym', () 
           message: {
             text: 'My message test',
           },
-          response: {
+          answer: {
             text: 'My response test',
           },
         }],
@@ -434,7 +434,7 @@ it('handles PROJECT_ELABORATION_CONVERSATIONS_DETAILS with user and anonym', () 
           message: {
             text: 'My message test',
           },
-          response: {
+          answer: {
             text: 'My response test',
           },
         }],
@@ -475,7 +475,7 @@ it('handles PROJECT_ELABORATION_CONVERSATION_DETAILS', () => {
           message: {
             text: 'My message test',
           },
-          response: {
+          answer: {
             text: 'My response test',
           },
         }],
@@ -486,7 +486,7 @@ it('handles PROJECT_ELABORATION_CONVERSATION_DETAILS', () => {
           message: {
             text: 'My message test',
           },
-          response: {
+          answer: {
             text: 'My response test',
           },
         }],

@@ -34,11 +34,11 @@ const StyledButton = styled.button`
   text-align: left;
 `
 
-const QuickReplies = ({ quick_replies, response, reply }) => {
+const QuickReplies = ({ quick_replies, answer, reply }) => {
   // eslint-disable-next-line camelcase
   const isQuickRepliesArray = Array.isArray(quick_replies)
 
-  if (!isQuickRepliesArray || (isQuickRepliesArray && response != null)) {
+  if (!isQuickRepliesArray || (isQuickRepliesArray && answer != null)) {
     return null
   }
 
@@ -63,7 +63,7 @@ QuickReplies.propTypes = {
       title: PropTypes.string.isRequired,
     }),
   ),
-  response: PropTypes.shape({
+  answer: PropTypes.shape({
     text: PropTypes.string,
     payload: PropTypes.string,
   }),

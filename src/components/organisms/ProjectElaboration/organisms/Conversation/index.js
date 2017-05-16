@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import { theme, breakpoint, mapBreakpoints } from 'utils/style'
 
 import { ProjectElaborationQuestion } from 'components'
-import Response from './atoms/Response'
+import Answer from './atoms/Answer'
 import QuickReplies from './molecules/QuickReplies'
 import Attachment from './molecules/Attachment'
 
@@ -52,7 +52,7 @@ class Conversation extends Component {
           text: PropTypes.string,
           quick_replies: PropTypes.array,
         }),
-        response: PropTypes.shape({
+        answer: PropTypes.shape({
           text: PropTypes.string,
           payload: PropTypes.string,
         }),
@@ -84,7 +84,7 @@ class Conversation extends Component {
     return (
       <Wrapper innerRef={(ref) => { this.history = ref }}>
         {
-          activeConversation.map(({ message: { text, attachment, quick_replies }, response }, index) => (
+          activeConversation.map(({ message: { text, attachment, quick_replies }, answer }, index) => (
             <div key={index}>
               <ProjectElaborationQuestion>{text != null ? text : null}</ProjectElaborationQuestion>
               {
@@ -92,18 +92,16 @@ class Conversation extends Component {
                   <div>
                     <Attachment
                       attachment={attachment != null ? attachment : null}
-                      {...{ reply, response, locale, redirectTo, location }}
+                      {...{ reply, answer, locale, redirectTo, location }}
                     />
                     <QuickReplies
                       // eslint-disable-next-line camelcase
-                      quick_replies={quick_replies}
-                      reply={reply}
-                      response={response}
+                      {...{ quick_replies, reply, answer }}
                     />
                   </div>
                   : null
               }
-              <Response response={response != null ? response.text : null} />
+              <Answer answer={answer != null ? answer.text : null} />
             </div>
           ))
         }

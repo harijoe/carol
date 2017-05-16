@@ -89,7 +89,7 @@ const fr = {
   'project.modify_my_project': 'Modifier mon projet',
 
   'project.elaboration.submit': 'Envoyer',
-  'project.elaboration.response': 'tapez votre réponse',
+  'project.elaboration.answer': 'tapez votre réponse',
   'project.elaboration.title': 'Élaboration du projet',
   'project.elaboration.reset': 'Recommencer',
   'project.elaboration.back': 'Retour',

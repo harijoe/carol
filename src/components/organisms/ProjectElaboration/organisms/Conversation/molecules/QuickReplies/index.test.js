@@ -13,7 +13,7 @@ it('renders QuickReplies', () => {
 })
 
 it('renders null', () => {
-  const wrapper = wrap({ quick_replies: [{ title: 'quick reply' }], response: 'response' })
+  const wrapper = wrap({ quick_replies: [{ title: 'quick reply' }], answer: 'response' })
 
   expect(wrap().node).toBeNull()
   expect(wrapper.node).toBeNull()

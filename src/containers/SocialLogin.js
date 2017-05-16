@@ -51,13 +51,7 @@ class SocialLoginContainer extends Component {
     grantType: PropTypes.string,
   }
 
-  constructor() {
-    super()
-
-    this.handleResponse = this.handleResponse.bind(this)
-  }
-
-  handleResponse({ accessToken }) {
+  handleAnswer = ({ accessToken }) => {
     this.props.request(accessToken)
   }
 
@@ -67,10 +61,10 @@ class SocialLoginContainer extends Component {
 
     switch (platform) {
       case 'facebook':
-        SocialButton = <FacebookLoginBase callback={this.handleResponse} cssClass="social facebook" {...props} />
+        SocialButton = <FacebookLoginBase callback={this.handleAnswer} cssClass="social facebook" {...props} />
         break
       case 'google':
-        SocialButton = <GoogleLoginBase onSuccess={this.handleResponse} className="social google" {...props} />
+        SocialButton = <GoogleLoginBase onSuccess={this.handleAnswer} className="social google" {...props} />
         break
       default:
     }

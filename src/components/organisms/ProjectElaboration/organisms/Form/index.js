@@ -154,12 +154,12 @@ class Form extends Component {
     } = this.props
 
     const submit = (values) => {
-      reply(values.response)
+      reply(values.answer)
       reset()
     }
 
     const SubMenuReset = () => (
-      <PopinMenuButton onClick={() => submit({ response: 'new_project.reset' })}>
+      <PopinMenuButton onClick={() => submit({ answer: 'new_project.reset' })}>
         <FormattedMessage id="project.elaboration.reset" />
       </PopinMenuButton>
     )
@@ -172,7 +172,7 @@ class Form extends Component {
 
     return (
       <StyledForm onSubmit={handleSubmit(submit)}>
-        <BackButton type="button" onClick={() => submit({ response: 'new_project.back' })}>
+        <BackButton type="button" onClick={() => submit({ answer: 'new_project.back' })}>
           <BackIcon icon="back" />
           <FormattedMessage id="project.elaboration.back" />
         </BackButton>
@@ -184,9 +184,9 @@ class Form extends Component {
           </PopinMenu>
           <StyledField
             disabled={disabled}
-            name="response"
+            name="answer"
             component={RenderField}
-            placeholder={formatMessage(messages('project.elaboration.response').label)}
+            placeholder={formatMessage(messages('project.elaboration.answer').label)}
             autoFocus
             innerRef={(field) => { this.field = field }}
           />

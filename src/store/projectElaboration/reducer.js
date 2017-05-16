@@ -21,20 +21,20 @@ const addQuestions = (activeConversation, questions) => {
   return updatedConversation
 }
 
-const addResponse = (activeConversation, response) => {
+const addAnswer = (activeConversation, answer) => {
   const updatedConversation = activeConversation.slice()
 
-  updatedConversation[activeConversation.length - 1].response = {
-    text: response,
+  updatedConversation[activeConversation.length - 1].answer = {
+    text: answer,
   }
 
   return updatedConversation
 }
 
-const setHeroResponse = (hero, { text, payload }) => {
+const setHeroAnswer = (hero, { text, payload }) => {
   const updatedHero = hero.slice()
 
-  updatedHero[hero.length - 1].response = {
+  updatedHero[hero.length - 1].answer = {
     text,
     payload,
   }
@@ -42,10 +42,10 @@ const setHeroResponse = (hero, { text, payload }) => {
   return updatedHero
 }
 
-const removeHeroResponse = (hero) => {
+const removeHeroAnswer = (hero) => {
   const updatedHero = hero.slice()
 
-  updatedHero[hero.length - 1].response = {
+  updatedHero[hero.length - 1].answer = {
     text: null,
     payload: null,
   }
@@ -60,7 +60,7 @@ const setHero = (hero, questions) => {
     updatedHero[i] = { message: question.message }
   ))
 
-  updatedHero = removeHeroResponse(updatedHero)
+  updatedHero = removeHeroAnswer(updatedHero)
 
   return updatedHero
 }
@@ -72,7 +72,7 @@ export default (state = initialState, action) => {
     case PROJECT_ELABORATION_CONVERSATION_SET_RESPONSE:
       return {
         ...state,
-        activeConversation: addResponse(state.activeConversation, payload),
+        activeConversation: addAnswer(state.activeConversation, payload),
       }
     case PROJECT_ELABORATION_CONVERSATION_REPLY.SUCCESS:
       return {
@@ -87,7 +87,7 @@ export default (state = initialState, action) => {
     case PROJECT_ELABORATION_HERO_SET_RESPONSE:
       return {
         ...state,
-        hero: setHeroResponse(state.hero, payload),
+        hero: setHeroAnswer(state.hero, payload),
       }
     case PROJECT_ELABORATION_HERO_DETAILS.SUCCESS:
       return {

@@ -87,7 +87,7 @@ const es = {
   'project.modify_my_project': 'Modifier mon projet ES',
 
   'project.elaboration.submit': 'Submit ES',
-  'project.elaboration.response': 'tapez votre réponse ES',
+  'project.elaboration.answer': 'tapez votre réponse ES',
   'project.elaboration.title': 'Project Elaboration ES',
   'project.elaboration.reset': 'Reset ES',
   'project.elaboration.back': 'Back ES',
