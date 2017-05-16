@@ -1,4 +1,4 @@
-exports[`test renders LastProjects component 1`] = `
+exports[`test renders the ProjectStatus component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -6,9 +6,11 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <InjectIntl(LastProjects) />,
+  "node": <ProjectStatus
+    status="completion_in_progress" />,
   "nodes": Array [
-    <InjectIntl(LastProjects) />,
+    <ProjectStatus
+      status="completion_in_progress" />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -266,7 +268,8 @@ ShallowWrapper {
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
         }>
-        <InjectIntl(LastProjects) />
+        <ProjectStatus
+                status="completion_in_progress" />
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -277,7 +280,8 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <InjectIntl(LastProjects) />,
+          "children": <ProjectStatus
+            status="completion_in_progress" />,
           "locale": "en",
           "messages": Object {
             "Invalid username and password combination": "Invalid username and password combination",
@@ -553,9 +557,11 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <InjectIntl(LastProjects) />,
+        "_currentElement": <ProjectStatus
+          status="completion_in_progress" />,
         "_debugID": 2,
-        "_renderedOutput": <InjectIntl(LastProjects) />,
+        "_renderedOutput": <ProjectStatus
+          status="completion_in_progress" />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -817,7 +823,8 @@ ShallowWrapper {
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }
     }>
-    <InjectIntl(LastProjects) />
+    <ProjectStatus
+        status="completion_in_progress" />
 </IntlProvider>,
 }
 `;
