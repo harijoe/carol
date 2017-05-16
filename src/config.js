@@ -59,6 +59,12 @@ const config = {
       },
     },
     purgeCacheToken: '41Xdkf2c7lflo2o065BTV21y6V6xhg9t',
+    socialNetworksUrls: {
+      facebook: 'https://www.facebook.com/Quotatis.FR/',
+      twitter: 'https://twitter.com/quotatisfr',
+      linkedin: 'https://www.linkedin.com/company-beta/50071/',
+      instagram: 'https://www.instagram.com/quotatis/',
+    },
   },
   staging: {
     api: {

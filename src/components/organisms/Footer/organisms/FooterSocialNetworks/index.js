@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { socialNetworksUrls } from 'config'
 
 import { Icon, Link, Section } from 'components'
 import { theme, breakpoint } from 'utils/style'
@@ -32,10 +33,10 @@ const StyledIcon = styled(Icon)`
 
 const FooterSocialNetworks = () => (
   <StyledSection>
-    <Link><StyledIcon icon="social-facebook" /></Link>
-    <Link><StyledIcon icon="social-twitter" /></Link>
-    <Link><StyledIcon icon="social-google" /></Link>
-    <Link><StyledIcon icon="social-linkedin" /></Link>
+    <Link to={socialNetworksUrls.facebook} target="_blank"><StyledIcon icon="social-facebook" /></Link>
+    <Link to={socialNetworksUrls.twitter} target="_blank"><StyledIcon icon="social-twitter" /></Link>
+    <Link to={socialNetworksUrls.linkedin} target="_blank"><StyledIcon icon="social-linkedin" /></Link>
+    <Link to={socialNetworksUrls.instagram} target="_blank"><StyledIcon icon="social-instagram" /></Link>
   </StyledSection>
 )
 
