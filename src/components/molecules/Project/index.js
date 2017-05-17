@@ -90,7 +90,8 @@ const FooterCard = styled.footer`
 const StyledParagraph = styled(Paragraph)`
   margin-bottom: ${theme('spaces.xl')};
   margin-top: 0;
-  color: ${theme('colors.grayscale.dark')};
+  color: ${theme('colors.grayscale.dark')} !important;
+  letter-spacing: 0.3px;
 
   ${breakpoint('m')`
     margin-bottom: ${theme('spaces.xxl')};
