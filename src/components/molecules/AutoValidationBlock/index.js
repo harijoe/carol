@@ -37,13 +37,13 @@ const StyledLink = styled(Link)`
   `}
 `
 
-const AutoValidationBlock = ({ imageLink, title, paragraph, callToAction }) => (
+const AutoValidationBlock = ({ imageLink, title, paragraph, callToAction, to }) => (
   <Container>
     <Wrapper>
       <StyledImage link={imageLink} />
       <Heading level={2}>{title}</Heading>
       <Paragraph>{paragraph}</Paragraph>
-      <StyledLink button>{callToAction}</StyledLink>
+      <StyledLink button to={to}>{callToAction}</StyledLink>
     </Wrapper>
   </Container>
 )
@@ -53,6 +53,7 @@ AutoValidationBlock.propTypes = {
   title: PropTypes.string,
   paragraph: PropTypes.string,
   callToAction: PropTypes.string,
+  to: PropTypes.string,
 }
 
 export default AutoValidationBlock

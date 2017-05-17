@@ -17,8 +17,6 @@ import {
   PhoneCodeValidationPage,
   ProjectElaborationPage,
   ProjectValidationPage,
-  EmailValidationPage,
-  EmailValidationSentPage,
   ProfilePage,
   ProjectListPage,
   ProjectPage,
@@ -28,7 +26,11 @@ import {
   SearchPage,
   SignupPage,
 } from 'components'
-import { ProjectPreValidatePage, VerifyEmailPage } from 'containers'
+import {
+  ProjectPreValidatePage,
+  VerifyEmailPage,
+  EmailValidationPage,
+} from 'containers'
 
 const routes = (
   <Route path="/" component={App}>
@@ -48,7 +50,6 @@ const routes = (
     <Route path="project-prevalidate/:chatbotStorageId" component={requiresAuth(ProjectPreValidatePage)} />
     <Route path="project-validation" component={requiresAuth(ProjectValidationPage)} />
     <Route path="validation/email" component={requiresAuth(EmailValidationPage)} />
-    <Route path="validation/email/sent" component={requiresAuth(EmailValidationSentPage)} />
     <Route path="validation/phone" component={requiresAuth(PhoneValidationPage)} />
     <Route path="validation/phone/code" component={requiresAuth(PhoneCodeValidationPage)} />
     <Route path="verify-email" component={requiresAuth(VerifyEmailPage)} />

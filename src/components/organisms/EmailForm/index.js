@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Field } from 'redux-form'
 import styled from 'styled-components'
@@ -14,21 +14,41 @@ const Form = styled.form`
   border: 1px solid #000;
 `
 
-const EmailForm = ({ error, handleSubmit, intl: { formatMessage }, disabled, loading }) => (
-  <Form onSubmit={handleSubmit}>
-    <Field
-      name="email"
-      component={RenderField}
-      label={formatMessage(messages('user.email').label)}
-      placeholder={formatMessage(messages('user.email').label)}
-      disabled={loading || disabled}
-    />
-    {error && <FormattedMessage id={error} tagName="strong" />}
-    <Button type="submit" {...{ disabled, loading }}>
-      <FormattedMessage id="user.send" />
-    </Button>
-  </Form>
-)
+class EmailForm extends Component {
+  state = {
+    clicked: false,
+  }
+
+  handleSubmit = (values, dispatch) => {
+    this.setState({ clicked: true })
+    this.props.handleSubmit(values, dispatch)
+  }
+
+  render() {
+    const { error, intl: { formatMessage }, disabled, loading } = this.props
+
+    return (
+      <Form onSubmit={this.handleSubmit}>
+        <Field
+          name="email"
+          component={RenderField}
+          label={formatMessage(messages('user.email').label)}
+          placeholder={formatMessage(messages('user.email').label)}
+          disabled={loading || disabled || this.state.clicked}
+        />
+        {error && <FormattedMessage id={error} tagName="strong" />}
+        {
+          !this.state.clicked &&
+          <Button type="submit" {...{ disabled, loading }}>
+            <FormattedMessage id="user.resend" />
+          </Button>
+        }
+        {this.state.clicked && <FormattedMessage id="user.email.sent" />}
+      </Form>
+    )
+  }
+}
+
 
 EmailForm.propTypes = {
   handleSubmit: PropTypes.func,

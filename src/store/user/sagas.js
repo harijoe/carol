@@ -121,11 +121,27 @@ function* handlePhoneValidationAgain() {
 
 function* handleEmailValidation({ data }) {
   try {
-    const id = yield select(fromUser.getId)
+    let id = yield select(fromUser.getId)
 
-    yield* fetch(userUpdate, 'put', id, {}, data)
+    if (id == null) {
+      yield* fetch(userDetails, 'get', '/users/me')
+      id = yield select(fromUser.getId)
+    }
+
+    const emailVerified = yield select(fromUser.getEmailVerified)
+
+    if (emailVerified) {
+      yield* redirectToNextStep()
+
+      return
+    }
+
+    if (data != null) {
+      yield* fetch(userUpdate, 'put', id, {}, data)
+    }
+
     yield* fetch(resendEmail, 'post', `${id}/actions/send-verification-email`, {}, {})
-    yield put(push('validation/email/sent'))
+    yield* notify('user.thank_you', 'user.sign_up.confirmation')
   } catch (error) {
     yield put(stopSubmit('EmailForm', { _error: error.message }))
   }

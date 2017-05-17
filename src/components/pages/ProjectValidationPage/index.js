@@ -13,6 +13,7 @@ const ProjectValidationPage = ({ intl: { formatMessage } }) => (
         title={formatMessage(messages('auto-validation.validate.title').label)}
         paragraph={formatMessage(messages('auto-validation.validate.message').label)}
         callToAction={formatMessage(messages('auto-validation.validate.call_to_action').label)}
+        to={'projects'}
       />
     </MainWrapper>
   </MainLayout>
