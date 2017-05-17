@@ -1,10 +1,11 @@
 import React from 'react'
 import { mount, shallow } from 'enzyme'
+import { ThemeProvider } from 'styled-components'
 import Link from '.'
 import theme from '../../themes/default'
 
 const wrap = (props = {}) => shallow(<Link theme={theme} {...props} />).dive()
-const wrapMounted = (props = {}) => mount(<Link theme={theme} {...props} />)
+const wrapMounted = (props = {}) => mount(<ThemeProvider theme={theme}><Link {...props} /></ThemeProvider>).find(Link)
 
 it('mounts with different combination of props', () => {
   mount(<Link theme={theme} />)
@@ -35,3 +36,38 @@ it('renders Link when prop to is passed in', () => {
 
   expect(wrapper.prop('to')).toEqual('test')
 })
+
+it('renders Router Link without highlight', () => {
+  const wrapper = wrapMounted({ highlight: true, to: '/' })
+
+  expect(wrapper.find('a')).not.toHaveProp('highlight')
+})
+
+it('renders Router Link without theme', () => {
+  const wrapper = wrapMounted({ theme, to: '/' })
+
+  expect(wrapper.find('a')).not.toHaveProp('theme')
+})
+
+it('renders Router Link without kind', () => {
+  const wrapper = wrapMounted({ kind: 'black', to: '/' })
+
+  expect(wrapper.find('a')).not.toHaveProp('kind')
+})
+
+it('renders Router Link without button', () => {
+  const wrapper = wrapMounted({ button: true, to: '/' })
+
+  expect(wrapper.find('a')).not.toHaveProp('button')
+})
+
+expect.extend({
+  toHaveProp(wrapper, prop) {
+    const pass = wrapper.prop(prop) !== undefined
+    return {
+      message: () => `expected <${wrapper.name()}/>${pass ? 'not' : ''} to be rendered with a ${prop}`,
+      pass: pass
+    };
+  }
+})
+

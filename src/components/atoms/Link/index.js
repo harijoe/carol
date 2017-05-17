@@ -2,7 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { Link as RouterLink } from 'react-router'
+import omit from 'lodash/omit'
 import { theme, ifThen, breakpoint } from 'utils/style'
+
+const styleProps = ['highlight', 'kind', 'button', 'theme']
 
 const styles = ({ kind, highlight, button }) => css`
   text-decoration: none;
@@ -49,7 +52,9 @@ const styles = ({ kind, highlight, button }) => css`
   `)};
 `
 
-const StyledLink = styled(RouterLink)`${styles}`
+const removeStyledProps = Component => props => <Component {...omit(props, ...styleProps)} />
+
+const StyledLink = styled(removeStyledProps(RouterLink))`${styles}`
 const Anchor = styled.a`${styles}`
 
 const Link = ({ ...props, to }) => {
