@@ -85,6 +85,8 @@ const config = {
   production: {
     api: {
       url: 'https://api-prod.qarx.io',
+      clientId: '21ujn3bgfgjoc8w08s0wgkwgc8s8g4gscggcc4skog8c0g4k8c',
+      clientSecret: '5fbpmtbpwkcg0w8gk8ssg44084okg8co4koccssgws8ko0c440',
     },
     locales: {
       fr_FR: {
