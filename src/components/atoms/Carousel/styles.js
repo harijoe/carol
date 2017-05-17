@@ -78,10 +78,6 @@ export default `
 
 /* Theme */
 
-p {
-  font: normal 14px/20px helvetica, arial, sans-serif;
-  color: #333;
-}
 .woot {
   font-weight: bold;
 }

@@ -51,11 +51,6 @@ const StyledLocation = styled(Paragraph)`
   margin-bottom: ${theme('spaces.m')};
 `
 
-const StyledParagraph = styled(Paragraph)`
-  font: normal ${theme('fonts.size.base')} montserrat-light, sans-serif !important;
-  line-height: 1.3 !important;
-`
-
 const TestimonialCardContent = ({ image, firstName, age, location, quote, link }) => (
   <Wrapper>
     <ImageWrapper>
@@ -70,7 +65,7 @@ const TestimonialCardContent = ({ image, firstName, age, location, quote, link }
         <StyledLocation>{location}</StyledLocation>
       </HeaderWrapper>
 
-      <StyledParagraph>« {quote} »</StyledParagraph>
+      <Paragraph>« {quote} »</Paragraph>
     </ContentWrapper>
     <CardFooter>
       <Link to={link} target="_blank" highlight>
