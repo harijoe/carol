@@ -27,6 +27,12 @@ const replace = (str, replacer = {}) => {
 }
 
 export default function* notify(title, message, status = 'success', titleValues = {}, messageValues = {}) {
+  const ssr = yield select(fromContext.isSSR)
+
+  if (ssr) {
+    return null
+  }
+
   const supportedStatuses = ['default', 'info', 'success', 'warning', 'error']
 
   if (!supportedStatuses.includes(status)) {
@@ -42,4 +48,6 @@ export default function* notify(title, message, status = 'success', titleValues 
     message: replace(messageTranslated, messageValues),
     status,
   }))
+
+  return null
 }
