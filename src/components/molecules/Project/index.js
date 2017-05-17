@@ -91,7 +91,7 @@ const StyledParagraph = styled(Paragraph)`
   margin-bottom: ${theme('spaces.xl')};
   margin-top: 0;
   color: ${theme('colors.grayscale.dark')} !important;
-  letter-spacing: 0.3px;
+  font-family: ${theme('fonts.family.montserratLight')} !important;
 
   ${breakpoint('m')`
     margin-bottom: ${theme('spaces.xxl')};
@@ -128,7 +128,7 @@ const listView = (items, ...props) => (
       }
       {
         items.status === 'to_validate' &&
-        <ButtonLink button to={`${items.id}/account`}><FormattedMessage id="project.button.to_validate" /></ButtonLink>
+        <ButtonLink button to={`${items['@id']}/account`}><FormattedMessage id="project.button.to_validate" /></ButtonLink>
       }
     </FooterCard>
   </Article>
