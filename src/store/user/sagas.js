@@ -84,7 +84,7 @@ function* handlePhoneValidation({ data }) {
   const id = yield select(fromUser.getId)
 
   try {
-    yield* fetch(validatePhone, 'put', `${id}/mobile_phone`, {}, data)
+    yield* fetch(validatePhone, 'put', `${id}/mobile_phone`, {}, data, data)
     const queryString = yield select(fromRouting.getSearch)
 
     yield put(push(`validation/phone/code${queryString}`))

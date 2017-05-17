@@ -48,7 +48,7 @@ export const validatePhoneAgain = () => (actionTypes(USER_VALIDATE_PHONE_AGAIN))
 
 export const validatePhone = {
   request: data => (actionTypes(USER_VALIDATE_PHONE.REQUEST, { data })),
-  success: payload => (actionTypes(USER_VALIDATE_PHONE.SUCCESS, { payload })),
+  success: (payload, actionParams) => (actionTypes(USER_VALIDATE_PHONE.SUCCESS, { payload, actionParams })),
   failure: error => (actionTypes(USER_VALIDATE_PHONE.FAILURE, { error })),
 }
 
