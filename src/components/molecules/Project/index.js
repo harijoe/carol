@@ -97,13 +97,6 @@ const StyledParagraph = styled(Paragraph)`
   `}
 `
 
-const LeadReference = styled(Paragraph)`
-  margin-bottom: ${theme('spaces.s')};
-  margin-top: 0;
-  font-size: ${theme('fonts.size.s')};
-  color: ${theme('colors.grayscale.medium')};
-`
-
 const ButtonLink = styled(Link)`
   margin-top: auto;
 
@@ -121,18 +114,21 @@ const listView = (items, ...props) => (
       <StyledHeading level={3}>{items.name}</StyledHeading>
       <DateCreation>
         <FormattedMessage id="project.created_at" /> <DateTime value={items.createdAt} />
-        ( <FormattedMessage id="project.updated_at" />: <DateTime value={items.updatedAt} />)
       </DateCreation>
       <ProjectStatus status={items.status} />
     </HeaderCard>
     <FooterCard>
-      <LeadReference>
-        <FormattedMessage id="project.reference" />: {items.leadReference}
-      </LeadReference>
       <StyledParagraph>
-        <FormattedMessage id="project.describe.in_progress" />
+        <FormattedMessage id={`project.describe.${items.status}`} />
       </StyledParagraph>
-      <ButtonLink button><FormattedMessage id="project.continue" /></ButtonLink>
+      {
+        items.status === 'completion_in_progress' &&
+        <ButtonLink button to="/project-elaboration"><FormattedMessage id="project.continue" /></ButtonLink>
+      }
+      {
+        items.status === 'to_validate' &&
+        <ButtonLink button to={`${items.id}/account`}><FormattedMessage id="project.button.to_validate" /></ButtonLink>
+      }
     </FooterCard>
   </Article>
 )

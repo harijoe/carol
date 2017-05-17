@@ -29,7 +29,7 @@ const styles = ({ status }) => css`
     color: ${theme('colors.grayscale.dark')};
   `)}
 
-  ${ifThen(status === 'to-validate', css`
+  ${ifThen(status === 'to_validate', css`
     background-color: #FED289;
     color: ${theme('colors.grayscale.dark')};
   `)}
