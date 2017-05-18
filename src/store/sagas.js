@@ -15,11 +15,6 @@ req.keys().forEach((key) => {
   })
 })
 
-/*
-  Don't remove .default here,
-
-  see server/initSagas.js for more explanations
- */
-module.exports.default = function* () {
+export default function* () {
   yield sagas.map(fork)
 }
