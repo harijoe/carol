@@ -4,6 +4,7 @@ import { theme, ifThen, breakpoint } from 'utils/style'
 import styled, { css } from 'styled-components'
 
 const StyledButton = styled.button`${({ block, secondary, maxWidth, center, cssDisabled, loading }) => css`
+  cursor: pointer;
   display: block;
   margin: ${theme('spaces.m')} 0 0 0;
   padding: ${theme('spaces.m')};
