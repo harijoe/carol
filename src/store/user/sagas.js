@@ -163,6 +163,7 @@ function* handleEmailVerification() {
     try {
       yield* fetch(verifyEmail, 'put', `${id}/email-verified`, {}, { token })
     } catch (e) {
+      yield* notify('user.error', 'user.error.email_not_verified', 'error')
       yield put(push('/'))
     }
   }

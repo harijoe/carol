@@ -179,6 +179,8 @@ const fr = {
   'user.phone_validated': 'Votre numéro de téléphone est validé',
   'user.email.sent': 'Un email de confirmation vous a été envoyé',
   'user.email.check': 'Validation de l\'email en cours',
+  'user.error': 'Oops',
+  'user.error.email_not_verified': 'Votre email n\'a pas pu être vérifié',
 
   'validators.required_field': 'Champs requis',
   'validators.min_length': 'Doit avoir au moins {min} caractères',
