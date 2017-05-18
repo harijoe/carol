@@ -11,7 +11,18 @@ import { list as sagaList, clear as sagaClear } from '../../src/sagas/ssr/collec
 export default async function initSagas(store, renderProps, disableTimeout = false) {
   store.dispatch(setDryRun(true))
 
-  const appListenersTask = store.runSaga(sagas)
+  /*
+    Don't remove the .default after sagas
+
+    Explanation : Without it `sagas` doesn't contain all of the sagas, but only the last domain's sagas
+      (which is user at this time). This occurs only when NODE_ENV is set to production. The solution proposed here is
+      to export the root saga explicitely under the key `default` and to explicitely use it here. Thus the use of
+      the ES5 default export feature which is causing the bug is avoided
+
+    Notice : If you find the reason behind this behavior, please send a mail explaining what you
+      understood to vallinij@gmail.com
+   */
+  const appListenersTask = store.runSaga(sagas.default)
 
   /*
     This rendering is used to trigger sagas which are created in some components (usually in componentWillMount)
