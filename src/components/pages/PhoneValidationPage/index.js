@@ -1,21 +1,30 @@
 import React from 'react'
-import styled from 'styled-components'
+import { injectIntl, intlShape } from 'react-intl'
+import { cloudinaryUrl } from 'config'
+import messages from 'utils/messages'
 
-import { MainLayout, Card } from 'components'
-import { PhoneForm, PhoneAlreadyVerified } from 'containers'
+import { MainLayout, AutoValidationBlock, MainWrapper } from 'components'
+import { PhoneAlreadyVerified, PhoneForm } from 'containers'
 
-const StyledCard = styled(Card)`
-  margin-top: 200px;
-`
-
-const PhoneValidationPage = () => (
+const PhoneValidationPage = ({ intl: { formatMessage } }) => (
   <MainLayout>
-    <StyledCard>
-      <PhoneAlreadyVerified>
-        <PhoneForm />
-      </PhoneAlreadyVerified>
-    </StyledCard>
+    <MainWrapper>
+      <AutoValidationBlock
+        dots
+        imageLink={`${cloudinaryUrl}autovalidation-phone.svg`}
+        title={formatMessage(messages('auto-validation.phone.title').label)}
+        paragraph={formatMessage(messages('auto-validation.phone.message').label)}
+      >
+        <PhoneAlreadyVerified>
+          <PhoneForm />
+        </PhoneAlreadyVerified>
+      </AutoValidationBlock>
+    </MainWrapper>
   </MainLayout>
 )
 
-export default PhoneValidationPage
+PhoneValidationPage.propTypes = {
+  intl: intlShape.isRequired,
+}
+
+export default injectIntl(PhoneValidationPage)

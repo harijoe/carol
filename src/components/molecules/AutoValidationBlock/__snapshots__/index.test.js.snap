@@ -15,9 +15,6 @@ ShallowWrapper {
             Test
         </Mock>
         <Mock />
-        <Styled(Mock)
-            button={true}
-            to={undefined} />
     </styled.div>
 </styled.div>,
   "nodes": Array [
@@ -30,9 +27,6 @@ ShallowWrapper {
                   Test
             </Mock>
             <Mock />
-            <Styled(Mock)
-                  button={true}
-                  to={undefined} />
       </styled.div>
 </styled.div>,
   ],
@@ -84,9 +78,6 @@ ShallowWrapper {
                               Test
                     </Mock>
                     <Mock />
-                    <Styled(Mock)
-                              button={true}
-                              to={undefined} />
           </styled.div>
 </styled.div>,
         "_debugID": 2,
@@ -99,9 +90,6 @@ ShallowWrapper {
                               Test
                     </Mock>
                     <Mock />
-                    <Styled(Mock)
-                              button={true}
-                              to={undefined} />
           </styled.div>
 </styled.div>,
       },

@@ -5,14 +5,22 @@ import styled from 'styled-components'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import messages from 'utils/messages'
 import { normalize, format } from 'utils/transformPhone'
+import { theme, breakpoint } from 'utils/style'
 
 import { RenderField, Button } from 'components'
 
 const Form = styled.form`
   width: 100%;
-  box-sizing: border-box;
-  padding: 1rem;
-  border: 1px solid #000;
+  padding: 0;
+  margin-top: ${theme('spaces.m')};
+`
+
+const StyledButton = styled(Button)`
+  width: 100%;
+
+  ${breakpoint('s')`
+    min-width: 40rem;
+  `}
 `
 
 const PhoneForm = (props) => {
@@ -30,9 +38,9 @@ const PhoneForm = (props) => {
         {...{ format, normalize }}
       />
       {error && <FormattedMessage id={error} tagName="strong" />}
-      <Button type="submit" {...{ disabled, loading }}>
+      <StyledButton type="submit" {...{ disabled, loading }}>
         <FormattedMessage id="user.send" />
-      </Button>
+      </StyledButton>
     </Form>
   )
 }

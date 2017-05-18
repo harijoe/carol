@@ -3,15 +3,19 @@ import PropTypes from 'prop-types'
 import { Field } from 'redux-form'
 import styled from 'styled-components'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
+import { theme } from 'utils/style'
 import messages from 'utils/messages'
 
 import { RenderField, Button } from 'components'
 
 const Form = styled.form`
   width: 100%;
-  box-sizing: border-box;
-  padding: 1rem;
-  border: 1px solid #000;
+  padding: 0;
+  margin-top: ${theme('spaces.m')};
+`
+
+const StyledButton = styled(Button)`
+  appearance: none;
 `
 
 class EmailForm extends Component {
@@ -39,16 +43,15 @@ class EmailForm extends Component {
         {error && <FormattedMessage id={error} tagName="strong" />}
         {
           !this.state.clicked &&
-          <Button type="submit" {...{ disabled, loading }}>
+          <StyledButton type="submit" {...{ disabled, loading }} highlight>
             <FormattedMessage id="user.resend" />
-          </Button>
+          </StyledButton>
         }
         {this.state.clicked && <FormattedMessage id="user.email.sent" />}
       </Form>
     )
   }
 }
-
 
 EmailForm.propTypes = {
   handleSubmit: PropTypes.func,

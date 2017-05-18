@@ -1,5 +1,5 @@
 import { put, take } from 'redux-saga/effects'
-import { channel, buffers } from 'redux-saga'
+import { channel } from 'redux-saga'
 
 /*
  Channels are a feature of redux-saga — https://goo.gl/B0s6aG
@@ -8,7 +8,7 @@ import { channel, buffers } from 'redux-saga'
  This function is a helper used to trigger a token refresh. If it's called simultaneously by multiple sagas,
  all of the sagas will be blocked until the worker (located in sagas/auth) manages to fetch a token.
  */
-export const requestChannel = channel(buffers.dropping(2))
+export const requestChannel = channel()
 export const responseChannel = channel()
 
 export default function* () {

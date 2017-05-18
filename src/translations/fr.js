@@ -265,6 +265,17 @@ const fr = {
   'auto-validation.validate.title': 'Merci d\'avoir validé vos informations',
   'auto-validation.validate.message': 'Vous recevrez très prochainement par e-mail les coordonnées des professionnels de confiance que nous aurons sélectionnés pour vous.',
   'auto-validation.validate.call_to_action': 'Accéder à mes projets',
+
+  'auto-validation.mail.title': 'Consultez vos e-mails',
+  'auto-validation.mail.message': 'Nous venons d\'envoyer un email à l\'adresse ci-dessous. Pour confirmer votre adresse e-mail, veuillez cliquez sur le bouton de confirmation. Cela permettra aux professionnels de vous contacter dès la validation de votre projet.',
+  'auto-validation.mail.send_mail': 'Renvoyer l\'e-mail',
+
+  'auto-validation.phone.title': 'Confirmez votre numéro de téléphone',
+  'auto-validation.phone.message': 'Ce numéro permettra aux artisans de vous contacter dès la validation de votre projet.',
+  'auto-validation.phone.check_phone': 'Confirmer le numéro de téléphone',
+
+  'auto-validation.phone_code.title': 'Saisissez le code à 4 chiffres',
+  'auto-validation.phone_code.message': 'Nous vous avons envoyé un SMS. Entrez le code reçu ci-dessous :',
 }
 
 export default fr

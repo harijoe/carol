@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { theme, ifThen, breakpoint } from 'utils/style'
 import styled, { css } from 'styled-components'
 
-const StyledButton = styled.button`${({ block, secondary, maxWidth, center, cssDisabled, loading }) => css`
+const StyledButton = styled.button`${({ block, secondary, maxWidth, center, cssDisabled, loading, highlight }) => css`
   cursor: pointer;
   display: block;
   margin: ${theme('spaces.m')} 0 0 0;
@@ -32,6 +32,33 @@ const StyledButton = styled.button`${({ block, secondary, maxWidth, center, cssD
     background-color: ${theme('colors.grayscale.lighter')};
     color: ${theme('colors.grayscale.dark')};
   `)};
+  ${ifThen(highlight, css`
+    position: relative;
+    margin: 0;
+    padding: 0 4px 0 4px;
+    width: auto;
+    text-decoration: none;
+    font-family: ${theme('fonts.family.montserratLight')};
+    font-size: ${theme('fonts.size.base')};
+    letter-spacing: 0rem;
+    line-height: 1;
+    background-color: transparent;
+    color: ${theme('colors.black')};
+    padding-left: ${theme('spaces.xs')};
+    padding-right: ${theme('spaces.xs')};
+    box-shadow: inset 0 -0.6rem 0 rgba(51, 51, 254, 0.2);
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: ${theme('colors.white')};
+      box-shadow: inset 0 -6rem 0 rgba(51, 51, 254, 1);
+    }
+
+    ${breakpoint('m')`
+      margin: 0;
+      padding: 0 4px 0 4px;
+    `}
+  `)};
   ${ifThen(maxWidth, css`
     ${breakpoint('m')`
       max-width: 32rem;
@@ -59,6 +86,7 @@ Button.propTypes = {
   center: PropTypes.bool,
   type: PropTypes.string,
   loading: PropTypes.bool,
+  highlight: PropTypes.bool,
 }
 
 Button.defaultProps = {

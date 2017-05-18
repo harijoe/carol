@@ -257,12 +257,23 @@ const es = {
 
   'last_projects.section_title': 'Derniers projets ES',
 
+  'cookies.message': 'En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour vous proposer des services et des offres adaptés à vos centres d’intérêts. ES',
+  'cookies.more': 'More informations ES',
+
   'auto-validation.validate.title': 'Merci d\'avoir validé vos informations ES',
   'auto-validation.validate.message': 'Vous recevrez très prochainement par e-mail les coordonnées des professionnels de confiance que nous aurons sélectionnés pour vous. ES',
   'auto-validation.validate.call_to_action': 'Accéder à mes projets ES',
 
-  'cookies.message': 'En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour vous proposer des services et des offres adaptés à vos centres d’intérêts. ES',
-  'cookies.more': 'More informations ES',
+  'auto-validation.mail.title': 'Consultez vos e-mails ES',
+  'auto-validation.mail.message': 'Nous venons d\'envoyer un email à l\'adresse ci-dessous. Pour confirmer votre adresse e-mail, veuillez cliquez sur le bouton de confirmation. Cela permettra aux professionnels de vous contacter dès la validation de votre projet. ES',
+  'auto-validation.mail.send_mail': 'Renvoyer l\'e-mail ES',
+
+  'auto-validation.phone.title': 'Confirmez votre numéro de téléphone ES',
+  'auto-validation.phone.message': 'Ce numéro permettra aux artisans de vous contacter dès la validation de votre projet. ES',
+  'auto-validation.phone.check_phone': 'Confirmer le numéro de téléphone ES',
+
+  'auto-validation.phone_code.title': 'Saisissez le code à 4 chiffres ES',
+  'auto-validation.phone_code.message': 'Nous vous avons envoyé un SMS. Entrez le code reçu ci-dessous : ES',
 }
 
 export default es

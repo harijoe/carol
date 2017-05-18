@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { theme, breakpoint } from 'utils/style'
 
-import { Image, Heading, Paragraph, Link } from 'components'
+import { Image, Heading, Paragraph, Dots } from 'components'
 
 const Wrapper = styled.div`
   max-width: 40rem;
@@ -24,26 +24,32 @@ const Container = styled.div`
 `
 
 const StyledImage = styled(Image)`
-  margin-bottom: ${theme('spaces.xxl')};
+  margin-bottom: ${theme('spaces.xl')};
   width: auto;
   max-height: 12rem;
 `
 
-const StyledLink = styled(Link)`
-  width: 100%;
 
-  ${breakpoint('s')`
-    min-width: 40rem;
-  `}
+const DotsWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  margin: ${theme('spaces.m')} auto;
+  text-align: center;
 `
 
-const AutoValidationBlock = ({ imageLink, title, paragraph, callToAction, to }) => (
+const AutoValidationBlock = ({ imageLink, title, paragraph, children, dots }) => (
   <Container>
     <Wrapper>
+      {dots &&
+        <DotsWrapper>
+          <Dots focus />
+          <Dots />
+        </DotsWrapper>
+      }
       <StyledImage link={imageLink} />
       <Heading level={2}>{title}</Heading>
       <Paragraph>{paragraph}</Paragraph>
-      <StyledLink button to={to}>{callToAction}</StyledLink>
+      {children}
     </Wrapper>
   </Container>
 )
@@ -52,8 +58,8 @@ AutoValidationBlock.propTypes = {
   imageLink: PropTypes.string,
   title: PropTypes.string,
   paragraph: PropTypes.string,
-  callToAction: PropTypes.string,
-  to: PropTypes.string,
+  children: PropTypes.any,
+  dots: PropTypes.bool,
 }
 
 export default AutoValidationBlock

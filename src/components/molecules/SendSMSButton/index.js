@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
 
+import { Link } from 'components'
+
 class SendSMSButton extends Component {
   state = {
     clicked: false,
@@ -16,7 +18,7 @@ class SendSMSButton extends Component {
       return <FormattedMessage id="user.new_sms_sent" />
     }
 
-    return <button type="button" onClick={this.handleClick}><FormattedMessage id="user.send_sms_again" /></button>
+    return <Link onClick={this.handleClick} highlight><FormattedMessage id="user.send_sms_again" /></Link>
   }
 }
 

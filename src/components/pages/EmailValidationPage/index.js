@@ -1,19 +1,28 @@
 import React from 'react'
-import styled from 'styled-components'
+import { injectIntl, intlShape } from 'react-intl'
+import { cloudinaryUrl } from 'config'
+import messages from 'utils/messages'
 
-import { MainLayout, Card } from 'components'
+import { MainLayout, MainWrapper, AutoValidationBlock } from 'components'
 import { EmailForm } from 'containers'
 
-const StyledCard = styled(Card)`
-  margin-top: 200px;
-`
-
-const EmailValidationPage = () => (
+const EmailValidationPage = ({ intl: { formatMessage } }) => (
   <MainLayout>
-    <StyledCard>
-      <EmailForm />
-    </StyledCard>
+    <MainWrapper>
+      <AutoValidationBlock
+        dots
+        imageLink={`${cloudinaryUrl}autovalidation-mail.svg`}
+        title={formatMessage(messages('auto-validation.mail.title').label)}
+        paragraph={formatMessage(messages('auto-validation.mail.message').label)}
+      >
+        <EmailForm />
+      </AutoValidationBlock>
+    </MainWrapper>
   </MainLayout>
 )
 
-export default EmailValidationPage
+EmailValidationPage.propTypes = {
+  intl: intlShape.isRequired,
+}
+
+export default injectIntl(EmailValidationPage)
