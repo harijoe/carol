@@ -20,7 +20,7 @@ req.keys().forEach((key) => {
      Notice : If you find the reason behind this behavior, please send a mail explaining what you
       understood to vallinij@gmail.com
      */
-    if (name === 'default') {
+    if (name !== 'default') {
       module.exports[name] = element
     }
   })
