@@ -13,7 +13,7 @@ HTTPError.prototype.toString = function () {
       return JSON.stringify(this.message)
     }
   } catch (e) {
-    return this.message.toString();
+    return this.message.toString()
   }
 
   return this.message
