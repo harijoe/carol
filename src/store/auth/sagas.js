@@ -52,7 +52,7 @@ export function* handleAuthLoginRequest({ grantType = 'client_credentials', form
   } catch (e) {
     if (formName != null) {
       // eslint-disable-next-line no-underscore-dangle
-      yield put(stopSubmit(formName, { _error: e._error }))
+      yield put(stopSubmit(formName, { _error: e.message }))
     }
 
     throw e

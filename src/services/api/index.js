@@ -43,7 +43,7 @@ api.checkStatus = (stream) => {
       } else if (status != null && status < 400) {
         return response
       } else {
-        throw new HTTPError(response.violations || response.responseor_description || response.message, status)
+        throw new HTTPError(response.violations || response.error_description || response.message, status)
       }
     })
 }

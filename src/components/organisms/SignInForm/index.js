@@ -78,7 +78,7 @@ const StyledParagraph = styled(Paragraph)`
   margin: 0;
 `
 
-const SignInForm = ({ error, handleSubmit, submitting, intl: { formatMessage }, className, carousel }) => (
+const SignInForm = ({ error, handleSubmit, loading, intl: { formatMessage }, className, carousel }) => (
   <div>
     {
       carousel &&
@@ -104,7 +104,7 @@ const SignInForm = ({ error, handleSubmit, submitting, intl: { formatMessage }, 
               <Link kind="black" to="/forgot-password">
                 <FormattedMessage id="user.forget_password" />
               </Link>
-              <Button type="submit" block disabled={submitting}>
+              <Button type="submit" block loading={loading}>
                 <FormattedMessage id="user.sign_in" />
               </Button>
             </Form>
@@ -147,7 +147,7 @@ const SignInForm = ({ error, handleSubmit, submitting, intl: { formatMessage }, 
             label={formatMessage(messages('user.password').label)}
           />
           <Link kind="black" to="/forgot-password"><FormattedMessage id="user.forgot_password.heading" /></Link>
-          <Button type="submit" block disabled={submitting}><FormattedMessage id="user.sign_in" /></Button>
+          <Button type="submit" block loading={loading}><FormattedMessage id="user.sign_in" /></Button>
         </Form>
         <div className="footer">
           <FormattedMessage id="user.no_account_question" />
@@ -160,10 +160,10 @@ const SignInForm = ({ error, handleSubmit, submitting, intl: { formatMessage }, 
 
 SignInForm.propTypes = {
   handleSubmit: PropTypes.func,
-  submitting: PropTypes.bool,
   className: PropTypes.string,
   carousel: PropTypes.bool,
   error: PropTypes.string,
+  loading: PropTypes.bool,
   intl: intlShape.isRequired,
 }
 

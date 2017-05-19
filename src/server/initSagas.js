@@ -25,15 +25,19 @@ export default async function initSagas(store, renderProps, disableTimeout = fal
   )
 
   function* getToken() {
-    const tokenTimeout = 10000
+    if (disableTimeout) {
+      yield call(handleAuthLoginRequest)
+    } else {
+      const tokenTimeout = 10000
 
-    const { timeout } = yield race({
-      main: call(handleAuthLoginRequest),
-      timeout: call(delay, tokenTimeout),
-    })
+      const { timeout } = yield race({
+        main: call(handleAuthLoginRequest),
+        timeout: call(delay, tokenTimeout),
+      })
 
-    if (timeout) {
-      throw new Error('Fatal - Timeout for token retrieval reached - ', tokenTimeout / 1000, 's')
+      if (timeout) {
+        throw new Error('Fatal - Timeout for token retrieval reached - ', tokenTimeout / 1000, 's')
+      }
     }
   }
 
