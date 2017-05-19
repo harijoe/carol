@@ -143,7 +143,7 @@ const generateChild = (items, reply) => items.map(({ title, image_url, buttons, 
     // eslint-disable-next-line camelcase
     image={image_url}
     title={title}
-    items={subtitle.split(' | ')}
+    items={subtitle.split('\n')}
     onClick={() => reply(title, buttons[0].payload)}
   />
 ))
