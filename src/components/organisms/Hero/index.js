@@ -156,18 +156,31 @@ const FirstChoices = (choices, reply) => (
         variableWidth
         infinite={false}
         arrows
-        slidesToScroll={1}
         dots
         responsive={[
           {
             breakpoint: 767,
-            settings: { arrows: false },
+            settings: {
+              arrows: false,
+              slidesToScroll: 2,
+            },
           },
           {
-            breakpoint: 3000,
+            breakpoint: 992,
             settings: {
               arrows: true,
               swipe: false,
+              slidesToScroll: 3,
+              slidesToShow: 3,
+            },
+          },
+          {
+            breakpoint: 10000,
+            settings: {
+              arrows: true,
+              swipe: false,
+              slidesToScroll: 4,
+              slidesToShow: 4,
             },
           },
         ]}
