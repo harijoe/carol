@@ -1,16 +1,54 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { theme, breakpoint } from 'utils/style'
 
-import { MainLayout, MainWrapper } from 'components'
+import { MainLayout, MainWrapper, Section, Grid } from 'components'
 
 import { FirmList, FirmAcceptButton } from 'containers'
 
+const StyledMainWrapper = styled(MainWrapper)`
+  padding-top: 5.6rem;
+  background: ${theme('colors.white')};
+
+  ${breakpoint('m')`
+    padding-top: ${theme('spaces.xxxl')};
+  `}
+`
+const StyledSection = styled(Section)`
+  position: relative;
+  padding-top: ${theme('spaces.xxl')};
+
+  &::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 50%;
+    width: 100%;
+    background: ${theme('colors.white')};
+    content: '';
+
+    ${breakpoint('m')`
+      height: 37rem;
+    `}
+  }
+`
+const StyledGrid = styled(Grid)`
+  ${breakpoint('xl')`
+    max-width: 100rem;
+  `}
+`
+
 const FirmListPage = ({ params: { projectId } }) => (
   <MainLayout>
-    <MainWrapper>
-      <FirmList {...{ projectId }} />
-      <FirmAcceptButton projectId={projectId} />
-    </MainWrapper>
+    <StyledMainWrapper>
+      <StyledSection light>
+        <StyledGrid narrow>
+          <FirmList {...{ projectId }} />
+          <FirmAcceptButton projectId={projectId} />
+        </StyledGrid>
+      </StyledSection>
+    </StyledMainWrapper>
   </MainLayout>
 )
 

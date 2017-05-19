@@ -6,89 +6,79 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <Mock>
-    <li>
-        <Styled(Mock)
-            link="https://hugo-fr.qarx.io/wp-content/uploads/2017/02/Plancher-chauffant-1.jpg" />
-    </li>
-    <styled.li>
-        <styled.figure>
-            <Styled(Mock)
-                link="" />
-        </styled.figure>
-    </styled.li>
-    <li>
-        <FormattedMessage
-            id="firm.details.notation"
-            values={Object {}} />
-        : 
-        <span>
-            4.5
-            /5 
-        </span>
-    </li>
-    <li>
-        <FormattedMessage
-            id="firm.details.name"
-            values={Object {}} />
-        : 
-        test
-    </li>
-    <li>
-        <div>
-            88
-             
-            <FormattedMessage
-                id="firm.details.reviews"
-                values={Object {}} />
-        </div>
-    </li>
-    <li>
-        96352
-    </li>
-</Mock>,
-  "nodes": Array [
-    <Mock>
-      <li>
-            <Styled(Mock)
-                  link="https://hugo-fr.qarx.io/wp-content/uploads/2017/02/Plancher-chauffant-1.jpg" />
-      </li>
-      <styled.li>
+  "node": <styled.div>
+    <styled.header>
+        <styled.div>
             <styled.figure>
-                  <Styled(Mock)
-                        link="" />
+                <Styled(Mock)
+                    link="" />
             </styled.figure>
-      </styled.li>
-      <li>
-            <FormattedMessage
-                  id="firm.details.notation"
-                  values={Object {}} />
-            : 
-            <span>
-                  4.5
-                  /5 
-            </span>
-      </li>
-      <li>
-            <FormattedMessage
-                  id="firm.details.name"
-                  values={Object {}} />
-            : 
-            test
-      </li>
-      <li>
-            <div>
-                  88
-                   
-                  <FormattedMessage
+            <styled.div>
+                <span>
+                    4.5
+                    /5 
+                </span>
+                <span>
+                    88
+                     
+                    <FormattedMessage
                         id="firm.details.reviews"
                         values={Object {}} />
-            </div>
-      </li>
-      <li>
+                </span>
+            </styled.div>
+        </styled.div>
+        <Styled(Mock)
+            level={3}>
+            test
+        </Styled(Mock)>
+        <Styled(Mock)
+            link="https://hugo-fr.qarx.io/wp-content/uploads/2017/02/Plancher-chauffant-1.jpg" />
+    </styled.header>
+    <styled.footer>
+        <Styled(Mock)>
+            <Styled(Mock)
+                icon="location-pin" />
             96352
-      </li>
-</Mock>,
+        </Styled(Mock)>
+    </styled.footer>
+</styled.div>,
+  "nodes": Array [
+    <styled.div>
+      <styled.header>
+            <styled.div>
+                  <styled.figure>
+                        <Styled(Mock)
+                              link="" />
+                  </styled.figure>
+                  <styled.div>
+                        <span>
+                              4.5
+                              /5 
+                        </span>
+                        <span>
+                              88
+                               
+                              <FormattedMessage
+                                    id="firm.details.reviews"
+                                    values={Object {}} />
+                        </span>
+                  </styled.div>
+            </styled.div>
+            <Styled(Mock)
+                  level={3}>
+                  test
+            </Styled(Mock)>
+            <Styled(Mock)
+                  link="https://hugo-fr.qarx.io/wp-content/uploads/2017/02/Plancher-chauffant-1.jpg" />
+      </styled.header>
+      <styled.footer>
+            <Styled(Mock)>
+                  <Styled(Mock)
+                        icon="location-pin" />
+                  96352
+            </Styled(Mock)>
+      </styled.footer>
+</styled.div>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -137,89 +127,79 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <Mock>
-          <li>
+        "_currentElement": <styled.div>
+          <styled.header>
+                    <styled.div>
+                              <styled.figure>
+                                        <Styled(Mock)
+                                                  link="" />
+                              </styled.figure>
+                              <styled.div>
+                                        <span>
+                                                  4.5
+                                                  /5 
+                                        </span>
+                                        <span>
+                                                  88
+                                                   
+                                                  <FormattedMessage
+                                                            id="firm.details.reviews"
+                                                            values={Object {}} />
+                                        </span>
+                              </styled.div>
+                    </styled.div>
+                    <Styled(Mock)
+                              level={3}>
+                              test
+                    </Styled(Mock)>
                     <Styled(Mock)
                               link="https://hugo-fr.qarx.io/wp-content/uploads/2017/02/Plancher-chauffant-1.jpg" />
-          </li>
-          <styled.li>
-                    <styled.figure>
+          </styled.header>
+          <styled.footer>
+                    <Styled(Mock)>
                               <Styled(Mock)
-                                        link="" />
-                    </styled.figure>
-          </styled.li>
-          <li>
-                    <FormattedMessage
-                              id="firm.details.notation"
-                              values={Object {}} />
-                    : 
-                    <span>
-                              4.5
-                              /5 
-                    </span>
-          </li>
-          <li>
-                    <FormattedMessage
-                              id="firm.details.name"
-                              values={Object {}} />
-                    : 
-                    test
-          </li>
-          <li>
-                    <div>
-                              88
-                               
-                              <FormattedMessage
-                                        id="firm.details.reviews"
-                                        values={Object {}} />
-                    </div>
-          </li>
-          <li>
-                    96352
-          </li>
-</Mock>,
+                                        icon="location-pin" />
+                              96352
+                    </Styled(Mock)>
+          </styled.footer>
+</styled.div>,
         "_debugID": 2,
-        "_renderedOutput": <Mock>
-          <li>
+        "_renderedOutput": <styled.div>
+          <styled.header>
+                    <styled.div>
+                              <styled.figure>
+                                        <Styled(Mock)
+                                                  link="" />
+                              </styled.figure>
+                              <styled.div>
+                                        <span>
+                                                  4.5
+                                                  /5 
+                                        </span>
+                                        <span>
+                                                  88
+                                                   
+                                                  <FormattedMessage
+                                                            id="firm.details.reviews"
+                                                            values={Object {}} />
+                                        </span>
+                              </styled.div>
+                    </styled.div>
+                    <Styled(Mock)
+                              level={3}>
+                              test
+                    </Styled(Mock)>
                     <Styled(Mock)
                               link="https://hugo-fr.qarx.io/wp-content/uploads/2017/02/Plancher-chauffant-1.jpg" />
-          </li>
-          <styled.li>
-                    <styled.figure>
+          </styled.header>
+          <styled.footer>
+                    <Styled(Mock)>
                               <Styled(Mock)
-                                        link="" />
-                    </styled.figure>
-          </styled.li>
-          <li>
-                    <FormattedMessage
-                              id="firm.details.notation"
-                              values={Object {}} />
-                    : 
-                    <span>
-                              4.5
-                              /5 
-                    </span>
-          </li>
-          <li>
-                    <FormattedMessage
-                              id="firm.details.name"
-                              values={Object {}} />
-                    : 
-                    test
-          </li>
-          <li>
-                    <div>
-                              88
-                               
-                              <FormattedMessage
-                                        id="firm.details.reviews"
-                                        values={Object {}} />
-                    </div>
-          </li>
-          <li>
-                    96352
-          </li>
-</Mock>,
+                                        icon="location-pin" />
+                              96352
+                    </Styled(Mock)>
+          </styled.footer>
+</styled.div>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,

@@ -2,34 +2,117 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { FormattedMessage } from 'react-intl'
-import { theme } from 'utils/style'
+import { theme, breakpoint } from 'utils/style'
 
-import { Image, List } from 'components'
+import { Image, Heading, Paragraph, Icon } from 'components'
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+const HeaderWrapper = styled.header`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: ${theme('spaces.m')};
+  height: 16rem;
+  overflow: hidden;
+
+  ${breakpoint('l')`
+    padding: ${theme('spaces.l')};
+    height: 20rem;
+  `}
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(19, 19, 19, 0.6);
+    content: '';
+  }
+`
+const TopHeaderWrapper = styled.div`
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+`
 const StyledImage = styled(Image)`
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
   width: 100%;
   height: auto;
+  z-index: 0;
 `
-const StyleLiFigure = styled.li`
-  height: 0;
+const NoteFirm = styled.div`
 `
 const styles = css`
   position: relative;
-  left: 2.4rem;
-  top: -19.4rem;
   height: 6.4rem;
   width: 6.4rem;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center
   overflow: hidden;
   background-color: ${theme('colors.white')};
   border-radius: 6rem;
+  box-shadow: 0 0 1rem rgba(19, 19, 19, 0.15);
 
   > img {
     max-width: 100%;
   }
-
 `
-const StyledFigure = styled.figure`${styles}`
+const StyledHeading = styled(Heading)`
+  position: relative;
+  z-index: 1;
+  margin-bottom: ${theme('spaces.s')};
+  margin-top: auto;
+  font-size: ${theme('fonts.size.l')};
+  text-shadow: 0.1rem 0.1rem 0 rgba(0, 0, 0, 0.38);
+  color: ${theme('colors.white')};
+
+  ${breakpoint('m')`
+    font-size: ${theme('fonts.size.xl')};
+  `}
+`
+const LogoFirmWrapper = styled.figure`${styles}`
+
+const LogoFirmImage = styled(Image)`
+  display: block;
+  width: 100%;
+  height: auto;
+`
+
+const FooterWrapper = styled.footer`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: ${theme('spaces.m')};
+
+  ${breakpoint('l')`
+    padding: ${theme('spaces.l')};
+  `}
+`
+
+const StyledParagraph = styled(Paragraph)`
+  margin-top: 0;
+  color: ${theme('colors.grayscale.dark')};
+`
+
+const StyledIcon = styled(Icon)`
+  margin-right: ${theme('spaces.s')};
+  vertical-align: sub;
+
+  svg {
+    fill: ${theme('colors.grayscale.dark')};
+  }
+`
 
 /**
  * Transforms an int or decimal into format notation
@@ -46,30 +129,34 @@ const formatNotation = value => (
 )
 
 const FirmLight = ({ imageUrl, logoUrl, globalRating, name, globalRatingCount, postalCode }) => (
-  <List>
-    <li>
+  <Wrapper>
+    <HeaderWrapper>
+      <TopHeaderWrapper>
+        <LogoFirmWrapper>
+          <LogoFirmImage link={logoUrl} />
+        </LogoFirmWrapper>
+        <NoteFirm>
+          {globalRatingCount ?
+            <span>{formatNotation(globalRating)}/5 </span> :
+            ''
+          }
+          {globalRatingCount ?
+            <span>{globalRatingCount} <FormattedMessage id="firm.details.reviews" /></span> :
+            ''
+          }
+        </NoteFirm>
+      </TopHeaderWrapper>
+      <StyledHeading level={3}>
+        {name}
+      </StyledHeading>
       <StyledImage link={imageUrl} />
-    </li>
-    <StyleLiFigure>
-      <StyledFigure>
-        <StyledImage link={logoUrl} />
-      </StyledFigure>
-    </StyleLiFigure>
-    <li>
-      <FormattedMessage id="firm.details.notation" />: {globalRatingCount ?
-        <span>{formatNotation(globalRating)}/5 </span> :
-        ''
-      }
-    </li>
-    <li><FormattedMessage id="firm.details.name" />: {name}</li>
-    <li>
-      {globalRatingCount ?
-        <div>{globalRatingCount} <FormattedMessage id="firm.details.reviews" /></div> :
-        ''
-      }
-    </li>
-    <li>{postalCode}</li>
-  </List>
+    </HeaderWrapper>
+    <FooterWrapper>
+      <StyledParagraph>
+        <StyledIcon icon="location-pin" />{postalCode}
+      </StyledParagraph>
+    </FooterWrapper>
+  </Wrapper>
 )
 
 FirmLight.propTypes = {
