@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 import { theme, breakpoint } from 'utils/style'
 
-import { Image, Heading, Paragraph, Icon } from 'components'
+import { Image, Heading, Paragraph } from 'components'
 
 const Wrapper = styled.div`
   display: flex;
@@ -105,14 +105,14 @@ const StyledParagraph = styled(Paragraph)`
   color: ${theme('colors.grayscale.dark')};
 `
 
-const StyledIcon = styled(Icon)`
+/* const StyledIcon = styled(Icon)`
   margin-right: ${theme('spaces.s')};
   vertical-align: sub;
 
   svg {
     fill: ${theme('colors.grayscale.dark')};
   }
-`
+` */
 
 /**
  * Transforms an int or decimal into format notation
@@ -153,7 +153,7 @@ const FirmLight = ({ imageUrl, logoUrl, globalRating, name, globalRatingCount, p
     </HeaderWrapper>
     <FooterWrapper>
       <StyledParagraph>
-        <StyledIcon icon="location-pin" />{postalCode}
+        {postalCode}
       </StyledParagraph>
     </FooterWrapper>
   </Wrapper>

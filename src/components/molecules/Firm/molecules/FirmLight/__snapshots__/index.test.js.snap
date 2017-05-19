@@ -36,8 +36,6 @@ ShallowWrapper {
     </styled.header>
     <styled.footer>
         <Styled(Mock)>
-            <Styled(Mock)
-                icon="location-pin" />
             96352
         </Styled(Mock)>
     </styled.footer>
@@ -73,8 +71,6 @@ ShallowWrapper {
       </styled.header>
       <styled.footer>
             <Styled(Mock)>
-                  <Styled(Mock)
-                        icon="location-pin" />
                   96352
             </Styled(Mock)>
       </styled.footer>
@@ -157,8 +153,6 @@ ShallowWrapper {
           </styled.header>
           <styled.footer>
                     <Styled(Mock)>
-                              <Styled(Mock)
-                                        icon="location-pin" />
                               96352
                     </Styled(Mock)>
           </styled.footer>
@@ -194,8 +188,6 @@ ShallowWrapper {
           </styled.header>
           <styled.footer>
                     <Styled(Mock)>
-                              <Styled(Mock)
-                                        icon="location-pin" />
                               96352
                     </Styled(Mock)>
           </styled.footer>
