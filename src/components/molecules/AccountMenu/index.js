@@ -93,7 +93,6 @@ const AccountMenu = ({ logout }) => (
   <StyledList>
     <li><StyledLink to="/projects"><FormattedMessage id="user.my_projects" /></StyledLink></li>
     <li><StyledLink to="/profile"><FormattedMessage id="user.my_account" /></StyledLink></li>
-    <li><StyledLink to="/message"><FormattedMessage id="user.messaging" /></StyledLink></li>
     <li>
       <LogOutLink onClick={logout} highlight><FormattedMessage id="user.log_out" /></LogOutLink>
     </li>

@@ -22,8 +22,9 @@ const es = {
   'main.baseline': 'Vos travaux en mieux ES',
 
   'firm.find_pro': 'Find a pro ES',
-  'firm.resource': 'Resource for my work ES',
-  'firm.i_am_pro': 'I am a pro ES',
+  'firm.resource': 'Consejos',
+  'firm.i_am_pro.one': 'You are ES',
+  'firm.i_am_pro.two': 'a pro? ES',
   'firm.all': 'Tous nos conseils ES',
   'firm.guide': 'Guides Travaux ES',
   'firm.and_you': 'Les travaux et vous ES',

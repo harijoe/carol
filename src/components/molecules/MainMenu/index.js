@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 import { theme, ifThen, breakpoint, breakpointMax } from 'utils/style'
-import { locales, cloudinaryUrl } from 'config'
+import { locales, cloudinaryUrl, contentSiteUrl } from 'config'
 import injectScroll from 'hoc/component/injectScroll'
 
 import { List, Link, Image, ListItemWithSubmenu } from 'components'
@@ -139,6 +139,12 @@ const linkStyle = css`
       border-top-color: ${theme('colors.secondary')};
     }
   }
+
+  &.qs-linkMenu-pro {
+    span:first-child {
+      font-family: ${theme('fonts.family.montserratLight')};
+    }
+  }
 `
 
 const StyledLink = styled(Link)`${linkStyle}`
@@ -174,39 +180,29 @@ const MainMenu = ({ locale, homepage, atTop }) => (
     </li>
     <ListItemWithSubmenu id="firm.resource" linkStyle={linkStyle} homepage={homepage}>
       <li>
-        <SubMenuLink to={`${locales[locale].contentUrl}guide`}>
+        <SubMenuLink to={`${contentSiteUrl}guide`}>
           <FormattedMessage id="firm.guide" />
         </SubMenuLink>
       </li>
       <li>
-        <SubMenuLink>
-          <FormattedMessage id="firm.and_you" />
-        </SubMenuLink>
-      </li>
-      <li>
-        <SubMenuLink>
+        <SubMenuLink to={`${contentSiteUrl}inspirations`}>
           <FormattedMessage id="firm.inspiring" />
         </SubMenuLink>
       </li>
       <li>
-        <SubMenuLink>
+        <SubMenuLink to={`${contentSiteUrl}FAQ`}>
           <FormattedMessage id="firm.faq" />
         </SubMenuLink>
       </li>
     </ListItemWithSubmenu>
     <li>
-      <StyledLink to="/help">
-        <FormattedMessage id="help" />
-      </StyledLink>
-    </li>
-    <li>
-      <StyledLink to="/directory">
+      <StyledLink to="/annuaire-artisan">
         <FormattedMessage id="directory" />
       </StyledLink>
     </li>
     <li>
-      <StyledLink to={locales[locale].proUrl}>
-        <FormattedMessage id="firm.i_am_pro" />
+      <StyledLink to={locales[locale].proUrl} className="qs-linkMenu-pro">
+        <FormattedMessage id="firm.i_am_pro.one" /> <FormattedMessage id="firm.i_am_pro.two" />
       </StyledLink>
     </li>
   </StyledList>

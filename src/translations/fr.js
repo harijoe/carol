@@ -23,9 +23,10 @@ const fr = {
 
   'main.baseline': 'Vos travaux en mieux',
 
-  'firm.find_pro': 'Trouver un artisan',
-  'firm.resource': 'Ressource pour mes travaux',
-  'firm.i_am_pro': 'Je suis artisan',
+  'firm.find_pro': 'Trouver un pro',
+  'firm.resource': 'Conseils travaux',
+  'firm.i_am_pro.one': 'Vous êtes',
+  'firm.i_am_pro.two': 'un pro ?',
   'firm.all': 'Tous nos conseils',
   'firm.guide': 'Guides Travaux',
   'firm.and_you': 'Les travaux et vous',
