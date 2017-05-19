@@ -1,9 +1,9 @@
 import { put, select } from 'redux-saga/effects'
 import { stopSubmit, reset } from 'redux-form'
 import { push } from 'react-router-redux'
+import { api } from 'config'
 import { fromUser, fromRouting } from 'store/selectors'
 import { HTTPError } from 'utils/errors'
-
 import fetch from 'sagas/fetch'
 import notify from 'sagas/notify'
 import redirectToNextStep from 'sagas/projectValidation'
@@ -30,11 +30,18 @@ import {
     verifyEmail,
     resendEmail,
 } from './actions'
+import { authLogin } from '../auth/actions'
 
 function* handleCreateUserRequest({ data }) {
   try {
     yield* fetch(userCreate, 'post', '/users', {}, data)
     yield* notify('user.thank_you', 'user.sign_up.confirmation')
+    yield* fetch(
+      authLogin('password', 'SignUpForm'),
+      'get',
+      `/oauth/v2/token?client_id=${api.clientId}&client_secret=${api.clientSecret}&grant_type=password&username=${data.email}&password=${data.password}`,
+      {},
+    )
     yield put(push('/'))
   } catch (error) {
     if (error instanceof HTTPError) {
