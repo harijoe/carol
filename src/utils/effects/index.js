@@ -13,7 +13,7 @@ const takeFlow = ({ cancelLastTask = false } = {}) => function* takeEvery(patter
           yield* saga(action)
         } catch (e) {
           // @TODO: To remove before production
-          console.error(e.toString())
+          console.error(`${e}${e.status ? ` - ${e.status}` : ''}`)
         }
       }
 
