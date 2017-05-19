@@ -50,14 +50,14 @@ const StyledCarousel = styled(Carousel)`
 const StyledItem = styled.div`
   margin: 0 ${theme('spaces.xs')};
   padding: 0;
-  width: 11.5rem;
+  width: 12rem;
 
   &:first-child {
     margin-left: 0;
   }
 
   ${breakpoint('m')`
-    width: 15rem;
+    width: 16rem;
     margin-left: ${theme('spaces.s')};
     margin-right: ${theme('spaces.s')};
   `}
@@ -66,6 +66,11 @@ const StyledItem = styled.div`
 const StyledButton = styled.button`
   background: ${theme('colors.white')};
   padding: 0;
+  width: 12rem;
+
+  ${breakpoint('m')`
+    width: 16rem;
+  `}
 `
 
 const AttachmentGeneric = ({ attachment, reply }) => (

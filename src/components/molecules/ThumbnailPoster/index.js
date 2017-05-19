@@ -47,8 +47,10 @@ const StyledImage = styled(Image)`
 const StyledHeading = styled(Heading)`
   position: relative;
   margin: 0;
+  overflow: hidden;
   color: ${theme('colors.white')};
   text-align: center;
+  text-overflow: ellipsis;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.38);
   z-index: 2;
 

@@ -36,6 +36,7 @@ const BottomBar = styled.div`
     flex-grow: 1;
     margin: 0;
     border: none;
+    max-width: none;
   }
 
   ${breakpoint('l')`
@@ -122,6 +123,7 @@ const StyledField = styled(Field)`${({ disabled }) => css`
     'border: none',
     css`border: 1px solid ${theme('colors.primary')}`
   )};
+  width: 100%;
   background: transparent;
   border-radius: 0.2rem;
   color: ${theme('colors.grayscale.darker')};
