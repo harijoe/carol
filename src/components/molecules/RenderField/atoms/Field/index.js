@@ -2,51 +2,93 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { FormattedMessage } from 'react-intl'
-import { theme, ifThen, breakpoint } from 'utils/style'
+import { theme, ifThen } from 'utils/style'
 
 import { Label, Input, Block, IconLink } from 'components'
 
 const Error = styled(Block)`
   margin: 0.5rem 0 0;
+  font-size: ${theme('fonts.size.s')};
   background: none;
   color: ${theme('colors.danger')};
 `
 
-const Wrapper = styled.div`${({ hideBorder }) => css`
-  margin-bottom: 2rem;
+const Wrapper = styled.div`${({ type }) => css`
+  position: relative;
+  margin-bottom: ${theme('spaces.m')};
+  padding-bottom: ${theme('spaces.m')};
+
   input[type="checkbox"],
   input[type="radio"] {
     margin-right: 0.5rem;
   }
+
   label {
     vertical-align: middle;
   }
-  ${ifThen(hideBorder, '', css`
-    border-bottom: 1px solid ${theme('colors.grayscale.light')};
-  `)};
-  padding-bottom: 5px;
-  
-  ${breakpoint('m')`
-    max-width: ${theme('ui.size.m')};
-  `}
+
+  fieldset {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+  }
+
+  ${ifThen(type === 'select', css`
+    fieldset {
+      background: transparent;
+    }
+  `
+  , '')}
 `}`
 
-const StyledInput = styled(Input)`
-  display: inline-block;
-  width: 90%;
-`
+const StyledInput = styled(Input)`${({ hideBorder }) => css`
+  padding: 0;
+  height: 3.2rem;
+  width: 100%;
+  font-size: ${theme('fonts.size.base')};
+  color: ${theme('colors.grayscale.darker')};
+
+  ${ifThen(hideBorder, '', css`
+    box-shadow: 0 0.1rem 0 ${theme('colors.grayscale.light')};
+    transition: all 0.3s ease;
+
+    &:focus{
+      box-shadow: 0 0.1rem 0 ${theme('colors.primary')};
+      border: none;
+      outline: none;
+    }
+  `)};
+`}`
 
 const StyledIconLink = styled(IconLink)`
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: calc(${theme('icons.size.s')} / -2);
   display: inline-block;
-  width: 9%;
+  height: ${theme('icons.size.s')};
+  width: ${theme('icons.size.s')};
+
+  span {
+    height: 100%;
+    width: 100%;
+  }
+
+  svg .qs-header-cnx {
+    fill: ${theme('colors.grayscale.dark')};
+  }
 `
 
 const StyledLabel = styled(Label)`${({ hideLabel }) => css`
+  display: block;
+  margin-bottom: ${theme('spaces.s')};
   visibility: ${ifThen(hideLabel, 'hidden', 'visible')};
-  font-family: ${theme('fonts.family.montserratLight')};
-  font-size: 1.4rem;
+  font-family: ${theme('fonts.family.montserratBold')};
+  font-size: ${theme('fonts.size.base')};
   line-height: 1rem;
-  color: ${theme('colors.grayscale.dark')};
+  color: ${theme('colors.black')};
 `}`
 
 const Field = ({ error, name, invalid, label, hideLabel, hideBorder, onIconClick, type, icon, ...props }) => {
@@ -54,17 +96,19 @@ const Field = ({ error, name, invalid, label, hideLabel, hideBorder, onIconClick
   const renderInputFirst = type === 'checkbox' || type === 'radio'
 
   return (
-    <Wrapper {...{ hideBorder }}>
+    <Wrapper {...{ hideBorder, type }}>
       {renderInputFirst && <Input {...inputProps} />}
       {label &&
         <StyledLabel hideLabel={hideLabel} htmlFor={inputProps.id}>{label}</StyledLabel>
       }
-      {renderInputFirst ||
-        <StyledInput {...inputProps} />
-      }
-      {icon &&
-        <StyledIconLink onClick={onIconClick} {...{ icon }} />
-      }
+      <fieldset>
+        {renderInputFirst ||
+          <StyledInput {...inputProps} />
+        }
+        {icon &&
+          <StyledIconLink onClick={onIconClick} {...{ icon }} />
+        }
+      </fieldset>
       {invalid && error &&
         <Error id={`${name}Error`} role="alert" color="danger" transparent>
           <FormattedMessage id={error.id} values={error.values} />

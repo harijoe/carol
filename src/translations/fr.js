@@ -9,6 +9,7 @@ const fr = {
   construction: 'Construction',
   renovation: 'Rénovation',
   fixing: 'Réparation',
+  choose: '--Choisissez--',
   'Invalid username and password combination': 'Invalid username and password combination FR',
   'Missing parameters. "username" and "password" required': 'Missing parameters. "username" and "password" required FR',
   'Phone number is invalid': 'Le numéro de téléphone n\'est pas valide',
@@ -59,6 +60,7 @@ const fr = {
   'firm.details.reviews': 'avis',
 
   'project.validation_page': 'Valider mon projet',
+  'project.validation.describe': 'Pour nous permettre de sélectionner les professionnels de confiance les plus adaptés à votre projet, veuillez renseigner les informations ci-dessous.',
   'project.submit_button': 'OK',
   'project.submit_success_title': 'Félicitation!',
   'project.submit_failed_title': 'Oups!',
@@ -88,11 +90,11 @@ const fr = {
   'project.purpose': 'Votre besoin',
   'project.startTimeframe': 'Début de votre projet',
   'project.startTimeframe.now': 'Maintenant',
-  'project.startTimeframe.1_to_3_months': '1 à 3 mois',
-  'project.startTimeframe.3_to_6_months': '3 à 6 mois',
-  'project.startTimeframe.6_to_12_months': '6 à 12 mois',
-  'project.find_a_pro': 'Trouver un pro',
-  'project.quotation': 'Devis',
+  'project.startTimeframe.1_to_3_months': 'Dans 1 à 3 mois',
+  'project.startTimeframe.3_to_6_months': 'Dans 3 à 6 mois',
+  'project.startTimeframe.6_to_12_months': 'Dans 6 à 12 mois',
+  'project.find_a_pro': 'Trouver un pro pour démarrer votre projet',
+  'project.quotation': 'Avoir un ordre de prix',
   'project.modify_my_project': 'Modifier mon projet',
   'project.continue': 'Continuer mon projet',
 
@@ -174,9 +176,9 @@ const fr = {
   'user.contactPreference.email': 'Par email',
   'user.contactPreference.phone': 'Par téléphone',
   'user.contactComment': 'Jours et Horaires de contact',
-  'user.contactComment.no_preferences': 'No Preference FR',
-  'user.contactComment.during_business_hours': 'During business hours FR',
-  'user.contactComment.outside_business_hours': 'Outside business hours FR',
+  'user.contactComment.no_preferences': 'Pas de préférence',
+  'user.contactComment.during_business_hours': 'Pendant les heures de bureau',
+  'user.contactComment.outside_business_hours': 'En dehors des heures de bureau',
   'user.phone_validated': 'Votre numéro de téléphone est validé',
   'user.email.sent': 'Un email de confirmation vous a été envoyé',
   'user.email.check': 'Validation de l\'email en cours',
@@ -277,6 +279,10 @@ const fr = {
 
   'auto-validation.phone_code.title': 'Saisissez le code à 4 chiffres',
   'auto-validation.phone_code.message': 'Nous vous avons envoyé un SMS. Entrez le code reçu ci-dessous :',
+
+  'auto-validation.title.informations': 'Vos informations',
+  'auto-validation.title.contact_preferences': 'Préférences de contact',
+  'auto-validation.title.project': 'Votre projet',
 }
 
 export default fr

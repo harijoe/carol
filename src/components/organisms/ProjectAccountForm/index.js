@@ -4,63 +4,146 @@ import { Field } from 'redux-form'
 import styled from 'styled-components'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import messages from 'utils/messages'
+import { theme, breakpoint } from 'utils/style'
 
-import { RenderField, Button, Label, RenderSelect } from 'components'
+import { RenderField, Button, Label, Section } from 'components'
 
 const Form = styled.form`
-  width: 100%;
-  box-sizing: border-box;
-  padding: 1rem;
-  border: 1px solid #000;
-  margin-top: 200px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  ${breakpoint('m')`
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 60rem;
+  `}
 `
 
-const ProjectAccountForm = (props) => {
-  const { handleSubmit, disabled, loading, intl: { formatMessage }, error } = props
+const RadioBlock = styled.div`
+  margin-bottom: ${theme('spaces.m')};
+  padding-bottom: ${theme('spaces.m')};
 
-  return (
-    <Form onSubmit={handleSubmit}>
-      <div>
-        <span><FormattedMessage id="user.gender" tagName="div" /></span>
+  strong {
+    display: block;
+    margin-bottom: ${theme('spaces.m')};
+    font-family: ${theme('fonts.family.montserratBold')};
+    font-size: ${theme('fonts.size.base')};
+    line-height: 1rem;
+    color: ${theme('colors.black')};
+  }
+
+  fieldset {
+    display: inline-block;
+    margin: 0;
+    margin-right: ${theme('spaces.xl')};
+    padding: 0;
+    border: none;
+    outline: none;
+  }
+`
+
+const StyledLabel = styled(Label)`
+  display: inline-block;
+  padding-left: ${theme('spaces.m')};
+  font-family: ${theme('fonts.family.montserratLight')};
+  font-size: ${theme('fonts.size.base')};
+  color: ${theme('colors.grayscale.darker')};
+`
+
+const StyledSection = styled(Section)`
+  &:not(:first-child) {
+    padding-top: 0;
+  }
+`
+const StyledButton = styled(Button)`
+  margin-bottom: 0;
+  margin-top: 0;
+`
+
+const ProjectAccountForm = ({ handleSubmit, intl: { formatMessage } }) => (
+  <Form onSubmit={handleSubmit}>
+    <StyledSection title={formatMessage(messages('auto-validation.title.informations').label)}>
+      <RadioBlock>
+        <strong><FormattedMessage id="user.gender" tagName="div" /></strong>
         <div>
-          <Label htmlFor="mr"><Field name="gender" component="input" type="radio" value="Mr" /><FormattedMessage id="user.mr" tagName="span" /></Label>
-          <Label htmlFor="mrs"><Field name="gender" component="input" type="radio" value="Mrs" /><FormattedMessage id="user.mrs" tagName="span" /></Label>
+          <fieldset>
+            <Field name="gender" component="input" type="radio" value="Mr" id="mr" />
+            <StyledLabel htmlFor="mr"><FormattedMessage id="user.mr" /></StyledLabel>
+          </fieldset>
+          <fieldset>
+            <Field name="gender" component="input" type="radio" value="Mrs" id="mrs" />
+            <StyledLabel htmlFor="mrs"><FormattedMessage id="user.mrs" /></StyledLabel>
+          </fieldset>
         </div>
-      </div>
+      </RadioBlock>
       <Field
         name="firstName"
         component={RenderField}
         label={formatMessage(messages('user.first_name').label)}
         placeholder={formatMessage(messages('user.first_name').label)}
+        icon="login"
       />
       <Field
         name="lastName"
         component={RenderField}
         label={formatMessage(messages('user.last_name').label)}
         placeholder={formatMessage(messages('user.last_name').label)}
+        icon="login"
       />
+    </StyledSection>
+    <StyledSection title={formatMessage(messages('auto-validation.title.contact_preferences').label)}>
+      <RadioBlock>
+        <strong><FormattedMessage id="user.contactPreference" tagName="div" /></strong>
+        <div>
+          <fieldset>
+            <Field name="contactPreference" component="input" type="radio" value="email" id="email" />
+            <StyledLabel htmlFor="email"><FormattedMessage id="user.contactPreference.email" /></StyledLabel>
+          </fieldset>
+          <fieldset>
+            <Field name="contactPreference" component="input" type="radio" value="phone" id="phone" />
+            <StyledLabel htmlFor="phone"><FormattedMessage id="user.contactPreference.phone" /></StyledLabel>
+          </fieldset>
+        </div>
+      </RadioBlock>
       <Field
-        name="purpose"
-        component={RenderSelect}
-        label={formatMessage(messages('project.purpose').label)}
-        placeholder={formatMessage(messages('project.purpose').label)}
-        options={[
+        name="contactComment"
+        component={RenderField}
+        type="select"
+        label={formatMessage(messages('user.contactComment').label)}
+      >
+        {[
           {
-            value: 'find_a_pro',
-            id: 'project.find_a_pro',
+            value: 'no_preferences',
+            id: 'user.contactComment.no_preferences',
           },
           {
-            value: 'quotation',
-            id: 'project.quotation',
+            value: 'during_business_hours',
+            id: 'user.contactComment.during_business_hours',
           },
-        ]}
-      /><br />
+          {
+            value: 'outside_business_hours',
+            id: 'user.contactComment.outside_business_hours',
+          },
+        ].map(({ value, id }, key) => (
+          <FormattedMessage {...{ key, id }}>
+            {formattedMessage => <option {...{ value }}>{formattedMessage}</option>}
+          </FormattedMessage>
+        ))}
+      </Field>
+    </StyledSection>
+    <StyledSection title={formatMessage(messages('auto-validation.title.project').label)}>
       <Field
         name="startTimeframe"
-        component={RenderSelect}
+        component={RenderField}
+        type="select"
         label={formatMessage(messages('project.startTimeframe').label)}
-        placeholder={formatMessage(messages('project.startTimeframe').label)}
-        options={[
+      >
+        {[
+          {
+            value: '',
+            id: 'choose',
+          },
           {
             value: 'now',
             id: 'project.startTimeframe.now',
@@ -77,57 +160,48 @@ const ProjectAccountForm = (props) => {
             value: '6_to_12_months',
             id: 'project.startTimeframe.6_to_12_months',
           },
-        ]}
-      /><br />
+        ].map(({ value, id }, key) => (
+          <FormattedMessage {...{ key, id }}>
+            {formattedMessage => <option {...{ value }}>{formattedMessage}</option>}
+          </FormattedMessage>
+        ))}
+      </Field>
       <Field
-        name="contactPreference"
-        component={RenderSelect}
-        label={formatMessage(messages('user.contactPreference').label)}
-        placeholder={formatMessage(messages('user.contactPreference').label)}
-        options={[
+        name="purpose"
+        component={RenderField}
+        type="select"
+        label={formatMessage(messages('project.purpose').label)}
+      >
+        {[
           {
-            value: 'email',
-            id: 'user.contactPreference.email',
+            value: '',
+            id: 'choose',
           },
           {
-            value: 'phone',
-            id: 'user.contactPreference.phone',
-          },
-        ]}
-      /><br />
-      <Field
-        name="contactComment"
-        component={RenderSelect}
-        label={formatMessage(messages('user.contactComment').label)}
-        placeholder={formatMessage(messages('user.contactComment').label)}
-        options={[
-          {
-            value: 'no_preferences',
-            id: 'user.contactComment.no_preferences',
+            value: 'find_a_pro',
+            id: 'project.find_a_pro',
           },
           {
-            value: 'during_business_hours',
-            id: 'user.contactComment.during_business_hours',
+            value: 'quotation',
+            id: 'project.quotation',
           },
-          {
-            value: 'outside_business_hours',
-            id: 'user.contactComment.outside_business_hours',
-          },
-        ]}
-      />
-      {error && <FormattedMessage id={error} tagName="strong" />}
-      <Button type="submit" {...{ disabled, loading }}>
+        ].map(({ value, id }, key) => (
+          <FormattedMessage {...{ key, id }}>
+            {formattedMessage => <option {...{ value }}>{formattedMessage}</option>}
+          </FormattedMessage>
+        ))}
+      </Field>
+    </StyledSection>
+    <StyledSection>
+      <StyledButton type="submit" center>
         <FormattedMessage id="user.send" tagName="span" />
-      </Button>
-    </Form>
-  )
-}
+      </StyledButton>
+    </StyledSection>
+  </Form>
+)
 
 ProjectAccountForm.propTypes = {
   handleSubmit: PropTypes.func,
-  disabled: PropTypes.bool,
-  loading: PropTypes.bool,
-  error: PropTypes.string,
   intl: intlShape.isRequired,
 }
 

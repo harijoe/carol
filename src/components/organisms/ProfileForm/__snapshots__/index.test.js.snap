@@ -6,9 +6,219 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <InjectIntl(ProfileForm) />,
+  "node": <ThemeProvider
+    theme={
+        Object {
+            "colors": Object {
+              "alert": "#ffa000",
+              "black": "#262626",
+              "danger": "#d32f2f",
+              "grayscale": Object {
+                "dark": "#5E5E5E",
+                "darker": "#383838",
+                "darkest": "#131313",
+                "light": "#D1D1D1",
+                "lighter": "#EBEBEB",
+                "lightest": "#F9F9F9",
+                "medium": "#ABABAB",
+              },
+              "grey": "#EEE",
+              "primary": "#3333FE",
+              "secondary": "#FDB63F",
+              "success": "#388e3c",
+              "white": "#FFF",
+            },
+            "fonts": Object {
+              "family": Object {
+                "andesBlack": "andes-black, serif",
+                "andesLight": "andes-extralight, serif",
+                "montserratBlack": "montserrat-black, sans-serif",
+                "montserratBold": "montserrat-bold, sans-serif",
+                "montserratLight": "montserrat-light, sans-serif",
+              },
+              "size": Object {
+                "base": "1.4rem",
+                "l": "1.8rem",
+                "m": "1.5rem",
+                "reset": "62.5%",
+                "root": "1rem",
+                "s": "1.2rem",
+                "xl": "2.4rem",
+                "xs": "1rem",
+                "xxl": "3.2rem",
+                "xxxl": "5rem",
+              },
+            },
+            "grid": Object {
+              "breakpoints": Object {
+                "l": 992,
+                "m": 768,
+                "s": 576,
+                "xl": 1200,
+                "xs": 0,
+              },
+              "container": 120,
+              "gridSize": 12,
+              "gutterWidth": Object {
+                "l": 2.5,
+                "m": 2.5,
+                "s": 1.6,
+                "xl": 5,
+                "xs": 1.6,
+              },
+              "outerMargin": Object {
+                "l": 2.5,
+                "m": 2.5,
+                "s": 1.6,
+                "xl": 5,
+                "xs": 1.6,
+              },
+              "padding": Object {
+                "l": 2.5,
+                "m": 2.5,
+                "s": 1.6,
+                "xl": 5,
+                "xs": 1.6,
+              },
+            },
+            "icons": Object {
+              "size": Object {
+                "l": "2.4rem",
+                "m": "2rem",
+                "s": "1.6rem",
+                "xl": "3.6rem",
+                "xs": "1.2rem",
+                "xxl": "4.8rem",
+                "xxxl": "5.6rem",
+              },
+            },
+            "spaces": Object {
+              "l": "2.5rem",
+              "m": "1.6rem",
+              "s": "0.8rem",
+              "xl": "3.2rem",
+              "xs": "0.4rem",
+              "xxl": "5rem",
+              "xxxl": "10rem",
+            },
+            "ui": Object {
+              "size": Object {
+                "l": "100%",
+                "m": "40rem",
+                "s": "20rem",
+              },
+            },
+          }
+    }>
+    <InjectIntl(ProfileForm) />
+</ThemeProvider>,
   "nodes": Array [
-    <InjectIntl(ProfileForm) />,
+    <ThemeProvider
+      theme={
+            Object {
+                  "colors": Object {
+                    "alert": "#ffa000",
+                    "black": "#262626",
+                    "danger": "#d32f2f",
+                    "grayscale": Object {
+                      "dark": "#5E5E5E",
+                      "darker": "#383838",
+                      "darkest": "#131313",
+                      "light": "#D1D1D1",
+                      "lighter": "#EBEBEB",
+                      "lightest": "#F9F9F9",
+                      "medium": "#ABABAB",
+                    },
+                    "grey": "#EEE",
+                    "primary": "#3333FE",
+                    "secondary": "#FDB63F",
+                    "success": "#388e3c",
+                    "white": "#FFF",
+                  },
+                  "fonts": Object {
+                    "family": Object {
+                      "andesBlack": "andes-black, serif",
+                      "andesLight": "andes-extralight, serif",
+                      "montserratBlack": "montserrat-black, sans-serif",
+                      "montserratBold": "montserrat-bold, sans-serif",
+                      "montserratLight": "montserrat-light, sans-serif",
+                    },
+                    "size": Object {
+                      "base": "1.4rem",
+                      "l": "1.8rem",
+                      "m": "1.5rem",
+                      "reset": "62.5%",
+                      "root": "1rem",
+                      "s": "1.2rem",
+                      "xl": "2.4rem",
+                      "xs": "1rem",
+                      "xxl": "3.2rem",
+                      "xxxl": "5rem",
+                    },
+                  },
+                  "grid": Object {
+                    "breakpoints": Object {
+                      "l": 992,
+                      "m": 768,
+                      "s": 576,
+                      "xl": 1200,
+                      "xs": 0,
+                    },
+                    "container": 120,
+                    "gridSize": 12,
+                    "gutterWidth": Object {
+                      "l": 2.5,
+                      "m": 2.5,
+                      "s": 1.6,
+                      "xl": 5,
+                      "xs": 1.6,
+                    },
+                    "outerMargin": Object {
+                      "l": 2.5,
+                      "m": 2.5,
+                      "s": 1.6,
+                      "xl": 5,
+                      "xs": 1.6,
+                    },
+                    "padding": Object {
+                      "l": 2.5,
+                      "m": 2.5,
+                      "s": 1.6,
+                      "xl": 5,
+                      "xs": 1.6,
+                    },
+                  },
+                  "icons": Object {
+                    "size": Object {
+                      "l": "2.4rem",
+                      "m": "2rem",
+                      "s": "1.6rem",
+                      "xl": "3.6rem",
+                      "xs": "1.2rem",
+                      "xxl": "4.8rem",
+                      "xxxl": "5.6rem",
+                    },
+                  },
+                  "spaces": Object {
+                    "l": "2.5rem",
+                    "m": "1.6rem",
+                    "s": "0.8rem",
+                    "xl": "3.2rem",
+                    "xs": "0.4rem",
+                    "xxl": "5rem",
+                    "xxxl": "10rem",
+                  },
+                  "ui": Object {
+                    "size": Object {
+                      "l": "100%",
+                      "m": "40rem",
+                      "s": "20rem",
+                    },
+                  },
+                }
+      }>
+      <InjectIntl(ProfileForm) />
+</ThemeProvider>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -32,10 +242,14 @@ ShallowWrapper {
                         "auto-validation.phone.title": "Confirmez votre numéro de téléphone EN",
                         "auto-validation.phone_code.message": "Nous vous avons envoyé un SMS. Entrez le code reçu ci-dessous : EN",
                         "auto-validation.phone_code.title": "Saisissez le code à 4 chiffres EN",
+                        "auto-validation.title.contact_preferences": "Préférences de contact EN",
+                        "auto-validation.title.informations": "Vos informations EN",
+                        "auto-validation.title.project": "Votre projet EN",
                         "auto-validation.validate.call_to_action": "Accéder à mes projets EN",
                         "auto-validation.validate.message": "Vous recevrez très prochainement par e-mail les coordonnées des professionnels de confiance que nous aurons sélectionnés pour vous. EN",
                         "auto-validation.validate.title": "Merci d\'avoir validé vos informations EN",
                         "burger_menu": "Burger Menu",
+                        "choose": "Choose",
                         "construction": "Construction",
                         "cookies.message": "En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour vous proposer des services et des offres adaptés à vos centres d’intérêts. EN",
                         "cookies.more": "More informations",
@@ -172,6 +386,7 @@ ShallowWrapper {
                         "project.submit_success_title": "Félicitations! EN",
                         "project.transmitted_to_firms": "Your project is transmitted to ES",
                         "project.updated_at": "Updated at",
+                        "project.validation.describe": "Pour nous permettre de sélectionner les professionnels de confiance les plus adaptés à votre projet, veuillez renseigner les informations ci-dessous. EN",
                         "project.validation_page": "Page Validation EN",
                         "renovation": "Renovation",
                         "search": "Search",
@@ -280,7 +495,112 @@ ShallowWrapper {
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
         }>
-        <InjectIntl(ProfileForm) />
+        <ThemeProvider
+                theme={
+                        Object {
+                                "colors": Object {
+                                  "alert": "#ffa000",
+                                  "black": "#262626",
+                                  "danger": "#d32f2f",
+                                  "grayscale": Object {
+                                    "dark": "#5E5E5E",
+                                    "darker": "#383838",
+                                    "darkest": "#131313",
+                                    "light": "#D1D1D1",
+                                    "lighter": "#EBEBEB",
+                                    "lightest": "#F9F9F9",
+                                    "medium": "#ABABAB",
+                                  },
+                                  "grey": "#EEE",
+                                  "primary": "#3333FE",
+                                  "secondary": "#FDB63F",
+                                  "success": "#388e3c",
+                                  "white": "#FFF",
+                                },
+                                "fonts": Object {
+                                  "family": Object {
+                                    "andesBlack": "andes-black, serif",
+                                    "andesLight": "andes-extralight, serif",
+                                    "montserratBlack": "montserrat-black, sans-serif",
+                                    "montserratBold": "montserrat-bold, sans-serif",
+                                    "montserratLight": "montserrat-light, sans-serif",
+                                  },
+                                  "size": Object {
+                                    "base": "1.4rem",
+                                    "l": "1.8rem",
+                                    "m": "1.5rem",
+                                    "reset": "62.5%",
+                                    "root": "1rem",
+                                    "s": "1.2rem",
+                                    "xl": "2.4rem",
+                                    "xs": "1rem",
+                                    "xxl": "3.2rem",
+                                    "xxxl": "5rem",
+                                  },
+                                },
+                                "grid": Object {
+                                  "breakpoints": Object {
+                                    "l": 992,
+                                    "m": 768,
+                                    "s": 576,
+                                    "xl": 1200,
+                                    "xs": 0,
+                                  },
+                                  "container": 120,
+                                  "gridSize": 12,
+                                  "gutterWidth": Object {
+                                    "l": 2.5,
+                                    "m": 2.5,
+                                    "s": 1.6,
+                                    "xl": 5,
+                                    "xs": 1.6,
+                                  },
+                                  "outerMargin": Object {
+                                    "l": 2.5,
+                                    "m": 2.5,
+                                    "s": 1.6,
+                                    "xl": 5,
+                                    "xs": 1.6,
+                                  },
+                                  "padding": Object {
+                                    "l": 2.5,
+                                    "m": 2.5,
+                                    "s": 1.6,
+                                    "xl": 5,
+                                    "xs": 1.6,
+                                  },
+                                },
+                                "icons": Object {
+                                  "size": Object {
+                                    "l": "2.4rem",
+                                    "m": "2rem",
+                                    "s": "1.6rem",
+                                    "xl": "3.6rem",
+                                    "xs": "1.2rem",
+                                    "xxl": "4.8rem",
+                                    "xxxl": "5.6rem",
+                                  },
+                                },
+                                "spaces": Object {
+                                  "l": "2.5rem",
+                                  "m": "1.6rem",
+                                  "s": "0.8rem",
+                                  "xl": "3.2rem",
+                                  "xs": "0.4rem",
+                                  "xxl": "5rem",
+                                  "xxxl": "10rem",
+                                },
+                                "ui": Object {
+                                  "size": Object {
+                                    "l": "100%",
+                                    "m": "40rem",
+                                    "s": "20rem",
+                                  },
+                                },
+                              }
+                }>
+                <InjectIntl(ProfileForm) />
+        </ThemeProvider>
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -291,7 +611,112 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <InjectIntl(ProfileForm) />,
+          "children": <ThemeProvider
+            theme={
+                        Object {
+                                    "colors": Object {
+                                      "alert": "#ffa000",
+                                      "black": "#262626",
+                                      "danger": "#d32f2f",
+                                      "grayscale": Object {
+                                        "dark": "#5E5E5E",
+                                        "darker": "#383838",
+                                        "darkest": "#131313",
+                                        "light": "#D1D1D1",
+                                        "lighter": "#EBEBEB",
+                                        "lightest": "#F9F9F9",
+                                        "medium": "#ABABAB",
+                                      },
+                                      "grey": "#EEE",
+                                      "primary": "#3333FE",
+                                      "secondary": "#FDB63F",
+                                      "success": "#388e3c",
+                                      "white": "#FFF",
+                                    },
+                                    "fonts": Object {
+                                      "family": Object {
+                                        "andesBlack": "andes-black, serif",
+                                        "andesLight": "andes-extralight, serif",
+                                        "montserratBlack": "montserrat-black, sans-serif",
+                                        "montserratBold": "montserrat-bold, sans-serif",
+                                        "montserratLight": "montserrat-light, sans-serif",
+                                      },
+                                      "size": Object {
+                                        "base": "1.4rem",
+                                        "l": "1.8rem",
+                                        "m": "1.5rem",
+                                        "reset": "62.5%",
+                                        "root": "1rem",
+                                        "s": "1.2rem",
+                                        "xl": "2.4rem",
+                                        "xs": "1rem",
+                                        "xxl": "3.2rem",
+                                        "xxxl": "5rem",
+                                      },
+                                    },
+                                    "grid": Object {
+                                      "breakpoints": Object {
+                                        "l": 992,
+                                        "m": 768,
+                                        "s": 576,
+                                        "xl": 1200,
+                                        "xs": 0,
+                                      },
+                                      "container": 120,
+                                      "gridSize": 12,
+                                      "gutterWidth": Object {
+                                        "l": 2.5,
+                                        "m": 2.5,
+                                        "s": 1.6,
+                                        "xl": 5,
+                                        "xs": 1.6,
+                                      },
+                                      "outerMargin": Object {
+                                        "l": 2.5,
+                                        "m": 2.5,
+                                        "s": 1.6,
+                                        "xl": 5,
+                                        "xs": 1.6,
+                                      },
+                                      "padding": Object {
+                                        "l": 2.5,
+                                        "m": 2.5,
+                                        "s": 1.6,
+                                        "xl": 5,
+                                        "xs": 1.6,
+                                      },
+                                    },
+                                    "icons": Object {
+                                      "size": Object {
+                                        "l": "2.4rem",
+                                        "m": "2rem",
+                                        "s": "1.6rem",
+                                        "xl": "3.6rem",
+                                        "xs": "1.2rem",
+                                        "xxl": "4.8rem",
+                                        "xxxl": "5.6rem",
+                                      },
+                                    },
+                                    "spaces": Object {
+                                      "l": "2.5rem",
+                                      "m": "1.6rem",
+                                      "s": "0.8rem",
+                                      "xl": "3.2rem",
+                                      "xs": "0.4rem",
+                                      "xxl": "5rem",
+                                      "xxxl": "10rem",
+                                    },
+                                    "ui": Object {
+                                      "size": Object {
+                                        "l": "100%",
+                                        "m": "40rem",
+                                        "s": "20rem",
+                                      },
+                                    },
+                                  }
+            }>
+            <InjectIntl(ProfileForm) />
+</ThemeProvider>,
           "locale": "en",
           "messages": Object {
             "Invalid username and password combination": "Invalid username and password combination",
@@ -306,10 +731,14 @@ ShallowWrapper {
             "auto-validation.phone.title": "Confirmez votre numéro de téléphone EN",
             "auto-validation.phone_code.message": "Nous vous avons envoyé un SMS. Entrez le code reçu ci-dessous : EN",
             "auto-validation.phone_code.title": "Saisissez le code à 4 chiffres EN",
+            "auto-validation.title.contact_preferences": "Préférences de contact EN",
+            "auto-validation.title.informations": "Vos informations EN",
+            "auto-validation.title.project": "Votre projet EN",
             "auto-validation.validate.call_to_action": "Accéder à mes projets EN",
             "auto-validation.validate.message": "Vous recevrez très prochainement par e-mail les coordonnées des professionnels de confiance que nous aurons sélectionnés pour vous. EN",
             "auto-validation.validate.title": "Merci d\'avoir validé vos informations EN",
             "burger_menu": "Burger Menu",
+            "choose": "Choose",
             "construction": "Construction",
             "cookies.message": "En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour vous proposer des services et des offres adaptés à vos centres d’intérêts. EN",
             "cookies.more": "More informations",
@@ -446,6 +875,7 @@ ShallowWrapper {
             "project.submit_success_title": "Félicitations! EN",
             "project.transmitted_to_firms": "Your project is transmitted to ES",
             "project.updated_at": "Updated at",
+            "project.validation.describe": "Pour nous permettre de sélectionner les professionnels de confiance les plus adaptés à votre projet, veuillez renseigner les informations ci-dessous. EN",
             "project.validation_page": "Page Validation EN",
             "renovation": "Renovation",
             "search": "Search",
@@ -581,9 +1011,219 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <InjectIntl(ProfileForm) />,
+        "_currentElement": <ThemeProvider
+          theme={
+                    Object {
+                              "colors": Object {
+                                "alert": "#ffa000",
+                                "black": "#262626",
+                                "danger": "#d32f2f",
+                                "grayscale": Object {
+                                  "dark": "#5E5E5E",
+                                  "darker": "#383838",
+                                  "darkest": "#131313",
+                                  "light": "#D1D1D1",
+                                  "lighter": "#EBEBEB",
+                                  "lightest": "#F9F9F9",
+                                  "medium": "#ABABAB",
+                                },
+                                "grey": "#EEE",
+                                "primary": "#3333FE",
+                                "secondary": "#FDB63F",
+                                "success": "#388e3c",
+                                "white": "#FFF",
+                              },
+                              "fonts": Object {
+                                "family": Object {
+                                  "andesBlack": "andes-black, serif",
+                                  "andesLight": "andes-extralight, serif",
+                                  "montserratBlack": "montserrat-black, sans-serif",
+                                  "montserratBold": "montserrat-bold, sans-serif",
+                                  "montserratLight": "montserrat-light, sans-serif",
+                                },
+                                "size": Object {
+                                  "base": "1.4rem",
+                                  "l": "1.8rem",
+                                  "m": "1.5rem",
+                                  "reset": "62.5%",
+                                  "root": "1rem",
+                                  "s": "1.2rem",
+                                  "xl": "2.4rem",
+                                  "xs": "1rem",
+                                  "xxl": "3.2rem",
+                                  "xxxl": "5rem",
+                                },
+                              },
+                              "grid": Object {
+                                "breakpoints": Object {
+                                  "l": 992,
+                                  "m": 768,
+                                  "s": 576,
+                                  "xl": 1200,
+                                  "xs": 0,
+                                },
+                                "container": 120,
+                                "gridSize": 12,
+                                "gutterWidth": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 5,
+                                  "xs": 1.6,
+                                },
+                                "outerMargin": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 5,
+                                  "xs": 1.6,
+                                },
+                                "padding": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 5,
+                                  "xs": 1.6,
+                                },
+                              },
+                              "icons": Object {
+                                "size": Object {
+                                  "l": "2.4rem",
+                                  "m": "2rem",
+                                  "s": "1.6rem",
+                                  "xl": "3.6rem",
+                                  "xs": "1.2rem",
+                                  "xxl": "4.8rem",
+                                  "xxxl": "5.6rem",
+                                },
+                              },
+                              "spaces": Object {
+                                "l": "2.5rem",
+                                "m": "1.6rem",
+                                "s": "0.8rem",
+                                "xl": "3.2rem",
+                                "xs": "0.4rem",
+                                "xxl": "5rem",
+                                "xxxl": "10rem",
+                              },
+                              "ui": Object {
+                                "size": Object {
+                                  "l": "100%",
+                                  "m": "40rem",
+                                  "s": "20rem",
+                                },
+                              },
+                            }
+          }>
+          <InjectIntl(ProfileForm) />
+</ThemeProvider>,
         "_debugID": 2,
-        "_renderedOutput": <InjectIntl(ProfileForm) />,
+        "_renderedOutput": <ThemeProvider
+          theme={
+                    Object {
+                              "colors": Object {
+                                "alert": "#ffa000",
+                                "black": "#262626",
+                                "danger": "#d32f2f",
+                                "grayscale": Object {
+                                  "dark": "#5E5E5E",
+                                  "darker": "#383838",
+                                  "darkest": "#131313",
+                                  "light": "#D1D1D1",
+                                  "lighter": "#EBEBEB",
+                                  "lightest": "#F9F9F9",
+                                  "medium": "#ABABAB",
+                                },
+                                "grey": "#EEE",
+                                "primary": "#3333FE",
+                                "secondary": "#FDB63F",
+                                "success": "#388e3c",
+                                "white": "#FFF",
+                              },
+                              "fonts": Object {
+                                "family": Object {
+                                  "andesBlack": "andes-black, serif",
+                                  "andesLight": "andes-extralight, serif",
+                                  "montserratBlack": "montserrat-black, sans-serif",
+                                  "montserratBold": "montserrat-bold, sans-serif",
+                                  "montserratLight": "montserrat-light, sans-serif",
+                                },
+                                "size": Object {
+                                  "base": "1.4rem",
+                                  "l": "1.8rem",
+                                  "m": "1.5rem",
+                                  "reset": "62.5%",
+                                  "root": "1rem",
+                                  "s": "1.2rem",
+                                  "xl": "2.4rem",
+                                  "xs": "1rem",
+                                  "xxl": "3.2rem",
+                                  "xxxl": "5rem",
+                                },
+                              },
+                              "grid": Object {
+                                "breakpoints": Object {
+                                  "l": 992,
+                                  "m": 768,
+                                  "s": 576,
+                                  "xl": 1200,
+                                  "xs": 0,
+                                },
+                                "container": 120,
+                                "gridSize": 12,
+                                "gutterWidth": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 5,
+                                  "xs": 1.6,
+                                },
+                                "outerMargin": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 5,
+                                  "xs": 1.6,
+                                },
+                                "padding": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 5,
+                                  "xs": 1.6,
+                                },
+                              },
+                              "icons": Object {
+                                "size": Object {
+                                  "l": "2.4rem",
+                                  "m": "2rem",
+                                  "s": "1.6rem",
+                                  "xl": "3.6rem",
+                                  "xs": "1.2rem",
+                                  "xxl": "4.8rem",
+                                  "xxxl": "5.6rem",
+                                },
+                              },
+                              "spaces": Object {
+                                "l": "2.5rem",
+                                "m": "1.6rem",
+                                "s": "0.8rem",
+                                "xl": "3.2rem",
+                                "xs": "0.4rem",
+                                "xxl": "5rem",
+                                "xxxl": "10rem",
+                              },
+                              "ui": Object {
+                                "size": Object {
+                                  "l": "100%",
+                                  "m": "40rem",
+                                  "s": "20rem",
+                                },
+                              },
+                            }
+          }>
+          <InjectIntl(ProfileForm) />
+</ThemeProvider>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -611,10 +1251,14 @@ ShallowWrapper {
             "auto-validation.phone.title": "Confirmez votre numéro de téléphone EN",
             "auto-validation.phone_code.message": "Nous vous avons envoyé un SMS. Entrez le code reçu ci-dessous : EN",
             "auto-validation.phone_code.title": "Saisissez le code à 4 chiffres EN",
+            "auto-validation.title.contact_preferences": "Préférences de contact EN",
+            "auto-validation.title.informations": "Vos informations EN",
+            "auto-validation.title.project": "Votre projet EN",
             "auto-validation.validate.call_to_action": "Accéder à mes projets EN",
             "auto-validation.validate.message": "Vous recevrez très prochainement par e-mail les coordonnées des professionnels de confiance que nous aurons sélectionnés pour vous. EN",
             "auto-validation.validate.title": "Merci d\'avoir validé vos informations EN",
             "burger_menu": "Burger Menu",
+            "choose": "Choose",
             "construction": "Construction",
             "cookies.message": "En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour vous proposer des services et des offres adaptés à vos centres d’intérêts. EN",
             "cookies.more": "More informations",
@@ -751,6 +1395,7 @@ ShallowWrapper {
             "project.submit_success_title": "Félicitations! EN",
             "project.transmitted_to_firms": "Your project is transmitted to ES",
             "project.updated_at": "Updated at",
+            "project.validation.describe": "Pour nous permettre de sélectionner les professionnels de confiance les plus adaptés à votre projet, veuillez renseigner les informations ci-dessous. EN",
             "project.validation_page": "Page Validation EN",
             "renovation": "Renovation",
             "search": "Search",
@@ -859,7 +1504,112 @@ ShallowWrapper {
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }
     }>
-    <InjectIntl(ProfileForm) />
+    <ThemeProvider
+        theme={
+            Object {
+                "colors": Object {
+                  "alert": "#ffa000",
+                  "black": "#262626",
+                  "danger": "#d32f2f",
+                  "grayscale": Object {
+                    "dark": "#5E5E5E",
+                    "darker": "#383838",
+                    "darkest": "#131313",
+                    "light": "#D1D1D1",
+                    "lighter": "#EBEBEB",
+                    "lightest": "#F9F9F9",
+                    "medium": "#ABABAB",
+                  },
+                  "grey": "#EEE",
+                  "primary": "#3333FE",
+                  "secondary": "#FDB63F",
+                  "success": "#388e3c",
+                  "white": "#FFF",
+                },
+                "fonts": Object {
+                  "family": Object {
+                    "andesBlack": "andes-black, serif",
+                    "andesLight": "andes-extralight, serif",
+                    "montserratBlack": "montserrat-black, sans-serif",
+                    "montserratBold": "montserrat-bold, sans-serif",
+                    "montserratLight": "montserrat-light, sans-serif",
+                  },
+                  "size": Object {
+                    "base": "1.4rem",
+                    "l": "1.8rem",
+                    "m": "1.5rem",
+                    "reset": "62.5%",
+                    "root": "1rem",
+                    "s": "1.2rem",
+                    "xl": "2.4rem",
+                    "xs": "1rem",
+                    "xxl": "3.2rem",
+                    "xxxl": "5rem",
+                  },
+                },
+                "grid": Object {
+                  "breakpoints": Object {
+                    "l": 992,
+                    "m": 768,
+                    "s": 576,
+                    "xl": 1200,
+                    "xs": 0,
+                  },
+                  "container": 120,
+                  "gridSize": 12,
+                  "gutterWidth": Object {
+                    "l": 2.5,
+                    "m": 2.5,
+                    "s": 1.6,
+                    "xl": 5,
+                    "xs": 1.6,
+                  },
+                  "outerMargin": Object {
+                    "l": 2.5,
+                    "m": 2.5,
+                    "s": 1.6,
+                    "xl": 5,
+                    "xs": 1.6,
+                  },
+                  "padding": Object {
+                    "l": 2.5,
+                    "m": 2.5,
+                    "s": 1.6,
+                    "xl": 5,
+                    "xs": 1.6,
+                  },
+                },
+                "icons": Object {
+                  "size": Object {
+                    "l": "2.4rem",
+                    "m": "2rem",
+                    "s": "1.6rem",
+                    "xl": "3.6rem",
+                    "xs": "1.2rem",
+                    "xxl": "4.8rem",
+                    "xxxl": "5.6rem",
+                  },
+                },
+                "spaces": Object {
+                  "l": "2.5rem",
+                  "m": "1.6rem",
+                  "s": "0.8rem",
+                  "xl": "3.2rem",
+                  "xs": "0.4rem",
+                  "xxl": "5rem",
+                  "xxxl": "10rem",
+                },
+                "ui": Object {
+                  "size": Object {
+                    "l": "100%",
+                    "m": "40rem",
+                    "s": "20rem",
+                  },
+                },
+              }
+        }>
+        <InjectIntl(ProfileForm) />
+    </ThemeProvider>
 </IntlProvider>,
 }
 `;

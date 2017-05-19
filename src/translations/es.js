@@ -9,6 +9,7 @@ const es = {
   construction: 'Construction Es',
   renovation: 'Rénovation Es',
   fixing: 'Réparation Es',
+  choose: 'Choose ES',
   'Invalid username and password combination': 'Invalid username and password combination ES',
   'Missing parameters. "username" and "password" required': 'Missing parameters. "username" and "password" required ES',
   'Phone number is invalid': 'Phone number is invalid ES',
@@ -57,6 +58,7 @@ const es = {
   'firm.details.reviews': 'reviews ES',
 
   'project.validation_page': 'Page Validation ES',
+  'project.validation.describe': 'Pour nous permettre de sélectionner les professionnels de confiance les plus adaptés à votre projet, veuillez renseigner les informations ci-dessous. ES',
   'project.submit_button': 'OK ES',
   'project.submit_success_title': 'Félicitation! ES',
   'project.submit_failed_title': 'Oups! ES',
@@ -264,6 +266,9 @@ const es = {
   'auto-validation.validate.title': 'Merci d\'avoir validé vos informations ES',
   'auto-validation.validate.message': 'Vous recevrez très prochainement par e-mail les coordonnées des professionnels de confiance que nous aurons sélectionnés pour vous. ES',
   'auto-validation.validate.call_to_action': 'Accéder à mes projets ES',
+  'auto-validation.title.informations': 'Vos informations ES',
+  'auto-validation.title.contact_preferences': 'Préférences de contact ES',
+  'auto-validation.title.project': 'Votre projet ES',
 
   'auto-validation.mail.title': 'Consultez vos e-mails ES',
   'auto-validation.mail.message': 'Nous venons d\'envoyer un email à l\'adresse ci-dessous. Pour confirmer votre adresse e-mail, veuillez cliquez sur le bouton de confirmation. Cela permettra aux professionnels de vous contacter dès la validation de votre projet. ES',
