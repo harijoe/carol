@@ -20,6 +20,10 @@ const styles = ({ status }) => css`
   display: inline-block;
   z-index: 0;
 
+  span {
+    vertical-align: middle;
+  }
+
   ${breakpoint('m')`
     left: ${theme('spaces.l')};
   `}
@@ -44,6 +48,8 @@ const Wrapper = styled.div`${styles}`
 
 const StyledIcon = styled(Icon)`
   margin-right: ${theme('spaces.s')};
+  height: ${theme('icons.size.s')};
+  width: ${theme('icons.size.s')};
 `
 
 const ProjectStatus = ({ status }) => (

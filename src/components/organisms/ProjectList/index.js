@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
-import { theme, breakpoint } from 'utils/style'
+import { theme, breakpoint, breakpointMax } from 'utils/style'
 
-import { Section, Heading, Project, Loading, Grid, Row, Col } from 'components'
+import { Section, Heading, Project, Loading, Grid, Row } from 'components'
 import { Carousel } from 'containers'
 
 const StyledSection = styled(Section)`
@@ -49,15 +49,34 @@ const StyledRow = styled(Row)`
   ${breakpoint('m')`
     margin-left: calc(${theme('spaces.l')} / -2);
     margin-right: calc(${theme('spaces.l')} / -2);
+
+    &.qs-Carousel-Projects > div > div {
+      display: flex;
+      flex-wrap: wrap;
+
+      > div {
+        padding: calc(${theme('spaces.l')} / 2);
+        max-width: 50%;
+      }
+    }
+  `}
+
+  ${breakpoint('l')`
+    &.qs-Carousel-Projects > div > div {
+      > div {
+        max-width: 33.33%;
+      }
+    }
   `}
 `
 
-const StyledCol = styled(Col)`
-  position: relative;
-  padding: 0;
+const StyledCarousel = styled(Carousel)`
+  ${breakpointMax('m')`
+    max-width: 100vw;
 
-  ${breakpoint('m')`
-    padding: calc(${theme('spaces.l')} / 2);
+    .slick-list {
+      padding-bottom: ${theme('spaces.m')};
+    }
   `}
 `
 
@@ -67,32 +86,33 @@ const ProjectList = ({ list, loading }) => (
       <StyledHeading level={1}><FormattedMessage id="project.list.heading" /></StyledHeading>
       <Loading loading={loading && list.length === 0}>
         { list.length === 0 && <FormattedMessage id="project.list.empty" /> }
-        <StyledRow>
-          <StyledCol xs={12} m={6} l={4}>
-            <Carousel
-              slidesToShow={1}
-              slidesToScroll={1}
-              variableWidth
-              infinite={false}
-              dots
-              responsive={[
-                {
-                  breakpoint: 767,
+        <StyledRow className="qs-Carousel-Projects">
+          <StyledCarousel
+            slidesToShow={1}
+            slidesToScroll={1}
+            variableWidth
+            infinite={false}
+            dots
+            responsive={[
+              {
+                breakpoint: 767,
+                settings: {
+                  swipe: true,
                 },
-                {
-                  breakpoint: 10000,
-                  settings: 'unslick',
-                },
-              ]}
-            >
-              {list.map((items, i) =>
-                <Project
-                  key={i}
-                  items={items}
-                />
-              )}
-            </Carousel>
-          </StyledCol>
+              },
+              {
+                breakpoint: 10000,
+                settings: 'unslick',
+              },
+            ]}
+          >
+            {list.map((items, i) =>
+              <Project
+                key={i}
+                items={items}
+              />
+            )}
+          </StyledCarousel>
         </StyledRow>
       </Loading>
     </StyledGrid>
