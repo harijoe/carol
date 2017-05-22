@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { Field, reduxForm } from 'redux-form'
 import styled, { css } from 'styled-components'
@@ -141,7 +142,8 @@ const StyledField = styled(Field)`${({ disabled }) => css`
 
 class Form extends Component {
   componentDidUpdate() {
-    this.field.focus()
+    // eslint-disable-next-line react/no-find-dom-node
+    ReactDOM.findDOMNode(this.field).querySelector('input').focus()
   }
 
   render() {
