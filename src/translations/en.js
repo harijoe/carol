@@ -276,7 +276,7 @@ const en = {
   'auto-validation.mail.send_mail': 'Renvoyer l\'e-mail EN',
 
   'auto-validation.phone.title': 'Confirmez votre numéro de téléphone EN',
-  'auto-validation.phone.message': 'Ce numéro permettra aux artisans de vous contacter dès la validation de votre projet. EN',
+  'auto-validation.phone.message': 'Ce numéro permettra aux professionnels de vous contacter dès la validation de votre projet. EN',
   'auto-validation.phone.check_phone': 'Confirmer le numéro de téléphone EN',
 
   'auto-validation.phone_code.title': 'Saisissez le code à 4 chiffres EN',

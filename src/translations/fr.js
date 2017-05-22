@@ -201,7 +201,7 @@ const fr = {
   'validators.user.gender.not_blank': 'Field "Gender" has not to be blank FR',
   'validators.user.gender.invalid_choice': 'Field "Gender" is not valid FR',
   'validators.user.password.not_blank': 'Field "Password" has not to be blank FR',
-  'validators.user.mobilePhone.invalid_type': 'Field "Mobile phone" is not valid FR',
+  'validators.user.mobilePhone.invalid_type': 'Numéro de téléphone invalide',
   'validators.user.fixedPhone.invalid_type': 'Field "Fixe phone" is not valid FR',
   'validators.forgot_password.unexpired_token': 'Une demande de réinitialisation de mot de passe est en cours.',
   'validators.forgot_password.user_not_found': 'Aucun compte ne correspond à cet email',
@@ -274,7 +274,7 @@ const fr = {
   'auto-validation.mail.send_mail': 'Renvoyer l\'e-mail',
 
   'auto-validation.phone.title': 'Confirmez votre numéro de téléphone',
-  'auto-validation.phone.message': 'Ce numéro permettra aux artisans de vous contacter dès la validation de votre projet.',
+  'auto-validation.phone.message': 'Ce numéro permettra aux professionnels de vous contacter dès la validation de votre projet.',
   'auto-validation.phone.check_phone': 'Confirmer le numéro de téléphone',
 
   'auto-validation.phone_code.title': 'Saisissez le code à 4 chiffres',
