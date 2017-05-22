@@ -19,7 +19,10 @@ import { Carousel } from 'containers'
 
 const HeroWrapper = styled.div`
   position: relative;
-  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 80vh;
   width: 100%;
   padding-top: 15rem;
 
@@ -42,6 +45,10 @@ const HeroWrapper = styled.div`
     background: ${theme('colors.primary')};
     opacity: 0.85;
   }
+
+  ${breakpoint('l')`
+    min-height: 90vh;
+  `}
 `
 
 const StyledSection = styled(Section)`
