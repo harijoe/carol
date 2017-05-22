@@ -117,7 +117,7 @@ class Reinsurance extends Component {
             dots: false,
             autoplay: true,
             pauseOnHover: true,
-            responsive: [{ breakpoint: 1200, settings: { arrows: false } }, { breakpoint: 3000, settings: { arrows: true } }],
+            responsive: [{ breakpoint: 1200 }, { breakpoint: 10000, settings: { arrows: true } }],
           }}
         />
       </StyledSection>

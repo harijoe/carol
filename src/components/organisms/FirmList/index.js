@@ -107,12 +107,9 @@ const FirmList = ({ list, loading }) => (
         responsive={[
           {
             breakpoint: 575,
-            settings: {
-              arrows: false,
-            },
           },
           {
-            breakpoint: 3000,
+            breakpoint: 10000,
             settings: 'unslick',
           },
         ]}

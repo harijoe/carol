@@ -68,9 +68,9 @@ const Testimonials = ({ intl: { formatMessage } }) => (
           infinite: false,
           variableWidth: true,
           responsive: [
-            { breakpoint: 767, settings: { slidesToShow: 1, arrows: false } },
-            { breakpoint: 1055, settings: { slidesToShow: 2, slidesToScroll: 2, arrows: false } },
-            { breakpoint: 3000, settings: { slidesToShow: 3, slidesToScroll: 3 } },
+            { breakpoint: 767, settings: { slidesToShow: 1 } },
+            { breakpoint: 1055, settings: { slidesToShow: 2, slidesToScroll: 2 } },
+            { breakpoint: 10000, settings: { slidesToShow: 3, slidesToScroll: 3, arrows: true } },
           ],
           dots: true,
         }}
