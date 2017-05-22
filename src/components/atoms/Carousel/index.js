@@ -106,7 +106,9 @@ const Carousel = class extends React.Component {
   handlePropsOnSSR = ({ responsive = [], ssr }) => {
     if (ssr) return { arrows: false, responsive: [] }
 
-    return { responsive }
+    const touchEnabled = 'ontouchstart' in window
+
+    return { arrows: !touchEnabled, responsive }
   }
 
   render() {

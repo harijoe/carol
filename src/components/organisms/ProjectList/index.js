@@ -78,9 +78,6 @@ const ProjectList = ({ list, loading }) => (
               responsive={[
                 {
                   breakpoint: 767,
-                  settings: {
-                    swipe: true,
-                  },
                 },
                 {
                   breakpoint: 10000,

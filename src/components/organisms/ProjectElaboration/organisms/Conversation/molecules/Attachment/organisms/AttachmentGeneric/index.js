@@ -84,7 +84,6 @@ const AttachmentGeneric = ({ attachment, reply }) => (
       {
         breakpoint: 767,
         settings: {
-          arrows: false,
           swipe: true,
           slidesToScroll: 2,
           dots: false,
@@ -93,12 +92,11 @@ const AttachmentGeneric = ({ attachment, reply }) => (
       {
         breakpoint: 991,
         settings: {
-          arrows: true,
           swipe: true,
         },
       },
       {
-        breakpoint: 3000,
+        breakpoint: 10000,
         settings: {
           arrows: true,
           swipe: false,

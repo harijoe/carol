@@ -162,20 +162,17 @@ const FirstChoices = (choices, reply) => (
       <Carousel
         variableWidth
         infinite={false}
-        arrows
         dots
         responsive={[
           {
             breakpoint: 767,
             settings: {
-              arrows: false,
               slidesToScroll: 2,
             },
           },
           {
-            breakpoint: 992,
+            breakpoint: 991,
             settings: {
-              arrows: true,
               swipe: false,
               slidesToScroll: 3,
               slidesToShow: 3,
