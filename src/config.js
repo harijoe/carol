@@ -7,6 +7,7 @@ const config = {
     port: process.env.PORT || 443,
     basename: `/${process.env.PUBLIC_PATH || ''}`.replace('//', '/'), // Accepts: '/', '/path', 'path', undefined,
     browser: typeof window !== 'undefined',
+    assetPath: '',
     api: {
       url: 'https://api-dev.qarx.io:8080',
       clientId: '4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k',
@@ -104,6 +105,7 @@ const config = {
       certificate: 'ssl/quotatis.com.crt',
       intermediate: 'ssl/quotatis.intermediate.com.crt',
     },
+    assetPath: 'https://media.qarx.io',
   },
 }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import { assetPath } from 'config'
 
 const Html = ({ styles, assets, state, content, lang }) => {
   const helmet = Helmet.rewind()
@@ -18,7 +19,7 @@ const Html = ({ styles, assets, state, content, lang }) => {
       <body>
         <main id="app" dangerouslySetInnerHTML={{ __html: content }} />
         <script dangerouslySetInnerHTML={{ __html: state }} />
-        <script src={assets.javascript.main} />
+        <script src={assetPath + assets.javascript.main} />
       </body>
     </html>
   )
