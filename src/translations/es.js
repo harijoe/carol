@@ -75,7 +75,7 @@ const es = {
   'project.status.finished': 'Projet terminé ES',
   'project.describe.completion_in_progress': 'Vous n\'avez pas encore répondu à toutes les questions permettant de valider votre projet. ES',
   'project.describe.to_validate': 'Pour finaliser votre projet et vous envoyer une liste de professionnels de confiance, vous devez finaliser votre projet. ES',
-  'project.describe.pending_search': 'Nous avons lancé la recherche de professionnels de confiance qui pourront répondre à votre projet. Vous recevrez leurs coordonnées par email et très prochainement vous pourrez directement consulter leurs fiches détaillées dans cette espace. ES',
+  'project.describe.pending_search': 'Nous avons lancé la recherche de professionnels de confiance qui pourront répondre à votre projet. Vous recevrez leurs coordonnées par email et très prochainement vous pourrez directement consulter leurs fiches détaillées dans cet espace. ES',
   'project.describe.finished': 'fnished ES',
   'project.button.in_progress': 'Continuer mon projet ES',
   'project.button.to_validate': 'Valider mon projet ES',
