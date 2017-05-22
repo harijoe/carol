@@ -79,7 +79,7 @@ const ProjectList = ({ list, loading }) => (
                 {
                   breakpoint: 767,
                   settings: {
-                    swipe: true,
+                    arrows: false,
                   },
                 },
                 {
