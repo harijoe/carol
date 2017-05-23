@@ -78,7 +78,7 @@ const StyledParagraph = styled(Paragraph)`
   margin: 0;
 `
 
-const SignInForm = ({ error, handleSubmit, loading, intl: { formatMessage }, className, carousel }) => (
+const SignInForm = ({ error, handleSubmit, loading, intl: { formatMessage }, className, carousel, redirectTo }) => (
   <div>
     {
       carousel &&
@@ -119,7 +119,7 @@ const SignInForm = ({ error, handleSubmit, loading, intl: { formatMessage }, cla
             <FormattedMessage id="user.no_account_question" />
           </StyledParagraph>
           <StyledParagraph>
-            <StyledLink highlight kind="black" to="/signup">
+            <StyledLink highlight kind="black" onClick={() => redirectTo('/signup')}>
               <FormattedMessage id="user.create_account" />
             </StyledLink>
           </StyledParagraph>
@@ -151,7 +151,9 @@ const SignInForm = ({ error, handleSubmit, loading, intl: { formatMessage }, cla
         </Form>
         <div className="footer">
           <FormattedMessage id="user.no_account_question" />
-          <StyledLink highlight kind="black" to="/signup"><FormattedMessage id="user.create_account" /></StyledLink>
+          <StyledLink highlight kind="black" onClick={() => redirectTo('/signup')}>
+            <FormattedMessage id="user.create_account" />
+          </StyledLink>
         </div>
       </div>
     }
@@ -165,6 +167,7 @@ SignInForm.propTypes = {
   error: PropTypes.string,
   loading: PropTypes.bool,
   intl: intlShape.isRequired,
+  redirectTo: PropTypes.func,
 }
 
 export default injectIntl(SignInForm)

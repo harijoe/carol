@@ -1,6 +1,8 @@
 import React from 'react'
+import { bindActionCreators } from 'redux'
 import { reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 import { authLogin } from 'store/actions'
 import { createValidator, required, email } from 'services/validation'
 import { fromStatus } from 'store/selectors'
@@ -27,6 +29,13 @@ export const config = {
 
 const mapStateToProps = state => ({
   loading: fromStatus.getLoading(state).AUTH_LOGIN,
+  redirectPathname: state.routing.locationBeforeTransitions.state ? state.routing.locationBeforeTransitions.state.redirectPathname : '/',
 })
 
-export default connect(mapStateToProps)(reduxForm(config)(SignInFormContainer))
+const mapDispatchToProps = (dispatch, { redirectPathname }) => (
+  bindActionCreators({
+    redirectTo: path => push({ pathname: path, state: { redirectPathname } }),
+  }, dispatch)
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(reduxForm(config)(SignInFormContainer))
