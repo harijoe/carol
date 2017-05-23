@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { Field, reduxForm } from 'redux-form'
 import styled, { css } from 'styled-components'
@@ -140,8 +141,16 @@ const StyledField = styled(Field)`${({ disabled }) => css`
 `}`
 
 class Form extends Component {
+  /*
+   TODO: Implement a better fix using following links describing the issues in play
+   - https://github.com/styled-components/styled-components/issues/617
+   - https://github.com/styled-components/styled-components/issues/618
+   Ideally we would not want to use findDOMNode, as it will eventually be deprecated by Facebook.
+   However, it seems to not have been deprecated yet in fiber.
+  */
   componentDidUpdate() {
-    this.field.focus()
+    // eslint-disable-next-line react/no-find-dom-node
+    ReactDOM.findDOMNode(this.field).querySelector('input').focus()
   }
 
   render() {
