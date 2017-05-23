@@ -58,7 +58,7 @@ const StyledButton = styled(Button)`
 class SignUpForm extends Component {
   static propTypes = {
     handleSubmit: PropTypes.func.isRequired,
-    submitting: PropTypes.bool,
+    loading: PropTypes.bool,
     intl: intlShape.isRequired,
   }
 
@@ -75,7 +75,7 @@ class SignUpForm extends Component {
   }
 
   render() {
-    const { handleSubmit, submitting, intl: { formatMessage } } = this.props
+    const { handleSubmit, loading, intl: { formatMessage } } = this.props
 
     return (
       <CarouselPageTemplate
@@ -109,7 +109,7 @@ class SignUpForm extends Component {
                 name="captcha"
                 component={RenderCaptcha}
               />
-              <StyledButton type="submit" disabled={submitting}>
+              <StyledButton type="submit" loading={loading}>
                 <FormattedMessage id="user.sign_up" />
               </StyledButton>
             </Form>

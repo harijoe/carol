@@ -29,7 +29,7 @@ const StyledButton = styled(Button)`
   margin-top: 40px;
 `
 
-const ForgotPasswordForm = ({ error, handleSubmit, submitting, intl: { formatMessage } }) => (
+const ForgotPasswordForm = ({ error, handleSubmit, loading, intl: { formatMessage } }) => (
   <CarouselPageTemplate
     heading={formatMessage(messages('user.forgot_password.heading').label)}
     description={formatMessage(messages('user.forgot_password.description').label)}
@@ -43,14 +43,14 @@ const ForgotPasswordForm = ({ error, handleSubmit, submitting, intl: { formatMes
         label={formatMessage(messages('user.email').label)}
       />
       {error && <FormattedMessage id={error} tagName="strong" />}
-      <StyledButton type="submit" disabled={submitting}><FormattedMessage id="user.send" /></StyledButton>
+      <StyledButton type="submit" loading={loading}><FormattedMessage id="user.send" /></StyledButton>
     </Form>
   </CarouselPageTemplate>
 )
 
 ForgotPasswordForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  submitting: PropTypes.bool,
+  loading: PropTypes.bool,
   error: PropTypes.string,
   intl: intlShape.isRequired,
 }

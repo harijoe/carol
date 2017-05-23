@@ -18,7 +18,7 @@ const Form = styled.form`
 class ProfileForm extends Component {
   static propTypes = {
     handleSubmit: PropTypes.func,
-    submitting: PropTypes.bool,
+    loading: PropTypes.bool,
     intl: intlShape.isRequired,
     details: PropTypes.shape({
       email: PropTypes.string,
@@ -70,7 +70,7 @@ class ProfileForm extends Component {
   }
 
   render() {
-    const { initialValues, handleSubmit, submitting, intl, details } = this.props
+    const { initialValues, handleSubmit, loading, intl, details } = this.props
     const formatMessage = intl.formatMessage
 
     return (
@@ -176,7 +176,7 @@ class ProfileForm extends Component {
           label={formatMessage(messages('user.newsletter_subscription').label)}
           placeholder={formatMessage(messages('user.newsletter_subscription').label)}
         />
-        <Button type="submit" disabled={submitting}>
+        <Button type="submit" loading={loading}>
           <FormattedMessage id="user.update" />
         </Button>
       </Form>

@@ -61,7 +61,7 @@ const StyledButton = styled(Button)`
   margin-top: 0;
 `
 
-const ProjectAccountForm = ({ handleSubmit, intl: { formatMessage } }) => (
+const ProjectAccountForm = ({ handleSubmit, loading, intl: { formatMessage } }) => (
   <Form onSubmit={handleSubmit}>
     <StyledSection title={formatMessage(messages('auto-validation.title.informations').label)}>
       <RadioBlock>
@@ -193,7 +193,7 @@ const ProjectAccountForm = ({ handleSubmit, intl: { formatMessage } }) => (
       </Field>
     </StyledSection>
     <StyledSection>
-      <StyledButton type="submit" center>
+      <StyledButton type="submit" center loading={loading} >
         <FormattedMessage id="user.send" tagName="span" />
       </StyledButton>
     </StyledSection>
@@ -203,6 +203,7 @@ const ProjectAccountForm = ({ handleSubmit, intl: { formatMessage } }) => (
 ProjectAccountForm.propTypes = {
   handleSubmit: PropTypes.func,
   intl: intlShape.isRequired,
+  loading: PropTypes.bool,
 }
 
 export default injectIntl(ProjectAccountForm)

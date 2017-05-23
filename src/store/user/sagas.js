@@ -35,12 +35,13 @@ function* handleCreateUserRequest({ data }) {
   try {
     yield* fetch(userCreate, 'post', '/users', {}, data)
     yield* notify('user.thank_you', 'user.sign_up.confirmation')
+    yield put(goBack())
+    yield put(reset('SignUpForm'))
     yield* handleAuthLoginRequest({
       grantType: 'password',
       formName: 'SignUpForm',
       credentials: `&username=${data.email}&password=${data.password}`,
     })
-    yield put(goBack())
   } catch (error) {
     if (error instanceof HTTPError) {
       yield put(stopSubmit('SignUpForm', getFormErrors(error.message)))

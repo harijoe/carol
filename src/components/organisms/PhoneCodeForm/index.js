@@ -6,7 +6,7 @@ import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import { theme } from 'utils/style'
 import messages from 'utils/messages'
 
-import { RenderField, SendSMSButton } from 'components'
+import { RenderField, SendSMSButton, Icon } from 'components'
 
 const Form = styled.form`
   width: 100%;
@@ -30,6 +30,7 @@ const PhoneCodeForm = (props) => {
 
   return (
     <Form onSubmit={handleSubmit}>
+      {error && <FormattedMessage id={error} tagName="strong" />}
       <Field
         name="code"
         component={RenderField}
@@ -38,8 +39,7 @@ const PhoneCodeForm = (props) => {
         onChange={handleChange}
         disabled={loading || disabled}
       />
-      {error && <FormattedMessage id={error} tagName="strong" />}
-      {loading && 'loading'}
+      {loading && <Icon icon="spinner" size={40} />}
       {!loading && <SendSMSButton send={resendSMS} />}
     </Form>
   )

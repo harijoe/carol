@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 
 import { createValidator, required, email, captcha } from 'services/validation'
-import { fromForm } from 'store/selectors'
+import { fromForm, fromStatus } from 'store/selectors'
 import { userCreate } from 'store/actions'
 import { SignUpForm } from 'components'
 
@@ -31,6 +31,7 @@ const mapStateToProps = state => ({
     _csrf: fromForm.getCsrfToken(state),
     captcha: null,
   },
+  loading: fromStatus.getLoading(state).USER_CREATE || fromStatus.getLoading(state).AUTH_LOGIN,
 })
 
 export default connect(mapStateToProps)(reduxForm(config)(SignUpFormContainer))

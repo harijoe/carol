@@ -40,7 +40,7 @@ export default function* redirectToNextStep(projectIdFromParams = null) {
   const emailVerified = yield select(fromUser.getEmailVerified)
 
   if (projectDetails.purpose == null || projectDetails.startTimeframe == null) {
-    yield put(push(`projects/${projectDetails['@id']}/account`))
+    yield put(push(`${projectDetails['@id']}/account`))
   } else if (!mobilePhoneVerified) {
     const route = yield select(fromRouting.getPathname)
 

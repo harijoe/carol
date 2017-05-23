@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
-
 import { createValidator, required, match } from 'services/validation'
 import { resetPassword } from 'store/actions'
 import { ResetPasswordForm } from 'components'

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 import pick from 'lodash/pick'
 import { userDetails, userUpdate } from 'store/actions'
-import { fromUser, fromContext } from 'store/selectors'
+import { fromUser, fromContext, fromStatus } from 'store/selectors'
 import transformDate from 'utils/transformDate'
 
 import { ProfileForm } from 'components'
@@ -45,6 +45,7 @@ const mapStateToProps = (state) => {
       birthday: transformDate(details.birthday),
       country: fromContext.getCountry(state),
     },
+    loading: fromStatus.getLoading(state).USER_UPDATE,
   }
 }
 
