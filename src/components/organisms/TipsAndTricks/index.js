@@ -79,7 +79,7 @@ const TipsAndTricks = ({ intl: { formatMessage } }) => (
           generateChild={generateChild}
         />
       </StyledRow>
-      <StyledLink button>
+      <StyledLink button to={contentSiteUrl}>
         <FormattedMessage id="tips_and_tricks.call_to_action" />
       </StyledLink>
     </Grid>

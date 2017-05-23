@@ -36,7 +36,7 @@ const config = {
       scope: 'public_profile, email, user_birthday, user_location',
     },
     cloudinaryUrl: 'https://res.cloudinary.com/quotatis/image/upload/FrontApp/',
-    contentSiteUrl: 'https://conseils-travaux.quotatis.fr/',
+    contentSiteUrl: 'https://www.quotatis.fr/conseils-travaux/',
     defaultProUrl: 'https://www.quotatispro.co.uk',
     defaultLocale: 'en_GB',
     locales: {
