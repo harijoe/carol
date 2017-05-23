@@ -22,7 +22,7 @@ export default (state = initialState, action) => {
     case PROJECT_DETAILS.SUCCESS:
       return {
         ...state,
-        [action.actionParams.id]: action.payload,
+        [action.payload['@id']]: action.payload,
       }
     default: {
       return state

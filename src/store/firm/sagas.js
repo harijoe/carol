@@ -13,7 +13,7 @@ export function* handleReadFirmListRequest({ projectId }) {
 
   // Handle the case where the project hasn't been fetched yet (projectId coming from query)
   if (projectDetails == null) {
-    yield* fetch(projectDetailsAction, 'get', normalizedProjectId, {}, null, { id: normalizedProjectId })
+    yield* fetch(projectDetailsAction, 'get', normalizedProjectId)
     projectDetails = yield select(fromProject.getDetails, normalizedProjectId)
   }
 

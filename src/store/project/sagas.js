@@ -3,7 +3,7 @@ import { stopSubmit } from 'redux-form'
 import { push } from 'react-router-redux'
 import notify from 'sagas/notify'
 import { HTTPError } from 'utils/errors'
-import { fromProject, fromUser, fromRouting } from 'store/selectors'
+import { fromUser, fromRouting } from 'store/selectors'
 
 import fetch from 'sagas/fetch'
 import redirectToNextStep from 'sagas/projectValidation'
@@ -45,13 +45,12 @@ export function* handleSubmitProjectRequest() {
 }
 
 function* handleUpdateProjectRequest({ projectData, userData, projectId }) {
-  const projectPath = yield select(fromProject.getProjectPath, projectId)
-  const userPath = yield select(fromUser.getId)
+  const userId = yield select(fromUser.getId)
 
   try {
-    yield* fetch(userUpdate, 'put', userPath, {}, userData)
-    yield* fetch(projectUpdate, 'put', projectPath, {}, projectData, { id: projectId })
-    yield* redirectToNextStep(projectId)
+    yield* fetch(userUpdate, 'put', userId, {}, userData)
+    yield* fetch(projectUpdate, 'put', `/projects/${projectId}`, {}, projectData)
+    yield* redirectToNextStep(`/projects/${projectId}`)
     yield notify('user.thank_you', 'user.account_updated')
   } catch (error) {
     if (error instanceof HTTPError) {
@@ -71,7 +70,7 @@ export function* handleReadProjectListRequest() {
 }
 
 export function* handleReadProjectDetailsRequest({ id }) {
-  yield* fetch(projectDetails, 'get', `/projects/${id}`, {}, null, { id })
+  yield* fetch(projectDetails, 'get', `/projects/${id}`)
 }
 
 function* handleCheckValidationFlow() {

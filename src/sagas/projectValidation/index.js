@@ -24,7 +24,7 @@ export default function* redirectToNextStep(projectIdFromParams = null) {
 
   // Handle the case where the project hasn't been fetched yet (projectId coming from query)
   if (projectDetails == null) {
-    yield* fetch(projectDetailsAction, 'get', `${projectId}`, {}, null, { id: projectId })
+    yield* fetch(projectDetailsAction, 'get', projectId)
     projectDetails = yield select(fromProject.getDetails, projectId)
   }
 
