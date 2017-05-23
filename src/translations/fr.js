@@ -108,7 +108,7 @@ const fr = {
   'project.elaboration.summary.title': 'Vous trouverez ci-joint le résumé de votre demande de projet.',
   'project.elaboration.project_prevalidation.success': 'Le projet %name% a été créé',
 
-  'user.gender': 'Sexe',
+  'user.gender': 'Civilité',
   'user.forget_password': 'Mot de passe oublié ?',
   'user.create_account': 'Inscription',
   'user.sign_up': 'S\'inscrire',
