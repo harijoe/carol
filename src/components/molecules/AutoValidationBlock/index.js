@@ -29,7 +29,6 @@ const StyledImage = styled(Image)`
   max-height: 12rem;
 `
 
-
 const DotsWrapper = styled.div`
   position: relative;
   width: 100%;
@@ -37,13 +36,19 @@ const DotsWrapper = styled.div`
   text-align: center;
 `
 
-const AutoValidationBlock = ({ imageLink, title, paragraph, children, dots }) => (
+const AutoValidationBlock = ({ imageLink, title, paragraph, children, firstDot, secondDot }) => (
   <Container>
     <Wrapper>
-      {dots &&
+      {firstDot &&
         <DotsWrapper>
           <Dots focus />
           <Dots />
+        </DotsWrapper>
+      }
+      {secondDot &&
+        <DotsWrapper>
+          <Dots />
+          <Dots focus />
         </DotsWrapper>
       }
       <StyledImage link={imageLink} />
@@ -59,7 +64,8 @@ AutoValidationBlock.propTypes = {
   title: PropTypes.string,
   paragraph: PropTypes.string,
   children: PropTypes.any,
-  dots: PropTypes.bool,
+  firstDot: PropTypes.bool,
+  secondDot: PropTypes.bool,
 }
 
 export default AutoValidationBlock

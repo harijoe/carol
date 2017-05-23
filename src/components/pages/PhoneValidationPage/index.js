@@ -10,7 +10,7 @@ const PhoneValidationPage = ({ intl: { formatMessage } }) => (
   <MainLayout>
     <MainWrapper>
       <AutoValidationBlock
-        dots
+        firstDot
         imageLink={`${cloudinaryUrl}autovalidation-phone.svg`}
         title={formatMessage(messages('auto-validation.phone.title').label)}
         paragraph={formatMessage(messages('auto-validation.phone.message').label)}
