@@ -10,7 +10,7 @@ const EmailValidationPage = ({ intl: { formatMessage } }) => (
   <MainLayout>
     <MainWrapper>
       <AutoValidationBlock
-        dots
+        secondDot
         imageLink={`${cloudinaryUrl}autovalidation-mail.svg`}
         title={formatMessage(messages('auto-validation.mail.title').label)}
         paragraph={formatMessage(messages('auto-validation.mail.message').label)}

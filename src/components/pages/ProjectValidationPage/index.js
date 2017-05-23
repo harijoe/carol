@@ -19,7 +19,6 @@ const ProjectValidationPage = ({ intl: { formatMessage } }) => (
   <MainLayout>
     <MainWrapper>
       <AutoValidationBlock
-        secondDot
         imageLink={`${cloudinaryUrl}autovalidation-validate.svg`}
         title={formatMessage(messages('auto-validation.validate.title').label)}
         paragraph={formatMessage(messages('auto-validation.validate.message').label)}
