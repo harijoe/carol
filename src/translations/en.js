@@ -279,8 +279,8 @@ const en = {
   'auto-validation.phone.message': 'Ce numéro permettra aux professionnels de vous contacter dès la validation de votre projet. EN',
   'auto-validation.phone.check_phone': 'Confirmer le numéro de téléphone EN',
 
-  'auto-validation.phone_code.title': 'Saisissez le code à 4 chiffres EN',
-  'auto-validation.phone_code.message': 'Nous vous avons envoyé un SMS. Entrez le code reçu ci-dessous : EN',
+  'auto-validation.phone_code.title': 'Saisissez le code à 6 chiffres EN',
+  'auto-validation.phone_code.message': 'Nous avons envoyé le code à 6 chiffres par SMS au numéro de téléphone indiqué précédemment. Saisissez-le ci-dessous : EN',
 }
 
 export default en

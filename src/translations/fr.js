@@ -277,8 +277,8 @@ const fr = {
   'auto-validation.phone.message': 'Ce numéro permettra aux professionnels de vous contacter dès la validation de votre projet.',
   'auto-validation.phone.check_phone': 'Confirmer le numéro de téléphone',
 
-  'auto-validation.phone_code.title': 'Saisissez le code à 4 chiffres',
-  'auto-validation.phone_code.message': 'Nous vous avons envoyé un SMS. Entrez le code reçu ci-dessous :',
+  'auto-validation.phone_code.title': 'Saisissez le code à 6 chiffres',
+  'auto-validation.phone_code.message': 'Nous avons envoyé le code à 6 chiffres par SMS au numéro de téléphone indiqué précédemment. Saisissez-le ci-dessous :',
 
   'auto-validation.title.informations': 'Vos informations',
   'auto-validation.title.contact_preferences': 'Préférences de contact',
