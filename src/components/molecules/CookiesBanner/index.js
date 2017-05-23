@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   position: fixed;
   z-index: 20;
   bottom: 0;
+  left: 0;
   width: 100%;
   height: auto;
   background-color: rgba(0, 0, 0, 0.9);
@@ -33,8 +34,7 @@ const StyledParagraph = styled(Paragraph)`
 `
 
 const CloseIcon = styled(Icon)`
-  margin: auto;
-  height: 100%;
+  margin: ${theme('spaces.m')} auto auto auto;
 
   .cls-1 {
     fill: ${theme('colors.white')};
