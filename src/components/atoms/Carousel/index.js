@@ -113,7 +113,7 @@ const Carousel = class extends React.Component {
 
   render() {
     const { children, itemProps, responsive, ssr, ...otherProps } = this.props
-    const props = { ...otherProps, ...this.handlePropsOnSSR({ responsive, ssr }) }
+    const props = { ...this.handlePropsOnSSR({ responsive, ssr }), ...otherProps }
     const { removeCarousel } = this.state
 
     return (
