@@ -68,6 +68,7 @@ function* handleNewPasswordRequest({ data }) {
   try {
     yield* fetch(forgotPassword, 'post', '/forgot-password/', {}, data)
     yield* notify('user.thank_you', 'user.reset_password_email')
+    yield put(push('/'))
   } catch (error) {
     if (error instanceof HTTPError) {
       yield put(stopSubmit('ForgotPasswordForm', { _error: error.message }))
@@ -79,6 +80,7 @@ function* handleUpdatePasswordRequest({ data, id }) {
   try {
     yield* fetch(resetPassword, 'post', `/forgot-password/${id}`, {}, data)
     yield* notify('user.thank_you', 'user.reset_password_success')
+    yield put(push('login'))
   } catch (error) {
     if (error instanceof HTTPError) {
       yield put(stopSubmit('ResetPasswordForm', { _error: 'server_error' }))
