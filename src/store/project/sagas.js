@@ -66,7 +66,7 @@ function* handleProjectAcceptFirmRequest({ id }) {
 }
 
 export function* handleReadProjectListRequest() {
-  yield* fetch(projectList, 'get', '/projects?order[updatedAt]=DESC')
+  yield* fetch(projectList, 'get', '/projects?order[createdAt]=DESC')
 }
 
 export function* handleReadProjectDetailsRequest({ id }) {
