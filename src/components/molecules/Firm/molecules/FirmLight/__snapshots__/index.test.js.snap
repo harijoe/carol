@@ -32,10 +32,12 @@ ShallowWrapper {
             test
         </Styled(Mock)>
         <Styled(Mock)
-            link="https://hugo-fr.qarx.io/wp-content/uploads/2017/02/Plancher-chauffant-1.jpg" />
+            link="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg" />
     </styled.header>
     <styled.footer>
         <Styled(Mock)>
+            <Styled(Mock)
+                icon="location-pin" />
             96352
         </Styled(Mock)>
     </styled.footer>
@@ -67,10 +69,12 @@ ShallowWrapper {
                   test
             </Styled(Mock)>
             <Styled(Mock)
-                  link="https://hugo-fr.qarx.io/wp-content/uploads/2017/02/Plancher-chauffant-1.jpg" />
+                  link="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg" />
       </styled.header>
       <styled.footer>
             <Styled(Mock)>
+                  <Styled(Mock)
+                        icon="location-pin" />
                   96352
             </Styled(Mock)>
       </styled.footer>
@@ -85,7 +89,7 @@ ShallowWrapper {
       "_currentElement": <FirmLight
         globalRating={4.5}
         globalRatingCount={88}
-        imageUrl="https://hugo-fr.qarx.io/wp-content/uploads/2017/02/Plancher-chauffant-1.jpg"
+        imageUrl="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
         logoUrl=""
         name="test"
         postalCode="96352" />,
@@ -98,7 +102,7 @@ ShallowWrapper {
         "props": Object {
           "globalRating": 4.5,
           "globalRatingCount": 88,
-          "imageUrl": "https://hugo-fr.qarx.io/wp-content/uploads/2017/02/Plancher-chauffant-1.jpg",
+          "imageUrl": "http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg",
           "logoUrl": "",
           "name": "test",
           "postalCode": "96352",
@@ -149,10 +153,12 @@ ShallowWrapper {
                               test
                     </Styled(Mock)>
                     <Styled(Mock)
-                              link="https://hugo-fr.qarx.io/wp-content/uploads/2017/02/Plancher-chauffant-1.jpg" />
+                              link="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg" />
           </styled.header>
           <styled.footer>
                     <Styled(Mock)>
+                              <Styled(Mock)
+                                        icon="location-pin" />
                               96352
                     </Styled(Mock)>
           </styled.footer>
@@ -184,10 +190,12 @@ ShallowWrapper {
                               test
                     </Styled(Mock)>
                     <Styled(Mock)
-                              link="https://hugo-fr.qarx.io/wp-content/uploads/2017/02/Plancher-chauffant-1.jpg" />
+                              link="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg" />
           </styled.header>
           <styled.footer>
                     <Styled(Mock)>
+                              <Styled(Mock)
+                                        icon="location-pin" />
                               96352
                     </Styled(Mock)>
           </styled.footer>
@@ -206,7 +214,7 @@ ShallowWrapper {
   "unrendered": <FirmLight
     globalRating={4.5}
     globalRatingCount={88}
-    imageUrl="https://hugo-fr.qarx.io/wp-content/uploads/2017/02/Plancher-chauffant-1.jpg"
+    imageUrl="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
     logoUrl=""
     name="test"
     postalCode="96352" />,

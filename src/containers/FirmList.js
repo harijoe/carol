@@ -11,6 +11,7 @@ class FirmListContainer extends Component {
     list: PropTypes.array,
     loading: PropTypes.bool,
     request: PropTypes.func.isRequired,
+    projectId: PropTypes.string,
   }
 
   componentWillMount() {
@@ -18,9 +19,9 @@ class FirmListContainer extends Component {
   }
 
   render() {
-    const { list, loading } = this.props
+    const { list, loading, projectId } = this.props
 
-    return <FirmList {...{ list, loading }} />
+    return <FirmList {...{ list, loading, projectId }} />
   }
 }
 

@@ -9,12 +9,12 @@ ShallowWrapper {
   "node": <FirmLight
     globalRating={null}
     globalRatingCount={null}
-    imageUrl="https://hugo-fr.qarx.io/wp-content/uploads/2017/02/Plancher-chauffant-1.jpg" />,
+    imageUrl="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg" />,
   "nodes": Array [
     <FirmLight
       globalRating={null}
       globalRatingCount={null}
-      imageUrl="https://hugo-fr.qarx.io/wp-content/uploads/2017/02/Plancher-chauffant-1.jpg" />,
+      imageUrl="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg" />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -53,12 +53,12 @@ ShallowWrapper {
         "_currentElement": <FirmLight
           globalRating={null}
           globalRatingCount={null}
-          imageUrl="https://hugo-fr.qarx.io/wp-content/uploads/2017/02/Plancher-chauffant-1.jpg" />,
+          imageUrl="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg" />,
         "_debugID": 2,
         "_renderedOutput": <FirmLight
           globalRating={null}
           globalRatingCount={null}
-          imageUrl="https://hugo-fr.qarx.io/wp-content/uploads/2017/02/Plancher-chauffant-1.jpg" />,
+          imageUrl="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg" />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,

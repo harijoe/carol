@@ -5,7 +5,7 @@ import { theme, breakpoint } from 'utils/style'
 
 import { MainLayout, MainWrapper, Section, Grid } from 'components'
 
-import { FirmList, FirmAcceptButton } from 'containers'
+import { FirmList } from 'containers'
 
 const StyledMainWrapper = styled(MainWrapper)`
   padding-top: 5.6rem;
@@ -37,6 +37,11 @@ const StyledGrid = styled(Grid)`
   ${breakpoint('xl')`
     max-width: 100rem;
   `}
+
+  > div {
+    display: flex;
+    flex-direction: column;
+  }
 `
 
 const FirmListPage = ({ params: { projectId } }) => (
@@ -45,7 +50,6 @@ const FirmListPage = ({ params: { projectId } }) => (
       <StyledSection light>
         <StyledGrid narrow>
           <FirmList {...{ projectId }} />
-          <FirmAcceptButton projectId={projectId} />
         </StyledGrid>
       </StyledSection>
     </StyledMainWrapper>
