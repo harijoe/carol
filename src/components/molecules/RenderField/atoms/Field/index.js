@@ -44,7 +44,7 @@ const Wrapper = styled.div`${({ type }) => css`
 `}`
 
 const StyledInput = styled(Input)`${({ hideBorder }) => css`
-  padding: 0;
+  padding: 0 ${theme('spaces.l')} 0 0;
   height: 3.2rem;
   width: 100%;
   font-size: ${theme('fonts.size.base')};
