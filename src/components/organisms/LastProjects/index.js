@@ -84,6 +84,7 @@ const ProjectsWrapper = styled.div`
   ${breakpoint('m')`
     padding-top: 0;
     margin-left: 45%;
+    width: 55%;
 
     .slick-list {
       padding-left: 0;
