@@ -11,6 +11,7 @@ const Article = styled(Card)`
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
 
   ${breakpointMax('m')`
     width: calc(100vw - ${theme('spaces.xl')} - ${theme('spaces.m')});

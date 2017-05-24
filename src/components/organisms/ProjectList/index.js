@@ -50,13 +50,17 @@ const StyledRow = styled(Row)`
     margin-left: calc(${theme('spaces.l')} / -2);
     margin-right: calc(${theme('spaces.l')} / -2);
 
-    &.qs-Carousel-Projects > div > div {
-      display: flex;
-      flex-wrap: wrap;
+      &.qs-Carousel-Projects > div {
+       width: 100%;
 
-      > div {
-        padding: calc(${theme('spaces.l')} / 2);
-        max-width: 50%;
+       > div {
+        display: flex;
+        flex-wrap: wrap;
+
+        > div {
+          padding: calc(${theme('spaces.l')} / 2);
+          max-width: 50%;
+        }
       }
     }
   `}
