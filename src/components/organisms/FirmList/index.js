@@ -107,7 +107,6 @@ const FirmList = ({ list, loading, projectId }) => (
     <Grid narrow>
       <Heading level={1}><FormattedMessage id={`firm.list.${list.length > 1 ? 'good_news' : 'thank_you'}`} /></Heading>
       <StyledParagraph>
-        <strong>{list.length}</strong>&nbsp;
         <FormattedMessage id={`firm.list.${list.length > 1 ? 'has_results' : 'no_results'}`} />
       </StyledParagraph>
     </Grid>
