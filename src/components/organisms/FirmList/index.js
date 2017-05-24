@@ -91,10 +91,10 @@ const FirmList = ({ list, loading }) => (
       <StyledIcon icon="back" />
       <FormattedMessage id="project.modify_my_project" />
     </StyledLink>
-    <Heading level={1}><FormattedMessage id="firm.good_news" /></Heading>
+    <Heading level={1}><FormattedMessage id={`firm.list.${list.length > 1 ? 'good_news' : 'thank_you'}`} /></Heading>
     <StyledParagraph>
       <strong>{list.length}</strong>&nbsp;
-      <FormattedMessage id="firm.result_description" />
+      <FormattedMessage id={`firm.list.${list.length > 1 ? 'has_results' : 'no_results'}`} />
     </StyledParagraph>
     <StyledRow>
       <Carousel

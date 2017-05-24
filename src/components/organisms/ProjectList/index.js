@@ -87,9 +87,9 @@ const StyledCarousel = styled(Carousel)`
 const ProjectList = ({ list, loading }) => (
   <StyledSection light>
     <StyledGrid narrow>
-      <StyledHeading level={1}><FormattedMessage id={`project.list.heading.${list.length > 1 ? '1' : '2'}`} /></StyledHeading>
-      <FormattedMessage id={`project.list.description.${list.length > 1 ? '1' : '2'}`} />
+      <StyledHeading level={1}><FormattedMessage id="project.list.heading" /></StyledHeading>
       <Loading loading={loading && list.length === 0}>
+        { list.length === 0 && <FormattedMessage id="project.list.empty" /> }
         <StyledRow className="qs-Carousel-Projects">
           <StyledCarousel
             slidesToShow={1}
