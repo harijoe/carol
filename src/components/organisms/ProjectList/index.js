@@ -60,6 +60,7 @@ const StyledRow = styled(Row)`
         > div {
           padding: calc(${theme('spaces.l')} / 2);
           max-width: 50%;
+          width: 50%;
         }
       }
     }
@@ -69,6 +70,7 @@ const StyledRow = styled(Row)`
     &.qs-Carousel-Projects > div > div {
       > div {
         max-width: 33.33%;
+        width: 33.33%;
       }
     }
   `}
