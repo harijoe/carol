@@ -220,7 +220,7 @@ const en = {
   'how_it_works.guide.link': 'conseils personnalisés EN',
   'how_it_works.guide.second_part': ' et des guides dédiés. EN',
 
-  'hero.title_message': 'Quels travaux souhaitez vous faire ? EN',
+  'hero.title_message': 'Quels travaux souhaitez-vous faire ? EN',
   'hero.welcome_message': 'Quotatis vous aide à trouver l\'artisan qui concrétisera votre projet. EN',
   'hero.conversation_in_progress': 'Vous avez déjà une conversation en cours. Souhaitez-vous la reprendre ? EN',
   'hero.subheading_in_progress': 'Vous pouvez aussi commencer un nouveau projet! EN',
