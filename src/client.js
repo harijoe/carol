@@ -2,11 +2,10 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { AppContainer } from 'react-hot-loader'
-import { createHistory } from 'history'
-import { Router, useRouterHistory } from 'react-router'
+import { applyRouterMiddleware, browserHistory, Router } from 'react-router'
+import { useScroll } from 'react-router-scroll'
 import { syncHistoryWithStore } from 'react-router-redux'
 import injectTapEventPlugin from 'react-tap-event-plugin'
-import { basename } from 'config'
 import configureStore from 'store/configure'
 import sagas from 'store/sagas'
 import { anchorate } from 'anchorate'
@@ -17,12 +16,11 @@ import routes from 'routes'
 
 // eslint-disable-next-line no-underscore-dangle
 const initialState = window.__INITIAL_STATE__
-const baseHistory = useRouterHistory(createHistory)({ basename })
-const store = configureStore(initialState, baseHistory)
+const store = configureStore(initialState, browserHistory)
 
 store.runSaga(sagas)
 
-const history = syncHistoryWithStore(baseHistory, store)
+const history = syncHistoryWithStore(browserHistory, store)
 const root = document.getElementById('app')
 
 history.listen(() => {
@@ -32,7 +30,12 @@ history.listen(() => {
 const renderApp = () => (
   <AppContainer>
     <Provider store={store}>
-      <Router key={Math.random()} history={history} routes={routes} />
+      <Router
+        key={Math.random()}
+        history={browserHistory}
+        routes={routes}
+        render={applyRouterMiddleware(useScroll())}
+      />
     </Provider>
   </AppContainer>
 )

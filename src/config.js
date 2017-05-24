@@ -5,7 +5,6 @@ const config = {
     env: (typeof process.env.NODE_ENV !== 'undefined' && process.env.NODE_ENV.toString()) || 'development',
     ip: (typeof process.env.IP !== 'undefined' && process.env.IP.toString()) || '0.0.0.0',
     port: process.env.PORT || 443,
-    basename: `/${process.env.PUBLIC_PATH || ''}`.replace('//', '/'), // Accepts: '/', '/path', 'path', undefined,
     browser: typeof window !== 'undefined',
     assetPath: '',
     api: {
