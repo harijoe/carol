@@ -85,7 +85,7 @@ const config = {
   },
   production: {
     api: {
-      url: 'https://api-prod.qarx.io',
+      url: 'https://api.quotatis.com',
       clientId: '21ujn3bgfgjoc8w08s0wgkwgc8s8g4gscggcc4skog8c0g4k8c',
       clientSecret: '5fbpmtbpwkcg0w8gk8ssg44084okg8co4koccssgws8ko0c440',
     },
@@ -109,7 +109,7 @@ const config = {
       certificate: 'ssl/quotatis.com.crt',
       intermediate: 'ssl/quotatis.intermediate.com.crt',
     },
-    assetPath: 'https://media.qarx.io',
+    assetPath: 'https://assets.quotatis.com',
   },
 }
 
