@@ -6,7 +6,7 @@ import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import { normalize, format } from 'utils/transformPhone'
 
 import messages from 'utils/messages'
-import { List, RenderField, Heading, Button, RenderDropzone, Label, RenderDatePicker } from 'components'
+import { List, RenderField, Heading, Button, RenderDropzone, RadioGroup, RenderDatePicker } from 'components'
 
 const Form = styled.form`
   width: 100%;
@@ -94,11 +94,15 @@ class ProfileForm extends Component {
           component={RenderDropzone}
         />
         <div>
-          <span><FormattedMessage id="user.gender" tagName="div" /></span>
-          <div>
-            <Label htmlFor="mr"><Field name="gender" component="input" type="radio" value="Mr" /><FormattedMessage id="user.mr" /></Label>
-            <Label htmlFor="mrs"><Field name="gender" component="input" type="radio" value="Mrs" /><FormattedMessage id="user.mrs" /></Label>
-          </div>
+          <strong><FormattedMessage id="user.gender" tagName="div" /></strong>
+          <Field
+            component={RadioGroup}
+            name="gender" required
+            options={[
+              { value: 'Mr', id: 'mr', translation: 'user.mr' },
+              { value: 'Mrs', id: 'mrs', translation: 'user.mrs' },
+            ]}
+          />
         </div>
         <Field
           name="firstName"

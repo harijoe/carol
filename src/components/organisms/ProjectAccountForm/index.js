@@ -6,7 +6,7 @@ import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import messages from 'utils/messages'
 import { theme, breakpoint } from 'utils/style'
 
-import { RenderField, Button, Label, Section } from 'components'
+import { RenderField, Button, Section, RadioGroup } from 'components'
 
 const Form = styled.form`
   position: relative;
@@ -43,14 +43,6 @@ const RadioBlock = styled.div`
   }
 `
 
-const StyledLabel = styled(Label)`
-  display: inline-block;
-  padding-left: ${theme('spaces.m')};
-  font-family: ${theme('fonts.family.montserratLight')};
-  font-size: ${theme('fonts.size.base')};
-  color: ${theme('colors.grayscale.darker')};
-`
-
 const StyledSection = styled(Section)`
   &:not(:first-child) {
     padding-top: 0;
@@ -66,16 +58,14 @@ const ProjectAccountForm = ({ handleSubmit, loading, intl: { formatMessage } }) 
     <StyledSection title={formatMessage(messages('auto-validation.title.informations').label)}>
       <RadioBlock>
         <strong><FormattedMessage id="user.gender" tagName="div" /></strong>
-        <div>
-          <fieldset>
-            <Field name="gender" component="input" type="radio" value="Mr" id="mr" />
-            <StyledLabel htmlFor="mr"><FormattedMessage id="user.mr" /></StyledLabel>
-          </fieldset>
-          <fieldset>
-            <Field name="gender" component="input" type="radio" value="Mrs" id="mrs" />
-            <StyledLabel htmlFor="mrs"><FormattedMessage id="user.mrs" /></StyledLabel>
-          </fieldset>
-        </div>
+        <Field
+          component={RadioGroup}
+          name="gender" required
+          options={[
+            { value: 'Mr', id: 'mr', translation: 'user.mr' },
+            { value: 'Mrs', id: 'mrs', translation: 'user.mrs' },
+          ]}
+        />
       </RadioBlock>
       <Field
         name="firstName"
@@ -95,16 +85,15 @@ const ProjectAccountForm = ({ handleSubmit, loading, intl: { formatMessage } }) 
     <StyledSection title={formatMessage(messages('auto-validation.title.contact_preferences').label)}>
       <RadioBlock>
         <strong><FormattedMessage id="user.contactPreference" tagName="div" /></strong>
-        <div>
-          <fieldset>
-            <Field name="contactPreference" component="input" type="radio" value="email" id="email" />
-            <StyledLabel htmlFor="email"><FormattedMessage id="user.contactPreference.email" /></StyledLabel>
-          </fieldset>
-          <fieldset>
-            <Field name="contactPreference" component="input" type="radio" value="phone" id="phone" />
-            <StyledLabel htmlFor="phone"><FormattedMessage id="user.contactPreference.phone" /></StyledLabel>
-          </fieldset>
-        </div>
+        <Field
+          component={RadioGroup}
+          name="contactPreference"
+          required
+          options={[
+            { value: 'email', id: 'email', translation: 'user.contactPreference.email' },
+            { value: 'phone', id: 'phone', translation: 'user.contactPreference.phone' },
+          ]}
+        />
       </RadioBlock>
       <Field
         name="contactComment"
