@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   `}
 `
 
-const Header = styled(Link)`
+const Header = styled.div`
   color: ${theme('colors.black')};
   display: block;
   margin-bottom: ${theme('spaces.s')};
@@ -53,11 +53,17 @@ const StyledImage = styled(Image)`
   `}
 `
 
-const TipsAndTricksBlock = ({ header, tags, imageLink, title }) => (
+const StyledLink = styled(Link)`
+  display: block;
+`
+
+const TipsAndTricksBlock = ({ header, tags, imageLink, title, link }) => (
   <Wrapper>
     <Header>{header}</Header>
-    {imageLink != null ? <StyledImage link={imageLink} /> : null}
-    <Title level={2} html>{title}</Title>
+    <StyledLink to={link}>
+      {imageLink != null ? <StyledImage link={imageLink} /> : null}
+      <Title level={2} html>{title}</Title>
+    </StyledLink>
     {tags.map((tag, i) => (<Tag key={i} {...tag} />))}
   </Wrapper>
 )
@@ -67,6 +73,7 @@ TipsAndTricksBlock.propTypes = {
   tags: PropTypes.array,
   imageLink: PropTypes.string,
   title: PropTypes.string,
+  link: PropTypes.string,
 }
 
 export default TipsAndTricksBlock

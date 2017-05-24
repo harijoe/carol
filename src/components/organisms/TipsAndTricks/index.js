@@ -50,14 +50,14 @@ const getTags = (items) => {
   return tags
 }
 
-const generateChild = (i, items) => (
+const generateChild = (i, item) => (
   <StyledCol xs={12} key={i}>
     <TipsAndTricksBlock
-      header="Fenêtre"
-      image={items.featuredMedia}
-      tags={getTags(items.tags)}
-      title={items.title}
-      imageLink={items.featuredMedia}
+      header={item.categories[0]}
+      tags={getTags(item.tags)}
+      title={item.title}
+      imageLink={i === 0 ? item.featuredMedia : null}
+      link={item.link}
     />
   </StyledCol>
 )
