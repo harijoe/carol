@@ -293,6 +293,7 @@ ShallowWrapper {
                         "validators.user.lastName.not_blank": "Field \"Last name\" has not to be blank",
                         "validators.user.mobilePhone.invalid_type": "Field \"Mobile phone\" is not valid",
                         "validators.user.mobilePhone.not_blank": "Field \"Mobile phone\" has not to be blank",
+                        "validators.user.password.must_match_required": "Your password must contain at least 8 characters & one special char",
                         "validators.user.password.not_blank": "Field \"Password\" has not to be blank",
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
@@ -584,6 +585,7 @@ ShallowWrapper {
             "validators.user.lastName.not_blank": "Field \"Last name\" has not to be blank",
             "validators.user.mobilePhone.invalid_type": "Field \"Mobile phone\" is not valid",
             "validators.user.mobilePhone.not_blank": "Field \"Mobile phone\" has not to be blank",
+            "validators.user.password.must_match_required": "Your password must contain at least 8 characters & one special char",
             "validators.user.password.not_blank": "Field \"Password\" has not to be blank",
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           },
@@ -906,6 +908,7 @@ ShallowWrapper {
             "validators.user.lastName.not_blank": "Field \"Last name\" has not to be blank",
             "validators.user.mobilePhone.invalid_type": "Field \"Mobile phone\" is not valid",
             "validators.user.mobilePhone.not_blank": "Field \"Mobile phone\" has not to be blank",
+            "validators.user.password.must_match_required": "Your password must contain at least 8 characters & one special char",
             "validators.user.password.not_blank": "Field \"Password\" has not to be blank",
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }

@@ -200,6 +200,7 @@ const en = {
   'validators.user.gender.not_blank': 'Field "Gender" has not to be blank',
   'validators.user.gender.invalid_choice': 'Field "Gender" is not valid',
   'validators.user.password.not_blank': 'Field "Password" has not to be blank',
+  'validators.user.password.must_match_required': 'Your password must contain at least 8 characters & one special char',
   'validators.user.mobilePhone.invalid_type': 'Field "Mobile phone" is not valid',
   'validators.user.fixedPhone.invalid_type': 'Field "Fixe phone" is not valid',
   'validators.forgot_password.unexpired_token': 'You already asked to reinitialize your password, please check your emails.',

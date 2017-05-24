@@ -199,6 +199,7 @@ const es = {
   'validators.user.gender.not_blank': 'Field "Gender" has not to be blank ES',
   'validators.user.gender.invalid_choice': 'Field "Gender" is not valid ES',
   'validators.user.password.not_blank': 'Field "Password" has not to be blank ES',
+  'validators.user.password.must_match_required': 'Su contraseña debe contener al menos 8 caracteres y un carácter especial',
   'validators.user.mobilePhone.invalid_type': 'Field "Mobile phone" is not valid ES',
   'validators.user.fixedPhone.invalid_type': 'Field "Fixe phone" is not valid ES',
   'validators.forgot_password.unexpired_token': 'Une demande de réinitialisation de mot de passe est est en cours. ES',
