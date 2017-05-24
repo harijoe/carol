@@ -47,6 +47,10 @@ const Form = styled.form`
   ${breakpointMax('m')`
     padding: 0;
   `}
+
+  strong {
+    color: ${theme('colors.danger')};
+  }
 `
 
 Form.displayName = 'Form'
@@ -88,7 +92,6 @@ const SignInForm = ({ error, handleSubmit, loading, intl: { formatMessage }, cla
         <StyledRow>
           <LeftColumn m={6} s={12}>
             <Form onSubmit={handleSubmit}>
-              {error && <FormattedMessage id={error} tagName="strong" />}
               <AnimatedLabelField
                 name="email"
                 type="email"
@@ -101,6 +104,7 @@ const SignInForm = ({ error, handleSubmit, loading, intl: { formatMessage }, cla
                 icon="pwd-login"
                 label={formatMessage(messages('user.password').label)}
               />
+              {error && <FormattedMessage id={error} tagName="strong" />}
               <Link kind="black" to="/forgot-password">
                 <FormattedMessage id="user.forget_password" />
               </Link>

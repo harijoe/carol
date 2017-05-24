@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import { Field } from 'redux-form'
 import messages from 'utils/messages'
-import { breakpoint } from 'utils/style'
+import { theme, breakpoint } from 'utils/style'
 
 import {
   Button,
@@ -21,7 +21,7 @@ const Form = styled.form`
   `}
   
   strong {
-    color: red;
+    color: ${theme('colors.danger')};
   }
 `
 

@@ -6,11 +6,16 @@ import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 
 import { Button, CarouselPageTemplate, AnimatedLabelField } from 'components'
 import messages from 'utils/messages'
+import { theme } from 'utils/style'
 
 const Form = styled.form`
   width: 100%;
   box-sizing: border-box;
   padding: 1em;
+
+  strong {
+    color: ${theme('colors.danger')};
+  }
 `
 
 const ResetPasswordForm = ({ error, handleSubmit, loading, intl: { formatMessage } }) => (

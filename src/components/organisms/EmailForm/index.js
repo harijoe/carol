@@ -12,6 +12,10 @@ const Form = styled.form`
   width: 100%;
   padding: 0;
   margin-top: ${theme('spaces.m')};
+
+  strong {
+    color: ${theme('colors.danger')};
+  }
 `
 
 const StyledButton = styled(Button)`

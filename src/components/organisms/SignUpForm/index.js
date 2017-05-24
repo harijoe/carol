@@ -52,6 +52,10 @@ const Form = styled.form`
   div[type="checkbox"] label {
     width: 90%;
   }
+
+  strong {
+    color: ${theme('colors.danger')};
+  }
 `
 
 const StyledButton = styled(Button)`
