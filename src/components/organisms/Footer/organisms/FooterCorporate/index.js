@@ -2,7 +2,7 @@ import React from 'react'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import styled from 'styled-components'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
-import { contentSiteUrl, proUrl } from 'config'
+import { contentSiteUrl, locales } from 'config'
 
 import { List, ListItem, Link, Icon, Grid, Col, Row, Paragraph, Section } from 'components'
 import { CountryMenu } from 'containers'
@@ -236,7 +236,7 @@ const FooterCorporate = () => (
               </StyledLink>
             </StyledListItem>
             <StyledListItem>
-              <StyledLink to={`${proUrl}`} target="_blank">
+              <StyledLink to={`${locales.fr_FR.proUrl}`} target="_blank">
                 <FormattedMessage id="footer.corporate.qpro" />
               </StyledLink>
             </StyledListItem>
