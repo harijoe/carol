@@ -51,13 +51,15 @@ const InnerWrapper = styled.div`${({ show }) => css`
     background-color: ${theme('colors.white')};
     opacity: 1;
     transition: top 0.2s linear;
-    height: initial;
+    height: auto;
   `}
 `}`
 
 const Background = styled.div`
   ${breakpoint('m')`
-    position: absolute
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100vh;
     width: 100%;
     background: rgba(0, 0, 0, 0.8);
