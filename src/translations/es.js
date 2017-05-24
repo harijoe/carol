@@ -60,7 +60,7 @@ const es = {
   'firm.details.reviews': 'reviews ES',
 
   'project.validation_page': 'Page Validation ES',
-  'project.validation.describe': 'Pour nous permettre de sélectionner les professionnels de confiance les plus adaptés à votre projet, veuillez renseigner les informations ci-dessous. ES',
+  'project.validation.describe': 'Pour nous permettre de sélectionner les professionnels de confiance les plus adaptés à votre projet, veuillez renseigner les informations ci-dessous. Pour que les professionnels puissent vous contacter, vous devrez confirmer votre numéro de téléphone et adresse email aux étapes suivantes. ES',
   'project.submit_button': 'OK ES',
   'project.submit_success_title': 'Félicitation! ES',
   'project.submit_failed_title': 'Oups! ES',

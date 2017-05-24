@@ -62,7 +62,7 @@ const fr = {
   'firm.details.reviews': 'avis',
 
   'project.validation_page': 'Valider mon projet',
-  'project.validation.describe': 'Pour nous permettre de sélectionner les professionnels de confiance les plus adaptés à votre projet, veuillez renseigner les informations ci-dessous.',
+  'project.validation.describe': 'Pour nous permettre de sélectionner les professionnels de confiance les plus adaptés à votre projet, veuillez renseigner les informations ci-dessous. Pour que les professionnels puissent vous contacter, vous devrez confirmer votre numéro de téléphone et adresse email aux étapes suivantes.',
   'project.submit_button': 'OK',
   'project.submit_success_title': 'Félicitation!',
   'project.submit_failed_title': 'Oups!',
