@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 import { createValidator, required, match } from 'services/validation'
 import { resetPassword } from 'store/actions'
+import { fromStatus } from 'store/selectors'
+
 import { ResetPasswordForm } from 'components'
 
 const ResetPasswordFormContainer = props => (
@@ -17,6 +19,7 @@ const validate = createValidator({
 })
 
 const mapStateToProps = state => ({
+  loading: fromStatus.getLoading(state).USER_UPDATE_PASSWORD,
   initialValues: {
     token: typeof state.routing !== 'undefined' ? state.routing.locationBeforeTransitions.query.token : '',
   },

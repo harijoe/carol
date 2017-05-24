@@ -13,7 +13,7 @@ const Form = styled.form`
   padding: 1em;
 `
 
-const ResetPasswordForm = ({ error, handleSubmit, submitting, intl: { formatMessage } }) => (
+const ResetPasswordForm = ({ error, handleSubmit, loading, intl: { formatMessage } }) => (
   <CarouselPageTemplate
     heading={formatMessage(messages('user.reset_password.heading').label)}
     description={formatMessage(messages('user.reset_password.description').label)}
@@ -33,7 +33,7 @@ const ResetPasswordForm = ({ error, handleSubmit, submitting, intl: { formatMess
         icon="pwd-login"
         label={formatMessage(messages('user.confirm_password').label)}
       />
-      <Button type="submit" disabled={submitting}>
+      <Button type="submit" loading={loading}>
         <FormattedMessage id="user.send" />
       </Button>
     </Form>
@@ -42,7 +42,7 @@ const ResetPasswordForm = ({ error, handleSubmit, submitting, intl: { formatMess
 
 ResetPasswordForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  submitting: PropTypes.bool,
+  loading: PropTypes.bool,
   error: PropTypes.string,
   intl: intlShape.isRequired,
 }
