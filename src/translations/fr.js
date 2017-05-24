@@ -155,7 +155,6 @@ const fr = {
   'user.message_page': 'My Message page FR',
   'user.invalid_login': 'Votre login et/ou mot de passe sont invalides',
   'user.password_match_err': 'Vos mots de passe doivent être identiques',
-  'user.captcha_error': 'Êtes-vous un robot?',
   'user.continue_with_facebook': 'Continuer avec Facebook',
   'user.continue_with_google': 'Continuer avec Google',
   'user.newsletter_subscription': 'Je souhaite être tenu informé des actualités sur Quotatis et ses partenaires.',

@@ -7,7 +7,6 @@ import { theme, breakpointMax } from 'utils/style'
 
 import {
   RenderField,
-  RenderCaptcha,
   Button,
   FacebookLogin,
   GoogleLogin,
@@ -110,10 +109,6 @@ class SignUpForm extends Component {
                 lightFont
                 inline
                 component={RenderField}
-              />
-              <Field
-                name="captcha"
-                component={RenderCaptcha}
               />
               <StyledButton type="submit" loading={loading}>
                 <FormattedMessage id="user.sign_up" />

@@ -62,7 +62,7 @@ export default function* redirectToNextStep(projectIdFromParams = null) {
   } else {
     // @TODO: send project here to backend
     // @TODO: refresh user and project here ?
-    // yield* fetch
+    // yield* fetch(put -> project)
     // yield* notify('user.thank_you', 'user.confirmation')
     yield put(push('project-validation'))
   }

@@ -153,7 +153,6 @@ const en = {
   'user.message_page': 'My Message page',
   'user.invalid_login': 'Your login and/or password are not valid',
   'user.password_match_err': 'Passwords do not match',
-  'user.captcha_error': 'Are you a bot?',
   'user.continue_with_facebook': 'Continue with Facebook',
   'user.continue_with_google': 'Continue with Google',
   'user.newsletter_subscription': 'I want to subscribe to Quotatis weekly newsletter',

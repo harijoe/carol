@@ -19,7 +19,6 @@ const config = {
     },
     google: {
       mapsKey: 'AIzaSyCYrFIvVAYqnWCNjjAfGIanmwxVvj1FPj8',
-      recaptchaKey: '6LctdA0UAAAAAMrXgwLpRnYl6KakExQn8kPRcSmN',
       grantType: 'https://www.quotatis.com/google',
       clientId: '726740106708-5fh1f42gq45ek5a5g2p7olldjt679qjg.apps.googleusercontent.com',
       scope: 'https://www.googleapis.com/auth/plus.login',

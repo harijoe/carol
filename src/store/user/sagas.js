@@ -2,7 +2,7 @@ import { put, select } from 'redux-saga/effects'
 import { stopSubmit, reset } from 'redux-form'
 import { push, goBack } from 'react-router-redux'
 import { fromUser, fromRouting } from 'store/selectors'
-import { handleAuthLoginRequest } from 'store/sagas'
+import { authLogin } from 'store/actions'
 import { HTTPError } from 'utils/errors'
 import fetch from 'sagas/fetch'
 import notify from 'sagas/notify'
@@ -35,13 +35,9 @@ function* handleCreateUserRequest({ data }) {
   try {
     yield* fetch(userCreate, 'post', '/users', {}, data)
     yield* notify('user.thank_you', 'user.sign_up.confirmation')
+    yield put(authLogin('password').request(`&username=${data.email}&password=${data.password}`))
     yield put(goBack())
     yield put(reset('SignUpForm'))
-    yield* handleAuthLoginRequest({
-      grantType: 'password',
-      formName: 'SignUpForm',
-      credentials: `&username=${data.email}&password=${data.password}`,
-    })
   } catch (error) {
     if (error instanceof HTTPError) {
       yield put(stopSubmit('SignUpForm', getFormErrors(error.message)))

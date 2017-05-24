@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 
-import { createValidator, email, password, captcha } from 'services/validation'
+import { createValidator, email, password } from 'services/validation'
 import { fromForm, fromStatus } from 'store/selectors'
 import { userCreate } from 'store/actions'
 import { SignUpForm } from 'components'
@@ -16,7 +16,6 @@ const onSubmit = (data, dispatch) => dispatch(userCreate.request(data))
 const validate = createValidator({
   email: [email],
   password: [password],
-  captcha: [captcha],
 })
 
 const config = {
@@ -29,7 +28,6 @@ const config = {
 const mapStateToProps = state => ({
   initialValues: {
     _csrf: fromForm.getCsrfToken(state),
-    captcha: null,
   },
   loading: fromStatus.getLoading(state).USER_CREATE || fromStatus.getLoading(state).AUTH_LOGIN,
 })
