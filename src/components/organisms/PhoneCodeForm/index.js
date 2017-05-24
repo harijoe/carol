@@ -12,6 +12,10 @@ const Form = styled.form`
   width: 100%;
   padding: 0;
   margin-top: ${theme('spaces.m')};
+
+  strong {
+    color: ${theme('colors.danger')};
+  }
 `
 
 const PhoneCodeForm = (props) => {
@@ -30,7 +34,6 @@ const PhoneCodeForm = (props) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      {error && <FormattedMessage id={error} tagName="strong" />}
       <Field
         name="code"
         component={RenderField}
@@ -39,6 +42,8 @@ const PhoneCodeForm = (props) => {
         onChange={handleChange}
         disabled={loading || disabled}
       />
+      {error && <FormattedMessage id={error} tagName="strong" />}
+      <br />
       {loading && <Icon icon="spinner" size={40} />}
       {!loading && <SendSMSButton send={resendSMS} />}
     </Form>
