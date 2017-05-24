@@ -30,7 +30,10 @@ import { handleGetUserRequest } from '../user/sagas'
  */
 export function* handleAuthLoginRequest({ grantType = 'client_credentials', formName = null, credentials = '' } = {}) {
   try {
+    let actualGrantType = grantType
+    let actualCredentials = credentials
     const token = cookie.load('access_token')
+    const refreshToken = cookie.load('refresh_token')
 
     if (credentials === '' && token != null) {
       const currentToken = yield select(fromAuth.getAccessToken)
@@ -42,11 +45,16 @@ export function* handleAuthLoginRequest({ grantType = 'client_credentials', form
       return token
     }
 
-    const url = `/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api.clientSecret}&grant_type=${grantType}${credentials}`
+    if (token == null && refreshToken != null) {
+      actualGrantType = 'refresh_token'
+      actualCredentials = `&refresh_token=${refreshToken}`
+    }
 
-    yield* fetchWithoutRefreshingToken(authLogin(grantType), 'get', url, {}, null, null, false)
+    const url = `/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api.clientSecret}&grant_type=${actualGrantType}${actualCredentials}`
 
-    yield* saveToken(grantType)
+    yield* fetchWithoutRefreshingToken(authLogin(actualGrantType), 'get', url, {}, null, null, false)
+
+    yield* saveToken(actualGrantType)
 
     return true
   } catch (e) {
