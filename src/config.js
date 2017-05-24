@@ -91,14 +91,18 @@ const config = {
     },
     locales: {
       fr_FR: {
-        url: 'https://carol-fr-prod.qarx.io',
+        url: 'https://www.quotatis.fr',
       },
       es_ES: {
-        url: 'https://carol-es-prod.qarx.io',
+        url: 'https://www.quotatis.es',
       },
       en_GB: {
-        url: 'https://carol-co-uk-prod.qarx.io',
+        url: 'https://www.quotatis.co.uk',
       },
+    },
+    google: {
+      mapsKey: 'AIzaSyAsFOnh8HufqRe55p_7rCOQG0nxz22px4Q',
+      clientId: '726740106708-1197l2ohju4kcpod6ugq2k87675t6ibs.apps.googleusercontent.com',
     },
     ssl: {
       privateKey: 'ssl/quotatis.com.key',
