@@ -50,23 +50,18 @@ const FooterAdvices = ({ intl: { formatMessage } }) => (
       <StyledCol xs={6} m={3}>
         <StyledList>
           <StyledListItem>
-            <StyledLink to={`${contentSiteUrl}guide/fenetres-portes-volets/`} target="_blank">
+            <StyledLink to={`${contentSiteUrl}guide/fenetres-portes-volets/fenetre/`}>
               <FormattedMessage id="footer.advices.window" />
             </StyledLink>
           </StyledListItem>
           <StyledListItem>
-            <StyledLink to={`${contentSiteUrl}guide/chauffage/`} target="_blank">
-              <FormattedMessage id="footer.advices.heat" />
+            <StyledLink to={`${contentSiteUrl}guide/fenetres-portes-volets/volets/`}>
+              <FormattedMessage id="footer.advices.shutter" />
             </StyledLink>
           </StyledListItem>
           <StyledListItem>
-            <StyledLink>
-              <FormattedMessage id="footer.advices.air" />
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink>
-              <FormattedMessage id="footer.advices.outside" />
+            <StyledLink to={`${contentSiteUrl}guide/isolation/isolation-des-combles/`}>
+              <FormattedMessage id="footer.advices.roof_insulation" />
             </StyledLink>
           </StyledListItem>
         </StyledList>
@@ -74,23 +69,18 @@ const FooterAdvices = ({ intl: { formatMessage } }) => (
       <StyledCol xs={6} m={3}>
         <StyledList>
           <StyledListItem>
-            <StyledLink>
-              <FormattedMessage id="footer.advices.wall" />
+            <StyledLink to={`${contentSiteUrl}guide/chauffage/chauffage-au-bois/`}>
+              <FormattedMessage id="footer.advices.wood_heating" />
             </StyledLink>
           </StyledListItem>
           <StyledListItem>
-            <StyledLink>
-              <FormattedMessage id="footer.advices.ground" />
+            <StyledLink to={`${contentSiteUrl}guide/chauffage/pompe-a-chaleur/`}>
+              <FormattedMessage id="footer.advices.heat_pumps" />
             </StyledLink>
           </StyledListItem>
           <StyledListItem>
-            <StyledLink>
-              <FormattedMessage id="footer.advices.roof" />
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink to={`${contentSiteUrl}guide/isolation/`} target="_blank">
-              <FormattedMessage id="footer.advices.insulation" />
+            <StyledLink to={`${contentSiteUrl}guide/chauffage/le-chauffage-solaire/`}>
+              <FormattedMessage id="footer.advices.solar_heating" />
             </StyledLink>
           </StyledListItem>
         </StyledList>
@@ -98,18 +88,18 @@ const FooterAdvices = ({ intl: { formatMessage } }) => (
       <StyledCol xs={6} m={3}>
         <StyledList>
           <StyledListItem>
-            <StyledLink>
-              <FormattedMessage id="footer.advices.plumbing" />
+            <StyledLink to={`${contentSiteUrl}guide/chauffage/chauffage-gaz-fioul/`}>
+              <FormattedMessage id="footer.advices.heating_gas_oil" />
             </StyledLink>
           </StyledListItem>
           <StyledListItem>
-            <StyledLink>
-              <FormattedMessage id="footer.advices.masonry" />
+            <StyledLink to={`${contentSiteUrl}guide/chauffage/chauffage-electrique/`}>
+              <FormattedMessage id="footer.advices.electric_heating" />
             </StyledLink>
           </StyledListItem>
           <StyledListItem>
-            <StyledLink>
-              <FormattedMessage id="footer.advices.renovation" />
+            <StyledLink to={`${contentSiteUrl}guide/chauffage/cheminee-poele/`}>
+              <FormattedMessage id="footer.advices.fireplaces" />
             </StyledLink>
           </StyledListItem>
         </StyledList>
@@ -117,18 +107,13 @@ const FooterAdvices = ({ intl: { formatMessage } }) => (
       <StyledCol xs={6} m={3}>
         <StyledList>
           <StyledListItem>
-            <StyledLink>
-              <FormattedMessage id="footer.advices.bathroom" />
+            <StyledLink to={`${contentSiteUrl}guide/chauffage/emetteurs-de-chaleur/`}>
+              <FormattedMessage id="footer.advices.heat_emitters" />
             </StyledLink>
           </StyledListItem>
           <StyledListItem>
-            <StyledLink>
-              <FormattedMessage id="footer.advices.kitchen" />
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink>
-              <FormattedMessage id="footer.advices.wellness" />
+            <StyledLink to={`${contentSiteUrl}guide/chauffage/production-deau-chaude-sanitaire/`}>
+              <FormattedMessage id="footer.advices.domestic_hot_water_production" />
             </StyledLink>
           </StyledListItem>
         </StyledList>

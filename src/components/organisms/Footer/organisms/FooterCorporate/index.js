@@ -2,6 +2,7 @@ import React from 'react'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import styled from 'styled-components'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
+import { contentSiteUrl, proUrl } from 'config'
 
 import { List, ListItem, Link, Icon, Grid, Col, Row, Paragraph, Section } from 'components'
 import { CountryMenu } from 'containers'
@@ -199,18 +200,23 @@ const FooterCorporate = () => (
                   </SelectWrap>
                 </StyledListItem>
                 <StyledListItem>
-                  <StyledLink>
-                    <FormattedMessage id="footer.corporate.privacy_policy" />
+                  <StyledLink to="/contact-form.html">
+                    <FormattedMessage id="footer.corporate.contact" />
                   </StyledLink>
                 </StyledListItem>
                 <StyledListItem>
-                  <StyledLink>
-                    <FormattedMessage id="footer.corporate.notice" />
+                  <StyledLink to={`${contentSiteUrl}qui-sommes-nous.html`}>
+                    <FormattedMessage id="footer.corporate.about" />
                   </StyledLink>
                 </StyledListItem>
                 <StyledListItem>
-                  <StyledLink>
-                    <FormattedMessage id="footer.corporate.use" />
+                  <StyledLink to="/emploi.html">
+                    <FormattedMessage id="footer.corporate.job" />
+                  </StyledLink>
+                </StyledListItem>
+                <StyledListItem>
+                  <StyledLink to={`${contentSiteUrl}cgu.html`}>
+                    <FormattedMessage id="footer.corporate.use_conditions" />
                   </StyledLink>
                 </StyledListItem>
               </StyledList>
@@ -220,18 +226,38 @@ const FooterCorporate = () => (
         <SecondCol xs={6} l={3}>
           <StyledList>
             <StyledListItem>
-              <StyledLink>
-                <FormattedMessage id="footer.corporate.help" />
+              <StyledLink to={`${contentSiteUrl}`} target="_blank">
+                <FormattedMessage id="footer.corporate.guides" />
               </StyledLink>
             </StyledListItem>
             <StyledListItem>
-              <StyledLink>
-                <FormattedMessage id="footer.corporate.about" />
+              <StyledLink to="/annuaire-artisan" target="_blank">
+                <FormattedMessage id="footer.corporate.directory" />
               </StyledLink>
             </StyledListItem>
             <StyledListItem>
-              <StyledLink>
-                <FormattedMessage id="footer.corporate.press" />
+              <StyledLink to={`${proUrl}`} target="_blank">
+                <FormattedMessage id="footer.corporate.qpro" />
+              </StyledLink>
+            </StyledListItem>
+            <StyledListItem>
+              <StyledLink to="http://www.adeo.com/" target="_blank">
+                <FormattedMessage id="footer.corporate.adeo" />
+              </StyledLink>
+            </StyledListItem>
+            <StyledListItem>
+              <StyledLink to="/travaux-entreprise.html" target="_blank">
+                <FormattedMessage id="footer.corporate.quote" />
+              </StyledLink>
+            </StyledListItem>
+            <StyledListItem>
+              <StyledLink to="/dossiers-travaux.html" target="_blank">
+                <FormattedMessage id="footer.corporate.folder_projects" />
+              </StyledLink>
+            </StyledListItem>
+            <StyledListItem>
+              <StyledLink to="/artisan-installateur-poseur-travaux.php" target="_blank">
+                <FormattedMessage id="footer.corporate.trades" />
               </StyledLink>
             </StyledListItem>
           </StyledList>
