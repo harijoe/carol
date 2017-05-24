@@ -49,6 +49,10 @@ const Form = styled.form`
   ${breakpointMax('m')`
     padding: 0;
   `}
+
+  div[type="checkbox"] label {
+    width: 90%;
+  }
 `
 
 const StyledButton = styled(Button)`
@@ -103,6 +107,8 @@ class SignUpForm extends Component {
                 type="checkbox"
                 label={formatMessage(messages('user.newsletter_subscription').label)}
                 hideBorder
+                lightFont
+                inline
                 component={RenderField}
               />
               <Field

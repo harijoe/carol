@@ -80,17 +80,34 @@ const StyledIconLink = styled(IconLink)`
   }
 `
 
-const StyledLabel = styled(Label)`${({ hideLabel }) => css`
-  display: block;
+const StyledLabel = styled(Label)`${({ hideLabel, lightFont, inline }) => css`
   margin-bottom: ${theme('spaces.s')};
   visibility: ${ifThen(hideLabel, 'hidden', 'visible')};
   font-family: ${theme('fonts.family.montserratBold')};
   font-size: ${theme('fonts.size.base')};
   line-height: 1rem;
   color: ${theme('colors.black')};
+
+  ${ifThen(lightFont,
+    css`
+      font-family: ${theme('fonts.family.montserratLight')};
+    `,
+    css`
+      font-family: ${theme('fonts.family.montserratBold')};
+    `
+  )}
+
+  ${ifThen(inline,
+    css`
+      display: inline-block;
+    `,
+    css`
+      display: block;
+    `
+  )}
 `}`
 
-const Field = ({ error, name, invalid, label, hideLabel, hideBorder, onIconClick, type, icon, ...props }) => {
+const Field = ({ error, name, invalid, label, hideLabel, lightFont, inline, hideBorder, onIconClick, type, icon, ...props }) => {
   const inputProps = { id: name, name, type, invalid, 'aria-describedby': `${name}Error`, ...props }
   const renderInputFirst = type === 'checkbox' || type === 'radio'
 
@@ -98,7 +115,7 @@ const Field = ({ error, name, invalid, label, hideLabel, hideBorder, onIconClick
     <Wrapper {...{ hideBorder, type }}>
       {renderInputFirst && <Input {...inputProps} />}
       {label &&
-        <StyledLabel hideLabel={hideLabel} htmlFor={inputProps.id}>{label}</StyledLabel>
+        <StyledLabel {...{ hideLabel, lightFont, inline }} htmlFor={inputProps.id}>{label}</StyledLabel>
       }
       <fieldset>
         {renderInputFirst ||
@@ -128,6 +145,8 @@ Field.propTypes = {
   type: PropTypes.string,
   icon: PropTypes.string,
   hideLabel: PropTypes.bool,
+  lightFont: PropTypes.bool,
+  inline: PropTypes.bool,
   hideBorder: PropTypes.bool,
   onIconClick: PropTypes.func,
 }
