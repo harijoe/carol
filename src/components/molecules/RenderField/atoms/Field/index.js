@@ -51,12 +51,11 @@ const StyledInput = styled(Input)`${({ hideBorder }) => css`
   color: ${theme('colors.grayscale.darker')};
 
   ${ifThen(hideBorder, '', css`
-    box-shadow: 0 0.1rem 0 ${theme('colors.grayscale.light')};
+    border-bottom: 0.1rem solid ${theme('colors.grayscale.light')};
     transition: all 0.3s ease;
 
     &:focus{
-      box-shadow: 0 0.1rem 0 ${theme('colors.primary')};
-      border: none;
+      border-color: ${theme('colors.primary')};
       outline: none;
     }
   `)};
