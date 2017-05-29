@@ -18,6 +18,7 @@ const StyledRow = styled(Row)`
   > div {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
   }
 `
 
