@@ -9,6 +9,8 @@ import { PostList } from 'containers'
 import { Section, TipsAndTricksBlock, Link, Grid, Col, Row } from 'components'
 
 const StyledRow = styled(Row)`
+  width: 100%;
+
   ${breakpoint('m')`
     margin: 0;
   `}

@@ -8,6 +8,7 @@ import { theme, raw, breakpoint } from 'utils/style'
 const Wrapper = styled.div`
   margin-bottom: ${theme('spaces.m')};
   padding: 0 ${theme('spaces.m')};
+  width: 100%;
 
   ${breakpoint('m')`
     margin-bottom: ${theme('spaces.l')};
