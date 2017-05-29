@@ -7,6 +7,7 @@ import { Card, Section, SimpleCardContent, Image } from 'components'
 import { PostList } from 'containers'
 
 const StyledImageWrapper = styled.div`${({ active }) => `
+  position: relative;
   transition: opacity 0.4s ease-in;
   opacity: ${ifThen(active, '1', '0')};
 `}`
@@ -33,14 +34,15 @@ const StyledSection = styled(Section)`
     .slick-slider {
       max-width: 120rem;
       margin: 0 auto;
+
+      &, .slick-list, .slick-track {
+        display: block;
+      }
     }
 
-    ${breakpoint('m')`
-      .slick-initialized .slick-slide {
-        display: flex;
-        justify-content: flex-end;
-      }
-    `}
+    .slick-slide {
+      float: left;
+    }
   `}
 `
 
@@ -57,7 +59,7 @@ const StyledCard = styled(Card)`
   padding: ${theme('spaces.xl')} ${theme('spaces.m')};
 
   ${breakpoint('m')`
-    margin-left: 0;
+    margin-left: auto;
     margin-right: 10rem;
     margin-top: ${theme('spaces.xxl')};
     padding: ${theme('spaces.xxl')} ${theme('spaces.l')};
