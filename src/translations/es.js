@@ -144,6 +144,7 @@ const es = {
   'user.sign_up.heading': 'Bienvenido a Quotatis',
   'user.sign_up.description': 'No podemos esperar para ayudarle en el desarrollo de su proyecto.',
   'user.sign_up.confirmation': 'An email was sent to confirm your account. ES',
+  'user.sign_in.introduction': 'Veuillez vous connecter pour continuer l\'élaboration de votre projet. Si vous n\'avez pas de compte, cliquez sur "Inscription" en bas de la page. ES',
   'user.reset_password.heading': 'Nueva contraseña',
   'user.reset_password.description': 'Ingrese su nueva contraseña para disfrutar de su espacio personal.',
   'user.reset_password_email': 'An email was sent to reset your password. ES',

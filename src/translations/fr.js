@@ -146,6 +146,7 @@ const fr = {
   'user.sign_up.heading': 'Bienvenue sur Quotatis',
   'user.sign_up.description': 'On a hâte de vous aider dans l\'élaboration de votre projet.',
   'user.sign_up.confirmation': 'Un email vous a été envoyé pour confirmer votre compte.',
+  'user.sign_in.introduction': 'Veuillez vous connecter pour continuer l\'élaboration de votre projet. Si vous n\'avez pas de compte, cliquez sur "Inscription" en bas de la page.',
   'user.reset_password.heading': 'Nouveau mot de passe',
   'user.reset_password.description': 'Renseignez votre nouveau mot de passe pour profiter de votre espace personnel.',
   'user.reset_password_email': 'Un email vous a été envoyé pour réinitialiser votre mot de passe.',

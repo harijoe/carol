@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import messages from 'utils/messages'
-import { theme, breakpointMax } from 'utils/style'
+import { theme, breakpointMax, breakpoint } from 'utils/style'
 
 import {
   CarouselPageTemplate,
@@ -82,6 +82,15 @@ const StyledParagraph = styled(Paragraph)`
   margin: 0;
 `
 
+const IntroductionParagraph = styled(Paragraph)`
+  margin-bottom: ${theme('spaces.m')};
+  margin-top: 0;
+
+  ${breakpoint('m')`
+    margin-bottom: ${theme('spaces.l')};
+  `}
+`
+
 const SignInForm = ({ error, handleSubmit, loading, intl: { formatMessage }, className, carousel, redirectTo }) => (
   <div>
     {
@@ -89,6 +98,9 @@ const SignInForm = ({ error, handleSubmit, loading, intl: { formatMessage }, cla
       <CarouselPageTemplate
         heading={formatMessage(messages('login.coming_back').label)}
       >
+        <IntroductionParagraph>
+          <FormattedMessage id="user.sign_in.introduction" />
+        </IntroductionParagraph>
         <StyledRow>
           <LeftColumn m={6} s={12}>
             <Form onSubmit={handleSubmit}>
