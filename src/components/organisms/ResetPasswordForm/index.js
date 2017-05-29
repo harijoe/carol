@@ -3,19 +3,32 @@ import PropTypes from 'prop-types'
 import { Field } from 'redux-form'
 import styled from 'styled-components'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
+import messages from 'utils/messages'
+import { theme, breakpoint } from 'utils/style'
 
 import { Button, CarouselPageTemplate, AnimatedLabelField } from 'components'
-import messages from 'utils/messages'
-import { theme } from 'utils/style'
 
 const Form = styled.form`
   width: 100%;
   box-sizing: border-box;
-  padding: 1em;
+  
+  ${breakpoint('m')`
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  `}
 
   strong {
     color: ${theme('colors.danger')};
   }
+`
+
+const StyledButton = styled(Button)`
+  margin-top: ${theme('spaces.xl')};
+
+  ${breakpoint('m')`
+    margin-top: ${theme('spaces.xxl')};
+  `}
 `
 
 const ResetPasswordForm = ({ error, handleSubmit, loading, intl: { formatMessage } }) => (
@@ -38,9 +51,9 @@ const ResetPasswordForm = ({ error, handleSubmit, loading, intl: { formatMessage
         icon="pwd-login"
         label={formatMessage(messages('user.confirm_password').label)}
       />
-      <Button type="submit" loading={loading}>
+      <StyledButton type="submit" loading={loading}>
         <FormattedMessage id="user.send" />
-      </Button>
+      </StyledButton>
     </Form>
   </CarouselPageTemplate>
 )

@@ -17,6 +17,8 @@ const Form = styled.form`
   box-sizing: border-box;
   
   ${breakpoint('m')`
+    margin-left: auto;
+    margin-right: auto;
     width: 50%;
   `}
   
@@ -26,7 +28,11 @@ const Form = styled.form`
 `
 
 const StyledButton = styled(Button)`
-  margin-top: 40px;
+  margin-top: ${theme('spaces.xl')};
+
+  ${breakpoint('m')`
+    margin-top: ${theme('spaces.xxl')};
+  `}
 `
 
 const ForgotPasswordForm = ({ error, handleSubmit, loading, intl: { formatMessage } }) => (
