@@ -23,8 +23,8 @@ const injectScroll = (WrappedComponent) => {
 
     handleScroll = throttle(() => {
       this.setState({
-        scrollX: window.scrollX,
-        scrollY: window.scrollY,
+        scrollX: window.pageXOffset,
+        scrollY: window.pageYOffset,
       })
     }, 200)
 
