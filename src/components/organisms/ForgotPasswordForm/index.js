@@ -17,8 +17,6 @@ const Form = styled.form`
   box-sizing: border-box;
   
   ${breakpoint('m')`
-    margin-left: auto;
-    margin-right: auto;
     width: 50%;
   `}
   
