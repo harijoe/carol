@@ -10,6 +10,7 @@
     "start": "node .",
     "test": "jest",
     "coverage": "yarn test -- --coverage && opn coverage/lcov-report/index.html",
+    "purge": "node scripts/purge.js",
     "lint": "eslint src",
     "lint:css": "stylelint 'src/components/**/*.js'",
     "clean": "del 'dist/!(.git*|Procfile)**'",
