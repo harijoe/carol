@@ -7,6 +7,15 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <Mock>
+    <HelmetWrapper
+        encodeSpecialCharacters={true}>
+        <script
+            type="application/ld+json">
+            
+                    { \"@context\": \"http://schema.org\", \"@type\": \"Organization\", \"url\": \"https://www.quotatis.fr\", \"name\": \"Quotatis\", \"logo\": \"https://res.cloudinary.com/quotatis/image/upload/v1496149619/FrontApp/icons/quotatis-firm.svg\", \"sameAs\": [ \"https://www.facebook.com/Quotatis.FR\", \"https://twitter.com/QuotatisFr\", \"https://www.youtube.com/user/quotatis\", \"http://fr.viadeo.com/fr/company/quotatis\", \"https://www.linkedin.com/company/quotatis\", \"https://www.instagram.com/quotatis/\" ] }
+                  
+        </script>
+    </HelmetWrapper>
     <Mock />
     <Mock>
         <Mock />
@@ -18,6 +27,15 @@ ShallowWrapper {
 </Mock>,
   "nodes": Array [
     <Mock>
+      <HelmetWrapper
+            encodeSpecialCharacters={true}>
+            <script
+                  type="application/ld+json">
+                  
+                          { \"@context\": \"http://schema.org\", \"@type\": \"Organization\", \"url\": \"https://www.quotatis.fr\", \"name\": \"Quotatis\", \"logo\": \"https://res.cloudinary.com/quotatis/image/upload/v1496149619/FrontApp/icons/quotatis-firm.svg\", \"sameAs\": [ \"https://www.facebook.com/Quotatis.FR\", \"https://twitter.com/QuotatisFr\", \"https://www.youtube.com/user/quotatis\", \"http://fr.viadeo.com/fr/company/quotatis\", \"https://www.linkedin.com/company/quotatis\", \"https://www.instagram.com/quotatis/\" ] }
+                        
+            </script>
+      </HelmetWrapper>
       <Mock />
       <Mock>
             <Mock />
@@ -63,6 +81,15 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Mock>
+          <HelmetWrapper
+                    encodeSpecialCharacters={true}>
+                    <script
+                              type="application/ld+json">
+                              
+                                      { \"@context\": \"http://schema.org\", \"@type\": \"Organization\", \"url\": \"https://www.quotatis.fr\", \"name\": \"Quotatis\", \"logo\": \"https://res.cloudinary.com/quotatis/image/upload/v1496149619/FrontApp/icons/quotatis-firm.svg\", \"sameAs\": [ \"https://www.facebook.com/Quotatis.FR\", \"https://twitter.com/QuotatisFr\", \"https://www.youtube.com/user/quotatis\", \"http://fr.viadeo.com/fr/company/quotatis\", \"https://www.linkedin.com/company/quotatis\", \"https://www.instagram.com/quotatis/\" ] }
+                                    
+                    </script>
+          </HelmetWrapper>
           <Mock />
           <Mock>
                     <Mock />
@@ -74,6 +101,15 @@ ShallowWrapper {
 </Mock>,
         "_debugID": 2,
         "_renderedOutput": <Mock>
+          <HelmetWrapper
+                    encodeSpecialCharacters={true}>
+                    <script
+                              type="application/ld+json">
+                              
+                                      { \"@context\": \"http://schema.org\", \"@type\": \"Organization\", \"url\": \"https://www.quotatis.fr\", \"name\": \"Quotatis\", \"logo\": \"https://res.cloudinary.com/quotatis/image/upload/v1496149619/FrontApp/icons/quotatis-firm.svg\", \"sameAs\": [ \"https://www.facebook.com/Quotatis.FR\", \"https://twitter.com/QuotatisFr\", \"https://www.youtube.com/user/quotatis\", \"http://fr.viadeo.com/fr/company/quotatis\", \"https://www.linkedin.com/company/quotatis\", \"https://www.instagram.com/quotatis/\" ] }
+                                    
+                    </script>
+          </HelmetWrapper>
           <Mock />
           <Mock>
                     <Mock />
