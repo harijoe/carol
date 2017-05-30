@@ -74,7 +74,7 @@ const StyledParagraph = styled(Paragraph)`
 `
 
 const WrapContent = styled.div`
-  margin: 40% ${theme('spaces.xl')} 0 ${theme('spaces.xl')};
+  margin: 15rem ${theme('spaces.xl')} 0 ${theme('spaces.xl')};
 `
 
 class ReinsuranceCarousel extends Component {
