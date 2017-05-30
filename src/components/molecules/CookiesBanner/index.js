@@ -3,6 +3,7 @@ import { FormattedMessage } from 'react-intl'
 import cookie from 'react-cookie'
 import styled from 'styled-components'
 import { theme } from 'utils/style'
+import { cookiesUrl } from 'config'
 
 import { Icon, Paragraph, Col, Link } from 'components'
 
@@ -71,7 +72,7 @@ class CookiesBanner extends Component {
           <Col xs={10} m={11}>
             <StyledParagraph>
               <FormattedMessage id="cookies.message" />
-              <Link to="/" onClick={this.handleClickMore}><FormattedMessage id="cookies.more" /></Link>
+              <Link to={cookiesUrl} onClick={this.handleClickMore}><FormattedMessage id="cookies.more" /></Link>
             </StyledParagraph>
           </Col>
           <Col xs={2} m={1}>

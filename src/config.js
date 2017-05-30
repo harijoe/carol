@@ -64,6 +64,8 @@ const config = {
       linkedin: 'https://www.linkedin.com/company-beta/50071/',
       instagram: 'https://www.instagram.com/quotatis/',
     },
+    termsUrl: 'https://www.quotatis.fr/conseils-travaux/cgu',
+    cookiesUrl: 'https://www.quotatis.fr/conseils-travaux/cgu#cookies',
   },
   staging: {
     api: {
