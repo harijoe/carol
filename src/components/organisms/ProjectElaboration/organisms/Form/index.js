@@ -7,7 +7,7 @@ import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import { theme, ifThen, breakpoint } from 'utils/style'
 import messages from 'utils/messages'
 
-import { RenderField, Icon, PopinMenu, PopinMenuLink, PopinMenuButton } from 'components'
+import { RenderField, Icon, PopinMenu, PopinMenuButton } from 'components'
 
 const StyledForm = styled.form`
   display: flex;
@@ -175,12 +175,6 @@ class Form extends Component {
       </PopinMenuButton>
     )
 
-    const SubMenuHelp = () => (
-      <PopinMenuLink to="help">
-        <FormattedMessage id="help" />
-      </PopinMenuLink>
-    )
-
     return (
       <StyledForm onSubmit={handleSubmit(submit)}>
         <BackButton type="button" onClick={() => submit({ answer: 'new_project.back' })}>
@@ -188,7 +182,7 @@ class Form extends Component {
           <FormattedMessage id="project.elaboration.back" />
         </BackButton>
         <BottomBar>
-          <PopinMenu menu={[<SubMenuReset />, <SubMenuHelp />]}>
+          <PopinMenu menu={[<SubMenuReset />]}>
             <VerticalDotsButton>
               <VerticalDotsIcon icon="vertical-dots" />
             </VerticalDotsButton>
