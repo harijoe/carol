@@ -38,18 +38,27 @@ const Title = styled(Heading)`
 `
 
 const StyledImage = styled(Image)`
+  height: 26rem;
+
+  ${breakpoint('m')`
+    margin-top: -10%;
+    height: auto;
+    width: 100%;
+  `}
+`
+
+const ImageWrapper = styled.div`
+  overflow: hidden;
   margin-left: -${theme('spaces.m')};
   margin-right: -${theme('spaces.m')};
   margin-bottom: ${theme('spaces.m')};
-  width: calc(100% + ${raw('spaces.m')}rem * 2);
-  height: auto;
   max-height: 26rem;
+  width: calc(100% + ${raw('spaces.m')}rem * 2);
 
   ${breakpoint('m')`
     margin-left: -${theme('spaces.l')};
     margin-right: -${theme('spaces.l')};
     margin-bottom: ${theme('spaces.l')};
-    height: 26rem;
     width: calc(100% + ${raw('spaces.l')}rem * 2);
   `}
 `
@@ -62,7 +71,9 @@ const TipsAndTricksBlock = ({ header, tags, imageLink, title, link }) => (
   <Wrapper>
     <Header>{header}</Header>
     <StyledLink to={link}>
-      {imageLink != null ? <StyledImage link={imageLink} /> : null}
+      <ImageWrapper>
+        {imageLink != null ? <StyledImage link={imageLink} /> : null}
+      </ImageWrapper>
       <Title level={2} html>{title}</Title>
     </StyledLink>
     {tags.map((tag, i) => (<Tag key={i} {...tag} />))}
