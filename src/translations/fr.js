@@ -166,7 +166,7 @@ const fr = {
   'user.drop_img': 'Déposer mon fichiers ici ou selectioner un fichier',
   'user.forgot_password.heading': 'Un oubli de mot de passe ?',
   'user.forgot_password.description': 'Renseignez votre adresse e-mail ci-dessous pour réinitialiser votre mot de passe.',
-  'user.account_updated': 'Votre compte à été mise à jour',
+  'user.account_updated': 'Vos informations ont été enregistrées',
   'user.coming_back': 'De retour ?',
   'user.code': 'Code de confirmation',
   'user.new_sms_sent': 'Un nouveau SMS a été envoyé',
@@ -187,7 +187,7 @@ const fr = {
   'user.error': 'Oops',
   'user.error.email_not_verified': 'Votre email n\'a pas pu être vérifié',
 
-  'validators.required_field': 'Champs requis',
+  'validators.required_field': 'Champ requis',
   'validators.min_length': 'Doit avoir au moins {min} caractères',
   'validators.max_length': 'Ne doit pas dépasser {max} caractères',
   'validators.integer': 'Doit être un entier',
