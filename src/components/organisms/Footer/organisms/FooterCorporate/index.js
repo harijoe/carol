@@ -205,7 +205,7 @@ const FooterCorporate = () => (
                   </StyledLink>
                 </StyledListItem>
                 <StyledListItem>
-                  <StyledLink to={`${contentSiteUrl}qui-sommes-nous.html`}>
+                  <StyledLink to={`${contentSiteUrl}qui-sommes-nous`}>
                     <FormattedMessage id="footer.corporate.about" />
                   </StyledLink>
                 </StyledListItem>
@@ -215,7 +215,7 @@ const FooterCorporate = () => (
                   </StyledLink>
                 </StyledListItem>
                 <StyledListItem>
-                  <StyledLink to={`${contentSiteUrl}cgu.html`}>
+                  <StyledLink to={`${contentSiteUrl}cgu`}>
                     <FormattedMessage id="footer.corporate.use_conditions" />
                   </StyledLink>
                 </StyledListItem>
