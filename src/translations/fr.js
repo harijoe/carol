@@ -158,7 +158,7 @@ const fr = {
   'user.password_match_err': 'Vos mots de passe doivent être identiques',
   'user.continue_with_facebook': 'Continuer avec Facebook',
   'user.continue_with_google': 'Continuer avec Google',
-  'user.newsletter_subscription': 'Je souhaite être tenu informé des actualités sur Quotatis et ses partenaires.',
+  'user.newsletter_subscription': 'Je souhaite être tenu informé(e) des actualités sur Quotatis et ses partenaires.',
   'user.profile_info': 'Vos informations',
   'user.contact_info': 'Contact',
   'user.social_network': 'Réseaux sociaux',
