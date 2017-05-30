@@ -13,7 +13,7 @@ export default function* redirectToNextStep(projectIdFromParams = null) {
     const projectsToValidate = yield select(fromProject.getProjectsToValidate)
 
     if (projectsToValidate.length === 0) {
-      return yield put(push(''))
+      return yield put(push('/'))
     }
 
     // We suppose the first project is the one to be validated
@@ -38,33 +38,34 @@ export default function* redirectToNextStep(projectIdFromParams = null) {
   // Checks on which steps to go, based on redux state
   const mobilePhoneVerified = yield select(fromUser.getMobilePhoneVerified)
   const emailVerified = yield select(fromUser.getEmailVerified)
+  const route = yield select(fromRouting.getPathname)
 
   if (projectDetails.purpose == null || projectDetails.startTimeframe == null) {
+    if (route.indexOf(`${projectDetails['@id']}/account`) === 0) {
+      return null
+    }
+
     yield put(push(`${projectDetails['@id']}/account`))
   } else if (!mobilePhoneVerified) {
-    const route = yield select(fromRouting.getPathname)
-
     // Don't redirect if already on good page
-    if (route.indexOf('validation/phone') === 0) {
+    if (route.indexOf('/validation/phone') === 0) {
       return null
     }
 
-    yield put(push(`validation/phone?projectId=${projectDetails['@id']}`))
+    yield put(push(`/validation/phone?projectId=${projectDetails['@id']}`))
   } else if (!emailVerified) {
-    const route = yield select(fromRouting.getPathname)
-
     // Don't redirect if already on good page
-    if (route.indexOf('validation/email') === 0) {
+    if (route.indexOf('/validation/email') === 0) {
       return null
     }
 
-    yield put(push(`validation/email?projectId=${projectDetails['@id']}`))
+    yield put(push(`/validation/email?projectId=${projectDetails['@id']}`))
   } else {
     // @TODO: send project here to backend
     // @TODO: refresh user and project here ?
     // yield* fetch(put -> project)
     // yield* notify('user.thank_you', 'user.confirmation')
-    yield put(push('project-validation'))
+    yield put(push('/project-validation'))
   }
 
   return null

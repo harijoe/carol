@@ -76,7 +76,7 @@ function* handleUpdatePasswordRequest({ data, id }) {
   try {
     yield* fetch(resetPassword, 'post', `/forgot-password/${id}`, {}, data)
     yield* notify('user.thank_you', 'user.reset_password_success')
-    yield put(push('login'))
+    yield put(push('/login'))
   } catch (error) {
     if (error instanceof HTTPError) {
       yield put(stopSubmit('ResetPasswordForm', { _error: 'server_error' }))
@@ -90,13 +90,21 @@ function* handlePhoneValidation({ data }) {
   try {
     yield* fetch(validatePhone, 'put', `${id}/mobile_phone`, {}, data, data)
     const queryString = yield select(fromRouting.getSearch)
+    const route = yield select(fromRouting.getPathname)
 
-    yield put(push(`validation/phone/code${queryString}`))
+    // Don't redirect if already on good page
+    if (route.indexOf(`/validation/phone/code${queryString}`) === 0) {
+      return null
+    }
+
+    yield put(push(`/validation/phone/code${queryString}`))
   } catch (error) {
     if (error instanceof HTTPError) {
       yield put(stopSubmit('PhoneForm', { _error: error.message }))
     }
   }
+
+  return null
 }
 
 function* handlePhoneCodeValidation({ data }) {
@@ -123,7 +131,7 @@ function* handlePhoneValidationAgain() {
   yield* handlePhoneValidation({ data: { mobilePhone } })
 }
 
-function* handleEmailValidation({ data }) {
+function* handleEmailValidation() {
   try {
     let id = yield select(fromUser.getId)
 
@@ -138,10 +146,6 @@ function* handleEmailValidation({ data }) {
       yield* redirectToNextStep()
 
       return
-    }
-
-    if (data != null) {
-      yield* fetch(userUpdate, 'put', id, {}, data)
     }
 
     yield* fetch(resendEmail, 'post', `${id}/actions/send-verification-email`, {}, {})

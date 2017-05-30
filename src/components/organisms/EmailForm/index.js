@@ -42,7 +42,7 @@ class EmailForm extends Component {
           component={RenderField}
           label={formatMessage(messages('user.email').label)}
           placeholder={formatMessage(messages('user.email').label)}
-          disabled={loading || disabled || this.state.clicked}
+          disabled // Email modifications are disabled for V1
         />
         {error && <FormattedMessage id={error} tagName="strong" />}
         {

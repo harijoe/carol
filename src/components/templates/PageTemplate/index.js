@@ -9,7 +9,7 @@ import en from 'react-intl/locale-data/en'
 import es from 'react-intl/locale-data/es'
 import { injectGlobals, ifThen } from 'utils/style'
 
-import { MotionMenu, CookiesBanner } from 'components'
+import { CookiesBanner } from 'components'
 import defaultTheme, { resets, scaffolding } from '../../themes/default'
 
 injectGlobals([resets, scaffolding])
@@ -90,7 +90,12 @@ class PageTemplate extends Component {
       <ThemeProvider theme={defaultTheme}>
         <Wrapper {...props}>
           { !ssr && <NotificationsSystem theme={theme} defaultValues={notificationsDefaultValues} /> }
-          { !ssr && <MotionMenu /> }
+          {
+            /*
+              Motion menu disabled for V1
+              !ssr && <MotionMenu />
+            */
+          }
           <CookiesBanner />
           <Header {...{ ...props, loaded }}>{header}</Header>
           <Content>{children}</Content>
