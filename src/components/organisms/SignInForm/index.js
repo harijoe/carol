@@ -19,7 +19,10 @@ import {
 } from 'components'
 
 const StyledRow = styled(Row)`
-  padding-right: 20px;
+  ${breakpoint('m')`
+    flex-wrap: nowrap;
+    padding-right: ${theme('spaces.xl')};
+  `}
 `
 
 const LeftColumn = styled(Col)`
@@ -42,7 +45,6 @@ const RightColumn = styled(Col)`
 
 const Form = styled.form`
   width: 100%;
-  box-sizing: border-box;
   
   ${breakpointMax('m')`
     padding: 0;
@@ -65,7 +67,7 @@ const StyledLink = styled(Link)`
 
 const Footer = styled(Row)`
   width: 99%;
-  margin-top: ${theme('spaces.xxl')};
+  margin-top: ${theme('spaces.l')};
   padding: ${theme('spaces.xl')};
   border-top: 1px solid ${theme('colors.grayscale.light')};
   background-color: ${theme('colors.grayscale.lightest')};

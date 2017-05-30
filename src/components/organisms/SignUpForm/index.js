@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Field } from 'redux-form'
 import styled from 'styled-components'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
-import { theme, breakpointMax } from 'utils/style'
+import { theme, breakpointMax, breakpoint } from 'utils/style'
 
 import {
   RenderField,
@@ -18,7 +18,10 @@ import {
 import messages from 'utils/messages'
 
 const StyledRow = styled(Row)`
-  padding-right: 20px;
+  ${breakpoint('m')`
+    flex-wrap: nowrap;
+    padding-right: ${theme('spaces.xl')};
+  `}
 `
 
 const LeftColumn = styled(Col)`
@@ -42,9 +45,7 @@ const RightColumn = styled(Col)`
 
 const Form = styled.form`
   width: 100%;
-  box-sizing: border-box;
-  padding: 1em;
-  
+
   ${breakpointMax('m')`
     padding: 0;
   `}

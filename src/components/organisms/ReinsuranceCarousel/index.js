@@ -8,35 +8,39 @@ import { PostList } from 'containers'
 
 const StyledSection = styled(Section)`
   height: 65rem;
+  width: 100%;
   padding: 0;
   overflow: hidden;
-  
-  .slick-list {
-    padding: 0;
+
+  .slick-dots {
+    padding-bottom: ${theme('spaces.l')};
   }
 
   .slick-slider {
     max-width: 120rem;
     margin: 0 auto;
+
+    &, .slick-list, .slick-track {
+      display: block;
+    }
+
+    .slick-list {
+      padding: 0;
+    }
   }
 
-  .slick-initialized .slick-slide {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .slick-dots {
-    padding-bottom: ${theme('spaces.l')};
+  .slick-slide {
+    float: left;
   }
 `
 
 const StyledItem = styled.div`${({ link }) => `
   position: relative;
   display: flex;
-  flex-wrap: wrap;
-  align-content: center;
+  flex-direction: column;
   width: 37rem;
   min-height: 65rem;
+
   padding: ${theme('spaces.xxl')};
   background-image: url(${link});
   background-size: cover;
@@ -60,8 +64,6 @@ const StyledHeading = styled(Heading)`
   width: 100%;
   font-size: ${theme('fonts.size.xxl')};
   color: white;
-  margin-left: ${theme('spaces.l')};
-  margin-right: ${theme('spaces.l')};
 `
 
 const StyledParagraph = styled(Paragraph)`
@@ -69,8 +71,10 @@ const StyledParagraph = styled(Paragraph)`
   color: white !important;
   z-index: 2;
   width: 100%;
-  margin-left:  ${theme('spaces.l')};
-  margin-right:  ${theme('spaces.l')};
+`
+
+const WrapContent = styled.div`
+  margin: 40% ${theme('spaces.xl')} 0 ${theme('spaces.xl')};
 `
 
 class ReinsuranceCarousel extends Component {
@@ -86,8 +90,10 @@ class ReinsuranceCarousel extends Component {
 
   generateChild = (i, items) => (
     <StyledItem key={i} active={this.state.activeImage === i} link={items.featuredMedia}>
-      <StyledHeading level={3}>{stripTags(items.title)}</StyledHeading>
-      <StyledParagraph>{stripTags(items.body)}</StyledParagraph>
+      <WrapContent>
+        <StyledHeading level={3}>{stripTags(items.title)}</StyledHeading>
+        <StyledParagraph>{stripTags(items.body)}</StyledParagraph>
+      </WrapContent>
     </StyledItem>
   )
 

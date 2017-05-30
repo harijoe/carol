@@ -37,7 +37,6 @@ const LeftCol = styled(Col)`
 
 const RightCol = styled(Col)`
   width: 100%;
-  padding: 1em;
   margin-top: ${theme('spaces.xxl')};
 `
 

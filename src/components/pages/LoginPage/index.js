@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { MainLayout } from 'components'
+import { MainLayout, MainWrapper } from 'components'
 import { SignInForm } from 'containers'
 
 const LoginPage = (props) => {
@@ -9,7 +9,9 @@ const LoginPage = (props) => {
 
   return (
     <MainLayout {...props}>
-      <SignInForm {...props} initialValues={{ email }} carousel form="SignInFormLoginPage" />
+      <MainWrapper>
+        <SignInForm {...props} initialValues={{ email }} carousel form="SignInFormLoginPage" />
+      </MainWrapper>
     </MainLayout>
   )
 }

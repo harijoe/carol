@@ -7,25 +7,29 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <Mock>
-    <Mock
-        carousel={true}
-        form="SignInFormLoginPage"
-        initialValues={
-            Object {
-                "email": null,
-              }
-        } />
-</Mock>,
-  "nodes": Array [
     <Mock>
-      <Mock
+        <Mock
             carousel={true}
             form="SignInFormLoginPage"
             initialValues={
-                  Object {
-                        "email": null,
-                      }
+                Object {
+                    "email": null,
+                  }
             } />
+    </Mock>
+</Mock>,
+  "nodes": Array [
+    <Mock>
+      <Mock>
+            <Mock
+                  carousel={true}
+                  form="SignInFormLoginPage"
+                  initialValues={
+                        Object {
+                              "email": null,
+                            }
+                  } />
+      </Mock>
 </Mock>,
   ],
   "options": Object {},
@@ -63,25 +67,29 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Mock>
-          <Mock
-                    carousel={true}
-                    form="SignInFormLoginPage"
-                    initialValues={
-                              Object {
-                                        "email": null,
-                                      }
-                    } />
+          <Mock>
+                    <Mock
+                              carousel={true}
+                              form="SignInFormLoginPage"
+                              initialValues={
+                                        Object {
+                                                  "email": null,
+                                                }
+                              } />
+          </Mock>
 </Mock>,
         "_debugID": 2,
         "_renderedOutput": <Mock>
-          <Mock
-                    carousel={true}
-                    form="SignInFormLoginPage"
-                    initialValues={
-                              Object {
-                                        "email": null,
-                                      }
-                    } />
+          <Mock>
+                    <Mock
+                              carousel={true}
+                              form="SignInFormLoginPage"
+                              initialValues={
+                                        Object {
+                                                  "email": null,
+                                                }
+                              } />
+          </Mock>
 </Mock>,
       },
       "_renderedNodeType": 1,
