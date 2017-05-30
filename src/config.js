@@ -102,6 +102,9 @@ const config = {
       mapsKey: 'AIzaSyAsFOnh8HufqRe55p_7rCOQG0nxz22px4Q',
       clientId: '726740106708-1197l2ohju4kcpod6ugq2k87675t6ibs.apps.googleusercontent.com',
     },
+    facebook: {
+      appId: '297437357370490',
+    },
     ssl: {
       privateKey: 'ssl/quotatis.com.key',
       certificate: 'ssl/quotatis.com.crt',
