@@ -1,53 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 25 25" style="enable-background:new 0 0 25 25;" xml:space="preserve">
+<svg version="1.1" id="Calque_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 18.3 18.3"
+	 style="enable-background:new 0 0 18.3 18.3;" xml:space="preserve">
 <style type="text/css">
-	.googlelogin-color1{clip-path:url(#SVGID_2_);fill:#3E82F1;}
-	.googlelogin-color2{clip-path:url(#SVGID_4_);fill:#32A753;}
-	.googlelogin-color3{clip-path:url(#SVGID_6_);fill:#F9BB00;}
-	.googlelogin-color4{clip-path:url(#SVGID_8_);fill:#E74133;}
+	.google-login_color1{fill:#4285F4;}
+	.google-login_color2{fill:#34A853;}
+	.google-login_color3{fill:#FBBC05;}
+	.google-login_color4{fill:#EA4335;}
+	.google-login_color5{fill:none;}
 </style>
-<g>
-	<g>
-		<defs>
-			<path id="SVGID_1_" d="M21,12.3c0-0.6-0.1-1.3-0.2-1.8h-8.5V14h4.8c-0.2,1.1-0.8,2.1-1.8,2.7V19h2.9C20,17.4,21,15.1,21,12.3
-				L21,12.3L21,12.3z M21,12.3"/>
-		</defs>
-		<clipPath id="SVGID_2_">
-			<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
-		</clipPath>
-		<rect x="7.3" y="5.5" class="googlelogin-color1" width="18.6" height="18.5"/>
-	</g>
-	<g>
-		<defs>
-			<path id="SVGID_3_" d="M12.3,21.1c2.4,0,4.5-0.8,6-2.2l-2.9-2.3c-0.8,0.5-1.8,0.9-3,0.9c-2.3,0-4.3-1.6-5-3.7h-3v2.3
-				C5.8,19.1,8.8,21.1,12.3,21.1L12.3,21.1L12.3,21.1z M12.3,21.1"/>
-		</defs>
-		<clipPath id="SVGID_4_">
-			<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
-		</clipPath>
-		<rect x="-0.7" y="8.9" class="googlelogin-color2" width="24" height="17.3"/>
-	</g>
-	<g>
-		<defs>
-			<path id="SVGID_5_" d="M7.3,13.9C7.1,13.3,7,12.7,7,12.1c0-0.6,0.1-1.2,0.3-1.7V8.1h-3c-0.6,1.2-1,2.6-1,4s0.3,2.8,1,4L7.3,13.9
-				L7.3,13.9L7.3,13.9z M7.3,13.9"/>
-		</defs>
-		<clipPath id="SVGID_6_">
-			<use xlink:href="#SVGID_5_"  style="overflow:visible;"/>
-		</clipPath>
-		<rect x="-1.7" y="3.1" class="googlelogin-color3" width="14" height="18.1"/>
-	</g>
-	<g>
-		<defs>
-			<path id="SVGID_7_" d="M12.3,6.7c1.3,0,2.5,0.5,3.4,1.3l2.6-2.6c-1.6-1.5-3.6-2.3-6-2.3c-3.5,0-6.6,2-8,5l3,2.3
-				C8,8.3,10,6.7,12.3,6.7L12.3,6.7L12.3,6.7z M12.3,6.7"/>
-		</defs>
-		<clipPath id="SVGID_8_">
-			<use xlink:href="#SVGID_7_"  style="overflow:visible;"/>
-		</clipPath>
-		<rect x="-0.7" y="-1.9" class="googlelogin-color4" width="24.1" height="17.3"/>
-	</g>
+<title>btn_google_light_normal_ios</title>
+<desc>Created with Sketch.</desc>
+<g id="_x39_-PATCH" transform="translate(-608.000000, -160.000000)" sketch:type="MSArtboardGroup">
+</g>
+<g id="logo_googleg_48dp" transform="translate(15.000000, 15.000000)" sketch:type="MSLayerGroup">
+	<path id="Shape" sketch:type="MSShapeGroup" class="google-login_color1" d="M2.8-5.6c0-0.6-0.1-1.3-0.2-1.8h-8.5V-4H-1c-0.2,1.1-0.8,2.1-1.8,2.7V1
+		h2.9C1.8-0.6,2.8-2.9,2.8-5.6L2.8-5.6z"/>
+	<path id="Shape_1_" sketch:type="MSShapeGroup" class="google-login_color2" d="M-5.8,3.2c2.4,0,4.5-0.8,6-2.2l-2.9-2.3c-0.8,0.5-1.8,0.9-3,0.9
+		c-2.3,0-4.3-1.6-5-3.7h-3v2.3C-12.4,1.1-9.4,3.2-5.8,3.2L-5.8,3.2z"/>
+	<path id="Shape_2_" sketch:type="MSShapeGroup" class="google-login_color3" d="M-10.9-4.1c-0.2-0.5-0.3-1.1-0.3-1.7s0.1-1.2,0.3-1.7v-2.3h-3
+		c-0.6,1.2-1,2.6-1,4s0.3,2.8,1,4L-10.9-4.1L-10.9-4.1z"/>
+	<path id="Shape_3_" sketch:type="MSShapeGroup" class="google-login_color4" d="M-5.8-11.3c1.3,0,2.5,0.5,3.4,1.3l2.6-2.6c-1.6-1.5-3.6-2.3-6-2.3
+		c-3.5,0-6.6,2-8,5l3,2.3C-10.2-9.7-8.2-11.3-5.8-11.3L-5.8-11.3z"/>
+	<path id="Shape_4_" sketch:type="MSShapeGroup" class="google-login_color5" d="M-14.8-14.8h18v18h-18V-14.8z"/>
+</g>
+<g id="handles_square" sketch:type="MSLayerGroup">
 </g>
 </svg>
