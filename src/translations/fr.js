@@ -10,7 +10,7 @@ const fr = {
   renovation: 'Rénovation',
   fixing: 'Réparation',
   choose: '--Choisissez--',
-  'Invalid username and password combination': 'Invalid username and password combination FR',
+  'Invalid username and password combination': 'Aucun compte ne correspond à cet email/ce mot de passe',
   'Missing parameters. "username" and "password" required': 'Missing parameters. "username" and "password" required FR',
   'Phone number is invalid': 'Le numéro de téléphone n\'est pas valide',
   'Verification code is incorrect': 'Le code de vérification est incorrect',
@@ -207,7 +207,7 @@ const fr = {
   'validators.user.mobilePhone.invalid_type': 'Numéro de téléphone invalide',
   'validators.user.fixedPhone.invalid_type': 'Field "Fixe phone" is not valid FR',
   'validators.forgot_password.unexpired_token': 'Une demande de réinitialisation de mot de passe est en cours.',
-  'validators.forgot_password.user_not_found': 'Aucun compte ne correspond à cet email/ce mot de passe',
+  'validators.forgot_password.user_not_found': 'Aucun compte ne correspond à cet email',
 
   'how_it_works.section_title': 'Comment ça marche',
   'how_it_works.describe_project.title': 'Décrivez votre projet',
