@@ -86,16 +86,18 @@ function* handleUpdatePasswordRequest({ data, id }) {
   }
 }
 
-function* handlePhoneValidation({ data }) {
+function* handlePhoneValidation({ data, notification = notify('user.sms', 'user.sms_sent') }) {
   const id = yield select(fromUser.getId)
 
   try {
     yield* fetch(validatePhone, 'put', `${id}/mobile_phone`, {}, data, data)
+    yield* notification
+
     const queryString = yield select(fromRouting.getSearch)
     const route = yield select(fromRouting.getPathname)
 
     // Don't redirect if already on good page
-    if (route.indexOf(`/validation/phone/code${queryString}`) === 0) {
+    if (route.indexOf('/validation/phone/code') === 0) {
       return null
     }
 
@@ -130,7 +132,7 @@ function* handlePhoneValidationAgain() {
   const mobilePhone = yield select(fromUser.getMobilePhone)
 
   yield put(reset('PhoneCodeForm'))
-  yield* handlePhoneValidation({ data: { mobilePhone } })
+  yield* handlePhoneValidation({ data: { mobilePhone }, notification: notify('user.sms', 'user.sms_sent_again') })
 }
 
 function* handleEmailValidation() {

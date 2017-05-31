@@ -1,7 +1,8 @@
 import { fork, put, take, select } from 'redux-saga/effects'
-import { stopSubmit } from 'redux-form'
+import { stopSubmit, reset } from 'redux-form'
 import cookie from 'react-cookie'
 import { push } from 'react-router-redux'
+import notify from 'sagas/notify'
 
 import config from 'config'
 import { takeLatest } from 'utils/effects'
@@ -62,6 +63,8 @@ export function* handleAuthLoginRequest({ grantType = 'client_credentials', form
 
     yield* saveToken(actualGrantType)
 
+    yield put(reset(formName))
+
     return true
   } catch (e) {
     if (formName != null) {
@@ -92,6 +95,7 @@ function* handleAuthLoginSuccess() {
   const authenticated = yield select(fromAuth.isAuthenticated)
 
   if (authenticated) {
+    yield* notify('', 'user.sign_in.success')
     yield* handleGetUserRequest()
   }
 }

@@ -108,6 +108,8 @@ const en = {
   'project.elaboration.summary.title': 'Vous trouverez ci-joint le résumé de votre demande de projet EN',
   'project.elaboration.project_prevalidation.success': 'The project %name% was created',
 
+  'project.notify_project_validated': 'Your project request has been validated',
+
   'user.gender': 'Gender',
   'user.forget_password': 'Forget password ?',
   'user.create_account': 'Sign up',
@@ -125,6 +127,7 @@ const en = {
   'user.messaging': 'Messaging',
   'user.log_out': 'Log out ➔',
   'user.sign_in': 'Sign in',
+  'user.sign_in.success': 'You are now logged in',
   'user.no_account_question': 'No account yet?',
   'user.update': 'Update',
   'user.fixed_phone': 'Phone',
@@ -171,6 +174,9 @@ const en = {
   'user.phone_already_verified': 'Your phone number has already been verified',
   'user.send_sms_again': 'Send sms again',
   'user.send_email_again': 'Envoyer à nouveau l\'email EN',
+  'user.sms': 'SMS send',
+  'user.sms_sent': 'A confirmation sms has been sent to you',
+  'user.sms_sent_again': 'A new confirmation email has been sent to you',
   'user.change_phone_number': 'Change my phone number',
   'user.contactPreference': 'Préférences de contact EN',
   'user.contactPreference.email': 'Par email EN',

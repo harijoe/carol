@@ -2,8 +2,28 @@ import { put, select } from 'redux-saga/effects'
 import { push } from 'react-router-redux'
 import { fromUser, fromProject, fromRouting } from 'store/selectors'
 import fetch from 'sagas/fetch'
-import { projectDetails as projectDetailsAction, projectList, userDetails } from 'store/actions'
+import notify from 'sagas/notify'
+import {
+  projectValidate,
+  projectDetails as projectDetailsAction,
+  projectList,
+  userDetails,
+} from 'store/actions'
 import pushGtmEvent from 'utils/gtm'
+
+function* handleProjectValidated(id) {
+  const email = yield select(fromUser.getEmail)
+
+  yield pushGtmEvent({ event: 'EndAutoValidation', email })
+
+  yield* fetch(projectValidate, 'put', id, {}, { status: 'pending_search' })
+  yield* notify('user.thank_you', 'project.notify_project_validated')
+
+  // @TODO: dynamize lead_reference once we will receive it
+  yield pushGtmEvent({ event: 'ValidForm', email, id_project: 'lead_reference' })
+
+  yield put(push('/project-validation'))
+}
 
 export default function* redirectToNextStep(projectIdFromParams = null) {
   let projectId = projectIdFromParams
@@ -62,16 +82,7 @@ export default function* redirectToNextStep(projectIdFromParams = null) {
 
     yield put(push(`/validation/email?projectId=${projectDetails['@id']}`))
   } else {
-    const email = yield select(fromUser.getEmail)
-
-    // @TODO: send project here to backend
-    // @TODO: refresh user and project here ?
-    // yield* fetch(put -> project)
-    // yield* notify('user.thank_you', 'user.confirmation')
-    yield pushGtmEvent({ event: 'EndAutoValidation', email })
-    // @TODO: dynamize lead_reference once we will receive it
-    yield pushGtmEvent({ event: 'ValidForm', email, id_project: 'lead_reference' })
-    yield put(push('/project-validation'))
+    yield* handleProjectValidated(projectId)
   }
 
   return null
