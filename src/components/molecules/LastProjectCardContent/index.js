@@ -56,7 +56,8 @@ const styles = css`
   border: 3px solid ${theme('colors.white')};
 
   > img {
-    max-width: 100%;
+    width: auto;
+    height: 100%;
   }
 
   ${breakpoint('m')`
