@@ -8,6 +8,7 @@ import { fromUser, fromRouting } from 'store/selectors'
 import fetch from 'sagas/fetch'
 import redirectToNextStep from 'sagas/projectValidation'
 import getFormErrors from 'utils/formErrors'
+import pushGtmEvent from 'utils/gtm'
 import { takeLatest } from 'utils/effects'
 import { userUpdate } from 'store/actions'
 import {
@@ -62,6 +63,9 @@ function* handleUpdateProjectRequest({ projectData, userData, projectId }) {
 function* handleProjectAcceptFirmRequest({ id }) {
   yield* fetch(projectAcceptFirm, 'put', `/projects/${id}`, {}, { status: 'to_validate' }, { id })
 
+  const email = yield select(fromUser.getEmail)
+
+  yield pushGtmEvent({ event: 'StartAutoValidation', email })
   yield put(push(`/projects/${id}/account`))
 }
 

@@ -55,6 +55,10 @@ function* getConversationCurrent() {
   yield put(projectElaborationResetConversation)
   yield* getConversations()
 
+  const heroAnswer = yield select(fromProjectElaboration.getHeroAnswer)
+
+  yield pushGtmEvent({ event: 'OpenForm', chatbotKey1: heroAnswer.text })
+
   if ((yield select(fromProjectElaboration.hasActiveConversation))) {
     yield* replyConversation({ text: 'new_project.current' })
   } else if (!(yield select(fromProjectElaboration.hasConversations))) {
@@ -119,7 +123,7 @@ function* preValidate({ chatbotStorageId }) {
   const postalCode = yield select(fromProjectElaboration.getPostalCode)
   const heroAnswer = yield select(fromProjectElaboration.getHeroAnswer)
 
-  yield pushGtmEvent({ event: 'FormCreated', PostalCode: postalCode, chatbotProFormId: projectId, chatbotKey1: heroAnswer })
+  yield pushGtmEvent({ event: 'FormCreated', PostalCode: postalCode, chatbotProFormId: projectId, chatbotKey1: heroAnswer.text })
   yield put(push(`/projects/${projectId}/search-firms`))
   yield* notify('user.thank_you', 'project.elaboration.project_prevalidation.success', 'success', {}, { name: projectName })
 }
