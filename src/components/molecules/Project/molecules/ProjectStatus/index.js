@@ -52,15 +52,28 @@ const StyledIcon = styled(Icon)`
   width: ${theme('icons.size.s')};
 `
 
-const ProjectStatus = ({ status }) => (
-  <Wrapper {...{ status }}>
-    <StyledIcon
-      size={16}
-      icon={status}
-    />
-    <FormattedMessage id={`project.status.${status}`} />
-  </Wrapper>
-)
+const ProjectStatus = ({ status }) => {
+  let icon
+
+  switch (status) {
+    case 'pending_search':
+    case 'validated':
+      icon = 'validated'
+      break
+    default:
+      icon = status
+  }
+
+  return (
+    <Wrapper {...{ status }}>
+      <StyledIcon
+        size={16}
+        icon={icon}
+      />
+      <FormattedMessage id={`project.status.${status}`} />
+    </Wrapper>
+  )
+}
 
 ProjectStatus.propTypes = {
   status: PropTypes.string,
