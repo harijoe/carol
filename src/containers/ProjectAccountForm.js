@@ -5,6 +5,7 @@ import { reduxForm } from 'redux-form'
 import { userDetails, projectDetails, projectUpdate, checkValidationFlow } from 'store/actions'
 import { fromUser, fromProject, fromStatus } from 'store/selectors'
 import { createValidator, required } from 'services/validation'
+import pushGtmEvent from 'utils/gtm'
 
 import { ProjectAccountForm } from 'components'
 
@@ -13,9 +14,11 @@ class ProjectAccountFormContainer extends Component {
     requestCheckValidationFlow: PropTypes.func,
     requestUserDetails: PropTypes.func,
     requestProjectDetails: PropTypes.func,
+    email: PropTypes.string,
   }
 
   componentDidMount() {
+    pushGtmEvent({ event: 'StartAutoValidation', email: this.props.email })
     this.props.requestCheckValidationFlow()
     this.props.requestUserDetails()
     this.props.requestProjectDetails()
@@ -42,6 +45,7 @@ const mapStateToProps = (state, { projectId }) => {
       contactPreference: fromUser.getContactPreference(state),
       contactComment: fromUser.getContactComment(state),
     },
+    email: fromUser.getEmail(state),
     disabled: id == null || project == null,
     loading: fromStatus.getLoading(state).PROJECT_UPDATE,
   }

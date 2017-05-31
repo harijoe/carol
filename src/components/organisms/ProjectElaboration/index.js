@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
+import pushGtmEvent from 'utils/gtm'
 
 import { Grid } from 'components'
 import Conversation from './organisms/Conversation'
@@ -17,55 +18,65 @@ const StyledGrid = styled(Grid)`
   padding-top: 5.6rem;
 `
 
-const ProjectElaboration = ({
-  activeConversation,
-  conversations,
-  reply,
-  selectConversation,
-  hasConversations,
-  locale,
-  redirectTo,
-  location,
-}) => {
-  const quickReplies = activeConversation.length > 0 ? activeConversation[activeConversation.length - 1].message.quick_replies : null
-
-  return (
-    <StyledGrid narrow>
-      {
-        hasConversations ?
-          <ul style={{ marginTop: 100 }}>
-            <p><FormattedMessage id="project.elaboration.choose_conversation" /></p>
-            {
-              Object.keys(conversations).map((authType, i) => (
-                <li key={i}><button onClick={() => selectConversation(authType)}>{authType}</button></li>
-              ))
-            }
-          </ul>
-          :
-          <div>
-            <Conversation {...{ activeConversation, reply, locale, redirectTo, location }} />
-            <Form reply={reply} disabled={quickReplies != null ? quickReplies.length !== 0 : true} />
-          </div>
-      }
-    </StyledGrid>
-  )
-}
-
-ProjectElaboration.propTypes = {
-  activeConversation: PropTypes.arrayOf(
-    PropTypes.shape({
-      message: PropTypes.shape({
-        quick_replies: PropTypes.array,
+class ProjectElaboration extends Component {
+  static propTypes = {
+    activeConversation: PropTypes.arrayOf(
+      PropTypes.shape({
+        message: PropTypes.shape({
+          quick_replies: PropTypes.array,
+        }),
+        answer: PropTypes.string,
       }),
-    }),
-  ),
-  reply: PropTypes.func,
-  redirectTo: PropTypes.func,
-  selectConversation: PropTypes.func,
-  conversations: PropTypes.object,
-  location: PropTypes.object.isRequired,
-  hasConversations: PropTypes.bool,
-  locale: PropTypes.string,
+    ),
+    reply: PropTypes.func,
+    redirectTo: PropTypes.func,
+    selectConversation: PropTypes.func,
+    conversations: PropTypes.object,
+    location: PropTypes.object.isRequired,
+    hasConversations: PropTypes.bool,
+    locale: PropTypes.string,
+  }
+
+  componentDidMount() {
+    pushGtmEvent({ event: 'OpenForm', chatbotKey1: this.props.activeConversation[0].answer })
+  }
+
+  render() {
+    const {
+      activeConversation,
+      conversations,
+      reply,
+      selectConversation,
+      hasConversations,
+      locale,
+      redirectTo,
+      location,
+    } = this.props
+    const quickReplies = activeConversation.length > 0 ? activeConversation[activeConversation.length - 1].message.quick_replies : null
+
+    return (
+      <StyledGrid narrow>
+        {
+          hasConversations ?
+            <ul style={{ marginTop: 100 }}>
+              <p><FormattedMessage id="project.elaboration.choose_conversation" /></p>
+              {
+                Object.keys(conversations).map((authType, i) => (
+                  <li key={i}>
+                    <button onClick={() => selectConversation(authType)}>{authType}</button>
+                  </li>
+                ))
+              }
+            </ul>
+            :
+            <div>
+              <Conversation {...{ activeConversation, reply, locale, redirectTo, location }} />
+              <Form reply={reply} disabled={quickReplies != null ? quickReplies.length !== 0 : true} />
+            </div>
+        }
+      </StyledGrid>
+    )
+  }
 }
 
 export default ProjectElaboration

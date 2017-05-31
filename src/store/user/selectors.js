@@ -27,6 +27,7 @@ export const initialState = {
 export const getDetails = (state = initialState) => state
 export const getId = (state = initialState) => state['@id']
 export const getFirstName = (state = initialState) => state.firstName
+export const getEmail = (state = initialState) => state.email
 export const getMobilePhoneVerified = (state = initialState) => state.mobilePhoneVerified
 export const getEmailVerified = (state = initialState) => state.emailVerified
 export const getMobilePhone = (state = initialState) => state.mobilePhone

@@ -3,6 +3,7 @@ import cookie from 'react-cookie'
 import { push } from 'react-router-redux'
 import uuid from 'uuid/v4'
 import { fromProjectElaboration } from 'store/selectors'
+import pushGtmEvent from 'utils/gtm'
 import { takeLatest } from 'utils/effects'
 import fetch from 'sagas/fetch'
 import ssr from 'sagas/ssr'
@@ -115,7 +116,10 @@ function* preValidate({ chatbotStorageId }) {
   yield* fetch(projectElaborationPreValidate, 'post', `/project-prevalidate/${chatbotStorageId}`)
   const projectName = yield select(fromProjectElaboration.getProjectName)
   const projectId = yield select(fromProjectElaboration.getProjectId)
+  const postalCode = yield select(fromProjectElaboration.getPostalCode)
+  const heroAnswer = yield select(fromProjectElaboration.getHeroAnswer)
 
+  yield pushGtmEvent({ event: 'FormCreated', PostalCode: postalCode, chatbotProFormId: projectId, chatbotKey1: heroAnswer })
   yield put(push(`/projects/${projectId}/search-firms`))
   yield* notify('user.thank_you', 'project.elaboration.project_prevalidation.success', 'success', {}, { name: projectName })
 }

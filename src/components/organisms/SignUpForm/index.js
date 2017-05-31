@@ -4,6 +4,7 @@ import { Field } from 'redux-form'
 import styled from 'styled-components'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import { theme, breakpointMax, breakpoint } from 'utils/style'
+import pushGtmEvent from 'utils/gtm'
 
 import {
   RenderField,
@@ -73,6 +74,10 @@ class SignUpForm extends Component {
   state = {
     passwordInputType: 'password',
     passwordIcon: 'eye',
+  }
+
+  componentDidMount() {
+    pushGtmEvent({ event: 'AccountCreation' })
   }
 
   togglePassword = () => {
