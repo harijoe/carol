@@ -212,7 +212,7 @@ const fr = {
   'how_it_works.section_title': 'Comment ça marche',
   'how_it_works.describe_project.title': 'Décrivez votre projet',
   'how_it_works.describe_project': 'En quelques questions, nous déterminons ensemble les informations nécessaires pour démarrer votre projet de rénovation, construction ou amélioration de votre habitat. ',
-  'how_it_works.verified_pros.title': 'Quotatis sélectionne pour vous jusqu\'à 3 pros vérifiés',
+  'how_it_works.verified_pros.title': 'Quotatis sélectionne pour vous de 3 à 5 pros de confiance',
   'how_it_works.verified_pros.first_part': 'Nous recherchons autour de vous les pros disponibles ',
   'how_it_works.verified_pros.link': 'dans notre réseau de professionnels vérifiés',
   'how_it_works.verified_pros.second_part': '. Les artisans établissent un devis complet, et vous pouvez lancer les travaux avec celui que vous avez choisi.',
@@ -258,16 +258,16 @@ const fr = {
   'footer.corporate.phone_help_number': '01 77 86 80 97',
   'footer.corporate.phone_pros_number': '01 77 86 71 91',
 
-  'testimonials.section_title': 'Témoignages',
-  'testimonials.read_it': 'Lire le témoignage ➔',
+  'testimonials.section_title': 'Les Travaux et Vous',
+  'testimonials.read_it': 'Découvrir son projet ➔',
 
-  'tips_and_tricks.call_to_action': 'Tous nos conseils & astuces',
+  'tips_and_tricks.call_to_action': 'Tous nos conseils et guides travaux',
   'tips_and_tricks.section_title': 'Conseils & astuces',
 
   'cookies.message': 'En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour vous proposer des services et des offres adaptés à vos centres d’intérêts.',
   'cookies.more': ' Plus d\'informations',
 
-  'last_projects.section_title': 'Derniers projets réalisés',
+  'last_projects.section_title': 'Projets à la une',
 
   'auto-validation.validate.title': 'Merci d\'avoir validé vos informations',
   'auto-validation.validate.message': 'Vous recevrez très prochainement par e-mail les coordonnées des professionnels de confiance que nous aurons sélectionnés pour vous.',
