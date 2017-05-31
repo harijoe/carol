@@ -21,7 +21,6 @@ import { fetchWithoutRefreshingToken } from 'sagas/fetch'
 import { requestChannel, responseChannel } from 'sagas/refreshToken'
 import saveToken from 'sagas/saveToken'
 import removeToken from 'sagas/removeToken'
-import queryStringify from 'utils/queryStringify'
 import { handleGetUserRequest } from '../user/sagas'
 
 /*
@@ -30,7 +29,7 @@ import { handleGetUserRequest } from '../user/sagas'
     - false if an error occured
     - ${token} if nothing has been done because a token is already in the cookies
  */
-export function* handleAuthLoginRequest({ grantType = 'client_credentials', formName = null, credentials = {} } = {}) {
+export function* handleAuthLoginRequest({ grantType = 'client_credentials', formName = null, credentials = '' } = {}) {
   try {
     let actualGrantType = grantType
     let actualCredentials = credentials
@@ -49,15 +48,10 @@ export function* handleAuthLoginRequest({ grantType = 'client_credentials', form
 
     if (token == null && refreshToken != null) {
       actualGrantType = 'refresh_token'
-      actualCredentials = { refresh_token: refreshToken }
+      actualCredentials = `&refresh_token=${refreshToken}`
     }
 
-    const url = `/oauth/v2/token${queryStringify({
-      client_id: config.api.clientId,
-      client_secret: config.api.clientSecret,
-      grant_type: actualGrantType,
-      ...actualCredentials,
-    })}`
+    const url = `/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api.clientSecret}&grant_type=${actualGrantType}${actualCredentials}`
 
     yield* fetchWithoutRefreshingToken(authLogin(actualGrantType), 'get', url, {}, null, null, false)
 

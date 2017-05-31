@@ -1,1 +1,0 @@
-exports[`queryStringify generates the correct query string 1`] = `"?username=abcdef%2B1%40gmail.com&password=qazio0!%26"`;

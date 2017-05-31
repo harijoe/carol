@@ -13,8 +13,7 @@ const SignInFormContainer = props => (
   <SignInForm {...props} />
 )
 
-const onSubmit = (values, dispatch) =>
-  dispatch(authLogin('password', 'SignInForm').request({ username: values.email, password: values.password }))
+const onSubmit = (values, dispatch) => dispatch(authLogin('password', 'SignInForm').request(`&username=${encodeURIComponent(values.email)}&password=${encodeURIComponent(values.password)}`))
 
 const validate = createValidator({
   email: [required, email],
