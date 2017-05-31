@@ -196,7 +196,7 @@ const MainMenu = ({ locale, homepage, atTop }) => (
       </li>
     </ListItemWithSubmenu>
     <li>
-      <StyledLink to="/annuaire-artisan">
+      <StyledLink to="/annuaire-artisan" forceRedirect>
         <FormattedMessage id="directory" />
       </StyledLink>
     </li>

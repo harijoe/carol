@@ -57,13 +57,13 @@ const removeStyledProps = Component => props => <Component {...omit(props, ...st
 const StyledLink = styled(removeStyledProps(RouterLink))`${styles}`
 const Anchor = styled.a`${styles}`
 
-const Link = ({ ...props, to }) => {
+const Link = ({ ...props, to, forceRedirect }) => {
   if (to == null) {
     return <Anchor {...props} />
   }
 
   // Checks if URL is absolute
-  if (to.indexOf('http') === 0) {
+  if (to.indexOf('http') === 0 || forceRedirect) {
     return <Anchor {...props} href={to || ''} />
   }
 
@@ -82,6 +82,7 @@ Link.propTypes = {
   to: PropTypes.string,
   highlight: PropTypes.bool,
   button: PropTypes.bool,
+  forceRedirect: PropTypes.bool,
 }
 
 Link.defaultProps = {
