@@ -44,7 +44,7 @@ export const hasConversations = (state = initialState) => Object.keys(getConvers
 export const getSessionId = (state = initialState) => state.sessionId
 export const getFirstChoices = (state = initialState) => state.hero[1].message.attachment.payload.elements
 export const getHeroAnswer = (state = initialState) => state.hero[1].answer
-export const getPostalCode = (state = initialState) => state.hero.find(element => element.message.text.indexOf('postal') && element.answer.text)
+export const getPostalCode = (state = initialState) => state.activeConversation.find(element => element.message.text.indexOf('postal') !== -1 && element.answer.text)
 export const getHero = (state = initialState) => state.hero
 export const getProjectName = (state = initialState) => state.projectName
 export const getProjectId = (state = initialState) => state.projectId
