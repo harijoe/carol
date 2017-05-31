@@ -24,7 +24,7 @@ const DescribeProject = (
 const VerifiedPros = (
   <Paragraph>
     <FormattedMessage id="how_it_works.verified_pros.first_part" />
-    <Link to={contentSiteUrl} highlight>
+    <Link to="/annuaire-artisan" highlight target="_blank">
       <FormattedMessage id="how_it_works.verified_pros.link" />
     </Link>
     <FormattedMessage id="how_it_works.verified_pros.second_part" />
