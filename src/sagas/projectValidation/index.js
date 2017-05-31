@@ -16,7 +16,7 @@ function* handleProjectValidated(id) {
 
   yield pushGtmEvent({ event: 'EndAutoValidation', email })
 
-  yield* fetch(projectValidate, 'put', id, {}, { status: 'pending_search' })
+  yield* fetch(projectValidate, 'put', id, {}, { status: 'validated' })
   yield* notify('user.thank_you', 'project.notify_project_validated')
 
   // @TODO: dynamize lead_reference once we will receive it
