@@ -37,7 +37,7 @@ function* handleCreateUserRequest({ data }) {
     yield* fetch(userCreate, 'post', '/users', {}, data)
     yield* notify('user.thank_you', 'user.sign_up.confirmation')
     yield pushGtmEvent({ event: 'AccountCreated', email: data.email })
-    yield put(authLogin('password').request(`&username=${data.email}&password=${data.password}`))
+    yield put(authLogin('password').request({ username: data.email, password: data.password }))
     yield put(goBack())
     yield put(reset('SignUpForm'))
   } catch (error) {
