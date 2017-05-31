@@ -10,7 +10,6 @@ ShallowWrapper {
     <Mock>
         <Mock
             carousel={true}
-            form="SignInFormLoginPage"
             initialValues={
                 Object {
                     "email": null,
@@ -23,7 +22,6 @@ ShallowWrapper {
       <Mock>
             <Mock
                   carousel={true}
-                  form="SignInFormLoginPage"
                   initialValues={
                         Object {
                               "email": null,
@@ -70,7 +68,6 @@ ShallowWrapper {
           <Mock>
                     <Mock
                               carousel={true}
-                              form="SignInFormLoginPage"
                               initialValues={
                                         Object {
                                                   "email": null,
@@ -83,7 +80,6 @@ ShallowWrapper {
           <Mock>
                     <Mock
                               carousel={true}
-                              form="SignInFormLoginPage"
                               initialValues={
                                         Object {
                                                   "email": null,
