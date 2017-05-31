@@ -51,6 +51,8 @@ const Form = styled.form`
   `}
 
   strong {
+    display: block;
+    margin-bottom: ${theme('spaces.s')};
     color: ${theme('colors.danger')};
   }
 `
@@ -119,7 +121,7 @@ const SignInForm = ({ error, handleSubmit, loading, intl: { formatMessage }, cla
                 label={formatMessage(messages('user.password').label)}
               />
               {error && <FormattedMessage id={error} tagName="strong" />}
-              <Link kind="black" to="/forgot-password">
+              <Link kind="black" to="/forgot-password" highlight>
                 <FormattedMessage id="user.forget_password" />
               </Link>
               <Button type="submit" block loading={loading}>
@@ -150,8 +152,8 @@ const SignInForm = ({ error, handleSubmit, loading, intl: { formatMessage }, cla
         <Heading level={2}><FormattedMessage id="login.coming_back" /></Heading>
         <FacebookLogin />
         <GoogleLogin />
+        <br />
         <Form onSubmit={handleSubmit}>
-          {error && <FormattedMessage id={error} tagName="strong" />}
           <AnimatedLabelField
             name="email"
             type="email"
@@ -164,7 +166,8 @@ const SignInForm = ({ error, handleSubmit, loading, intl: { formatMessage }, cla
             icon="pwd-login"
             label={formatMessage(messages('user.password').label)}
           />
-          <Link kind="black" to="/forgot-password"><FormattedMessage id="user.forgot_password.heading" /></Link>
+          {error && <FormattedMessage id={error} tagName="strong" />}
+          <Link kind="black" to="/forgot-password" highlight><FormattedMessage id="user.forgot_password.heading" /></Link>
           <Button type="submit" block loading={loading}><FormattedMessage id="user.sign_in" /></Button>
         </Form>
         <div className="footer">
