@@ -23,7 +23,6 @@ class ProjectElaborationContainer extends Component {
     conversations: PropTypes.object,
     hasConversations: PropTypes.bool,
     locale: PropTypes.string,
-    location: PropTypes.object.isRequired,
   }
 
   componentWillMount() {
@@ -39,7 +38,6 @@ class ProjectElaborationContainer extends Component {
       hasConversations,
       locale,
       redirectTo,
-      location,
     } = this.props
 
     return (
@@ -52,7 +50,6 @@ class ProjectElaborationContainer extends Component {
           hasConversations,
           locale,
           redirectTo,
-          location,
         }}
       />
     )

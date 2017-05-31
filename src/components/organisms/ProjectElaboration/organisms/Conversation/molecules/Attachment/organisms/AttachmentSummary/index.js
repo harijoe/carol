@@ -45,10 +45,9 @@ const StyledLink = styled(Link)`
 
 class AttachmentSummary extends Component {
   componentDidMount() {
-    const { location: { basename, pathname }, redirectTo } = this.props
+    const { redirectTo } = this.props
 
-    redirectTo(`${basename}${pathname}#summary`)
-    redirectTo(`${basename}${pathname}`)
+    redirectTo('/project-elaboration#summary')
   }
 
   render() {
@@ -86,7 +85,6 @@ class AttachmentSummary extends Component {
 
 AttachmentSummary.propTypes = {
   locale: PropTypes.string,
-  location: PropTypes.object.isRequired,
   redirectTo: PropTypes.func,
   element: PropTypes.shape({
     title: PropTypes.string.isRequired,

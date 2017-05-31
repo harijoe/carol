@@ -32,7 +32,6 @@ class ProjectElaboration extends Component {
     redirectTo: PropTypes.func,
     selectConversation: PropTypes.func,
     conversations: PropTypes.object,
-    location: PropTypes.object.isRequired,
     hasConversations: PropTypes.bool,
     locale: PropTypes.string,
   }
@@ -50,7 +49,6 @@ class ProjectElaboration extends Component {
       hasConversations,
       locale,
       redirectTo,
-      location,
     } = this.props
     const quickReplies = activeConversation.length > 0 ? activeConversation[activeConversation.length - 1].message.quick_replies : null
 
@@ -70,7 +68,7 @@ class ProjectElaboration extends Component {
             </ul>
             :
             <div>
-              <Conversation {...{ activeConversation, reply, locale, redirectTo, location }} />
+              <Conversation {...{ activeConversation, reply, locale, redirectTo }} />
               <Form reply={reply} disabled={quickReplies != null ? quickReplies.length !== 0 : true} />
             </div>
         }
