@@ -36,6 +36,7 @@ const BottomBar = styled.div`
   div:nth-child(2) {
     flex-grow: 1;
     margin: 0;
+    padding: 0;
     border: none;
     max-width: none;
   }
@@ -44,6 +45,10 @@ const BottomBar = styled.div`
     border-left: 0.1rem solid ${theme('colors.grayscale.light')};
     border-right: 0.1rem solid ${theme('colors.grayscale.light')};
   `}
+
+  button {
+    background: transparent;
+  }
 `
 
 const BackButton = styled.button`
@@ -122,8 +127,9 @@ const VerticalDotsIcon = styled(Icon)`
 const StyledField = styled(Field)`${({ disabled }) => css`
   ${ifThen(disabled,
     'border: none',
-    css`border: 1px solid ${theme('colors.primary')}`
+    css`border: none;`
   )};
+  padding-left: ${theme('spaces.m')};
   width: 100%;
   background: transparent;
   border-radius: 0.2rem;
@@ -134,9 +140,9 @@ const StyledField = styled(Field)`${({ disabled }) => css`
     opacity: 0.2;
   }
 
-  &:focus {
+  &:focus, &:-webkit-autofill {
     outline: 0;
-    background: ${theme('colors.grayscale.lightest')};
+    background: ${theme('colors.grayscale.lightest')}; 
   }
 `}`
 
