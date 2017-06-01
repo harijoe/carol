@@ -38,7 +38,7 @@ const styles = ({ status }) => css`
     color: ${theme('colors.grayscale.dark')};
   `)}
 
-  ${ifThen(status === 'finished', css`
+  ${ifThen(status === 'validated', css`
     background-color: ${theme('colors.success')};
     color: ${theme('colors.white')};
   `)}
