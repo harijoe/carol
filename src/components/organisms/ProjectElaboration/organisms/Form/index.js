@@ -78,8 +78,12 @@ const SubmitButton = styled.button`
   background: transparent;
   transition: all 0.3s;
 
+  svg {
+    overflow: auto;
+  }
+
   &:disabled {
-    opacity: 0.2;
+    opacity: 0.4;
 
     span svg path {
       fill: ${theme('colors.grayscale.medium')};
@@ -137,7 +141,7 @@ const StyledField = styled(Field)`${({ disabled }) => css`
   transition: all 0.3s;
 
   &:disabled {
-    opacity: 0.2;
+    opacity: 0.4;
   }
 
   &:focus, &:-webkit-autofill {
