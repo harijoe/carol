@@ -41,6 +41,10 @@ const styles = ({ status }) => css`
   ${ifThen(status === 'validated', css`
     background-color: ${theme('colors.success')};
     color: ${theme('colors.white')};
+
+    svg .check-color1 {
+      fill: ${theme('colors.white')};
+    }
   `)}
 `
 
