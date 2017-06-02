@@ -5,7 +5,7 @@ import isURL from 'validator/lib/isURL'
 
 const isEmpty = value => value === undefined || value === null || value === ''
 const join = rules => (value, data) => rules.map(rule => rule(value, data)).filter(error => !!error)[0]
-const passwordPattern = /^(?=.*[a-z])(?=.*[$@$!%*#?&]).{8,}$/
+const passwordPattern = /^(?=.*[a-z])(?=.*(_|[^\w\s])).{8,64}$/
 
 export const email = value => !isEmpty(value) && !isEmail(value) && { id: 'validators.user.invalid_email', values: {} }
 export const url = value => !isEmpty(value) && !isURL(value) && { id: 'validators.user.invalid_url', values: {} }

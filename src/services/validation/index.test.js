@@ -56,6 +56,8 @@ test('password', () => {
   expect(v.password('validPa!')).toBeFalsy()
   expect(v.password('validPassword!')).toBeFalsy()
   expect(v.password('validPassword!.ç')).toBeFalsy()
+  expect(v.password('validPa+')).toBeFalsy()
+  expect(v.password('vali dPa)')).toBeFalsy()
 })
 
 test('createValidator', () => {
