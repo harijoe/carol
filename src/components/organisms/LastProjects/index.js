@@ -84,6 +84,7 @@ const ProjectsWrapper = styled.div`
   ${breakpoint('m')`
     padding-top: 0;
     margin-left: 45%;
+    width: 55%;
 
     .slick-list {
       padding-left: 0;
@@ -113,6 +114,7 @@ const LastProjects = ({ intl }) => (
             slidesToShow: 1,
             infinite: false,
             dots: true,
+            responsive: [{ breakpoint: 767 }, { breakpoint: 10000, settings: { arrows: true } }],
           }}
         />
       </ProjectsWrapper>

@@ -3,5 +3,5 @@ import { shallow } from 'enzyme'
 import FirmListPage from './'
 
 it('renders FirmListPage component', () => {
-  shallow(<FirmListPage location={{ query: { trade: 'test', workingCityCode: '123' } }} />)
+  shallow(<FirmListPage params={{ projectId: '554-54654654-65465' }} />)
 })

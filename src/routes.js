@@ -13,15 +13,24 @@ import {
   HomePage,
   LoginPage,
   MessagePage,
+  PhoneValidationPage,
+  PhoneCodeValidationPage,
   ProjectElaborationPage,
+  ProjectValidationPage,
   ProfilePage,
   ProjectListPage,
   ProjectPage,
   ProjectSubmitPage,
+  ProjectAccountPage,
   ResetPasswordPage,
   SearchPage,
   SignupPage,
 } from 'components'
+import {
+  ProjectPreValidatePage,
+  VerifyEmailPage,
+  EmailValidationPage,
+} from 'containers'
 
 const routes = (
   <Route path="/" component={App}>
@@ -34,11 +43,18 @@ const routes = (
     <Route path="message" component={requiresAuth(MessagePage)} />
     <Route path="profile" component={requiresAuth(ProfilePage)} />
     <Route path="projects" component={requiresAuth(ProjectListPage)} />
+    <Route path="projects/:projectId/account" component={requiresAuth(ProjectAccountPage)} />
     <Route path="projects/:projectId" component={requiresAuth(ProjectPage)} />
+    <Route path="projects/:projectId/search-firms" component={requiresAuth(FirmListPage)} />
     <Route path="project-elaboration" component={ProjectElaborationPage} />
+    <Route path="project-prevalidate/:chatbotStorageId" component={requiresAuth(ProjectPreValidatePage)} />
+    <Route path="project-validation" component={requiresAuth(ProjectValidationPage)} />
+    <Route path="validation/email" component={requiresAuth(EmailValidationPage)} />
+    <Route path="validation/phone" component={requiresAuth(PhoneValidationPage)} />
+    <Route path="validation/phone/code" component={requiresAuth(PhoneCodeValidationPage)} />
+    <Route path="verify-email" component={requiresAuth(VerifyEmailPage)} />
     <Route path="reset-password" component={ResetPasswordPage} />
     <Route path="search" component={requiresAuth(SearchPage)} />
-    <Route path="search-firm" component={requiresAuth(FirmListPage)} />
     <Route path="signup" component={anonymousOnly(SignupPage)} />
     <Route path="submit-project" component={requiresAuth(ProjectSubmitPage)} />
   </Route>

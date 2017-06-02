@@ -1,9 +1,11 @@
-import React, { PropTypes, Component } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import FacebookLoginBase from 'react-facebook-login'
 import GoogleLoginBase from 'react-google-login'
 import styled from 'styled-components'
 import { authLogin } from 'store/actions'
+import { theme } from 'utils/style'
 
 import { Icon } from 'components'
 
@@ -15,6 +17,31 @@ const StyledIcon = styled(Icon)`
 
 const Wrapper = styled.div`
   position: relative;
+  
+  .social {
+    width: calc(100% - 10px);
+    border: none;
+    box-shadow: 0 0 10px 0 rgba(19, 19, 19, 0.15);
+    margin: 5px;
+    padding: 15px;
+
+    &.facebook {
+      background: #3a5a97;
+      color: ${theme('colors.white')};
+    }
+
+    .fa-facebook::before {
+      content: "";
+    }
+
+    &.google {
+      background: ${theme('colors.white')};
+    }
+  }
+
+  form .social {
+    text-align: center;
+  }
 `
 
 class SocialLoginContainer extends Component {
@@ -24,13 +51,7 @@ class SocialLoginContainer extends Component {
     grantType: PropTypes.string,
   }
 
-  constructor() {
-    super()
-
-    this.handleResponse = this.handleResponse.bind(this)
-  }
-
-  handleResponse({ accessToken }) {
+  handleAnswer = ({ accessToken }) => {
     this.props.request(accessToken)
   }
 
@@ -40,10 +61,10 @@ class SocialLoginContainer extends Component {
 
     switch (platform) {
       case 'facebook':
-        SocialButton = <FacebookLoginBase callback={this.handleResponse} cssClass="social facebook" {...props} />
+        SocialButton = <FacebookLoginBase callback={this.handleAnswer} cssClass="social facebook" {...props} />
         break
       case 'google':
-        SocialButton = <GoogleLoginBase onSuccess={this.handleResponse} className="social google" {...props} />
+        SocialButton = <GoogleLoginBase onSuccess={this.handleAnswer} className="social google" {...props} />
         break
       default:
     }

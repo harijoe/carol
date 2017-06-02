@@ -19,12 +19,9 @@ ShallowWrapper {
                 "responsive": Array [
                   Object {
                     "breakpoint": 1200,
-                    "settings": Object {
-                      "arrows": false,
-                    },
                   },
                   Object {
-                    "breakpoint": 3000,
+                    "breakpoint": 10000,
                     "settings": Object {
                       "arrows": true,
                     },
@@ -58,12 +55,9 @@ ShallowWrapper {
                         "responsive": Array [
                           Object {
                             "breakpoint": 1200,
-                            "settings": Object {
-                              "arrows": false,
-                            },
                           },
                           Object {
-                            "breakpoint": 3000,
+                            "breakpoint": 10000,
                             "settings": Object {
                               "arrows": true,
                             },
@@ -135,12 +129,9 @@ ShallowWrapper {
                                         "responsive": Array [
                                           Object {
                                             "breakpoint": 1200,
-                                            "settings": Object {
-                                              "arrows": false,
-                                            },
                                           },
                                           Object {
-                                            "breakpoint": 3000,
+                                            "breakpoint": 10000,
                                             "settings": Object {
                                               "arrows": true,
                                             },
@@ -174,12 +165,9 @@ ShallowWrapper {
                                         "responsive": Array [
                                           Object {
                                             "breakpoint": 1200,
-                                            "settings": Object {
-                                              "arrows": false,
-                                            },
                                           },
                                           Object {
-                                            "breakpoint": 3000,
+                                            "breakpoint": 10000,
                                             "settings": Object {
                                               "arrows": true,
                                             },

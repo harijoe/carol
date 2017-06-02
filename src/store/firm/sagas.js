@@ -1,20 +1,27 @@
-import { select, put } from 'redux-saga/effects'
-import { push } from 'react-router-redux'
-
-import { fromContext } from 'store/selectors'
 import fetch from 'sagas/fetch'
+import { select } from 'redux-saga/effects'
 import { takeLatest } from 'utils/effects'
+import { fromProject } from 'store/selectors'
+import redirectToNextStep from 'sagas/projectValidation'
+import { projectDetails as projectDetailsAction } from 'store/actions'
+
 import { firmList, firmDetails, FIRM_LIST, FIRM_DETAILS } from './actions'
 
-export function* handleReadFirmListRequest({ params }) {
-  const filters = params.length > 0 ? `&${params.join('&')}` : ''
-  const country = yield select(fromContext.getCountry)
+export function* handleReadFirmListRequest({ projectId }) {
+  let projectDetails = yield select(fromProject.getDetails, projectId)
+  const normalizedProjectId = `/projects/${projectId}`
 
-  return yield* fetch(firmList, { params }, 'get', `/firms/search?country-code=${country}${filters}`)
-}
+  // Handle the case where the project hasn't been fetched yet (projectId coming from query)
+  if (projectDetails == null) {
+    yield* fetch(projectDetailsAction, 'get', normalizedProjectId)
+    projectDetails = yield select(fromProject.getDetails, normalizedProjectId)
+  }
 
-export function* handleReadFirmListSuccess({ payload }) {
-  yield put(push(`/search-firm?${payload.params.join('&')}`))
+  if (projectDetails.status !== 'completion_in_progress') {
+    redirectToNextStep(projectId)
+  }
+
+  return yield* fetch(firmList, 'get', `/firms?project=${projectId}`)
 }
 
 export function* handleReadFirmDetailsRequest({ id }) {

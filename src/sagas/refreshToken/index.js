@@ -13,10 +13,9 @@ export const responseChannel = channel()
 
 export default function* () {
   yield put(requestChannel, {})
-  const tokenSuccessfullyRefreshed = yield take(responseChannel)
+  const refreshTokenResult = yield take(responseChannel)
 
-  if (!tokenSuccessfullyRefreshed) {
-    throw new Error('Token refresh failed')
+  if (typeof refreshTokenResult === 'object' && refreshTokenResult.name === 'HTTPError') {
+    console.error('token failed — ', refreshTokenResult.toString())
   }
 }
-

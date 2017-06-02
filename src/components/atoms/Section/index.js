@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
 import { theme, ifThen, mapBreakpoints, breakpoint } from 'utils/style'
@@ -15,7 +16,6 @@ const titleStyles = ({ dark }) => css`
       background: ${theme('colors.black')};
     }
   `)}
-
   font-family: 'montserrat-light', sans-serif;
   font-weight: normal;
   position: relative;
@@ -45,21 +45,32 @@ const titleStyles = ({ dark }) => css`
 
 const Title = styled.h2`${titleStyles}`
 
-const sectionStyles = ({ light, primary, dark }) => css`
+const sectionStyles = ({ light, primary, dark, tall }) => css`
   background: ${theme('colors.white')};
   ${mapBreakpoints(bp => css`
-    padding: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} * 2) ${theme(`grid.gutterWidth.${bp}`, 'rem')}
+    padding: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} * 2) ${theme(`grid.gutterWidth.${bp}`, 'rem')};
   `)}
+
+  ${breakpoint('xl')`
+    padding-bottom: ${theme('grid.gutterWidth.xl')}rem;
+    padding-top: ${theme('grid.gutterWidth.xl')}rem;
+  `}
+
   ${ifThen(light, css`background: ${theme('colors.grayscale.lightest')};`)}
   ${ifThen(primary, css`background: ${theme('colors.primary')};`)}   
   ${ifThen(dark, css`background: ${theme('colors.black')};`)}
-
+  ${ifThen(tall, css`
+    ${breakpoint('xl')`
+      padding-bottom: calc(${theme('grid.gutterWidth.xl')} * 2);
+      padding-top: calc(${theme('grid.gutterWidth.xl')} * 2);
+    `}
+  `)}
 `
 
 const StyledSection = styled.section`${sectionStyles}`
 
-const Section = ({ light, primary, dark, children, title, ...props }) => (
-  <StyledSection light={light} primary={primary} dark={dark} {...props}>
+const Section = ({ light, primary, dark, tall, children, title, ...props }) => (
+  <StyledSection light={light} primary={primary} dark={dark} tall={tall} {...props}>
     {title != null && <Title light={light} primary={primary} dark={dark}>{title}</Title>}
     {children}
   </StyledSection>
@@ -69,6 +80,7 @@ Section.propTypes = {
   light: PropTypes.bool,
   primary: PropTypes.bool,
   dark: PropTypes.bool,
+  tall: PropTypes.bool,
   children: PropTypes.any,
   title: PropTypes.string,
 }

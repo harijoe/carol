@@ -1,0 +1,155 @@
+exports[`test renders ReinsuranceCarousel 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <Styled(Mock)>
+    <Mock
+        carousel={
+            Object {
+                "afterChange": [Function],
+                "arrows": false,
+                "autoplay": true,
+                "dots": true,
+                "infinite": true,
+                "pauseOnHover": true,
+                "slidesToScroll": 1,
+                "slidesToShow": 1,
+              }
+        }
+        generateChild={[Function]}
+        limit={3}
+        scope="reinsuranceArticles"
+        tags={
+            Array [
+                "api-quotatis-reinsurance",
+              ]
+        } />
+</Styled(Mock)>,
+  "nodes": Array [
+    <Styled(Mock)>
+      <Mock
+            carousel={
+                  Object {
+                        "afterChange": [Function],
+                        "arrows": false,
+                        "autoplay": true,
+                        "dots": true,
+                        "infinite": true,
+                        "pauseOnHover": true,
+                        "slidesToScroll": 1,
+                        "slidesToShow": 1,
+                      }
+            }
+            generateChild={[Function]}
+            limit={3}
+            scope="reinsuranceArticles"
+            tags={
+                  Array [
+                        "api-quotatis-reinsurance",
+                      ]
+            } />
+</Styled(Mock)>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <ReinsuranceCarousel />,
+      "_debugID": 1,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": ReinsuranceCarousel {
+        "_reactInternalInstance": [Circular],
+        "afterChange": [Function],
+        "context": Object {},
+        "generateChild": [Function],
+        "props": Object {},
+        "refs": Object {},
+        "state": Object {
+          "activeImage": 0,
+        },
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 1,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <Styled(Mock)>
+          <Mock
+                    carousel={
+                              Object {
+                                        "afterChange": [Function],
+                                        "arrows": false,
+                                        "autoplay": true,
+                                        "dots": true,
+                                        "infinite": true,
+                                        "pauseOnHover": true,
+                                        "slidesToScroll": 1,
+                                        "slidesToShow": 1,
+                                      }
+                    }
+                    generateChild={[Function]}
+                    limit={3}
+                    scope="reinsuranceArticles"
+                    tags={
+                              Array [
+                                        "api-quotatis-reinsurance",
+                                      ]
+                    } />
+</Styled(Mock)>,
+        "_debugID": 2,
+        "_renderedOutput": <Styled(Mock)>
+          <Mock
+                    carousel={
+                              Object {
+                                        "afterChange": [Function],
+                                        "arrows": false,
+                                        "autoplay": true,
+                                        "dots": true,
+                                        "infinite": true,
+                                        "pauseOnHover": true,
+                                        "slidesToScroll": 1,
+                                        "slidesToShow": 1,
+                                      }
+                    }
+                    generateChild={[Function]}
+                    limit={3}
+                    scope="reinsuranceArticles"
+                    tags={
+                              Array [
+                                        "api-quotatis-reinsurance",
+                                      ]
+                    } />
+</Styled(Mock)>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <ReinsuranceCarousel />,
+}
+`;

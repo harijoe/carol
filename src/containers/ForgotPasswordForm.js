@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
-
 import { createValidator, required, email } from 'services/validation'
-import { fromForm } from 'store/selectors'
+import { fromForm, fromStatus } from 'store/selectors'
 import { forgotPassword } from 'store/actions'
+
 import { ForgotPasswordForm } from 'components'
 
 const ForgotPasswordFormContainer = props => (
@@ -19,6 +19,7 @@ const validate = createValidator({
 
 const mapStateToProps = state => ({
   initialValues: { _csrf: fromForm.getCsrfToken(state) },
+  loading: fromStatus.getLoading(state).USER_FORGOT_PASSWORD,
 })
 
 export const config = {

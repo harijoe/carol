@@ -7,6 +7,7 @@ import { Card, Section, SimpleCardContent, Image } from 'components'
 import { PostList } from 'containers'
 
 const StyledImageWrapper = styled.div`${({ active }) => `
+  position: relative;
   transition: opacity 0.4s ease-in;
   opacity: ${ifThen(active, '1', '0')};
 `}`
@@ -33,6 +34,14 @@ const StyledSection = styled(Section)`
     .slick-slider {
       max-width: 120rem;
       margin: 0 auto;
+
+      &, .slick-list, .slick-track {
+        display: block;
+      }
+    }
+
+    .slick-slide {
+      float: left;
     }
   `}
 `
@@ -50,10 +59,8 @@ const StyledCard = styled(Card)`
   padding: ${theme('spaces.xl')} ${theme('spaces.m')};
 
   ${breakpoint('m')`
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 10rem;
     margin-left: auto;
+    margin-right: 10rem;
     margin-top: ${theme('spaces.xxl')};
     padding: ${theme('spaces.xxl')} ${theme('spaces.l')};
     width: 40rem;
@@ -112,7 +119,7 @@ class Reinsurance extends Component {
             dots: false,
             autoplay: true,
             pauseOnHover: true,
-            responsive: [{ breakpoint: 1200, settings: { arrows: false } }, { breakpoint: 3000, settings: { arrows: true } }],
+            responsive: [{ breakpoint: 1200 }, { breakpoint: 10000, settings: { arrows: true } }],
           }}
         />
       </StyledSection>

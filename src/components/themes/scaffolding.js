@@ -1,4 +1,5 @@
 import { css } from 'styled-components'
+import { assetPath } from 'config'
 
 import andesBlackWebfontEot from './default/fonts/andes-black-webfont.eot'
 import andesBlackWebfontTtf from './default/fonts/andes-black-webfont.ttf'
@@ -25,11 +26,11 @@ const scaffolding = theme => css`
   @font-face {
     font-family: 'andes-black';
     src:
-      url('${andesBlackWebfontEot}'),
-      url('${andesBlackWebfontTtf}?#iefix') format('embedded-opentype'),
-      url('${andesBlackWebfontWoff2}') format('woff2'),
-      url('${andesBlackWebfontWoff}') format('woff'),
-      url('${andesBlackWebfontTtf}') format('truetype');
+      url('${assetPath + andesBlackWebfontEot}'),
+      url('${assetPath + andesBlackWebfontTtf}?#iefix') format('embedded-opentype'),
+      url('${assetPath + andesBlackWebfontWoff2}') format('woff2'),
+      url('${assetPath + andesBlackWebfontWoff}') format('woff'),
+      url('${assetPath + andesBlackWebfontTtf}') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
@@ -37,11 +38,11 @@ const scaffolding = theme => css`
   @font-face {
     font-family: 'andes-extralight';
     src:
-      url('${andesExtralightWebfontEot}'),
-      url('${andesExtralightWebfontEot}?#iefix') format('embedded-opentype'),
-      url('${andesExtralightWebfontWoff2}') format('woff2'),
-      url('${andesExtralightWebfontWoff}') format('woff'),
-      url('${andesExtralightWebfontTtf}') format('truetype');
+      url('${assetPath + andesExtralightWebfontEot}'),
+      url('${assetPath + andesExtralightWebfontEot}?#iefix') format('embedded-opentype'),
+      url('${assetPath + andesExtralightWebfontWoff2}') format('woff2'),
+      url('${assetPath + andesExtralightWebfontWoff}') format('woff'),
+      url('${assetPath + andesExtralightWebfontTtf}') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
@@ -49,11 +50,11 @@ const scaffolding = theme => css`
   @font-face {
     font-family: 'montserrat-black';
     src:
-      url('${montserratBlackWebfontEot}'),
-      url('${montserratBlackWebfontEot}?#iefix') format('embedded-opentype'),
-      url('${montserratBlackWebfontWoff2}') format('woff2'),
-      url('${montserratBlackWebfontWoff}') format('woff'),
-      url('${montserratBlackWebfontTtf}') format('truetype');
+      url('${assetPath + montserratBlackWebfontEot}'),
+      url('${assetPath + montserratBlackWebfontEot}?#iefix') format('embedded-opentype'),
+      url('${assetPath + montserratBlackWebfontWoff2}') format('woff2'),
+      url('${assetPath + montserratBlackWebfontWoff}') format('woff'),
+      url('${assetPath + montserratBlackWebfontTtf}') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
@@ -61,11 +62,11 @@ const scaffolding = theme => css`
   @font-face {
     font-family: 'montserrat-bold';
     src:
-      url('${montserratBoldWebfontEot}'),
-      url('${montserratBoldWebfontEot}?#iefix') format('embedded-opentype'),
-      url('${montserratBoldWebfontWoff2}') format('woff2'),
-      url('${montserratBoldWebfontWoff}') format('woff'),
-      url('${montserratBoldWebfontTtf}') format('truetype');
+      url('${assetPath + montserratBoldWebfontEot}'),
+      url('${assetPath + montserratBoldWebfontEot}?#iefix') format('embedded-opentype'),
+      url('${assetPath + montserratBoldWebfontWoff2}') format('woff2'),
+      url('${assetPath + montserratBoldWebfontWoff}') format('woff'),
+      url('${assetPath + montserratBoldWebfontTtf}') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
@@ -73,11 +74,11 @@ const scaffolding = theme => css`
   @font-face {
     font-family: 'montserrat-light';
     src:
-      url('${montserratLightWebfontEot}'),
-      url('${montserratLightWebfontEot}?#iefix') format('embedded-opentype'),
-      url('${montserratLightWebfontWoff2}') format('woff2'),
-      url('${montserratLightWebfontWoff}') format('woff'),
-      url('${montserratLightWebfontTtf}') format('truetype');
+      url('${assetPath + montserratLightWebfontEot}'),
+      url('${assetPath + montserratLightWebfontEot}?#iefix') format('embedded-opentype'),
+      url('${assetPath + montserratLightWebfontWoff2}') format('woff2'),
+      url('${assetPath + montserratLightWebfontWoff}') format('woff'),
+      url('${assetPath + montserratLightWebfontTtf}') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
@@ -133,6 +134,11 @@ const scaffolding = theme => css`
 
   [tabindex="-1"]:focus {
     outline: none !important;
+  }
+
+  button {
+    border: 0;
+    outline: 0;
   }
 
   /* Animations */

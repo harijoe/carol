@@ -7,11 +7,25 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <Mock>
-    <Mock />
+    <HelmetWrapper
+        encodeSpecialCharacters={true}>
+        <meta
+            content="noindex, nofollow"
+            name="robots" />
+    </HelmetWrapper>
+    <Mock
+        location={undefined} />
 </Mock>,
   "nodes": Array [
     <Mock>
-      <Mock />
+      <HelmetWrapper
+            encodeSpecialCharacters={true}>
+            <meta
+                  content="noindex, nofollow"
+                  name="robots" />
+      </HelmetWrapper>
+      <Mock
+            location={undefined} />
 </Mock>,
   ],
   "options": Object {},
@@ -49,11 +63,25 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Mock>
-          <Mock />
+          <HelmetWrapper
+                    encodeSpecialCharacters={true}>
+                    <meta
+                              content="noindex, nofollow"
+                              name="robots" />
+          </HelmetWrapper>
+          <Mock
+                    location={undefined} />
 </Mock>,
         "_debugID": 2,
         "_renderedOutput": <Mock>
-          <Mock />
+          <HelmetWrapper
+                    encodeSpecialCharacters={true}>
+                    <meta
+                              content="noindex, nofollow"
+                              name="robots" />
+          </HelmetWrapper>
+          <Mock
+                    location={undefined} />
 </Mock>,
       },
       "_renderedNodeType": 1,

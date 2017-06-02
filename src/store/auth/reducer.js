@@ -5,13 +5,18 @@ import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_SET_AUTHENTICATED, AUTH_SET_ACCESS_TOKEN 
 export default (state = initialState, action) => {
   switch (action.type) {
     case AUTH_LOGIN.SUCCESS: {
-      const { grantType, accessToken, expiresIn } = action.payload
+      const { grantType, accessToken, expiresIn, refreshToken } = action.payload
 
       return {
         ...state,
         authenticated: isAuthenticated(grantType),
         accessToken,
-        expiresIn: expiresIn / 2, // Refresh front token way before back invalidates it, "/ 2" is arbitrary
+        refreshToken,
+        /*
+          Refresh front token way before back invalidates it, "/ 2" is arbitrary
+          but it should be strictly inferior to 1
+         */
+        expiresIn: (expiresIn / 2),
       }
     }
     case AUTH_SET_AUTHENTICATED: {
@@ -28,8 +33,7 @@ export default (state = initialState, action) => {
     }
     case AUTH_LOGOUT: {
       return {
-        ...state,
-        authenticated: false,
+        ...initialState,
       }
     }
     default: {

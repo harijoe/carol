@@ -1,5 +1,7 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import { assetPath } from 'config'
 
 const Html = ({ styles, assets, state, content, lang }) => {
   const helmet = Helmet.rewind()
@@ -10,13 +12,14 @@ const Html = ({ styles, assets, state, content, lang }) => {
       <head>
         {helmet.title.toComponent()}
         {helmet.meta.toComponent()}
+        {helmet.script.toComponent()}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <style dangerouslySetInnerHTML={{ __html: styles }} />
       </head>
       <body>
         <main id="app" dangerouslySetInnerHTML={{ __html: content }} />
         <script dangerouslySetInnerHTML={{ __html: state }} />
-        <script src={assets.javascript.main} />
+        <script src={assetPath + assets.javascript.main} />
       </body>
     </html>
   )

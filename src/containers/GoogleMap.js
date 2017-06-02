@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fromPost, fromContext } from 'store/selectors'
 
@@ -15,7 +16,17 @@ class GoogleMapContainer extends Component {
 
     this.state = {
       markers: [],
+      show: false,
     }
+  }
+
+  componentDidMount() {
+    /*
+      This has two pros:
+        - prevent server-side rendering of the map (which is heavy)
+        - delay the map rendering on client side after the main js has been executed
+     */
+    window.setTimeout(() => this.setState({ show: true }))
   }
 
   componentWillReceiveProps(nextProps) {
@@ -38,8 +49,11 @@ class GoogleMapContainer extends Component {
 
   render() {
     const { onMarkerClick, country } = this.props
+    const { show } = this.state
 
-    return <Map markers={this.state.markers} onMarkerClick={onMarkerClick} country={country} />
+    const result = show ? <Map markers={this.state.markers} onMarkerClick={onMarkerClick} country={country} /> : null
+
+    return result
   }
 }
 

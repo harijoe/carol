@@ -1,10 +1,12 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Field } from 'redux-form'
 import styled from 'styled-components'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
+import { normalize, format } from 'utils/transformPhone'
 
 import messages from 'utils/messages'
-import { List, RenderField, Heading, Button, RenderDropzone, Label, RenderDatePicker } from 'components'
+import { List, RenderField, Heading, Button, RenderDropzone, RadioGroup, RenderDatePicker } from 'components'
 
 const Form = styled.form`
   width: 100%;
@@ -16,7 +18,7 @@ const Form = styled.form`
 class ProfileForm extends Component {
   static propTypes = {
     handleSubmit: PropTypes.func,
-    submitting: PropTypes.bool,
+    loading: PropTypes.bool,
     intl: intlShape.isRequired,
     details: PropTypes.shape({
       email: PropTypes.string,
@@ -68,7 +70,7 @@ class ProfileForm extends Component {
   }
 
   render() {
-    const { initialValues, handleSubmit, submitting, intl, details } = this.props
+    const { initialValues, handleSubmit, loading, intl, details } = this.props
     const formatMessage = intl.formatMessage
 
     return (
@@ -92,11 +94,15 @@ class ProfileForm extends Component {
           component={RenderDropzone}
         />
         <div>
-          <span><FormattedMessage id="user.gender" tagName="div" /></span>
-          <div>
-            <Label htmlFor="mr"><Field name="gender" component="input" type="radio" value="Mr" /><FormattedMessage id="user.mr" tagName="span" /></Label>
-            <Label htmlFor="mrs"><Field name="gender" component="input" type="radio" value="Mrs" /><FormattedMessage id="user.mrs" tagName="span" /></Label>
-          </div>
+          <strong><FormattedMessage id="user.gender" tagName="div" /></strong>
+          <Field
+            component={RadioGroup}
+            name="gender" required
+            options={[
+              { value: 'Mr', id: 'mr', translation: 'user.mr' },
+              { value: 'Mrs', id: 'mrs', translation: 'user.mrs' },
+            ]}
+          />
         </div>
         <Field
           name="firstName"
@@ -129,6 +135,7 @@ class ProfileForm extends Component {
           component={RenderField}
           label={formatMessage(messages('user.mobile_phone').label)}
           placeholder={formatMessage(messages('user.mobile_phone').label)}
+          {...{ format, normalize }}
         />
         <Field
           name="fixedPhone"
@@ -173,8 +180,8 @@ class ProfileForm extends Component {
           label={formatMessage(messages('user.newsletter_subscription').label)}
           placeholder={formatMessage(messages('user.newsletter_subscription').label)}
         />
-        <Button type="submit" disabled={submitting}>
-          <FormattedMessage id="user.update" tagName="span" />
+        <Button type="submit" loading={loading}>
+          <FormattedMessage id="user.update" />
         </Button>
       </Form>
     )

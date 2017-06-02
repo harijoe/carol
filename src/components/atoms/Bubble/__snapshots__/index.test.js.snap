@@ -111,6 +111,13 @@ ShallowWrapper {
                           "xxl": "5rem",
                           "xxxl": "10rem",
                         },
+                        "ui": Object {
+                          "size": Object {
+                            "l": "100%",
+                            "m": "40rem",
+                            "s": "20rem",
+                          },
+                        },
                       }
         }>
         <styled.div />
@@ -222,6 +229,13 @@ ShallowWrapper {
               "xs": "0.4rem",
               "xxl": "5rem",
               "xxxl": "10rem",
+            },
+            "ui": Object {
+              "size": Object {
+                "l": "100%",
+                "m": "40rem",
+                "s": "20rem",
+              },
             },
           },
         },
@@ -353,6 +367,13 @@ ShallowWrapper {
               "xs": "0.4rem",
               "xxl": "5rem",
               "xxxl": "10rem",
+            },
+            "ui": Object {
+              "size": Object {
+                "l": "100%",
+                "m": "40rem",
+                "s": "20rem",
+              },
             },
           }
     }>

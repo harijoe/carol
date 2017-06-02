@@ -17,7 +17,7 @@ export const projectElaborationHeroDetails = {
   failure: error => (actionTypes(PROJECT_ELABORATION_HERO_DETAILS.FAILURE, { error })),
 }
 
-export const setProjectElaborationHeroResponse = (text, payload) => ({
+export const setProjectElaborationHeroAnswer = (text, payload) => ({
   type: PROJECT_ELABORATION_HERO_SET_RESPONSE,
   payload: {
     text,
@@ -42,7 +42,7 @@ export const setProjectElaborationSessionId = sessionId => ({
   payload: sessionId,
 })
 
-export const setProjectElaborationConversationResponse = text => ({
+export const setProjectElaborationConversationAnswer = text => ({
   type: PROJECT_ELABORATION_CONVERSATION_SET_RESPONSE,
   payload: text,
 })

@@ -1,0 +1,503 @@
+exports[`test renders the FirmLight component 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <Mock>
+    <li>
+        <FormattedMessage
+            id="firm.details.logo"
+            values={Object {}} />
+        : 
+        <FormattedMessage
+            id="firm.details.logo_missing"
+            values={Object {}} />
+    </li>
+    <li>
+        <FormattedMessage
+            id="firm.details.name"
+            values={Object {}} />
+        : 
+        test
+    </li>
+    <li>
+        <FormattedMessage
+            id="firm.details.postal_code"
+            values={Object {}} />
+        : 
+        96352
+    </li>
+    <li>
+        <FormattedMessage
+            id="firm.details.city"
+            values={Object {}} />
+        : 
+    </li>
+    <li>
+        <FormattedMessage
+            id="firm.details.country"
+            values={Object {}} />
+        : 
+    </li>
+    <li>
+        <FormattedMessage
+            id="firm.details.registration_number"
+            values={Object {}} />
+        : 
+    </li>
+    <li>
+        <FormattedMessage
+            id="firm.details.description"
+            values={Object {}} />
+        : 
+    </li>
+    <li>
+        <FormattedMessage
+            id="firm.details.website"
+            values={Object {}} />
+        : 
+        <FormattedMessage
+            id="firm.details.website_missing"
+            values={Object {}} />
+    </li>
+    <li>
+        <FormattedMessage
+            id="firm.details.employees_number"
+            values={Object {}} />
+        : 
+    </li>
+    <li>
+        <FormattedMessage
+            id="firm.details.client_since"
+            values={Object {}} />
+        : 
+    </li>
+    <li>
+        <FormattedMessage
+            id="firm.details.certificate"
+            values={Object {}} />
+        : 
+    </li>
+    <li>
+        <FormattedMessage
+            id="firm.details.budget"
+            values={Object {}} />
+        : 
+    </li>
+    <li>
+        <FormattedMessage
+            id="firm.details.delay"
+            values={Object {}} />
+        : 
+    </li>
+    <li>
+        <FormattedMessage
+            id="firm.details.conviviality"
+            values={Object {}} />
+        : 
+    </li>
+    <li>
+        <FormattedMessage
+            id="firm.details.notation"
+            values={Object {}} />
+        : 
+        0.05113636363636364
+    </li>
+    <li>
+        <FormattedMessage
+            id="firm.details.served_area_cities"
+            values={Object {}} />
+        : 
+    </li>
+</Mock>,
+  "nodes": Array [
+    <Mock>
+      <li>
+            <FormattedMessage
+                  id="firm.details.logo"
+                  values={Object {}} />
+            : 
+            <FormattedMessage
+                  id="firm.details.logo_missing"
+                  values={Object {}} />
+      </li>
+      <li>
+            <FormattedMessage
+                  id="firm.details.name"
+                  values={Object {}} />
+            : 
+            test
+      </li>
+      <li>
+            <FormattedMessage
+                  id="firm.details.postal_code"
+                  values={Object {}} />
+            : 
+            96352
+      </li>
+      <li>
+            <FormattedMessage
+                  id="firm.details.city"
+                  values={Object {}} />
+            : 
+      </li>
+      <li>
+            <FormattedMessage
+                  id="firm.details.country"
+                  values={Object {}} />
+            : 
+      </li>
+      <li>
+            <FormattedMessage
+                  id="firm.details.registration_number"
+                  values={Object {}} />
+            : 
+      </li>
+      <li>
+            <FormattedMessage
+                  id="firm.details.description"
+                  values={Object {}} />
+            : 
+      </li>
+      <li>
+            <FormattedMessage
+                  id="firm.details.website"
+                  values={Object {}} />
+            : 
+            <FormattedMessage
+                  id="firm.details.website_missing"
+                  values={Object {}} />
+      </li>
+      <li>
+            <FormattedMessage
+                  id="firm.details.employees_number"
+                  values={Object {}} />
+            : 
+      </li>
+      <li>
+            <FormattedMessage
+                  id="firm.details.client_since"
+                  values={Object {}} />
+            : 
+      </li>
+      <li>
+            <FormattedMessage
+                  id="firm.details.certificate"
+                  values={Object {}} />
+            : 
+      </li>
+      <li>
+            <FormattedMessage
+                  id="firm.details.budget"
+                  values={Object {}} />
+            : 
+      </li>
+      <li>
+            <FormattedMessage
+                  id="firm.details.delay"
+                  values={Object {}} />
+            : 
+      </li>
+      <li>
+            <FormattedMessage
+                  id="firm.details.conviviality"
+                  values={Object {}} />
+            : 
+      </li>
+      <li>
+            <FormattedMessage
+                  id="firm.details.notation"
+                  values={Object {}} />
+            : 
+            0.05113636363636364
+      </li>
+      <li>
+            <FormattedMessage
+                  id="firm.details.served_area_cities"
+                  values={Object {}} />
+            : 
+      </li>
+</Mock>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 2,
+      "_context": Object {},
+      "_currentElement": <FirmFull
+        globalRating={4.5}
+        globalRatingCount={88}
+        logoUrl=""
+        name="test"
+        postalCode="96352" />,
+      "_debugID": 1,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": StatelessComponent {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "globalRating": 4.5,
+          "globalRatingCount": 88,
+          "logoUrl": "",
+          "name": "test",
+          "postalCode": "96352",
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 1,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <Mock>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.logo"
+                              values={Object {}} />
+                    : 
+                    <FormattedMessage
+                              id="firm.details.logo_missing"
+                              values={Object {}} />
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.name"
+                              values={Object {}} />
+                    : 
+                    test
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.postal_code"
+                              values={Object {}} />
+                    : 
+                    96352
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.city"
+                              values={Object {}} />
+                    : 
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.country"
+                              values={Object {}} />
+                    : 
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.registration_number"
+                              values={Object {}} />
+                    : 
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.description"
+                              values={Object {}} />
+                    : 
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.website"
+                              values={Object {}} />
+                    : 
+                    <FormattedMessage
+                              id="firm.details.website_missing"
+                              values={Object {}} />
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.employees_number"
+                              values={Object {}} />
+                    : 
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.client_since"
+                              values={Object {}} />
+                    : 
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.certificate"
+                              values={Object {}} />
+                    : 
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.budget"
+                              values={Object {}} />
+                    : 
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.delay"
+                              values={Object {}} />
+                    : 
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.conviviality"
+                              values={Object {}} />
+                    : 
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.notation"
+                              values={Object {}} />
+                    : 
+                    0.05113636363636364
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.served_area_cities"
+                              values={Object {}} />
+                    : 
+          </li>
+</Mock>,
+        "_debugID": 2,
+        "_renderedOutput": <Mock>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.logo"
+                              values={Object {}} />
+                    : 
+                    <FormattedMessage
+                              id="firm.details.logo_missing"
+                              values={Object {}} />
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.name"
+                              values={Object {}} />
+                    : 
+                    test
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.postal_code"
+                              values={Object {}} />
+                    : 
+                    96352
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.city"
+                              values={Object {}} />
+                    : 
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.country"
+                              values={Object {}} />
+                    : 
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.registration_number"
+                              values={Object {}} />
+                    : 
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.description"
+                              values={Object {}} />
+                    : 
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.website"
+                              values={Object {}} />
+                    : 
+                    <FormattedMessage
+                              id="firm.details.website_missing"
+                              values={Object {}} />
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.employees_number"
+                              values={Object {}} />
+                    : 
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.client_since"
+                              values={Object {}} />
+                    : 
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.certificate"
+                              values={Object {}} />
+                    : 
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.budget"
+                              values={Object {}} />
+                    : 
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.delay"
+                              values={Object {}} />
+                    : 
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.conviviality"
+                              values={Object {}} />
+                    : 
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.notation"
+                              values={Object {}} />
+                    : 
+                    0.05113636363636364
+          </li>
+          <li>
+                    <FormattedMessage
+                              id="firm.details.served_area_cities"
+                              values={Object {}} />
+                    : 
+          </li>
+</Mock>,
+      },
+      "_renderedNodeType": 1,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <FirmFull
+    globalRating={4.5}
+    globalRatingCount={88}
+    logoUrl=""
+    name="test"
+    postalCode="96352" />,
+}
+`;

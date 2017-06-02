@@ -1,24 +1,64 @@
-import React, { PropTypes } from 'react'
-import { FormattedMessage } from 'react-intl'
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { theme, breakpoint } from 'utils/style'
 
-import { MainLayout, Link } from 'components'
+import { MainLayout, MainWrapper, Section, Grid } from 'components'
+
 import { FirmList } from 'containers'
 
-const FirmListPage = props => (
+const StyledMainWrapper = styled(MainWrapper)`
+  padding-top: 5.6rem;
+  background: ${theme('colors.white')};
+
+  ${breakpoint('m')`
+    padding-top: ${theme('spaces.xxxl')};
+  `}
+`
+const StyledSection = styled(Section)`
+  position: relative;
+  padding-top: ${theme('spaces.xxl')};
+
+  &::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 50%;
+    width: 100%;
+    background: ${theme('colors.white')};
+    content: '';
+
+    ${breakpoint('m')`
+      height: 37rem;
+    `}
+  }
+`
+const StyledGrid = styled(Grid)`
+  ${breakpoint('xl')`
+    max-width: 100rem;
+  `}
+
+  > div {
+    display: flex;
+    flex-direction: column;
+  }
+`
+
+const FirmListPage = ({ params: { projectId } }) => (
   <MainLayout>
-    <FirmList
-      filters={{ homeImprovementId: props.location.query['home-improvement-id'], servedAreaCityCode: props.location.query['served-area-city-code'] }}
-    />
-    <Link to="/submit-project"><FormattedMessage id="project.validate_link" /></Link>
+    <StyledMainWrapper>
+      <StyledSection light>
+        <StyledGrid narrow>
+          <FirmList {...{ projectId }} />
+        </StyledGrid>
+      </StyledSection>
+    </StyledMainWrapper>
   </MainLayout>
 )
 
 FirmListPage.propTypes = {
-  location: PropTypes.shape({
-    query: PropTypes.shape({
-      'home-improvement-id': PropTypes.string,
-      'served-area-city-code': PropTypes.string,
-    }),
+  params: PropTypes.shape({
+    projectId: PropTypes.string,
   }),
 }
 

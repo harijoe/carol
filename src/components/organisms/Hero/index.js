@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
 import styled, { css } from 'styled-components'
 import { theme, breakpoint, breakpointMax, mapBreakpoints } from 'utils/style'
@@ -6,25 +7,27 @@ import { cloudinaryUrl } from 'config'
 
 import {
   Section,
-  Bubble,
   ThumbnailCard,
-  Image,
   Paragraph,
   Grid,
   Row,
   Link,
   MainWrapper,
   Heading,
-  Carousel,
 } from 'components'
+import { Carousel } from 'containers'
 
 const HeroWrapper = styled.div`
   position: relative;
-  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 80vh;
   width: 100%;
   padding-top: 15rem;
 
-  &::before, &::after {
+  &::before,
+  &::after {
     position: absolute;
     top: 0;
     left: 0;
@@ -42,13 +45,16 @@ const HeroWrapper = styled.div`
     background: ${theme('colors.primary')};
     opacity: 0.85;
   }
+
+  ${breakpoint('l')`
+    min-height: 90vh;
+  `}
 `
 
 const StyledSection = styled(Section)`
   position: relative;
   z-index: 1;
   padding-bottom: 0;
-  padding-top: 0;
   width: 100%;
   background: transparent;
 `
@@ -57,44 +63,6 @@ const StyledRow = styled(Row)`
   ${mapBreakpoints(() => css`
     margin: 0;
   `)}
-`
-
-const StyledHeader = styled.header`
-  margin-bottom: ${theme('spaces.xl')};
-
-  ${breakpoint('m')`
-    margin-bottom: ${theme('spaces.xxxl')};
-  `}
-`
-
-const StyledBubble = styled(Bubble)`
-  height: 6.4rem;
-  width: 6.4rem;
-  margin-bottom: ${theme('spaces.xl')};
-  padding: ${theme('spaces.xs')};
-  border-radius: 6rem;
-
-  &::before {
-    top: calc(100% - 0.5rem);
-    left: calc(50% + 0.5rem);
-    margin-left: 0;
-    transform: rotate(150deg);
-  }
-
-  ${breakpoint('m')`
-    margin-bottom: ${theme('spaces.xl')};
-  `}
-
-  ${breakpoint('l')`
-    margin-bottom: ${theme('spaces.xxl')};
-    height: 8.4rem;
-    width: 8.4rem;
-  `}
-`
-
-const StyledImage = styled(Image)`
-  height: auto;
-  max-width: 100%;
 `
 
 const StyledHeading = styled(Heading)`
@@ -124,9 +92,7 @@ const CarouselWrapper = styled.div`
   ${mapBreakpoints(bp => css`
     margin-right: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} * -1);
     margin-left: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} * -1);
-    padding-right: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
-    padding-left: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
-    padding-bottom: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
+    padding: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
   `)}
 
   &::before {
@@ -144,7 +110,7 @@ const CarouselWrapper = styled.div`
     padding-top: ${theme('spaces.m')};
     padding-bottom: ${theme('spaces.m')};
 
-    .slick-slide:first-child  > div {
+    .slick-slide:first-child > div {
       margin-left: 0;
     }
   }
@@ -158,17 +124,76 @@ const CarouselWrapper = styled.div`
   }
 `
 
+const ModifyLink = styled(Link)`
+  display: block;
+  margin: ${theme('spaces.m')} 0;
+  padding: ${theme('spaces.m')};
+  max-width: 32rem;
+  font-family: ${theme('fonts.family.montserratBold')};
+  font-size: ${theme('fonts.size.base')};
+  letter-spacing: 0.05rem;
+  text-align: center;
+  background-color: ${theme('colors.secondary')};
+  color: ${theme('colors.black')};
+
+  ${breakpoint('m')`
+    padding: ${theme('spaces.l')};
+    margin-bottom: ${theme('spaces.l')};
+    margin-top: ${theme('spaces.l')};
+  `}
+`
+
 const generateChild = (items, reply) => items.map(({ title, image_url, buttons, subtitle }, i) => (
   <ThumbnailCard
     key={i}
     link="project-elaboration"
     // eslint-disable-next-line camelcase
-    image={`${image_url}`}
+    image={image_url}
     title={title}
-    items={subtitle.split(' | ')}
+    items={subtitle.split('\n')}
     onClick={() => reply(title, buttons[0].payload)}
   />
 ))
+
+const FirstChoices = (choices, reply) => (
+  <CarouselWrapper>
+    {
+      choices.length > 0 &&
+      <Carousel
+        variableWidth
+        infinite={false}
+        dots
+        responsive={[
+          {
+            breakpoint: 767,
+            settings: {
+              slidesToScroll: 2,
+            },
+          },
+          {
+            breakpoint: 991,
+            settings: {
+              swipe: false,
+              slidesToScroll: 3,
+              slidesToShow: 3,
+            },
+          },
+          {
+            breakpoint: 10000,
+            settings: {
+              arrows: true,
+              swipe: false,
+              slidesToScroll: 4,
+              slidesToShow: 4,
+            },
+          },
+        ]}
+      >
+        { generateChild(choices, reply) }
+      </Carousel>
+    }
+  </CarouselWrapper>
+)
 
 const Hero = ({ hasActiveConversation, firstChoices, reply, hasConversations }) => (
   <HeroWrapper>
@@ -177,57 +202,31 @@ const Hero = ({ hasActiveConversation, firstChoices, reply, hasConversations }) 
         {
           hasActiveConversation || hasConversations ?
             <StyledRow>
-              <StyledHeader>
-                <StyledBubble>
-                  <StyledImage link={`${cloudinaryUrl}bot.png`} />
-                </StyledBubble>
+              <header>
                 <StyledHeading level={1}>
-                  <Link to="project-elaboration">
-                    <FormattedMessage id="hero.conversation_in_progress" />
-                  </Link>
+                  <FormattedMessage id="hero.conversation_in_progress" />
                 </StyledHeading>
-              </StyledHeader>
+                <ModifyLink to="project-elaboration">
+                  <FormattedMessage id="hero.button_message" />
+                </ModifyLink>
+                <SubHeading>
+                  <FormattedMessage id="hero.subheading_in_progress" />
+                </SubHeading>
+                {FirstChoices(firstChoices, reply)}
+              </header>
             </StyledRow>
             :
             <Grid>
               <StyledRow column>
-                <StyledHeader>
-                  <StyledBubble>
-                    <StyledImage link={`${cloudinaryUrl}bot.png`} />
-                  </StyledBubble>
+                <header>
                   <StyledHeading level={1}>
                     <FormattedMessage id="hero.title_message" />
                   </StyledHeading>
                   <SubHeading>
                     <FormattedMessage id="hero.welcome_message" />
                   </SubHeading>
-                </StyledHeader>
-              </StyledRow>
-              <StyledRow>
-                <CarouselWrapper>
-                  {
-                    firstChoices.length > 0 &&
-                      <Carousel
-                        variableWidth
-                        infinite={false}
-                        arrows
-                        slidesToScroll={1}
-                        dots
-                        responsive={[
-                          {
-                            breakpoint: 767,
-                            settings: { arrows: false },
-                          },
-                          {
-                            breakpoint: 3000,
-                            settings: { arrows: true },
-                          },
-                        ]}
-                      >
-                        { generateChild(firstChoices, reply) }
-                      </Carousel>
-                  }
-                </CarouselWrapper>
+                  {FirstChoices(firstChoices, reply)}
+                </header>
               </StyledRow>
             </Grid>
         }

@@ -1,0 +1,164 @@
+exports[`test renders PopinMenu 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <div>
+    <styled.div
+        display={false}
+        onClick={[Function]} />
+    <styled.div
+        display={false}>
+        <Styled(Mock)
+            active={false}>
+            <Styled(Mock)
+                onClick={[Function]}>
+                hello
+            </Styled(Mock)>
+        </Styled(Mock)>
+    </styled.div>
+    <styled.button
+        onClick={[Function]}
+        type="button">
+        Test
+    </styled.button>
+</div>,
+  "nodes": Array [
+    <div>
+      <styled.div
+            display={false}
+            onClick={[Function]} />
+      <styled.div
+            display={false}>
+            <Styled(Mock)
+                  active={false}>
+                  <Styled(Mock)
+                        onClick={[Function]}>
+                        hello
+                  </Styled(Mock)>
+            </Styled(Mock)>
+      </styled.div>
+      <styled.button
+            onClick={[Function]}
+            type="button">
+            Test
+      </styled.button>
+</div>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 0,
+      "_context": Object {},
+      "_currentElement": <PopinMenu
+        menu={
+                Array [
+                        "hello",
+                      ]
+        }>
+        Test
+</PopinMenu>,
+      "_debugID": 1,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": PopinMenu {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "disableMenu": [Function],
+        "hide": [Function],
+        "props": Object {
+          "children": "Test",
+          "menu": Array [
+            "hello",
+          ],
+        },
+        "refs": Object {},
+        "state": Object {
+          "active": false,
+          "display": false,
+        },
+        "toggle": [Function],
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 1,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <div>
+          <styled.div
+                    display={false}
+                    onClick={[Function]} />
+          <styled.div
+                    display={false}>
+                    <Styled(Mock)
+                              active={false}>
+                              <Styled(Mock)
+                                        onClick={[Function]}>
+                                        hello
+                              </Styled(Mock)>
+                    </Styled(Mock)>
+          </styled.div>
+          <styled.button
+                    onClick={[Function]}
+                    type="button">
+                    Test
+          </styled.button>
+</div>,
+        "_debugID": 2,
+        "_renderedOutput": <div>
+          <styled.div
+                    display={false}
+                    onClick={[Function]} />
+          <styled.div
+                    display={false}>
+                    <Styled(Mock)
+                              active={false}>
+                              <Styled(Mock)
+                                        onClick={[Function]}>
+                                        hello
+                              </Styled(Mock)>
+                    </Styled(Mock)>
+          </styled.div>
+          <styled.button
+                    onClick={[Function]}
+                    type="button">
+                    Test
+          </styled.button>
+</div>,
+      },
+      "_renderedNodeType": 0,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <PopinMenu
+    menu={
+        Array [
+            "hello",
+          ]
+    }>
+    Test
+</PopinMenu>,
+}
+`;

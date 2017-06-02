@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import SlickCarousel from 'react-slick'
 import styled, { css } from 'styled-components'
 import { theme, mapBreakpoints, breakpoint } from 'utils/style'
@@ -74,22 +75,60 @@ const StyledSlickCarousel = styled(SlickCarousel)`
   }
 `
 
-const Carousel = ({ children, ...props }) => (
-  <Wrapper>
-    <StyledSlickCarousel
-      {...props}
-    >
-      {
-        children.map((element, i) => (
-          <div key={i}>{element}</div>
-        ))
-      }
-    </StyledSlickCarousel>
-  </Wrapper>
-)
+const Carousel = class extends React.Component {
+
+  state = {}
+
+  /*
+   When using the `responsive` prop, react-slick messes up server-side-rendering and generated markup is different
+   between server and client, forcing us to redraw the carousel on the client
+   */
+  componentWillReceiveProps(nextProps) {
+    if (this.props.ssr && !nextProps.ssr) {
+      this.setState({ removeCarousel: true }, () => {
+        this.setState({ removeCarousel: false })
+      })
+    }
+  }
+
+  handlePropsOnSSR = ({ responsive = [], ssr }) => {
+    if (ssr) return { arrows: false, responsive: [] }
+
+    const touchEnabled = 'ontouchstart' in window
+
+    return { arrows: !touchEnabled, responsive }
+  }
+
+  render() {
+    const { children, itemProps, responsive, ssr, ...otherProps } = this.props
+    const props = { ...this.handlePropsOnSSR({ responsive, ssr }), ...otherProps }
+    const { removeCarousel } = this.state
+
+    return (
+      <Wrapper>
+        {!removeCarousel &&
+          <StyledSlickCarousel {...props} >
+            {
+              children.map((item, i) => (
+                <div {...itemProps} key={i}>{item}</div>
+              ))
+            }
+          </StyledSlickCarousel>
+        }
+      </Wrapper>
+    )
+  }
+}
 
 Carousel.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  ssr: PropTypes.bool,
+  responsive: PropTypes.array,
+  itemProps: PropTypes.object,
+}
+
+Carousel.defaultProps = {
+  itemProps: null,
 }
 
 export default Carousel

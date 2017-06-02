@@ -1,15 +1,16 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { theme } from 'utils/style'
 
-import { Button, List } from 'components'
+import { List } from 'components'
 
 const StyledList = styled(List)`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
   margin: 0;
-  padding: ${theme('spaces.m')};
+  padding: ${theme('spaces.m')} 0;
   padding-bottom: 0;
   list-style: none;
 `
@@ -20,7 +21,7 @@ const Item = styled.li`
   margin: ${theme('spaces.xs')};
 `
 
-const StyledButton = styled(Button)`
+const StyledButton = styled.button`
   min-width: 7rem;
   max-width: 100%;
   padding: ${theme('spaces.s')} ${theme('spaces.m')};
@@ -33,11 +34,11 @@ const StyledButton = styled(Button)`
   text-align: left;
 `
 
-const QuickReplies = ({ quick_replies, response, reply }) => {
+const QuickReplies = ({ quick_replies, answer, reply }) => {
   // eslint-disable-next-line camelcase
   const isQuickRepliesArray = Array.isArray(quick_replies)
 
-  if (!isQuickRepliesArray || (isQuickRepliesArray && response != null)) {
+  if (!isQuickRepliesArray || (isQuickRepliesArray && answer != null)) {
     return null
   }
 
@@ -62,7 +63,7 @@ QuickReplies.propTypes = {
       title: PropTypes.string.isRequired,
     }),
   ),
-  response: PropTypes.shape({
+  answer: PropTypes.shape({
     text: PropTypes.string,
     payload: PropTypes.string,
   }),

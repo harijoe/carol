@@ -10,8 +10,11 @@ const injectScroll = (WrappedComponent) => {
       scrollY: null,
     }
 
-    componentDidMount() {
-      window.addEventListener('scroll', this.handleScroll)
+    componentWillMount() {
+      // To avoid SSR issues
+      if (window.addEventListener != null) {
+        window.addEventListener('scroll', this.handleScroll)
+      }
     }
 
     componentWillUnmount() {
@@ -20,20 +23,18 @@ const injectScroll = (WrappedComponent) => {
 
     handleScroll = throttle(() => {
       this.setState({
-        scrollX: window.scrollX,
-        scrollY: window.scrollY,
+        scrollX: window.pageXOffset,
+        scrollY: window.pageYOffset,
       })
     }, 200)
 
     render() {
       const { scrollX, scrollY } = this.state
+      const atTop = scrollY == null ? true : scrollY < scrollTopThreshold
 
       return (
         <WrappedComponent
-          {...this.props}
-          scrollX={scrollX}
-          scrollY={scrollY}
-          atTop={scrollY < scrollTopThreshold}
+          {...{ ...this.props, scrollX, scrollY, atTop }}
         />
       )
     }

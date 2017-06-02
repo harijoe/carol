@@ -1,13 +1,16 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import mockIntl from '../../../../test/intlMock'
 import Firm from './'
 
-const items = { name: 'test', city: 'Paris'}
-
 it('renders the Firm component', () => {
-  const wrapper = shallow(mockIntl(<Firm items={items} />))
+  const wrapper = shallow(<Firm />)
+
+  expect(wrapper).toMatchSnapshot()
+})
+
+it('renders the Firm component full', () => {
+  const wrapper = shallow(<Firm full />)
 
   expect(wrapper).toMatchSnapshot()
 })

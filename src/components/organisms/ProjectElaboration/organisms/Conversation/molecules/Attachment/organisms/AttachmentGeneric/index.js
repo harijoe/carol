@@ -1,90 +1,112 @@
-import React, { PropTypes } from 'react'
-import styled, { css } from 'styled-components'
-import { theme, breakpoint, mapBreakpoints } from 'utils/style'
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { theme, breakpoint, breakpointMax } from 'utils/style'
 
-import { List, ListItem, Button, ThumbnailPoster } from 'components'
+import { ThumbnailPoster } from 'components'
+import { Carousel } from 'containers'
 
-const StyledList = styled(List)`
-  position: relative;
-  display: flex;
-  flex-wrap: nowrap;
+const StyledCarousel = styled(Carousel)`
   margin: 0;
-  padding-bottom: ${theme('spaces.m')};
-  padding-top: ${theme('spaces.m')};
-  overflow-y: hidden;
-  overflow-x: visible;
-  list-style: none;
+  padding: 0;
 
-  &::-webkit-scrollbar-track {
-    border-radius: 6rem;
-    background-color: ${theme('colors.grayscale.lightest')};
+  > .slick-list {
+    padding: 0;
   }
 
-  &::-webkit-scrollbar {
-    height: ${theme('spaces.xs')};
-    width: ${theme('spaces.xs')};
-    background-color: ${theme('colors.grayscale.lightest')};
+  .slick-arrow.slick-next {
+    right: -2rem;
   }
 
-  &::-webkit-scrollbar-thumb {
-    border-radius: 6rem;
-    background-color: ${theme('colors.grayscale.light')};
+  .slick-arrow.slick-prev {
+    left: -2rem;
   }
 
-  ${mapBreakpoints(bp => css`
-    padding-left: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
-  `)}
+  ${breakpointMax('l')`
+    .slick-arrow.slick-next {
+      right: 0;
+    }
+
+    .slick-arrow.slick-prev {
+      left: 0;
+    }
+  `}
+
+  ${breakpointMax('m')`
+    margin-left: -${theme('spaces.m')};
+    margin-right: -${theme('spaces.m')};
+
+    > .slick-list {
+      padding-left: ${theme('spaces.m')};
+      padding-right: ${theme('spaces.m')};
+    }
+  `}
+
+  ${breakpoint('m')`
+    padding-bottom: ${theme('spaces.l')};
+  `}
 `
 
-const StyledListItem = styled(ListItem)`
+const StyledItem = styled.div`
   margin: 0 ${theme('spaces.xs')};
   padding: 0;
-  max-width: 11.5rem;
-  flex: 0 0 11.5rem;
-  width: 100%;
+  width: 12rem;
 
   &:first-child {
     margin-left: 0;
   }
 
   ${breakpoint('m')`
-    max-width: 12.6rem;
-    flex: 0 0 12.6rem;
+    width: 16rem;
     margin-left: ${theme('spaces.s')};
     margin-right: ${theme('spaces.s')};
   `}
+`
 
-  ${breakpoint('xl')`
-    max-width: 15rem;
-    flex: 0 0 15rem;
+const StyledButton = styled.button`
+  background: ${theme('colors.white')};
+  padding: 0;
+  width: 12rem;
+
+  ${breakpoint('m')`
+    width: 16rem;
   `}
 `
 
-const StyledButton = styled(Button)`
-  padding: 0;
-  width: 100%;
-
-  > figure {
-    height: 17.5rem;
-    box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, .15);
-
-    ${breakpoint('xl')`
-      height: 20rem;
-    `}
-  }
-
-  h3 {
-    ${breakpoint('l')`
-      font-size: ${theme('fonts.size.l')};
-    `}
-  }
-`
-
 const AttachmentGeneric = ({ attachment, reply }) => (
-  <StyledList>
+  <StyledCarousel
+    slidesToShow={1}
+    slidesToScroll={3}
+    variableWidth
+    infinite={false}
+    dots
+    responsive={[
+      {
+        breakpoint: 767,
+        settings: {
+          swipe: true,
+          slidesToScroll: 2,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 991,
+        settings: {
+          swipe: true,
+        },
+      },
+      {
+        breakpoint: 10000,
+        settings: {
+          arrows: true,
+          swipe: false,
+        },
+      },
+    ]}
+  >
     {
       attachment.payload.elements.map(({ title, image_url, buttons }, i) => (
-        <StyledListItem key={i}>
+        <StyledItem key={i}>
           <StyledButton onClick={() => { reply(title, buttons[0].payload) }}>
             <ThumbnailPoster
               // eslint-disable-next-line camelcase
@@ -92,10 +114,10 @@ const AttachmentGeneric = ({ attachment, reply }) => (
               title={title}
             />
           </StyledButton>
-        </StyledListItem>
+        </StyledItem>
       ))
     }
-  </StyledList>
+  </StyledCarousel>
 )
 
 AttachmentGeneric.propTypes = {

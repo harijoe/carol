@@ -3,8 +3,11 @@ import cookie from 'react-cookie'
 import { push } from 'react-router-redux'
 import uuid from 'uuid/v4'
 import { fromProjectElaboration } from 'store/selectors'
+import pushGtmEvent from 'utils/gtm'
 import { takeLatest } from 'utils/effects'
 import fetch from 'sagas/fetch'
+import ssr from 'sagas/ssr'
+import notify from 'sagas/notify'
 
 import {
   PROJECT_ELABORATION_CONVERSATION_REPLY,
@@ -14,19 +17,22 @@ import {
   PROJECT_ELABORATION_CONVERSATIONS_SELECT,
   PROJECT_ELABORATION_RESET,
   PROJECT_ELABORATION_CONVERSATION_CURRENT,
+  PROJECT_ELABORATION_PRE_VALIDATE,
   projectElaborationReply,
   projectElaborationConversationsDetails,
-  setProjectElaborationConversationResponse,
+  setProjectElaborationConversationAnswer,
   projectElaborationConversationDetails,
   setProjectElaborationSessionId,
   projectElaborationHeroDetails,
+  projectElaborationResetConversation,
+  projectElaborationPreValidate,
 } from './actions'
 
 function* replyConversation({ text, payload = null }) {
   const user = yield select(fromProjectElaboration.getSessionId)
 
   if (!['new_project.reset', 'new_project.back', 'new_project.current'].includes(text)) {
-    yield put(setProjectElaborationConversationResponse(text))
+    yield put(setProjectElaborationConversationAnswer(text))
   }
 
   yield* fetch(projectElaborationReply, 'post', '/chatbot', {}, {
@@ -42,11 +48,16 @@ function* replyConversation({ text, payload = null }) {
 function* getConversations() {
   const sessionId = yield select(fromProjectElaboration.getSessionId)
 
-  yield* fetch(projectElaborationConversationsDetails, 'get', `/chatbot-conversations?sessionId=${sessionId}`)
+  yield* fetch(projectElaborationConversationsDetails, 'get', `/chatbot-conversations/${sessionId}`)
 }
 
 function* getConversationCurrent() {
+  yield put(projectElaborationResetConversation)
   yield* getConversations()
+
+  const heroAnswer = yield select(fromProjectElaboration.getHeroAnswer)
+
+  yield pushGtmEvent({ event: 'OpenForm', chatbotKey1: heroAnswer.text })
 
   if ((yield select(fromProjectElaboration.hasActiveConversation))) {
     yield* replyConversation({ text: 'new_project.current' })
@@ -69,11 +80,11 @@ function* replyHero() {
   const user = yield select(fromProjectElaboration.getSessionId)
 
   yield* replyConversation({ text: 'new_project.reset' })
-  yield put(setProjectElaborationConversationResponse(hero[1].response.text))
+  yield put(setProjectElaborationConversationAnswer(hero[1].answer.text))
   yield* fetch(projectElaborationReply, 'post', '/chatbot', {}, {
     message: {
-      text: hero[1].response.text,
-      quick_reply: { payload: hero[1].response.payload },
+      text: hero[1].answer.text,
+      quick_reply: { payload: hero[1].answer.payload },
     },
     user,
     channel: 'project',
@@ -83,21 +94,19 @@ function* replyHero() {
 
 function* requestHero() {
   const user = yield select(fromProjectElaboration.getSessionId)
+  const firstChoices = yield select(fromProjectElaboration.getFirstChoices)
 
-  yield* getConversations()
-
-  const conversations = yield select(fromProjectElaboration.getConversations)
-  const hasActiveConversation = yield select(fromProjectElaboration.hasActiveConversation)
-
-  if (!hasActiveConversation && Object.keys(conversations).length === 0) {
-    yield* fetch(projectElaborationHeroDetails, 'post', '/chatbot', {}, {
-      message: {
-        text: 'new_project.first_question',
-      },
-      user,
-      channel: 'project',
-    })
+  if (firstChoices.length !== 0) {
+    return
   }
+
+  yield* fetch(projectElaborationHeroDetails, 'post', '/chatbot', {}, {
+    message: {
+      text: 'new_project.first_question',
+    },
+    user,
+    channel: 'project',
+  })
 }
 
 function* resetAll() {
@@ -107,14 +116,28 @@ function* resetAll() {
   yield put(setProjectElaborationSessionId(sessionId))
 }
 
+function* preValidate({ chatbotStorageId }) {
+  yield* fetch(projectElaborationPreValidate, 'post', `/project-prevalidate/${chatbotStorageId}`)
+  const projectName = yield select(fromProjectElaboration.getProjectName)
+  const projectId = yield select(fromProjectElaboration.getProjectId)
+  const postalCode = yield select(fromProjectElaboration.getPostalCode)
+  const heroAnswer = yield select(fromProjectElaboration.getHeroAnswer)
+
+  yield pushGtmEvent({ event: 'FormCreated', PostalCode: postalCode, chatbotProFormId: projectId, chatbotKey1: heroAnswer.text })
+  yield put(push(`/projects/${projectId}/search-firms`))
+  yield* notify('user.thank_you', 'project.elaboration.project_prevalidation.success', 'success', {}, { name: projectName })
+}
+
 export default function* () {
   yield [
     takeLatest(PROJECT_ELABORATION_CONVERSATION_REPLY.REQUEST, replyConversation),
-    takeLatest(PROJECT_ELABORATION_HERO_DETAILS.REQUEST, requestHero),
+    takeLatest(PROJECT_ELABORATION_HERO_DETAILS.REQUEST, getConversations),
+    takeLatest(PROJECT_ELABORATION_HERO_DETAILS.REQUEST, ssr(requestHero)),
     takeLatest(PROJECT_ELABORATION_HERO_SET_RESPONSE, replyHero),
     takeLatest(PROJECT_ELABORATION_CONVERSATIONS_DETAILS.REQUEST, getConversations),
     takeLatest(PROJECT_ELABORATION_CONVERSATIONS_SELECT.REQUEST, selectConversation),
     takeLatest(PROJECT_ELABORATION_RESET, resetAll),
     takeLatest(PROJECT_ELABORATION_CONVERSATION_CURRENT.REQUEST, getConversationCurrent),
+    takeLatest(PROJECT_ELABORATION_PRE_VALIDATE.REQUEST, preValidate),
   ]
 }

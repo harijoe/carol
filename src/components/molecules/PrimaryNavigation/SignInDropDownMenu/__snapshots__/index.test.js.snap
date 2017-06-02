@@ -1,4 +1,4 @@
-exports[`user is not on login page renders a form 1`] = `
+exports[`test renders PopinMenuButton 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -6,17 +6,17 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <Mock
-    label="login">
-    <Mock
-        form="SignInFormDropDownMenu" />
-</Mock>,
+  "node": <styled.button
+    onClick={[Function]}
+    type="button">
+    Test
+</styled.button>,
   "nodes": Array [
-    <Mock
-      label="login">
-      <Mock
-            form="SignInFormDropDownMenu" />
-</Mock>,
+    <styled.button
+      onClick={[Function]}
+      type="button">
+      Test
+</styled.button>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -24,12 +24,10 @@ ShallowWrapper {
       "_calledComponentWillUnmount": false,
       "_compositeType": 2,
       "_context": Object {},
-      "_currentElement": <SignInDropDownMenu
-        location={
-                Object {
-                        "pathname": "/",
-                      }
-        } />,
+      "_currentElement": <PopinMenuButton
+        onClick={[Function]}>
+        Test
+</PopinMenuButton>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -37,9 +35,8 @@ ShallowWrapper {
         "_reactInternalInstance": [Circular],
         "context": Object {},
         "props": Object {
-          "location": Object {
-            "pathname": "/",
-          },
+          "children": "Test",
+          "onClick": [Function],
         },
         "refs": Object {},
         "state": null,
@@ -61,17 +58,17 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <Mock
-          label="login">
-          <Mock
-                    form="SignInFormDropDownMenu" />
-</Mock>,
+        "_currentElement": <styled.button
+          onClick={[Function]}
+          type="button">
+          Test
+</styled.button>,
         "_debugID": 2,
-        "_renderedOutput": <Mock
-          label="login">
-          <Mock
-                    form="SignInFormDropDownMenu" />
-</Mock>,
+        "_renderedOutput": <styled.button
+          onClick={[Function]}
+          type="button">
+          Test
+</styled.button>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -83,11 +80,9 @@ ShallowWrapper {
     "render": [Function],
   },
   "root": [Circular],
-  "unrendered": <SignInDropDownMenu
-    location={
-        Object {
-            "pathname": "/",
-          }
-    } />,
+  "unrendered": <PopinMenuButton
+    onClick={[Function]}>
+    Test
+</PopinMenuButton>,
 }
 `;

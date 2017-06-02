@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
+import { Icon } from 'components'
 
 class Loading extends Component {
   static propTypes = {
-    children: React.PropTypes.oneOfType([
-      React.PropTypes.arrayOf(React.PropTypes.node),
-      React.PropTypes.node,
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node,
     ]),
-    loading: React.PropTypes.bool,
+    loading: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -18,7 +21,7 @@ class Loading extends Component {
     const { loading, children } = this.props
 
     // @TODO: Implement a spinner here instead of Loading...
-    const content = loading === true ? 'Loading...' : children
+    const content = loading === true ? <Icon icon="spinner" size={60} /> : children
 
     return <div>{content}</div>
   }

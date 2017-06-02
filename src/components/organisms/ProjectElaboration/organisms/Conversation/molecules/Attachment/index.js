@@ -1,15 +1,16 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 import AttachmentGeneric from './organisms/AttachmentGeneric'
 import AttachmentSummary from './organisms/AttachmentSummary'
 
-const Attachment = ({ attachment, reply, response }) => {
+const Attachment = ({ attachment, reply, answer, locale, redirectTo }) => {
   if (
     attachment == null
     || attachment.payload == null
     || !Array.isArray(attachment.payload.elements)
     || attachment.payload.elements.length === 0
-    || response != null
+    || answer != null
   ) {
     return null
   }
@@ -17,12 +18,12 @@ const Attachment = ({ attachment, reply, response }) => {
   switch (attachment.payload.template_type) {
     case 'generic.summary':
       return (
-        <AttachmentSummary element={attachment.payload.elements[0]} />
+        <AttachmentSummary element={attachment.payload.elements[0]} {...{ locale, redirectTo }} />
       )
     default:
     case 'generic':
       return (
-        <AttachmentGeneric attachment={attachment} reply={reply} />
+        <AttachmentGeneric {...{ attachment, reply }} />
       )
   }
 }
@@ -34,7 +35,9 @@ Attachment.propTypes = {
     }),
   }),
   reply: PropTypes.func,
-  response: PropTypes.object,
+  redirectTo: PropTypes.func,
+  answer: PropTypes.object,
+  locale: PropTypes.string,
 }
 
 export default Attachment

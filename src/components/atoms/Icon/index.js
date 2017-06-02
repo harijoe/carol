@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 
 const styles = ({ size }) => css`
@@ -17,9 +18,15 @@ const styles = ({ size }) => css`
 const Wrapper = styled.span`${styles}`
 
 const Icon = ({ icon, ...props }) => {
-  const svg = require(`raw-loader!./icons/${icon}.svg`)
+  try {
+    const svg = require(`raw-loader!./icons/${icon}.svg`)
 
-  return <Wrapper {...props} dangerouslySetInnerHTML={{ __html: svg }} />
+    return <Wrapper {...props} dangerouslySetInnerHTML={{ __html: svg }} />
+  } catch (e) {
+    console.warn(e)
+
+    return null
+  }
 }
 
 Icon.propTypes = {

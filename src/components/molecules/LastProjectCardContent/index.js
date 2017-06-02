@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { theme, breakpoint } from 'utils/style'
 
@@ -55,7 +56,8 @@ const styles = css`
   border: 3px solid ${theme('colors.white')};
 
   > img {
-    max-width: 100%;
+    width: auto;
+    height: 100%;
   }
 
   ${breakpoint('m')`

@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fromFirm, fromStatus } from 'store/selectors'
 import { firmList, FIRM_LIST } from 'store/actions'
@@ -8,28 +9,19 @@ import { FirmList } from 'components'
 class FirmListContainer extends Component {
   static propTypes = {
     list: PropTypes.array,
-    filters: PropTypes.shape({
-      homeImprovementId: PropTypes.string,
-      servedAreaCityCode: PropTypes.string,
-    }),
     loading: PropTypes.bool,
     request: PropTypes.func.isRequired,
+    projectId: PropTypes.string,
   }
 
   componentWillMount() {
-    const { homeImprovementId, servedAreaCityCode } = this.props.filters
-    const queryParams = []
-
-    if (homeImprovementId) { queryParams.push(`pro-form-id=${homeImprovementId}`) }
-    if (servedAreaCityCode) { queryParams.push(`served-area-city-code=${servedAreaCityCode}`) }
-
-    this.props.request(queryParams)
+    this.props.request()
   }
 
   render() {
-    const { list, loading } = this.props
+    const { list, loading, projectId } = this.props
 
-    return <FirmList {...{ list, loading }} />
+    return <FirmList {...{ list, loading, projectId }} />
   }
 }
 
@@ -38,8 +30,8 @@ const mapStateToProps = state => ({
   loading: fromStatus.isLoading(state, FIRM_LIST.prefix),
 })
 
-const mapDispatchToProps = dispatch => ({
-  request: queryParams => dispatch(firmList.request(queryParams)),
+const mapDispatchToProps = (dispatch, { projectId }) => ({
+  request: () => dispatch(firmList.request(projectId)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(FirmListContainer)

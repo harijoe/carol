@@ -49,6 +49,15 @@ test('match', () => {
   expect(v.match('password')('321', { password: '321' })).toBeFalsy()
 })
 
+test('password', () => {
+  expect(v.password('invalid')).toBeTruthy()
+  expect(v.password('invali%')).toBeTruthy()
+  expect(v.password('invalidPassword')).toBeTruthy()
+  expect(v.password('validPa!')).toBeFalsy()
+  expect(v.password('validPassword!')).toBeFalsy()
+  expect(v.password('validPassword!.ç')).toBeFalsy()
+})
+
 test('createValidator', () => {
   const validator = v.createValidator({
     email: [v.required, v.email],

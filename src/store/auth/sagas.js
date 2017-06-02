@@ -1,26 +1,27 @@
-import { call, fork, put, take, select } from 'redux-saga/effects'
-import { stopSubmit } from 'redux-form'
+import { fork, put, take, select } from 'redux-saga/effects'
+import { stopSubmit, reset } from 'redux-form'
 import cookie from 'react-cookie'
 import { push } from 'react-router-redux'
+import notify from 'sagas/notify'
 
 import config from 'config'
 import { takeLatest } from 'utils/effects'
 import {
   resetUser,
   projectElaborationReset,
-  projectElaborationConversationCurrent,
-  projectElaborationConversationsDetails,
   projectElaborationHeroDetails,
   AUTH_LOGIN,
   AUTH_LOGOUT,
   authLogin,
-  closeAllPopin,
+  closeAll,
+  setAccessToken,
 } from 'store/actions'
 import { fromAuth, fromRouting } from 'store/selectors'
 import { fetchWithoutRefreshingToken } from 'sagas/fetch'
 import { requestChannel, responseChannel } from 'sagas/refreshToken'
 import saveToken from 'sagas/saveToken'
 import removeToken from 'sagas/removeToken'
+import { handleGetUserRequest } from '../user/sagas'
 
 /*
   returns :
@@ -30,42 +31,48 @@ import removeToken from 'sagas/removeToken'
  */
 export function* handleAuthLoginRequest({ grantType = 'client_credentials', formName = null, credentials = '' } = {}) {
   try {
-    const token = yield cookie.load('access_token')
+    let actualGrantType = grantType
+    let actualCredentials = credentials
+    const token = cookie.load('access_token')
+    const refreshToken = cookie.load('refresh_token')
 
     if (credentials === '' && token != null) {
-      // Notice: Token is expected to already be in the state thanks to SSR, there is nothing more to do
+      const currentToken = yield select(fromAuth.getAccessToken)
+
+      if (token !== true && token !== currentToken) {
+        yield put(setAccessToken(token))
+      }
+
       return token
     }
 
-    const url = `/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api.clientSecret}&grant_type=${grantType}${credentials}`
-
-    yield* fetchWithoutRefreshingToken(authLogin(grantType), 'get', url)
-    yield* saveToken(grantType)
-
-    const pathName = yield select(fromRouting.getPathname)
-    const isAuthenticated = yield select(fromAuth.isAuthenticated)
-
-    if (isAuthenticated) {
-      if (pathName === 'project-elaboration') {
-        yield put(projectElaborationConversationCurrent.request())
-      } else {
-        yield put(projectElaborationConversationsDetails.request())
-      }
+    if (token == null && refreshToken != null) {
+      actualGrantType = 'refresh_token'
+      actualCredentials = `&refresh_token=${refreshToken}`
     }
+
+    const url = `/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api.clientSecret}&grant_type=${actualGrantType}${actualCredentials}`
+
+    yield* fetchWithoutRefreshingToken(authLogin(actualGrantType), 'get', url, {}, null, null, false)
+
+    yield* saveToken(actualGrantType)
+
+    yield put(reset(formName))
 
     return true
-  } catch ({ _error }) {
+  } catch (e) {
     if (formName != null) {
-      yield put(stopSubmit(formName, { _error }))
+      // eslint-disable-next-line no-underscore-dangle
+      yield put(stopSubmit(formName, { _error: e.message }))
     }
 
-    return false
+    throw e
   }
 }
 
 function* handleAuthLogout() {
+  yield put(closeAll())
   yield* removeToken()
-  yield put(closeAllPopin())
   yield put(resetUser())
   yield put(projectElaborationReset)
   const pathName = yield select(fromRouting.getPathname)
@@ -78,8 +85,13 @@ function* handleAuthLogout() {
 }
 
 function* handleAuthLoginSuccess() {
-  yield select(fromAuth.isAuthenticated)
-  yield put(closeAllPopin())
+  yield put(closeAll())
+  const authenticated = yield select(fromAuth.isAuthenticated)
+
+  if (authenticated) {
+    yield* notify('', 'user.sign_in.success')
+    yield* handleGetUserRequest()
+  }
 }
 
 /*
@@ -91,8 +103,14 @@ function* handleAuthLoginSuccess() {
 function* watchAuthChannelRequest() {
   // eslint-disable-next-line no-constant-condition
   while (true) {
+    let authSuccessful = null
     const payload = yield take(requestChannel)
-    const authSuccessful = yield call(handleAuthLoginRequest, payload)
+
+    try {
+      authSuccessful = yield* handleAuthLoginRequest(payload)
+    } catch (e) {
+      authSuccessful = e
+    }
 
     yield put(responseChannel, authSuccessful)
   }

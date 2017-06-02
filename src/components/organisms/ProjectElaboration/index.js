@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 
@@ -27,7 +28,9 @@ const ProjectElaboration = ({ activeConversation, conversations, reply, selectCo
             <p><FormattedMessage id="project.elaboration.choose_conversation" /></p>
             {
               Object.keys(conversations).map((authType, i) => (
-                <li key={i}><button onClick={() => selectConversation(authType)}>{authType}</button></li>
+                <li key={i}>
+                  <button onClick={() => selectConversation(authType)}>{authType}</button>
+                </li>
               ))
             }
           </ul>
@@ -47,6 +50,7 @@ ProjectElaboration.propTypes = {
       message: PropTypes.shape({
         quick_replies: PropTypes.array,
       }),
+      answer: PropTypes.string,
     }),
   ),
   reply: PropTypes.func,

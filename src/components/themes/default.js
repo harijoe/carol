@@ -57,6 +57,14 @@ theme.icons = {
   },
 }
 
+theme.ui = {
+  size: {
+    s: '20rem',
+    m: '40rem',
+    l: '100%',
+  },
+}
+
 theme.spaces = {
   xs: '0.4rem',
   s: '0.8rem',

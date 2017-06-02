@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { Heading, Image, Tag, Link } from 'components'
@@ -6,19 +7,16 @@ import { theme, raw, breakpoint } from 'utils/style'
 
 const Wrapper = styled.div`
   margin-bottom: ${theme('spaces.m')};
-  margin-top: ${theme('spaces.m')};
-  padding-left: ${theme('spaces.m')};
-  padding-right: ${theme('spaces.m')};
+  padding: 0 ${theme('spaces.m')};
+  width: 100%;
 
   ${breakpoint('m')`
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: -${theme('spaces.l')};
-    margin-right: -${theme('spaces.l')};
+    margin-bottom: ${theme('spaces.l')};
+    padding: 0 ${theme('spaces.l')};
   `}
 `
 
-const Header = styled(Link)`
+const Header = styled.div`
   color: ${theme('colors.black')};
   display: block;
   margin-bottom: ${theme('spaces.s')};
@@ -40,21 +38,44 @@ const Title = styled(Heading)`
 `
 
 const StyledImage = styled(Image)`
-  margin-left: -${theme('spaces.m')};
-  margin-right: -${theme('spaces.m')};
-  margin-bottom: ${theme('spaces.m')};
-  width: calc(100% + ${raw('spaces.m')}rem * 2);
+  height: 26rem;
 
   ${breakpoint('m')`
-    height: 26rem; 
+    margin-top: -10%;
+    height: auto;
+    width: 100%;
   `}
 `
 
-const TipsAndTricksBlock = ({ header, tags, imageLink, title }) => (
+const ImageWrapper = styled.div`
+  overflow: hidden;
+  margin-left: -${theme('spaces.m')};
+  margin-right: -${theme('spaces.m')};
+  margin-bottom: ${theme('spaces.m')};
+  max-height: 26rem;
+  width: calc(100% + ${raw('spaces.m')}rem * 2);
+
+  ${breakpoint('m')`
+    margin-left: -${theme('spaces.l')};
+    margin-right: -${theme('spaces.l')};
+    margin-bottom: ${theme('spaces.l')};
+    width: calc(100% + ${raw('spaces.l')}rem * 2);
+  `}
+`
+
+const StyledLink = styled(Link)`
+  display: block;
+`
+
+const TipsAndTricksBlock = ({ header, tags, imageLink, title, link }) => (
   <Wrapper>
     <Header>{header}</Header>
-    {imageLink != null ? <StyledImage link={imageLink} /> : null}
-    <Title level={2} html>{title}</Title>
+    <StyledLink to={link}>
+      <ImageWrapper>
+        {imageLink != null ? <StyledImage link={imageLink} /> : null}
+      </ImageWrapper>
+      <Title level={2} html>{title}</Title>
+    </StyledLink>
     {tags.map((tag, i) => (<Tag key={i} {...tag} />))}
   </Wrapper>
 )
@@ -64,6 +85,7 @@ TipsAndTricksBlock.propTypes = {
   tags: PropTypes.array,
   imageLink: PropTypes.string,
   title: PropTypes.string,
+  link: PropTypes.string,
 }
 
 export default TipsAndTricksBlock

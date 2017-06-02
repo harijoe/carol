@@ -1,48 +1,96 @@
-import React, { PropTypes } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
+import config from 'config'
 import styled from 'styled-components'
+import { theme, breakpoint } from 'utils/style'
 
-import { Button, ThumbnailPoster, ProjectElaborationQuestion, Paragraph } from 'components'
+import { ThumbnailPoster, ProjectElaborationQuestion, Paragraph, Link } from 'components'
 import Question from './molecules/Question'
-import Response from './molecules/Response'
+import Answer from './molecules/Answer'
 
-const StyledButton = styled(Button)`
-  margin: 0 auto;
-`
 const StyledParagraph = styled(Paragraph)`
-  margin-bottom: 20px
+  margin-bottom: ${theme('spaces.m')};
 `
 
-const AttachmentSummary = ({ element: { title, image_url, subtitle } }) => {
-  /*
-   * subtitle contains all the summary in one block. So, we have to split questions (odd) and responses (even)
-   */
-  const summary = subtitle.split('\n').map(((message, i) => (
-    (i % 2) ?
-      <Response key={i}>{message}</Response>
-      :
-      <Question key={i}>{message}</Question>
-  )))
+const StyledThumbnailPosterWrapper = styled.div`
+  margin-left: -${theme('spaces.m')};
+  margin-right: -${theme('spaces.m')};
 
-  return (
-    <ProjectElaborationQuestion>
-      <StyledParagraph><FormattedMessage id="project.elaboration.summary.title" /></StyledParagraph>
-      <ThumbnailPoster
-        // eslint-disable-next-line camelcase
-        image={image_url}
-        title={title}
-      />
-      {summary}
-      <StyledButton><FormattedMessage id="project.elaboration.summary.validate" /></StyledButton>
-    </ProjectElaborationQuestion>
-  )
+  figure {
+    justify-content: center;
+    height: 14rem;
+
+    ${breakpoint('m')`
+      height: 18rem;
+    `}
+  }
+`
+
+const Wrapper = styled.div`
+  padding-top: 5.6rem;
+  > div > div {
+    max-width: 80%;
+
+    ${breakpoint('m')`
+      max-width: 50%;
+    `}
+  }
+`
+
+const StyledLink = styled(Link)`
+  margin-bottom: ${theme('spaces.s')};
+  min-width: 100%;
+`
+
+class AttachmentSummary extends Component {
+  componentDidMount() {
+    const { redirectTo } = this.props
+
+    redirectTo('/project-elaboration#summary')
+  }
+
+  render() {
+    const { element: { title, image_url, subtitle, buttons }, locale } = this.props
+    const validateButton = buttons[0]
+
+    /*
+     * subtitle contains all the summary in one block. So, we have to split questions (odd) and answers (even)
+     */
+    const summary = subtitle.split('\n').map(((message, i) => (
+      (i % 2) ?
+        <Answer key={i}>{message}</Answer>
+        :
+        <Question key={i}>{message}</Question>
+    )))
+
+    return (
+      <Wrapper id="summary">
+        <ProjectElaborationQuestion>
+          <StyledParagraph><FormattedMessage id="project.elaboration.summary.title" /></StyledParagraph>
+          <StyledThumbnailPosterWrapper>
+            <ThumbnailPoster
+              // eslint-disable-next-line camelcase
+              image={image_url}
+              title={title}
+            />
+          </StyledThumbnailPosterWrapper>
+          {summary}
+          <StyledLink to={validateButton.url.replace(config.locales[locale].url, '')} button>{validateButton.title}</StyledLink>
+        </ProjectElaborationQuestion>
+      </Wrapper>
+    )
+  }
 }
 
 AttachmentSummary.propTypes = {
+  locale: PropTypes.string,
+  redirectTo: PropTypes.func,
   element: PropTypes.shape({
     title: PropTypes.string.isRequired,
     image_url: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
+    buttons: PropTypes.array.isRequired,
   }).isRequired,
 }
 

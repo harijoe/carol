@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fromPost, fromStatus } from 'store/selectors'
 import { postList, POST_LIST } from 'store/actions'
@@ -20,7 +21,9 @@ class PostListContainer extends Component {
   }
 
   componentWillMount() {
-    this.props.request()
+    if (this.props.list.length === 0) {
+      this.props.request()
+    }
   }
 
   render() {

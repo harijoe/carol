@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import injectScroll from 'hoc/component/injectScroll'
 import { ifThen } from 'utils/style'
@@ -21,6 +22,12 @@ const StyledIconLink = styled(IconLink)`${({ popinAccount }) => css`
 
 const QuotatisLogo = ({ atTop, popinNavigation, popinAccount }) => (
   <StyledIconLink
+    // On homepage, scroll to the top instead of doing nothing
+    onClick={() => {
+      if (homepage === true) {
+        window.scrollTo(0, 0)
+      }
+    }}
     to="/"
     icon={!popinNavigation && atTop ? 'quotatis-white' : 'quotatis'}
     size={480}

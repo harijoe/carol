@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
-import { fromAuth } from 'store/selectors'
+import { fromAuth, fromRouting } from 'store/selectors'
 
 const requiresAuth = (AuthenticatedComponent) => {
   class Authentication extends Component {
     static propTypes = {
-      dispatch: React.PropTypes.func.isRequired,
-      location: React.PropTypes.shape({
-        pathname: React.PropTypes.string,
-      }),
-      isAuthenticated: React.PropTypes.bool,
+      dispatch: PropTypes.func.isRequired,
+      redirectPathname: PropTypes.string,
+      isAuthenticated: PropTypes.bool,
     }
 
     componentDidMount() {
@@ -22,13 +21,13 @@ const requiresAuth = (AuthenticatedComponent) => {
     }
 
     checkAndRedirect() {
-      const { dispatch, location, isAuthenticated } = this.props
+      const { dispatch, redirectPathname, isAuthenticated } = this.props
 
       // Not authenticated? Redirect to login
       if (!isAuthenticated) {
         dispatch(push({
           pathname: '/login',
-          state: { redirectPathname: location.pathname },
+          state: { redirectPathname },
         }))
       }
     }
@@ -44,6 +43,7 @@ const requiresAuth = (AuthenticatedComponent) => {
 
   const mapStateToProps = state => ({
     isAuthenticated: fromAuth.isAuthenticated(state),
+    redirectPathname: fromRouting.getPathname(state) + fromRouting.getSearch(state),
   })
 
   return connect(mapStateToProps)(Authentication)

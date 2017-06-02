@@ -1,11 +1,13 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
 import { Field, reduxForm } from 'redux-form'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
-import { theme, breakpoint } from 'utils/style'
+import { theme, ifThen, breakpoint } from 'utils/style'
 import messages from 'utils/messages'
 
-import { RenderField, Button, Icon } from 'components'
+import { RenderField, Icon, PopinMenu, PopinMenuButton } from 'components'
 
 const StyledForm = styled.form`
   display: flex;
@@ -17,8 +19,8 @@ const StyledForm = styled.form`
   `}
 
   ${breakpoint('xl')`
-    padding-left: ${theme('spaces.xl')};
-    padding-right: ${theme('spaces.xl')};
+    padding-left: ${theme('spaces.xxl')};
+    padding-right: ${theme('spaces.xxl')};
   `}
 `
 
@@ -31,36 +33,25 @@ const BottomBar = styled.div`
   background-color: ${theme('colors.white')};
   border-top: 0.1rem solid ${theme('colors.grayscale.light')};
 
-  input {
-    background: transparent;
-    border-radius: 0.2rem;
-    border: none;
-    color: ${theme('colors.grayscale.darker')};
-    transition: all .3s;
-
-    &:disabled {
-      opacity: 0.2;
-    }
-
-    &:focus {
-      border: 0;
-      outline: 0;
-      background: ${theme('colors.grayscale.lightest')};
-    }
-  }
-
-  div {
-    flex: 1 1 0;
+  div:nth-child(2) {
+    flex-grow: 1;
     margin: 0;
+    padding: 0;
+    border: none;
+    max-width: none;
   }
 
   ${breakpoint('l')`
     border-left: 0.1rem solid ${theme('colors.grayscale.light')};
     border-right: 0.1rem solid ${theme('colors.grayscale.light')};
   `}
+
+  button {
+    background: transparent;
+  }
 `
 
-const BackButton = styled(Button)`
+const BackButton = styled.button`
   display: block;
   align-self: flex-end;
   min-width: 7rem;
@@ -76,7 +67,7 @@ const BackButton = styled(Button)`
   white-space: nowrap;
 `
 
-const SubmitButton = styled(Button)`
+const SubmitButton = styled.button`
   display: block;
   box-sizing: content-box;
   height: ${theme('icons.size.m')};
@@ -85,10 +76,14 @@ const SubmitButton = styled(Button)`
   overflow: hidden;
   line-height: 1;
   background: transparent;
-  transition: all .3s;
+  transition: all 0.3s;
+
+  svg {
+    overflow: auto;
+  }
 
   &:disabled {
-    opacity: 0.2;
+    opacity: 0.4;
 
     span svg path {
       fill: ${theme('colors.grayscale.medium')};
@@ -100,7 +95,7 @@ const SubmitButton = styled(Button)`
   }
 `
 
-const ResetButton = styled(Button)`
+const VerticalDotsButton = styled.div`
   display: block;
   box-sizing: content-box;
   height: ${theme('icons.size.m')};
@@ -125,7 +120,7 @@ const SubmitIcon = styled(Icon)`
   vertical-align: middle;
 `
 
-const ResetIcon = styled(Icon)`
+const VerticalDotsIcon = styled(Icon)`
   display: block;
   height: ${theme('icons.size.m')};
   width: 0.4rem;
@@ -133,9 +128,39 @@ const ResetIcon = styled(Icon)`
   vertical-align: middle;
 `
 
+const StyledField = styled(Field)`${({ disabled }) => css`
+  ${ifThen(disabled,
+    'border: none',
+    css`border: none;`
+  )};
+  padding-left: ${theme('spaces.m')};
+  width: 100%;
+  background: transparent;
+  border-radius: 0.2rem;
+  color: ${theme('colors.grayscale.darker')};
+  transition: all 0.3s;
+
+  &:disabled {
+    opacity: 0.4;
+  }
+
+  &:focus, &:-webkit-autofill {
+    outline: 0;
+    background: ${theme('colors.grayscale.lightest')}; 
+  }
+`}`
+
 class Form extends Component {
+  /*
+   TODO: Implement a better fix using following links describing the issues in play
+   - https://github.com/styled-components/styled-components/issues/617
+   - https://github.com/styled-components/styled-components/issues/618
+   Ideally we would not want to use findDOMNode, as it will eventually be deprecated by Facebook.
+   However, it seems to not have been deprecated yet in fiber.
+  */
   componentDidUpdate() {
-    this.field.focus()
+    // eslint-disable-next-line react/no-find-dom-node
+    ReactDOM.findDOMNode(this.field).querySelector('input').focus()
   }
 
   render() {
@@ -148,33 +173,41 @@ class Form extends Component {
       submitting,
       disabled,
     } = this.props
+
     const submit = (values) => {
-      reply(values.response)
+      reply(values.answer)
       reset()
     }
 
+    const SubMenuReset = () => (
+      <PopinMenuButton onClick={() => submit({ answer: 'new_project.reset' })}>
+        <FormattedMessage id="project.elaboration.reset" />
+      </PopinMenuButton>
+    )
+
     return (
       <StyledForm onSubmit={handleSubmit(submit)}>
-        <BackButton onClick={() => submit({ response: 'new_project.back' })}>
+        <BackButton type="button" onClick={() => submit({ answer: 'new_project.back' })}>
           <BackIcon icon="back" />
-          <FormattedMessage id="project.elaboration.back" tagName="span" />
+          <FormattedMessage id="project.elaboration.back" />
         </BackButton>
         <BottomBar>
-          <ResetButton onClick={() => submit({ response: 'new_project.reset' })}>
-            <ResetIcon icon="vertical-dots" />
-            <FormattedMessage id="project.elaboration.reset" tagName="span" />
-          </ResetButton>
-          <Field
+          <PopinMenu menu={[<SubMenuReset />]}>
+            <VerticalDotsButton>
+              <VerticalDotsIcon icon="vertical-dots" />
+            </VerticalDotsButton>
+          </PopinMenu>
+          <StyledField
             disabled={disabled}
-            name="response"
+            name="answer"
             component={RenderField}
-            placeholder={formatMessage(messages('project.elaboration.response').label)}
+            placeholder={formatMessage(messages('project.elaboration.answer').label)}
             autoFocus
             innerRef={(field) => { this.field = field }}
           />
           <SubmitButton disabled={pristine || submitting} type="submit">
             <SubmitIcon icon="send" />
-            <FormattedMessage id="project.elaboration.submit" tagName="span" />
+            <FormattedMessage id="project.elaboration.submit" />
           </SubmitButton>
         </BottomBar>
       </StyledForm>

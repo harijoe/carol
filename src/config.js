@@ -5,20 +5,20 @@ const config = {
     env: (typeof process.env.NODE_ENV !== 'undefined' && process.env.NODE_ENV.toString()) || 'development',
     ip: (typeof process.env.IP !== 'undefined' && process.env.IP.toString()) || '0.0.0.0',
     port: process.env.PORT || 443,
-    basename: `/${process.env.PUBLIC_PATH || ''}`.replace('//', '/'), // Accepts: '/', '/path', 'path', undefined,
     browser: typeof window !== 'undefined',
+    assetPath: '',
     api: {
-      url: 'https://api-dev.qarx.io:8080/app_dev.php',
+      url: 'https://api-dev.qarx.io:8080',
       clientId: '4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k',
       clientSecret: '4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc',
     },
     ssl: {
       privateKey: 'ssl/qarx.io.key',
       certificate: 'ssl/qarx.io.crt',
+      intermediate: 'ssl/qarx.intermediate.io.crt',
     },
     google: {
       mapsKey: 'AIzaSyCYrFIvVAYqnWCNjjAfGIanmwxVvj1FPj8',
-      recaptchaKey: '6LctdA0UAAAAAMrXgwLpRnYl6KakExQn8kPRcSmN',
       grantType: 'https://www.quotatis.com/google',
       clientId: '726740106708-5fh1f42gq45ek5a5g2p7olldjt679qjg.apps.googleusercontent.com',
       scope: 'https://www.googleapis.com/auth/plus.login',
@@ -34,7 +34,7 @@ const config = {
       scope: 'public_profile, email, user_birthday, user_location',
     },
     cloudinaryUrl: 'https://res.cloudinary.com/quotatis/image/upload/FrontApp/',
-    contentSiteUrl: 'https://conseils-travaux.quotatis.fr/',
+    contentSiteUrl: 'https://www.quotatis.fr/conseils-travaux/',
     defaultProUrl: 'https://www.quotatispro.co.uk',
     defaultLocale: 'en_GB',
     locales: {
@@ -57,6 +57,15 @@ const config = {
         countryLabel: 'country.great_britain',
       },
     },
+    purgeCacheToken: '41Xdkf2c7lflo2o065BTV21y6V6xhg9t',
+    socialNetworksUrls: {
+      facebook: 'https://www.facebook.com/Quotatis.FR/',
+      twitter: 'https://twitter.com/quotatisfr',
+      linkedin: 'https://www.linkedin.com/company-beta/50071/',
+      instagram: 'https://www.instagram.com/quotatis/',
+    },
+    termsUrl: 'https://www.quotatis.fr/conseils-travaux/cgu',
+    cookiesUrl: 'https://www.quotatis.fr/conseils-travaux/cgu#cookies',
   },
   staging: {
     api: {
@@ -76,23 +85,34 @@ const config = {
   },
   production: {
     api: {
-      url: 'https://api-prod.qarx.io',
+      url: 'https://api.quotatis.com',
+      clientId: '21ujn3bgfgjoc8w08s0wgkwgc8s8g4gscggcc4skog8c0g4k8c',
+      clientSecret: '5fbpmtbpwkcg0w8gk8ssg44084okg8co4koccssgws8ko0c440',
     },
     locales: {
       fr_FR: {
-        url: 'https://carol-fr-prod.qarx.io',
+        url: 'https://www.quotatis.fr',
       },
       es_ES: {
-        url: 'https://carol-es-prod.qarx.io',
+        url: 'https://www.quotatis.es',
       },
       en_GB: {
-        url: 'https://carol-co-uk-prod.qarx.io',
+        url: 'https://www.quotatis.co.uk',
       },
+    },
+    google: {
+      mapsKey: 'AIzaSyAsFOnh8HufqRe55p_7rCOQG0nxz22px4Q',
+      clientId: '726740106708-1197l2ohju4kcpod6ugq2k87675t6ibs.apps.googleusercontent.com',
+    },
+    facebook: {
+      appId: '297437357370490',
     },
     ssl: {
       privateKey: 'ssl/quotatis.com.key',
       certificate: 'ssl/quotatis.com.crt',
+      intermediate: 'ssl/quotatis.intermediate.com.crt',
     },
+    assetPath: 'https://assets.quotatis.com',
   },
 }
 

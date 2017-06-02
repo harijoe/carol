@@ -1,21 +1,24 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { theme } from 'utils/style'
 
 import { Paragraph } from 'components'
 
 const StyledParagraph = styled(Paragraph)`
-  font-weight: bold;
+  margin-top: ${theme('spaces.xl')};
+  font-family: ${theme('fonts.family.montserratBold')};
 `
 
-const Response = ({ children }) => (
+const Question = ({ children }) => (
   <StyledParagraph>
     {children}
   </StyledParagraph>
 )
 
-Response.propTypes = {
+Question.propTypes = {
   children: PropTypes.any,
 }
 
 
-export default Response
+export default Question
