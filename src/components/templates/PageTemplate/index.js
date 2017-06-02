@@ -83,13 +83,13 @@ class PageTemplate extends Component {
   }
 
   render() {
-    const { header, children, footer, ssr, ...props } = this.props
+    const { header, children, footer, ...props } = this.props
     const { loaded } = this.state
 
     return (
       <ThemeProvider theme={defaultTheme}>
         <Wrapper {...props}>
-          { !ssr && <NotificationsSystem theme={theme} defaultValues={notificationsDefaultValues} /> }
+          <NotificationsSystem theme={theme} defaultValues={notificationsDefaultValues} />
           {
             /*
               Motion menu disabled for V1
