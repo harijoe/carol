@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { injectIntl, intlShape } from 'react-intl'
 
 import {
   MainLayout,
@@ -15,9 +16,8 @@ import { Hero } from 'containers'
 const HomePage = props => (
   <MainLayout {...props}>
     <Helmet>
-      <script type="application/ld+json">{`
-        { "@context": "http://schema.org", "@type": "Organization", "url": "https://www.quotatis.fr", "name": "Quotatis", "logo": "https://res.cloudinary.com/quotatis/image/upload/v1496149619/FrontApp/icons/quotatis-firm.svg", "sameAs": [ "https://www.facebook.com/Quotatis.FR", "https://twitter.com/QuotatisFr", "https://www.youtube.com/user/quotatis", "http://fr.viadeo.com/fr/company/quotatis", "https://www.linkedin.com/company/quotatis", "https://www.instagram.com/quotatis/" ] }
-      `}</script>
+      <meta name="description" content={props.intl.formatMessage({ id: 'pages.home.meta.description' })} />
+      <script type="application/ld+json">{props.intl.formatMessage({ id: 'pages.home.ld+json' })}</script>
     </Helmet>
     <Hero />
     <MainWrapper>
@@ -30,4 +30,8 @@ const HomePage = props => (
   </MainLayout>
 )
 
-export default HomePage
+HomePage.propTypes = {
+  intl: intlShape.isRequired,
+}
+
+export default injectIntl(HomePage)
