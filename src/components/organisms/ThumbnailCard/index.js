@@ -66,6 +66,7 @@ const StyledList = styled(List)`
   margin: 0;
   padding: 0;
   list-style: none;
+  text-align: left;
 
   li {
     padding-top: ${theme('spaces.xs')};
@@ -78,6 +79,7 @@ const StyledList = styled(List)`
 const CardFooter = styled.footer`
   padding: ${theme('spaces.s')};
   font-size: ${theme('fonts.size.s')};
+  text-align: left;
   color: ${theme('colors.primary')};
 
   ${breakpoint('m')`
