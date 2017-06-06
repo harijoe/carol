@@ -109,7 +109,8 @@ const fr = {
   'project.elaboration.back': 'Retour',
   'project.elaboration.choose_conversation': 'Choisissez une conversation',
   'project.elaboration.summary.validate': 'Valider ma demande',
-  'project.elaboration.summary.title': 'Vous trouverez ci-joint le résumé de votre demande de projet.',
+  'project.elaboration.summary.title': 'Pour lancer la recherche de professionnels, validez votre projet.',
+  'project.elaboration.summary.subtitle': 'Vous trouverez ci-joint le résumé de votre demande de projet.',
   'project.elaboration.project_prevalidation.success': 'Le projet %name% a été créé',
 
   'project.notify_project_validated': 'Votre demande de projet est validée',

@@ -107,7 +107,8 @@ const es = {
   'project.elaboration.back': 'Back ES',
   'project.elaboration.choose_conversation': 'Choose a conversation ES',
   'project.elaboration.summary.validate': 'Validate your request ES',
-  'project.elaboration.summary.title': 'Vous trouverez ci-joint le résumé de votre demande de projet ES',
+  'project.elaboration.summary.title': 'Pour lancer la recherche de professionnels, validez votre projet ES',
+  'project.elaboration.summary.subtitle': 'Vous trouverez ci-joint le résumé de votre demande de projet ES',
   'project.elaboration.project_prevalidation.success': 'The project %name% was created ES',
 
   'project.notify_project_validated': 'Your project request has been validated ES',

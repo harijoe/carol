@@ -9,6 +9,11 @@ import { ThumbnailPoster, ProjectElaborationQuestion, Paragraph, Link } from 'co
 import Question from './molecules/Question'
 import Answer from './molecules/Answer'
 
+const SummaryTitle = styled(Paragraph)`
+  margin-bottom: ${theme('spaces.m')};
+  font-family: ${theme('fonts.family.montserratBold')};
+`
+
 const StyledParagraph = styled(Paragraph)`
   margin-bottom: ${theme('spaces.m')};
 `
@@ -67,6 +72,8 @@ class AttachmentSummary extends Component {
     return (
       <Wrapper id="summary">
         <ProjectElaborationQuestion>
+          <SummaryTitle><FormattedMessage id="project.elaboration.summary.title" /></SummaryTitle>
+          <StyledLink to={validateButton.url.replace(config.locales[locale].url, '')} button>{validateButton.title}</StyledLink>
           <StyledParagraph><FormattedMessage id="project.elaboration.summary.title" /></StyledParagraph>
           <StyledThumbnailPosterWrapper>
             <ThumbnailPoster
