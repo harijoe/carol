@@ -2,7 +2,7 @@ import { put, select } from 'redux-saga/effects'
 import cookie from 'react-cookie'
 import { push } from 'react-router-redux'
 import uuid from 'uuid/v4'
-import { fromProjectElaboration } from 'store/selectors'
+import { fromProjectElaboration, fromAuth, fromRouting } from 'store/selectors'
 import pushGtmEvent from 'utils/gtm'
 import { takeLatest } from 'utils/effects'
 import fetch from 'sagas/fetch'
@@ -117,6 +117,16 @@ function* resetAll() {
 }
 
 function* preValidate({ chatbotStorageId }) {
+  const authenticated = yield select(fromAuth.isAuthenticated)
+  const state = yield select(fromRouting.getState)
+  const redirectPathname = yield select(fromRouting.getPathname)
+
+  if (!authenticated) {
+    yield put(push({ pathname: '/signup', state: { ...state, redirectPathname } }))
+
+    return
+  }
+
   yield* fetch(projectElaborationPreValidate, 'post', `/project-prevalidate/${chatbotStorageId}`)
   const projectName = yield select(fromProjectElaboration.getProjectName)
   const projectId = yield select(fromProjectElaboration.getProjectId)

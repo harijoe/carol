@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { authLogin } from 'store/actions'
 import { createValidator, required, email } from 'services/validation'
-import { fromStatus } from 'store/selectors'
+import { fromStatus, fromRouting } from 'store/selectors'
 
 import { SignInForm } from 'components'
 
@@ -29,7 +29,7 @@ export const config = {
 
 const mapStateToProps = state => ({
   loading: fromStatus.getLoading(state).AUTH_LOGIN,
-  redirectPathname: state.routing.locationBeforeTransitions.state ? state.routing.locationBeforeTransitions.state.redirectPathname : '/',
+  redirectPathname: fromRouting.getState(state).redirectPathname || '/',
 })
 
 const mapDispatchToProps = (dispatch, { redirectPathname }) => (
