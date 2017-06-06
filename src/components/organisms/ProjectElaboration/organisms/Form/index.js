@@ -151,17 +151,18 @@ const StyledField = styled(Field)`${({ disabled }) => css`
 `}`
 
 class Form extends Component {
-  /*
-   TODO: Implement a better fix using following links describing the issues in play
-   - https://github.com/styled-components/styled-components/issues/617
-   - https://github.com/styled-components/styled-components/issues/618
-   Ideally we would not want to use findDOMNode, as it will eventually be deprecated by Facebook.
-   However, it seems to not have been deprecated yet in fiber.
-  */
+
   componentDidUpdate() {
-    // eslint-disable-next-line react/no-find-dom-node
-    ReactDOM.findDOMNode(this.field).querySelector('input').focus()
+    this.getInput().focus()
   }
+
+  onSubmit = submitHandler => (...args) => {
+    setImmediate(() => this.getInput().blur())
+    submitHandler(...args)
+  }
+
+  // eslint-disable-next-line react/no-find-dom-node
+  getInput = () => ReactDOM.findDOMNode(this.field).querySelector('input')
 
   render() {
     const {
@@ -186,7 +187,7 @@ class Form extends Component {
     )
 
     return (
-      <StyledForm onSubmit={handleSubmit(submit)}>
+      <StyledForm onSubmit={this.onSubmit(handleSubmit(submit))}>
         <BackButton type="button" onClick={() => submit({ answer: 'new_project.back' })}>
           <BackIcon icon="back" />
           <FormattedMessage id="project.elaboration.back" />
