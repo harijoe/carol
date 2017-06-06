@@ -36,6 +36,7 @@ const StyledSection = styled(Section)`
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
   background-color: transparent;
 `
 
@@ -43,10 +44,11 @@ const StyledHeading = styled(Heading)`
   color: ${theme('colors.white')};
 `
 
-const HeroSection = ({ title, imageLink }) => (
-  <Wrapper imageLink={imageLink}>
+const HeroSection = ({ title, imageLink, children, ...props }) => (
+  <Wrapper imageLink={imageLink} {...props}>
     <StyledSection>
-      <StyledHeading level={1}>{title}</StyledHeading>
+      <StyledHeading level={1} className="qs-Hero-title">{title}</StyledHeading>
+      {children}
     </StyledSection>
   </Wrapper>
 )
@@ -54,6 +56,7 @@ const HeroSection = ({ title, imageLink }) => (
 HeroSection.propTypes = {
   title: PropTypes.string,
   imageLink: PropTypes.string,
+  children: PropTypes.any,
 }
 
 export default HeroSection

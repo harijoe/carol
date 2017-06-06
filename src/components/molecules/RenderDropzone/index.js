@@ -3,11 +3,97 @@ import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
 import Dropzone from 'react-dropzone'
 import styled from 'styled-components'
+import { theme, breakpoint } from 'utils/style'
 
-import { Button, Block, List, Image } from 'components'
+import { Button, Block, List, Image, Icon } from 'components'
+
+const Wrapper = styled.div`
+  display: flex;
+  margin-bottom: ${theme('spaces.m')};
+  padding-bottom: ${theme('spaces.m')};
+`
 
 const Error = styled(Block)`
   margin: 0.5rem 0 0;
+`
+
+const StyledDropzone = styled(Dropzone)`
+  position: relative;
+  z-index: 1;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  padding: ${theme('spaces.s')};
+  height: 12.5rem;
+  width: 12.5rem;
+  overflow: hidden;
+  font-size: ${theme('fonts.size.s')};
+  text-align: center;
+  color: ${theme('colors.grayscale.medium')};
+  border-radius: 0.5rem;
+  border: 0.1rem dashed ${theme('colors.grayscale.light')};
+
+  ${breakpoint('l')`
+    display: flex;
+  `}
+`
+
+const TextWrapper = styled.div`
+  margin: 0;
+
+  p {
+    margin-top: 0;
+  }
+
+  ${breakpoint('l')`
+    flex: 1 1 0;
+    padding-left: ${theme('spaces.l')};
+  `}
+`
+
+const PreviewWrapper = styled.figure`
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  height: 12.5rem;
+  width: 12.5rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  
+  &::after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(235, 235, 235, 0.9);
+    content: '';
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+`
+const StyledButton = styled(Button)`
+  span {
+    vertical-align: middle;
+
+    &:first-child {
+      margin-right: ${theme('spaces.s')};
+    }
+  }
+
+  svg {
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    svg .camera {
+      fill: ${theme('colors.white')};
+    }
+  }
 `
 
 class RenderDropzone extends Component {
@@ -102,11 +188,11 @@ class RenderDropzone extends Component {
       }
 
       return (
-        <div>
+        <PreviewWrapper>
           {this.state.files.map((file, i) =>
             <Image key={i} alt="preview" width={preview.width || 200} src={file.preview} />
           )}
-        </div>
+        </PreviewWrapper>
       )
     }
 
@@ -125,28 +211,31 @@ class RenderDropzone extends Component {
     }
 
     return (
-      <div>
-        <Button type="button" onClick={this.onOpenClick}>
-          <FormattedMessage id="user.choose_img" />
-        </Button>
-        <Dropzone
+      <Wrapper>
+        <StyledDropzone
           {...field}
           ref={(node) => { this.dropzone = node }}
           onDrop={(filesToUpload, e) => this.handleChange(filesToUpload, e)}
           name={name}
           accept={accept}
         >
-          <div><FormattedMessage id="user.drop_img" /></div>
-        </Dropzone>
+          <span><FormattedMessage id="user.drop_img" /></span>
+          {preview ? previewImg(this.state.files) : null}
+        </StyledDropzone>
+        <TextWrapper>
+          <p><FormattedMessage id="user.drop_text" /></p>
+          <StyledButton type="button" onClick={this.onOpenClick} highlight>
+            <Icon icon="camera" /><FormattedMessage id="user.choose_img" />
+          </StyledButton>
+        </TextWrapper>
 
-        {preview ? previewImg(this.state.files) : null}
         {fileNames(this.state.files)}
         {touched && error &&
           <Error id={`${name}Error`} role="alert" color="danger" transparent>
             <FormattedMessage id={error.id} values={error.values} />
           </Error>
         }
-      </div>
+      </Wrapper>
     )
   }
 }

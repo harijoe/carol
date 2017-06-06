@@ -6,33 +6,449 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <RenderDropzone
-    accept="image/png, image/jpeg, image/jpg"
-    input={
+  "node": <ThemeProvider
+    theme={
         Object {
-            "name": "test",
-            "onChange": [Function],
+            "colors": Object {
+              "alert": "#ffa000",
+              "black": "#262626",
+              "danger": "#d32f2f",
+              "grayscale": Object {
+                "dark": "#5E5E5E",
+                "darker": "#383838",
+                "darkest": "#131313",
+                "light": "#D1D1D1",
+                "lighter": "#EBEBEB",
+                "lightest": "#F9F9F9",
+                "medium": "#ABABAB",
+              },
+              "grey": "#EEE",
+              "primary": "#3333FE",
+              "secondary": "#FDB63F",
+              "success": "#388e3c",
+              "white": "#FFF",
+            },
+            "fonts": Object {
+              "family": Object {
+                "andesBlack": "andes-black, serif",
+                "andesLight": "andes-extralight, serif",
+                "montserratBlack": "montserrat-black, sans-serif",
+                "montserratBold": "montserrat-bold, sans-serif",
+                "montserratLight": "montserrat-light, sans-serif",
+              },
+              "size": Object {
+                "base": "1.4rem",
+                "l": "1.8rem",
+                "m": "1.5rem",
+                "reset": "62.5%",
+                "root": "1rem",
+                "s": "1.2rem",
+                "xl": "2.4rem",
+                "xs": "1rem",
+                "xxl": "3.2rem",
+                "xxxl": "5rem",
+              },
+            },
+            "grid": Object {
+              "breakpoints": Object {
+                "l": 992,
+                "m": 768,
+                "s": 576,
+                "xl": 1200,
+                "xs": 0,
+              },
+              "container": 120,
+              "gridSize": 12,
+              "gutterWidth": Object {
+                "l": 2.5,
+                "m": 2.5,
+                "s": 1.6,
+                "xl": 5,
+                "xs": 1.6,
+              },
+              "outerMargin": Object {
+                "l": 2.5,
+                "m": 2.5,
+                "s": 1.6,
+                "xl": 5,
+                "xs": 1.6,
+              },
+              "padding": Object {
+                "l": 2.5,
+                "m": 2.5,
+                "s": 1.6,
+                "xl": 5,
+                "xs": 1.6,
+              },
+            },
+            "icons": Object {
+              "size": Object {
+                "l": "2.4rem",
+                "m": "2rem",
+                "s": "1.6rem",
+                "xl": "3.6rem",
+                "xs": "1.2rem",
+                "xxl": "4.8rem",
+                "xxxl": "5.6rem",
+              },
+            },
+            "spaces": Object {
+              "l": "2.5rem",
+              "m": "1.6rem",
+              "s": "0.8rem",
+              "xl": "3.2rem",
+              "xs": "0.4rem",
+              "xxl": "5rem",
+              "xxxl": "10rem",
+            },
+            "ui": Object {
+              "size": Object {
+                "l": "100%",
+                "m": "40rem",
+                "s": "20rem",
+              },
+            },
           }
-    }
-    meta={
-        Object {
-            "touched": false,
-          }
-    } />,
-  "nodes": Array [
+    }>
     <RenderDropzone
-      accept="image/png, image/jpeg, image/jpg"
-      input={
+        accept="image/png, image/jpeg, image/jpg"
+        input={
             Object {
-                  "name": "test",
-                  "onChange": [Function],
-                }
-      }
-      meta={
+                "name": "test",
+                "onChange": [Function],
+              }
+        }
+        meta={
             Object {
-                  "touched": false,
+                "touched": false,
+              }
+        }
+        theme={
+            Object {
+                "colors": Object {
+                  "alert": "#ffa000",
+                  "black": "#262626",
+                  "danger": "#d32f2f",
+                  "grayscale": Object {
+                    "dark": "#5E5E5E",
+                    "darker": "#383838",
+                    "darkest": "#131313",
+                    "light": "#D1D1D1",
+                    "lighter": "#EBEBEB",
+                    "lightest": "#F9F9F9",
+                    "medium": "#ABABAB",
+                  },
+                  "grey": "#EEE",
+                  "primary": "#3333FE",
+                  "secondary": "#FDB63F",
+                  "success": "#388e3c",
+                  "white": "#FFF",
+                },
+                "fonts": Object {
+                  "family": Object {
+                    "andesBlack": "andes-black, serif",
+                    "andesLight": "andes-extralight, serif",
+                    "montserratBlack": "montserrat-black, sans-serif",
+                    "montserratBold": "montserrat-bold, sans-serif",
+                    "montserratLight": "montserrat-light, sans-serif",
+                  },
+                  "size": Object {
+                    "base": "1.4rem",
+                    "l": "1.8rem",
+                    "m": "1.5rem",
+                    "reset": "62.5%",
+                    "root": "1rem",
+                    "s": "1.2rem",
+                    "xl": "2.4rem",
+                    "xs": "1rem",
+                    "xxl": "3.2rem",
+                    "xxxl": "5rem",
+                  },
+                },
+                "grid": Object {
+                  "breakpoints": Object {
+                    "l": 992,
+                    "m": 768,
+                    "s": 576,
+                    "xl": 1200,
+                    "xs": 0,
+                  },
+                  "container": 120,
+                  "gridSize": 12,
+                  "gutterWidth": Object {
+                    "l": 2.5,
+                    "m": 2.5,
+                    "s": 1.6,
+                    "xl": 5,
+                    "xs": 1.6,
+                  },
+                  "outerMargin": Object {
+                    "l": 2.5,
+                    "m": 2.5,
+                    "s": 1.6,
+                    "xl": 5,
+                    "xs": 1.6,
+                  },
+                  "padding": Object {
+                    "l": 2.5,
+                    "m": 2.5,
+                    "s": 1.6,
+                    "xl": 5,
+                    "xs": 1.6,
+                  },
+                },
+                "icons": Object {
+                  "size": Object {
+                    "l": "2.4rem",
+                    "m": "2rem",
+                    "s": "1.6rem",
+                    "xl": "3.6rem",
+                    "xs": "1.2rem",
+                    "xxl": "4.8rem",
+                    "xxxl": "5.6rem",
+                  },
+                },
+                "spaces": Object {
+                  "l": "2.5rem",
+                  "m": "1.6rem",
+                  "s": "0.8rem",
+                  "xl": "3.2rem",
+                  "xs": "0.4rem",
+                  "xxl": "5rem",
+                  "xxxl": "10rem",
+                },
+                "ui": Object {
+                  "size": Object {
+                    "l": "100%",
+                    "m": "40rem",
+                    "s": "20rem",
+                  },
+                },
+              }
+        } />
+</ThemeProvider>,
+  "nodes": Array [
+    <ThemeProvider
+      theme={
+            Object {
+                  "colors": Object {
+                    "alert": "#ffa000",
+                    "black": "#262626",
+                    "danger": "#d32f2f",
+                    "grayscale": Object {
+                      "dark": "#5E5E5E",
+                      "darker": "#383838",
+                      "darkest": "#131313",
+                      "light": "#D1D1D1",
+                      "lighter": "#EBEBEB",
+                      "lightest": "#F9F9F9",
+                      "medium": "#ABABAB",
+                    },
+                    "grey": "#EEE",
+                    "primary": "#3333FE",
+                    "secondary": "#FDB63F",
+                    "success": "#388e3c",
+                    "white": "#FFF",
+                  },
+                  "fonts": Object {
+                    "family": Object {
+                      "andesBlack": "andes-black, serif",
+                      "andesLight": "andes-extralight, serif",
+                      "montserratBlack": "montserrat-black, sans-serif",
+                      "montserratBold": "montserrat-bold, sans-serif",
+                      "montserratLight": "montserrat-light, sans-serif",
+                    },
+                    "size": Object {
+                      "base": "1.4rem",
+                      "l": "1.8rem",
+                      "m": "1.5rem",
+                      "reset": "62.5%",
+                      "root": "1rem",
+                      "s": "1.2rem",
+                      "xl": "2.4rem",
+                      "xs": "1rem",
+                      "xxl": "3.2rem",
+                      "xxxl": "5rem",
+                    },
+                  },
+                  "grid": Object {
+                    "breakpoints": Object {
+                      "l": 992,
+                      "m": 768,
+                      "s": 576,
+                      "xl": 1200,
+                      "xs": 0,
+                    },
+                    "container": 120,
+                    "gridSize": 12,
+                    "gutterWidth": Object {
+                      "l": 2.5,
+                      "m": 2.5,
+                      "s": 1.6,
+                      "xl": 5,
+                      "xs": 1.6,
+                    },
+                    "outerMargin": Object {
+                      "l": 2.5,
+                      "m": 2.5,
+                      "s": 1.6,
+                      "xl": 5,
+                      "xs": 1.6,
+                    },
+                    "padding": Object {
+                      "l": 2.5,
+                      "m": 2.5,
+                      "s": 1.6,
+                      "xl": 5,
+                      "xs": 1.6,
+                    },
+                  },
+                  "icons": Object {
+                    "size": Object {
+                      "l": "2.4rem",
+                      "m": "2rem",
+                      "s": "1.6rem",
+                      "xl": "3.6rem",
+                      "xs": "1.2rem",
+                      "xxl": "4.8rem",
+                      "xxxl": "5.6rem",
+                    },
+                  },
+                  "spaces": Object {
+                    "l": "2.5rem",
+                    "m": "1.6rem",
+                    "s": "0.8rem",
+                    "xl": "3.2rem",
+                    "xs": "0.4rem",
+                    "xxl": "5rem",
+                    "xxxl": "10rem",
+                  },
+                  "ui": Object {
+                    "size": Object {
+                      "l": "100%",
+                      "m": "40rem",
+                      "s": "20rem",
+                    },
+                  },
                 }
-      } />,
+      }>
+      <RenderDropzone
+            accept="image/png, image/jpeg, image/jpg"
+            input={
+                  Object {
+                        "name": "test",
+                        "onChange": [Function],
+                      }
+            }
+            meta={
+                  Object {
+                        "touched": false,
+                      }
+            }
+            theme={
+                  Object {
+                        "colors": Object {
+                          "alert": "#ffa000",
+                          "black": "#262626",
+                          "danger": "#d32f2f",
+                          "grayscale": Object {
+                            "dark": "#5E5E5E",
+                            "darker": "#383838",
+                            "darkest": "#131313",
+                            "light": "#D1D1D1",
+                            "lighter": "#EBEBEB",
+                            "lightest": "#F9F9F9",
+                            "medium": "#ABABAB",
+                          },
+                          "grey": "#EEE",
+                          "primary": "#3333FE",
+                          "secondary": "#FDB63F",
+                          "success": "#388e3c",
+                          "white": "#FFF",
+                        },
+                        "fonts": Object {
+                          "family": Object {
+                            "andesBlack": "andes-black, serif",
+                            "andesLight": "andes-extralight, serif",
+                            "montserratBlack": "montserrat-black, sans-serif",
+                            "montserratBold": "montserrat-bold, sans-serif",
+                            "montserratLight": "montserrat-light, sans-serif",
+                          },
+                          "size": Object {
+                            "base": "1.4rem",
+                            "l": "1.8rem",
+                            "m": "1.5rem",
+                            "reset": "62.5%",
+                            "root": "1rem",
+                            "s": "1.2rem",
+                            "xl": "2.4rem",
+                            "xs": "1rem",
+                            "xxl": "3.2rem",
+                            "xxxl": "5rem",
+                          },
+                        },
+                        "grid": Object {
+                          "breakpoints": Object {
+                            "l": 992,
+                            "m": 768,
+                            "s": 576,
+                            "xl": 1200,
+                            "xs": 0,
+                          },
+                          "container": 120,
+                          "gridSize": 12,
+                          "gutterWidth": Object {
+                            "l": 2.5,
+                            "m": 2.5,
+                            "s": 1.6,
+                            "xl": 5,
+                            "xs": 1.6,
+                          },
+                          "outerMargin": Object {
+                            "l": 2.5,
+                            "m": 2.5,
+                            "s": 1.6,
+                            "xl": 5,
+                            "xs": 1.6,
+                          },
+                          "padding": Object {
+                            "l": 2.5,
+                            "m": 2.5,
+                            "s": 1.6,
+                            "xl": 5,
+                            "xs": 1.6,
+                          },
+                        },
+                        "icons": Object {
+                          "size": Object {
+                            "l": "2.4rem",
+                            "m": "2rem",
+                            "s": "1.6rem",
+                            "xl": "3.6rem",
+                            "xs": "1.2rem",
+                            "xxl": "4.8rem",
+                            "xxxl": "5.6rem",
+                          },
+                        },
+                        "spaces": Object {
+                          "l": "2.5rem",
+                          "m": "1.6rem",
+                          "s": "0.8rem",
+                          "xl": "3.2rem",
+                          "xs": "0.4rem",
+                          "xxl": "5rem",
+                          "xxxl": "10rem",
+                        },
+                        "ui": Object {
+                          "size": Object {
+                            "l": "100%",
+                            "m": "40rem",
+                            "s": "20rem",
+                          },
+                        },
+                      }
+            } />
+</ThemeProvider>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -241,11 +657,13 @@ ShallowWrapper {
                         "user.contactPreference.email": "Par email EN",
                         "user.contactPreference.phone": "Par téléphone EN",
                         "user.contact_info": "Contact infos",
+                        "user.contact_preferences": "Contact preferences",
                         "user.continue_with_facebook": "Continue with Facebook",
                         "user.continue_with_google": "Continue with Google",
                         "user.country_code": "Country",
                         "user.create_account": "Sign up",
                         "user.drop_img": "Try dropping some files here, or click to select files to upload.",
+                        "user.drop_text": "Une photo de vous peut entraîner un dialogue plus humain et chaleureux avec l\'artisan. Alors n\'hésitez pas, surtout si vous en avez une sous la main. EN",
                         "user.email": "Email",
                         "user.email.check": "Email validation in progress",
                         "user.email.sent": "A confirmation email has been sent to you",
@@ -281,6 +699,7 @@ ShallowWrapper {
                         "user.postal_code": "Postal code",
                         "user.prefered_language": "Prefered language",
                         "user.profile_info": "Profile infos",
+                        "user.profile_other": "Other",
                         "user.project_page": "My project page",
                         "user.region": "Region",
                         "user.resend": "Renvoyer",
@@ -327,19 +746,227 @@ ShallowWrapper {
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
         }>
-        <RenderDropzone
-                accept="image/png, image/jpeg, image/jpg"
-                input={
+        <ThemeProvider
+                theme={
                         Object {
-                                "name": "test",
-                                "onChange": [Function],
+                                "colors": Object {
+                                  "alert": "#ffa000",
+                                  "black": "#262626",
+                                  "danger": "#d32f2f",
+                                  "grayscale": Object {
+                                    "dark": "#5E5E5E",
+                                    "darker": "#383838",
+                                    "darkest": "#131313",
+                                    "light": "#D1D1D1",
+                                    "lighter": "#EBEBEB",
+                                    "lightest": "#F9F9F9",
+                                    "medium": "#ABABAB",
+                                  },
+                                  "grey": "#EEE",
+                                  "primary": "#3333FE",
+                                  "secondary": "#FDB63F",
+                                  "success": "#388e3c",
+                                  "white": "#FFF",
+                                },
+                                "fonts": Object {
+                                  "family": Object {
+                                    "andesBlack": "andes-black, serif",
+                                    "andesLight": "andes-extralight, serif",
+                                    "montserratBlack": "montserrat-black, sans-serif",
+                                    "montserratBold": "montserrat-bold, sans-serif",
+                                    "montserratLight": "montserrat-light, sans-serif",
+                                  },
+                                  "size": Object {
+                                    "base": "1.4rem",
+                                    "l": "1.8rem",
+                                    "m": "1.5rem",
+                                    "reset": "62.5%",
+                                    "root": "1rem",
+                                    "s": "1.2rem",
+                                    "xl": "2.4rem",
+                                    "xs": "1rem",
+                                    "xxl": "3.2rem",
+                                    "xxxl": "5rem",
+                                  },
+                                },
+                                "grid": Object {
+                                  "breakpoints": Object {
+                                    "l": 992,
+                                    "m": 768,
+                                    "s": 576,
+                                    "xl": 1200,
+                                    "xs": 0,
+                                  },
+                                  "container": 120,
+                                  "gridSize": 12,
+                                  "gutterWidth": Object {
+                                    "l": 2.5,
+                                    "m": 2.5,
+                                    "s": 1.6,
+                                    "xl": 5,
+                                    "xs": 1.6,
+                                  },
+                                  "outerMargin": Object {
+                                    "l": 2.5,
+                                    "m": 2.5,
+                                    "s": 1.6,
+                                    "xl": 5,
+                                    "xs": 1.6,
+                                  },
+                                  "padding": Object {
+                                    "l": 2.5,
+                                    "m": 2.5,
+                                    "s": 1.6,
+                                    "xl": 5,
+                                    "xs": 1.6,
+                                  },
+                                },
+                                "icons": Object {
+                                  "size": Object {
+                                    "l": "2.4rem",
+                                    "m": "2rem",
+                                    "s": "1.6rem",
+                                    "xl": "3.6rem",
+                                    "xs": "1.2rem",
+                                    "xxl": "4.8rem",
+                                    "xxxl": "5.6rem",
+                                  },
+                                },
+                                "spaces": Object {
+                                  "l": "2.5rem",
+                                  "m": "1.6rem",
+                                  "s": "0.8rem",
+                                  "xl": "3.2rem",
+                                  "xs": "0.4rem",
+                                  "xxl": "5rem",
+                                  "xxxl": "10rem",
+                                },
+                                "ui": Object {
+                                  "size": Object {
+                                    "l": "100%",
+                                    "m": "40rem",
+                                    "s": "20rem",
+                                  },
+                                },
                               }
-                }
-                meta={
-                        Object {
-                                "touched": false,
-                              }
-                } />
+                }>
+                <RenderDropzone
+                        accept="image/png, image/jpeg, image/jpg"
+                        input={
+                                Object {
+                                        "name": "test",
+                                        "onChange": [Function],
+                                      }
+                        }
+                        meta={
+                                Object {
+                                        "touched": false,
+                                      }
+                        }
+                        theme={
+                                Object {
+                                        "colors": Object {
+                                          "alert": "#ffa000",
+                                          "black": "#262626",
+                                          "danger": "#d32f2f",
+                                          "grayscale": Object {
+                                            "dark": "#5E5E5E",
+                                            "darker": "#383838",
+                                            "darkest": "#131313",
+                                            "light": "#D1D1D1",
+                                            "lighter": "#EBEBEB",
+                                            "lightest": "#F9F9F9",
+                                            "medium": "#ABABAB",
+                                          },
+                                          "grey": "#EEE",
+                                          "primary": "#3333FE",
+                                          "secondary": "#FDB63F",
+                                          "success": "#388e3c",
+                                          "white": "#FFF",
+                                        },
+                                        "fonts": Object {
+                                          "family": Object {
+                                            "andesBlack": "andes-black, serif",
+                                            "andesLight": "andes-extralight, serif",
+                                            "montserratBlack": "montserrat-black, sans-serif",
+                                            "montserratBold": "montserrat-bold, sans-serif",
+                                            "montserratLight": "montserrat-light, sans-serif",
+                                          },
+                                          "size": Object {
+                                            "base": "1.4rem",
+                                            "l": "1.8rem",
+                                            "m": "1.5rem",
+                                            "reset": "62.5%",
+                                            "root": "1rem",
+                                            "s": "1.2rem",
+                                            "xl": "2.4rem",
+                                            "xs": "1rem",
+                                            "xxl": "3.2rem",
+                                            "xxxl": "5rem",
+                                          },
+                                        },
+                                        "grid": Object {
+                                          "breakpoints": Object {
+                                            "l": 992,
+                                            "m": 768,
+                                            "s": 576,
+                                            "xl": 1200,
+                                            "xs": 0,
+                                          },
+                                          "container": 120,
+                                          "gridSize": 12,
+                                          "gutterWidth": Object {
+                                            "l": 2.5,
+                                            "m": 2.5,
+                                            "s": 1.6,
+                                            "xl": 5,
+                                            "xs": 1.6,
+                                          },
+                                          "outerMargin": Object {
+                                            "l": 2.5,
+                                            "m": 2.5,
+                                            "s": 1.6,
+                                            "xl": 5,
+                                            "xs": 1.6,
+                                          },
+                                          "padding": Object {
+                                            "l": 2.5,
+                                            "m": 2.5,
+                                            "s": 1.6,
+                                            "xl": 5,
+                                            "xs": 1.6,
+                                          },
+                                        },
+                                        "icons": Object {
+                                          "size": Object {
+                                            "l": "2.4rem",
+                                            "m": "2rem",
+                                            "s": "1.6rem",
+                                            "xl": "3.6rem",
+                                            "xs": "1.2rem",
+                                            "xxl": "4.8rem",
+                                            "xxxl": "5.6rem",
+                                          },
+                                        },
+                                        "spaces": Object {
+                                          "l": "2.5rem",
+                                          "m": "1.6rem",
+                                          "s": "0.8rem",
+                                          "xl": "3.2rem",
+                                          "xs": "0.4rem",
+                                          "xxl": "5rem",
+                                          "xxxl": "10rem",
+                                        },
+                                        "ui": Object {
+                                          "size": Object {
+                                            "l": "100%",
+                                            "m": "40rem",
+                                            "s": "20rem",
+                                          },
+                                        },
+                                      }
+                        } />
+        </ThemeProvider>
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -350,19 +977,227 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <RenderDropzone
-            accept="image/png, image/jpeg, image/jpg"
-            input={
+          "children": <ThemeProvider
+            theme={
                         Object {
-                                    "name": "test",
-                                    "onChange": [Function],
+                                    "colors": Object {
+                                      "alert": "#ffa000",
+                                      "black": "#262626",
+                                      "danger": "#d32f2f",
+                                      "grayscale": Object {
+                                        "dark": "#5E5E5E",
+                                        "darker": "#383838",
+                                        "darkest": "#131313",
+                                        "light": "#D1D1D1",
+                                        "lighter": "#EBEBEB",
+                                        "lightest": "#F9F9F9",
+                                        "medium": "#ABABAB",
+                                      },
+                                      "grey": "#EEE",
+                                      "primary": "#3333FE",
+                                      "secondary": "#FDB63F",
+                                      "success": "#388e3c",
+                                      "white": "#FFF",
+                                    },
+                                    "fonts": Object {
+                                      "family": Object {
+                                        "andesBlack": "andes-black, serif",
+                                        "andesLight": "andes-extralight, serif",
+                                        "montserratBlack": "montserrat-black, sans-serif",
+                                        "montserratBold": "montserrat-bold, sans-serif",
+                                        "montserratLight": "montserrat-light, sans-serif",
+                                      },
+                                      "size": Object {
+                                        "base": "1.4rem",
+                                        "l": "1.8rem",
+                                        "m": "1.5rem",
+                                        "reset": "62.5%",
+                                        "root": "1rem",
+                                        "s": "1.2rem",
+                                        "xl": "2.4rem",
+                                        "xs": "1rem",
+                                        "xxl": "3.2rem",
+                                        "xxxl": "5rem",
+                                      },
+                                    },
+                                    "grid": Object {
+                                      "breakpoints": Object {
+                                        "l": 992,
+                                        "m": 768,
+                                        "s": 576,
+                                        "xl": 1200,
+                                        "xs": 0,
+                                      },
+                                      "container": 120,
+                                      "gridSize": 12,
+                                      "gutterWidth": Object {
+                                        "l": 2.5,
+                                        "m": 2.5,
+                                        "s": 1.6,
+                                        "xl": 5,
+                                        "xs": 1.6,
+                                      },
+                                      "outerMargin": Object {
+                                        "l": 2.5,
+                                        "m": 2.5,
+                                        "s": 1.6,
+                                        "xl": 5,
+                                        "xs": 1.6,
+                                      },
+                                      "padding": Object {
+                                        "l": 2.5,
+                                        "m": 2.5,
+                                        "s": 1.6,
+                                        "xl": 5,
+                                        "xs": 1.6,
+                                      },
+                                    },
+                                    "icons": Object {
+                                      "size": Object {
+                                        "l": "2.4rem",
+                                        "m": "2rem",
+                                        "s": "1.6rem",
+                                        "xl": "3.6rem",
+                                        "xs": "1.2rem",
+                                        "xxl": "4.8rem",
+                                        "xxxl": "5.6rem",
+                                      },
+                                    },
+                                    "spaces": Object {
+                                      "l": "2.5rem",
+                                      "m": "1.6rem",
+                                      "s": "0.8rem",
+                                      "xl": "3.2rem",
+                                      "xs": "0.4rem",
+                                      "xxl": "5rem",
+                                      "xxxl": "10rem",
+                                    },
+                                    "ui": Object {
+                                      "size": Object {
+                                        "l": "100%",
+                                        "m": "40rem",
+                                        "s": "20rem",
+                                      },
+                                    },
                                   }
-            }
-            meta={
-                        Object {
-                                    "touched": false,
-                                  }
-            } />,
+            }>
+            <RenderDropzone
+                        accept="image/png, image/jpeg, image/jpg"
+                        input={
+                                    Object {
+                                                "name": "test",
+                                                "onChange": [Function],
+                                              }
+                        }
+                        meta={
+                                    Object {
+                                                "touched": false,
+                                              }
+                        }
+                        theme={
+                                    Object {
+                                                "colors": Object {
+                                                  "alert": "#ffa000",
+                                                  "black": "#262626",
+                                                  "danger": "#d32f2f",
+                                                  "grayscale": Object {
+                                                    "dark": "#5E5E5E",
+                                                    "darker": "#383838",
+                                                    "darkest": "#131313",
+                                                    "light": "#D1D1D1",
+                                                    "lighter": "#EBEBEB",
+                                                    "lightest": "#F9F9F9",
+                                                    "medium": "#ABABAB",
+                                                  },
+                                                  "grey": "#EEE",
+                                                  "primary": "#3333FE",
+                                                  "secondary": "#FDB63F",
+                                                  "success": "#388e3c",
+                                                  "white": "#FFF",
+                                                },
+                                                "fonts": Object {
+                                                  "family": Object {
+                                                    "andesBlack": "andes-black, serif",
+                                                    "andesLight": "andes-extralight, serif",
+                                                    "montserratBlack": "montserrat-black, sans-serif",
+                                                    "montserratBold": "montserrat-bold, sans-serif",
+                                                    "montserratLight": "montserrat-light, sans-serif",
+                                                  },
+                                                  "size": Object {
+                                                    "base": "1.4rem",
+                                                    "l": "1.8rem",
+                                                    "m": "1.5rem",
+                                                    "reset": "62.5%",
+                                                    "root": "1rem",
+                                                    "s": "1.2rem",
+                                                    "xl": "2.4rem",
+                                                    "xs": "1rem",
+                                                    "xxl": "3.2rem",
+                                                    "xxxl": "5rem",
+                                                  },
+                                                },
+                                                "grid": Object {
+                                                  "breakpoints": Object {
+                                                    "l": 992,
+                                                    "m": 768,
+                                                    "s": 576,
+                                                    "xl": 1200,
+                                                    "xs": 0,
+                                                  },
+                                                  "container": 120,
+                                                  "gridSize": 12,
+                                                  "gutterWidth": Object {
+                                                    "l": 2.5,
+                                                    "m": 2.5,
+                                                    "s": 1.6,
+                                                    "xl": 5,
+                                                    "xs": 1.6,
+                                                  },
+                                                  "outerMargin": Object {
+                                                    "l": 2.5,
+                                                    "m": 2.5,
+                                                    "s": 1.6,
+                                                    "xl": 5,
+                                                    "xs": 1.6,
+                                                  },
+                                                  "padding": Object {
+                                                    "l": 2.5,
+                                                    "m": 2.5,
+                                                    "s": 1.6,
+                                                    "xl": 5,
+                                                    "xs": 1.6,
+                                                  },
+                                                },
+                                                "icons": Object {
+                                                  "size": Object {
+                                                    "l": "2.4rem",
+                                                    "m": "2rem",
+                                                    "s": "1.6rem",
+                                                    "xl": "3.6rem",
+                                                    "xs": "1.2rem",
+                                                    "xxl": "4.8rem",
+                                                    "xxxl": "5.6rem",
+                                                  },
+                                                },
+                                                "spaces": Object {
+                                                  "l": "2.5rem",
+                                                  "m": "1.6rem",
+                                                  "s": "0.8rem",
+                                                  "xl": "3.2rem",
+                                                  "xs": "0.4rem",
+                                                  "xxl": "5rem",
+                                                  "xxxl": "10rem",
+                                                },
+                                                "ui": Object {
+                                                  "size": Object {
+                                                    "l": "100%",
+                                                    "m": "40rem",
+                                                    "s": "20rem",
+                                                  },
+                                                },
+                                              }
+                        } />
+</ThemeProvider>,
           "locale": "en",
           "messages": Object {
             "Invalid username and password combination": "Invalid username and password combination",
@@ -562,11 +1397,13 @@ ShallowWrapper {
             "user.contactPreference.email": "Par email EN",
             "user.contactPreference.phone": "Par téléphone EN",
             "user.contact_info": "Contact infos",
+            "user.contact_preferences": "Contact preferences",
             "user.continue_with_facebook": "Continue with Facebook",
             "user.continue_with_google": "Continue with Google",
             "user.country_code": "Country",
             "user.create_account": "Sign up",
             "user.drop_img": "Try dropping some files here, or click to select files to upload.",
+            "user.drop_text": "Une photo de vous peut entraîner un dialogue plus humain et chaleureux avec l\'artisan. Alors n\'hésitez pas, surtout si vous en avez une sous la main. EN",
             "user.email": "Email",
             "user.email.check": "Email validation in progress",
             "user.email.sent": "A confirmation email has been sent to you",
@@ -602,6 +1439,7 @@ ShallowWrapper {
             "user.postal_code": "Postal code",
             "user.prefered_language": "Prefered language",
             "user.profile_info": "Profile infos",
+            "user.profile_other": "Other",
             "user.project_page": "My project page",
             "user.region": "Region",
             "user.resend": "Renvoyer",
@@ -675,33 +1513,449 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <RenderDropzone
-          accept="image/png, image/jpeg, image/jpg"
-          input={
+        "_currentElement": <ThemeProvider
+          theme={
                     Object {
-                              "name": "test",
-                              "onChange": [Function],
+                              "colors": Object {
+                                "alert": "#ffa000",
+                                "black": "#262626",
+                                "danger": "#d32f2f",
+                                "grayscale": Object {
+                                  "dark": "#5E5E5E",
+                                  "darker": "#383838",
+                                  "darkest": "#131313",
+                                  "light": "#D1D1D1",
+                                  "lighter": "#EBEBEB",
+                                  "lightest": "#F9F9F9",
+                                  "medium": "#ABABAB",
+                                },
+                                "grey": "#EEE",
+                                "primary": "#3333FE",
+                                "secondary": "#FDB63F",
+                                "success": "#388e3c",
+                                "white": "#FFF",
+                              },
+                              "fonts": Object {
+                                "family": Object {
+                                  "andesBlack": "andes-black, serif",
+                                  "andesLight": "andes-extralight, serif",
+                                  "montserratBlack": "montserrat-black, sans-serif",
+                                  "montserratBold": "montserrat-bold, sans-serif",
+                                  "montserratLight": "montserrat-light, sans-serif",
+                                },
+                                "size": Object {
+                                  "base": "1.4rem",
+                                  "l": "1.8rem",
+                                  "m": "1.5rem",
+                                  "reset": "62.5%",
+                                  "root": "1rem",
+                                  "s": "1.2rem",
+                                  "xl": "2.4rem",
+                                  "xs": "1rem",
+                                  "xxl": "3.2rem",
+                                  "xxxl": "5rem",
+                                },
+                              },
+                              "grid": Object {
+                                "breakpoints": Object {
+                                  "l": 992,
+                                  "m": 768,
+                                  "s": 576,
+                                  "xl": 1200,
+                                  "xs": 0,
+                                },
+                                "container": 120,
+                                "gridSize": 12,
+                                "gutterWidth": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 5,
+                                  "xs": 1.6,
+                                },
+                                "outerMargin": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 5,
+                                  "xs": 1.6,
+                                },
+                                "padding": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 5,
+                                  "xs": 1.6,
+                                },
+                              },
+                              "icons": Object {
+                                "size": Object {
+                                  "l": "2.4rem",
+                                  "m": "2rem",
+                                  "s": "1.6rem",
+                                  "xl": "3.6rem",
+                                  "xs": "1.2rem",
+                                  "xxl": "4.8rem",
+                                  "xxxl": "5.6rem",
+                                },
+                              },
+                              "spaces": Object {
+                                "l": "2.5rem",
+                                "m": "1.6rem",
+                                "s": "0.8rem",
+                                "xl": "3.2rem",
+                                "xs": "0.4rem",
+                                "xxl": "5rem",
+                                "xxxl": "10rem",
+                              },
+                              "ui": Object {
+                                "size": Object {
+                                  "l": "100%",
+                                  "m": "40rem",
+                                  "s": "20rem",
+                                },
+                              },
                             }
-          }
-          meta={
-                    Object {
-                              "touched": false,
-                            }
-          } />,
+          }>
+          <RenderDropzone
+                    accept="image/png, image/jpeg, image/jpg"
+                    input={
+                              Object {
+                                        "name": "test",
+                                        "onChange": [Function],
+                                      }
+                    }
+                    meta={
+                              Object {
+                                        "touched": false,
+                                      }
+                    }
+                    theme={
+                              Object {
+                                        "colors": Object {
+                                          "alert": "#ffa000",
+                                          "black": "#262626",
+                                          "danger": "#d32f2f",
+                                          "grayscale": Object {
+                                            "dark": "#5E5E5E",
+                                            "darker": "#383838",
+                                            "darkest": "#131313",
+                                            "light": "#D1D1D1",
+                                            "lighter": "#EBEBEB",
+                                            "lightest": "#F9F9F9",
+                                            "medium": "#ABABAB",
+                                          },
+                                          "grey": "#EEE",
+                                          "primary": "#3333FE",
+                                          "secondary": "#FDB63F",
+                                          "success": "#388e3c",
+                                          "white": "#FFF",
+                                        },
+                                        "fonts": Object {
+                                          "family": Object {
+                                            "andesBlack": "andes-black, serif",
+                                            "andesLight": "andes-extralight, serif",
+                                            "montserratBlack": "montserrat-black, sans-serif",
+                                            "montserratBold": "montserrat-bold, sans-serif",
+                                            "montserratLight": "montserrat-light, sans-serif",
+                                          },
+                                          "size": Object {
+                                            "base": "1.4rem",
+                                            "l": "1.8rem",
+                                            "m": "1.5rem",
+                                            "reset": "62.5%",
+                                            "root": "1rem",
+                                            "s": "1.2rem",
+                                            "xl": "2.4rem",
+                                            "xs": "1rem",
+                                            "xxl": "3.2rem",
+                                            "xxxl": "5rem",
+                                          },
+                                        },
+                                        "grid": Object {
+                                          "breakpoints": Object {
+                                            "l": 992,
+                                            "m": 768,
+                                            "s": 576,
+                                            "xl": 1200,
+                                            "xs": 0,
+                                          },
+                                          "container": 120,
+                                          "gridSize": 12,
+                                          "gutterWidth": Object {
+                                            "l": 2.5,
+                                            "m": 2.5,
+                                            "s": 1.6,
+                                            "xl": 5,
+                                            "xs": 1.6,
+                                          },
+                                          "outerMargin": Object {
+                                            "l": 2.5,
+                                            "m": 2.5,
+                                            "s": 1.6,
+                                            "xl": 5,
+                                            "xs": 1.6,
+                                          },
+                                          "padding": Object {
+                                            "l": 2.5,
+                                            "m": 2.5,
+                                            "s": 1.6,
+                                            "xl": 5,
+                                            "xs": 1.6,
+                                          },
+                                        },
+                                        "icons": Object {
+                                          "size": Object {
+                                            "l": "2.4rem",
+                                            "m": "2rem",
+                                            "s": "1.6rem",
+                                            "xl": "3.6rem",
+                                            "xs": "1.2rem",
+                                            "xxl": "4.8rem",
+                                            "xxxl": "5.6rem",
+                                          },
+                                        },
+                                        "spaces": Object {
+                                          "l": "2.5rem",
+                                          "m": "1.6rem",
+                                          "s": "0.8rem",
+                                          "xl": "3.2rem",
+                                          "xs": "0.4rem",
+                                          "xxl": "5rem",
+                                          "xxxl": "10rem",
+                                        },
+                                        "ui": Object {
+                                          "size": Object {
+                                            "l": "100%",
+                                            "m": "40rem",
+                                            "s": "20rem",
+                                          },
+                                        },
+                                      }
+                    } />
+</ThemeProvider>,
         "_debugID": 2,
-        "_renderedOutput": <RenderDropzone
-          accept="image/png, image/jpeg, image/jpg"
-          input={
+        "_renderedOutput": <ThemeProvider
+          theme={
                     Object {
-                              "name": "test",
-                              "onChange": [Function],
+                              "colors": Object {
+                                "alert": "#ffa000",
+                                "black": "#262626",
+                                "danger": "#d32f2f",
+                                "grayscale": Object {
+                                  "dark": "#5E5E5E",
+                                  "darker": "#383838",
+                                  "darkest": "#131313",
+                                  "light": "#D1D1D1",
+                                  "lighter": "#EBEBEB",
+                                  "lightest": "#F9F9F9",
+                                  "medium": "#ABABAB",
+                                },
+                                "grey": "#EEE",
+                                "primary": "#3333FE",
+                                "secondary": "#FDB63F",
+                                "success": "#388e3c",
+                                "white": "#FFF",
+                              },
+                              "fonts": Object {
+                                "family": Object {
+                                  "andesBlack": "andes-black, serif",
+                                  "andesLight": "andes-extralight, serif",
+                                  "montserratBlack": "montserrat-black, sans-serif",
+                                  "montserratBold": "montserrat-bold, sans-serif",
+                                  "montserratLight": "montserrat-light, sans-serif",
+                                },
+                                "size": Object {
+                                  "base": "1.4rem",
+                                  "l": "1.8rem",
+                                  "m": "1.5rem",
+                                  "reset": "62.5%",
+                                  "root": "1rem",
+                                  "s": "1.2rem",
+                                  "xl": "2.4rem",
+                                  "xs": "1rem",
+                                  "xxl": "3.2rem",
+                                  "xxxl": "5rem",
+                                },
+                              },
+                              "grid": Object {
+                                "breakpoints": Object {
+                                  "l": 992,
+                                  "m": 768,
+                                  "s": 576,
+                                  "xl": 1200,
+                                  "xs": 0,
+                                },
+                                "container": 120,
+                                "gridSize": 12,
+                                "gutterWidth": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 5,
+                                  "xs": 1.6,
+                                },
+                                "outerMargin": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 5,
+                                  "xs": 1.6,
+                                },
+                                "padding": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 5,
+                                  "xs": 1.6,
+                                },
+                              },
+                              "icons": Object {
+                                "size": Object {
+                                  "l": "2.4rem",
+                                  "m": "2rem",
+                                  "s": "1.6rem",
+                                  "xl": "3.6rem",
+                                  "xs": "1.2rem",
+                                  "xxl": "4.8rem",
+                                  "xxxl": "5.6rem",
+                                },
+                              },
+                              "spaces": Object {
+                                "l": "2.5rem",
+                                "m": "1.6rem",
+                                "s": "0.8rem",
+                                "xl": "3.2rem",
+                                "xs": "0.4rem",
+                                "xxl": "5rem",
+                                "xxxl": "10rem",
+                              },
+                              "ui": Object {
+                                "size": Object {
+                                  "l": "100%",
+                                  "m": "40rem",
+                                  "s": "20rem",
+                                },
+                              },
                             }
-          }
-          meta={
-                    Object {
-                              "touched": false,
-                            }
-          } />,
+          }>
+          <RenderDropzone
+                    accept="image/png, image/jpeg, image/jpg"
+                    input={
+                              Object {
+                                        "name": "test",
+                                        "onChange": [Function],
+                                      }
+                    }
+                    meta={
+                              Object {
+                                        "touched": false,
+                                      }
+                    }
+                    theme={
+                              Object {
+                                        "colors": Object {
+                                          "alert": "#ffa000",
+                                          "black": "#262626",
+                                          "danger": "#d32f2f",
+                                          "grayscale": Object {
+                                            "dark": "#5E5E5E",
+                                            "darker": "#383838",
+                                            "darkest": "#131313",
+                                            "light": "#D1D1D1",
+                                            "lighter": "#EBEBEB",
+                                            "lightest": "#F9F9F9",
+                                            "medium": "#ABABAB",
+                                          },
+                                          "grey": "#EEE",
+                                          "primary": "#3333FE",
+                                          "secondary": "#FDB63F",
+                                          "success": "#388e3c",
+                                          "white": "#FFF",
+                                        },
+                                        "fonts": Object {
+                                          "family": Object {
+                                            "andesBlack": "andes-black, serif",
+                                            "andesLight": "andes-extralight, serif",
+                                            "montserratBlack": "montserrat-black, sans-serif",
+                                            "montserratBold": "montserrat-bold, sans-serif",
+                                            "montserratLight": "montserrat-light, sans-serif",
+                                          },
+                                          "size": Object {
+                                            "base": "1.4rem",
+                                            "l": "1.8rem",
+                                            "m": "1.5rem",
+                                            "reset": "62.5%",
+                                            "root": "1rem",
+                                            "s": "1.2rem",
+                                            "xl": "2.4rem",
+                                            "xs": "1rem",
+                                            "xxl": "3.2rem",
+                                            "xxxl": "5rem",
+                                          },
+                                        },
+                                        "grid": Object {
+                                          "breakpoints": Object {
+                                            "l": 992,
+                                            "m": 768,
+                                            "s": 576,
+                                            "xl": 1200,
+                                            "xs": 0,
+                                          },
+                                          "container": 120,
+                                          "gridSize": 12,
+                                          "gutterWidth": Object {
+                                            "l": 2.5,
+                                            "m": 2.5,
+                                            "s": 1.6,
+                                            "xl": 5,
+                                            "xs": 1.6,
+                                          },
+                                          "outerMargin": Object {
+                                            "l": 2.5,
+                                            "m": 2.5,
+                                            "s": 1.6,
+                                            "xl": 5,
+                                            "xs": 1.6,
+                                          },
+                                          "padding": Object {
+                                            "l": 2.5,
+                                            "m": 2.5,
+                                            "s": 1.6,
+                                            "xl": 5,
+                                            "xs": 1.6,
+                                          },
+                                        },
+                                        "icons": Object {
+                                          "size": Object {
+                                            "l": "2.4rem",
+                                            "m": "2rem",
+                                            "s": "1.6rem",
+                                            "xl": "3.6rem",
+                                            "xs": "1.2rem",
+                                            "xxl": "4.8rem",
+                                            "xxxl": "5.6rem",
+                                          },
+                                        },
+                                        "spaces": Object {
+                                          "l": "2.5rem",
+                                          "m": "1.6rem",
+                                          "s": "0.8rem",
+                                          "xl": "3.2rem",
+                                          "xs": "0.4rem",
+                                          "xxl": "5rem",
+                                          "xxxl": "10rem",
+                                        },
+                                        "ui": Object {
+                                          "size": Object {
+                                            "l": "100%",
+                                            "m": "40rem",
+                                            "s": "20rem",
+                                          },
+                                        },
+                                      }
+                    } />
+</ThemeProvider>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -914,11 +2168,13 @@ ShallowWrapper {
             "user.contactPreference.email": "Par email EN",
             "user.contactPreference.phone": "Par téléphone EN",
             "user.contact_info": "Contact infos",
+            "user.contact_preferences": "Contact preferences",
             "user.continue_with_facebook": "Continue with Facebook",
             "user.continue_with_google": "Continue with Google",
             "user.country_code": "Country",
             "user.create_account": "Sign up",
             "user.drop_img": "Try dropping some files here, or click to select files to upload.",
+            "user.drop_text": "Une photo de vous peut entraîner un dialogue plus humain et chaleureux avec l\'artisan. Alors n\'hésitez pas, surtout si vous en avez une sous la main. EN",
             "user.email": "Email",
             "user.email.check": "Email validation in progress",
             "user.email.sent": "A confirmation email has been sent to you",
@@ -954,6 +2210,7 @@ ShallowWrapper {
             "user.postal_code": "Postal code",
             "user.prefered_language": "Prefered language",
             "user.profile_info": "Profile infos",
+            "user.profile_other": "Other",
             "user.project_page": "My project page",
             "user.region": "Region",
             "user.resend": "Renvoyer",
@@ -1000,19 +2257,227 @@ ShallowWrapper {
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }
     }>
-    <RenderDropzone
-        accept="image/png, image/jpeg, image/jpg"
-        input={
+    <ThemeProvider
+        theme={
             Object {
-                "name": "test",
-                "onChange": [Function],
+                "colors": Object {
+                  "alert": "#ffa000",
+                  "black": "#262626",
+                  "danger": "#d32f2f",
+                  "grayscale": Object {
+                    "dark": "#5E5E5E",
+                    "darker": "#383838",
+                    "darkest": "#131313",
+                    "light": "#D1D1D1",
+                    "lighter": "#EBEBEB",
+                    "lightest": "#F9F9F9",
+                    "medium": "#ABABAB",
+                  },
+                  "grey": "#EEE",
+                  "primary": "#3333FE",
+                  "secondary": "#FDB63F",
+                  "success": "#388e3c",
+                  "white": "#FFF",
+                },
+                "fonts": Object {
+                  "family": Object {
+                    "andesBlack": "andes-black, serif",
+                    "andesLight": "andes-extralight, serif",
+                    "montserratBlack": "montserrat-black, sans-serif",
+                    "montserratBold": "montserrat-bold, sans-serif",
+                    "montserratLight": "montserrat-light, sans-serif",
+                  },
+                  "size": Object {
+                    "base": "1.4rem",
+                    "l": "1.8rem",
+                    "m": "1.5rem",
+                    "reset": "62.5%",
+                    "root": "1rem",
+                    "s": "1.2rem",
+                    "xl": "2.4rem",
+                    "xs": "1rem",
+                    "xxl": "3.2rem",
+                    "xxxl": "5rem",
+                  },
+                },
+                "grid": Object {
+                  "breakpoints": Object {
+                    "l": 992,
+                    "m": 768,
+                    "s": 576,
+                    "xl": 1200,
+                    "xs": 0,
+                  },
+                  "container": 120,
+                  "gridSize": 12,
+                  "gutterWidth": Object {
+                    "l": 2.5,
+                    "m": 2.5,
+                    "s": 1.6,
+                    "xl": 5,
+                    "xs": 1.6,
+                  },
+                  "outerMargin": Object {
+                    "l": 2.5,
+                    "m": 2.5,
+                    "s": 1.6,
+                    "xl": 5,
+                    "xs": 1.6,
+                  },
+                  "padding": Object {
+                    "l": 2.5,
+                    "m": 2.5,
+                    "s": 1.6,
+                    "xl": 5,
+                    "xs": 1.6,
+                  },
+                },
+                "icons": Object {
+                  "size": Object {
+                    "l": "2.4rem",
+                    "m": "2rem",
+                    "s": "1.6rem",
+                    "xl": "3.6rem",
+                    "xs": "1.2rem",
+                    "xxl": "4.8rem",
+                    "xxxl": "5.6rem",
+                  },
+                },
+                "spaces": Object {
+                  "l": "2.5rem",
+                  "m": "1.6rem",
+                  "s": "0.8rem",
+                  "xl": "3.2rem",
+                  "xs": "0.4rem",
+                  "xxl": "5rem",
+                  "xxxl": "10rem",
+                },
+                "ui": Object {
+                  "size": Object {
+                    "l": "100%",
+                    "m": "40rem",
+                    "s": "20rem",
+                  },
+                },
               }
-        }
-        meta={
-            Object {
-                "touched": false,
-              }
-        } />
+        }>
+        <RenderDropzone
+            accept="image/png, image/jpeg, image/jpg"
+            input={
+                Object {
+                    "name": "test",
+                    "onChange": [Function],
+                  }
+            }
+            meta={
+                Object {
+                    "touched": false,
+                  }
+            }
+            theme={
+                Object {
+                    "colors": Object {
+                      "alert": "#ffa000",
+                      "black": "#262626",
+                      "danger": "#d32f2f",
+                      "grayscale": Object {
+                        "dark": "#5E5E5E",
+                        "darker": "#383838",
+                        "darkest": "#131313",
+                        "light": "#D1D1D1",
+                        "lighter": "#EBEBEB",
+                        "lightest": "#F9F9F9",
+                        "medium": "#ABABAB",
+                      },
+                      "grey": "#EEE",
+                      "primary": "#3333FE",
+                      "secondary": "#FDB63F",
+                      "success": "#388e3c",
+                      "white": "#FFF",
+                    },
+                    "fonts": Object {
+                      "family": Object {
+                        "andesBlack": "andes-black, serif",
+                        "andesLight": "andes-extralight, serif",
+                        "montserratBlack": "montserrat-black, sans-serif",
+                        "montserratBold": "montserrat-bold, sans-serif",
+                        "montserratLight": "montserrat-light, sans-serif",
+                      },
+                      "size": Object {
+                        "base": "1.4rem",
+                        "l": "1.8rem",
+                        "m": "1.5rem",
+                        "reset": "62.5%",
+                        "root": "1rem",
+                        "s": "1.2rem",
+                        "xl": "2.4rem",
+                        "xs": "1rem",
+                        "xxl": "3.2rem",
+                        "xxxl": "5rem",
+                      },
+                    },
+                    "grid": Object {
+                      "breakpoints": Object {
+                        "l": 992,
+                        "m": 768,
+                        "s": 576,
+                        "xl": 1200,
+                        "xs": 0,
+                      },
+                      "container": 120,
+                      "gridSize": 12,
+                      "gutterWidth": Object {
+                        "l": 2.5,
+                        "m": 2.5,
+                        "s": 1.6,
+                        "xl": 5,
+                        "xs": 1.6,
+                      },
+                      "outerMargin": Object {
+                        "l": 2.5,
+                        "m": 2.5,
+                        "s": 1.6,
+                        "xl": 5,
+                        "xs": 1.6,
+                      },
+                      "padding": Object {
+                        "l": 2.5,
+                        "m": 2.5,
+                        "s": 1.6,
+                        "xl": 5,
+                        "xs": 1.6,
+                      },
+                    },
+                    "icons": Object {
+                      "size": Object {
+                        "l": "2.4rem",
+                        "m": "2rem",
+                        "s": "1.6rem",
+                        "xl": "3.6rem",
+                        "xs": "1.2rem",
+                        "xxl": "4.8rem",
+                        "xxxl": "5.6rem",
+                      },
+                    },
+                    "spaces": Object {
+                      "l": "2.5rem",
+                      "m": "1.6rem",
+                      "s": "0.8rem",
+                      "xl": "3.2rem",
+                      "xs": "0.4rem",
+                      "xxl": "5rem",
+                      "xxxl": "10rem",
+                    },
+                    "ui": Object {
+                      "size": Object {
+                        "l": "100%",
+                        "m": "40rem",
+                        "s": "20rem",
+                      },
+                    },
+                  }
+            } />
+    </ThemeProvider>
 </IntlProvider>,
 }
 `;
@@ -1025,41 +2490,457 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <RenderDropzone
-    accept="image/png, image/jpeg, image/jpg"
-    input={
+  "node": <ThemeProvider
+    theme={
         Object {
-            "name": "test",
-            "onChange": [Function],
-          }
-    }
-    meta={
-        Object {
-            "error": Object {
-              "id": "test",
-              "values": Object {},
+            "colors": Object {
+              "alert": "#ffa000",
+              "black": "#262626",
+              "danger": "#d32f2f",
+              "grayscale": Object {
+                "dark": "#5E5E5E",
+                "darker": "#383838",
+                "darkest": "#131313",
+                "light": "#D1D1D1",
+                "lighter": "#EBEBEB",
+                "lightest": "#F9F9F9",
+                "medium": "#ABABAB",
+              },
+              "grey": "#EEE",
+              "primary": "#3333FE",
+              "secondary": "#FDB63F",
+              "success": "#388e3c",
+              "white": "#FFF",
             },
-            "touched": true,
+            "fonts": Object {
+              "family": Object {
+                "andesBlack": "andes-black, serif",
+                "andesLight": "andes-extralight, serif",
+                "montserratBlack": "montserrat-black, sans-serif",
+                "montserratBold": "montserrat-bold, sans-serif",
+                "montserratLight": "montserrat-light, sans-serif",
+              },
+              "size": Object {
+                "base": "1.4rem",
+                "l": "1.8rem",
+                "m": "1.5rem",
+                "reset": "62.5%",
+                "root": "1rem",
+                "s": "1.2rem",
+                "xl": "2.4rem",
+                "xs": "1rem",
+                "xxl": "3.2rem",
+                "xxxl": "5rem",
+              },
+            },
+            "grid": Object {
+              "breakpoints": Object {
+                "l": 992,
+                "m": 768,
+                "s": 576,
+                "xl": 1200,
+                "xs": 0,
+              },
+              "container": 120,
+              "gridSize": 12,
+              "gutterWidth": Object {
+                "l": 2.5,
+                "m": 2.5,
+                "s": 1.6,
+                "xl": 5,
+                "xs": 1.6,
+              },
+              "outerMargin": Object {
+                "l": 2.5,
+                "m": 2.5,
+                "s": 1.6,
+                "xl": 5,
+                "xs": 1.6,
+              },
+              "padding": Object {
+                "l": 2.5,
+                "m": 2.5,
+                "s": 1.6,
+                "xl": 5,
+                "xs": 1.6,
+              },
+            },
+            "icons": Object {
+              "size": Object {
+                "l": "2.4rem",
+                "m": "2rem",
+                "s": "1.6rem",
+                "xl": "3.6rem",
+                "xs": "1.2rem",
+                "xxl": "4.8rem",
+                "xxxl": "5.6rem",
+              },
+            },
+            "spaces": Object {
+              "l": "2.5rem",
+              "m": "1.6rem",
+              "s": "0.8rem",
+              "xl": "3.2rem",
+              "xs": "0.4rem",
+              "xxl": "5rem",
+              "xxxl": "10rem",
+            },
+            "ui": Object {
+              "size": Object {
+                "l": "100%",
+                "m": "40rem",
+                "s": "20rem",
+              },
+            },
           }
-    } />,
-  "nodes": Array [
+    }>
     <RenderDropzone
-      accept="image/png, image/jpeg, image/jpg"
-      input={
+        accept="image/png, image/jpeg, image/jpg"
+        input={
             Object {
-                  "name": "test",
-                  "onChange": [Function],
-                }
-      }
-      meta={
+                "name": "test",
+                "onChange": [Function],
+              }
+        }
+        meta={
             Object {
-                  "error": Object {
-                    "id": "test",
-                    "values": Object {},
+                "error": Object {
+                  "id": "test",
+                  "values": Object {},
+                },
+                "touched": true,
+              }
+        }
+        theme={
+            Object {
+                "colors": Object {
+                  "alert": "#ffa000",
+                  "black": "#262626",
+                  "danger": "#d32f2f",
+                  "grayscale": Object {
+                    "dark": "#5E5E5E",
+                    "darker": "#383838",
+                    "darkest": "#131313",
+                    "light": "#D1D1D1",
+                    "lighter": "#EBEBEB",
+                    "lightest": "#F9F9F9",
+                    "medium": "#ABABAB",
                   },
-                  "touched": true,
+                  "grey": "#EEE",
+                  "primary": "#3333FE",
+                  "secondary": "#FDB63F",
+                  "success": "#388e3c",
+                  "white": "#FFF",
+                },
+                "fonts": Object {
+                  "family": Object {
+                    "andesBlack": "andes-black, serif",
+                    "andesLight": "andes-extralight, serif",
+                    "montserratBlack": "montserrat-black, sans-serif",
+                    "montserratBold": "montserrat-bold, sans-serif",
+                    "montserratLight": "montserrat-light, sans-serif",
+                  },
+                  "size": Object {
+                    "base": "1.4rem",
+                    "l": "1.8rem",
+                    "m": "1.5rem",
+                    "reset": "62.5%",
+                    "root": "1rem",
+                    "s": "1.2rem",
+                    "xl": "2.4rem",
+                    "xs": "1rem",
+                    "xxl": "3.2rem",
+                    "xxxl": "5rem",
+                  },
+                },
+                "grid": Object {
+                  "breakpoints": Object {
+                    "l": 992,
+                    "m": 768,
+                    "s": 576,
+                    "xl": 1200,
+                    "xs": 0,
+                  },
+                  "container": 120,
+                  "gridSize": 12,
+                  "gutterWidth": Object {
+                    "l": 2.5,
+                    "m": 2.5,
+                    "s": 1.6,
+                    "xl": 5,
+                    "xs": 1.6,
+                  },
+                  "outerMargin": Object {
+                    "l": 2.5,
+                    "m": 2.5,
+                    "s": 1.6,
+                    "xl": 5,
+                    "xs": 1.6,
+                  },
+                  "padding": Object {
+                    "l": 2.5,
+                    "m": 2.5,
+                    "s": 1.6,
+                    "xl": 5,
+                    "xs": 1.6,
+                  },
+                },
+                "icons": Object {
+                  "size": Object {
+                    "l": "2.4rem",
+                    "m": "2rem",
+                    "s": "1.6rem",
+                    "xl": "3.6rem",
+                    "xs": "1.2rem",
+                    "xxl": "4.8rem",
+                    "xxxl": "5.6rem",
+                  },
+                },
+                "spaces": Object {
+                  "l": "2.5rem",
+                  "m": "1.6rem",
+                  "s": "0.8rem",
+                  "xl": "3.2rem",
+                  "xs": "0.4rem",
+                  "xxl": "5rem",
+                  "xxxl": "10rem",
+                },
+                "ui": Object {
+                  "size": Object {
+                    "l": "100%",
+                    "m": "40rem",
+                    "s": "20rem",
+                  },
+                },
+              }
+        } />
+</ThemeProvider>,
+  "nodes": Array [
+    <ThemeProvider
+      theme={
+            Object {
+                  "colors": Object {
+                    "alert": "#ffa000",
+                    "black": "#262626",
+                    "danger": "#d32f2f",
+                    "grayscale": Object {
+                      "dark": "#5E5E5E",
+                      "darker": "#383838",
+                      "darkest": "#131313",
+                      "light": "#D1D1D1",
+                      "lighter": "#EBEBEB",
+                      "lightest": "#F9F9F9",
+                      "medium": "#ABABAB",
+                    },
+                    "grey": "#EEE",
+                    "primary": "#3333FE",
+                    "secondary": "#FDB63F",
+                    "success": "#388e3c",
+                    "white": "#FFF",
+                  },
+                  "fonts": Object {
+                    "family": Object {
+                      "andesBlack": "andes-black, serif",
+                      "andesLight": "andes-extralight, serif",
+                      "montserratBlack": "montserrat-black, sans-serif",
+                      "montserratBold": "montserrat-bold, sans-serif",
+                      "montserratLight": "montserrat-light, sans-serif",
+                    },
+                    "size": Object {
+                      "base": "1.4rem",
+                      "l": "1.8rem",
+                      "m": "1.5rem",
+                      "reset": "62.5%",
+                      "root": "1rem",
+                      "s": "1.2rem",
+                      "xl": "2.4rem",
+                      "xs": "1rem",
+                      "xxl": "3.2rem",
+                      "xxxl": "5rem",
+                    },
+                  },
+                  "grid": Object {
+                    "breakpoints": Object {
+                      "l": 992,
+                      "m": 768,
+                      "s": 576,
+                      "xl": 1200,
+                      "xs": 0,
+                    },
+                    "container": 120,
+                    "gridSize": 12,
+                    "gutterWidth": Object {
+                      "l": 2.5,
+                      "m": 2.5,
+                      "s": 1.6,
+                      "xl": 5,
+                      "xs": 1.6,
+                    },
+                    "outerMargin": Object {
+                      "l": 2.5,
+                      "m": 2.5,
+                      "s": 1.6,
+                      "xl": 5,
+                      "xs": 1.6,
+                    },
+                    "padding": Object {
+                      "l": 2.5,
+                      "m": 2.5,
+                      "s": 1.6,
+                      "xl": 5,
+                      "xs": 1.6,
+                    },
+                  },
+                  "icons": Object {
+                    "size": Object {
+                      "l": "2.4rem",
+                      "m": "2rem",
+                      "s": "1.6rem",
+                      "xl": "3.6rem",
+                      "xs": "1.2rem",
+                      "xxl": "4.8rem",
+                      "xxxl": "5.6rem",
+                    },
+                  },
+                  "spaces": Object {
+                    "l": "2.5rem",
+                    "m": "1.6rem",
+                    "s": "0.8rem",
+                    "xl": "3.2rem",
+                    "xs": "0.4rem",
+                    "xxl": "5rem",
+                    "xxxl": "10rem",
+                  },
+                  "ui": Object {
+                    "size": Object {
+                      "l": "100%",
+                      "m": "40rem",
+                      "s": "20rem",
+                    },
+                  },
                 }
-      } />,
+      }>
+      <RenderDropzone
+            accept="image/png, image/jpeg, image/jpg"
+            input={
+                  Object {
+                        "name": "test",
+                        "onChange": [Function],
+                      }
+            }
+            meta={
+                  Object {
+                        "error": Object {
+                          "id": "test",
+                          "values": Object {},
+                        },
+                        "touched": true,
+                      }
+            }
+            theme={
+                  Object {
+                        "colors": Object {
+                          "alert": "#ffa000",
+                          "black": "#262626",
+                          "danger": "#d32f2f",
+                          "grayscale": Object {
+                            "dark": "#5E5E5E",
+                            "darker": "#383838",
+                            "darkest": "#131313",
+                            "light": "#D1D1D1",
+                            "lighter": "#EBEBEB",
+                            "lightest": "#F9F9F9",
+                            "medium": "#ABABAB",
+                          },
+                          "grey": "#EEE",
+                          "primary": "#3333FE",
+                          "secondary": "#FDB63F",
+                          "success": "#388e3c",
+                          "white": "#FFF",
+                        },
+                        "fonts": Object {
+                          "family": Object {
+                            "andesBlack": "andes-black, serif",
+                            "andesLight": "andes-extralight, serif",
+                            "montserratBlack": "montserrat-black, sans-serif",
+                            "montserratBold": "montserrat-bold, sans-serif",
+                            "montserratLight": "montserrat-light, sans-serif",
+                          },
+                          "size": Object {
+                            "base": "1.4rem",
+                            "l": "1.8rem",
+                            "m": "1.5rem",
+                            "reset": "62.5%",
+                            "root": "1rem",
+                            "s": "1.2rem",
+                            "xl": "2.4rem",
+                            "xs": "1rem",
+                            "xxl": "3.2rem",
+                            "xxxl": "5rem",
+                          },
+                        },
+                        "grid": Object {
+                          "breakpoints": Object {
+                            "l": 992,
+                            "m": 768,
+                            "s": 576,
+                            "xl": 1200,
+                            "xs": 0,
+                          },
+                          "container": 120,
+                          "gridSize": 12,
+                          "gutterWidth": Object {
+                            "l": 2.5,
+                            "m": 2.5,
+                            "s": 1.6,
+                            "xl": 5,
+                            "xs": 1.6,
+                          },
+                          "outerMargin": Object {
+                            "l": 2.5,
+                            "m": 2.5,
+                            "s": 1.6,
+                            "xl": 5,
+                            "xs": 1.6,
+                          },
+                          "padding": Object {
+                            "l": 2.5,
+                            "m": 2.5,
+                            "s": 1.6,
+                            "xl": 5,
+                            "xs": 1.6,
+                          },
+                        },
+                        "icons": Object {
+                          "size": Object {
+                            "l": "2.4rem",
+                            "m": "2rem",
+                            "s": "1.6rem",
+                            "xl": "3.6rem",
+                            "xs": "1.2rem",
+                            "xxl": "4.8rem",
+                            "xxxl": "5.6rem",
+                          },
+                        },
+                        "spaces": Object {
+                          "l": "2.5rem",
+                          "m": "1.6rem",
+                          "s": "0.8rem",
+                          "xl": "3.2rem",
+                          "xs": "0.4rem",
+                          "xxl": "5rem",
+                          "xxxl": "10rem",
+                        },
+                        "ui": Object {
+                          "size": Object {
+                            "l": "100%",
+                            "m": "40rem",
+                            "s": "20rem",
+                          },
+                        },
+                      }
+            } />
+</ThemeProvider>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -1268,11 +3149,13 @@ ShallowWrapper {
                         "user.contactPreference.email": "Par email EN",
                         "user.contactPreference.phone": "Par téléphone EN",
                         "user.contact_info": "Contact infos",
+                        "user.contact_preferences": "Contact preferences",
                         "user.continue_with_facebook": "Continue with Facebook",
                         "user.continue_with_google": "Continue with Google",
                         "user.country_code": "Country",
                         "user.create_account": "Sign up",
                         "user.drop_img": "Try dropping some files here, or click to select files to upload.",
+                        "user.drop_text": "Une photo de vous peut entraîner un dialogue plus humain et chaleureux avec l\'artisan. Alors n\'hésitez pas, surtout si vous en avez une sous la main. EN",
                         "user.email": "Email",
                         "user.email.check": "Email validation in progress",
                         "user.email.sent": "A confirmation email has been sent to you",
@@ -1308,6 +3191,7 @@ ShallowWrapper {
                         "user.postal_code": "Postal code",
                         "user.prefered_language": "Prefered language",
                         "user.profile_info": "Profile infos",
+                        "user.profile_other": "Other",
                         "user.project_page": "My project page",
                         "user.region": "Region",
                         "user.resend": "Renvoyer",
@@ -1354,23 +3238,231 @@ ShallowWrapper {
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
                       }
         }>
-        <RenderDropzone
-                accept="image/png, image/jpeg, image/jpg"
-                input={
+        <ThemeProvider
+                theme={
                         Object {
-                                "name": "test",
-                                "onChange": [Function],
-                              }
-                }
-                meta={
-                        Object {
-                                "error": Object {
-                                  "id": "test",
-                                  "values": Object {},
+                                "colors": Object {
+                                  "alert": "#ffa000",
+                                  "black": "#262626",
+                                  "danger": "#d32f2f",
+                                  "grayscale": Object {
+                                    "dark": "#5E5E5E",
+                                    "darker": "#383838",
+                                    "darkest": "#131313",
+                                    "light": "#D1D1D1",
+                                    "lighter": "#EBEBEB",
+                                    "lightest": "#F9F9F9",
+                                    "medium": "#ABABAB",
+                                  },
+                                  "grey": "#EEE",
+                                  "primary": "#3333FE",
+                                  "secondary": "#FDB63F",
+                                  "success": "#388e3c",
+                                  "white": "#FFF",
                                 },
-                                "touched": true,
+                                "fonts": Object {
+                                  "family": Object {
+                                    "andesBlack": "andes-black, serif",
+                                    "andesLight": "andes-extralight, serif",
+                                    "montserratBlack": "montserrat-black, sans-serif",
+                                    "montserratBold": "montserrat-bold, sans-serif",
+                                    "montserratLight": "montserrat-light, sans-serif",
+                                  },
+                                  "size": Object {
+                                    "base": "1.4rem",
+                                    "l": "1.8rem",
+                                    "m": "1.5rem",
+                                    "reset": "62.5%",
+                                    "root": "1rem",
+                                    "s": "1.2rem",
+                                    "xl": "2.4rem",
+                                    "xs": "1rem",
+                                    "xxl": "3.2rem",
+                                    "xxxl": "5rem",
+                                  },
+                                },
+                                "grid": Object {
+                                  "breakpoints": Object {
+                                    "l": 992,
+                                    "m": 768,
+                                    "s": 576,
+                                    "xl": 1200,
+                                    "xs": 0,
+                                  },
+                                  "container": 120,
+                                  "gridSize": 12,
+                                  "gutterWidth": Object {
+                                    "l": 2.5,
+                                    "m": 2.5,
+                                    "s": 1.6,
+                                    "xl": 5,
+                                    "xs": 1.6,
+                                  },
+                                  "outerMargin": Object {
+                                    "l": 2.5,
+                                    "m": 2.5,
+                                    "s": 1.6,
+                                    "xl": 5,
+                                    "xs": 1.6,
+                                  },
+                                  "padding": Object {
+                                    "l": 2.5,
+                                    "m": 2.5,
+                                    "s": 1.6,
+                                    "xl": 5,
+                                    "xs": 1.6,
+                                  },
+                                },
+                                "icons": Object {
+                                  "size": Object {
+                                    "l": "2.4rem",
+                                    "m": "2rem",
+                                    "s": "1.6rem",
+                                    "xl": "3.6rem",
+                                    "xs": "1.2rem",
+                                    "xxl": "4.8rem",
+                                    "xxxl": "5.6rem",
+                                  },
+                                },
+                                "spaces": Object {
+                                  "l": "2.5rem",
+                                  "m": "1.6rem",
+                                  "s": "0.8rem",
+                                  "xl": "3.2rem",
+                                  "xs": "0.4rem",
+                                  "xxl": "5rem",
+                                  "xxxl": "10rem",
+                                },
+                                "ui": Object {
+                                  "size": Object {
+                                    "l": "100%",
+                                    "m": "40rem",
+                                    "s": "20rem",
+                                  },
+                                },
                               }
-                } />
+                }>
+                <RenderDropzone
+                        accept="image/png, image/jpeg, image/jpg"
+                        input={
+                                Object {
+                                        "name": "test",
+                                        "onChange": [Function],
+                                      }
+                        }
+                        meta={
+                                Object {
+                                        "error": Object {
+                                          "id": "test",
+                                          "values": Object {},
+                                        },
+                                        "touched": true,
+                                      }
+                        }
+                        theme={
+                                Object {
+                                        "colors": Object {
+                                          "alert": "#ffa000",
+                                          "black": "#262626",
+                                          "danger": "#d32f2f",
+                                          "grayscale": Object {
+                                            "dark": "#5E5E5E",
+                                            "darker": "#383838",
+                                            "darkest": "#131313",
+                                            "light": "#D1D1D1",
+                                            "lighter": "#EBEBEB",
+                                            "lightest": "#F9F9F9",
+                                            "medium": "#ABABAB",
+                                          },
+                                          "grey": "#EEE",
+                                          "primary": "#3333FE",
+                                          "secondary": "#FDB63F",
+                                          "success": "#388e3c",
+                                          "white": "#FFF",
+                                        },
+                                        "fonts": Object {
+                                          "family": Object {
+                                            "andesBlack": "andes-black, serif",
+                                            "andesLight": "andes-extralight, serif",
+                                            "montserratBlack": "montserrat-black, sans-serif",
+                                            "montserratBold": "montserrat-bold, sans-serif",
+                                            "montserratLight": "montserrat-light, sans-serif",
+                                          },
+                                          "size": Object {
+                                            "base": "1.4rem",
+                                            "l": "1.8rem",
+                                            "m": "1.5rem",
+                                            "reset": "62.5%",
+                                            "root": "1rem",
+                                            "s": "1.2rem",
+                                            "xl": "2.4rem",
+                                            "xs": "1rem",
+                                            "xxl": "3.2rem",
+                                            "xxxl": "5rem",
+                                          },
+                                        },
+                                        "grid": Object {
+                                          "breakpoints": Object {
+                                            "l": 992,
+                                            "m": 768,
+                                            "s": 576,
+                                            "xl": 1200,
+                                            "xs": 0,
+                                          },
+                                          "container": 120,
+                                          "gridSize": 12,
+                                          "gutterWidth": Object {
+                                            "l": 2.5,
+                                            "m": 2.5,
+                                            "s": 1.6,
+                                            "xl": 5,
+                                            "xs": 1.6,
+                                          },
+                                          "outerMargin": Object {
+                                            "l": 2.5,
+                                            "m": 2.5,
+                                            "s": 1.6,
+                                            "xl": 5,
+                                            "xs": 1.6,
+                                          },
+                                          "padding": Object {
+                                            "l": 2.5,
+                                            "m": 2.5,
+                                            "s": 1.6,
+                                            "xl": 5,
+                                            "xs": 1.6,
+                                          },
+                                        },
+                                        "icons": Object {
+                                          "size": Object {
+                                            "l": "2.4rem",
+                                            "m": "2rem",
+                                            "s": "1.6rem",
+                                            "xl": "3.6rem",
+                                            "xs": "1.2rem",
+                                            "xxl": "4.8rem",
+                                            "xxxl": "5.6rem",
+                                          },
+                                        },
+                                        "spaces": Object {
+                                          "l": "2.5rem",
+                                          "m": "1.6rem",
+                                          "s": "0.8rem",
+                                          "xl": "3.2rem",
+                                          "xs": "0.4rem",
+                                          "xxl": "5rem",
+                                          "xxxl": "10rem",
+                                        },
+                                        "ui": Object {
+                                          "size": Object {
+                                            "l": "100%",
+                                            "m": "40rem",
+                                            "s": "20rem",
+                                          },
+                                        },
+                                      }
+                        } />
+        </ThemeProvider>
 </IntlProvider>,
       "_debugID": 3,
       "_hostContainerInfo": null,
@@ -1381,23 +3473,231 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <RenderDropzone
-            accept="image/png, image/jpeg, image/jpg"
-            input={
+          "children": <ThemeProvider
+            theme={
                         Object {
-                                    "name": "test",
-                                    "onChange": [Function],
-                                  }
-            }
-            meta={
-                        Object {
-                                    "error": Object {
-                                      "id": "test",
-                                      "values": Object {},
+                                    "colors": Object {
+                                      "alert": "#ffa000",
+                                      "black": "#262626",
+                                      "danger": "#d32f2f",
+                                      "grayscale": Object {
+                                        "dark": "#5E5E5E",
+                                        "darker": "#383838",
+                                        "darkest": "#131313",
+                                        "light": "#D1D1D1",
+                                        "lighter": "#EBEBEB",
+                                        "lightest": "#F9F9F9",
+                                        "medium": "#ABABAB",
+                                      },
+                                      "grey": "#EEE",
+                                      "primary": "#3333FE",
+                                      "secondary": "#FDB63F",
+                                      "success": "#388e3c",
+                                      "white": "#FFF",
                                     },
-                                    "touched": true,
+                                    "fonts": Object {
+                                      "family": Object {
+                                        "andesBlack": "andes-black, serif",
+                                        "andesLight": "andes-extralight, serif",
+                                        "montserratBlack": "montserrat-black, sans-serif",
+                                        "montserratBold": "montserrat-bold, sans-serif",
+                                        "montserratLight": "montserrat-light, sans-serif",
+                                      },
+                                      "size": Object {
+                                        "base": "1.4rem",
+                                        "l": "1.8rem",
+                                        "m": "1.5rem",
+                                        "reset": "62.5%",
+                                        "root": "1rem",
+                                        "s": "1.2rem",
+                                        "xl": "2.4rem",
+                                        "xs": "1rem",
+                                        "xxl": "3.2rem",
+                                        "xxxl": "5rem",
+                                      },
+                                    },
+                                    "grid": Object {
+                                      "breakpoints": Object {
+                                        "l": 992,
+                                        "m": 768,
+                                        "s": 576,
+                                        "xl": 1200,
+                                        "xs": 0,
+                                      },
+                                      "container": 120,
+                                      "gridSize": 12,
+                                      "gutterWidth": Object {
+                                        "l": 2.5,
+                                        "m": 2.5,
+                                        "s": 1.6,
+                                        "xl": 5,
+                                        "xs": 1.6,
+                                      },
+                                      "outerMargin": Object {
+                                        "l": 2.5,
+                                        "m": 2.5,
+                                        "s": 1.6,
+                                        "xl": 5,
+                                        "xs": 1.6,
+                                      },
+                                      "padding": Object {
+                                        "l": 2.5,
+                                        "m": 2.5,
+                                        "s": 1.6,
+                                        "xl": 5,
+                                        "xs": 1.6,
+                                      },
+                                    },
+                                    "icons": Object {
+                                      "size": Object {
+                                        "l": "2.4rem",
+                                        "m": "2rem",
+                                        "s": "1.6rem",
+                                        "xl": "3.6rem",
+                                        "xs": "1.2rem",
+                                        "xxl": "4.8rem",
+                                        "xxxl": "5.6rem",
+                                      },
+                                    },
+                                    "spaces": Object {
+                                      "l": "2.5rem",
+                                      "m": "1.6rem",
+                                      "s": "0.8rem",
+                                      "xl": "3.2rem",
+                                      "xs": "0.4rem",
+                                      "xxl": "5rem",
+                                      "xxxl": "10rem",
+                                    },
+                                    "ui": Object {
+                                      "size": Object {
+                                        "l": "100%",
+                                        "m": "40rem",
+                                        "s": "20rem",
+                                      },
+                                    },
                                   }
-            } />,
+            }>
+            <RenderDropzone
+                        accept="image/png, image/jpeg, image/jpg"
+                        input={
+                                    Object {
+                                                "name": "test",
+                                                "onChange": [Function],
+                                              }
+                        }
+                        meta={
+                                    Object {
+                                                "error": Object {
+                                                  "id": "test",
+                                                  "values": Object {},
+                                                },
+                                                "touched": true,
+                                              }
+                        }
+                        theme={
+                                    Object {
+                                                "colors": Object {
+                                                  "alert": "#ffa000",
+                                                  "black": "#262626",
+                                                  "danger": "#d32f2f",
+                                                  "grayscale": Object {
+                                                    "dark": "#5E5E5E",
+                                                    "darker": "#383838",
+                                                    "darkest": "#131313",
+                                                    "light": "#D1D1D1",
+                                                    "lighter": "#EBEBEB",
+                                                    "lightest": "#F9F9F9",
+                                                    "medium": "#ABABAB",
+                                                  },
+                                                  "grey": "#EEE",
+                                                  "primary": "#3333FE",
+                                                  "secondary": "#FDB63F",
+                                                  "success": "#388e3c",
+                                                  "white": "#FFF",
+                                                },
+                                                "fonts": Object {
+                                                  "family": Object {
+                                                    "andesBlack": "andes-black, serif",
+                                                    "andesLight": "andes-extralight, serif",
+                                                    "montserratBlack": "montserrat-black, sans-serif",
+                                                    "montserratBold": "montserrat-bold, sans-serif",
+                                                    "montserratLight": "montserrat-light, sans-serif",
+                                                  },
+                                                  "size": Object {
+                                                    "base": "1.4rem",
+                                                    "l": "1.8rem",
+                                                    "m": "1.5rem",
+                                                    "reset": "62.5%",
+                                                    "root": "1rem",
+                                                    "s": "1.2rem",
+                                                    "xl": "2.4rem",
+                                                    "xs": "1rem",
+                                                    "xxl": "3.2rem",
+                                                    "xxxl": "5rem",
+                                                  },
+                                                },
+                                                "grid": Object {
+                                                  "breakpoints": Object {
+                                                    "l": 992,
+                                                    "m": 768,
+                                                    "s": 576,
+                                                    "xl": 1200,
+                                                    "xs": 0,
+                                                  },
+                                                  "container": 120,
+                                                  "gridSize": 12,
+                                                  "gutterWidth": Object {
+                                                    "l": 2.5,
+                                                    "m": 2.5,
+                                                    "s": 1.6,
+                                                    "xl": 5,
+                                                    "xs": 1.6,
+                                                  },
+                                                  "outerMargin": Object {
+                                                    "l": 2.5,
+                                                    "m": 2.5,
+                                                    "s": 1.6,
+                                                    "xl": 5,
+                                                    "xs": 1.6,
+                                                  },
+                                                  "padding": Object {
+                                                    "l": 2.5,
+                                                    "m": 2.5,
+                                                    "s": 1.6,
+                                                    "xl": 5,
+                                                    "xs": 1.6,
+                                                  },
+                                                },
+                                                "icons": Object {
+                                                  "size": Object {
+                                                    "l": "2.4rem",
+                                                    "m": "2rem",
+                                                    "s": "1.6rem",
+                                                    "xl": "3.6rem",
+                                                    "xs": "1.2rem",
+                                                    "xxl": "4.8rem",
+                                                    "xxxl": "5.6rem",
+                                                  },
+                                                },
+                                                "spaces": Object {
+                                                  "l": "2.5rem",
+                                                  "m": "1.6rem",
+                                                  "s": "0.8rem",
+                                                  "xl": "3.2rem",
+                                                  "xs": "0.4rem",
+                                                  "xxl": "5rem",
+                                                  "xxxl": "10rem",
+                                                },
+                                                "ui": Object {
+                                                  "size": Object {
+                                                    "l": "100%",
+                                                    "m": "40rem",
+                                                    "s": "20rem",
+                                                  },
+                                                },
+                                              }
+                        } />
+</ThemeProvider>,
           "locale": "en",
           "messages": Object {
             "Invalid username and password combination": "Invalid username and password combination",
@@ -1597,11 +3897,13 @@ ShallowWrapper {
             "user.contactPreference.email": "Par email EN",
             "user.contactPreference.phone": "Par téléphone EN",
             "user.contact_info": "Contact infos",
+            "user.contact_preferences": "Contact preferences",
             "user.continue_with_facebook": "Continue with Facebook",
             "user.continue_with_google": "Continue with Google",
             "user.country_code": "Country",
             "user.create_account": "Sign up",
             "user.drop_img": "Try dropping some files here, or click to select files to upload.",
+            "user.drop_text": "Une photo de vous peut entraîner un dialogue plus humain et chaleureux avec l\'artisan. Alors n\'hésitez pas, surtout si vous en avez une sous la main. EN",
             "user.email": "Email",
             "user.email.check": "Email validation in progress",
             "user.email.sent": "A confirmation email has been sent to you",
@@ -1637,6 +3939,7 @@ ShallowWrapper {
             "user.postal_code": "Postal code",
             "user.prefered_language": "Prefered language",
             "user.profile_info": "Profile infos",
+            "user.profile_other": "Other",
             "user.project_page": "My project page",
             "user.region": "Region",
             "user.resend": "Renvoyer",
@@ -1710,41 +4013,457 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <RenderDropzone
-          accept="image/png, image/jpeg, image/jpg"
-          input={
+        "_currentElement": <ThemeProvider
+          theme={
                     Object {
-                              "name": "test",
-                              "onChange": [Function],
-                            }
-          }
-          meta={
-                    Object {
-                              "error": Object {
-                                "id": "test",
-                                "values": Object {},
+                              "colors": Object {
+                                "alert": "#ffa000",
+                                "black": "#262626",
+                                "danger": "#d32f2f",
+                                "grayscale": Object {
+                                  "dark": "#5E5E5E",
+                                  "darker": "#383838",
+                                  "darkest": "#131313",
+                                  "light": "#D1D1D1",
+                                  "lighter": "#EBEBEB",
+                                  "lightest": "#F9F9F9",
+                                  "medium": "#ABABAB",
+                                },
+                                "grey": "#EEE",
+                                "primary": "#3333FE",
+                                "secondary": "#FDB63F",
+                                "success": "#388e3c",
+                                "white": "#FFF",
                               },
-                              "touched": true,
+                              "fonts": Object {
+                                "family": Object {
+                                  "andesBlack": "andes-black, serif",
+                                  "andesLight": "andes-extralight, serif",
+                                  "montserratBlack": "montserrat-black, sans-serif",
+                                  "montserratBold": "montserrat-bold, sans-serif",
+                                  "montserratLight": "montserrat-light, sans-serif",
+                                },
+                                "size": Object {
+                                  "base": "1.4rem",
+                                  "l": "1.8rem",
+                                  "m": "1.5rem",
+                                  "reset": "62.5%",
+                                  "root": "1rem",
+                                  "s": "1.2rem",
+                                  "xl": "2.4rem",
+                                  "xs": "1rem",
+                                  "xxl": "3.2rem",
+                                  "xxxl": "5rem",
+                                },
+                              },
+                              "grid": Object {
+                                "breakpoints": Object {
+                                  "l": 992,
+                                  "m": 768,
+                                  "s": 576,
+                                  "xl": 1200,
+                                  "xs": 0,
+                                },
+                                "container": 120,
+                                "gridSize": 12,
+                                "gutterWidth": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 5,
+                                  "xs": 1.6,
+                                },
+                                "outerMargin": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 5,
+                                  "xs": 1.6,
+                                },
+                                "padding": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 5,
+                                  "xs": 1.6,
+                                },
+                              },
+                              "icons": Object {
+                                "size": Object {
+                                  "l": "2.4rem",
+                                  "m": "2rem",
+                                  "s": "1.6rem",
+                                  "xl": "3.6rem",
+                                  "xs": "1.2rem",
+                                  "xxl": "4.8rem",
+                                  "xxxl": "5.6rem",
+                                },
+                              },
+                              "spaces": Object {
+                                "l": "2.5rem",
+                                "m": "1.6rem",
+                                "s": "0.8rem",
+                                "xl": "3.2rem",
+                                "xs": "0.4rem",
+                                "xxl": "5rem",
+                                "xxxl": "10rem",
+                              },
+                              "ui": Object {
+                                "size": Object {
+                                  "l": "100%",
+                                  "m": "40rem",
+                                  "s": "20rem",
+                                },
+                              },
                             }
-          } />,
+          }>
+          <RenderDropzone
+                    accept="image/png, image/jpeg, image/jpg"
+                    input={
+                              Object {
+                                        "name": "test",
+                                        "onChange": [Function],
+                                      }
+                    }
+                    meta={
+                              Object {
+                                        "error": Object {
+                                          "id": "test",
+                                          "values": Object {},
+                                        },
+                                        "touched": true,
+                                      }
+                    }
+                    theme={
+                              Object {
+                                        "colors": Object {
+                                          "alert": "#ffa000",
+                                          "black": "#262626",
+                                          "danger": "#d32f2f",
+                                          "grayscale": Object {
+                                            "dark": "#5E5E5E",
+                                            "darker": "#383838",
+                                            "darkest": "#131313",
+                                            "light": "#D1D1D1",
+                                            "lighter": "#EBEBEB",
+                                            "lightest": "#F9F9F9",
+                                            "medium": "#ABABAB",
+                                          },
+                                          "grey": "#EEE",
+                                          "primary": "#3333FE",
+                                          "secondary": "#FDB63F",
+                                          "success": "#388e3c",
+                                          "white": "#FFF",
+                                        },
+                                        "fonts": Object {
+                                          "family": Object {
+                                            "andesBlack": "andes-black, serif",
+                                            "andesLight": "andes-extralight, serif",
+                                            "montserratBlack": "montserrat-black, sans-serif",
+                                            "montserratBold": "montserrat-bold, sans-serif",
+                                            "montserratLight": "montserrat-light, sans-serif",
+                                          },
+                                          "size": Object {
+                                            "base": "1.4rem",
+                                            "l": "1.8rem",
+                                            "m": "1.5rem",
+                                            "reset": "62.5%",
+                                            "root": "1rem",
+                                            "s": "1.2rem",
+                                            "xl": "2.4rem",
+                                            "xs": "1rem",
+                                            "xxl": "3.2rem",
+                                            "xxxl": "5rem",
+                                          },
+                                        },
+                                        "grid": Object {
+                                          "breakpoints": Object {
+                                            "l": 992,
+                                            "m": 768,
+                                            "s": 576,
+                                            "xl": 1200,
+                                            "xs": 0,
+                                          },
+                                          "container": 120,
+                                          "gridSize": 12,
+                                          "gutterWidth": Object {
+                                            "l": 2.5,
+                                            "m": 2.5,
+                                            "s": 1.6,
+                                            "xl": 5,
+                                            "xs": 1.6,
+                                          },
+                                          "outerMargin": Object {
+                                            "l": 2.5,
+                                            "m": 2.5,
+                                            "s": 1.6,
+                                            "xl": 5,
+                                            "xs": 1.6,
+                                          },
+                                          "padding": Object {
+                                            "l": 2.5,
+                                            "m": 2.5,
+                                            "s": 1.6,
+                                            "xl": 5,
+                                            "xs": 1.6,
+                                          },
+                                        },
+                                        "icons": Object {
+                                          "size": Object {
+                                            "l": "2.4rem",
+                                            "m": "2rem",
+                                            "s": "1.6rem",
+                                            "xl": "3.6rem",
+                                            "xs": "1.2rem",
+                                            "xxl": "4.8rem",
+                                            "xxxl": "5.6rem",
+                                          },
+                                        },
+                                        "spaces": Object {
+                                          "l": "2.5rem",
+                                          "m": "1.6rem",
+                                          "s": "0.8rem",
+                                          "xl": "3.2rem",
+                                          "xs": "0.4rem",
+                                          "xxl": "5rem",
+                                          "xxxl": "10rem",
+                                        },
+                                        "ui": Object {
+                                          "size": Object {
+                                            "l": "100%",
+                                            "m": "40rem",
+                                            "s": "20rem",
+                                          },
+                                        },
+                                      }
+                    } />
+</ThemeProvider>,
         "_debugID": 4,
-        "_renderedOutput": <RenderDropzone
-          accept="image/png, image/jpeg, image/jpg"
-          input={
+        "_renderedOutput": <ThemeProvider
+          theme={
                     Object {
-                              "name": "test",
-                              "onChange": [Function],
-                            }
-          }
-          meta={
-                    Object {
-                              "error": Object {
-                                "id": "test",
-                                "values": Object {},
+                              "colors": Object {
+                                "alert": "#ffa000",
+                                "black": "#262626",
+                                "danger": "#d32f2f",
+                                "grayscale": Object {
+                                  "dark": "#5E5E5E",
+                                  "darker": "#383838",
+                                  "darkest": "#131313",
+                                  "light": "#D1D1D1",
+                                  "lighter": "#EBEBEB",
+                                  "lightest": "#F9F9F9",
+                                  "medium": "#ABABAB",
+                                },
+                                "grey": "#EEE",
+                                "primary": "#3333FE",
+                                "secondary": "#FDB63F",
+                                "success": "#388e3c",
+                                "white": "#FFF",
                               },
-                              "touched": true,
+                              "fonts": Object {
+                                "family": Object {
+                                  "andesBlack": "andes-black, serif",
+                                  "andesLight": "andes-extralight, serif",
+                                  "montserratBlack": "montserrat-black, sans-serif",
+                                  "montserratBold": "montserrat-bold, sans-serif",
+                                  "montserratLight": "montserrat-light, sans-serif",
+                                },
+                                "size": Object {
+                                  "base": "1.4rem",
+                                  "l": "1.8rem",
+                                  "m": "1.5rem",
+                                  "reset": "62.5%",
+                                  "root": "1rem",
+                                  "s": "1.2rem",
+                                  "xl": "2.4rem",
+                                  "xs": "1rem",
+                                  "xxl": "3.2rem",
+                                  "xxxl": "5rem",
+                                },
+                              },
+                              "grid": Object {
+                                "breakpoints": Object {
+                                  "l": 992,
+                                  "m": 768,
+                                  "s": 576,
+                                  "xl": 1200,
+                                  "xs": 0,
+                                },
+                                "container": 120,
+                                "gridSize": 12,
+                                "gutterWidth": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 5,
+                                  "xs": 1.6,
+                                },
+                                "outerMargin": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 5,
+                                  "xs": 1.6,
+                                },
+                                "padding": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 5,
+                                  "xs": 1.6,
+                                },
+                              },
+                              "icons": Object {
+                                "size": Object {
+                                  "l": "2.4rem",
+                                  "m": "2rem",
+                                  "s": "1.6rem",
+                                  "xl": "3.6rem",
+                                  "xs": "1.2rem",
+                                  "xxl": "4.8rem",
+                                  "xxxl": "5.6rem",
+                                },
+                              },
+                              "spaces": Object {
+                                "l": "2.5rem",
+                                "m": "1.6rem",
+                                "s": "0.8rem",
+                                "xl": "3.2rem",
+                                "xs": "0.4rem",
+                                "xxl": "5rem",
+                                "xxxl": "10rem",
+                              },
+                              "ui": Object {
+                                "size": Object {
+                                  "l": "100%",
+                                  "m": "40rem",
+                                  "s": "20rem",
+                                },
+                              },
                             }
-          } />,
+          }>
+          <RenderDropzone
+                    accept="image/png, image/jpeg, image/jpg"
+                    input={
+                              Object {
+                                        "name": "test",
+                                        "onChange": [Function],
+                                      }
+                    }
+                    meta={
+                              Object {
+                                        "error": Object {
+                                          "id": "test",
+                                          "values": Object {},
+                                        },
+                                        "touched": true,
+                                      }
+                    }
+                    theme={
+                              Object {
+                                        "colors": Object {
+                                          "alert": "#ffa000",
+                                          "black": "#262626",
+                                          "danger": "#d32f2f",
+                                          "grayscale": Object {
+                                            "dark": "#5E5E5E",
+                                            "darker": "#383838",
+                                            "darkest": "#131313",
+                                            "light": "#D1D1D1",
+                                            "lighter": "#EBEBEB",
+                                            "lightest": "#F9F9F9",
+                                            "medium": "#ABABAB",
+                                          },
+                                          "grey": "#EEE",
+                                          "primary": "#3333FE",
+                                          "secondary": "#FDB63F",
+                                          "success": "#388e3c",
+                                          "white": "#FFF",
+                                        },
+                                        "fonts": Object {
+                                          "family": Object {
+                                            "andesBlack": "andes-black, serif",
+                                            "andesLight": "andes-extralight, serif",
+                                            "montserratBlack": "montserrat-black, sans-serif",
+                                            "montserratBold": "montserrat-bold, sans-serif",
+                                            "montserratLight": "montserrat-light, sans-serif",
+                                          },
+                                          "size": Object {
+                                            "base": "1.4rem",
+                                            "l": "1.8rem",
+                                            "m": "1.5rem",
+                                            "reset": "62.5%",
+                                            "root": "1rem",
+                                            "s": "1.2rem",
+                                            "xl": "2.4rem",
+                                            "xs": "1rem",
+                                            "xxl": "3.2rem",
+                                            "xxxl": "5rem",
+                                          },
+                                        },
+                                        "grid": Object {
+                                          "breakpoints": Object {
+                                            "l": 992,
+                                            "m": 768,
+                                            "s": 576,
+                                            "xl": 1200,
+                                            "xs": 0,
+                                          },
+                                          "container": 120,
+                                          "gridSize": 12,
+                                          "gutterWidth": Object {
+                                            "l": 2.5,
+                                            "m": 2.5,
+                                            "s": 1.6,
+                                            "xl": 5,
+                                            "xs": 1.6,
+                                          },
+                                          "outerMargin": Object {
+                                            "l": 2.5,
+                                            "m": 2.5,
+                                            "s": 1.6,
+                                            "xl": 5,
+                                            "xs": 1.6,
+                                          },
+                                          "padding": Object {
+                                            "l": 2.5,
+                                            "m": 2.5,
+                                            "s": 1.6,
+                                            "xl": 5,
+                                            "xs": 1.6,
+                                          },
+                                        },
+                                        "icons": Object {
+                                          "size": Object {
+                                            "l": "2.4rem",
+                                            "m": "2rem",
+                                            "s": "1.6rem",
+                                            "xl": "3.6rem",
+                                            "xs": "1.2rem",
+                                            "xxl": "4.8rem",
+                                            "xxxl": "5.6rem",
+                                          },
+                                        },
+                                        "spaces": Object {
+                                          "l": "2.5rem",
+                                          "m": "1.6rem",
+                                          "s": "0.8rem",
+                                          "xl": "3.2rem",
+                                          "xs": "0.4rem",
+                                          "xxl": "5rem",
+                                          "xxxl": "10rem",
+                                        },
+                                        "ui": Object {
+                                          "size": Object {
+                                            "l": "100%",
+                                            "m": "40rem",
+                                            "s": "20rem",
+                                          },
+                                        },
+                                      }
+                    } />
+</ThemeProvider>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -1957,11 +4676,13 @@ ShallowWrapper {
             "user.contactPreference.email": "Par email EN",
             "user.contactPreference.phone": "Par téléphone EN",
             "user.contact_info": "Contact infos",
+            "user.contact_preferences": "Contact preferences",
             "user.continue_with_facebook": "Continue with Facebook",
             "user.continue_with_google": "Continue with Google",
             "user.country_code": "Country",
             "user.create_account": "Sign up",
             "user.drop_img": "Try dropping some files here, or click to select files to upload.",
+            "user.drop_text": "Une photo de vous peut entraîner un dialogue plus humain et chaleureux avec l\'artisan. Alors n\'hésitez pas, surtout si vous en avez une sous la main. EN",
             "user.email": "Email",
             "user.email.check": "Email validation in progress",
             "user.email.sent": "A confirmation email has been sent to you",
@@ -1997,6 +4718,7 @@ ShallowWrapper {
             "user.postal_code": "Postal code",
             "user.prefered_language": "Prefered language",
             "user.profile_info": "Profile infos",
+            "user.profile_other": "Other",
             "user.project_page": "My project page",
             "user.region": "Region",
             "user.resend": "Renvoyer",
@@ -2043,23 +4765,231 @@ ShallowWrapper {
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
           }
     }>
-    <RenderDropzone
-        accept="image/png, image/jpeg, image/jpg"
-        input={
+    <ThemeProvider
+        theme={
             Object {
-                "name": "test",
-                "onChange": [Function],
-              }
-        }
-        meta={
-            Object {
-                "error": Object {
-                  "id": "test",
-                  "values": Object {},
+                "colors": Object {
+                  "alert": "#ffa000",
+                  "black": "#262626",
+                  "danger": "#d32f2f",
+                  "grayscale": Object {
+                    "dark": "#5E5E5E",
+                    "darker": "#383838",
+                    "darkest": "#131313",
+                    "light": "#D1D1D1",
+                    "lighter": "#EBEBEB",
+                    "lightest": "#F9F9F9",
+                    "medium": "#ABABAB",
+                  },
+                  "grey": "#EEE",
+                  "primary": "#3333FE",
+                  "secondary": "#FDB63F",
+                  "success": "#388e3c",
+                  "white": "#FFF",
                 },
-                "touched": true,
+                "fonts": Object {
+                  "family": Object {
+                    "andesBlack": "andes-black, serif",
+                    "andesLight": "andes-extralight, serif",
+                    "montserratBlack": "montserrat-black, sans-serif",
+                    "montserratBold": "montserrat-bold, sans-serif",
+                    "montserratLight": "montserrat-light, sans-serif",
+                  },
+                  "size": Object {
+                    "base": "1.4rem",
+                    "l": "1.8rem",
+                    "m": "1.5rem",
+                    "reset": "62.5%",
+                    "root": "1rem",
+                    "s": "1.2rem",
+                    "xl": "2.4rem",
+                    "xs": "1rem",
+                    "xxl": "3.2rem",
+                    "xxxl": "5rem",
+                  },
+                },
+                "grid": Object {
+                  "breakpoints": Object {
+                    "l": 992,
+                    "m": 768,
+                    "s": 576,
+                    "xl": 1200,
+                    "xs": 0,
+                  },
+                  "container": 120,
+                  "gridSize": 12,
+                  "gutterWidth": Object {
+                    "l": 2.5,
+                    "m": 2.5,
+                    "s": 1.6,
+                    "xl": 5,
+                    "xs": 1.6,
+                  },
+                  "outerMargin": Object {
+                    "l": 2.5,
+                    "m": 2.5,
+                    "s": 1.6,
+                    "xl": 5,
+                    "xs": 1.6,
+                  },
+                  "padding": Object {
+                    "l": 2.5,
+                    "m": 2.5,
+                    "s": 1.6,
+                    "xl": 5,
+                    "xs": 1.6,
+                  },
+                },
+                "icons": Object {
+                  "size": Object {
+                    "l": "2.4rem",
+                    "m": "2rem",
+                    "s": "1.6rem",
+                    "xl": "3.6rem",
+                    "xs": "1.2rem",
+                    "xxl": "4.8rem",
+                    "xxxl": "5.6rem",
+                  },
+                },
+                "spaces": Object {
+                  "l": "2.5rem",
+                  "m": "1.6rem",
+                  "s": "0.8rem",
+                  "xl": "3.2rem",
+                  "xs": "0.4rem",
+                  "xxl": "5rem",
+                  "xxxl": "10rem",
+                },
+                "ui": Object {
+                  "size": Object {
+                    "l": "100%",
+                    "m": "40rem",
+                    "s": "20rem",
+                  },
+                },
               }
-        } />
+        }>
+        <RenderDropzone
+            accept="image/png, image/jpeg, image/jpg"
+            input={
+                Object {
+                    "name": "test",
+                    "onChange": [Function],
+                  }
+            }
+            meta={
+                Object {
+                    "error": Object {
+                      "id": "test",
+                      "values": Object {},
+                    },
+                    "touched": true,
+                  }
+            }
+            theme={
+                Object {
+                    "colors": Object {
+                      "alert": "#ffa000",
+                      "black": "#262626",
+                      "danger": "#d32f2f",
+                      "grayscale": Object {
+                        "dark": "#5E5E5E",
+                        "darker": "#383838",
+                        "darkest": "#131313",
+                        "light": "#D1D1D1",
+                        "lighter": "#EBEBEB",
+                        "lightest": "#F9F9F9",
+                        "medium": "#ABABAB",
+                      },
+                      "grey": "#EEE",
+                      "primary": "#3333FE",
+                      "secondary": "#FDB63F",
+                      "success": "#388e3c",
+                      "white": "#FFF",
+                    },
+                    "fonts": Object {
+                      "family": Object {
+                        "andesBlack": "andes-black, serif",
+                        "andesLight": "andes-extralight, serif",
+                        "montserratBlack": "montserrat-black, sans-serif",
+                        "montserratBold": "montserrat-bold, sans-serif",
+                        "montserratLight": "montserrat-light, sans-serif",
+                      },
+                      "size": Object {
+                        "base": "1.4rem",
+                        "l": "1.8rem",
+                        "m": "1.5rem",
+                        "reset": "62.5%",
+                        "root": "1rem",
+                        "s": "1.2rem",
+                        "xl": "2.4rem",
+                        "xs": "1rem",
+                        "xxl": "3.2rem",
+                        "xxxl": "5rem",
+                      },
+                    },
+                    "grid": Object {
+                      "breakpoints": Object {
+                        "l": 992,
+                        "m": 768,
+                        "s": 576,
+                        "xl": 1200,
+                        "xs": 0,
+                      },
+                      "container": 120,
+                      "gridSize": 12,
+                      "gutterWidth": Object {
+                        "l": 2.5,
+                        "m": 2.5,
+                        "s": 1.6,
+                        "xl": 5,
+                        "xs": 1.6,
+                      },
+                      "outerMargin": Object {
+                        "l": 2.5,
+                        "m": 2.5,
+                        "s": 1.6,
+                        "xl": 5,
+                        "xs": 1.6,
+                      },
+                      "padding": Object {
+                        "l": 2.5,
+                        "m": 2.5,
+                        "s": 1.6,
+                        "xl": 5,
+                        "xs": 1.6,
+                      },
+                    },
+                    "icons": Object {
+                      "size": Object {
+                        "l": "2.4rem",
+                        "m": "2rem",
+                        "s": "1.6rem",
+                        "xl": "3.6rem",
+                        "xs": "1.2rem",
+                        "xxl": "4.8rem",
+                        "xxxl": "5.6rem",
+                      },
+                    },
+                    "spaces": Object {
+                      "l": "2.5rem",
+                      "m": "1.6rem",
+                      "s": "0.8rem",
+                      "xl": "3.2rem",
+                      "xs": "0.4rem",
+                      "xxl": "5rem",
+                      "xxxl": "10rem",
+                    },
+                    "ui": Object {
+                      "size": Object {
+                        "l": "100%",
+                        "m": "40rem",
+                        "s": "20rem",
+                      },
+                    },
+                  }
+            } />
+    </ThemeProvider>
 </IntlProvider>,
 }
 `;

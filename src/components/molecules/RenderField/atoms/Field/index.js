@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { FormattedMessage } from 'react-intl'
-import { theme, ifThen } from 'utils/style'
+import { theme, ifThen, breakpoint, breakpointMax } from 'utils/style'
 
 import { Label, Input, Block, IconLink } from 'components'
 
@@ -13,7 +13,7 @@ const Error = styled(Block)`
   color: ${theme('colors.danger')};
 `
 
-const Wrapper = styled.div`${({ type }) => css`
+const Wrapper = styled.div`${({ type, smallSize, mediumSize }) => css`
   position: relative;
   margin-bottom: ${theme('spaces.m')};
   padding-bottom: ${theme('spaces.m')};
@@ -41,6 +41,25 @@ const Wrapper = styled.div`${({ type }) => css`
     }
   `
   , '')}
+  ${ifThen(type === 'checkbox', css`
+    ${breakpointMax('l')`
+      label {
+        width: 90%;
+      }
+    `}
+  `
+  , '')}
+  ${ifThen(smallSize, css`
+    ${breakpoint('m')`
+      width: 30%;
+    `}
+  `)};
+
+  ${ifThen(mediumSize, css`
+    ${breakpoint('m')`
+      width: 50%;
+    `}
+  `)};
 `}`
 
 const StyledInput = styled(Input)`${({ hideBorder }) => css`
@@ -107,12 +126,12 @@ const StyledLabel = styled(Label)`${({ hideLabel, lightFont, inline }) => css`
   )}
 `}`
 
-const Field = ({ error, name, invalid, label, hideLabel, lightFont, inline, hideBorder, onIconClick, type, icon, ...props }) => {
+const Field = ({ error, name, invalid, label, hideLabel, lightFont, inline, hideBorder, onIconClick, type, icon, smallSize, mediumSize, ...props }) => {
   const inputProps = { id: name, name, type, invalid, 'aria-describedby': `${name}Error`, ...props }
   const renderInputFirst = type === 'checkbox' || type === 'radio'
 
   return (
-    <Wrapper {...{ hideBorder, type }}>
+    <Wrapper {...{ hideBorder, type, smallSize, mediumSize }}>
       {renderInputFirst && <Input {...inputProps} />}
       {label &&
         <StyledLabel {...{ hideLabel, lightFont, inline }} htmlFor={inputProps.id}>{label}</StyledLabel>
@@ -147,6 +166,8 @@ Field.propTypes = {
   hideLabel: PropTypes.bool,
   lightFont: PropTypes.bool,
   inline: PropTypes.bool,
+  smallSize: PropTypes.bool,
+  mediumSize: PropTypes.bool,
   hideBorder: PropTypes.bool,
   onIconClick: PropTypes.func,
 }
