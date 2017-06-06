@@ -7,7 +7,7 @@
     "node": ">=6.6.0"
   },
   "scripts": {
-    "start": "node .",
+    "start": "node scripts/prepare.js && node .",
     "test": "jest",
     "coverage": "yarn test -- --coverage && opn coverage/lcov-report/index.html",
     "purge": "node scripts/purge.js",
