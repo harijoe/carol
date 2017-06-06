@@ -5,3 +5,4 @@ npm-debug.log
 jest/
 dist/
 webpack/webpack-assets.json
+yarn-error.log
