@@ -7,6 +7,7 @@ if (env === 'development') {
     console.info('No webpack assets found in development environment, rebuilding it')
     console.info('...')
     execSync('yarn run build:development')
+    execSync('rm -rf dist/')
     console.info('done!')
   }
 }
