@@ -27,10 +27,9 @@ api.init = (method = 'GET', settings = {}, body = null) => {
 }
 
 api.checkStatus = (stream) => {
-  let status
+  const { status } = stream
 
   if (stream.ok) {
-    status = stream.status
     if (status === 204) { // 204 has no body, resulting in a JSON parsing error
       return ''
     }

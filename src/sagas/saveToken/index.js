@@ -7,7 +7,7 @@ export default function* (grantType) {
   const expiresIn = yield select(fromAuth.getExpiresIn)
   const refreshToken = yield select(fromAuth.getRefreshToken)
 
-  const oneMonth = 2592000
+  const tenDays = 864000
 
   /*
     This fixes a bug with react-router, the expiration values are evaluated as seconds on the client
@@ -23,7 +23,7 @@ export default function* (grantType) {
             it should thus expire at the time as the refresh_token
    */
   if (refreshToken != null) {
-    cookie.save('grant_type', grantType, { path: '/', maxAge: oneMonth * factor, secure: true })
-    cookie.save('refresh_token', refreshToken, { path: '/', maxAge: oneMonth * factor, secure: true }) // expires in 1 month
+    cookie.save('grant_type', grantType, { path: '/', maxAge: tenDays * factor, secure: true })
+    cookie.save('refresh_token', refreshToken, { path: '/', maxAge: tenDays * factor, secure: true })
   }
 }

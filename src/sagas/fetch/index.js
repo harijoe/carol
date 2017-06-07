@@ -3,6 +3,7 @@ import { put, call, select } from 'redux-saga/effects'
 import { fromAuth, fromContext } from 'store/selectors'
 import getCacheStorage from 'sagas/ssr/cache'
 import api from 'services/api'
+import removeToken from 'sagas/removeToken'
 import refreshToken from '../refreshToken'
 
 /*
@@ -44,7 +45,13 @@ export function* fetchWithoutRefreshingToken(actions, method, url, settings = {}
     yield put(actions.success(response, actionParams))
   } catch (e) {
     console.error('FAILURE - ', url)
+
     yield put(actions.failure(e, actionParams))
+
+    if (e.status === 401) {
+      yield* removeToken()
+    }
+
     throw e
   }
 }
