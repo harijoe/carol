@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Motion, spring } from 'react-motion'
-import range from 'lodash.range'
+import range from 'lodash/range'
 import styled, { css } from 'styled-components'
 import { theme } from 'utils/style'
 
