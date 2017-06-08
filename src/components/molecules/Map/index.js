@@ -158,6 +158,7 @@ class Map extends Component {
 
     return (
       <GoogleMap
+        yesIWantToUseGoogleMapApiInternals
         onGoogleApiLoaded={this.fitBoundWithMarkers}
         defaultCenter={initialCenter[country]}
         defaultZoom={zoom}

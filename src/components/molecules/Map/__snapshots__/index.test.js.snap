@@ -34,7 +34,7 @@ ShallowWrapper {
             "width": "100%",
           }
     }
-    yesIWantToUseGoogleMapApiInternals={false}>
+    yesIWantToUseGoogleMapApiInternals={true}>
     <Mock
         lat={48.857767}
         lng={2.293604} />
@@ -68,7 +68,7 @@ ShallowWrapper {
                   "width": "100%",
                 }
       }
-      yesIWantToUseGoogleMapApiInternals={false}>
+      yesIWantToUseGoogleMapApiInternals={true}>
       <Mock
             lat={48.857767}
             lng={2.293604} />
@@ -192,7 +192,7 @@ ShallowWrapper {
                               "width": "100%",
                             }
           }
-          yesIWantToUseGoogleMapApiInternals={false}>
+          yesIWantToUseGoogleMapApiInternals={true}>
           <Mock
                     lat={48.857767}
                     lng={2.293604} />
@@ -226,7 +226,7 @@ ShallowWrapper {
                               "width": "100%",
                             }
           }
-          yesIWantToUseGoogleMapApiInternals={false}>
+          yesIWantToUseGoogleMapApiInternals={true}>
           <Mock
                     lat={48.857767}
                     lng={2.293604} />
