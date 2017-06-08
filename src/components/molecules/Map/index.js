@@ -39,6 +39,18 @@ class Map extends Component {
     zoom: 8,
   }
 
+  state = { markerVisible: false }
+
+  fitBoundWithMarkers = ({ map, maps }) => {
+    const bounds = new maps.LatLngBounds()
+    const { markers } = this.props
+
+    markers.forEach(({ position: { lat, lng } }) => bounds.extend(new maps.LatLng(lat, lng)))
+
+    map.fitBounds(bounds)
+    this.setState({ markerVisible: true })
+  }
+
   render() {
     const { initialCenter, zoom, markers, onMarkerClick, country } = this.props
     const createMapOptions = () => ({
@@ -146,6 +158,7 @@ class Map extends Component {
 
     return (
       <GoogleMap
+        onGoogleApiLoaded={this.fitBoundWithMarkers}
         defaultCenter={initialCenter[country]}
         defaultZoom={zoom}
         style={styles}
