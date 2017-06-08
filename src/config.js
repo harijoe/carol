@@ -1,6 +1,8 @@
 import merge from 'lodash/merge'
 
-const config = {
+import configOverride from './config.local'
+
+const defaultConfig = {
   all: {
     env: (typeof process.env.NODE_ENV !== 'undefined' && process.env.NODE_ENV.toString()) || 'development',
     ip: (typeof process.env.IP !== 'undefined' && process.env.IP.toString()) || '0.0.0.0',
@@ -115,6 +117,8 @@ const config = {
     assetPath: 'https://assets.quotatis.com',
   },
 }
+
+const config = merge(defaultConfig, configOverride)
 
 module.exports = exports = merge(config.all, config[config.all.env])
 

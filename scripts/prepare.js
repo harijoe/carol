@@ -1,13 +1,22 @@
 const execSync = require('child_process').execSync
 const fs = require('fs')
-const env = (typeof process.env.NODE_ENV !== 'undefined' && process.env.NODE_ENV.toString()) || 'development'
+
+ifMissing('src/config.local.js', path => fs.writeFileSync(path, 'export default {}'))
+
+const env = process.env.NODE_ENV || 'development'
 
 if (env === 'development') {
-  if (!fs.existsSync('webpack/webpack-assets.json')) {
-    console.info('No webpack assets found in development environment, rebuilding it')
-    console.info('...')
+  ifMissing('webpack/webpack-assets.json', () => {
     execSync('yarn run build:development')
     execSync('rm -rf dist/')
-    console.info('done!')
+  })
+}
+
+function ifMissing(path, callback) {
+  if (!fs.existsSync(path)) {
+    console.info(`No ${path} found in development environment, creating it`)
+    callback(path)
+    console.info(`-> created ${path}`)
   }
 }
+

@@ -66,3 +66,8 @@ In order to deploy into pre-production for the SPA you will have to push to the 
 Travis will be able to build the docker container, run the tests than deploy to kubernetes using the last develop build.
 
 The production run on Node.js with Express.js and deployed with ansible.
+
+## 6. Overriding the config on your machine
+
+To override the application config on your machine, simply create a `config.local.js` file 
+in the `src/` directory. It will be merged with the default config (`src/config.js`).

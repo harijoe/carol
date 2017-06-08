@@ -7,7 +7,7 @@
     "node": ">=6.6.0"
   },
   "scripts": {
-    "start": "node scripts/prepare.js && node .",
+    "start": "node .",
     "test": "jest",
     "coverage": "yarn test -- --coverage && opn coverage/lcov-report/index.html",
     "purge": "node scripts/purge.js",
@@ -17,7 +17,8 @@
     "build:development": "yarn run clean copy && cross-env NODE_ENV=development webpack --config webpack/dev.config",
     "build:staging": "yarn run clean && cross-env NODE_ENV=staging webpack --config webpack/prod.config",
     "build:production": "yarn run clean && cross-env NODE_ENV=production webpack --config webpack/prod.config",
-    "build:bench": "yarn run clean && cross-env NODE_ENV=production webpack --config webpack/bench.config"
+    "build:bench": "yarn run clean && cross-env NODE_ENV=production webpack --config webpack/bench.config",
+    "postinstall": "node scripts/prepare.js"
   },
   "repository": {
     "type": "git",
