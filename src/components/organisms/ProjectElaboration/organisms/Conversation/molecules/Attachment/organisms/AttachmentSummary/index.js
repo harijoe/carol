@@ -74,7 +74,7 @@ class AttachmentSummary extends Component {
         <ProjectElaborationQuestion>
           <SummaryTitle><FormattedMessage id="project.elaboration.summary.title" /></SummaryTitle>
           <StyledLink to={validateButton.url.replace(config.locales[locale].url, '')} button>{validateButton.title}</StyledLink>
-          <StyledParagraph><FormattedMessage id="project.elaboration.summary.title" /></StyledParagraph>
+          <StyledParagraph><FormattedMessage id="project.elaboration.summary.subtitle" /></StyledParagraph>
           <StyledThumbnailPosterWrapper>
             <ThumbnailPoster
               // eslint-disable-next-line camelcase
