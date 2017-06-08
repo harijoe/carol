@@ -15,6 +15,8 @@ import {
   AnimatedLabelField,
   Row,
   Col,
+  Paragraph,
+  Link,
 } from 'components'
 import messages from 'utils/messages'
 
@@ -64,9 +66,37 @@ const StyledButton = styled(Button)`
   margin-top: 15px;
 `
 
+const Footer = styled(Row)`
+  width: 99%;
+  margin-top: ${theme('spaces.l')};
+  padding: ${theme('spaces.xl')};
+  border-top: 1px solid ${theme('colors.grayscale.light')};
+  background-color: ${theme('colors.grayscale.lightest')};
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  ${breakpointMax('m')`
+    padding: ${theme('spaces.m')};
+  `}
+`
+
+const StyledParagraph = styled(Paragraph)`
+  margin: 0;
+`
+
+const StyledLink = styled(Link)`
+  display: block;
+  width: 80px;
+  margin: 10px auto;
+  font-weight: bold;
+  line-height: 1;
+`
+
 class SignUpForm extends Component {
   static propTypes = {
     handleSubmit: PropTypes.func.isRequired,
+    redirectTo: PropTypes.func,
     loading: PropTypes.bool,
     intl: intlShape.isRequired,
   }
@@ -88,7 +118,7 @@ class SignUpForm extends Component {
   }
 
   render() {
-    const { handleSubmit, loading, intl: { formatMessage } } = this.props
+    const { handleSubmit, loading, redirectTo, intl: { formatMessage } } = this.props
 
     return (
       <CarouselPageTemplate
@@ -130,6 +160,16 @@ class SignUpForm extends Component {
             <GoogleLogin />
           </RightColumn>
         </StyledRow>
+        <Footer>
+          <StyledParagraph>
+            <FormattedMessage id="user.account_question" />
+          </StyledParagraph>
+          <StyledParagraph>
+            <StyledLink highlight kind="black" onClick={() => redirectTo('/login')}>
+              <FormattedMessage id="user.sign_in" />
+            </StyledLink>
+          </StyledParagraph>
+        </Footer>
       </CarouselPageTemplate>
     )
   }

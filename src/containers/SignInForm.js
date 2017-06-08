@@ -1,5 +1,4 @@
 import React from 'react'
-import { bindActionCreators } from 'redux'
 import { reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
@@ -32,10 +31,14 @@ const mapStateToProps = state => ({
   redirectPathname: fromRouting.getState(state).redirectPathname || '/',
 })
 
-const mapDispatchToProps = (dispatch, { redirectPathname }) => (
-  bindActionCreators({
-    redirectTo: path => push({ pathname: path, state: { redirectPathname } }),
-  }, dispatch)
-)
+const mapDispatchToProps = dispatch => ({
+  redirectTo: redirectPathname => path => dispatch(push({ pathname: path, state: { redirectPathname } })),
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(reduxForm(config)(SignInFormContainer))
+const mergeProps = ({ loading, redirectPathname }, { redirectTo }, ownProps) => ({
+  loading,
+  redirectTo: redirectTo(redirectPathname),
+  ...ownProps,
+})
+
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(reduxForm(config)(SignInFormContainer))

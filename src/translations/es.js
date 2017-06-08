@@ -131,6 +131,7 @@ const es = {
   'user.log_out': 'Log out ➔ ES',
   'user.sign_in': 'Connexion ES',
   'user.sign_in.success': 'You are now logged in ES',
+  'user.account_question': 'Vous avez déjà un compte ? ES',
   'user.no_account_question': 'No account yet? ES',
   'user.update': 'Update ES',
   'user.fixed_phone': 'Phone ES',

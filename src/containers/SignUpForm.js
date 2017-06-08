@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
+import { push } from 'react-router-redux'
 
 import { createValidator, email, password } from 'services/validation'
-import { fromForm, fromStatus } from 'store/selectors'
+import { fromForm, fromStatus, fromRouting } from 'store/selectors'
 import { userCreate } from 'store/actions'
 import { SignUpForm } from 'components'
 
@@ -30,6 +31,17 @@ const mapStateToProps = state => ({
     _csrf: fromForm.getCsrfToken(state),
   },
   loading: fromStatus.getLoading(state).USER_CREATE || fromStatus.getLoading(state).AUTH_LOGIN,
+  redirectPathname: fromRouting.getState(state).redirectPathname || '/',
 })
 
-export default connect(mapStateToProps)(reduxForm(config)(SignUpFormContainer))
+const mapDispatchToProps = dispatch => ({
+  redirectTo: redirectPathname => path => dispatch(push({ pathname: path, state: { redirectPathname } })),
+})
+
+const mergeProps = ({ loading, redirectPathname }, { redirectTo }, ownProps) => ({
+  loading,
+  redirectTo: redirectTo(redirectPathname),
+  ...ownProps,
+})
+
+export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(reduxForm(config)(SignUpFormContainer))

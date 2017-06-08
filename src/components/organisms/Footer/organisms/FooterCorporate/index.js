@@ -3,6 +3,7 @@ import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import styled from 'styled-components'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import { contentSiteUrl, locales } from 'config'
+import messages from 'utils/messages'
 
 import { List, ListItem, Link, Icon, Grid, Col, Row, Paragraph, Section } from 'components'
 import { CountryMenu } from 'containers'
@@ -178,7 +179,7 @@ const StyledLinkPhone = styled(Link)`
   `}
 `
 
-const FooterCorporate = () => (
+const FooterCorporate = ({ intl: { formatMessage } }) => (
   <StyledSection>
     <Grid>
       <StyledRow>
@@ -267,7 +268,7 @@ const FooterCorporate = () => (
             <TitlePhone>
               <FormattedMessage id="footer.corporate.phone_help" />
             </TitlePhone>
-            <StyledLinkPhone to="/tel:">
+            <StyledLinkPhone forceRedirect to={`tel:${formatMessage(messages('footer.corporate.phone_help_number').label).replace(/ /g, '')}`}>
               <Icon icon="support-phone" />
               <FormattedMessage id="footer.corporate.phone_help_number" />
             </StyledLinkPhone>
@@ -276,7 +277,7 @@ const FooterCorporate = () => (
             <TitlePhone>
               <FormattedMessage id="footer.corporate.phone_pros" />
             </TitlePhone>
-            <StyledLinkPhone to="/tel:">
+            <StyledLinkPhone forceRedirect to={`tel:${formatMessage(messages('footer.corporate.phone_pros_number').label).replace(/ /g, '')}`}>
               <Icon icon="support-pro" />
               <FormattedMessage id="footer.corporate.phone_pros_number" />
             </StyledLinkPhone>

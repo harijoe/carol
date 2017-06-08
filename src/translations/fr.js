@@ -133,6 +133,7 @@ const fr = {
   'user.log_out': 'Déconnexion ➔',
   'user.sign_in': 'Connexion',
   'user.sign_in.success': 'Vous êtes maintenant connecté à votre compte',
+  'user.account_question': 'Vous avez déjà un compte ?',
   'user.no_account_question': 'Vous n\'avez pas de compte ?',
   'user.update': 'Mettre à jour',
   'user.mobile_phone': 'Téléphone mobile',

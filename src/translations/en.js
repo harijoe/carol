@@ -131,6 +131,7 @@ const en = {
   'user.log_out': 'Log out ➔',
   'user.sign_in': 'Sign in',
   'user.sign_in.success': 'You are now logged in',
+  'user.account_question': 'Vous avez déjà un compte ? EN',
   'user.no_account_question': 'No account yet?',
   'user.update': 'Update',
   'user.fixed_phone': 'Phone',
