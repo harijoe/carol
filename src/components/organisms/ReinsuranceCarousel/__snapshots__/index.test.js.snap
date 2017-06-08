@@ -6,7 +6,7 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <Styled(Mock)>
+  "node": <styled.aside>
     <Mock
         carousel={
             Object {
@@ -28,9 +28,9 @@ ShallowWrapper {
                 "api-quotatis-reinsurance",
               ]
         } />
-</Styled(Mock)>,
+</styled.aside>,
   "nodes": Array [
-    <Styled(Mock)>
+    <styled.aside>
       <Mock
             carousel={
                   Object {
@@ -52,7 +52,7 @@ ShallowWrapper {
                         "api-quotatis-reinsurance",
                       ]
             } />
-</Styled(Mock)>,
+</styled.aside>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -92,7 +92,7 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <Styled(Mock)>
+        "_currentElement": <styled.aside>
           <Mock
                     carousel={
                               Object {
@@ -114,9 +114,9 @@ ShallowWrapper {
                                         "api-quotatis-reinsurance",
                                       ]
                     } />
-</Styled(Mock)>,
+</styled.aside>,
         "_debugID": 2,
-        "_renderedOutput": <Styled(Mock)>
+        "_renderedOutput": <styled.aside>
           <Mock
                     carousel={
                               Object {
@@ -138,7 +138,7 @@ ShallowWrapper {
                                         "api-quotatis-reinsurance",
                                       ]
                     } />
-</Styled(Mock)>,
+</styled.aside>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,

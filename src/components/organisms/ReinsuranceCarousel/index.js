@@ -3,25 +3,36 @@ import styled from 'styled-components'
 import stripTags from 'utils/stripTags'
 import { theme } from 'utils/style'
 
-import { Section, Heading, Paragraph } from 'components'
+import { Heading, Paragraph } from 'components'
 import { PostList } from 'containers'
 
-const StyledSection = styled(Section)`
-  height: 65rem;
+const StyledAside = styled.aside`
+  min-height: 65rem;
+  height: 100%;
   width: 100%;
   padding: 0;
   overflow: hidden;
+
+  > div:first-child {
+    display: flex;
+    height: 100%;
+
+    > div {
+      max-width: 100%;
+    }
+  }
 
   .slick-dots {
     padding-bottom: ${theme('spaces.l')};
   }
 
   .slick-slider {
-    max-width: 120rem;
-    margin: 0 auto;
+    margin: 0;
+    padding: 0;
 
     &, .slick-list, .slick-track {
       display: block;
+      height: 100%;
     }
 
     .slick-list {
@@ -38,10 +49,8 @@ const StyledItem = styled.div`${({ link }) => `
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 37rem;
-  min-height: 65rem;
-
   padding: ${theme('spaces.xxl')};
+  height: 100%;
   background-image: url(${link});
   background-size: cover;
   
@@ -99,7 +108,7 @@ class ReinsuranceCarousel extends Component {
 
   render() {
     return (
-      <StyledSection>
+      <StyledAside>
         <PostList
           scope="reinsuranceArticles"
           tags={['api-quotatis-reinsurance']}
@@ -116,7 +125,7 @@ class ReinsuranceCarousel extends Component {
             arrows: false,
           }}
         />
-      </StyledSection>
+      </StyledAside>
     )
   }
 }

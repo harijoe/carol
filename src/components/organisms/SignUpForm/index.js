@@ -23,7 +23,6 @@ import messages from 'utils/messages'
 const StyledRow = styled(Row)`
   ${breakpoint('m')`
     flex-wrap: nowrap;
-    padding-right: ${theme('spaces.xl')};
   `}
 `
 

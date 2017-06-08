@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { theme, breakpoint, breakpointMax } from 'utils/style'
+import styled, { css } from 'styled-components'
+import { theme, breakpoint, breakpointMax, mapBreakpoints } from 'utils/style'
 
 import {
   Heading,
@@ -12,9 +12,12 @@ import {
   Col,
 } from 'components'
 
+const minHeight = 70
+
 const StyledMainWrapper = styled(MainWrapper)`
-  background: white;
   padding-top: 5.7rem;
+  background: white;
+  min-height: ${minHeight}rem;
 `
 
 const StyledHeading = styled(Heading)`
@@ -29,29 +32,54 @@ const StyledParagraph = styled(Paragraph)`
   margin-bottom: ${theme('spaces.xl')};
 `
 
+const StyledRow = styled(Row)`
+  ${mapBreakpoints(() => css`
+    margin: 0;
+  `)}
+`
+
 const LeftCol = styled(Col)`
-  ${breakpointMax('m')`
+  ${breakpointMax('l')`
     display: none;
   `}
+
+  ${mapBreakpoints(() => css`
+    padding: 0;
+  `)}
+
+  min-height: ${minHeight}rem;
 `
 
 const RightCol = styled(Col)`
+  display: flex;
+  flex-direction: column;
   width: 100%;
   margin-top: ${theme('spaces.xxl')};
+  min-height: ${minHeight}rem;
+
+  ${breakpoint('l')`
+    padding-left: ${theme('spaces.xxl')};
+    padding-right: ${theme('spaces.xxl')};
+  `}
+
+  ${mapBreakpoints(bp => css`
+    padding-right: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
+    padding-left: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
+  `)}
 `
 
 const CarouselPageTemplate = ({ heading, description, children }) => (
   <StyledMainWrapper>
-    <Row>
-      <LeftCol m={4}>
+    <StyledRow>
+      <LeftCol l={4}>
         <ReinsuranceCarousel />
-      </LeftCol>
-      <RightCol m={8} s={12}>
+      </ LeftCol>
+      <RightCol l={8} s={12}>
         <StyledHeading level={2}>{heading}</StyledHeading>
         <StyledParagraph>{description}</StyledParagraph>
         {children}
       </RightCol>
-    </Row>
+    </StyledRow>
   </StyledMainWrapper>
 )
 

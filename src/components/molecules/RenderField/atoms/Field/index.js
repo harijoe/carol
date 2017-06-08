@@ -104,7 +104,7 @@ const StyledLabel = styled(Label)`${({ hideLabel, lightFont, inline }) => css`
   visibility: ${ifThen(hideLabel, 'hidden', 'visible')};
   font-family: ${theme('fonts.family.montserratBold')};
   font-size: ${theme('fonts.size.base')};
-  line-height: 1rem;
+  line-height: 1;
   color: ${theme('colors.black')};
 
   ${ifThen(lightFont,
