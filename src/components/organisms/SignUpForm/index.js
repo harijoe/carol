@@ -27,22 +27,29 @@ const StyledRow = styled(Row)`
 `
 
 const LeftColumn = styled(Col)`
-  border-right: 1px solid ${theme('colors.grayscale.light')};
-  
   ${breakpointMax('m')`
+    order: 2;
     width: 100%;
-    border-right: none;
+    border-top: 1px solid ${theme('colors.grayscale.light')};
+    padding: 0;
+  `}
+
+  ${breakpoint('m')`
+    border-right: 1px solid ${theme('colors.grayscale.light')};
   `}
 `
 
 const RightColumn = styled(Col)`
-  width: 100%;
-  
   ${breakpointMax('m')`
-    border-top: 1px solid ${theme('colors.grayscale.light')};
-    padding-top: ${theme('spaces.l')};
-    margin: ${theme('spaces.l')} 0;
+    order: 1;
+    width: 100%;
+    padding: 0;
+    padding-bottom: ${theme('spaces.l')};
   `}
+
+  > div:first-child {
+    margin-bottom:  ${theme('spaces.m')}; 
+  }
 `
 
 const Form = styled.form`
@@ -65,18 +72,30 @@ const StyledButton = styled(Button)`
   margin-top: 15px;
 `
 
-const Footer = styled(Row)`
-  width: 99%;
-  margin-top: ${theme('spaces.l')};
+const Footer = styled.footer`
+  margin-top: auto;
   padding: ${theme('spaces.xl')};
   border-top: 1px solid ${theme('colors.grayscale.light')};
   background-color: ${theme('colors.grayscale.lightest')};
   justify-content: center;
   flex-direction: column;
   align-items: center;
-
+  text-align: center;
+  
   ${breakpointMax('m')`
+    margin-left: -${theme('spaces.m')};
+    margin-right: -${theme('spaces.m')};
     padding: ${theme('spaces.m')};
+  `}
+
+  ${breakpoint('m')`
+    margin-left: -${theme('spaces.l')};
+    margin-right: -${theme('spaces.l')};
+  `}
+
+  ${breakpoint('l')`
+    margin-left: -${theme('spaces.xxl')};
+    margin-right: -${theme('spaces.xxl')};
   `}
 `
 
