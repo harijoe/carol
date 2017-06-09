@@ -8,6 +8,8 @@ import messages from 'utils/messages'
 import { Card, Section, LastProjectCardContent, Grid } from 'components'
 import { PostList, GoogleMap } from 'containers'
 
+import getImageURL from 'utils/wpImage'
+
 const StyledCard = styled(Card)`
   min-height: 20rem;
   max-width: 30rem;
@@ -29,10 +31,10 @@ const generateChild = (i, { title, featuredMedia, customFields }) => (
   <StyledCard key={i}>
     <LastProjectCardContent
       title={stripTags(title)}
-      image={customFields.project_bg}
+      image={getImageURL(customFields.project_bg, '300x300')}
       place={stripTags(customFields.project_city)}
       firmName={stripTags(customFields.project_firm)}
-      firmImage={featuredMedia}
+      firmImage={getImageURL(featuredMedia, '300x300')}
       firmTrade={stripTags(customFields.project_trade)}
     />
   </StyledCard>
@@ -62,7 +64,7 @@ const MapWrapper = styled.div`
   left: 0;
   height: 40vh;
   width: 100%;
-  
+
   ${breakpoint('m')`
     bottom: 0;
     height: 100%;

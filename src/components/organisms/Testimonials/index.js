@@ -8,6 +8,8 @@ import { theme, breakpoint } from 'utils/style'
 import { Card, Section, TestimonialCardContent, Grid } from 'components'
 import { PostList } from 'containers'
 
+import getImageURL from 'utils/wpImage'
+
 const StyledCard = styled(Card)`
   ${breakpoint('xs')`
     width: calc(100vw - 4.8rem);
@@ -47,7 +49,7 @@ const generateChild = (i, { link, featuredMedia, customFields }) => (
   <StyledCard key={i}>
     <TestimonialCardContent
       link={link}
-      image={featuredMedia}
+      image={getImageURL(featuredMedia, '300x300')}
       firstName={stripTags(customFields.ttml_firstname)}
       age={customFields.ttml_age}
       location={stripTags(`${customFields.ttml_city}, ${customFields.ttml_postal_code}`)}
