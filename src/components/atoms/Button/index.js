@@ -18,7 +18,7 @@ const StyledButton = styled.button`${({ block, secondary, maxWidth, center, cssD
   background-color: ${ifThen(loading,
     css`${theme('colors.white')}`,
     css`${ifThen(cssDisabled, css`${theme('colors.grayscale.light')}`, css`${theme('colors.secondary')}`)}`
-  )}
+  )};
   border: ${ifThen(loading, css`1px solid ${theme('colors.secondary')}`, 0)};
   color: ${theme('colors.black')};
   outline: 0;

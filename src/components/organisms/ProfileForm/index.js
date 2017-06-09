@@ -15,7 +15,6 @@ import {
   Button,
   RenderDropzone,
   RadioGroup,
-  RenderDatePicker,
   HeroSection,
   Section,
   Grid,
@@ -292,7 +291,7 @@ class ProfileForm extends Component {
                 placeholder={formatMessage(messages('user.birthday').label)}
                 dateFormat="DD/MM/YYYY"
                 lang={initialValues.country}
-                component={RenderDatePicker}
+                component={RenderField}
                 label={formatMessage(messages('user.birthday').label)}
               />
             </div>

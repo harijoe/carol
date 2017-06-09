@@ -120,6 +120,8 @@ const defaultConfig = {
 
 const config = merge(defaultConfig, configOverride)
 
-module.exports = exports = merge(config.all, config[config.all.env])
+const exports = merge(config.all, config[config.all.env])
+
+module.exports = exports
 
 export default exports

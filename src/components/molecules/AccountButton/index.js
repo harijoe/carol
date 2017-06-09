@@ -89,7 +89,7 @@ const LogInLabel = styled.p`
   position: relative;
   display: inline-block;
   margin: 0 0 0 ${theme('spaces.m')};
-  padding-right: ${theme('spaces.m')}
+  padding-right: ${theme('spaces.m')};
   overflow: hidden;
   font-family: ${theme('fonts.family.andesBlack')};
   font-size: ${theme('fonts.size.base')};
