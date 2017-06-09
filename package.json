@@ -8,10 +8,10 @@
     "yarn": ">=0.16.0"
   },
   "scripts": {
-    "start": "node .",
+    "start": "babel-node .",
     "test": "jest",
     "coverage": "yarn test -- --coverage && opn coverage/lcov-report/index.html",
-    "purge": "node scripts/purge.js",
+    "purge": "babel-node scripts/purge.js",
     "lint": "eslint src",
     "lint:css": "stylelint 'src/components/**/*.js'",
     "clean": "del 'dist/!(.git*|Procfile)**'",
@@ -20,7 +20,8 @@
     "build:production": "yarn run clean && cross-env NODE_ENV=production webpack --config webpack/prod.config",
     "build:bench:sizemap": "yarn run clean && cross-env NODE_ENV=production webpack --config webpack/bench.config",
     "build:bench:gzipped": "yarn build:production && tar -czf dist/gzipped.tar.gz dist/main.*.js && ls -l dist/gzipped.tar.gz",
-    "postinstall": "node scripts/prepare.js"
+    "postinstall": "babel-node scripts/prepare.js",
+    "webpack-assets:refresh": "rm -f webpack/webpack-assets.json && babel-node scripts/ensure-webpack-assets.js"
   },
   "repository": {
     "type": "git",
@@ -43,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-eslint": "^7.0.0",
     "babel-jest": "^17.0.2",
     "babel-loader": "^6.2.5",
