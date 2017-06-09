@@ -45,13 +45,13 @@ const StyledAside = styled.aside`
   }
 `
 
-const StyledItem = styled.div`${({ link }) => `
+const StyledItem = styled.div`${({ src }) => `
   position: relative;
   display: flex;
   flex-direction: column;
   padding: ${theme('spaces.xxl')};
   height: 100%;
-  background-image: url(${link});
+  background-image: url(${src});
   background-size: cover;
   
   &::before {
@@ -97,14 +97,19 @@ class ReinsuranceCarousel extends Component {
     })
   }
 
-  generateChild = (i, items) => (
-    <StyledItem key={i} active={this.state.activeImage === i} link={items.featuredMedia}>
-      <WrapContent>
-        <StyledHeading level={3}>{stripTags(items.title)}</StyledHeading>
-        <StyledParagraph>{stripTags(items.body)}</StyledParagraph>
-      </WrapContent>
-    </StyledItem>
-  )
+  generateChild = (i, { featuredMedia, title, body }) => {
+    // @TODO: image is expected to be an object in a next backend update, this is a momentary polyfill
+    const { src } = featuredMedia instanceof Object ? featuredMedia : { src: featuredMedia }
+
+    return (
+      <StyledItem key={i} src={src}>
+        <WrapContent>
+          <StyledHeading level={3}>{stripTags(title)}</StyledHeading>
+          <StyledParagraph>{stripTags(body)}</StyledParagraph>
+        </WrapContent>
+      </StyledItem>
+    )
+  }
 
   render() {
     return (

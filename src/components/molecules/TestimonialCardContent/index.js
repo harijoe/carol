@@ -54,7 +54,7 @@ const StyledLocation = styled(Paragraph)`
 const TestimonialCardContent = ({ image, firstName, age, location, quote, link }) => (
   <Wrapper>
     <ImageWrapper>
-      <StyledImage link={image} />
+      <StyledImage {...image} />
     </ImageWrapper>
     <ContentWrapper>
       <HeaderWrapper>
@@ -76,7 +76,10 @@ const TestimonialCardContent = ({ image, firstName, age, location, quote, link }
 )
 
 TestimonialCardContent.propTypes = {
-  image: PropTypes.string.isRequired,
+  image: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+  ]),
   firstName: PropTypes.string.isRequired,
   age: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,

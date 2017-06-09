@@ -61,7 +61,7 @@ const StyledHeading = styled(Heading)`
 
 const ThumbnailPoster = ({ image, title }) => (
   <Wrapper>
-    <StyledImage link={image} />
+    <StyledImage {...image} />
     <StyledHeading level={3}>{title}</StyledHeading>
   </Wrapper>
 )

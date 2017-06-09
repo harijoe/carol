@@ -10,6 +10,7 @@ it('renders LastProjectCardContent', () => {
       title="test"
       firmName="firm"
       firmTrade="trade"
+      firmImage="firmImage.jpg"
       place="place"
     />
   )).toMatchSnapshot()

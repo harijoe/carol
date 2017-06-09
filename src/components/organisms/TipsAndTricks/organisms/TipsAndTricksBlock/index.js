@@ -67,12 +67,12 @@ const StyledLink = styled(Link)`
   display: block;
 `
 
-const TipsAndTricksBlock = ({ header, tags, imageLink, title, link }) => (
+const TipsAndTricksBlock = ({ header, tags, image, title, link }) => (
   <Wrapper>
     <Header>{header}</Header>
     <StyledLink to={link}>
       <ImageWrapper>
-        {imageLink != null ? <StyledImage link={imageLink} /> : null}
+        {image != null ? <StyledImage {...image} /> : null}
       </ImageWrapper>
       <Title level={2} html>{title}</Title>
     </StyledLink>
@@ -83,7 +83,7 @@ const TipsAndTricksBlock = ({ header, tags, imageLink, title, link }) => (
 TipsAndTricksBlock.propTypes = {
   header: PropTypes.string,
   tags: PropTypes.array,
-  imageLink: PropTypes.string,
+  image: PropTypes.object,
   title: PropTypes.string,
   link: PropTypes.string,
 }

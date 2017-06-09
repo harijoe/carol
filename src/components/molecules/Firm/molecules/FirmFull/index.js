@@ -9,7 +9,7 @@ const renderList = items => items ? <List>{items.map((item, i) => <li key={item[
 
 const FirmFull = items => (
   <List>
-    <li><FormattedMessage id="firm.details.logo" />: {items.logoUrl ? <Image link={items.logoUrl} /> : <FormattedMessage id="firm.details.logo_missing" />}</li>
+    <li><FormattedMessage id="firm.details.logo" />: {items.logoUrl ? <Image src={items.logoUrl} /> : <FormattedMessage id="firm.details.logo_missing" />}</li>
     <li><FormattedMessage id="firm.details.name" />: {items.name}</li>
     <li><FormattedMessage id="firm.details.postal_code" />: {items.postalCode}</li>
     <li><FormattedMessage id="firm.details.city" />: {items.city}</li>

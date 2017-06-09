@@ -53,17 +53,22 @@ const getTags = (items) => {
   return tags
 }
 
-const generateChild = (i, item) => (
-  <StyledCol xs={12} key={i}>
-    <TipsAndTricksBlock
-      header={item.categories[0]}
-      tags={getTags(item.tags)}
-      title={item.title}
-      imageLink={i === 0 ? item.featuredMedia : null}
-      link={item.link}
-    />
-  </StyledCol>
-)
+const generateChild = (i, { featuredMedia, categories, tags, title, link }) => {
+  // @TODO: image is expected to be an object in a next backend update, this is a momentary polyfill
+  const image = featuredMedia instanceof Object ? featuredMedia : { src: featuredMedia }
+
+  return (
+    <StyledCol xs={12} key={i}>
+      <TipsAndTricksBlock
+        header={categories[0]}
+        tags={getTags(tags)}
+        title={title}
+        image={i === 0 ? image : null}
+        link={link}
+      />
+    </StyledCol>
+  )
+}
 
 const StyledLink = styled(Link)`
   max-width: 32rem;

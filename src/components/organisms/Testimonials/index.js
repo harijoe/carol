@@ -45,18 +45,25 @@ const StyledGrid = styled(Grid)`
   `}
 `
 
-const generateChild = (i, { link, featuredMedia, customFields }) => (
-  <StyledCard key={i}>
-    <TestimonialCardContent
-      link={link}
-      image={getImageURL(featuredMedia, '300x300')}
-      firstName={stripTags(customFields.ttml_firstname)}
-      age={customFields.ttml_age}
-      location={stripTags(`${customFields.ttml_city}, ${customFields.ttml_postal_code}`)}
-      quote={stripTags(customFields.ttml_quote)}
-    />
-  </StyledCard>
-)
+const generateChild = (i, { link, featuredMedia, customFields }) => {
+  // @TODO: image is expected to be an object in a next backend update, this is a momentary polyfill
+  const image = featuredMedia instanceof Object ? featuredMedia : { src: featuredMedia }
+
+  image.src = getImageURL(image.src, '300x300')
+
+  return (
+    <StyledCard key={i}>
+      <TestimonialCardContent
+        link={link}
+        image={image}
+        firstName={stripTags(customFields.ttml_firstname)}
+        age={customFields.ttml_age}
+        location={stripTags(`${customFields.ttml_city}, ${customFields.ttml_postal_code}`)}
+        quote={stripTags(customFields.ttml_quote)}
+      />
+    </StyledCard>
+  )
+}
 
 const Testimonials = ({ intl: { formatMessage } }) => (
   <Section title={formatMessage(messages('testimonials.section_title').label)} light>

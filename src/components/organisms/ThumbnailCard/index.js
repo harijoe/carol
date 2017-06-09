@@ -91,7 +91,7 @@ const CardFooter = styled.footer`
 const ThumbnailCard = ({ link, image, title, items, onClick }) => (
   <Wrapper to={link} onClick={onClick}>
     <StyledCard>
-      <ThumbnailPoster image={image} title={title} />
+      <ThumbnailPoster image={{ src: image, alt: title }} title={title} />
       <CardContent>
         <StyledList>
           {items.map((item, i) => <li key={i}>{item}</li>)}

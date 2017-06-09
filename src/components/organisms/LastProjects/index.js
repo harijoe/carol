@@ -34,7 +34,7 @@ const generateChild = (i, { title, featuredMedia, customFields }) => (
       image={getImageURL(customFields.project_bg, '300x300')}
       place={stripTags(customFields.project_city)}
       firmName={stripTags(customFields.project_firm)}
-      firmImage={getImageURL(featuredMedia, '300x300')}
+      firmImage={featuredMedia}
       firmTrade={stripTags(customFields.project_trade)}
     />
   </StyledCard>

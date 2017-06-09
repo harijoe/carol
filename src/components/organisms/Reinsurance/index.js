@@ -96,11 +96,14 @@ class Reinsurance extends Component {
     })
   }
 
-  generateBackground = (i, items) => (
-    <StyledImageWrapper active={this.state.activeImage === i} key={i} >
-      <StyledImage link={items.featuredMedia} />
-    </StyledImageWrapper>
-  )
+  generateBackground = (i, { featuredMedia }) => {
+    // @TODO: image is expected to be an object in a next backend update, this is a momentary polyfill
+    const image = featuredMedia instanceof Object ? featuredMedia : { src: featuredMedia }
+
+    return (<StyledImageWrapper active={this.state.activeImage === i} key={i} >
+      <StyledImage {...image} />
+    </StyledImageWrapper>)
+  }
 
   render() {
     return (

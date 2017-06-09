@@ -8,7 +8,14 @@ ShallowWrapper {
   "length": 1,
   "node": <styled.figure>
     <Styled(Mock)
-        link="test.jpg" />
+        0="t"
+        1="e"
+        2="s"
+        3="t"
+        4="."
+        5="j"
+        6="p"
+        7="g" />
     <Styled(Mock)
         level={3}>
         Test
@@ -17,7 +24,14 @@ ShallowWrapper {
   "nodes": Array [
     <styled.figure>
       <Styled(Mock)
-            link="test.jpg" />
+            0="t"
+            1="e"
+            2="s"
+            3="t"
+            4="."
+            5="j"
+            6="p"
+            7="g" />
       <Styled(Mock)
             level={3}>
             Test
@@ -65,7 +79,14 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <styled.figure>
           <Styled(Mock)
-                    link="test.jpg" />
+                    0="t"
+                    1="e"
+                    2="s"
+                    3="t"
+                    4="."
+                    5="j"
+                    6="p"
+                    7="g" />
           <Styled(Mock)
                     level={3}>
                     Test
@@ -74,7 +95,14 @@ ShallowWrapper {
         "_debugID": 2,
         "_renderedOutput": <styled.figure>
           <Styled(Mock)
-                    link="test.jpg" />
+                    0="t"
+                    1="e"
+                    2="s"
+                    3="t"
+                    4="."
+                    5="j"
+                    6="p"
+                    7="g" />
           <Styled(Mock)
                     level={3}>
                     Test
