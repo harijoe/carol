@@ -304,7 +304,7 @@ const en = {
   'pages.default.meta.description': 'Quotatis vous permet d&apos;obtenir 5 devis gratuits sous trois jours. Demandes de devis comparatifs au 01.77.86.80.97 : devis travaux, devis pompe a chaleur, devis chauffage, devis defiscalisation, devis fenêtres, devis assurances, devis piscine, devis fenetres, devis climatisation, devis panneaux solaire photovoltaiques.... EN',
   'pages.default.meta.og.title': 'Devis Travaux - Comparer les prix avec 5 devis gratuits EN',
 
-  'pages.home.meta.description': 'Vous souhaitez effectuer des travaux pour votre maison ou appartement ? Quotatis vous met en relation avec des artisans de confiances dans votre région. EN',
+  'pages.home.meta.description': 'Vous souhaitez effectuer des travaux pour votre maison ou appartement ? Quotatis vous met en relation avec des artisans de confiance dans votre région. EN',
   'pages.home.ld+json': '\\{ "@context": "http://schema.org", "@type": "Organization", "url": "https://www.quotatis.fr", "name": "Quotatis", "logo": "https://res.cloudinary.com/quotatis/image/upload/v1496149619/FrontApp/icons/quotatis-firm.svg", "sameAs": [ "https://www.facebook.com/Quotatis.FR", "https://twitter.com/QuotatisFr", "https://www.youtube.com/user/quotatis", "http://fr.viadeo.com/fr/company/quotatis", "https://www.linkedin.com/company/quotatis", "https://www.instagram.com/quotatis/" ] \\} EN',
 }
 
