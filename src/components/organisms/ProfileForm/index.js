@@ -13,7 +13,6 @@ import {
   RenderField,
   Heading,
   Button,
-  RenderDropzone,
   RadioGroup,
   HeroSection,
   Section,
@@ -92,7 +91,7 @@ const ProfileContentWrapper = styled.div`
   ${breakpoint('l')`
     .qs-Profil-titleName, p {
       color: ${theme('colors.white')};
-    } 
+    }
   `}
 `
 
@@ -127,7 +126,7 @@ const StyledProfileImage = styled(ProfileImage)`
 
   ${breakpointMax('l')`
     margin-left: auto;
-    margin-right: auto;     
+    margin-right: auto;
   `}
 
   ${breakpoint('m')`
@@ -242,25 +241,15 @@ class ProfileForm extends Component {
     return (
       <Form onSubmit={handleSubmit}>
         <StyledHeroSection imageLink={`${cloudinaryUrl}hero-fullscreen_image.jpg`}>
-          <StyledProfileImage />
+          <StyledProfileImage imageLink={initialValues.imageBase64} />
           <ProfileContentWrapper>
-            <Heading level={1} className="qs-Profil-titleName">{formatMessage(messages('user.last_name').label)}</Heading>
+            <Heading level={1} className="qs-Profil-titleName">Bonjour {initialValues.firstName}</Heading>
             <p><StyledIcon icon="mail-login" /><span>{details.email}</span></p>
           </ProfileContentWrapper>
         </StyledHeroSection>
         <StyledSection title={formatMessage(messages('user.profile_info').label)}>
           <StyledGrid>
             <div className="qs-Infos-wrapper">
-              <Field
-                preview={{
-                  initialValue: this.state.imageBase64,
-                  width: 300,
-                }}
-                id="imageBase64"
-                name="imageBase64"
-                accept="image/png, image/jpeg, image/jpg"
-                component={RenderDropzone}
-              />
               <RadioBlock>
                 <strong><FormattedMessage id="user.gender" tagName="div" /></strong>
                 <Field
@@ -285,14 +274,6 @@ class ProfileForm extends Component {
                 label={formatMessage(messages('user.last_name').label)}
                 placeholder={formatMessage(messages('user.last_name').label)}
                 icon="login"
-              />
-              <Field
-                name="birthday"
-                placeholder={formatMessage(messages('user.birthday').label)}
-                dateFormat="DD/MM/YYYY"
-                lang={initialValues.country}
-                component={RenderField}
-                label={formatMessage(messages('user.birthday').label)}
               />
             </div>
             <BorderBox grey mediumBorder title={formatMessage(messages('user.contact_info').label)}>
