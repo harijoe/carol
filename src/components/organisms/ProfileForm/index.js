@@ -283,6 +283,7 @@ class ProfileForm extends Component {
                 component={RenderField}
                 label={formatMessage(messages('user.email').label)}
                 placeholder={formatMessage(messages('user.email').label)}
+                disabled
               />
               <div>
                 <ValidatedInfo validated={initialValues.emailVerified} field="email" />
@@ -298,6 +299,7 @@ class ProfileForm extends Component {
                 component={RenderField}
                 label={formatMessage(messages('user.mobile_phone').label)}
                 placeholder={formatMessage(messages('user.mobile_phone').label)}
+                disabled
                 {...{ format, normalize }}
               />
               <div>
