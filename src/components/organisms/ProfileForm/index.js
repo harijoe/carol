@@ -252,7 +252,7 @@ class ProfileForm extends Component {
                 <strong><FormattedMessage id="user.gender" tagName="div" /></strong>
                 <Field
                   component={RadioGroup}
-                  name="gender" required
+                  name="gender"
                   options={[
                     { value: 'Mr', id: 'mr', translation: 'user.mr' },
                     { value: 'Mrs', id: 'mrs', translation: 'user.mrs' },
@@ -346,7 +346,6 @@ class ProfileForm extends Component {
                 <Field
                   component={RadioGroup}
                   name="contactPreference"
-                  required
                   options={[
                     { value: 'email', id: 'email', translation: 'user.contactPreference.email' },
                     { value: 'phone', id: 'phone', translation: 'user.contactPreference.phone' },

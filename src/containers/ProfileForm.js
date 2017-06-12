@@ -6,6 +6,7 @@ import pick from 'lodash/pick'
 import { userDetails, userUpdate } from 'store/actions'
 import { fromUser, fromContext, fromStatus } from 'store/selectors'
 import transformDate from 'utils/transformDate'
+import { createValidator, required } from 'services/validation'
 
 import { ProfileForm } from 'components'
 
@@ -39,7 +40,8 @@ const mapStateToProps = (state) => {
         '@id', 'civility', 'firstName', 'lastName', 'birthday',
         'email', 'preferedLanguage', 'mobilePhone', 'mobilePhone',
         'fixedPhone', 'address', 'postalCode', 'countryCode',
-        'region', 'city', 'newsletterSubscription',
+        'region', 'city', 'newsletterSubscription', 'contactPreference',
+        'contactComment',
       ]),
       imageBase64: details.imageUrl,
       birthday: transformDate(details.birthday),
@@ -65,11 +67,19 @@ const onSubmit = (values, dispatch, formInfo) => {
   return dispatch(userUpdate.request(data, values['@id']))
 }
 
+const validate = createValidator({
+  lastName: [required],
+  firstName: [required],
+  gender: [required],
+  contactPreference: [required],
+})
+
 export const config = {
   form: 'ProfileForm',
   enableReinitialize: true,
   destroyOnUnmount: false,
   onSubmit,
+  validate,
 }
 
 const mapDispatchToProps = dispatch => ({
