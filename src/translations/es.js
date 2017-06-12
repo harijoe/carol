@@ -221,6 +221,7 @@ const es = {
   'validators.user.password.must_match_required': 'Su contraseña debe contener al menos 8 caracteres y un carácter especial',
   'validators.user.mobilePhone.invalid_type': 'Field "Mobile phone" is not valid ES',
   'validators.user.fixedPhone.invalid_type': 'Field "Fixe phone" is not valid ES',
+  'validators.user.postalcode.must_match_required': 'Field "Zipcode" is not valid ES',
   'validators.forgot_password.unexpired_token': 'Une demande de réinitialisation de mot de passe est est en cours. ES',
   'validators.forgot_password.user_not_found': 'User not found ES',
 

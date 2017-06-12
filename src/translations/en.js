@@ -222,6 +222,7 @@ const en = {
   'validators.user.password.must_match_required': 'Your password must contain at least 8 characters & one special char',
   'validators.user.mobilePhone.invalid_type': 'Field "Mobile phone" is not valid',
   'validators.user.fixedPhone.invalid_type': 'Field "Fixe phone" is not valid',
+  'validators.user.postalcode.must_match_required': 'Field "Zipcode" is not valid',
   'validators.forgot_password.unexpired_token': 'You already asked to reinitialize your password, please check your emails.',
   'validators.forgot_password.user_not_found': 'User not found',
 

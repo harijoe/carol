@@ -329,6 +329,7 @@ ShallowWrapper {
                         "validators.user.password.must_match_required": "Your password must contain at least 8 characters & one special char",
                         "validators.user.password.not_blank": "Field \"Password\" has not to be blank",
                         "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
+                        "validators.user.postalcode.must_match_required": "Field \"Zipcode\" is not valid",
                       }
         }>
         <ProjectElaboration
@@ -654,6 +655,7 @@ ShallowWrapper {
             "validators.user.password.must_match_required": "Your password must contain at least 8 characters & one special char",
             "validators.user.password.not_blank": "Field \"Password\" has not to be blank",
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
+            "validators.user.postalcode.must_match_required": "Field \"Zipcode\" is not valid",
           },
         },
         "refs": Object {},
@@ -1010,6 +1012,7 @@ ShallowWrapper {
             "validators.user.password.must_match_required": "Your password must contain at least 8 characters & one special char",
             "validators.user.password.not_blank": "Field \"Password\" has not to be blank",
             "validators.user.postalCode.not_blank": "Field \"Postal code\" has not to be blank",
+            "validators.user.postalcode.must_match_required": "Field \"Zipcode\" is not valid",
           }
     }>
     <ProjectElaboration

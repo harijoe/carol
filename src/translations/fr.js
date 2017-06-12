@@ -223,6 +223,7 @@ const fr = {
   'validators.user.password.must_match_required': 'Votre mot de passe doit contenir au moins 8 caractères et un caractère spécial (!, # ou % par exemple)',
   'validators.user.mobilePhone.invalid_type': 'Numéro de téléphone invalide',
   'validators.user.fixedPhone.invalid_type': 'Le champ "Téléphone fixe" n\'est pas valide',
+  'validators.user.postalcode.must_match_required': 'Le champ "Code postal" n\'est pas valide',
   'validators.forgot_password.unexpired_token': 'Une demande de réinitialisation de mot de passe est en cours.',
   'validators.forgot_password.user_not_found': 'Aucun compte ne correspond à cet email',
 
