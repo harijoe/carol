@@ -12,12 +12,9 @@ import {
   Col,
 } from 'components'
 
-const minHeight = 70
-
 const StyledMainWrapper = styled(MainWrapper)`
   padding-top: 5.7rem;
   background: white;
-  min-height: ${minHeight}rem;
 `
 
 const StyledHeading = styled(Heading)`
@@ -46,8 +43,6 @@ const LeftCol = styled(Col)`
   ${mapBreakpoints(() => css`
     padding: 0;
   `)}
-
-  min-height: ${minHeight}rem;
 `
 
 const RightCol = styled(Col)`
@@ -55,7 +50,6 @@ const RightCol = styled(Col)`
   flex-direction: column;
   width: 100%;
   margin-top: ${theme('spaces.xxl')};
-  min-height: ${minHeight}rem;
 
   ${breakpoint('l')`
     padding-left: ${theme('spaces.xxl')};

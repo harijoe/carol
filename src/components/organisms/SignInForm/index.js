@@ -75,7 +75,7 @@ const StyledLink = styled(Link)`
 `
 
 const Footer = styled.footer`
-  margin-top: auto;
+  margin-top: ${theme('spaces.xl')};
   padding: ${theme('spaces.xl')};
   border-top: 1px solid ${theme('colors.grayscale.light')};
   background-color: ${theme('colors.grayscale.lightest')};
@@ -98,6 +98,7 @@ const Footer = styled.footer`
   ${breakpoint('l')`
     margin-left: -${theme('spaces.xxl')};
     margin-right: -${theme('spaces.xxl')};
+    margin-top: ${theme('spaces.xxl')};
   `}
 `
 
