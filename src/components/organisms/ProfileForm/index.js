@@ -20,6 +20,7 @@ import {
   BorderBox,
   Icon,
 } from 'components'
+import ValidatedInfo from './atoms/ValidatedInfo'
 
 const Form = styled.form`
   width: 100%;
@@ -283,6 +284,9 @@ class ProfileForm extends Component {
                 label={formatMessage(messages('user.email').label)}
                 placeholder={formatMessage(messages('user.email').label)}
               />
+              <div>
+                <ValidatedInfo validated={initialValues.emailVerified} field="email" />
+              </div>
               <Field
                 name="preferedLanguage"
                 component={RenderField}
@@ -296,6 +300,9 @@ class ProfileForm extends Component {
                 placeholder={formatMessage(messages('user.mobile_phone').label)}
                 {...{ format, normalize }}
               />
+              <div>
+                <ValidatedInfo validated={initialValues.mobilePhoneVerified} field="mobile" />
+              </div>
               <PhoneField
                 name="fixedPhone"
                 component={RenderField}

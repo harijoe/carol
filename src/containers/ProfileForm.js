@@ -41,7 +41,7 @@ const mapStateToProps = (state) => {
         'email', 'preferedLanguage', 'mobilePhone', 'mobilePhone',
         'fixedPhone', 'address', 'postalCode', 'countryCode',
         'region', 'city', 'newsletterSubscription', 'contactPreference',
-        'contactComment',
+        'contactComment', 'emailVerified', 'mobilePhoneVerified',
       ]),
       imageBase64: details.imageUrl,
       birthday: transformDate(details.birthday),

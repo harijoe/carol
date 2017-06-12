@@ -1,0 +1,197 @@
+exports[`test renders a non-validated info 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <div>
+    <Mock
+        icon="to_validate"
+        size={50} />
+    <FormattedMessage
+        id="user.profile.field.to_validate"
+        values={Object {}} />
+</div>,
+  "nodes": Array [
+    <div>
+      <Mock
+            icon="to_validate"
+            size={50} />
+      <FormattedMessage
+            id="user.profile.field.to_validate"
+            values={Object {}} />
+</div>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 2,
+      "_context": Object {},
+      "_currentElement": <ValidatedInfo
+        field="field"
+        validated={false} />,
+      "_debugID": 3,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": StatelessComponent {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "field": "field",
+          "validated": false,
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 2,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <div>
+          <Mock
+                    icon="to_validate"
+                    size={50} />
+          <FormattedMessage
+                    id="user.profile.field.to_validate"
+                    values={Object {}} />
+</div>,
+        "_debugID": 4,
+        "_renderedOutput": <div>
+          <Mock
+                    icon="to_validate"
+                    size={50} />
+          <FormattedMessage
+                    id="user.profile.field.to_validate"
+                    values={Object {}} />
+</div>,
+      },
+      "_renderedNodeType": 0,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <ValidatedInfo
+    field="field"
+    validated={false} />,
+}
+`;
+
+exports[`test renders a validated info 1`] = `
+ShallowWrapper {
+  "complexSelector": ComplexSelector {
+    "buildPredicate": [Function],
+    "childrenOfNode": [Function],
+    "findWhereUnwrapped": [Function],
+  },
+  "length": 1,
+  "node": <div>
+    <Mock
+        icon="validated"
+        size={50} />
+    <FormattedMessage
+        id="user.profile.field.validated"
+        values={Object {}} />
+</div>,
+  "nodes": Array [
+    <div>
+      <Mock
+            icon="validated"
+            size={50} />
+      <FormattedMessage
+            id="user.profile.field.validated"
+            values={Object {}} />
+</div>,
+  ],
+  "options": Object {},
+  "renderer": ReactShallowRenderer {
+    "_instance": ShallowComponentWrapper {
+      "_calledComponentWillUnmount": false,
+      "_compositeType": 2,
+      "_context": Object {},
+      "_currentElement": <ValidatedInfo
+        field="field"
+        validated={true} />,
+      "_debugID": 1,
+      "_hostContainerInfo": null,
+      "_hostParent": null,
+      "_instance": StatelessComponent {
+        "_reactInternalInstance": [Circular],
+        "context": Object {},
+        "props": Object {
+          "field": "field",
+          "validated": true,
+        },
+        "refs": Object {},
+        "state": null,
+        "updater": Object {
+          "enqueueCallback": [Function],
+          "enqueueCallbackInternal": [Function],
+          "enqueueElementInternal": [Function],
+          "enqueueForceUpdate": [Function],
+          "enqueueReplaceState": [Function],
+          "enqueueSetState": [Function],
+          "isMounted": [Function],
+          "validateCallback": [Function],
+        },
+      },
+      "_mountOrder": 1,
+      "_pendingCallbacks": null,
+      "_pendingElement": null,
+      "_pendingForceUpdate": false,
+      "_pendingReplaceState": false,
+      "_pendingStateQueue": null,
+      "_renderedComponent": NoopInternalComponent {
+        "_currentElement": <div>
+          <Mock
+                    icon="validated"
+                    size={50} />
+          <FormattedMessage
+                    id="user.profile.field.validated"
+                    values={Object {}} />
+</div>,
+        "_debugID": 2,
+        "_renderedOutput": <div>
+          <Mock
+                    icon="validated"
+                    size={50} />
+          <FormattedMessage
+                    id="user.profile.field.validated"
+                    values={Object {}} />
+</div>,
+      },
+      "_renderedNodeType": 0,
+      "_rootNodeID": 0,
+      "_topLevelWrapper": null,
+      "_updateBatchNumber": null,
+      "_warnedAboutRefsInRender": false,
+    },
+    "getRenderOutput": [Function],
+    "render": [Function],
+  },
+  "root": [Circular],
+  "unrendered": <ValidatedInfo
+    field="field"
+    validated={true} />,
+}
+`;
