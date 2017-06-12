@@ -9,7 +9,6 @@ import { cloudinaryUrl } from 'config'
 
 import messages from 'utils/messages'
 import {
-  List,
   RenderField,
   Heading,
   Button,
@@ -20,7 +19,6 @@ import {
   ProfileImage,
   BorderBox,
   Icon,
-  NotificationBox,
 } from 'components'
 
 const Form = styled.form`
@@ -381,16 +379,6 @@ class ProfileForm extends Component {
                 ))}
               </Field>
             </div>
-          </StyledGrid>
-        </StyledSection>
-
-        <StyledSection title={formatMessage(messages('user.social_network').label)}>
-          <StyledGrid>
-            <List>
-              <li>Facebook Id : {details.facebookId}</li>
-              <li>Google Id : {details.googleId}</li>
-            </List>
-            <NotificationBox primary text={formatMessage(messages('user.facebookId').label)} />
           </StyledGrid>
         </StyledSection>
 
