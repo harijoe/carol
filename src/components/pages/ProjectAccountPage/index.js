@@ -16,7 +16,7 @@ const StyledMainWrapper = styled(MainWrapper)`
 const StyledHeroSection = styled(HeroSection)`
   > section {
     ${breakpoint('m')`
-      max-width: 50rem;
+      max-width: 60rem;
     `}
   }
 `
@@ -24,7 +24,10 @@ const StyledHeroSection = styled(HeroSection)`
 const StyledGrid = styled(Grid)`
   margin-left: auto;
   margin-right: auto;
-  max-width: 55rem;
+
+  ${breakpoint('m')`
+    max-width: 55rem;
+  `}
 
   ${breakpoint('xl')`
     max-width: 50rem;

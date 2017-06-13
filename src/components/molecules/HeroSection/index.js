@@ -34,8 +34,6 @@ const Wrapper = styled.header`${({ imageLink }) => `
 
 const StyledSection = styled(Section)`
   position: relative;
-  padding-left: 0;
-  padding-right: 0;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -50,8 +48,8 @@ const HeroSection = ({ title, imageLink, children, ...props }) => (
   <Wrapper imageLink={imageLink} {...props}>
     <StyledSection>
       <StyledHeading level={1} className="qs-Hero-title">{title}</StyledHeading>
+      {children}
     </StyledSection>
-    {children}
   </Wrapper>
 )
 
