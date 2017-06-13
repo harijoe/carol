@@ -299,7 +299,6 @@ class ProfileForm extends Component {
                 component={RenderField}
                 label={formatMessage(messages('user.mobile_phone').label)}
                 placeholder={formatMessage(messages('user.mobile_phone').label)}
-                disabled
                 {...{ format, normalize }}
               />
               <div>
