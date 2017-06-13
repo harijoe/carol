@@ -87,7 +87,7 @@ const en = {
   'project.list.heading': 'My projects',
   'project.list.empty': 'No project yet',
   'project.send_to_firms': 'Envoyer mon projet aux pros disponibles EN',
-  'project.transmitted_to_firms': 'Your project is transmitted to ES',
+  'project.transmitted_to_firms': 'Your project is transmitted to EN',
   'project.question': 'Question & Answers',
   'project.purpose': 'Purpose of the request',
   'project.startTimeframe': 'Project start timeframe',

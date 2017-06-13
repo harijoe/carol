@@ -114,7 +114,7 @@ const es = {
   'project.notify_project_validated': 'Your project request has been validated ES',
 
   'user.gender': 'Gender ES',
-  'user.forget_password': 'Forget password ES ?',
+  'user.forget_password': 'Forget password ? ES',
   'user.create_account': 'Inscripton ES',
   'user.sign_up': 'Sign up ES',
   'user.mr': 'Mr ES',
@@ -147,7 +147,7 @@ const es = {
   'user.city': 'City ES',
   'user.send': 'Send ES',
   'user.resend': 'Renvoyer ES',
-  'user.thank_you': 'Thank you ES!',
+  'user.thank_you': 'Thank you ! ES',
   'user.sign_up.heading': 'Bienvenido a Quotatis',
   'user.sign_up.description': 'No podemos esperar para ayudarle en el desarrollo de su proyecto.',
   'user.sign_up.confirmation': 'An email was sent to confirm your account. ES',
