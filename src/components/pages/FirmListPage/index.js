@@ -23,7 +23,7 @@ const StyledSection = styled(Section)`
     position: absolute;
     left: 0;
     top: 0;
-    height: 50%;
+    height: 60%;
     width: 100%;
     background: ${theme('colors.white')};
     content: '';

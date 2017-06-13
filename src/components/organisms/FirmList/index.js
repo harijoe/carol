@@ -110,6 +110,7 @@ const FirmList = ({ list, loading, projectId }) => (
         <FormattedMessage id={`firm.list.${list.length > 1 ? 'has_results' : 'no_results'}`} />
       </StyledParagraph>
     </Grid>
+    <FirmAcceptButton projectId={projectId} />
     <StyledRow>
       <Carousel
         slidesToShow={1}
@@ -139,7 +140,6 @@ const FirmList = ({ list, loading, projectId }) => (
         )}
       </Carousel>
     </StyledRow>
-    <FirmAcceptButton projectId={projectId} />
   </Loading>
 )
 
