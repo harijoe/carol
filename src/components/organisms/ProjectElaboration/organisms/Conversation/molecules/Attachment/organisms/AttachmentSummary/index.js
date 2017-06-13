@@ -78,7 +78,7 @@ class AttachmentSummary extends Component {
           <StyledThumbnailPosterWrapper>
             <ThumbnailPoster
               // eslint-disable-next-line camelcase
-              image={image_url}
+              image={{ src: image_url }}
               title={title}
             />
           </StyledThumbnailPosterWrapper>

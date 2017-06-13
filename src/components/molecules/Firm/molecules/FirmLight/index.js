@@ -135,7 +135,7 @@ const FirmLight = ({ imageUrl, logoUrl, globalRating, name, globalRatingCount, p
     <HeaderWrapper>
       <TopHeaderWrapper>
         <LogoFirmWrapper>
-          <LogoFirmImage link={logoUrl} />
+          <LogoFirmImage src={logoUrl} />
         </LogoFirmWrapper>
         <NoteFirm>
           {globalRatingCount ?
@@ -151,7 +151,7 @@ const FirmLight = ({ imageUrl, logoUrl, globalRating, name, globalRatingCount, p
       <StyledHeading level={3}>
         {name}
       </StyledHeading>
-      <StyledImage link={imageUrl} />
+      <StyledImage src={imageUrl} />
     </HeaderWrapper>
     <FooterWrapper>
       <StyledParagraph>

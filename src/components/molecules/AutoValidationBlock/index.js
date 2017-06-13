@@ -51,7 +51,7 @@ const AutoValidationBlock = ({ imageLink, title, paragraph, children, firstDot, 
           <Dots focus />
         </DotsWrapper>
       }
-      <StyledImage link={imageLink} />
+      <StyledImage src={imageLink} />
       <Heading level={2}>{title}</Heading>
       <Paragraph>{paragraph}</Paragraph>
       {children}

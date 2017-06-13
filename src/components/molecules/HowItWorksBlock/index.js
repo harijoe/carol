@@ -10,7 +10,7 @@ const StyledImage = styled(Image)`
 
 const HowItWorksBlock = ({ imageLink, title, content }) => (
   <div>
-    <StyledImage link={imageLink} />
+    <StyledImage src={imageLink} />
     <Heading level={3}>{title}</Heading>
     {content}
   </div>

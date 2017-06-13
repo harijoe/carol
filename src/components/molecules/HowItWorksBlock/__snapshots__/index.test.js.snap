@@ -8,7 +8,7 @@ ShallowWrapper {
   "length": 1,
   "node": <div>
     <Styled(Mock)
-        link={undefined} />
+        src={undefined} />
     <Mock
         level={3}>
         Test
@@ -17,7 +17,7 @@ ShallowWrapper {
   "nodes": Array [
     <div>
       <Styled(Mock)
-            link={undefined} />
+            src={undefined} />
       <Mock
             level={3}>
             Test
@@ -65,7 +65,7 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <div>
           <Styled(Mock)
-                    link={undefined} />
+                    src={undefined} />
           <Mock
                     level={3}>
                     Test
@@ -74,7 +74,7 @@ ShallowWrapper {
         "_debugID": 2,
         "_renderedOutput": <div>
           <Styled(Mock)
-                    link={undefined} />
+                    src={undefined} />
           <Mock
                     level={3}>
                     Test

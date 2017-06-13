@@ -175,7 +175,7 @@ const MainMenu = ({ locale, homepage, atTop }) => (
     <li>
       <StyledLink to="/project-elaboration">
         <FormattedMessage id="firm.find_pro" />
-        <StyledImage link={`${cloudinaryUrl}bot.png`} />
+        <StyledImage src={`${cloudinaryUrl}bot.png`} />
       </StyledLink>
     </li>
     <ListItemWithSubmenu id="firm.resource" linkStyle={linkStyle} homepage={homepage}>

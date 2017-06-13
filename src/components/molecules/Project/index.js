@@ -112,7 +112,7 @@ const listView = (items, ...props) => (
   <Article {...props}>
     <HeaderCard>
       <ImageWrapper>
-        <Image link={`${cloudinaryUrl}thumbnail-poster-keyone.jpg`} />
+        <Image src={`${cloudinaryUrl}thumbnail-poster-keyone.jpg`} />
       </ImageWrapper>
       <StyledHeading level={3}>{items.name}</StyledHeading>
       <DateCreation>
