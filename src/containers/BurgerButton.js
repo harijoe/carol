@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { BurgerButton } from 'components'
 import { fromContext } from 'store/selectors'
-import { toggleMainNavigation, closeAll } from 'store/actions'
+import { togglePopinNavigation, closeAllPopin } from 'store/actions'
 
 const BurgerButtonContainer = props => (
   <BurgerButton {...props} />
@@ -14,8 +14,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  toggleMainNavigation: () => dispatch(toggleMainNavigation()),
-  closeAll: () => dispatch(closeAll()),
+  togglePopinNavigation: () => dispatch(togglePopinNavigation()),
+  closeAllPopin: () => dispatch(closeAllPopin()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(BurgerButtonContainer)

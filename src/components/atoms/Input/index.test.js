@@ -5,6 +5,12 @@ import theme from '../../themes/default'
 
 const wrap = (props = {}) => shallow(<Input theme={theme} {...props} />).dive()
 
+it('renders props when passed in', () => {
+  const wrapper = wrap({ type: 'text' })
+
+  expect(wrapper.find({ type: 'text' })).toHaveLength(1)
+})
+
 it('renders input by default', () => {
   const wrapper = wrap()
 

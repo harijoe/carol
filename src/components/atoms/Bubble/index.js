@@ -16,7 +16,10 @@ const Bubble = styled.div`
     border-bottom: ${theme('spaces.m')} solid ${theme('colors.white')};
     border-right: ${theme('spaces.m')} solid transparent;
     content: '';
-    ${breakpoint('m')`margin-left: calc(${theme('spaces.xxl')}*3);`}
+
+    ${breakpoint('m')`
+    margin-left: calc(${theme('spaces.xxl')}*3);
+  `}
   }
 
   ${breakpoint('m')`

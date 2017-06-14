@@ -2,10 +2,10 @@ import { put, select } from 'redux-saga/effects'
 import { LOCATION_CHANGE } from 'react-router-redux'
 import { takeLatest } from 'utils/effects'
 import { fromContext } from 'store/selectors'
-import { closeAll, CONTEXT_TOGGLE_MAIN_NAVIGATION, CONTEXT_TOGGLE_ACCOUNT_NAVIGATION, CONTEXT_CLOSE_ALL } from './actions'
+import { closeAllPopin, CONTEXT_TOGGLE_POPIN_NAV, CONTEXT_TOGGLE_POPIN_ACCOUNT, CONTEXT_CLOSE_ALL_POPIN } from './actions'
 
 export function* handleLocationChange() {
-  yield put(closeAll())
+  yield put(closeAllPopin())
 }
 
 export function* handlePopinChange() {
@@ -29,8 +29,8 @@ export function* handlePopinChange() {
 export default function* () {
   yield [
     takeLatest(LOCATION_CHANGE, handleLocationChange),
-    takeLatest(CONTEXT_TOGGLE_MAIN_NAVIGATION, handlePopinChange),
-    takeLatest(CONTEXT_TOGGLE_ACCOUNT_NAVIGATION, handlePopinChange),
-    takeLatest(CONTEXT_CLOSE_ALL, handlePopinChange),
+    takeLatest(CONTEXT_TOGGLE_POPIN_NAV, handlePopinChange),
+    takeLatest(CONTEXT_TOGGLE_POPIN_ACCOUNT, handlePopinChange),
+    takeLatest(CONTEXT_CLOSE_ALL_POPIN, handlePopinChange),
   ]
 }

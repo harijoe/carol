@@ -5,14 +5,14 @@ import { connect } from 'react-redux'
 import { CountryMenu } from 'components'
 import { fromContext } from 'store/selectors'
 
-const CountryMenuContainer = props => (
-  <CountryMenu {...props} />
+const CountryMenuContainer = ({ locale, ...props }) => (
+  <CountryMenu locale={locale} {...props} />
 )
 
 CountryMenuContainer.propTypes = {
   locale: PropTypes.string,
 }
 
-const mapStateToProps = state => ({ currentLocale: fromContext.getLocale(state) })
+const mapStateToProps = state => ({ currentCountry: fromContext.getCountry(state) })
 
 export default connect(mapStateToProps)(CountryMenuContainer)
