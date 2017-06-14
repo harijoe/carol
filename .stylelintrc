@@ -3,6 +3,16 @@
   "extends": "stylelint-config-standard",
   "syntax": "scss",
   "rules": {
-    "rule-empty-line-before": null
+    "rule-empty-line-before": null,
+    "declaration-block-no-duplicate-properties": null,
+    "block-opening-brace-space-after": null,
+    "block-opening-brace-space-before": null,
+    "block-closing-brace-space-before": null,
+    "block-closing-brace-empty-line-before": null,
+    "declaration-empty-line-before": null,
+    "declaration-block-semicolon-newline-after": null,
+    "declaration-block-semicolon-space-before": null,
+    "block-closing-brace-newline-before": null,
+    "no-eol-whitespace": null
   }
 }

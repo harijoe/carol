@@ -9,7 +9,6 @@ import {
   TipsAndTricks,
   Reinsurance,
   LastProjects,
-  MotionMenu,
   MainWrapper,
 } from 'components'
 import { Hero } from 'containers'
@@ -28,7 +27,6 @@ const HomePage = props => (
       <TipsAndTricks />
       <Reinsurance />
     </MainWrapper>
-    <MotionMenu />
   </MainLayout>
 )
 

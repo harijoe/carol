@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import SlickCarousel from 'react-slick'
 import styled, { css } from 'styled-components'
-import { theme, mapBreakpoints, breakpoint } from 'utils/style'
+import { theme, mapBreakpoints, breakpointMax, breakpoint } from 'utils/style'
 
 import styles from './styles'
 
@@ -10,11 +10,9 @@ const Wrapper = styled.div`${styles}`
 
 const StyledSlickCarousel = styled(SlickCarousel)`
   padding-bottom: ${theme('spaces.m')};
-
   ${breakpoint('xs')`
     overflow: hidden;
   `}
-
   ${breakpoint('m')`
     overflow: visible;
   `}
@@ -27,10 +25,11 @@ const StyledSlickCarousel = styled(SlickCarousel)`
       padding-left: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
       padding-right: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
     }
- `)}
+  `)}
 
   > .slick-dots {
     bottom: 0;
+    left: 0;
   }
 
   .slick-arrow {
@@ -53,7 +52,8 @@ const StyledSlickCarousel = styled(SlickCarousel)`
       transition: color 0.3s ease;
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background: ${theme('colors.primary')};
 
       &::before {
@@ -65,12 +65,24 @@ const StyledSlickCarousel = styled(SlickCarousel)`
       opacity: 0;
     }
 
-    &.slick-prev::before {
-      content: '←';
+    &.slick-prev{
+      ${breakpointMax('xl')`
+        left: 2.5rem;
+      `}
+
+      &::before {
+        content: '←';
+      }
     }
 
-    &.slick-next::before {
-      content: '→';
+    &.slick-next{
+      ${breakpointMax('xl')`
+        right: 2.5rem;
+      `}
+
+      &::before {
+        content: '→';
+      }
     }
   }
 `

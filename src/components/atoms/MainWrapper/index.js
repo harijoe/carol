@@ -6,7 +6,6 @@ const MainWrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-
   ${breakpoint('xl')`
     max-width: ${theme('grid.container')}rem;
   `}

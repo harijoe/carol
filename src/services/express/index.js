@@ -1,5 +1,6 @@
 import express from 'express'
 import forceSSL from 'express-force-ssl'
+import favicon from 'serve-favicon'
 import compression from 'compression'
 import morgan from 'morgan'
 import cookieParser from 'cookie-parser'
@@ -18,6 +19,7 @@ export default (routes) => {
   app.use(morgan(env === 'production' ? 'common' : 'dev'))
   app.use(cookieParser())
   app.use(express.static(path.join(root, 'dist')))
+  app.use(favicon(path.join(root, 'src/components/themes/default/favicon.ico')))
   app.use(bodyParser.urlencoded({ extended: false }))
   app.use(bodyParser.json())
   app.use(routes)
@@ -56,6 +58,7 @@ export default (routes) => {
     const server = https.createServer({
       key: fs.readFileSync(path.join(root, ssl.privateKey)),
       cert: fs.readFileSync(path.join(root, ssl.certificate)),
+      ca: [fs.readFileSync(path.join(root, ssl.intermediate))],
     }, app)
 
     return server

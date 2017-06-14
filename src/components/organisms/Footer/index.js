@@ -1,21 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
 
-import { FooterAdvices, FooterCorporate, FooterSocialNetworks } from 'components'
-import { theme } from 'utils/style'
-
-const StyledFooter = styled.div`
-  position: relative;
-  width: 100vw;
-  background-color: ${theme('colors.black')};
-`
+import { FooterAdvices, FooterCorporate, FooterSocialNetworks, MainWrapper } from 'components'
 
 const Footer = () => (
-  <StyledFooter>
+  <MainWrapper>
     <FooterAdvices />
     <FooterCorporate />
     <FooterSocialNetworks />
-  </StyledFooter>
+  </MainWrapper>
 )
 
 export default Footer

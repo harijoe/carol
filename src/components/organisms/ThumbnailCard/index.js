@@ -9,7 +9,7 @@ import { Card, ThumbnailPoster, List } from 'components'
 const Wrapper = styled.div`
   display: block;
   height: 100%;
-  width: 11.2rem;
+  width: 13.5rem;
   margin: 0 ${theme('spaces.xs')};
 
   *,

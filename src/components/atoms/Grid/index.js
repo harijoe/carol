@@ -4,7 +4,6 @@ import { theme, breakpoint, ifThen, mapBreakpoints } from 'utils/style'
 
 const styles = ({ fluid, narrow }) => css`
   position: relative;
-
   ${ifThen(fluid, mapBreakpoints(current => css`
     margin-left: calc(${theme(`grid.gutterWidth.${current}`, 'rem')} * -1);
     margin-right: calc(${theme(`grid.gutterWidth.${current}`, 'rem')} * -1);

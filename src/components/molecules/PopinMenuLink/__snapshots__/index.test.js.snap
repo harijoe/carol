@@ -1,4 +1,4 @@
-exports[`test renders PrimaryNavigation component 1`] = `
+exports[`test renders PopinMenuLink 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -6,17 +6,15 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <styled.nav>
-    <styled.li>
-        <Mock />
-    </styled.li>
-</styled.nav>,
+  "node": <Styled(Mock)
+    to="test">
+    Test
+</Styled(Mock)>,
   "nodes": Array [
-    <styled.nav>
-      <styled.li>
-            <Mock />
-      </styled.li>
-</styled.nav>,
+    <Styled(Mock)
+      to="test">
+      Test
+</Styled(Mock)>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -24,14 +22,20 @@ ShallowWrapper {
       "_calledComponentWillUnmount": false,
       "_compositeType": 2,
       "_context": Object {},
-      "_currentElement": <PrimaryNavigation />,
+      "_currentElement": <PopinMenuLink
+        to="test">
+        Test
+</PopinMenuLink>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
       "_instance": StatelessComponent {
         "_reactInternalInstance": [Circular],
         "context": Object {},
-        "props": Object {},
+        "props": Object {
+          "children": "Test",
+          "to": "test",
+        },
         "refs": Object {},
         "state": null,
         "updater": Object {
@@ -52,17 +56,15 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <styled.nav>
-          <styled.li>
-                    <Mock />
-          </styled.li>
-</styled.nav>,
+        "_currentElement": <Styled(Mock)
+          to="test">
+          Test
+</Styled(Mock)>,
         "_debugID": 2,
-        "_renderedOutput": <styled.nav>
-          <styled.li>
-                    <Mock />
-          </styled.li>
-</styled.nav>,
+        "_renderedOutput": <Styled(Mock)
+          to="test">
+          Test
+</Styled(Mock)>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -74,6 +76,9 @@ ShallowWrapper {
     "render": [Function],
   },
   "root": [Circular],
-  "unrendered": <PrimaryNavigation />,
+  "unrendered": <PopinMenuLink
+    to="test">
+    Test
+</PopinMenuLink>,
 }
 `;
