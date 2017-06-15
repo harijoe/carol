@@ -46,5 +46,5 @@ test('trigger an error', () => {
       touched: true,
       error: { id: messages.test, values: {}},
     }
-  }).find(FormattedMessage).at(2).text()).toContain('Choose a picture')
+  }).find(FormattedMessage).at(2).text()).toContain('user.choose_img')
 })
