@@ -6,6 +6,8 @@ import { theme, breakpoint } from 'utils/style'
 import { Image, Heading, Paragraph, Dots } from 'components'
 
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   max-width: 40rem;
   margin: 0 auto;
   padding-left: ${theme('spaces.m')};
@@ -24,7 +26,7 @@ const Container = styled.div`
 `
 
 const StyledImage = styled(Image)`
-  margin-bottom: ${theme('spaces.xl')};
+  margin: auto auto ${theme('spaces.xl')} auto;
   width: auto;
   max-height: 12rem;
 `
