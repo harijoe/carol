@@ -38,7 +38,7 @@ const StyledHeroSection = styled(HeroSection)`
   > section {
     display: flex;
 
-    :not(figure) {
+    > :not(figure) {
       order: 2;
     }
 
@@ -129,10 +129,14 @@ const StyledProfileImage = styled(ProfileImage)`
   `}
 
   ${breakpoint('m')`
-    margin-right: ${theme('spaces.xxl')};
     height: 15rem;
     width: 15rem;
   `}
+
+  ${breakpoint('l')`
+    margin-right: ${theme('spaces.xxl')};
+  `}
+
 `
 
 const RadioBlock = styled.div`
