@@ -162,23 +162,27 @@ const RadioBlock = styled.div`
   }
 `
 
-const PhoneField = styled(Field)`
-  padding-left: ${theme('spaces.m')};
-  border: 0.1rem solid ${theme('colors.grayscale.light')};
+const VerifiedFieldWrapper = styled.div `
+  display: flex;
+
+  ${breakpointMax('m')`
+    flex-direction: column;
+
+    [class*="qs-Field--"]{
+      margin-bottom: ${theme('spaces.m')};
+      margin-top: -${theme('spaces.m')};
+    }
+  `}
 
   ${breakpoint('m')`
-    max-width: 20rem;
-  `}
-`
+    align-items: center;
 
-const StyledIcon = styled(Icon)`
-  margin-right: ${theme('spaces.s')};
+    div {
+      width: 50%;
 
-  ${breakpoint('l')`
-    margin-right: ${theme('spaces.m')};
-
-    svg .maillogin-grey {
-      fill: ${theme('colors.white')};
+      &[class*="qs-Field--"] {
+        padding: ${theme('spaces.s')} 0 ${theme('spaces.s')} ${theme('spaces.l')};
+      }
     }
   `}
 `
@@ -247,7 +251,7 @@ class ProfileForm extends Component {
           <StyledProfileImage imageLink={initialValues.imageBase64} />
           <ProfileContentWrapper>
             <Heading level={1} className="qs-Profil-titleName">Bonjour {initialValues.firstName}</Heading>
-            <p><StyledIcon icon="mail-login" /><span>{details.email}</span></p>
+            <p><Icon icon="mail-login" /><span>{details.email}</span></p>
           </ProfileContentWrapper>
         </StyledHeroSection>
         <StyledSection title={formatMessage(messages('user.profile_info').label)}>
@@ -280,35 +284,35 @@ class ProfileForm extends Component {
               />
             </div>
             <BorderBox grey mediumBorder title={formatMessage(messages('user.contact_info').label)}>
-              <Field
-                name="email"
-                type="email"
-                icon="mail-login"
-                component={RenderField}
-                label={formatMessage(messages('user.email').label)}
-                placeholder={formatMessage(messages('user.email').label)}
-                disabled
-              />
-              <div>
+              <VerifiedFieldWrapper>
+                <Field
+                  name="email"
+                  type="email"
+                  icon="mail-login"
+                  component={RenderField}
+                  label={formatMessage(messages('user.email').label)}
+                  placeholder={formatMessage(messages('user.email').label)}
+                  disabled
+                />
                 <ValidatedInfo validated={initialValues.emailVerified} field="email" />
-              </div>
+              </VerifiedFieldWrapper>
               <Field
                 name="preferedLanguage"
                 component={RenderField}
                 label={formatMessage(messages('user.prefered_language').label)}
                 placeholder={formatMessage(messages('user.prefered_language').label)}
               />
-              <PhoneField
-                name="mobilePhone"
-                component={RenderField}
-                label={formatMessage(messages('user.mobile_phone').label)}
-                placeholder={formatMessage(messages('user.mobile_phone').label)}
-                {...{ format, normalize }}
-              />
-              <div>
+              <VerifiedFieldWrapper>
+                <Field
+                  name="mobilePhone"
+                  component={RenderField}
+                  label={formatMessage(messages('user.mobile_phone').label)}
+                  placeholder={formatMessage(messages('user.mobile_phone').label)}
+                  {...{ format, normalize }}
+                />
                 <ValidatedInfo validated={initialValues.mobilePhoneVerified} field="mobile" />
-              </div>
-              <PhoneField
+              </VerifiedFieldWrapper>
+              <Field
                 name="fixedPhone"
                 component={RenderField}
                 label={formatMessage(messages('user.fixed_phone').label)}

@@ -6,23 +6,25 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <div>
-    <Mock
-        icon="to_validate"
-        size={50} />
+  "node": <styled.div
+    className="qs-Field--toValidate">
+    <Styled(Mock)
+        icon="error"
+        size={21} />
     <FormattedMessage
-        id="user.profile.field.to_validate"
+        id="user.profile.field.error"
         values={Object {}} />
-</div>,
+</styled.div>,
   "nodes": Array [
-    <div>
-      <Mock
-            icon="to_validate"
-            size={50} />
+    <styled.div
+      className="qs-Field--toValidate">
+      <Styled(Mock)
+            icon="error"
+            size={21} />
       <FormattedMessage
-            id="user.profile.field.to_validate"
+            id="user.profile.field.error"
             values={Object {}} />
-</div>,
+</styled.div>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -63,25 +65,27 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <div>
-          <Mock
-                    icon="to_validate"
-                    size={50} />
+        "_currentElement": <styled.div
+          className="qs-Field--toValidate">
+          <Styled(Mock)
+                    icon="error"
+                    size={21} />
           <FormattedMessage
-                    id="user.profile.field.to_validate"
+                    id="user.profile.field.error"
                     values={Object {}} />
-</div>,
+</styled.div>,
         "_debugID": 4,
-        "_renderedOutput": <div>
-          <Mock
-                    icon="to_validate"
-                    size={50} />
+        "_renderedOutput": <styled.div
+          className="qs-Field--toValidate">
+          <Styled(Mock)
+                    icon="error"
+                    size={21} />
           <FormattedMessage
-                    id="user.profile.field.to_validate"
+                    id="user.profile.field.error"
                     values={Object {}} />
-</div>,
+</styled.div>,
       },
-      "_renderedNodeType": 0,
+      "_renderedNodeType": 1,
       "_rootNodeID": 0,
       "_topLevelWrapper": null,
       "_updateBatchNumber": null,
@@ -105,23 +109,25 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <div>
-    <Mock
+  "node": <styled.div
+    className="qs-Field--validated">
+    <Styled(Mock)
         icon="validated"
-        size={50} />
+        size={21} />
     <FormattedMessage
         id="user.profile.field.validated"
         values={Object {}} />
-</div>,
+</styled.div>,
   "nodes": Array [
-    <div>
-      <Mock
+    <styled.div
+      className="qs-Field--validated">
+      <Styled(Mock)
             icon="validated"
-            size={50} />
+            size={21} />
       <FormattedMessage
             id="user.profile.field.validated"
             values={Object {}} />
-</div>,
+</styled.div>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -162,25 +168,27 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <div>
-          <Mock
+        "_currentElement": <styled.div
+          className="qs-Field--validated">
+          <Styled(Mock)
                     icon="validated"
-                    size={50} />
+                    size={21} />
           <FormattedMessage
                     id="user.profile.field.validated"
                     values={Object {}} />
-</div>,
+</styled.div>,
         "_debugID": 2,
-        "_renderedOutput": <div>
-          <Mock
+        "_renderedOutput": <styled.div
+          className="qs-Field--validated">
+          <Styled(Mock)
                     icon="validated"
-                    size={50} />
+                    size={21} />
           <FormattedMessage
                     id="user.profile.field.validated"
                     values={Object {}} />
-</div>,
+</styled.div>,
       },
-      "_renderedNodeType": 0,
+      "_renderedNodeType": 1,
       "_rootNodeID": 0,
       "_topLevelWrapper": null,
       "_updateBatchNumber": null,

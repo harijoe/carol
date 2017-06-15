@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 25 25">
+  <metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c138 79.159824, 2016/09/14-01:09:01">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description rdf:about=""/>
+   </rdf:RDF>
+</x:xmpmeta>                        
+<?xpacket end="w"?></metadata>
+<defs>
+    <style>
+      .error-icon {
+        fill: #d32f2f;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <g id="error">
+    <path id="Ellipse" data-name="Ellipse" class="error-icon" d="M1515.5,119a12.5,12.5,0,1,1-12.5,12.5A12.5,12.5,0,0,1,1515.5,119Zm0,1.562a10.938,10.938,0,1,1-10.94,10.938A10.94,10.94,0,0,1,1515.5,120.562Z" transform="translate(-1503 -119)"/>
+    <path id="Close" d="M1520.99,126.635l-0.64-.638-4.85,4.866L1510.65,126l-0.64.638,4.85,4.866-4.85,4.865,0.64,0.638,4.85-4.865,4.85,4.865,0.64-.638-4.85-4.865Z" class="error-icon" transform="translate(-1503 -119)"/>
+  </g>
+</svg>
