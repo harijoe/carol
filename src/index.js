@@ -1,8 +1,9 @@
-import 'babel-polyfill'
-import WebpackIsomorphicTools from 'webpack-isomorphic-tools'
-import path from 'path'
+require('babel-polyfill')
+require('babel-core/register')
 
-import webpackIsomorphicToolsConfig from '../webpack/webpack-isomorphic-tools'
+const WebpackIsomorphicTools = require('webpack-isomorphic-tools')
+const webpackIsomorphicToolsConfig = require('../webpack/webpack-isomorphic-tools')
+const path = require('path')
 
 const projectBasePath = path.resolve(__dirname, '../')
 

@@ -8,7 +8,7 @@
     "yarn": ">=0.16.0"
   },
   "scripts": {
-    "start": "babel-node .",
+    "start": "node .",
     "test": "jest",
     "coverage": "yarn test -- --coverage && opn coverage/lcov-report/index.html",
     "purge": "babel-node scripts/purge.js",
