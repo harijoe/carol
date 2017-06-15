@@ -1,6 +1,6 @@
-import fs from 'fs'
+const fs = require('fs')
 
-export default (path, callback) => {
+module.exports = (path, callback) => {
   if (!fs.existsSync(path)) {
     console.info(`No ${path} found in development environment, creating it`)
     callback(path)

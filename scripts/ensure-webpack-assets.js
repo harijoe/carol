@@ -1,6 +1,6 @@
-import { execSync } from 'child_process'
+const { execSync } = require('child_process')
 
-import ifMissing from './if-missing'
+const ifMissing = require('./if-missing')
 
 const env = process.env.NODE_ENV || 'development'
 
