@@ -14,7 +14,7 @@
     "purge": "babel-node scripts/purge.js",
     "lint": "eslint src",
     "lint:css": "stylelint 'src/components/**/*.js'",
-    "clean": "rm -f dist/",
+    "clean": "rm -rf dist/",
     "build:development": "yarn run clean copy && cross-env NODE_ENV=development webpack --config webpack/dev.config",
     "build:staging": "yarn run clean && cross-env NODE_ENV=staging webpack --config webpack/prod.config",
     "build:production": "yarn run clean && cross-env NODE_ENV=production webpack --config webpack/prod.config",
