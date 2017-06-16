@@ -85,8 +85,6 @@
   "dependencies": {
     "anchorate": "^1.1.0",
     "babel-core": "^6.17.0",
-    "babel-plugin-transform-react-constant-elements": "^6.23.0",
-    "babel-plugin-transform-react-inline-elements": "^6.22.0",
     "babel-polyfill": "^6.16.0",
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",

@@ -7,9 +7,7 @@
     "production": {
       "presets": [["es2015", { "modules": false }], "react", "stage-1"],
       "plugins": [
-        "transform-react-remove-prop-types",
-        "transform-react-constant-elements",
-        "transform-react-inline-elements"
+        "transform-react-remove-prop-types"
       ]
     }
   }
