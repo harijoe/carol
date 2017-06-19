@@ -22,7 +22,6 @@ export default (routes) => {
   app.use(favicon(path.join(root, 'src/components/themes/default/favicon.ico')))
   app.use(bodyParser.urlencoded({ extended: false }))
   app.use(bodyParser.json())
-  app.use(routes)
 
   // We use hot reloading with webpack in dev environment
   if (env === 'development') {
@@ -46,6 +45,9 @@ export default (routes) => {
     app.use(require('webpack-dev-middleware')(compiler, serverOptions))
     app.use(require('webpack-hot-middleware')(compiler))
   }
+
+  // Routes must be invoked after webpack middleware to avoid 404 on assets files
+  app.use(routes)
 
   // We use SSL in dev & staging env but not in prod due to varnish
   if (env === 'development' || env === 'staging') {

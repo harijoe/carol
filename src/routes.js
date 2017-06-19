@@ -13,6 +13,7 @@ import {
   HomePage,
   LoginPage,
   MessagePage,
+  NotFoundPage,
   PhoneValidationPage,
   PhoneCodeValidationPage,
   ProjectElaborationPage,
@@ -57,6 +58,7 @@ const routes = (
     <Route path="search" component={requiresAuth(SearchPage)} />
     <Route path="signup" component={anonymousOnly(SignupPage)} />
     <Route path="submit-project" component={requiresAuth(ProjectSubmitPage)} />
+    <Route path="*" component={NotFoundPage} />
   </Route>
 )
 

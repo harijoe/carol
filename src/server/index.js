@@ -15,6 +15,10 @@ export default async function (store, renderProps, req, res) {
     res.send('Cache purged and rebuilt')
   } else {
     await initSagas(store, renderProps)
-    res.send(generateHtml(store, renderProps))
+
+    const isNotFound = renderProps.components.some(component => component.name === 'NotFoundPage')
+    const status = isNotFound ? 404 : 200
+
+    res.status(status).send(generateHtml(store, renderProps))
   }
 }

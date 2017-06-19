@@ -311,6 +311,10 @@ const en = {
 
   'pages.home.meta.description': 'Vous souhaitez effectuer des travaux pour votre maison ou appartement ? Quotatis vous met en relation avec des artisans de confiance dans votre région. EN',
   'pages.home.ld+json': '\\{ "@context": "http://schema.org", "@type": "Organization", "url": "https://www.quotatis.fr", "name": "Quotatis", "logo": "https://res.cloudinary.com/quotatis/image/upload/v1496149619/FrontApp/icons/quotatis-firm.svg", "sameAs": [ "https://www.facebook.com/Quotatis.FR", "https://twitter.com/QuotatisFr", "https://www.youtube.com/user/quotatis", "http://fr.viadeo.com/fr/company/quotatis", "https://www.linkedin.com/company/quotatis", "https://www.instagram.com/quotatis/" ] \\} EN',
+
+  '404.title': '404. EN',
+  '404.message': 'Désolé, cette page n\'existe pas. EN',
+  '404.call_to_action': 'Revenir à l\'accueil EN',
 }
 
 export default en
