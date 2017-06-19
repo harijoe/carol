@@ -305,12 +305,6 @@ class ProfileForm extends Component {
                 />
                 <ValidatedInfo validated={initialValues.emailVerified} field="email" />
               </VerifiedFieldWrapper>
-              <Field
-                name="preferedLanguage"
-                component={RenderField}
-                label={formatMessage(messages('user.prefered_language').label)}
-                placeholder={formatMessage(messages('user.prefered_language').label)}
-              />
               <VerifiedFieldWrapper>
                 <Field
                   name="mobilePhone"
@@ -345,13 +339,6 @@ class ProfileForm extends Component {
                 label={formatMessage(messages('user.postal_code').label)}
                 placeholder={formatMessage(messages('user.postal_code').label)}
                 smallSize
-              />
-              <Field
-                name="region"
-                component={RenderField}
-                label={formatMessage(messages('user.region').label)}
-                placeholder={formatMessage(messages('user.region').label)}
-                mediumSize
               />
               <Field
                 name="countryCode"
