@@ -133,7 +133,12 @@ function* preValidate({ chatbotStorageId }) {
   const postalCode = yield select(fromProjectElaboration.getPostalCode)
   const heroAnswer = yield select(fromProjectElaboration.getHeroAnswer)
 
-  yield pushGtmEvent({ event: 'FormCreated', PostalCode: postalCode, chatbotProFormId: projectId, chatbotKey1: heroAnswer.text })
+  yield pushGtmEvent({
+    event: 'FormCreated',
+    PostalCode: postalCode,
+    chatbotKey1: heroAnswer.text,
+    proFormLabel: projectName,
+  })
   yield put(push(`/projects/${projectId}/search-firms`))
   yield* notify('user.thank_you', 'project.elaboration.project_prevalidation.success', 'success', {}, { name: projectName })
 }
