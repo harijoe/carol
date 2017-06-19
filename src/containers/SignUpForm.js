@@ -41,6 +41,7 @@ const mapDispatchToProps = dispatch => ({
 const mergeProps = ({ loading, redirectPathname }, { redirectTo }, ownProps) => ({
   loading,
   redirectTo: redirectTo(redirectPathname),
+  redirectPathname,
   ...ownProps,
 })
 

@@ -116,6 +116,7 @@ class SignUpForm extends Component {
   static propTypes = {
     handleSubmit: PropTypes.func.isRequired,
     redirectTo: PropTypes.func,
+    redirectPathname: PropTypes.string,
     loading: PropTypes.bool,
     intl: intlShape.isRequired,
   }
@@ -126,7 +127,9 @@ class SignUpForm extends Component {
   }
 
   componentDidMount() {
-    pushGtmEvent({ event: 'AccountCreation' })
+    if (this.props.redirectPathname.indexOf('/project-prevalidate') === 0) {
+      pushGtmEvent({ event: 'AccountCreation' })
+    }
   }
 
   togglePassword = () => {
