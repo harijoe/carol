@@ -54,7 +54,7 @@ const StyledLocation = styled(Paragraph)`
 const TestimonialCardContent = ({ image, firstName, age, location, quote, link }) => (
   <Wrapper>
     <ImageWrapper>
-      <StyledImage {...image} />
+      <StyledImage src={image.sizes['350_220']} alt={image.alt} />
     </ImageWrapper>
     <ContentWrapper>
       <HeaderWrapper>

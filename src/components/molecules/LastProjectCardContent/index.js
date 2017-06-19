@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { theme, breakpoint } from 'utils/style'
-import getImageURL from 'utils/wpImage'
 
 import { Heading, Image } from 'components'
 
@@ -65,7 +64,7 @@ const styles = css`
     top: -3.75rem;
     height: 7.5rem;
     width: 7.5rem;
-  `}  
+  `}
 `
 const StyledFigure = styled.figure`${styles}`
 
@@ -94,34 +93,26 @@ const StyledPlace = styled.address`
   display: block;
 `
 
-const LastProjectCardContent = ({ image, firmImage, firmName, firmTrade, title, place }) => {
-  // @TODO: image is expected to be an object in a next backend update, this is a momentary polyfill
-  const firmImageObject = firmImage instanceof Object ? firmImage : { src: firmImage }
-
-  firmImageObject.src = getImageURL(firmImageObject.src, '300x300')
-
-  return (
-    <Wrapper>
-      <CardHeader>
-        <StyledImage src={image} />
-      </CardHeader>
-      <ContentWrapper>
-        <FirmHeader>
-          <StyledFigure>
-            <Image {...firmImageObject} />
-          </StyledFigure>
-          <StyledName level={5}>{firmName}</StyledName>
-          <StyledJob>{firmTrade}</StyledJob>
-        </FirmHeader>
-        <StyledHeading level={3}>{title}</StyledHeading>
-        <StyledPlace>{place}</StyledPlace>
-      </ContentWrapper>
-    </Wrapper>
-  )
-}
+const LastProjectCardContent = ({ image, firmImage, firmName, firmTrade, title, place }) =>
+  <Wrapper>
+    <CardHeader>
+      <StyledImage src={image} />
+    </CardHeader>
+    <ContentWrapper>
+      <FirmHeader>
+        <StyledFigure>
+          <Image src={firmImage.sizes['80']} alt={firmImage.alt} />
+        </StyledFigure>
+        <StyledName level={5}>{firmName}</StyledName>
+        <StyledJob>{firmTrade}</StyledJob>
+      </FirmHeader>
+      <StyledHeading level={3}>{title}</StyledHeading>
+      <StyledPlace>{place}</StyledPlace>
+    </ContentWrapper>
+  </Wrapper>
 
 LastProjectCardContent.propTypes = {
-  firmImage: PropTypes.string,
+  firmImage: PropTypes.object,
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   firmName: PropTypes.string.isRequired,

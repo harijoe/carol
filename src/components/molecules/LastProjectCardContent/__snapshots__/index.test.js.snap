@@ -15,7 +15,8 @@ ShallowWrapper {
         <styled.div>
             <styled.figure>
                 <Mock
-                    src="firmImage-300x300.jpg" />
+                    alt="Alt"
+                    src="image.jpg" />
             </styled.figure>
             <Styled(Mock)
                 level={5}>
@@ -44,7 +45,8 @@ ShallowWrapper {
             <styled.div>
                   <styled.figure>
                         <Mock
-                              src="firmImage-300x300.jpg" />
+                              alt="Alt"
+                              src="image.jpg" />
                   </styled.figure>
                   <Styled(Mock)
                         level={5}>
@@ -71,7 +73,15 @@ ShallowWrapper {
       "_compositeType": 2,
       "_context": Object {},
       "_currentElement": <LastProjectCardContent
-        firmImage="firmImage.jpg"
+        firmImage={
+                Object {
+                        "alt": "Alt",
+                        "sizes": Object {
+                          "80": "image.jpg",
+                        },
+                        "src": "image.jpg",
+                      }
+        }
         firmName="firm"
         firmTrade="trade"
         image="image.jpg"
@@ -84,7 +94,13 @@ ShallowWrapper {
         "_reactInternalInstance": [Circular],
         "context": Object {},
         "props": Object {
-          "firmImage": "firmImage.jpg",
+          "firmImage": Object {
+            "alt": "Alt",
+            "sizes": Object {
+              "80": "image.jpg",
+            },
+            "src": "image.jpg",
+          },
           "firmName": "firm",
           "firmTrade": "trade",
           "image": "image.jpg",
@@ -120,7 +136,8 @@ ShallowWrapper {
                     <styled.div>
                               <styled.figure>
                                         <Mock
-                                                  src="firmImage-300x300.jpg" />
+                                                  alt="Alt"
+                                                  src="image.jpg" />
                               </styled.figure>
                               <Styled(Mock)
                                         level={5}>
@@ -149,7 +166,8 @@ ShallowWrapper {
                     <styled.div>
                               <styled.figure>
                                         <Mock
-                                                  src="firmImage-300x300.jpg" />
+                                                  alt="Alt"
+                                                  src="image.jpg" />
                               </styled.figure>
                               <Styled(Mock)
                                         level={5}>
@@ -180,7 +198,15 @@ ShallowWrapper {
   },
   "root": [Circular],
   "unrendered": <LastProjectCardContent
-    firmImage="firmImage.jpg"
+    firmImage={
+        Object {
+            "alt": "Alt",
+            "sizes": Object {
+              "80": "image.jpg",
+            },
+            "src": "image.jpg",
+          }
+    }
     firmName="firm"
     firmTrade="trade"
     image="image.jpg"
