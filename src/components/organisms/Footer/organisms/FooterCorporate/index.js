@@ -201,7 +201,7 @@ const FooterCorporate = ({ intl: { formatMessage } }) => (
                   </SelectWrap>
                 </StyledListItem>
                 <StyledListItem>
-                  <StyledLink to="/contact-form.html">
+                  <StyledLink forceRedirect to="/contact-form.html">
                     <FormattedMessage id="footer.corporate.contact" />
                   </StyledLink>
                 </StyledListItem>
@@ -211,7 +211,7 @@ const FooterCorporate = ({ intl: { formatMessage } }) => (
                   </StyledLink>
                 </StyledListItem>
                 <StyledListItem>
-                  <StyledLink to="/emploi.html">
+                  <StyledLink forceRedirect to="/emploi.html">
                     <FormattedMessage id="footer.corporate.job" />
                   </StyledLink>
                 </StyledListItem>
@@ -227,37 +227,37 @@ const FooterCorporate = ({ intl: { formatMessage } }) => (
         <SecondCol xs={6} l={3}>
           <StyledList>
             <StyledListItem>
-              <StyledLink to={`${contentSiteUrl}`} target="_blank">
+              <StyledLink forceRedirect to={`${contentSiteUrl}`}>
                 <FormattedMessage id="footer.corporate.guides" />
               </StyledLink>
             </StyledListItem>
             <StyledListItem>
-              <StyledLink to="/annuaire-artisan" target="_blank">
+              <StyledLink forceRedirect to="/annuaire-artisan">
                 <FormattedMessage id="footer.corporate.directory" />
               </StyledLink>
             </StyledListItem>
             <StyledListItem>
-              <StyledLink to={`${locales.fr_FR.proUrl}`} target="_blank">
+              <StyledLink forceRedirect to={`${locales.fr_FR.proUrl}`}>
                 <FormattedMessage id="footer.corporate.qpro" />
               </StyledLink>
             </StyledListItem>
             <StyledListItem>
-              <StyledLink to="http://www.adeo.com/" target="_blank">
+              <StyledLink forceRedirect to="http://www.adeo.com/">
                 <FormattedMessage id="footer.corporate.adeo" />
               </StyledLink>
             </StyledListItem>
             <StyledListItem>
-              <StyledLink to="/travaux-entreprise.html" target="_blank">
+              <StyledLink forceRedirect to="/travaux-entreprise.html">
                 <FormattedMessage id="footer.corporate.quote" />
               </StyledLink>
             </StyledListItem>
             <StyledListItem>
-              <StyledLink to="/dossiers-travaux.html" target="_blank">
+              <StyledLink forceRedirect to="/dossiers-travaux.html">
                 <FormattedMessage id="footer.corporate.folder_projects" />
               </StyledLink>
             </StyledListItem>
             <StyledListItem>
-              <StyledLink to="/artisan-installateur-poseur-travaux.php" target="_blank">
+              <StyledLink forceRedirect to="/artisan-installateur-poseur-travaux.php">
                 <FormattedMessage id="footer.corporate.trades" />
               </StyledLink>
             </StyledListItem>
