@@ -69,6 +69,14 @@ const ProfileContentWrapper = styled.div`
 
     span {
       vertical-align: middle;
+
+      &:first-child {
+        margin-right: ${theme('spaces.m')};
+      }
+    }
+
+    path {
+      fill: ${theme('colors.white')};
     }
   }
 
@@ -181,7 +189,8 @@ const VerifiedFieldWrapper = styled.div `
       width: 50%;
 
       &[class*="qs-Field--"] {
-        padding: ${theme('spaces.s')} 0 ${theme('spaces.s')} ${theme('spaces.l')};
+        margin: 0 0 1.8rem ${theme('spaces.l')};
+        padding: ${theme('spaces.s')} 0;
       }
     }
   `}
