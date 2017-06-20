@@ -227,37 +227,37 @@ const FooterCorporate = ({ intl: { formatMessage } }) => (
         <SecondCol xs={6} l={3}>
           <StyledList>
             <StyledListItem>
-              <StyledLink forceRedirect to={`${contentSiteUrl}`}>
+              <StyledLink to={`${contentSiteUrl}`} target="_blank">
                 <FormattedMessage id="footer.corporate.guides" />
               </StyledLink>
             </StyledListItem>
             <StyledListItem>
-              <StyledLink forceRedirect to="/annuaire-artisan">
+              <StyledLink to="/annuaire-artisan" target="_blank">
                 <FormattedMessage id="footer.corporate.directory" />
               </StyledLink>
             </StyledListItem>
             <StyledListItem>
-              <StyledLink forceRedirect to={`${locales.fr_FR.proUrl}`}>
+              <StyledLink to={`${locales.fr_FR.proUrl}`} target="_blank">
                 <FormattedMessage id="footer.corporate.qpro" />
               </StyledLink>
             </StyledListItem>
             <StyledListItem>
-              <StyledLink forceRedirect to="http://www.adeo.com/">
+              <StyledLink to="http://www.adeo.com/" target="_blank">
                 <FormattedMessage id="footer.corporate.adeo" />
               </StyledLink>
             </StyledListItem>
             <StyledListItem>
-              <StyledLink forceRedirect to="/travaux-entreprise.html">
+              <StyledLink to="/travaux-entreprise.html" target="_blank">
                 <FormattedMessage id="footer.corporate.quote" />
               </StyledLink>
             </StyledListItem>
             <StyledListItem>
-              <StyledLink forceRedirect to="/dossiers-travaux.html">
+              <StyledLink to="/dossiers-travaux.html" target="_blank">
                 <FormattedMessage id="footer.corporate.folder_projects" />
               </StyledLink>
             </StyledListItem>
             <StyledListItem>
-              <StyledLink forceRedirect to="/artisan-installateur-poseur-travaux.php">
+              <StyledLink to="/artisan-installateur-poseur-travaux.php" target="_blank">
                 <FormattedMessage id="footer.corporate.trades" />
               </StyledLink>
             </StyledListItem>
