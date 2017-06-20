@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { socialNetworksUrls } from 'config'
+import PropTypes from 'prop-types'
 
-import { Icon, Link, Section } from 'components'
+import { Section, FooterSocialNetworksLink } from 'components'
 import { theme, breakpoint } from 'utils/style'
 
 const StyledSection = styled(Section)`
@@ -20,24 +20,18 @@ const StyledSection = styled(Section)`
   `}
 `
 
-const StyledIcon = styled(Icon)`
-  height: ${theme('icons.size.s')};
-  width: ${theme('icons.size.s')};
-  margin-right: ${theme('spaces.l')};
 
-  ${breakpoint('m')`
-    height: ${theme('icons.size.m')};
-    width: ${theme('icons.size.m')};
-  `}
-`
-
-const FooterSocialNetworks = () => (
+const FooterSocialNetworks = ({ locale }) => (
   <StyledSection>
-    <Link to={socialNetworksUrls.facebook} target="_blank"><StyledIcon icon="social-facebook" /></Link>
-    <Link to={socialNetworksUrls.twitter} target="_blank"><StyledIcon icon="social-twitter" /></Link>
-    <Link to={socialNetworksUrls.linkedin} target="_blank"><StyledIcon icon="social-linkedin" /></Link>
-    <Link to={socialNetworksUrls.instagram} target="_blank"><StyledIcon icon="social-instagram" /></Link>
+    <FooterSocialNetworksLink id="facebook" locale={locale} />
+    <FooterSocialNetworksLink id="twitter" locale={locale} />
+    <FooterSocialNetworksLink id="linkedin" locale={locale} />
+    <FooterSocialNetworksLink id="instagram" locale={locale} />
   </StyledSection>
 )
+
+FooterSocialNetworks.propTypes = {
+  locale: PropTypes.string,
+}
 
 export default FooterSocialNetworks

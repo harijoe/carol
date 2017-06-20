@@ -1,11 +1,11 @@
 import React from 'react'
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
+import PropTypes from 'prop-types'
+import { injectIntl, intlShape } from 'react-intl'
 import styled from 'styled-components'
 import { theme, breakpoint } from 'utils/style'
 import messages from 'utils/messages'
-import { contentSiteUrl } from 'config'
 
-import { Section, List, ListItem, Link, Col, Row } from 'components'
+import { Section, List, Col, Row, FooterAdvicesListItem } from 'components'
 
 const StyledRow = styled(Row)`
   width: 100%;
@@ -18,17 +18,6 @@ const StyledList = styled(List)`
   color: ${theme('colors.white')};
   text-decoration: none;
   list-style-type: none;
-`
-
-const StyledLink = styled(Link)`
-  color: ${theme('colors.white')};
-  text-decoration: none;
-`
-
-const StyledListItem = styled(ListItem)`
-  margin: 0;
-  padding-left: 0;
-  padding-bottom: ${theme('spaces.s')};
 `
 
 const StyledCol = styled(Col)`
@@ -44,78 +33,34 @@ const StyledSection = styled(Section)`
   `}
 `
 
-const FooterAdvices = ({ intl: { formatMessage } }) => (
+const FooterAdvices = ({ locale, intl: { formatMessage } }) => (
   <StyledSection dark title={formatMessage(messages('footer.advices.section_title').label)} >
     <StyledRow>
       <StyledCol xs={6} m={3}>
         <StyledList>
-          <StyledListItem>
-            <StyledLink to={`${contentSiteUrl}guide/fenetres-portes-volets/fenetre/`}>
-              <FormattedMessage id="footer.advices.window" />
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink to={`${contentSiteUrl}guide/fenetres-portes-volets/volets/`}>
-              <FormattedMessage id="footer.advices.shutter" />
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink to={`${contentSiteUrl}guide/isolation/isolation-des-combles/`}>
-              <FormattedMessage id="footer.advices.roof_insulation" />
-            </StyledLink>
-          </StyledListItem>
+          <FooterAdvicesListItem id="window" locale={locale} />
+          <FooterAdvicesListItem id="shutter" locale={locale} />
+          <FooterAdvicesListItem id="roof_insulation" locale={locale} />
         </StyledList>
       </StyledCol>
       <StyledCol xs={6} m={3}>
         <StyledList>
-          <StyledListItem>
-            <StyledLink to={`${contentSiteUrl}guide/chauffage/chauffage-au-bois/`}>
-              <FormattedMessage id="footer.advices.wood_heating" />
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink to={`${contentSiteUrl}guide/chauffage/pompe-a-chaleur/`}>
-              <FormattedMessage id="footer.advices.heat_pumps" />
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink to={`${contentSiteUrl}guide/chauffage/le-chauffage-solaire/`}>
-              <FormattedMessage id="footer.advices.solar_heating" />
-            </StyledLink>
-          </StyledListItem>
+          <FooterAdvicesListItem id="wood_heating" locale={locale} />
+          <FooterAdvicesListItem id="heat_pumps" locale={locale} />
+          <FooterAdvicesListItem id="solar_heating" locale={locale} />
         </StyledList>
       </StyledCol>
       <StyledCol xs={6} m={3}>
         <StyledList>
-          <StyledListItem>
-            <StyledLink to={`${contentSiteUrl}guide/chauffage/chauffage-gaz-fioul/`}>
-              <FormattedMessage id="footer.advices.heating_gas_oil" />
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink to={`${contentSiteUrl}guide/chauffage/chauffage-electrique/`}>
-              <FormattedMessage id="footer.advices.electric_heating" />
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink to={`${contentSiteUrl}guide/chauffage/cheminee-poele/`}>
-              <FormattedMessage id="footer.advices.fireplaces" />
-            </StyledLink>
-          </StyledListItem>
+          <FooterAdvicesListItem id="heating_gas_oil" locale={locale} />
+          <FooterAdvicesListItem id="electric_heating" locale={locale} />
+          <FooterAdvicesListItem id="fireplaces" locale={locale} />
         </StyledList>
       </StyledCol>
       <StyledCol xs={6} m={3}>
         <StyledList>
-          <StyledListItem>
-            <StyledLink to={`${contentSiteUrl}guide/chauffage/emetteurs-de-chaleur/`}>
-              <FormattedMessage id="footer.advices.heat_emitters" />
-            </StyledLink>
-          </StyledListItem>
-          <StyledListItem>
-            <StyledLink to={`${contentSiteUrl}guide/chauffage/production-deau-chaude-sanitaire/`}>
-              <FormattedMessage id="footer.advices.domestic_hot_water_production" />
-            </StyledLink>
-          </StyledListItem>
+          <FooterAdvicesListItem id="heat_emitters" locale={locale} />
+          <FooterAdvicesListItem id="domestic_hot_water_production" locale={locale} />
         </StyledList>
       </StyledCol>
     </StyledRow>
@@ -124,6 +69,7 @@ const FooterAdvices = ({ intl: { formatMessage } }) => (
 
 FooterAdvices.propTypes = {
   intl: intlShape.isRequired,
+  locale: PropTypes.string,
 }
 
 export default injectIntl(FooterAdvices)

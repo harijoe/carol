@@ -1,6 +1,8 @@
 import merge from 'lodash/merge'
 
 import configOverride from './config.local'
+import frFr from './configs/frFr'
+import enGb from './configs/enGb'
 
 const defaultConfig = {
   all: {
@@ -36,36 +38,12 @@ const defaultConfig = {
       scope: 'public_profile, email, user_birthday, user_location',
     },
     cloudinaryUrl: 'https://res.cloudinary.com/quotatis/image/upload/q_auto,f_auto/FrontApp/',
-    contentSiteUrl: 'https://www.quotatis.fr/conseils-travaux/',
-    defaultProUrl: 'https://www.quotatispro.co.uk',
     defaultLocale: 'en_GB',
     locales: {
-      fr_FR: {
-        url: 'https://carol-fr-dev.qarx.io',
-        proUrl: 'https://www.quotatispro.fr',
-        contentUrl: 'http://api-service.qarx.io/fr/',
-        countryLabel: 'country.france',
-      },
-      es_ES: {
-        url: 'https://carol-es-dev.qarx.io',
-        proUrl: 'https://www.quotatispro.es',
-        contentUrl: 'http://api-service.qarx.io/es/',
-        countryLabel: 'country.spain',
-      },
-      en_GB: {
-        url: 'https://carol-co-uk-dev.qarx.io',
-        proUrl: 'https://www.quotatispro.co.uk',
-        contentUrl: 'http://api-service.qarx.io/uk/',
-        countryLabel: 'country.great_britain',
-      },
+      fr_FR: frFr,
+      en_GB: enGb,
     },
     purgeCacheToken: '41Xdkf2c7lflo2o065BTV21y6V6xhg9t',
-    socialNetworksUrls: {
-      facebook: 'https://www.facebook.com/Quotatis.FR/',
-      twitter: 'https://twitter.com/quotatisfr',
-      linkedin: 'https://www.linkedin.com/company-beta/50071/',
-      instagram: 'https://www.instagram.com/quotatis/',
-    },
     termsUrl: 'https://www.quotatis.fr/conseils-travaux/cgu',
     cookiesUrl: 'https://www.quotatis.fr/conseils-travaux/cgu#cookies',
   },

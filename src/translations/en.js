@@ -310,7 +310,7 @@ const en = {
   'pages.default.meta.og.title': 'Devis Travaux - Comparer les prix avec 5 devis gratuits EN',
 
   'pages.home.meta.description': 'Vous souhaitez effectuer des travaux pour votre maison ou appartement ? Quotatis vous met en relation avec des artisans de confiance dans votre région. EN',
-  'pages.home.ld+json': '\\{ "@context": "http://schema.org", "@type": "Organization", "url": "https://www.quotatis.fr", "name": "Quotatis", "logo": "https://res.cloudinary.com/quotatis/image/upload/v1496149619/FrontApp/icons/quotatis-firm.svg", "sameAs": [ "https://www.facebook.com/Quotatis.FR", "https://twitter.com/QuotatisFr", "https://www.youtube.com/user/quotatis", "http://fr.viadeo.com/fr/company/quotatis", "https://www.linkedin.com/company/quotatis", "https://www.instagram.com/quotatis/" ] \\} EN',
+  'pages.home.ld+json': '\\{ "@context": "http://schema.org", "@type": "Organization", "url": "https://www.quotatis.co.uk", "name": "Quotatis", "logo": "https://res.cloudinary.com/quotatis/image/upload/v1496149619/FrontApp/icons/quotatis-firm.svg", "sameAs": [ "https://www.facebook.com/Quotatis", "https://twitter.com/Quotatis", "https://www.youtube.com/user/quotatisuk", "https://plus.google.com/106376832204465138273", "https://www.pinterest.com/quotatis/" ] \\}',
 
   '404.title': '404. EN',
   '404.message': 'Désolé, cette page n\'existe pas. EN',

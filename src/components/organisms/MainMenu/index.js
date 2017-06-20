@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 import { theme, ifThen, breakpoint, breakpointMax } from 'utils/style'
-import { locales, cloudinaryUrl, contentSiteUrl } from 'config'
+import { locales, cloudinaryUrl } from 'config'
 import injectScroll from 'hoc/component/injectScroll'
 
 import { List, Link, Image, ListItemWithSubmenu } from 'components'
@@ -180,28 +180,28 @@ const MainMenu = ({ locale, homepage, atTop }) => (
     </li>
     <ListItemWithSubmenu id="firm.resource" linkStyle={linkStyle} homepage={homepage}>
       <li>
-        <SubMenuLink to={`${contentSiteUrl}guide`}>
+        <SubMenuLink to={`${locales[locale].contentSiteUrl}${locales[locale].mainMenu.resource.guide}`}>
           <FormattedMessage id="firm.guide" />
         </SubMenuLink>
       </li>
       <li>
-        <SubMenuLink to={`${contentSiteUrl}inspirations`}>
+        <SubMenuLink to={`${locales[locale].contentSiteUrl}${locales[locale].mainMenu.resource.inspiring}`}>
           <FormattedMessage id="firm.inspiring" />
         </SubMenuLink>
       </li>
       <li>
-        <SubMenuLink to={`${contentSiteUrl}FAQ`}>
+        <SubMenuLink to={`${locales[locale].contentSiteUrl}${locales[locale].mainMenu.resource.faq}`}>
           <FormattedMessage id="firm.faq" />
         </SubMenuLink>
       </li>
     </ListItemWithSubmenu>
     <li>
-      <StyledLink to="/annuaire-artisan" forceRedirect>
+      <StyledLink to={locales[locale].mainMenu.directory} forceRedirect>
         <FormattedMessage id="directory" />
       </StyledLink>
     </li>
     <li>
-      <StyledLink to={locales[locale].proUrl} className="qs-linkMenu-pro">
+      <StyledLink to={locales[locale].mainMenu.proUrl} className="qs-linkMenu-pro">
         <FormattedMessage id="firm.i_am_pro.one" /> <FormattedMessage id="firm.i_am_pro.two" />
       </StyledLink>
     </li>

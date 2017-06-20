@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import MenuBurger from '.'
+import MenuBurger from './index'
 import intlMock from '../../../../test/intlMock'
 
 const wrap = (props = {}) => shallow(intlMock(<MenuBurger linkPro="https://www.quotatispro.fr/" {...props} />))

@@ -1,11 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import styled from 'styled-components'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
-import { contentSiteUrl, locales } from 'config'
 import messages from 'utils/messages'
 
-import { List, ListItem, Link, Icon, Grid, Col, Row, Paragraph, Section } from 'components'
+import { List, ListItem, Link, Icon, Grid, Col, Row, Paragraph, Section, FooterCorporateListItem } from 'components'
 import { CountryMenu } from 'containers'
 
 const StyledSection = styled(Section)`
@@ -32,11 +32,6 @@ const StyledList = styled(List)`
   padding: 0;
   color: ${theme('colors.white')};
   list-style: none;
-`
-
-const StyledLink = styled(Link)`
-  color: ${theme('colors.white')};
-  text-decoration: none;
 `
 
 const StyledListItem = styled(ListItem)`
@@ -179,7 +174,7 @@ const StyledLinkPhone = styled(Link)`
   `}
 `
 
-const FooterCorporate = ({ intl: { formatMessage } }) => (
+const FooterCorporate = ({ locale, intl: { formatMessage } }) => (
   <StyledSection>
     <Grid>
       <StyledRow>
@@ -200,67 +195,23 @@ const FooterCorporate = ({ intl: { formatMessage } }) => (
                     <StyledCountryMenu />
                   </SelectWrap>
                 </StyledListItem>
-                <StyledListItem>
-                  <StyledLink forceRedirect to="/contact-form.html">
-                    <FormattedMessage id="footer.corporate.contact" />
-                  </StyledLink>
-                </StyledListItem>
-                <StyledListItem>
-                  <StyledLink to={`${contentSiteUrl}qui-sommes-nous`}>
-                    <FormattedMessage id="footer.corporate.about" />
-                  </StyledLink>
-                </StyledListItem>
-                <StyledListItem>
-                  <StyledLink forceRedirect to="/emploi.html">
-                    <FormattedMessage id="footer.corporate.job" />
-                  </StyledLink>
-                </StyledListItem>
-                <StyledListItem>
-                  <StyledLink to={`${contentSiteUrl}cgu`}>
-                    <FormattedMessage id="footer.corporate.use_conditions" />
-                  </StyledLink>
-                </StyledListItem>
+                <FooterCorporateListItem id="contact" forceRedirect locale={locale} />
+                <FooterCorporateListItem id="about" contentSite locale={locale} />
+                <FooterCorporateListItem id="job" forceRedirect locale={locale} />
+                <FooterCorporateListItem id="use_conditions" contentSite locale={locale} />
               </StyledList>
             </Col>
           </Row>
         </FirstCol>
         <SecondCol xs={6} l={3}>
           <StyledList>
-            <StyledListItem>
-              <StyledLink to={`${contentSiteUrl}`} target="_blank">
-                <FormattedMessage id="footer.corporate.guides" />
-              </StyledLink>
-            </StyledListItem>
-            <StyledListItem>
-              <StyledLink to="/annuaire-artisan" target="_blank">
-                <FormattedMessage id="footer.corporate.directory" />
-              </StyledLink>
-            </StyledListItem>
-            <StyledListItem>
-              <StyledLink to={`${locales.fr_FR.proUrl}`} target="_blank">
-                <FormattedMessage id="footer.corporate.qpro" />
-              </StyledLink>
-            </StyledListItem>
-            <StyledListItem>
-              <StyledLink to="http://www.adeo.com/" target="_blank">
-                <FormattedMessage id="footer.corporate.adeo" />
-              </StyledLink>
-            </StyledListItem>
-            <StyledListItem>
-              <StyledLink to="/travaux-entreprise.html" target="_blank">
-                <FormattedMessage id="footer.corporate.quote" />
-              </StyledLink>
-            </StyledListItem>
-            <StyledListItem>
-              <StyledLink to="/dossiers-travaux.html" target="_blank">
-                <FormattedMessage id="footer.corporate.folder_projects" />
-              </StyledLink>
-            </StyledListItem>
-            <StyledListItem>
-              <StyledLink to="/artisan-installateur-poseur-travaux.php" target="_blank">
-                <FormattedMessage id="footer.corporate.trades" />
-              </StyledLink>
-            </StyledListItem>
+            <FooterCorporateListItem id="guides" contentSite target="_blank" locale={locale} />
+            <FooterCorporateListItem id="directory" target="_blank" locale={locale} />
+            <FooterCorporateListItem id="qpro" target="_blank" locale={locale} />
+            <FooterCorporateListItem id="adeo" target="_blank" locale={locale} />
+            <FooterCorporateListItem id="quote" target="_blank" locale={locale} />
+            <FooterCorporateListItem id="folder_projects" target="_blank" locale={locale} />
+            <FooterCorporateListItem id="trades" target="_blank" locale={locale} />
           </StyledList>
         </SecondCol>
         <ThirdCol xs={6} l={3}>
@@ -290,6 +241,7 @@ const FooterCorporate = ({ intl: { formatMessage } }) => (
 
 FooterCorporate.propTypes = {
   intl: intlShape.isRequired,
+  locale: PropTypes.string,
 }
 
 export default injectIntl(FooterCorporate)
