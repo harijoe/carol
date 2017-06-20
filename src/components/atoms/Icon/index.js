@@ -19,7 +19,7 @@ const Wrapper = styled.span`${styles}`
 
 const Icon = ({ icon, ...props }) => {
   try {
-    const svg = require(`raw-loader!./icons/${icon}.svg`)
+    const svg = require(`./icons/${icon}.svg`)
 
     return <Wrapper {...props} dangerouslySetInnerHTML={{ __html: svg }} />
   } catch (e) {

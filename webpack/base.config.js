@@ -69,6 +69,13 @@ module.exports = options => ({
           prefix: 'fonts/',
         },
       },
+      {
+        test: /\.svg$/,
+        loader: 'raw-loader',
+        options: {
+          prefix: 'svg/',
+        },
+      },
     ],
   },
   plugins: options.plugins.concat([

@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css, ThemeProvider } from 'styled-components'
-import NotificationsSystem from 'reapop'
-import theme from 'reapop-theme-wybo'
 import { addLocaleData } from 'react-intl'
 import fr from 'react-intl/locale-data/fr'
 import en from 'react-intl/locale-data/en'
@@ -83,13 +81,27 @@ class PageTemplate extends Component {
   }
 
   render() {
-    const { header, children, footer, ...props } = this.props
+    const { header, children, footer, ssr, ...props } = this.props
     const { loaded } = this.state
+
+    /*
+      The package reapop-theme-wybo triggers an error on webpack compilation, from webpack v3.0.0, on server-side.
+      This bit requires explicitely the reapop-theme-wybo on client side, as it is not useful to include it during
+      server side rendering.
+    */
+    let notificationsSystem
+
+    if (!ssr) {
+      const theme = require('reapop-theme-wybo')
+      const NotificationsSystem = require('reapop').default
+
+      notificationsSystem = <NotificationsSystem theme={theme} defaultValues={notificationsDefaultValues} />
+    }
 
     return (
       <ThemeProvider theme={defaultTheme}>
         <Wrapper {...props}>
-          <NotificationsSystem theme={theme} defaultValues={notificationsDefaultValues} />
+          {notificationsSystem}
           {
             /*
               Motion menu disabled for V1
