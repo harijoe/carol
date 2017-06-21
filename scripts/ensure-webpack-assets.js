@@ -6,7 +6,7 @@ const env = process.env.NODE_ENV || 'development'
 
 if (env === 'development') {
   ifMissing('webpack/webpack-assets.json', () => {
-    execSync('yarn run build:development')
+    execSync('yarn run build')
     execSync('rm -rf dist/')
   })
 }

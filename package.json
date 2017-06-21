@@ -15,12 +15,11 @@
     "lint": "eslint src",
     "lint:css": "stylelint 'src/components/**/*.js'",
     "clean": "rm -rf dist/",
-    "build:development": "yarn run clean copy && cross-env NODE_ENV=development webpack --config webpack/dev.config",
-    "build:staging": "yarn run clean && cross-env NODE_ENV=staging webpack --config webpack/prod.config",
-    "build:production": "yarn run clean && cross-env NODE_ENV=production webpack --config webpack/prod.config",
+    "build": "yarn run clean && webpack",
+    "build:production": "cross-env NODE_ENV=prod yarn build",
     "build:bench:sizemap": "yarn run clean && cross-env NODE_ENV=production webpack --config webpack/bench.config",
-    "build:bench:gzipped": "yarn build:production && tar -czf dist/gzipped.tar.gz dist/main.*.js && ls -l dist/gzipped.tar.gz",
-    "postinstall": "node scripts/prepare.js",
+    "build:bench:gzipped": "cross-env NODE_ENV=production yarn build && tar -czf dist/gzipped.tar.gz dist/main.*.js && ls -l dist/gzipped.tar.gz",
+    "postinstall": "yarn run webpack-assets:refresh",
     "webpack-assets:refresh": "rm -f webpack/webpack-assets.json && node scripts/ensure-webpack-assets.js"
   },
   "repository": {

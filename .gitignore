@@ -6,4 +6,3 @@ jest/
 dist/
 webpack/webpack-assets.json
 yarn-error.log
-src/config.local.js

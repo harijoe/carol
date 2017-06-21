@@ -12,44 +12,30 @@ Version: 1.1.1
 
 ## 2. Getting Started
 
-* If it's not done yet, please install [Node.js](http://nodejs.org/). 
-* Then run `yarn install` in order to parse and install dependencies.
+If it's not done yet, please install [Node.js](http://nodejs.org/) and [Yarn](https://yarnpkg.com). 
 
-Start the development server (changes will now update live in browser)
-```
-yarn run dev
-```
+Clone the project from github and open a command prompt in the project directory.
 
-Build files for production
+Install all the project's dependencies:
 ```
-yarn run build:production
+yarn
 ```
 
-Build files for staging
-```
-yarn run build:staging
-```
-
-Start the server for SSR with environment variable NODE_ENV = production
-```
-yarn start
-```
-
-## 3. Getting Started with docker
-
-You will have to run:
-```
-docker-compose up -d # don't forget to change the ENV var for the enviroment (develoment / staging / production)
-```
-
-Add this line to your hosts file:
+Edit you `/etc/hosts` file and add the following line:
 ```
 127.0.0.1 carol-fr-dev.qarx.io carol-es-dev.qarx.io carol-co-uk-dev.qarx.io api-dev.qarx.io
 ```
 
-To view your project, go to: [https://carol-fr-dev.qarx.io/](https://carol-fr-dev.qarx.io/)
+Start the development server (changes will now update live in browser)
+```
+yarn start
+```
 
-## 4. CSS integration
+Open your browser and got to [https://carol-fr-dev.qarx.io:4433](https://carol-fr-dev.qarx.io:4433)
+
+Carol will be connected to the [Sandy](https://github.com/Quotatis/sandy) API running in the QA environment.
+
+## 3. CSS integration
 
 We use web components and [atomic-design](http://bradfrost.com/blog/post/atomic-web-design/) principles coupled to [styled-components](https://github.com/styled-components/styled-components) to design our application.
 
@@ -60,14 +46,72 @@ yarn run lint:css
  
 If you got `CssSyntaxError` using css function from styled-components and all seems good for you, it's probably linked to this [issue](https://github.com/styled-components/stylelint-processor-styled-components/issues/6) in stylelint package.   
 
-## 5. Deployment
+## 4. Getting Started with docker
+
+When the QA environment is not enough and you want to be run sandy locally on a particular branch, 
+you will want to install the docker environment.
+
+Follow the instructions on the [Sandy README](https://github.com/Quotatis/sandy) 
+```
+docker-compose up -d # don't forget to change the ENV var for the enviroment (develoment / qa / production)
+```
+
+### Using docker toolbox
+
+When the native docker integration on Mac or Windows is not fast enough, you may want to look at
+[Docker Toolbox]()https://www.docker.com/products/docker-toolbox).
+
+Docker toolbox uses an underlying VM whose default IP address is `192.168.99.100`, 
+so you'll need to update you `/etc/hosts` file as explained below.
+
+If you decide to run carol fully inside docker and you use docker toolbox, 
+you will have to change your `/etc/hosts` to look like this:
+```
+192.168.99.100 carol-fr-dev.qarx.io carol-es-dev.qarx.io carol-co-uk-dev.qarx.io api-dev.qarx.io
+```
+
+Otherwise to run carol outside with docker toolbox, 
+your `/etc/hosts` should contain the following lines:
+```
+127.0.0.1 carol-fr-dev.qarx.io carol-es-dev.qarx.io carol-co-uk-dev.qarx.io
+192.168.99.100  api-dev.qarx.io
+```
+
+### Using docker for dora but running carol locally
+
+Carol start in docker is painfully slow on MacOS and Windows. In case you want to run carol locally
+but connected to carol running inside docker, run the following command:
+```
+NODE_ENV=outsideDocker yarn start
+```
+
+## 5. Testing as in production
+
+_Useful when trying to reproduce a production issue locally or after a refactoring to make sure it 
+will work in prod._
+
+Temporarily edit your config to remove `assetPath` and `locales` nodes (under the `production` node)
+so that they default to the local values.
+
+Then run the following commands
+```
+NODE_ENV=production yarn build
+NODE_ENV=production PORT=8080 yarn start
+```
+
+## 6. Deployment
 
 In order to deploy into pre-production for the SPA you will have to push to the branch develop.
 Travis will be able to build the docker container, run the tests than deploy to kubernetes using the last develop build.
 
 The production run on Node.js with Express.js and deployed with ansible.
 
-## 6. Overriding the config on your machine
+## 7. Environments
 
-To override the application config on your machine, simply create a `config.local.js` file 
-in the `src/` directory. It will be merged with the default config (`src/config.js`).
+| *name* | *description* | 
+|---|---|
+| development | running locally connected to dora's QA  |
+| outsideDocker | running locally connected to dora in docker |
+| insideDocker | running in docker connected to dora in docker |
+| qa | QA environment |
+| production | production environment |

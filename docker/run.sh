@@ -2,12 +2,11 @@
 
 set -xe
 
-if [ ${NODE_ENV} = 'development' ]; then
-    export NODE_ENV=development
+if [ ${NODE_ENV} = 'insideDocker' ]; then
     yarn start
     exit
 fi;
 
-yarn run build:${NODE_ENV}
+yarn run build
 yarn start
 

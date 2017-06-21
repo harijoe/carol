@@ -1,22 +1,23 @@
 import merge from 'lodash/merge'
 
-import configOverride from './config.local'
 import frFr from './configs/frFr'
 import enGb from './configs/enGb'
 
-const defaultConfig = {
+const config = {
   all: {
     env: (typeof process.env.NODE_ENV !== 'undefined' && process.env.NODE_ENV.toString()) || 'development',
     ip: (typeof process.env.IP !== 'undefined' && process.env.IP.toString()) || '0.0.0.0',
     port: process.env.PORT || 443,
     browser: typeof window !== 'undefined',
     assetPath: '',
+    devServer: true,
     api: {
       url: 'https://api-dev.qarx.io:8080',
       clientId: '4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k',
       clientSecret: '4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc',
     },
     ssl: {
+      enabled: true,
       privateKey: 'ssl/qarx.io.key',
       certificate: 'ssl/qarx.io.crt',
       intermediate: 'ssl/qarx.intermediate.io.crt',
@@ -47,7 +48,8 @@ const defaultConfig = {
     termsUrl: 'https://www.quotatis.fr/conseils-travaux/cgu',
     cookiesUrl: 'https://www.quotatis.fr/conseils-travaux/cgu#cookies',
   },
-  staging: {
+  qa: {
+    devServer: false,
     api: {
       url: 'https://api.qarx.io',
     },
@@ -64,6 +66,8 @@ const defaultConfig = {
     },
   },
   production: {
+    port: process.env.PORT || 80,
+    devServer: false,
     api: {
       url: 'https://api.quotatis.com',
       clientId: '21ujn3bgfgjoc8w08s0wgkwgc8s8g4gscggcc4skog8c0g4k8c',
@@ -88,15 +92,23 @@ const defaultConfig = {
       appId: '297437357370490',
     },
     ssl: {
-      privateKey: 'ssl/quotatis.com.key',
-      certificate: 'ssl/quotatis.com.crt',
-      intermediate: 'ssl/quotatis.intermediate.com.crt',
+      enabled: false,
     },
     assetPath: 'https://assets.quotatis.com',
   },
+  development: {
+    port: 4433,
+    api: {
+      url: 'https://api.qarx.io',
+    },
+  },
+  outsideDocker: {
+    port: 4433,
+  },
+  insideDocker: {
+    // inherits everything from `config.all` above
+  },
 }
-
-const config = merge(defaultConfig, configOverride)
 
 const exports = merge(config.all, config[config.all.env])
 

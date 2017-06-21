@@ -5,7 +5,7 @@ import reactCookie from 'react-cookie'
 import express from 'services/express'
 import routes from 'routes'
 import configureStore from 'store/configure'
-import { env, port, ip, locales, purgeCacheToken } from 'config'
+import { port, ip, locales, purgeCacheToken, devServer } from 'config'
 import renderResponse from './server/index'
 
 global.window = require('utils/windowOrGlobal')
@@ -15,7 +15,7 @@ global.navigator = { userAgent: 'all' }
 const router = new Router()
 
 router.use((req, res, next) => {
-  if (env === 'development') {
+  if (devServer) {
     global.webpackIsomorphicTools.refresh()
   }
 

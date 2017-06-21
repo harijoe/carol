@@ -4,7 +4,7 @@ ADD . /app
 WORKDIR /app
 
 ARG INSTALL_DEP=true
-ENV NODE_ENV="development"
+ENV NODE_ENV="insideDocker"
 
 RUN apk add --no-cache curl && \
   mkdir -p /opt && \

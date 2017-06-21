@@ -8,7 +8,7 @@ import bodyParser from 'body-parser'
 import path from 'path'
 import https from 'https'
 import fs from 'fs'
-import { ssl, env } from 'config'
+import { env, devServer, ssl } from 'config'
 
 const root = path.join(__dirname, '../../..')
 
@@ -24,7 +24,7 @@ export default (routes) => {
   app.use(bodyParser.json())
 
   // We use hot reloading with webpack in dev environment
-  if (env === 'development') {
+  if (devServer) {
     const webpack = require('webpack')
     const webpackConfig = require('../../../webpack/dev.config')
 
@@ -49,8 +49,8 @@ export default (routes) => {
   // Routes must be invoked after webpack middleware to avoid 404 on assets files
   app.use(routes)
 
-  // We use SSL in dev & staging env but not in prod due to varnish
-  if (env === 'development' || env === 'staging') {
+  // We use SSL in development & qa env but not in prod due to varnish
+  if (ssl.enabled) {
     app.set('forceSSLOptions', {
       enable301Redirects: true,
       trustXFPHeader: true,
