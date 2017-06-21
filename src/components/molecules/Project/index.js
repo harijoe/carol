@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import { cloudinaryUrl } from 'config'
 
-import { Heading, DateTime, Paragraph, Link, Firm, Card, Image, ProjectStatus } from 'components'
+import { Heading, DateTime, Paragraph, Link, Firm, Card, Image, ProjectStatus, Divider } from 'components'
 
 const Article = styled(Card)`
   display: flex;
@@ -27,7 +27,7 @@ const HeaderCard = styled.header`
   justify-content: flex-end;
   padding: ${theme('spaces.m')};
   padding-bottom: calc(${theme('spaces.m')} + 1.4rem);
-  height: 20rem;
+  height: 12.5rem;
   background-color: ${theme('colors.primary')};
 
   ${breakpoint('m')`
@@ -40,21 +40,16 @@ const StyledHeading = styled(Heading)`
   position: relative;
   margin-bottom: ${theme('spaces.s')};
   font-size: ${theme('fonts.size.xl')};
-  text-shadow: 0.1rem 0.1rem 0 rgba(0, 0, 0, 0.38);
-  color: ${theme('colors.white')};
-
-  ${breakpoint('m')`
-    font-size: ${theme('fonts.size.xxl')};
-  `}
 `
 
 const DateCreation = styled.span`
   position: relative;
+  padding-bottom: ${theme('spaces.m')};
   font-size: ${theme('fonts.size.s')};
-  color: ${theme('colors.white')};
+  color: ${theme('colors.grayscale.medium')};
 
   ${breakpoint('m')`
-    font-size: ${theme('fonts.size.base')};
+    font-size: ${theme('fonts.size.s')};
   `}
 `
 
@@ -91,12 +86,12 @@ const FooterCard = styled.footer`
 
 const StyledParagraph = styled(Paragraph)`
   margin-bottom: ${theme('spaces.xl')};
-  margin-top: 0;
+  margin-top: ${theme('spaces.m')};
   color: ${theme('colors.grayscale.dark')} !important;
   font-family: ${theme('fonts.family.montserratLight')} !important;
 
   ${breakpoint('m')`
-    margin-bottom: ${theme('spaces.xxl')};
+    margin-bottom: ${theme('spaces.xl')};
   `}
 `
 
@@ -114,13 +109,14 @@ const listView = (items, ...props) => (
       <ImageWrapper>
         <Image src={`${cloudinaryUrl}thumbnail-poster-keyone.jpg`} />
       </ImageWrapper>
+      <ProjectStatus status={items.status} />
+    </HeaderCard>
+    <FooterCard>
       <StyledHeading level={3}>{items.name}</StyledHeading>
       <DateCreation>
         <FormattedMessage id="project.created_at" /> <DateTime value={items.createdAt} />
       </DateCreation>
-      <ProjectStatus status={items.status} />
-    </HeaderCard>
-    <FooterCard>
+      <Divider />
       <StyledParagraph>
         <FormattedMessage id={`project.describe.${items.status}`} />
       </StyledParagraph>
