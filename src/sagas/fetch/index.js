@@ -3,7 +3,7 @@ import { put, call, select } from 'redux-saga/effects'
 import { fromAuth, fromContext } from 'store/selectors'
 import getCacheStorage from 'sagas/ssr/cache'
 import api from 'services/api'
-import removeToken from 'sagas/removeToken'
+import { removeToken } from 'sagas/token'
 import refreshToken from '../refreshToken'
 
 /*
@@ -13,7 +13,6 @@ function* fetchUsingCache(method, url, settings, data) {
   const cachedResponse = getCacheStorage()[method + url]
 
   if (cachedResponse != null) {
-    // @TODO: To remove before production
     console.info(`  response from cache — size: ${cachedResponse.toString().length}`)
 
     return cachedResponse
@@ -31,7 +30,6 @@ export function* fetchWithoutRefreshingToken(actions, method, url, settings = {}
   const accessToken = yield select(fromAuth.getAccessToken)
 
   try {
-    // @TODO: To remove before production
     console.info(`fetching — ${url} ${accessToken != null ? `— with token — ${accessToken.substr(0, 6)}...` : ''}`)
     let response
     const ssr = yield select(fromContext.isSSR)

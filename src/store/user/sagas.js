@@ -4,9 +4,11 @@ import { push, goBack } from 'react-router-redux'
 import { fromUser, fromRouting } from 'store/selectors'
 import { authLogin } from 'store/actions'
 import { HTTPError } from 'utils/errors'
+import { requireUser } from 'sagas/require'
 import fetch from 'sagas/fetch'
 import notify from 'sagas/notify'
-import redirectToNextStep from 'sagas/projectValidation'
+import softPush from 'sagas/softPush'
+import redirectToNextValidationStep from 'sagas/redirectToNextValidationStep'
 import getFormErrors from 'utils/formErrors'
 import pushGtmEvent from 'utils/gtm'
 import { takeLatest } from 'utils/effects'
@@ -94,14 +96,8 @@ function* handlePhoneValidation({ data, notification = notify('user.sms', 'user.
     yield* notification
 
     const queryString = yield select(fromRouting.getSearch)
-    const route = yield select(fromRouting.getPathname)
 
-    // Don't redirect if already on good page
-    if (route.indexOf('/validation/phone/code') === 0) {
-      return null
-    }
-
-    yield put(push(`/validation/phone/code${queryString}`))
+    yield* softPush(`/validation/phone/code${queryString}`)
   } catch (error) {
     if (error instanceof HTTPError) {
       yield put(stopSubmit('PhoneForm', { _error: error.message }))
@@ -119,7 +115,7 @@ function* handlePhoneCodeValidation({ data }) {
     yield* notify('user.thank_you', 'user.phone_validated')
     const query = yield select(fromRouting.getQuery)
 
-    yield* redirectToNextStep(query.projectId)
+    yield* redirectToNextValidationStep(query.projectId)
   } catch (error) {
     if (error instanceof HTTPError) {
       yield put(reset('PhoneCodeForm'))
@@ -137,17 +133,13 @@ function* handlePhoneValidationAgain() {
 
 function* handleEmailValidation() {
   try {
-    let id = yield select(fromUser.getId)
+    yield* requireUser()
 
-    if (id == null) {
-      yield* fetch(userDetails, 'get', '/users/me')
-      id = yield select(fromUser.getId)
-    }
-
+    const id = yield select(fromUser.getId)
     const emailVerified = yield select(fromUser.getEmailVerified)
 
     if (emailVerified) {
-      yield* redirectToNextStep()
+      yield* redirectToNextValidationStep()
 
       return
     }
@@ -160,15 +152,11 @@ function* handleEmailValidation() {
 }
 
 function* handleEmailVerification() {
+  yield* requireUser()
+
   const query = yield select(fromRouting.getQuery)
   const token = query.token
-  let id = yield select(fromUser.getId)
-
-  if (id == null) {
-    yield* fetch(userDetails, 'get', '/users/me')
-    id = yield select(fromUser.getId)
-  }
-
+  const id = yield select(fromUser.getId)
   const emailVerified = yield select(fromUser.getEmailVerified)
 
   if (!emailVerified) {
@@ -180,7 +168,7 @@ function* handleEmailVerification() {
     }
   }
 
-  yield* redirectToNextStep()
+  yield* redirectToNextValidationStep()
 }
 
 export default function* () {

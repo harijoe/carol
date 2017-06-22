@@ -6,24 +6,6 @@ it('returns the initial state', () => {
   expect(reducer(undefined, {})).toEqual(initialState)
 })
 
-it('handles PROJECT_SUBMIT_REQUEST', () => {
-  const action = { type: actions.PROJECT_SUBMIT.REQUEST }
-
-  expect(reducer(initialState, action)).toEqual(initialState)
-})
-
-it('handles PROJECT_SUBMIT_SUCCESS', () => {
-  const action = { type: actions.PROJECT_SUBMIT.SUCCESS }
-
-  expect(reducer(initialState, action)).toEqual({ list: [], status: true })
-})
-
-it('handles PROJECT_SUBMIT_FAILURE', () => {
-  const action = { type: actions.PROJECT_SUBMIT.FAILURE }
-
-  expect(reducer(initialState, action)).toEqual({ list: [], status: false })
-})
-
 it('handles PROJECT_LIST_SUCCESS', () => {
   const payload = [
     {

@@ -3,7 +3,7 @@ import { stopSubmit, reset } from 'redux-form'
 import cookie from 'react-cookie'
 import { push } from 'react-router-redux'
 import notify from 'sagas/notify'
-import removeToken from 'sagas/removeToken'
+import { saveToken, removeToken } from 'sagas/token'
 
 import config from 'config'
 import { takeLatest } from 'utils/effects'
@@ -20,7 +20,6 @@ import {
 import { fromAuth, fromRouting } from 'store/selectors'
 import { fetchWithoutRefreshingToken } from 'sagas/fetch'
 import { requestChannel, responseChannel } from 'sagas/refreshToken'
-import saveToken from 'sagas/saveToken'
 import { handleGetUserRequest } from '../user/sagas'
 
 /*

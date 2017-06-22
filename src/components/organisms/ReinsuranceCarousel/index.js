@@ -97,19 +97,14 @@ class ReinsuranceCarousel extends Component {
     })
   }
 
-  generateChild = (i, { featuredMedia, title, body }) => {
-    // @TODO: image is expected to be an object in a next backend update, this is a momentary polyfill
-    const { src } = featuredMedia instanceof Object ? featuredMedia : { src: featuredMedia }
-
-    return (
-      <StyledItem key={i} src={src}>
-        <WrapContent>
-          <StyledHeading level={3}>{stripTags(title)}</StyledHeading>
-          <StyledParagraph>{stripTags(body)}</StyledParagraph>
-        </WrapContent>
-      </StyledItem>
-    )
-  }
+  generateChild = (i, { featuredMedia: { src }, title, body }) => (
+    <StyledItem key={i} src={src}>
+      <WrapContent>
+        <StyledHeading level={3}>{stripTags(title)}</StyledHeading>
+        <StyledParagraph>{stripTags(body)}</StyledParagraph>
+      </WrapContent>
+    </StyledItem>
+  )
 
   render() {
     return (

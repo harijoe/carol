@@ -10,6 +10,5 @@ const MainWrapper = styled.div`
     max-width: ${theme('grid.container')}rem;
   `}
 `
-// @TODO: test is missing
 
 export default MainWrapper

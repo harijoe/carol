@@ -2,7 +2,7 @@ import fetch from 'sagas/fetch'
 import { select } from 'redux-saga/effects'
 import { takeLatest } from 'utils/effects'
 import { fromProject } from 'store/selectors'
-import redirectToNextStep from 'sagas/projectValidation'
+import redirectToNextValidationStep from 'sagas/redirectToNextValidationStep'
 import { projectDetails as projectDetailsAction } from 'store/actions'
 
 import { firmList, firmDetails, FIRM_LIST, FIRM_DETAILS } from './actions'
@@ -18,7 +18,7 @@ export function* handleReadFirmListRequest({ projectId }) {
   }
 
   if (projectDetails.status !== 'completion_in_progress') {
-    redirectToNextStep(projectId)
+    redirectToNextValidationStep(projectId)
   }
 
   return yield* fetch(firmList, 'get', `/firms?project=${projectId}`)

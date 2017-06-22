@@ -19,8 +19,6 @@ class Loading extends Component {
 
   render() {
     const { loading, children } = this.props
-
-    // @TODO: Implement a spinner here instead of Loading...
     const content = loading === true ? <Icon icon="spinner" size={60} /> : children
 
     return <div>{content}</div>

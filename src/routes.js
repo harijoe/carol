@@ -21,7 +21,6 @@ import {
   ProfilePage,
   ProjectListPage,
   ProjectPage,
-  ProjectSubmitPage,
   ProjectAccountPage,
   ResetPasswordPage,
   SearchPage,
@@ -57,7 +56,6 @@ const routes = (
     <Route path="reset-password" component={ResetPasswordPage} />
     <Route path="search" component={requiresAuth(SearchPage)} />
     <Route path="signup" component={anonymousOnly(SignupPage)} />
-    <Route path="submit-project" component={requiresAuth(ProjectSubmitPage)} />
     <Route path="*" component={NotFoundPage} />
   </Route>
 )
