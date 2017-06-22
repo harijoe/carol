@@ -97,7 +97,7 @@
     "express": "^4.14.0",
     "express-force-ssl": "^0.3.2",
     "font-awesome": "^4.7.0",
-    "google-map-react": "^0.22.3",
+    "google-map-react": "^0.24.0",
     "history": "^3.0.0",
     "intl": "^1.2.5",
     "isomorphic-fetch": "^2.2.1",
