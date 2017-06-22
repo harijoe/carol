@@ -1,9 +1,17 @@
 export default {
   url: 'https://carol-co-uk-dev.qarx.io',
-  proUrl: 'https://www.quotatispro.co.uk',
   contentUrl: 'http://api-service.qarx.io/uk/',
   countryLabel: 'country.great_britain',
   contentSiteUrl: 'https://www.quotatis.co.uk/advice/',
+  mainMenu: {
+    resource: {
+      guide: 'guide',
+      inspiring: 'inspirations',
+      faq: 'FAQ',
+    },
+    directory: '/annuaire-artisan',
+    proUrl: 'https://www.quotatispro.co.uk',
+  },
   footer: {
     advices: {
       window: 'guide/fenetres-portes-volets/fenetre/',
