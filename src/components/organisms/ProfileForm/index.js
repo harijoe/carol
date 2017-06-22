@@ -76,7 +76,12 @@ const ProfileContentWrapper = styled.div`
     }
 
     path {
-      fill: ${theme('colors.white')};
+      fill: ${theme('colors.grayscale.medium')};
+
+      ${breakpoint('l')`
+        fill: ${theme('colors.white')};
+      `}
+
     }
   }
 
@@ -175,6 +180,12 @@ const VerifiedFieldWrapper = styled.div `
 
   ${breakpointMax('m')`
     flex-direction: column;
+    align-items: baseline;
+
+    div:first-child {
+      width: 100%;
+    }
+
 
     [class*="qs-Field--"]{
       margin-bottom: ${theme('spaces.m')};
@@ -186,11 +197,12 @@ const VerifiedFieldWrapper = styled.div `
     align-items: center;
 
     div {
-      width: 50%;
+      &:first-child {
+        width: 50%;
+      }
 
       &[class*="qs-Field--"] {
-        margin: 0 0 1.8rem ${theme('spaces.l')};
-        padding: ${theme('spaces.s')} 0;
+        margin-left: ${theme('spaces.m')};
       }
     }
   `}

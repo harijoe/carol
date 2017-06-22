@@ -7,28 +7,35 @@ import { theme } from 'utils/style'
 import { Icon } from 'components'
 
 const Wrapper = styled.div`
-  display: flex;
+  display: inline-block;
   margin: 0;
-  padding-bottom: ${theme('spaces.s')};
-  padding-top: ${theme('spaces.s')};
+  padding: ${theme('spaces.xs')} ${theme('spaces.s')};
+  font-size: ${theme('fonts.size.s')};
+  border-radius: 60rem;
+
+  span {
+    vertical-align: middle;
+  }
 
   &.qs-Field--validated {
-    border-bottom: 0.2rem solid ${theme('colors.success')};
-    border-top: 0.2rem solid ${theme('colors.success')};
-    color: ${theme('colors.success')};
+    background-color: ${theme('colors.success')};
+    color: ${theme('colors.white')};
   }
 
   &.qs-Field--toValidate {
-    border-bottom: 0.2rem solid ${theme('colors.danger')};
-    border-top: 0.2rem solid ${theme('colors.danger')};
-    color: ${theme('colors.danger')};
+    background-color: ${theme('colors.danger')};
+    color: ${theme('colors.white')};
   }
 `
 
 const StyledIcon = styled(Icon)`
-  margin-right: ${theme('spaces.m')};
+  margin-right: ${theme('spaces.s')};
   height: ${theme('icons.size.s')};
   width: ${theme('icons.size.s')};
+
+  .error-icon, .check-color1 {
+    fill: ${theme('colors.white')};
+  }
 `
 
 const ValidatedInfo = ({ validated, field, ...props }) => {
