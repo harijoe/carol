@@ -128,16 +128,17 @@ function* preValidate({ chatbotStorageId }) {
   }
 
   yield* fetch(projectElaborationPreValidate, 'post', `/project-prevalidate/${chatbotStorageId}`)
-  const projectName = yield select(fromProjectElaboration.getProjectName)
   const projectId = yield select(fromProjectElaboration.getProjectId)
+  const projectName = yield select(fromProjectElaboration.getProjectName)
+  const proFormLabel = yield select(fromProjectElaboration.getProFormLabel)
   const postalCode = yield select(fromProjectElaboration.getPostalCode)
   const heroAnswer = yield select(fromProjectElaboration.getHeroAnswer)
 
   yield pushGtmEvent({
     event: 'FormCreated',
-    PostalCode: postalCode,
+    postalCode,
     chatbotKey1: heroAnswer.text,
-    proFormLabel: projectName,
+    proFormLabel,
   })
   yield put(push(`/projects/${projectId}/search-firms`))
   yield* notify('user.thank_you', 'project.elaboration.project_prevalidation.success', 'success', {}, { name: projectName })

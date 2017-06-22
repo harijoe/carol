@@ -132,6 +132,9 @@ export default (state = initialState, action) => {
         ...state,
         projectName: payload.name,
         projectId: payload.id,
+        postalCode: payload.postalCode.postalCode,
+        proFormId: payload.proForm.legacyId,
+        proFormLabel: payload.proForm.label,
       }
     default:
       return state
