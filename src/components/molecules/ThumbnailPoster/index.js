@@ -67,7 +67,7 @@ const ThumbnailPoster = ({ image, title }) => (
 )
 
 ThumbnailPoster.propTypes = {
-  image: PropTypes.string,
+  image: PropTypes.object,
   title: PropTypes.string,
 }
 
