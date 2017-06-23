@@ -89,7 +89,21 @@ const StyledSlickCarousel = styled(SlickCarousel)`
 
 const Carousel = class extends React.Component {
 
-  state = {}
+  state = {
+    removeCarousel: false,
+  }
+
+  /*
+   When using the `responsive` prop, react-slick messes up server-side-rendering and generated markup is different
+   between server and client, forcing us to redraw the carousel on the client
+   */
+  componentWillReceiveProps(nextProps) {
+    if (this.props.ssr && !nextProps.ssr) {
+      this.setState({ removeCarousel: true }, () => {
+        this.setState({ removeCarousel: false })
+      })
+    }
+  }
 
   handlePropsOnSSR = ({ responsive = [], ssr }) => {
     if (ssr) return { arrows: false, responsive: [] }
@@ -102,16 +116,19 @@ const Carousel = class extends React.Component {
   render() {
     const { children, itemProps, responsive, ssr, ...otherProps } = this.props
     const props = { ...this.handlePropsOnSSR({ responsive, ssr }), ...otherProps }
+    const { removeCarousel } = this.state
 
     return (
       <Wrapper>
-        <StyledSlickCarousel {...props} >
-          {
-            children.map((item, i) => (
-              <div {...itemProps} key={i}>{item}</div>
-            ))
-          }
-        </StyledSlickCarousel>
+        {!removeCarousel &&
+          <StyledSlickCarousel {...props} >
+            {
+              children.map((item, i) => (
+                <div {...itemProps} key={i}>{item}</div>
+              ))
+            }
+          </StyledSlickCarousel>
+        }
       </Wrapper>
     )
   }
