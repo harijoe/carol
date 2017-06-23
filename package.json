@@ -21,7 +21,9 @@
     "build:bench:gzipped": "cross-env NODE_ENV=production yarn build && tar -czf dist/gzipped.tar.gz dist/main.*.js && ls -l dist/gzipped.tar.gz",
     "postinstall": "yarn webpack-assets:create",
     "webpack-assets:create": "node scripts/ensure-webpack-assets.js",
-    "webpack-assets:refresh": "yarn run clean && yarn webpack-assets:create"
+    "webpack-assets:refresh": "yarn run clean && yarn webpack-assets:create",
+    "storybook": "start-storybook -p 9001 -c ./storybook",
+    "build-storybook": "build-storybook -c ./storybook"
   },
   "repository": {
     "type": "git",
@@ -83,6 +85,8 @@
     "webpack-bundle-analyzer": "^2.8.2"
   },
   "dependencies": {
+    "@storybook/addon-actions": "^3.1.5",
+    "@storybook/react": "^3.1.5",
     "anchorate": "^1.1.0",
     "babel-core": "^6.17.0",
     "babel-polyfill": "^6.16.0",
@@ -119,6 +123,7 @@
     "react-motion": "0.4.7",
     "react-redux": "^4.4.5",
     "react-router": "^3.0.5",
+    "react-router-dom": "^4.1.1",
     "react-router-redux": "^4.0.8",
     "react-router-scroll": "^0.4.2",
     "react-slick": "^0.14.11",

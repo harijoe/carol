@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { theme, ifThen, breakpoint } from 'utils/style'
+import { Icon } from 'components'
 import styled, { css } from 'styled-components'
 
-import { Icon } from 'components'
+import { theme, ifThen, breakpoint } from 'utils/style'
 
 const StyledButton = styled.button`${({ block, secondary, maxWidth, center, cssDisabled, loading, highlight }) => css`
   cursor: pointer;
