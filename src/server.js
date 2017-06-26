@@ -54,8 +54,8 @@ app.listen(port, (error) => {
 // CURRENTLY, cache is only reloaded for FR and homepage
 // It needs to be extended later for other languages and other pages as necessary
 router.handle({
-  url: '/',
-  method: 'PURGE',
+  url: '/purge-ssr',
+  method: 'POST',
   hostname: locales.fr_FR.url.replace('https://', ''),
   headers: { authorization: `Bearer ${purgeCacheToken}` },
 }, { send: () => console.info('Cache regeneration attempt finished') })

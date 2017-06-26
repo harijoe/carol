@@ -8,7 +8,7 @@ export default async function (store, renderProps, req, res) {
   initStore(store, req)
 
   // Handle cache purge
-  if (req.method === 'PURGE' && req.headers.authorization === `Bearer ${config.purgeCacheToken}`) {
+  if (req.url === '/purge-ssr' && req.method === 'POST' && req.headers.authorization === `Bearer ${config.purgeCacheToken}`) {
     console.info('Cache purge requested')
     resetCache()
     await initSagas(store, renderProps, true)
