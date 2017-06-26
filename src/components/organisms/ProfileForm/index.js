@@ -352,13 +352,6 @@ class ProfileForm extends Component {
                 placeholder={formatMessage(messages('user.postal_code').label)}
                 smallSize
               />
-              <Field
-                name="countryCode"
-                component={RenderField}
-                label={formatMessage(messages('user.country_code').label)}
-                placeholder={formatMessage(messages('user.country_code').label)}
-                mediumSize
-              />
             </BorderBox>
           </StyledGrid>
         </StyledSection>

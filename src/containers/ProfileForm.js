@@ -39,7 +39,7 @@ const mapStateToProps = (state) => {
       ...pick(details, [
         '@id', 'gender', 'firstName', 'lastName',
         'email', 'preferedLanguage', 'mobilePhone', 'mobilePhone',
-        'fixedPhone', 'address', 'postalCode', 'countryCode',
+        'fixedPhone', 'address', 'postalCode',
         'region', 'city', 'newsletterSubscription', 'contactPreference',
         'contactComment', 'emailVerified', 'mobilePhoneVerified', 'postalCode',
       ]),
