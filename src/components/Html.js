@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { assetPath } from 'config'
 
-const Html = ({ styles, assets, state, content, lang }) => {
+const Html = ({ styles, assets, serializedState, content, lang }) => {
   const helmet = Helmet.rewind()
   const attrs = helmet.htmlAttributes.toComponent()
 
@@ -19,7 +19,7 @@ const Html = ({ styles, assets, state, content, lang }) => {
       </head>
       <body>
         <main id="app"><div dangerouslySetInnerHTML={{ __html: content }} /></main>
-        <script dangerouslySetInnerHTML={{ __html: state }} />
+        <script dangerouslySetInnerHTML={{ __html: serializedState }} />
         <script src={assetPath + assets.javascript.main} />
       </body>
     </html>
@@ -29,7 +29,7 @@ const Html = ({ styles, assets, state, content, lang }) => {
 Html.propTypes = {
   styles: PropTypes.string.isRequired,
   assets: PropTypes.object.isRequired,
-  state: PropTypes.string.isRequired,
+  serializedState: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   lang: PropTypes.string.isRequired,
 }

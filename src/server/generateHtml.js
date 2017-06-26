@@ -22,8 +22,8 @@ export default (store, renderProps) => {
   const styles = sheet.getStyleTags()
   const initialState = store.getState()
   const assets = global.webpackIsomorphicTools.assets()
-  const state = `window.__INITIAL_STATE__ = ${serialize(initialState)}`
-  const markup = <Html {...{ styles, assets, state, content, lang: fromContext.getLang(state) }} />
+  const serializedState = `window.__INITIAL_STATE__ = ${serialize(initialState)}`
+  const markup = <Html {...{ styles, assets, serializedState, content, lang: fromContext.getLang(initialState) }} />
   const doctype = '<!doctype html>\n'
   const html = renderToStaticMarkup(markup)
 
