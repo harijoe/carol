@@ -41,15 +41,6 @@ const Footer = styled.footer`
   width: 100%;
 `
 
-const notificationsDefaultValues = {
-  status: 'info',
-  position: 'tr',
-  dismissible: true,
-  dismissAfter: 5000,
-  allowHTML: true,
-  closeButton: false,
-}
-
 class PageTemplate extends Component {
   static propTypes = {
     header: PropTypes.any.isRequired,
@@ -95,7 +86,7 @@ class PageTemplate extends Component {
       const theme = require('reapop-theme-wybo')
       const NotificationsSystem = require('reapop').default
 
-      notificationsSystem = <NotificationsSystem theme={theme} defaultValues={notificationsDefaultValues} />
+      notificationsSystem = <NotificationsSystem theme={theme} />
     }
 
     return (
