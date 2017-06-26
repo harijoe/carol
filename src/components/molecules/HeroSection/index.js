@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { theme, breakpoint } from 'utils/style'
 
 import { Heading, Section } from 'components'
 
-const Wrapper = styled.header`${({ imageLink }) => `
+const Wrapper = styled.header`${({ imageLink }) => css`
   position: relative;
   display: flex;
   flex-direction: column;

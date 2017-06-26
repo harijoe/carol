@@ -29,7 +29,7 @@ const StyledSection = styled(Section)`
     content: '';
 
     ${breakpoint('m')`
-      height: 37rem;
+      height: 44rem;
     `}
   }
 `

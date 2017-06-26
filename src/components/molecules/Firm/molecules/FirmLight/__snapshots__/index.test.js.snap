@@ -7,17 +7,18 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <styled.div>
-    <styled.header>
+    <styled.header
+        imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg">
         <styled.div>
-            <styled.figure>
-                <Styled(Mock)
-                    src="" />
-            </styled.figure>
+            <Styled(Mock)
+                imageLink="" />
             <styled.div>
-                <span>
-                    4.5
+                <p>
+                    <strong>
+                        4.5
+                    </strong>
                     /5 
-                </span>
+                </p>
                 <span>
                     88
                      
@@ -27,14 +28,12 @@ ShallowWrapper {
                 </span>
             </styled.div>
         </styled.div>
+    </styled.header>
+    <styled.footer>
         <Styled(Mock)
             level={3}>
             test
         </Styled(Mock)>
-        <Styled(Mock)
-            src="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg" />
-    </styled.header>
-    <styled.footer>
         <Styled(Mock)>
             <Styled(Mock)
                 icon="location-pin" />
@@ -44,17 +43,18 @@ ShallowWrapper {
 </styled.div>,
   "nodes": Array [
     <styled.div>
-      <styled.header>
+      <styled.header
+            imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg">
             <styled.div>
-                  <styled.figure>
-                        <Styled(Mock)
-                              src="" />
-                  </styled.figure>
+                  <Styled(Mock)
+                        imageLink="" />
                   <styled.div>
-                        <span>
-                              4.5
+                        <p>
+                              <strong>
+                                    4.5
+                              </strong>
                               /5 
-                        </span>
+                        </p>
                         <span>
                               88
                                
@@ -64,14 +64,12 @@ ShallowWrapper {
                         </span>
                   </styled.div>
             </styled.div>
+      </styled.header>
+      <styled.footer>
             <Styled(Mock)
                   level={3}>
                   test
             </Styled(Mock)>
-            <Styled(Mock)
-                  src="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg" />
-      </styled.header>
-      <styled.footer>
             <Styled(Mock)>
                   <Styled(Mock)
                         icon="location-pin" />
@@ -89,7 +87,7 @@ ShallowWrapper {
       "_currentElement": <FirmLight
         globalRating={4.5}
         globalRatingCount={88}
-        imageUrl="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
+        imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
         logoUrl=""
         name="test"
         postalCode="96352" />,
@@ -102,7 +100,7 @@ ShallowWrapper {
         "props": Object {
           "globalRating": 4.5,
           "globalRatingCount": 88,
-          "imageUrl": "http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg",
+          "imageUrl": "https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg",
           "logoUrl": "",
           "name": "test",
           "postalCode": "96352",
@@ -128,17 +126,18 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <styled.div>
-          <styled.header>
+          <styled.header
+                    imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg">
                     <styled.div>
-                              <styled.figure>
-                                        <Styled(Mock)
-                                                  src="" />
-                              </styled.figure>
+                              <Styled(Mock)
+                                        imageLink="" />
                               <styled.div>
-                                        <span>
-                                                  4.5
+                                        <p>
+                                                  <strong>
+                                                            4.5
+                                                  </strong>
                                                   /5 
-                                        </span>
+                                        </p>
                                         <span>
                                                   88
                                                    
@@ -148,14 +147,12 @@ ShallowWrapper {
                                         </span>
                               </styled.div>
                     </styled.div>
+          </styled.header>
+          <styled.footer>
                     <Styled(Mock)
                               level={3}>
                               test
                     </Styled(Mock)>
-                    <Styled(Mock)
-                              src="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg" />
-          </styled.header>
-          <styled.footer>
                     <Styled(Mock)>
                               <Styled(Mock)
                                         icon="location-pin" />
@@ -165,17 +162,18 @@ ShallowWrapper {
 </styled.div>,
         "_debugID": 2,
         "_renderedOutput": <styled.div>
-          <styled.header>
+          <styled.header
+                    imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg">
                     <styled.div>
-                              <styled.figure>
-                                        <Styled(Mock)
-                                                  src="" />
-                              </styled.figure>
+                              <Styled(Mock)
+                                        imageLink="" />
                               <styled.div>
-                                        <span>
-                                                  4.5
+                                        <p>
+                                                  <strong>
+                                                            4.5
+                                                  </strong>
                                                   /5 
-                                        </span>
+                                        </p>
                                         <span>
                                                   88
                                                    
@@ -185,14 +183,12 @@ ShallowWrapper {
                                         </span>
                               </styled.div>
                     </styled.div>
+          </styled.header>
+          <styled.footer>
                     <Styled(Mock)
                               level={3}>
                               test
                     </Styled(Mock)>
-                    <Styled(Mock)
-                              src="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg" />
-          </styled.header>
-          <styled.footer>
                     <Styled(Mock)>
                               <Styled(Mock)
                                         icon="location-pin" />
@@ -214,7 +210,7 @@ ShallowWrapper {
   "unrendered": <FirmLight
     globalRating={4.5}
     globalRatingCount={88}
-    imageUrl="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
+    imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
     logoUrl=""
     name="test"
     postalCode="96352" />,

@@ -9,7 +9,7 @@ ShallowWrapper {
   "node": <FirmLight
     globalRating={4.5}
     globalRatingCount={88}
-    imageUrl="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
+    imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
     logoUrl=""
     name="test"
     postalCode="96352" />,
@@ -17,7 +17,7 @@ ShallowWrapper {
     <FirmLight
       globalRating={4.5}
       globalRatingCount={88}
-      imageUrl="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
+      imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
       logoUrl=""
       name="test"
       postalCode="96352" />,
@@ -70,7 +70,7 @@ ShallowWrapper {
         "_currentElement": <FirmLight
           globalRating={4.5}
           globalRatingCount={88}
-          imageUrl="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
+          imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
           logoUrl=""
           name="test"
           postalCode="96352" />,
@@ -78,7 +78,7 @@ ShallowWrapper {
         "_renderedOutput": <FirmLight
           globalRating={4.5}
           globalRatingCount={88}
-          imageUrl="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
+          imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
           logoUrl=""
           name="test"
           postalCode="96352" />,

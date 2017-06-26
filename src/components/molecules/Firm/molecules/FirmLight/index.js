@@ -3,26 +3,22 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 import { theme, breakpoint } from 'utils/style'
-import { cloudinaryUrl } from 'config'
 
-import { Image, Heading, Paragraph, Icon } from 'components'
+import { Heading, Paragraph, Icon, ProfileImage } from 'components'
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 `
-const HeaderWrapper = styled.header`
+const HeaderWrapper = styled.header`${({ imageUrl }) => css`
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   padding: ${theme('spaces.m')};
-  height: 16rem;
-  overflow: hidden;
-
-  ${breakpoint('l')`
-    padding: ${theme('spaces.l')};
-    height: 20rem;
-  `}
+  height: 12.5rem;
+  background: url(${imageUrl}) no-repeat top center;
+  background-size: cover;
 
   &::before {
     position: absolute;
@@ -34,61 +30,56 @@ const HeaderWrapper = styled.header`
     background-color: rgba(38, 38, 38, 0.5);
     content: '';
   }
-`
+
+  ${breakpoint('l')`
+    padding: ${theme('spaces.l')};
+  `}
+`}`
+
 const TopHeaderWrapper = styled.div`
   position: relative;
   z-index: 1;
   display: flex;
   flex-wrap: nowrap;
+  align-items: flex-end;
   justify-content: space-between;
 `
-const StyledImage = styled(Image)`
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: block;
-  width: 100%;
-  height: auto;
-  z-index: 0;
-`
-const NoteFirm = styled.div`
-`
-const styles = css`
-  position: relative;
-  height: 6.4rem;
-  width: 6.4rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center
-  overflow: hidden;
-  background: ${theme('colors.white')} url(${cloudinaryUrl}icons/default-logo-profil.svg) no-repeat center center;
-  background-size: ${theme('icons.size.l')};
-  border-radius: 6rem;
-  box-shadow: 0 0 1rem rgba(19, 19, 19, 0.15);
 
-  > img {
-    max-width: 100%;
-  }
-`
-const StyledHeading = styled(Heading)`
-  position: relative;
-  z-index: 1;
-  margin-bottom: ${theme('spaces.s')};
-  margin-top: auto;
-  font-size: ${theme('fonts.size.l')};
-  text-shadow: 0.1rem 0.1rem 0 rgba(0, 0, 0, 0.38);
+const NoteFirm = styled.div`
+  margin: 0;
+  text-align: right;
+  line-height: 1;
   color: ${theme('colors.white')};
 
-  ${breakpoint('m')`
-    font-size: ${theme('fonts.size.xl')};
+  p {margin: 0;}
+
+  strong {
+    font-family: ${theme('fonts.family.montserratBold')};
+    font-size: ${theme('fonts.size.xxl')};
+  }
+
+  span {
+    font-size: ${theme('fonts.size.s')};
+  }
+`
+
+const StyledProfileImage = styled(ProfileImage)`
+  height: 8rem;
+  width: 8rem;
+
+  ${breakpoint('l')`
+    margin-bottom: -3.6rem;
   `}
 `
-const LogoFirmWrapper = styled.figure`${styles}`
 
-const LogoFirmImage = styled(Image)`
-  display: block;
-  width: 100%;
-  height: auto;
+const StyledHeading = styled(Heading)`
+  margin-bottom: ${theme('spaces.l')};
+  font-size: ${theme('fonts.size.xl')};
+  text-transform: lowercase;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
 `
 
 const FooterWrapper = styled.footer`
@@ -132,14 +123,12 @@ const formatNotation = value => (
 
 const FirmLight = ({ imageUrl, logoUrl, globalRating, name, globalRatingCount, postalCode }) => (
   <Wrapper>
-    <HeaderWrapper>
+    <HeaderWrapper {...{ imageUrl }}>
       <TopHeaderWrapper>
-        <LogoFirmWrapper>
-          <LogoFirmImage src={logoUrl} />
-        </LogoFirmWrapper>
+        <StyledProfileImage imageLink={logoUrl} />
         <NoteFirm>
           {globalRatingCount ?
-            <span>{formatNotation(globalRating)}/5 </span> :
+            <p><strong>{formatNotation(globalRating)}</strong>/5 </p> :
             ''
           }
           {globalRatingCount ?
@@ -148,12 +137,11 @@ const FirmLight = ({ imageUrl, logoUrl, globalRating, name, globalRatingCount, p
           }
         </NoteFirm>
       </TopHeaderWrapper>
+    </HeaderWrapper>
+    <FooterWrapper>
       <StyledHeading level={3}>
         {name}
       </StyledHeading>
-      <StyledImage src={imageUrl} />
-    </HeaderWrapper>
-    <FooterWrapper>
       <StyledParagraph>
         <StyledIcon icon="location-pin" />{postalCode}
       </StyledParagraph>
@@ -173,7 +161,7 @@ FirmLight.propTypes = {
 FirmLight.defaultProps = {
   globalRating: null,
   globalRatingCount: null,
-  imageUrl: 'http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg', /* @TODO: To remove when dora will provide it */
+  imageUrl: 'https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg', /* @TODO: To remove when dora will provide it */
 }
 
 export default FirmLight
