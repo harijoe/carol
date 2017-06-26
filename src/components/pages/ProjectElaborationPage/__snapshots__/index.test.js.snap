@@ -13,8 +13,7 @@ ShallowWrapper {
             content="noindex, nofollow"
             name="robots" />
     </HelmetWrapper>
-    <Mock
-        location={undefined} />
+    <Mock />
 </Mock>,
   "nodes": Array [
     <Mock>
@@ -24,8 +23,7 @@ ShallowWrapper {
                   content="noindex, nofollow"
                   name="robots" />
       </HelmetWrapper>
-      <Mock
-            location={undefined} />
+      <Mock />
 </Mock>,
   ],
   "options": Object {},
@@ -69,8 +67,7 @@ ShallowWrapper {
                               content="noindex, nofollow"
                               name="robots" />
           </HelmetWrapper>
-          <Mock
-                    location={undefined} />
+          <Mock />
 </Mock>,
         "_debugID": 2,
         "_renderedOutput": <Mock>
@@ -80,8 +77,7 @@ ShallowWrapper {
                               content="noindex, nofollow"
                               name="robots" />
           </HelmetWrapper>
-          <Mock
-                    location={undefined} />
+          <Mock />
 </Mock>,
       },
       "_renderedNodeType": 1,

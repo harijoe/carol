@@ -25,7 +25,6 @@ const ProjectElaboration = ({
   hasConversations,
   locale,
   redirectTo,
-  location,
 }) => {
   const quickReplies = activeConversation.length > 0 ? activeConversation[activeConversation.length - 1].message.quick_replies : null
 
@@ -45,7 +44,7 @@ const ProjectElaboration = ({
           </ul>
           :
           <div>
-            <Conversation {...{ activeConversation, reply, locale, redirectTo, location }} />
+            <Conversation {...{ activeConversation, reply, locale, redirectTo }} />
             <Form reply={reply} disabled={quickReplies != null ? quickReplies.length !== 0 : true} />
           </div>
       }
@@ -66,7 +65,6 @@ ProjectElaboration.propTypes = {
   redirectTo: PropTypes.func,
   selectConversation: PropTypes.func,
   conversations: PropTypes.object,
-  location: PropTypes.object.isRequired,
   hasConversations: PropTypes.bool,
   locale: PropTypes.string,
 }

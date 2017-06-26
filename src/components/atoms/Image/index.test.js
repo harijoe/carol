@@ -5,7 +5,7 @@ import Image from '.'
 const wrap = (props = {}) => shallow(<Image {...props} />)
 
 it('renders props when passed in', () => {
-  const wrapper = wrap({ id: 'foo' })
+  const wrapper = wrap({ src: 'foo' })
 
-  expect(wrapper.find({ id: 'foo' })).toHaveLength(1)
+  expect(wrapper.find({ src: 'foo' })).toHaveLength(1)
 })

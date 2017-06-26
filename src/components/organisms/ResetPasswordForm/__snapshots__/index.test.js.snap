@@ -6,9 +6,9 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <Unknown />,
+  "node": <InjectIntl(ResetPasswordForm) />,
   "nodes": Array [
-    <Unknown />,
+    <InjectIntl(ResetPasswordForm) />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -16,42 +16,32 @@ ShallowWrapper {
       "_calledComponentWillUnmount": false,
       "_compositeType": 0,
       "_context": Object {},
-      "_currentElement": <Provider
-        store={
-                Object {
-                        "dispatch": [Function],
-                        "getState": [Function],
-                        "replaceReducer": [Function],
-                        "subscribe": [Function],
-                        Symbol(Symbol.observable): [Function],
-                      }
-        }>
-        <Unknown />
-</Provider>,
+      "_currentElement": <IntlProvider
+        locale="en"
+        messages={Object {}}>
+        <InjectIntl(ResetPasswordForm) />
+</IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
-      "_instance": Provider {
+      "_instance": IntlProvider {
         "_reactInternalInstance": [Circular],
-        "context": Object {},
+        "context": Object {
+          "intl": undefined,
+        },
         "props": Object {
-          "children": <Unknown />,
-          "store": Object {
-            "dispatch": [Function],
-            "getState": [Function],
-            "replaceReducer": [Function],
-            "subscribe": [Function],
-            Symbol(Symbol.observable): [Function],
-          },
+          "children": <InjectIntl(ResetPasswordForm) />,
+          "locale": "en",
+          "messages": Object {},
         },
         "refs": Object {},
-        "state": null,
-        "store": Object {
-          "dispatch": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-          Symbol(Symbol.observable): [Function],
+        "state": Object {
+          "getDateTimeFormat": [Function],
+          "getMessageFormat": [Function],
+          "getNumberFormat": [Function],
+          "getPluralFormat": [Function],
+          "getRelativeFormat": [Function],
+          "now": [Function],
         },
         "updater": Object {
           "enqueueCallback": [Function],
@@ -71,11 +61,11 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <Unknown />,
+        "_currentElement": <InjectIntl(ResetPasswordForm) />,
         "_debugID": 2,
-        "_renderedOutput": <Unknown />,
+        "_renderedOutput": <InjectIntl(ResetPasswordForm) />,
       },
-      "_renderedNodeType": 0,
+      "_renderedNodeType": 1,
       "_rootNodeID": 0,
       "_topLevelWrapper": null,
       "_updateBatchNumber": null,
@@ -85,17 +75,10 @@ ShallowWrapper {
     "render": [Function],
   },
   "root": [Circular],
-  "unrendered": <Provider
-    store={
-        Object {
-            "dispatch": [Function],
-            "getState": [Function],
-            "replaceReducer": [Function],
-            "subscribe": [Function],
-            Symbol(Symbol.observable): [Function],
-          }
-    }>
-    <Unknown />
-</Provider>,
+  "unrendered": <IntlProvider
+    locale="en"
+    messages={Object {}}>
+    <InjectIntl(ResetPasswordForm) />
+</IntlProvider>,
 }
 `;

@@ -3,14 +3,22 @@ import { shallow } from 'enzyme'
 
 import Firm from './'
 
+const props = {
+  name: 'test',
+  logoUrl: '',
+  postalCode: '96352',
+  globalRating: 4.5,
+  globalRatingCount: 88,
+}
+
 it('renders the Firm component', () => {
-  const wrapper = shallow(<Firm />)
+  const wrapper = shallow(<Firm {...props} />)
 
   expect(wrapper).toMatchSnapshot()
 })
 
 it('renders the Firm component full', () => {
-  const wrapper = shallow(<Firm full />)
+  const wrapper = shallow(<Firm full {...props} />)
 
   expect(wrapper).toMatchSnapshot()
 })

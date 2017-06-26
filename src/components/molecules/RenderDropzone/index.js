@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
 import Dropzone from 'react-dropzone'
 import styled from 'styled-components'
+import omit from 'lodash/omit'
 import { theme, breakpoint } from 'utils/style'
 
 import { Button, Block, List, Image, Icon } from 'components'
@@ -17,7 +18,9 @@ const Error = styled(Block)`
   margin: 0.5rem 0 0;
 `
 
-const StyledDropzone = styled(Dropzone)`
+const removeThemeProp = Component => props => <Component {...omit(props, 'theme')} />
+
+const StyledDropzone = styled(removeThemeProp(Dropzone))`
   position: relative;
   z-index: 1;
   display: none;
@@ -96,7 +99,7 @@ const StyledButton = styled(Button)`
   }
 `
 
-class RenderDropzone extends Component {
+class RenderDropzone extends React.Component {
   static defaultProps = {
     accept: 'image/png, image/jpeg, image/jpg',
   }

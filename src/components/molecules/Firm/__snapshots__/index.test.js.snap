@@ -7,14 +7,20 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <FirmLight
-    globalRating={null}
-    globalRatingCount={null}
-    imageUrl="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg" />,
+    globalRating={4.5}
+    globalRatingCount={88}
+    imageUrl="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
+    logoUrl=""
+    name="test"
+    postalCode="96352" />,
   "nodes": Array [
     <FirmLight
-      globalRating={null}
-      globalRatingCount={null}
-      imageUrl="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg" />,
+      globalRating={4.5}
+      globalRatingCount={88}
+      imageUrl="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
+      logoUrl=""
+      name="test"
+      postalCode="96352" />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -22,14 +28,25 @@ ShallowWrapper {
       "_calledComponentWillUnmount": false,
       "_compositeType": 2,
       "_context": Object {},
-      "_currentElement": <Firm />,
+      "_currentElement": <Firm
+        globalRating={4.5}
+        globalRatingCount={88}
+        logoUrl=""
+        name="test"
+        postalCode="96352" />,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
       "_instance": StatelessComponent {
         "_reactInternalInstance": [Circular],
         "context": Object {},
-        "props": Object {},
+        "props": Object {
+          "globalRating": 4.5,
+          "globalRatingCount": 88,
+          "logoUrl": "",
+          "name": "test",
+          "postalCode": "96352",
+        },
         "refs": Object {},
         "state": null,
         "updater": Object {
@@ -51,14 +68,20 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <FirmLight
-          globalRating={null}
-          globalRatingCount={null}
-          imageUrl="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg" />,
+          globalRating={4.5}
+          globalRatingCount={88}
+          imageUrl="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
+          logoUrl=""
+          name="test"
+          postalCode="96352" />,
         "_debugID": 2,
         "_renderedOutput": <FirmLight
-          globalRating={null}
-          globalRatingCount={null}
-          imageUrl="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg" />,
+          globalRating={4.5}
+          globalRatingCount={88}
+          imageUrl="http://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
+          logoUrl=""
+          name="test"
+          postalCode="96352" />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -70,7 +93,12 @@ ShallowWrapper {
     "render": [Function],
   },
   "root": [Circular],
-  "unrendered": <Firm />,
+  "unrendered": <Firm
+    globalRating={4.5}
+    globalRatingCount={88}
+    logoUrl=""
+    name="test"
+    postalCode="96352" />,
 }
 `;
 
@@ -82,9 +110,19 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <FirmFull />,
+  "node": <FirmFull
+    globalRating={4.5}
+    globalRatingCount={88}
+    logoUrl=""
+    name="test"
+    postalCode="96352" />,
   "nodes": Array [
-    <FirmFull />,
+    <FirmFull
+      globalRating={4.5}
+      globalRatingCount={88}
+      logoUrl=""
+      name="test"
+      postalCode="96352" />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -93,7 +131,12 @@ ShallowWrapper {
       "_compositeType": 2,
       "_context": Object {},
       "_currentElement": <Firm
-        full={true} />,
+        full={true}
+        globalRating={4.5}
+        globalRatingCount={88}
+        logoUrl=""
+        name="test"
+        postalCode="96352" />,
       "_debugID": 3,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -102,6 +145,11 @@ ShallowWrapper {
         "context": Object {},
         "props": Object {
           "full": true,
+          "globalRating": 4.5,
+          "globalRatingCount": 88,
+          "logoUrl": "",
+          "name": "test",
+          "postalCode": "96352",
         },
         "refs": Object {},
         "state": null,
@@ -123,9 +171,19 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <FirmFull />,
+        "_currentElement": <FirmFull
+          globalRating={4.5}
+          globalRatingCount={88}
+          logoUrl=""
+          name="test"
+          postalCode="96352" />,
         "_debugID": 4,
-        "_renderedOutput": <FirmFull />,
+        "_renderedOutput": <FirmFull
+          globalRating={4.5}
+          globalRatingCount={88}
+          logoUrl=""
+          name="test"
+          postalCode="96352" />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -138,6 +196,11 @@ ShallowWrapper {
   },
   "root": [Circular],
   "unrendered": <Firm
-    full={true} />,
+    full={true}
+    globalRating={4.5}
+    globalRatingCount={88}
+    logoUrl=""
+    name="test"
+    postalCode="96352" />,
 }
 `;
