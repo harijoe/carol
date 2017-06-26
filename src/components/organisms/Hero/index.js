@@ -124,25 +124,6 @@ const CarouselWrapper = styled.div`
   }
 `
 
-const ModifyLink = styled(Link)`
-  display: block;
-  margin: ${theme('spaces.m')} 0;
-  padding: ${theme('spaces.m')};
-  max-width: 32rem;
-  font-family: ${theme('fonts.family.montserratBold')};
-  font-size: ${theme('fonts.size.base')};
-  letter-spacing: 0.05rem;
-  text-align: center;
-  background-color: ${theme('colors.secondary')};
-  color: ${theme('colors.black')};
-
-  ${breakpoint('m')`
-    padding: ${theme('spaces.l')};
-    margin-bottom: ${theme('spaces.l')};
-    margin-top: ${theme('spaces.l')};
-  `}
-`
-
 const generateChild = (items, reply) => items.map(({ title, image_url, buttons, subtitle }, i) => (
   <ThumbnailCard
     key={i}
@@ -206,9 +187,9 @@ const Hero = ({ hasActiveConversation, firstChoices, reply, hasConversations }) 
                 <StyledHeading level={1}>
                   <FormattedMessage id="hero.conversation_in_progress" />
                 </StyledHeading>
-                <ModifyLink to="project-elaboration">
+                <Link to="project-elaboration" button large>
                   <FormattedMessage id="hero.button_message" />
-                </ModifyLink>
+                </Link>
                 <SubHeading>
                   <FormattedMessage id="hero.subheading_in_progress" />
                 </SubHeading>

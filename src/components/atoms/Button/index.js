@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components'
 
 import { theme, ifThen, breakpoint } from 'utils/style'
 
-const StyledButton = styled.button`${({ block, secondary, maxWidth, center, cssDisabled, loading, highlight }) => css`
+const StyledButton = styled.button`${({ large, block, secondary, maxWidth, center, cssDisabled, loading, highlight }) => css`
   cursor: pointer;
   display: block;
   margin: ${theme('spaces.m')} 0 0 0;
@@ -26,6 +26,11 @@ const StyledButton = styled.button`${({ block, secondary, maxWidth, center, cssD
     margin-bottom: ${theme('spaces.l')};
     margin-top: ${theme('spaces.l')};
   `}
+  ${ifThen(large, css`
+    ${breakpoint('m')`
+      padding: ${theme('spaces.l')};
+    `}
+  `)}
   ${ifThen(block, 'width: 100%')};
   ${ifThen(secondary, css`
     background-color: ${theme('colors.grayscale.lighter')};
@@ -79,6 +84,7 @@ const Button = ({ type, children, loading, disabled, highlight, ...props }) => {
 
 Button.propTypes = {
   disabled: PropTypes.bool,
+  large: PropTypes.bool,
   block: PropTypes.bool,
   secondary: PropTypes.bool,
   maxWidth: PropTypes.bool,

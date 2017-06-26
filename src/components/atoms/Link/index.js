@@ -5,9 +5,9 @@ import { Link as RouterLink } from 'react-router'
 import omit from 'lodash/omit'
 import { theme, ifThen, breakpoint } from 'utils/style'
 
-const styleProps = ['highlight', 'kind', 'button', 'theme']
+const styleProps = ['highlight', 'kind', 'button', 'large', 'theme']
 
-const styles = ({ kind, highlight, button }) => css`
+const styles = ({ kind, highlight, button, large }) => css`
   text-decoration: none;
   color: ${theme(`colors.${kind}`)};
   cursor: pointer;
@@ -35,6 +35,7 @@ const styles = ({ kind, highlight, button }) => css`
     margin: ${theme('spaces.m')} 0 0 0;
     padding: ${theme('spaces.m')};
     min-width: 20rem;
+    width: 100%;
     font-family: ${theme('fonts.family.montserratBold')};
     font-size: ${theme('fonts.size.base')};
     letter-spacing: 0.05rem;
@@ -44,11 +45,16 @@ const styles = ({ kind, highlight, button }) => css`
     color: ${theme('colors.black')};
     outline: 0;
     ${breakpoint('m')`
-      padding: ${theme('spaces.l')};
       margin-bottom: ${theme('spaces.l')};
       margin-top: ${theme('spaces.l')};
       max-width: 32rem;
     `}
+
+    ${ifThen(large, css`
+      ${breakpoint('m')`
+        padding: ${theme('spaces.l')};
+      `}
+    `)}
   `)};
 `
 
@@ -82,6 +88,7 @@ Link.propTypes = {
   to: PropTypes.string,
   highlight: PropTypes.bool,
   button: PropTypes.bool,
+  large: PropTypes.bool,
   forceRedirect: PropTypes.bool,
 }
 

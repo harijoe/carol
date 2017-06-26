@@ -8,7 +8,7 @@ import { projectAcceptFirm, PROJECT_ACCEPT_FIRM } from 'store/actions'
 import { Button } from 'components'
 
 const FirmAcceptButton = ({ loading, request }) => (
-  <Button {...{ loading, onClick: request }} center maxWidth><FormattedMessage id="project.validation_page" /></Button>
+  <Button {...{ loading, onClick: request }} center maxWidth large><FormattedMessage id="project.validation_page" /></Button>
 )
 
 const mapStateToProps = state => ({
