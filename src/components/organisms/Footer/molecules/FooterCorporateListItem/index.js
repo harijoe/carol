@@ -48,7 +48,7 @@ FooterCorporateListItem.propTypes = {
   locale: PropTypes.string,
   forceRedirect: PropTypes.bool,
   target: PropTypes.string,
-  contentSite: PropTypes.string,
+  contentSite: PropTypes.bool,
 }
 
 export default FooterCorporateListItem
