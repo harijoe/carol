@@ -112,6 +112,7 @@ const en = {
   'project.elaboration.project_prevalidation.success': 'The project %name% was created',
 
   'project.notify_project_validated': 'Your project request has been validated',
+  'project.notify_project_duplicated': 'You have already made an identical request. You can find it in My Projects.',
 
   'user.gender': 'Gender',
   'user.forget_password': 'Forget password ?',

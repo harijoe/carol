@@ -114,6 +114,7 @@ const fr = {
   'project.elaboration.project_prevalidation.success': 'Le projet %name% a été créé',
 
   'project.notify_project_validated': 'Votre demande de projet est validée',
+  'project.notify_project_duplicated': 'Vous avez déjà effectué une demande identique. Vous pouvez la retrouver dans Mes projets.',
 
   'user.gender': 'Civilité',
   'user.forget_password': 'Mot de passe oublié ?',
