@@ -1,7 +1,6 @@
 import merge from 'lodash/merge'
 
-import frFr from './configs/frFr'
-import enGb from './configs/enGb'
+import { fr, en } from './i18n/config'
 
 const config = {
   all: {
@@ -41,8 +40,8 @@ const config = {
     cloudinaryUrl: 'https://res.cloudinary.com/quotatis/image/upload/q_auto,f_auto/FrontApp/',
     defaultLocale: 'en_GB',
     locales: {
-      fr_FR: frFr,
-      en_GB: enGb,
+      fr_FR: fr,
+      en_GB: en,
     },
     purgeCacheToken: '41Xdkf2c7lflo2o065BTV21y6V6xhg9t',
     termsUrl: 'https://www.quotatis.fr/conseils-travaux/cgu',

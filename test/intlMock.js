@@ -1,7 +1,7 @@
 import React from 'react'
 import { IntlProvider } from 'react-intl'
 
-import messages from '../src/translations'
+import messages from '../src/i18n'
 
 const specialProperties = ['@@toStringTag', '$$typeof', 'toJSON']
 

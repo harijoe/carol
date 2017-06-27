@@ -2,7 +2,7 @@ import { put, select } from 'redux-saga/effects'
 import { addNotification } from 'reapop'
 
 import { fromContext } from 'store/selectors'
-import translations from '../../translations'
+import translations from '../../i18n'
 
 /**
  * Return a new string in witch all matches to a pattern like %pattern% are replaced

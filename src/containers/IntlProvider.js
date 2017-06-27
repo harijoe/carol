@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import translations from 'translations'
 import { IntlProvider } from 'react-intl'
 import { connect } from 'react-redux'
+import translations from '../i18n'
 
 const IntlProviderContainer = props => (
   <IntlProvider {...props}>{props.children}</IntlProvider>
