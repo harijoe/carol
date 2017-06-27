@@ -277,7 +277,7 @@ const fr = {
   'footer.corporate.phone_help_number': '01 77 86 80 97',
   'footer.corporate.phone_pros_number': '01 77 86 71 91',
 
-  'testimonials.section_title': 'Les Travaux et Vous',
+  'testimonials.section_title': 'Vos témoignages',
   'testimonials.read_it': 'Découvrir son projet ➔',
 
   'tips_and_tricks.call_to_action': 'Tous nos conseils et guides travaux',
@@ -285,8 +285,6 @@ const fr = {
 
   'cookies.message': 'En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour vous proposer des services et des offres adaptés à vos centres d’intérêts.',
   'cookies.more': ' Plus d\'informations',
-
-  'last_projects.section_title': 'Projets à la une',
 
   'auto-validation.validate.title': 'Merci d\'avoir validé vos informations',
   'auto-validation.validate.message': 'Vous recevrez très prochainement par e-mail les coordonnées des professionnels de confiance que nous aurons sélectionnés pour vous.',

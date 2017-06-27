@@ -8,7 +8,6 @@ import {
   Testimonials,
   TipsAndTricks,
   Reinsurance,
-  LastProjects,
   MainWrapper,
 } from 'components'
 import { Hero } from 'containers'
@@ -21,7 +20,6 @@ const HomePage = props => (
     </Helmet>
     <Hero />
     <MainWrapper>
-      <LastProjects />
       <HowItWorks />
       <Testimonials />
       <TipsAndTricks />

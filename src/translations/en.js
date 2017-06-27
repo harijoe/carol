@@ -282,8 +282,6 @@ const en = {
   'tips_and_tricks.call_to_action': 'Tous nos conseils & astuces EN',
   'tips_and_tricks.section_title': 'Conseils & astuces EN',
 
-  'last_projects.section_title': 'Derniers projets EN',
-
   'cookies.message': 'En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour vous proposer des services et des offres adaptés à vos centres d’intérêts. EN',
   'cookies.more': 'More informations',
 
