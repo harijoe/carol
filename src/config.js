@@ -29,7 +29,7 @@ const config = {
       scope: 'https://www.googleapis.com/auth/plus.login',
       tagManagerId: {
         FR: 'GTM-N58NQW',
-        GB: 'GTM-N58NQW',
+        GB: 'GTM-TT49Z3S',
         ES: 'GTM-N58NQW',
       },
     },
