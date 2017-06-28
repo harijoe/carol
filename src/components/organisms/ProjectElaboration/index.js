@@ -58,7 +58,9 @@ ProjectElaboration.propTypes = {
       message: PropTypes.shape({
         quick_replies: PropTypes.array,
       }),
-      answer: PropTypes.string,
+      answer: PropTypes.shape({
+        text: PropTypes.string,
+      }),
     }),
   ),
   reply: PropTypes.func,
