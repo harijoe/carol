@@ -45,17 +45,16 @@ function* handleProjectValidated(id) {
   const email = yield select(fromUser.getEmail)
 
   yield pushGtmEvent({ event: 'EndAutoValidation', email })
-
-  const response = yield* fetch(projectValidate, 'put', id, {}, { status: 'validated' })
-
+  yield* fetch(projectValidate, 'put', id, {}, { status: 'validated' })
   yield* notify('user.thank_you', 'project.notify_project_validated')
 
-  if (response.duplicated) {
+  const projectDetails = yield select(fromProject.getDetails, id)
+
+  if (projectDetails.duplicate) {
     yield* notify('', 'project.notify_project_duplicated', 'error')
   }
 
-  yield pushGtmEvent({ event: 'ValidForm', email, id_project: response.leadReference })
-
+  yield pushGtmEvent({ event: 'ValidForm', email, id_project: projectDetails.leadReference })
   yield put(push('/project-validation'))
 }
 
