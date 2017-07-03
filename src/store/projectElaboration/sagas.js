@@ -120,6 +120,13 @@ function* preValidate({ chatbotStorageId }) {
   const authenticated = yield select(fromAuth.isAuthenticated)
   const state = yield select(fromRouting.getState)
   const redirectPathname = yield select(fromRouting.getPathname)
+  const heroAnswer = yield select(fromProjectElaboration.getHeroAnswer)
+
+  yield pushGtmEvent({
+    event: 'FormCreated',
+    chatbotKey1: heroAnswer.text,
+  })
+
 
   if (!authenticated) {
     yield put(push({ pathname: '/signup', state: { ...state, redirectPathname } }))
@@ -132,10 +139,9 @@ function* preValidate({ chatbotStorageId }) {
   const projectName = yield select(fromProjectElaboration.getProjectName)
   const proFormLabel = yield select(fromProjectElaboration.getProFormLabel)
   const postalCode = yield select(fromProjectElaboration.getPostalCode)
-  const heroAnswer = yield select(fromProjectElaboration.getHeroAnswer)
 
   yield pushGtmEvent({
-    event: 'FormCreated',
+    event: 'ProjectCreated',
     postalCode,
     chatbotKey1: heroAnswer.text,
     proFormLabel,
