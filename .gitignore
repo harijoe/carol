@@ -6,3 +6,5 @@ jest/
 dist/
 webpack/webpack-assets.json
 yarn-error.log
+.storybook/public/*
+!.storybook/public/favicon.ico
