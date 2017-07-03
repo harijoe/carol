@@ -9,20 +9,19 @@ import { Carousel } from 'containers'
 
 const StyledSection = styled(Section)`
   position: relative;
-  padding-top: calc(${theme('spaces.xxxl')} + ${theme('spaces.xl')});
   min-height: 100vh;
 
   &::before {
     position: absolute;
     left: 0;
     top: 0;
-    height: 50%;
+    height: 40%;
     width: 100%;
     background: ${theme('colors.white')};
     content: '';
 
     ${breakpoint('m')`
-      height: 37rem;
+      height: 32rem;
     `}
   }
 
@@ -87,7 +86,7 @@ const StyledCarousel = styled(Carousel)`
 `
 
 const ProjectList = ({ list, loading }) => (
-  <StyledSection light>
+  <StyledSection light tall>
     <StyledGrid narrow>
       <StyledHeading level={1}><FormattedMessage id="project.list.heading" /></StyledHeading>
       <Loading loading={loading && list.length === 0}>

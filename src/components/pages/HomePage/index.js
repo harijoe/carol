@@ -19,7 +19,7 @@ const HomePage = props => (
       <script type="application/ld+json">{props.intl.formatMessage({ id: 'pages.home.ld+json' })}</script>
     </Helmet>
     <Hero />
-    <MainWrapper>
+    <MainWrapper resetState>
       <HowItWorks />
       <Testimonials />
       <TipsAndTricks />

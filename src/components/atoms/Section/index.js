@@ -60,9 +60,14 @@ const sectionStyles = ({ light, primary, dark, tall }) => css`
   ${ifThen(primary, css`background: ${theme('colors.primary')};`)}   
   ${ifThen(dark, css`background: ${theme('colors.black')};`)}
   ${ifThen(tall, css`
-    ${breakpoint('xl')`
-      padding-bottom: calc(${theme('grid.gutterWidth.xl')} * 2);
-      padding-top: calc(${theme('grid.gutterWidth.xl')} * 2);
+    ${breakpoint('xs')`
+      padding-bottom: calc(${theme('grid.gutterWidth.l')}rem * 2);
+      padding-top: calc(${theme('grid.gutterWidth.l')}rem * 2);
+    `}
+
+    ${breakpoint('l')`
+      padding-bottom: calc(${theme('grid.gutterWidth.xl')}rem * 2);
+      padding-top: calc(${theme('grid.gutterWidth.xl')}rem * 2);
     `}
   `)}
 `

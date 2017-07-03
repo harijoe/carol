@@ -3,16 +3,11 @@ import PropTypes from 'prop-types'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import styled from 'styled-components'
 import messages from 'utils/messages'
-import { theme, breakpoint } from 'utils/style'
+import { breakpoint } from 'utils/style'
 import { cloudinaryUrl } from 'config'
 
 import { MainLayout, MainWrapper, HeroSection, Section, Grid } from 'components'
 import { ProjectAccountForm } from 'containers'
-
-const StyledMainWrapper = styled(MainWrapper)`
-  padding-top: 5.6rem;
-  background-color: ${theme('colors.white')};
-`
 
 const StyledHeroSection = styled(HeroSection)`
   > section {
@@ -37,7 +32,7 @@ const StyledGrid = styled(Grid)`
 
 const ProjectAccountPage = ({ params: { projectId }, intl: { formatMessage } }) => (
   <MainLayout>
-    <StyledMainWrapper>
+    <MainWrapper>
       <StyledHeroSection title={formatMessage(messages('project.validation_page').label)} imageLink={`${cloudinaryUrl}hero-fullscreen_image.jpg`} />
       <Section light>
         <StyledGrid>
@@ -45,7 +40,7 @@ const ProjectAccountPage = ({ params: { projectId }, intl: { formatMessage } }) 
         </StyledGrid>
       </Section>
       <ProjectAccountForm {...{ projectId }} />
-    </StyledMainWrapper>
+    </MainWrapper>
   </MainLayout>
 )
 

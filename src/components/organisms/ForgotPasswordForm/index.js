@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import { Field } from 'redux-form'
 import messages from 'utils/messages'
-import { theme, breakpoint } from 'utils/style'
+import { theme, breakpoint, breakpointMax } from 'utils/style'
 
 import {
   Button,
@@ -27,6 +27,10 @@ const Form = styled.form`
 
 const StyledButton = styled(Button)`
   margin-top: ${theme('spaces.xl')};
+
+  ${breakpointMax('m')`
+    margin-bottom: ${theme('spaces.m')};
+  `}
 
   ${breakpoint('m')`
     margin-top: ${theme('spaces.xxl')};

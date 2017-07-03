@@ -5,7 +5,7 @@ import { cloudinaryUrl } from 'config'
 import styled from 'styled-components'
 import { breakpoint } from 'utils/style'
 
-import { MainLayout, MainWrapper, AutoValidationBlock, Link } from 'components'
+import { MainLayout, MainWrapper, Section, AutoValidationBlock, Link } from 'components'
 
 const StyledLink = styled(Link)`
   width: 100%;
@@ -18,15 +18,17 @@ const StyledLink = styled(Link)`
 const ProjectValidationPage = ({ intl: { formatMessage } }) => (
   <MainLayout>
     <MainWrapper>
-      <AutoValidationBlock
-        imageLink={`${cloudinaryUrl}autovalidation-validate.svg`}
-        title={formatMessage(messages('auto-validation.validate.title').label)}
-        paragraph={formatMessage(messages('auto-validation.validate.message').label)}
-      >
-        <StyledLink to="/projects" button>
-          <FormattedMessage id="auto-validation.validate.call_to_action" />
-        </StyledLink>
-      </AutoValidationBlock>
+      <Section tall>
+        <AutoValidationBlock
+          imageLink={`${cloudinaryUrl}autovalidation-validate.svg`}
+          title={formatMessage(messages('auto-validation.validate.title').label)}
+          paragraph={formatMessage(messages('auto-validation.validate.message').label)}
+        >
+          <StyledLink to="/projects" button>
+            <FormattedMessage id="auto-validation.validate.call_to_action" />
+          </StyledLink>
+        </AutoValidationBlock>
+      </Section>
     </MainWrapper>
   </MainLayout>
 )

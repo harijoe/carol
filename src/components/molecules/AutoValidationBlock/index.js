@@ -19,10 +19,7 @@ const Wrapper = styled.div`
 `
 
 const Container = styled.div`
-  padding-bottom: ${theme('spaces.xxl')};
-  padding-top: ${theme('spaces.xxxl')};
   margin: 0 auto;
-  background: white;
 `
 
 const StyledImage = styled(Image)`

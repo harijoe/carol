@@ -7,17 +7,8 @@ import { MainLayout, MainWrapper, Section, Grid } from 'components'
 
 import { FirmList } from 'containers'
 
-const StyledMainWrapper = styled(MainWrapper)`
-  padding-top: 5.6rem;
-  background: ${theme('colors.white')};
-
-  ${breakpoint('m')`
-    padding-top: ${theme('spaces.xxxl')};
-  `}
-`
 const StyledSection = styled(Section)`
   position: relative;
-  padding-top: ${theme('spaces.xxl')};
 
   &::before {
     position: absolute;
@@ -46,13 +37,13 @@ const StyledGrid = styled(Grid)`
 
 const FirmListPage = ({ params: { projectId } }) => (
   <MainLayout>
-    <StyledMainWrapper>
-      <StyledSection light>
+    <MainWrapper>
+      <StyledSection light tall>
         <StyledGrid narrow>
           <FirmList {...{ projectId }} />
         </StyledGrid>
       </StyledSection>
-    </StyledMainWrapper>
+    </MainWrapper>
   </MainLayout>
 )
 

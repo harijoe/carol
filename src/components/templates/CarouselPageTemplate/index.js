@@ -12,11 +12,6 @@ import {
   Col,
 } from 'components'
 
-const StyledMainWrapper = styled(MainWrapper)`
-  padding-top: 5.7rem;
-  background: white;
-`
-
 const StyledHeading = styled(Heading)`
   ${breakpoint('m')`
     font-size: ${theme('fonts.size.xxxl')};
@@ -63,7 +58,7 @@ const RightCol = styled(Col)`
 `
 
 const CarouselPageTemplate = ({ heading, description, children }) => (
-  <StyledMainWrapper>
+  <MainWrapper>
     <StyledRow>
       <LeftCol l={4}>
         <ReinsuranceCarousel />
@@ -74,7 +69,7 @@ const CarouselPageTemplate = ({ heading, description, children }) => (
         {children}
       </RightCol>
     </StyledRow>
-  </StyledMainWrapper>
+  </MainWrapper>
 )
 
 CarouselPageTemplate.propTypes = {

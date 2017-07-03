@@ -28,6 +28,8 @@ const StyledMainWrapper = styled(MainWrapper)`${({ homepage }) => css`
   ${ifThen(!homepage, `
     background-color: white;
     box-shadow: 0 0.1rem 0 #D1D1D1;
+  `, `
+    background-color: transparent;
   `)};
 `}`
 
