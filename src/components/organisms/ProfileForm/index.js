@@ -333,25 +333,6 @@ class ProfileForm extends Component {
                 label={formatMessage(messages('user.fixed_phone').label)}
                 placeholder={formatMessage(messages('user.fixed_phone').label)}
               />
-              <Field
-                name="address"
-                component={RenderField}
-                label={formatMessage(messages('user.address').label)}
-                placeholder={formatMessage(messages('user.address').label)}
-              />
-              <Field
-                name="city"
-                component={RenderField}
-                label={formatMessage(messages('user.city').label)}
-                placeholder={formatMessage(messages('user.city').label)}
-              />
-              <Field
-                name="postalCode"
-                component={RenderField}
-                label={formatMessage(messages('user.postal_code').label)}
-                placeholder={formatMessage(messages('user.postal_code').label)}
-                smallSize
-              />
             </BorderBox>
           </StyledGrid>
         </StyledSection>

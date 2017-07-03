@@ -6,7 +6,7 @@ import pick from 'lodash/pick'
 import { userDetails, userUpdate } from 'store/actions'
 import { fromUser, fromContext, fromStatus } from 'store/selectors'
 import transformDate from 'utils/transformDate'
-import { createValidator, required, postalCode } from 'services/validation'
+import { createValidator, required } from 'services/validation'
 
 import { ProfileForm } from 'components'
 
@@ -39,9 +39,8 @@ const mapStateToProps = (state) => {
       ...pick(details, [
         '@id', 'gender', 'firstName', 'lastName',
         'email', 'preferedLanguage', 'mobilePhone', 'mobilePhone',
-        'fixedPhone', 'address', 'postalCode',
-        'region', 'city', 'newsletterSubscription', 'contactPreference',
-        'contactComment', 'emailVerified', 'mobilePhoneVerified', 'postalCode',
+        'fixedPhone', 'region', 'newsletterSubscription', 'contactPreference',
+        'contactComment', 'emailVerified', 'mobilePhoneVerified',
       ]),
       imageBase64: details.imageUrl,
       birthday: transformDate(details.birthday),
@@ -72,7 +71,6 @@ const validate = createValidator({
   firstName: [required],
   gender: [required],
   contactPreference: [required],
-  postalCode: [postalCode],
 })
 
 export const config = {
