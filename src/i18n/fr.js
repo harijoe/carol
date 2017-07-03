@@ -182,7 +182,6 @@ const fr = {
   'user.forgot_password.heading': 'Un oubli de mot de passe ?',
   'user.forgot_password.description': 'Renseignez votre adresse e-mail ci-dessous pour réinitialiser votre mot de passe.',
   'user.account_updated': 'Vos informations ont été enregistrées',
-  'user.coming_back': 'De retour ?',
   'user.code': 'Code de confirmation',
   'user.new_sms_sent': 'Un nouveau SMS a été envoyé',
   'user.phone_already_verified': 'Votre numéro de téléphone est déjà vérifié',

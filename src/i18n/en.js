@@ -180,7 +180,6 @@ const en = {
   'user.forgot_password.heading': 'Forgotten password ?',
   'user.forgot_password.description': 'Please enter your e-mail address below to reset your password.',
   'user.account_updated': 'Your account has been updated',
-  'user.coming_back': 'Coming back?',
   'user.code': 'Confirmation code',
   'user.new_sms_sent': 'A new sms has been sent',
   'user.phone_already_verified': 'Your phone number has already been verified',

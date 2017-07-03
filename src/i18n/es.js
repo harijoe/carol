@@ -180,7 +180,6 @@ const es = {
   'user.forgot_password.heading': 'Contraseña olvidada',
   'user.forgot_password.description': 'Introduzca su dirección de correo electrónico para restablecer su contraseña.',
   'user.account_updated': 'Account Updated ES',
-  'user.coming_back': 'Coming back? ES',
   'user.code': 'Code de confirmation ES',
   'user.new_sms_sent': 'Un nouveau SMS a été envoyé ES',
   'user.phone_already_verified': 'Votre numéro de téléphone est déjà vérifié ES',
