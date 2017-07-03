@@ -11,8 +11,8 @@ it('renders ProjectElaboration', () => {
     activeConversation: [{
       message: {
         text: 'message',
-        quick_replies: []
+        quick_replies: [],
       },
-    }]
+    }],
   })).toMatchSnapshot()
 })

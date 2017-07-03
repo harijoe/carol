@@ -1,8 +1,3 @@
-Object.defineProperty(window.location, 'hostname', {
-  writable: true,
-  value: 'carol-co-uk.dev.quotatis.net',
-})
-
 import React from 'react'
 import { Provider } from 'react-redux'
 import { shallow } from 'enzyme'
@@ -17,6 +12,8 @@ const wrapper = shallow(
     <MinimalPageTemplate header="header">test</MinimalPageTemplate>
   </Provider>
 )
+
+window.location.hostname = 'carol-co-uk.dev.quotatis.net'
 
 it('renders MinimalPageTemplate', () => {
   expect(wrapper).toMatchSnapshot()

@@ -36,7 +36,14 @@
       "error",
       {
         "devDependencies": [
+          "**/*.stories.js",
+          "**/*.test.js",
           "features/**",
+          "scripts/**",
+          "stories/**",
+          "storybook/**",
+          "test/**",
+          "webpack/**"
         ]
       }
     ]

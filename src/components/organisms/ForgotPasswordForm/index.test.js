@@ -5,7 +5,7 @@ import mockIntl from '../../../../test/intlMock'
 import ForgotPasswordForm from './'
 
 it('renders ForgotPasswordForm', () => {
-  const wrapper = shallow(mockIntl(<ForgotPasswordForm  />))
+  const wrapper = shallow(mockIntl(<ForgotPasswordForm />))
 
   expect(wrapper).toMatchSnapshot()
 })

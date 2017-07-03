@@ -1,11 +1,11 @@
-import { takeEvery, takeLatest } from './'
 import { expectSaga } from 'redux-saga-test-plan'
+import { takeEvery, takeLatest } from './'
 
 describe('effects', () => {
   it('should not break saga in takeEvery even when an exception is thrown', () => {
     const error = new Error()
 
-    const throwingSaga = function* () {
+    const throwingSaga = function () {
       throw error
     }
 
@@ -17,7 +17,7 @@ describe('effects', () => {
   it('should not break saga in takeLatest even when an exception is thrown', () => {
     const error = new Error()
 
-    const throwingSaga = function* () {
+    const throwingSaga = function () {
       throw error
     }
 

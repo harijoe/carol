@@ -22,7 +22,7 @@ it('renders MotionMenu', () => {
 it('toggles menu', () => {
   // closed
   expect(wrapperMounted.find('MotionMenu').node.state.isOpen).toEqual(false)
-  expect(wrapperMounted.find('Motion').at(0).prop('style').scale.val).toEqual(.5)
+  expect(wrapperMounted.find('Motion').at(0).prop('style').scale.val).toEqual(0.5)
   expect(wrapperMounted.find('Motion').last().prop('style').rotate.val).toEqual(0)
 
   clickMainButton()
@@ -36,7 +36,7 @@ it('toggles menu', () => {
 
   // closed
   expect(wrapperMounted.find('MotionMenu').node.state.isOpen).toEqual(false)
-  expect(wrapperMounted.find('Motion').at(0).prop('style').scale.val).toEqual(.5)
+  expect(wrapperMounted.find('Motion').at(0).prop('style').scale.val).toEqual(0.5)
   expect(wrapperMounted.find('Motion').last().prop('style').rotate.val).toEqual(0)
 
   clickMainButton()

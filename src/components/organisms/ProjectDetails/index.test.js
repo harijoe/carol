@@ -7,5 +7,5 @@ const details = { id: '1', name: 'project1', trade: 'test' }
 const wrap = (props = {}) => shallow(mockIntl(<ProjectDetails details={details} {...props} />))
 
 it('renders ProjectDetails', () => {
-    expect(wrap()).toMatchSnapshot()
+  expect(wrap()).toMatchSnapshot()
 })

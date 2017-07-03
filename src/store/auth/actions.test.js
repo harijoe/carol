@@ -22,7 +22,7 @@ describe('grantType is client_credentials', () => {
         refreshToken: '65x4dfg654xdg5f68dxfg644xg',
         expiresIn: 3600,
         grantType,
-      }
+      },
     })
   })
   it('should render failure type ', () => {

@@ -38,13 +38,13 @@ test('trigger an error', () => {
   expect(wrapperShallowed({
     meta: {
       touched: true,
-      error: { id: messages.test, values: {}},
-    }
+      error: { id: messages.test, values: {} },
+    },
   })).toMatchSnapshot()
   expect(wrapperMounted({
     meta: {
       touched: true,
-      error: { id: messages.test, values: {}},
-    }
+      error: { id: messages.test, values: {} },
+    },
   }).find(FormattedMessage).at(2).text()).toContain('user.choose_img')
 })

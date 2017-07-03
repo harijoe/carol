@@ -46,6 +46,10 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.1.5",
+    "@storybook/addon-links": "^3.1.6",
+    "@storybook/components": "^3.1.5",
+    "@storybook/react": "^3.1.5",
     "babel-eslint": "^7.0.0",
     "babel-jest": "^17.0.2",
     "babel-loader": "^6.2.5",
@@ -90,8 +94,6 @@
     "webpack-bundle-analyzer": "^2.8.2"
   },
   "dependencies": {
-    "@storybook/addon-actions": "^3.1.5",
-    "@storybook/react": "^3.1.5",
     "anchorate": "^1.1.0",
     "babel-core": "^6.17.0",
     "babel-polyfill": "^6.16.0",

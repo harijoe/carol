@@ -16,11 +16,11 @@ it('renders QuickReplies', () => {
             buttons: [
               {
                 payload: '153-513-545133',
-              }
+              },
             ],
-          }
-        ]
-      }
+          },
+        ],
+      },
     },
     reply: () => {},
   })

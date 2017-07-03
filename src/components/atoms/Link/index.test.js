@@ -64,10 +64,11 @@ it('renders Router Link without button', () => {
 expect.extend({
   toHaveProp(wrapper, prop) {
     const pass = wrapper.prop(prop) !== undefined
+
     return {
       message: () => `expected <${wrapper.name()}/>${pass ? 'not' : ''} to be rendered with a ${prop}`,
-      pass: pass
-    };
-  }
+      pass,
+    }
+  },
 })
 

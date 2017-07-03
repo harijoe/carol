@@ -2,7 +2,8 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import RenderField from './'
 
-let meta, input
+let meta
+let input
 const wrap = (props = {}) => shallow(<RenderField {...{ meta, input, ...props }} />)
 
 beforeEach(() => {

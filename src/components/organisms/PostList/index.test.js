@@ -9,7 +9,7 @@ const list = [
   { id: 3, title: 'title 3', body: 'body 3' },
 ]
 
-const wrap = (props = {}) => shallow(<PostList list={list} generateChild={(_,i) => <div key={i}></div>} {...props} />)
+const wrap = (props = {}) => shallow(<PostList list={list} generateChild={(_, i) => <div key={i} />} {...props} />)
 
 it('renders PostList', () => {
   const wrapper = wrap()

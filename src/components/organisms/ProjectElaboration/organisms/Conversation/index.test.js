@@ -10,12 +10,12 @@ it('renders Conversation', () => {
     activeConversation: [{
       message: {
         text: 'message',
-        quick_replies: []
+        quick_replies: [],
       },
       answer: {
         text: 'response',
         payload: '6843531-515-56465',
       },
-    }]
+    }],
   })).toMatchSnapshot()
 })

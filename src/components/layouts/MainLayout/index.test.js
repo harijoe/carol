@@ -3,5 +3,5 @@ import { shallow } from 'enzyme'
 import MainLayout from './'
 
 it('should render MainLayout component', () => {
-  expect(shallow(<MainLayout children="test children" />)).toMatchSnapshot()
+  expect(shallow(<MainLayout>test children</MainLayout>)).toMatchSnapshot()
 })

@@ -30,10 +30,10 @@ it('should renders Field component', () => {
 it('should renders label after input when type is radio', () => {
   expect(wrapperShallowed({
     invalid: true,
-    error: { id: messages.test, values: {}},
+    error: { id: messages.test, values: {} },
   })).toMatchSnapshot()
   expect(wrapperMounted({
     invalid: true,
-    error: { id: messages.test, values: {}},
+    error: { id: messages.test, values: {} },
   }).find(FormattedMessage).text()).toContain(messages.test)
 })

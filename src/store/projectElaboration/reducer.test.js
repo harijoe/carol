@@ -105,8 +105,8 @@ it('handles PROJECT_ELABORATION_REPLY_REQUEST', () => {
           ],
         },
         answer: {
-          text: 'response'
-        }
+          text: 'response',
+        },
       },
     ],
   }
@@ -117,7 +117,7 @@ it('handles PROJECT_ELABORATION_REPLY_REQUEST', () => {
 it('handles PROJECT_ELABORATION_REPLY_SUCCESS', () => {
   const action = {
     type: actions.PROJECT_ELABORATION_CONVERSATION_REPLY.SUCCESS,
-    payload: [{ message: { text: 'next question' } }]
+    payload: [{ message: { text: 'next question' } }],
   }
 
   const expected = {
@@ -344,8 +344,8 @@ it('handles PROJECT_ELABORATION_CONVERSATIONS_DETAILS with user', () => {
           },
         }],
         sessionId: '456546535435',
-      }
-    }
+      },
+    },
   }
 
   const expected = {
@@ -492,13 +492,13 @@ it('handles PROJECT_ELABORATION_CONVERSATION_DETAILS', () => {
         }],
         sessionId: '456546535435',
       },
-    }
+    },
   }
   const expected = {
     ...initialState,
-    activeConversation: initialState.conversations['user'].conversation,
+    activeConversation: initialState.conversations.user.conversation,
     conversations: {},
-    sessionId: initialState.conversations['user'].sessionId,
+    sessionId: initialState.conversations.user.sessionId,
   }
 
   expect(reducer(initialState, action)).toEqual(expected)

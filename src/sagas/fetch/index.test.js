@@ -1,7 +1,7 @@
 import { put, call, select } from 'redux-saga/effects'
-import { fetchWithoutRefreshingToken as fetchEntity } from './'
 import api from 'services/api'
 import { fromAuth, fromContext } from 'store/selectors'
+import { fetchWithoutRefreshingToken as fetchEntity } from './'
 
 const actions = {
   request: param => ({ type: 'TEST_REQUEST', param }),
@@ -23,7 +23,7 @@ describe('fetchEntity', () => {
     expect(generator.next().value).toEqual(select(fromContext.getLang))
     expect(generator.next('fr').value).toEqual(select(fromAuth.getAccessToken))
     expect(generator.next('123test').value).toEqual(select(fromContext.isSSR))
-    expect(generator.next(false).value).toEqual(call(api['get'], 'url', { setting1: 'test1', lang: 'fr', accessToken: '123test' }, 'test2'))
+    expect(generator.next(false).value).toEqual(call(api.get, 'url', { setting1: 'test1', lang: 'fr', accessToken: '123test' }, 'test2'))
     expect(generator.next(responseMock).value).toEqual(put(actions.success(responseMock, actionParams)))
   })
 
@@ -34,7 +34,7 @@ describe('fetchEntity', () => {
     expect(generator.next().value).toEqual(select(fromContext.getLang))
     expect(generator.next('fr').value).toEqual(select(fromAuth.getToken))
     expect(generator.next('123test').value).toEqual(select(fromContext.isSSR))
-    expect(generator.next(false).value).toEqual(call(api['get'], 'url', { setting1: 'test1', lang: 'fr', accessToken: '123test' }, 'test2'))
+    expect(generator.next(false).value).toEqual(call(api.get, 'url', { setting1: 'test1', lang: 'fr', accessToken: '123test' }, 'test2'))
     expect(generator.throw(errorMock).value).toEqual(put(actions.failure(errorMock)))
   })
 })

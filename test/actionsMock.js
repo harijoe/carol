@@ -1,12 +1,12 @@
 const snakeCase = require('lodash/snakeCase')
 
-const action = (prefix) => new Proxy({}, {
+const action = prefix => new Proxy({}, {
   get: (target, suffix) => () => ({
-    type: snakeCase(`${prefix}_${suffix}`).toUpperCase()
+    type: snakeCase(`${prefix}_${suffix}`).toUpperCase(),
   }),
-  apply: (target, thisArg, argumentsList) => () => ({
-    type: snakeCase(prefix).toUpperCase()
-  })
+  apply: () => () => ({
+    type: snakeCase(prefix).toUpperCase(),
+  }),
 })
 
 const actions = new Proxy({}, {
@@ -14,8 +14,9 @@ const actions = new Proxy({}, {
     if (/^[A-Z_]+$/.test(property)) {
       return property
     }
+
     return action(property)
-  }
+  },
 })
 
 module.exports = actions

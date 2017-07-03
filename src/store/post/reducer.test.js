@@ -4,7 +4,7 @@ import reducer from './reducer'
 
 const payload = [
   {
-    ['@id']: 1,
+    '@id': 1,
     title: 'post title 1',
     body: 'post body 1',
     featuredMedia: 'image.jpg',
@@ -24,5 +24,5 @@ it('handles POST_LIST_SUCCESS', () => {
   const scope = 'latestProjectsOnMap'
   const action = { type: actions.POST_LIST.SUCCESS, payload: { 'hydra:member': payload }, actionParams: { scope } }
 
-  expect(reducer(initialState, action)).toEqual({...initialState, [scope]: payload})
+  expect(reducer(initialState, action)).toEqual({ ...initialState, [scope]: payload })
 })
