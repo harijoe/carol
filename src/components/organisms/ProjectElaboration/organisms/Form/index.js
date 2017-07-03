@@ -204,6 +204,12 @@ class Form extends Component {
             component={RenderField}
             placeholder={formatMessage(messages('project.elaboration.answer').label)}
             autoFocus
+            onFocus={() => {
+              //  Android bug reference : https://goo.gl/W4uu8i
+              const conversation = document.querySelector('.conversation')
+
+              conversation.scrollTop = conversation.scrollHeight
+            }}
             innerRef={(field) => { this.field = field }}
           />
           <SubmitButton disabled={pristine || submitting} type="submit">

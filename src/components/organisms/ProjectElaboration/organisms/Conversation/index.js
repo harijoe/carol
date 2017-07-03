@@ -81,7 +81,7 @@ class Conversation extends Component {
     )
 
     return (
-      <Wrapper innerRef={(ref) => { this.history = ref }}>
+      <Wrapper innerRef={(ref) => { this.history = ref }} className="conversation">
         {
           activeConversation.map(({ message: { text, attachment, quick_replies }, answer }, index) => (
             <div key={index}>

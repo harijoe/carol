@@ -7,6 +7,7 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <styled.div
+    className="conversation"
     innerRef={[Function]}>
     <div>
         <Mock>
@@ -40,6 +41,7 @@ ShallowWrapper {
 </styled.div>,
   "nodes": Array [
     <styled.div
+      className="conversation"
       innerRef={[Function]}>
       <div>
             <Mock>
@@ -134,6 +136,7 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <styled.div
+          className="conversation"
           innerRef={[Function]}>
           <div>
                     <Mock>
@@ -167,6 +170,7 @@ ShallowWrapper {
 </styled.div>,
         "_debugID": 2,
         "_renderedOutput": <styled.div
+          className="conversation"
           innerRef={[Function]}>
           <div>
                     <Mock>
