@@ -107,6 +107,25 @@ const config = {
   insideDocker: {
     // inherits everything from `config.all` above
   },
+  mocks: {
+    api: {
+      url: 'http://carol-fr-dev.qarx.io:7001',
+    },
+    port: 4321,
+    ssl: {
+      enabled: false,
+    },
+  },
+  travis: {
+    devServer: false,
+    api: {
+      url: 'http://carol-fr-dev.qarx.io:7001',
+    },
+    port: 4321,
+    ssl: {
+      enabled: false,
+    },
+  },
 }
 
 const exports = merge(config.all, config[config.all.env])

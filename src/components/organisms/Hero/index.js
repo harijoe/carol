@@ -177,7 +177,7 @@ const FirstChoices = (choices, reply) => (
 )
 
 const Hero = ({ hasActiveConversation, firstChoices, reply, hasConversations }) => (
-  <HeroWrapper>
+  <HeroWrapper className="hero">
     <MainWrapper>
       <StyledSection>
         {

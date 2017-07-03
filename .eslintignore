@@ -1,3 +1,7 @@
 **/*.test.js
 **/test.js
 **/tests.js
+stories/
+test/
+webpack/
+scripts/

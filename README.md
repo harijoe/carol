@@ -46,7 +46,21 @@ yarn run lint:css
 
 If you got `CssSyntaxError` using css function from styled-components and all seems good for you, it's probably linked to this [issue](https://github.com/styled-components/stylelint-processor-styled-components/issues/6) in stylelint package.   
 
-## 4. Getting Started with docker
+## 4. Functional tests
+
+In order to run functional tests, first start the mocks:
+```bash
+yarn start:mocks
+```
+
+This will start the [simulado](https://github.com/ldabiralai/simulado) server, prime it and then run the server side rendering server using the `mocks` environment.
+
+After that, you are ready to run the functional tests:
+```bash
+yarn cucumber
+```
+
+## 5. Getting Started with docker
 
 When the QA environment is not enough and you want to be run sandy locally on a particular branch,
 you will want to install the docker environment.
@@ -85,7 +99,7 @@ but connected to carol running inside docker, run the following command:
 NODE_ENV=outsideDocker yarn start
 ```
 
-## 5. Testing as in production
+## 6. Testing as in production
 
 _Useful when trying to reproduce a production issue locally or after a refactoring to make sure it
 will work in prod._
@@ -99,24 +113,26 @@ NODE_ENV=production yarn build
 NODE_ENV=production PORT=8080 yarn start
 ```
 
-## 6. Deployment
+## 7. Deployment
 
 In order to deploy into pre-production for the SPA you will have to push to the branch develop.
 Travis will be able to build the docker container, run the tests than deploy to kubernetes using the last develop build.
 
 The production run on Node.js with Express.js and deployed with ansible.
 
-## 7. Environments
+## 8. Environments
 
 | *name* | *description* |
 |---|---|
+| production | production environment |
+| qa | QA environment |
 | development | running locally connected to dora's QA  |
 | outsideDocker | running locally connected to dora in docker |
 | insideDocker | running in docker connected to dora in docker |
-| qa | QA environment |
-| production | production environment |
+| mocks | mocks environment to run functional tests |
+| travis | travis environment to run functional tests |
 
-## 8. Storybook
+## 9. Storybook
 
 All Atoms of the project are in Storybook
 

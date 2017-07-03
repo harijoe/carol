@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - 7
+  - 8
 
 cache:
   directories:
@@ -10,30 +10,56 @@ cache:
 services:
   - docker
 
-script:
-  - if [ "${BRANCH}" = "" ]; then BRANCH=develop; fi;
-  - if [[ "$TRAVIS_BRANCH" = "master" && $TRAVIS_PULL_REQUEST_BRANCH = "" ]]; then BRANCH=master; fi;
-  - yarn run lint && yarn test
-  - docker build -t eu.gcr.io/quotatis-152617/carol:${BRANCH} .
-
 branches:
   only:
     - master
     - develop
     - /^feature/*$/
 
-
-after_success:
-  - ./deploy-carol.sh
+addons:
+  chrome: stable
+  hosts:
+    - carol-fr-dev.qarx.io
+    - carol-co-uk-dev.qarx.io
+    - carol-es-dev.qarx.io
 
 env:
   global:
+    - NODE_ENV=travis
     - BRANCH="${TRAVIS_PULL_REQUEST_BRANCH/\//-}"
     - BRANCH="${BRANCH,,}"
     - CLOUDSDK_CORE_DISABLE_PROMPTS=1
     - CLOUDSDK_CONTAINER_USE_CLIENT_CERTIFICATE=False
+    - CHROME_HEADLESS=1
 
 before_install:
   - openssl aes-256-cbc -K $encrypted_490d653ff7a6_key -iv $encrypted_490d653ff7a6_iv -in credentials.tar.gz.enc -out credentials.tar.gz -d
   - tar -xzf credentials.tar.gz
   - export GOOGLE_APPLICATION_CREDENTIALS=quotatis-01d6e02592a9.json
+
+script:
+  - if [ "${BRANCH}" = "" ]; then BRANCH=develop; fi;
+  - if [[ "$TRAVIS_BRANCH" = "master" && $TRAVIS_PULL_REQUEST_BRANCH = "" ]]; then BRANCH=master; fi;
+  - yarn run lint && yarn test
+  - yarn build
+  - yarn simulado:start &> simulado.log &
+  - yarn simulado:prime &> simulado-prime.log &
+  - yarn start &> server.log &
+  - |
+    while ! grep "Server listening" server.log; do
+      echo "waiting for server to be listening…"
+      sleep 1
+    done
+  - yarn cucumber
+
+after_success:
+  - docker build -t eu.gcr.io/quotatis-152617/carol:${BRANCH} .
+  - ./deploy-carol.sh
+
+after_failure:
+  - echo 'simulado.log:\n============='
+  - cat simulado.log
+  - echo '\nsimulado-prime.log:\n==================='
+  - cat simulado-prime.log
+  - echo '\nserver.log:\n==================='
+  - cat server.log

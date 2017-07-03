@@ -31,7 +31,15 @@
     "import/no-dynamic-require": 0,
     "newline-after-var": "error",
     "newline-before-return": "error",
-    "func-names": 0
+    "func-names": 0,
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "features/**",
+        ]
+      }
+    ]
   },
   "settings": {
     "import/resolver": {

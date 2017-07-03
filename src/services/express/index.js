@@ -32,7 +32,7 @@ export default (routes) => {
     const serverOptions = {
       quiet: true,
       noInfo: true,
-      https: true,
+      https: ssl.enabled,
       hot: true,
       inline: true,
       lazy: false,

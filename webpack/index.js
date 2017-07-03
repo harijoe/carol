@@ -1,7 +1,6 @@
-const NODE_ENV = process.env.NODE_ENV || 'development'
+require('babel-core/register')
+const config = require('../src/config')
 
-if (NODE_ENV === 'production' || NODE_ENV === 'qa') {
-  module.exports = require('./prod.config')
-} else {
-  module.exports = require('./dev.config')
-}
+const webpackConfigType = config.devServer ? 'dev' : 'prod'
+
+module.exports = require(`./${webpackConfigType}.config`)
