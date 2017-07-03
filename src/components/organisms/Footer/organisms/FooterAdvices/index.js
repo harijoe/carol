@@ -38,29 +38,30 @@ const FooterAdvices = ({ locale, intl: { formatMessage } }) => (
     <StyledRow>
       <StyledCol xs={6} m={3}>
         <StyledList>
-          <FooterAdvicesListItem id="window" locale={locale} />
-          <FooterAdvicesListItem id="shutter" locale={locale} />
-          <FooterAdvicesListItem id="roof_insulation" locale={locale} />
+          <FooterAdvicesListItem id="column_1_1" locale={locale} />
+          <FooterAdvicesListItem id="column_1_2" locale={locale} />
+          <FooterAdvicesListItem id="column_1_3" locale={locale} />
         </StyledList>
       </StyledCol>
       <StyledCol xs={6} m={3}>
         <StyledList>
-          <FooterAdvicesListItem id="wood_heating" locale={locale} />
-          <FooterAdvicesListItem id="heat_pumps" locale={locale} />
-          <FooterAdvicesListItem id="solar_heating" locale={locale} />
+          <FooterAdvicesListItem id="column_2_1" locale={locale} />
+          <FooterAdvicesListItem id="column_2_2" locale={locale} />
+          <FooterAdvicesListItem id="column_2_3" locale={locale} />
         </StyledList>
       </StyledCol>
       <StyledCol xs={6} m={3}>
         <StyledList>
-          <FooterAdvicesListItem id="heating_gas_oil" locale={locale} />
-          <FooterAdvicesListItem id="electric_heating" locale={locale} />
-          <FooterAdvicesListItem id="fireplaces" locale={locale} />
+          <FooterAdvicesListItem id="column_3_1" locale={locale} />
+          <FooterAdvicesListItem id="column_3_2" locale={locale} />
+          <FooterAdvicesListItem id="column_3_3" locale={locale} />
         </StyledList>
       </StyledCol>
       <StyledCol xs={6} m={3}>
         <StyledList>
-          <FooterAdvicesListItem id="heat_emitters" locale={locale} />
-          <FooterAdvicesListItem id="domestic_hot_water_production" locale={locale} />
+          <FooterAdvicesListItem id="column_4_1" locale={locale} />
+          <FooterAdvicesListItem id="column_4_2" locale={locale} />
+          <FooterAdvicesListItem id="column_4_3" locale={locale} />
         </StyledList>
       </StyledCol>
     </StyledRow>

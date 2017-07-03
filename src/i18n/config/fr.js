@@ -14,17 +14,50 @@ export default {
   },
   footer: {
     advices: {
-      window: 'guide/fenetres-portes-volets/fenetre/',
-      shutter: 'guide/fenetres-portes-volets/volets/',
-      roof_insulation: 'guide/isolation/isolation-des-combles/',
-      wood_heating: 'guide/chauffage/chauffage-au-bois/',
-      heat_pumps: 'guide/chauffage/pompe-a-chaleur/',
-      solar_heating: 'guide/chauffage/le-chauffage-solaire/',
-      heating_gas_oil: 'guide/chauffage/chauffage-gaz-fioul/',
-      electric_heating: 'guide/chauffage/chauffage-electrique/',
-      fireplaces: 'guide/chauffage/cheminee-poele/',
-      heat_emitters: 'guide/chauffage/emetteurs-de-chaleur/',
-      domestic_hot_water_production: 'guide/chauffage/production-deau-chaude-sanitaire/',
+      column_1_1: {
+        key: 'window',
+        src: 'guide/fenetres-portes-volets/fenetre/',
+      },
+      column_1_2: {
+        key: 'shutter',
+        src: 'guide/fenetres-portes-volets/volets/',
+      },
+      column_1_3: {
+        key: 'roof_insulation',
+        src: 'guide/isolation/isolation-des-combles/',
+      },
+      column_2_1: {
+        key: 'wood_heating',
+        src: 'guide/chauffage/chauffage-au-bois/',
+      },
+      column_2_2: {
+        key: 'heat_pumps',
+        src: 'guide/chauffage/pompe-a-chaleur/',
+      },
+      column_2_3: {
+        key: 'solar_heating',
+        src: 'guide/chauffage/le-chauffage-solaire/',
+      },
+      column_3_1: {
+        key: 'heating_gas_oil',
+        src: 'guide/chauffage/chauffage-gaz-fioul/',
+      },
+      column_3_2: {
+        key: 'electric_heating',
+        src: 'guide/chauffage/chauffage-electrique/',
+      },
+      column_3_3: {
+        key: 'fireplaces',
+        src: 'guide/chauffage/cheminee-poele/',
+      },
+      column_4_1: {
+        key: 'heat_emitters',
+        src: 'guide/chauffage/emetteurs-de-chaleur/',
+      },
+      column_4_2: {
+        key: 'domestic_hot_water_production',
+        src: 'guide/chauffage/production-deau-chaude-sanitaire/',
+      },
     },
     corporate: {
       contact: '/contact-form.html',

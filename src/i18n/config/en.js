@@ -14,30 +14,46 @@ export default {
   },
   footer: {
     advices: {
-      window: 'guide/fenetres-portes-volets/fenetre/',
-      shutter: 'guide/fenetres-portes-volets/volets/',
-      roof_insulation: 'guide/isolation/isolation-des-combles/',
-      wood_heating: 'guide/chauffage/chauffage-au-bois/',
-      heat_pumps: 'guide/chauffage/pompe-a-chaleur/',
-      solar_heating: 'guide/chauffage/le-chauffage-solaire/',
-      heating_gas_oil: 'guide/chauffage/chauffage-gaz-fioul/',
-      electric_heating: 'guide/chauffage/chauffage-electrique/',
-      fireplaces: 'guide/chauffage/cheminee-poele/',
-      heat_emitters: 'guide/chauffage/emetteurs-de-chaleur/',
-      domestic_hot_water_production: 'guide/chauffage/production-deau-chaude-sanitaire/',
+      column_1_1: {
+        key: 'solar_pv',
+        src: 'guide/solar-panels/solar-pv/',
+      },
+      column_1_2: {
+        key: 'windows',
+        src: 'guide/windows-doors/windows/',
+      },
+      column_2_1: {
+        key: 'conservatories',
+        src: 'guide/conservatories-roofing-extensions/conservatories/',
+      },
+      column_2_2: {
+        key: 'gas_boiler',
+        src: 'guide/heating-air-con/gas-boilers/',
+      },
+      column_3_1: {
+        key: 'driveways',
+        src: 'guide/paving-driveways/driveways/',
+      },
+      column_3_2: {
+        key: 'patios',
+        src: 'guide/paving-driveways/patios/',
+      },
+      column_4_1: {
+        key: 'pitched_roofing',
+        src: '?s=pitched+roofing',
+      },
+      column_4_2: {
+        key: 'flat_roofing',
+        src: 'guide/conservatories-roofing-extensions/flat-roofing/',
+      },
     },
     corporate: {
-      contact: '/contact-form.html',
-      about: 'qui-sommes-nous',
-      job: '/emploi.html',
-      use_conditions: 'cgu',
+      contact: '/contact.html',
+      about: 'who-we-are',
+      use_conditions: 'privacy-policy',
       guides: '',
-      directory: '/annuaire-artisan',
+      directory: '/tradesmen-directory',
       qpro: 'https://www.quotatispro.co.uk',
-      adeo: 'http://www.adeo.com/',
-      quote: '/travaux-entreprise.html',
-      folder_projects: '/dossiers-travaux.html',
-      trades: '/artisan-installateur-poseur-travaux.php',
     },
     social: {
       facebook: 'https://www.facebook.com/Quotatis.FR/',

@@ -18,14 +18,18 @@ const StyledListItem = styled(ListItem)`
 `
 
 const FooterAdvicesListItem = ({ id, locale }) => {
-  if (locales[locale].footer.advices[id] == null) {
+  const itemConfig = locales[locale].footer.advices[id]
+
+  if (itemConfig == null) {
     return null
   }
 
+  const { src, key } = itemConfig
+
   return (
     <StyledListItem>
-      <StyledLink to={`${locales[locale].contentSiteUrl}${locales[locale].footer.advices[id]}`}>
-        <FormattedMessage id={`footer.advices.${id}`} />
+      <StyledLink to={`${locales[locale].contentSiteUrl}${src}`}>
+        <FormattedMessage id={`footer.advices.${key}`} />
       </StyledLink>
     </StyledListItem>
   )
