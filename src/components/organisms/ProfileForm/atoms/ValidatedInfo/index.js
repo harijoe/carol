@@ -39,7 +39,7 @@ const StyledIcon = styled(Icon)`
 `
 
 const ValidatedInfo = ({ validated, field, ...props }) => {
-  const validateState = validated ? 'validated' : 'error'
+  const validateState = validated ? 'validated' : 'not-validated'
   const validateClass = validated ? 'qs-Field--validated' : 'qs-Field--toValidate'
 
   return (

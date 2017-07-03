@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { Icon } from 'components'
 
 const validated = 'validated'
-const error = 'error'
+const notValidated = 'not-validated'
 const camera = 'camera'
 const send = 'send'
 
@@ -12,7 +12,7 @@ storiesOf('Icon', module)
     <Icon icon={validated} />
   ))
   .add('With icon error (Sample)', () => (
-    <Icon icon={error} />
+    <Icon icon={notValidated} />
   ))
   .add('With camera error (Sample)', () => (
     <Icon icon={camera} />

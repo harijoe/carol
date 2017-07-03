@@ -9,20 +9,20 @@ ShallowWrapper {
   "node": <styled.div
     className="qs-Field--toValidate">
     <Styled(Mock)
-        icon="error"
+        icon="not-validated"
         size={21} />
     <FormattedMessage
-        id="user.profile.field.error"
+        id="user.profile.field.not-validated"
         values={Object {}} />
 </styled.div>,
   "nodes": Array [
     <styled.div
       className="qs-Field--toValidate">
       <Styled(Mock)
-            icon="error"
+            icon="not-validated"
             size={21} />
       <FormattedMessage
-            id="user.profile.field.error"
+            id="user.profile.field.not-validated"
             values={Object {}} />
 </styled.div>,
   ],
@@ -68,20 +68,20 @@ ShallowWrapper {
         "_currentElement": <styled.div
           className="qs-Field--toValidate">
           <Styled(Mock)
-                    icon="error"
+                    icon="not-validated"
                     size={21} />
           <FormattedMessage
-                    id="user.profile.field.error"
+                    id="user.profile.field.not-validated"
                     values={Object {}} />
 </styled.div>,
         "_debugID": 4,
         "_renderedOutput": <styled.div
           className="qs-Field--toValidate">
           <Styled(Mock)
-                    icon="error"
+                    icon="not-validated"
                     size={21} />
           <FormattedMessage
-                    id="user.profile.field.error"
+                    id="user.profile.field.not-validated"
                     values={Object {}} />
 </styled.div>,
       },
