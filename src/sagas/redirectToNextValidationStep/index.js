@@ -4,7 +4,7 @@ import { fromUser, fromProject } from 'store/selectors'
 import fetch from 'sagas/fetch'
 import notify from 'sagas/notify'
 import {
-  projectValidate,
+  projectUpdate,
   projectList,
 } from 'store/actions'
 import pushGtmEvent from 'utils/gtm'
@@ -45,7 +45,7 @@ function* handleProjectValidated(id) {
   const email = yield select(fromUser.getEmail)
 
   yield pushGtmEvent({ event: 'EndAutoValidation', email })
-  yield* fetch(projectValidate, 'put', id, {}, { status: 'validated' })
+  yield* fetch(projectUpdate, 'put', id, {}, { status: 'validated' })
   yield* notify('user.thank_you', 'project.notify_project_validated')
 
   const projectDetails = yield select(fromProject.getDetails, id)

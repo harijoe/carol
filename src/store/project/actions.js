@@ -6,7 +6,6 @@ export const PROJECT_DETAILS = createRequestTypes('PROJECT_DETAILS')
 export const PROJECT_UPDATE = createRequestTypes('PROJECT_UPDATE')
 export const PROJECT_CHECK_VALIDATION_FLOW = 'PROJECT_CHECK_VALIDATION_FLOW'
 export const PROJECT_ACCEPT_FIRM = createRequestTypes('PROJECT_ACCEPT_FIRM')
-export const PROJECT_VALIDATE = createRequestTypes('PROJECT_VALIDATE')
 
 export const projectList = {
   request: () => (actionTypes(PROJECT_LIST.REQUEST)),
@@ -24,12 +23,6 @@ export const projectAcceptFirm = {
   request: id => (actionTypes(PROJECT_ACCEPT_FIRM.REQUEST, { id })),
   success: payload => (actionTypes(PROJECT_ACCEPT_FIRM.SUCCESS, { payload })),
   failure: error => (actionTypes(PROJECT_ACCEPT_FIRM.FAILURE, { error })),
-}
-
-export const projectValidate = {
-  request: id => (actionTypes(PROJECT_VALIDATE.REQUEST, { id })),
-  success: payload => (actionTypes(PROJECT_VALIDATE.SUCCESS, { payload })),
-  failure: error => (actionTypes(PROJECT_VALIDATE.FAILURE, { error })),
 }
 
 export const projectUpdate = {
