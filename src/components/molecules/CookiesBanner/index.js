@@ -51,7 +51,8 @@ class CookiesBanner extends Component {
     cookie.save('cookies_banner_hidden', true)
   }
 
-  handleClose = () => {
+  handleClose = (e) => {
+    e.preventDefault()
     this.setState({ hidden: true })
   }
 
