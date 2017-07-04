@@ -170,6 +170,18 @@ const StyledImage = styled(Image)`
   `}  
 `
 
+const FirmResourceSubMenu = ({ locale, submenu }) =>
+  <li>
+    <SubMenuLink to={`${locales[locale].contentSiteUrl}${locales[locale].mainMenu.resource[submenu]}`}>
+      <FormattedMessage id={`firm.${submenu}`} />
+    </SubMenuLink>
+  </li>
+
+FirmResourceSubMenu.propTypes = {
+  locale: PropTypes.string,
+  submenu: PropTypes.string,
+}
+
 const MainMenu = ({ locale, homepage, atTop }) => (
   <StyledList homepage={homepage} atTop={atTop}>
     <li>
@@ -179,21 +191,9 @@ const MainMenu = ({ locale, homepage, atTop }) => (
       </StyledLink>
     </li>
     <ListItemWithSubmenu id="firm.resource" linkStyle={linkStyle} homepage={homepage}>
-      <li>
-        <SubMenuLink to={`${locales[locale].contentSiteUrl}${locales[locale].mainMenu.resource.guide}`}>
-          <FormattedMessage id="firm.guide" />
-        </SubMenuLink>
-      </li>
-      <li>
-        <SubMenuLink to={`${locales[locale].contentSiteUrl}${locales[locale].mainMenu.resource.inspiring}`}>
-          <FormattedMessage id="firm.inspiring" />
-        </SubMenuLink>
-      </li>
-      <li>
-        <SubMenuLink to={`${locales[locale].contentSiteUrl}${locales[locale].mainMenu.resource.faq}`}>
-          <FormattedMessage id="firm.faq" />
-        </SubMenuLink>
-      </li>
+      {Object.keys(locales[locale].mainMenu.resource).map(submenu => (
+        <FirmResourceSubMenu locale={locale} submenu={submenu} />
+      ))}
     </ListItemWithSubmenu>
     <li>
       <StyledLink to={locales[locale].mainMenu.directory} forceRedirect>

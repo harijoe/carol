@@ -8,6 +8,7 @@ export default {
       guide: 'guide',
       inspiring: 'inspirations',
       faq: 'FAQ',
+      tools: 'outils',
     },
     directory: '/annuaire-artisan',
     proUrl: 'https://www.quotatispro.fr',
@@ -71,6 +72,7 @@ export default {
       quote: '/travaux-entreprise.html',
       folder_projects: '/dossiers-travaux.html',
       trades: '/artisan-installateur-poseur-travaux.php',
+      tools: 'https://www.quotatis.fr/conseils-travaux/outils/',
     },
     social: {
       facebook: 'https://www.facebook.com/Quotatis.FR/',

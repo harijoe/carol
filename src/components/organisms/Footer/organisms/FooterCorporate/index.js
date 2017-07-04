@@ -212,6 +212,7 @@ const FooterCorporate = ({ locale, intl: { formatMessage } }) => (
             <FooterCorporateListItem id="quote" target="_blank" locale={locale} />
             <FooterCorporateListItem id="folder_projects" target="_blank" locale={locale} />
             <FooterCorporateListItem id="trades" target="_blank" locale={locale} />
+            <FooterCorporateListItem id="tools" target="_blank" locale={locale} />
           </StyledList>
         </SecondCol>
         <ThirdCol xs={6} l={3}>
