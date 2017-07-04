@@ -12,6 +12,11 @@ import { RenderField, Icon, PopinMenu, PopinMenuButton } from 'components'
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: ${theme('colors.grayscale.lightest')};
+  z-index: 10;
 
   ${breakpoint('l')`
     padding-left: ${theme('spaces.l')};
@@ -186,9 +191,21 @@ class Form extends Component {
       </PopinMenuButton>
     )
 
+    const scrollToBottom = () => {
+      //  Android bug reference : https://goo.gl/W4uu8i
+      const conversation = document.querySelector('.conversation')
+
+      conversation.scrollTop = conversation.scrollHeight
+    }
+
+    const submitBack = () => {
+      scrollToBottom()
+      submit({ answer: 'new_project.back' })
+    }
+
     return (
       <StyledForm onSubmit={this.onSubmit(handleSubmit(submit))}>
-        <BackButton type="button" onClick={() => submit({ answer: 'new_project.back' })}>
+        <BackButton type="button" onClick={submitBack}>
           <BackIcon icon="back" />
           <FormattedMessage id="project.elaboration.back" />
         </BackButton>
@@ -204,12 +221,7 @@ class Form extends Component {
             component={RenderField}
             placeholder={formatMessage(messages('project.elaboration.answer').label)}
             autoFocus
-            onFocus={() => {
-              //  Android bug reference : https://goo.gl/W4uu8i
-              const conversation = document.querySelector('.conversation')
-
-              conversation.scrollTop = conversation.scrollHeight
-            }}
+            onFocus={scrollToBottom}
             innerRef={(field) => { this.field = field }}
           />
           <SubmitButton disabled={pristine || submitting} type="submit">
