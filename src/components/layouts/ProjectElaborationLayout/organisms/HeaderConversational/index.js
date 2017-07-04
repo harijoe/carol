@@ -10,11 +10,11 @@ const Wrapper = styled(MainWrapper)`
   align-items: center;
   width: 100%;
   height: 5.6rem;
-  background: ${theme('colors.white')};
 
   ${mapBreakpoints(bp => css`
     padding-left: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
     padding-right: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
+    padding-top: 0;
   `)}
 `
 
