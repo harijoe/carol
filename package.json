@@ -23,7 +23,8 @@
     "build-storybook": "build-storybook -s .storybook/public -o .storybook/public",
     "simulado:start": "simulado",
     "simulado:prime": "node scripts/simulado-prime.js",
-    "cucumber": "cucumberjs"
+    "cucumber": "cucumberjs",
+    "i18n": "babel-node ./scripts/i18n.js"
   },
   "repository": {
     "type": "git",
@@ -50,6 +51,7 @@
     "@storybook/addon-links": "^3.1.6",
     "@storybook/components": "^3.1.5",
     "@storybook/react": "^3.1.5",
+    "babel-cli": "^6.24.1",
     "babel-eslint": "^7.0.0",
     "babel-jest": "^17.0.2",
     "babel-loader": "^6.2.5",
@@ -74,6 +76,7 @@
     "extract-text-webpack-plugin": "^2.0.0",
     "file-loader": "^0.10.1",
     "foreman": "^2.0.0",
+    "google-spreadsheet": "^2.0.4",
     "html-loader": "^0.4.4",
     "jest-cli": "^17.0.3",
     "json-loader": "^0.5.4",
