@@ -1,6 +1,5 @@
 export default {
   url: 'https://carol-co-uk-dev.qarx.io',
-  contentUrl: 'http://api-service.qarx.io/uk/',
   countryLabel: 'country.great_britain',
   contentSiteUrl: 'https://www.quotatis.co.uk/advice/',
   mainMenu: {

@@ -1,6 +1,5 @@
 export default {
   url: 'https://carol-fr-dev.qarx.io',
-  contentUrl: 'http://api-service.qarx.io/fr/',
   countryLabel: 'country.france',
   contentSiteUrl: 'https://www.quotatis.fr/conseils-travaux/',
   mainMenu: {

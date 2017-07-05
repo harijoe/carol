@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
 import config from 'config'
 import styled from 'styled-components'
+import pushGtmEvent from 'utils/gtm'
 import { theme, breakpoint } from 'utils/style'
 
 import { ThumbnailPoster, ProjectElaborationQuestion, Paragraph, Link } from 'components'
@@ -56,7 +57,7 @@ class AttachmentSummary extends Component {
   }
 
   render() {
-    const { element: { title, image_url, subtitle, buttons }, locale } = this.props
+    const { element: { title, image_url, subtitle, buttons }, locale, heroAnswer: { text } } = this.props
     const validateButton = buttons[0]
 
     /*
@@ -69,11 +70,22 @@ class AttachmentSummary extends Component {
         <Question key={i}>{message}</Question>
     )))
 
+    const validateProjectLink = (<StyledLink
+      onClick={() => pushGtmEvent({
+        event: 'FormCreated',
+        chatbotKey1: text,
+      })}
+      to={validateButton.url.replace(config.locales[locale].url, '')}
+      button
+    >
+      {validateButton.title}
+    </StyledLink>)
+
     return (
       <Wrapper id="summary">
         <ProjectElaborationQuestion>
           <SummaryTitle><FormattedMessage id="project.elaboration.summary.title" /></SummaryTitle>
-          <StyledLink to={validateButton.url.replace(config.locales[locale].url, '')} button>{validateButton.title}</StyledLink>
+          {validateProjectLink}
           <StyledParagraph><FormattedMessage id="project.elaboration.summary.subtitle" /></StyledParagraph>
           <StyledThumbnailPosterWrapper>
             <ThumbnailPoster
@@ -83,7 +95,7 @@ class AttachmentSummary extends Component {
             />
           </StyledThumbnailPosterWrapper>
           {summary}
-          <StyledLink to={validateButton.url.replace(config.locales[locale].url, '')} button>{validateButton.title}</StyledLink>
+          {validateProjectLink}
         </ProjectElaborationQuestion>
       </Wrapper>
     )
@@ -93,6 +105,9 @@ class AttachmentSummary extends Component {
 AttachmentSummary.propTypes = {
   locale: PropTypes.string,
   redirectTo: PropTypes.func,
+  heroAnswer: PropTypes.shape({
+    text: PropTypes.string.isRequired,
+  }),
   element: PropTypes.shape({
     title: PropTypes.string.isRequired,
     image_url: PropTypes.string.isRequired,

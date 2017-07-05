@@ -122,12 +122,6 @@ function* preValidate({ chatbotStorageId }) {
   const redirectPathname = yield select(fromRouting.getPathname)
   const heroAnswer = yield select(fromProjectElaboration.getHeroAnswer)
 
-  yield pushGtmEvent({
-    event: 'FormCreated',
-    chatbotKey1: heroAnswer.text,
-  })
-
-
   if (!authenticated) {
     yield put(push({ pathname: '/signup', state: { ...state, redirectPathname } }))
 

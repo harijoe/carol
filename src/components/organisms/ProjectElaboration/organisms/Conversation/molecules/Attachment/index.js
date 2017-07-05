@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import AttachmentSummary from 'containers/AttachmentSummary'
 
 import AttachmentGeneric from './organisms/AttachmentGeneric'
-import AttachmentSummary from './organisms/AttachmentSummary'
 
 const Attachment = ({ attachment, reply, answer, locale, redirectTo }) => {
   if (

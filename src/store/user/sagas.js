@@ -1,6 +1,6 @@
 import { put, select } from 'redux-saga/effects'
 import { stopSubmit, reset } from 'redux-form'
-import { push, goBack } from 'react-router-redux'
+import { push } from 'react-router-redux'
 import { fromUser, fromRouting } from 'store/selectors'
 import { authLogin } from 'store/actions'
 import { HTTPError } from 'utils/errors'
@@ -40,7 +40,6 @@ function* handleCreateUserRequest({ data }) {
     yield* notify('user.thank_you', 'user.sign_up.confirmation')
     yield pushGtmEvent({ event: 'AccountCreated', email: data.email })
     yield put(authLogin('password').request(`&username=${encodeURIComponent(data.email)}&password=${encodeURIComponent(data.password)}`))
-    yield put(goBack())
     yield put(reset('SignUpForm'))
   } catch (error) {
     if (error instanceof HTTPError) {

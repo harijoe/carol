@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 import { push } from 'react-router-redux'
 
-import { createValidator, email, password } from 'services/validation'
+import { createValidator, email, password, required } from 'services/validation'
 import { fromForm, fromStatus, fromRouting } from 'store/selectors'
 import { userCreate } from 'store/actions'
 import { SignUpForm } from 'components'
@@ -15,8 +15,8 @@ const SignUpFormContainer = props => (
 const onSubmit = (data, dispatch) => dispatch(userCreate.request(data))
 
 const validate = createValidator({
-  email: [email],
-  password: [password],
+  email: [email, required],
+  password: [password, required],
 })
 
 const config = {

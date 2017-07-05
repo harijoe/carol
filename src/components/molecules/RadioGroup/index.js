@@ -46,7 +46,7 @@ const RadioGroup = ({ input, meta, options }) => {
 RadioGroup.propTypes = {
   input: PropTypes.object,
   meta: PropTypes.object,
-  options: PropTypes.object,
+  options: PropTypes.array,
 }
 
 export default RadioGroup

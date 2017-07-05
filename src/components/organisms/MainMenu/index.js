@@ -184,23 +184,23 @@ FirmResourceSubMenu.propTypes = {
 
 const MainMenu = ({ locale, homepage, atTop }) => (
   <StyledList homepage={homepage} atTop={atTop}>
-    <li>
+    <li key="firm.find_pro">
       <StyledLink to="/project-elaboration">
         <FormattedMessage id="firm.find_pro" />
         <StyledImage src={`${cloudinaryUrl}bot.png`} />
       </StyledLink>
     </li>
-    <ListItemWithSubmenu id="firm.resource" linkStyle={linkStyle} homepage={homepage}>
+    <ListItemWithSubmenu key="firm.resource" id="firm.resource" linkStyle={linkStyle} homepage={homepage}>
       {Object.keys(locales[locale].mainMenu.resource).map(submenu => (
-        <FirmResourceSubMenu locale={locale} submenu={submenu} />
+        <FirmResourceSubMenu key={submenu} locale={locale} submenu={submenu} />
       ))}
     </ListItemWithSubmenu>
-    <li>
+    <li key="directory">
       <StyledLink to={locales[locale].mainMenu.directory} forceRedirect>
         <FormattedMessage id="directory" />
       </StyledLink>
     </li>
-    <li>
+    <li key="firm.i_am_pro.one">
       <StyledLink to={locales[locale].mainMenu.proUrl} className="qs-linkMenu-pro">
         <FormattedMessage id="firm.i_am_pro.one" /> <FormattedMessage id="firm.i_am_pro.two" />
       </StyledLink>
