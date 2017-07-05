@@ -222,6 +222,7 @@ class ProfileForm extends Component {
       country: PropTypes.string,
       imageBase64: PropTypes.string,
     }),
+    invalid: PropTypes.bool,
   }
 
   constructor() {
@@ -242,10 +243,20 @@ class ProfileForm extends Component {
     this.setImage(nextProps.initialValues.imageBase64)
   }
 
+  componentDidUpdate() {
+    if (this.props.invalid) {
+      this.scrollTop()
+    }
+  }
+
   setImage(img) {
     this.setState({
       imageBase64: this.state.imageBase64 || img,
     })
+  }
+
+  scrollTop() {
+    this.form.scrollTop = this.form.scrollHeight
   }
 
   handleChange(e) {
@@ -267,7 +278,7 @@ class ProfileForm extends Component {
     const formatMessage = intl.formatMessage
 
     return (
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} innerRef={(ref) => { this.form = ref }}>
         <StyledHeroSection imageLink={`${cloudinaryUrl}hero-fullscreen_image.jpg`}>
           <StyledProfileImage imageLink={initialValues.imageBase64} />
           <ProfileContentWrapper>
