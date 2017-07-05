@@ -1,7 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl'
-import { contentSiteUrl } from 'config'
+import { locales } from 'config'
 import messages from 'utils/messages'
 import { breakpoint } from 'utils/style'
 
@@ -43,21 +44,21 @@ const StyledCol = styled(Col)`
   `}
 `
 
-const getTags = (items) => {
+const getTags = (items, locale) => {
   const tags = []
 
   if (Array.isArray(items)) {
-    items.forEach(item => tags.push({ label: item, link: `${contentSiteUrl}?s=${item}` }))
+    items.forEach(item => tags.push({ label: item, link: `${locales[locale].contentSiteUrl}?s=${item}` }))
   }
 
   return tags
 }
 
-const generateChild = (i, { featuredMedia, categories, tags, title, link }) => (
+const generateChild = (i, { featuredMedia, categories, tags, title, link }, locale) => (
   <StyledCol xs={12} key={i}>
     <TipsAndTricksBlock
       header={categories[0]}
-      tags={getTags(tags)}
+      tags={getTags(tags, locale)}
       title={title}
       image={i === 0 ? featuredMedia : null}
       link={link}
@@ -71,7 +72,7 @@ const StyledLink = styled(Link)`
   margin-right: auto;
 `
 
-const TipsAndTricks = ({ intl: { formatMessage } }) => (
+const TipsAndTricks = ({ intl: { formatMessage }, locale }) => (
   <Section title={formatMessage(messages('tips_and_tricks.section_title').label)}>
     <Grid narrow>
       <StyledRow>
@@ -82,7 +83,7 @@ const TipsAndTricks = ({ intl: { formatMessage } }) => (
           generateChild={generateChild}
         />
       </StyledRow>
-      <StyledLink button large to={contentSiteUrl}>
+      <StyledLink button large to={locales[locale].contentSiteUrl}>
         <FormattedMessage id="tips_and_tricks.call_to_action" />
       </StyledLink>
     </Grid>
@@ -91,6 +92,7 @@ const TipsAndTricks = ({ intl: { formatMessage } }) => (
 
 TipsAndTricks.propTypes = {
   intl: intlShape.isRequired,
+  locale: PropTypes.string,
 }
 
 export default injectIntl(TipsAndTricks)

@@ -1,9 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import styled from 'styled-components'
 import messages from 'utils/messages'
 import { theme } from 'utils/style'
-import { cloudinaryUrl, contentSiteUrl } from 'config'
+import { cloudinaryUrl, contentSiteUrl, locales } from 'config'
 
 import { Section, HowItWorksBlock, Paragraph, Link, Col, Grid, Row } from 'components'
 
@@ -21,10 +22,10 @@ const DescribeProject = (
   </Paragraph>
 )
 
-const VerifiedPros = (
+const VerifiedPros = locale => (
   <Paragraph>
     <FormattedMessage id="how_it_works.verified_pros.first_part" />
-    <Link to="/annuaire-artisan" highlight target="_blank">
+    <Link to={locales[locale].homepage.verifiedProsLink} highlight target="_blank">
       <FormattedMessage id="how_it_works.verified_pros.link" />
     </Link>
     <FormattedMessage id="how_it_works.verified_pros.second_part" />
@@ -41,7 +42,7 @@ const Guide = (
   </Paragraph>
 )
 
-const HowItWorks = ({ intl: { formatMessage } }) => (
+const HowItWorks = ({ intl: { formatMessage }, locale }) => (
   <Section title={formatMessage(messages('how_it_works.section_title').label)}>
     <Grid>
       <Row>
@@ -56,7 +57,7 @@ const HowItWorks = ({ intl: { formatMessage } }) => (
           <HowItWorksBlock
             imageLink={`${cloudinaryUrl}verified-pros_step2.svg`}
             title={formatMessage(messages('how_it_works.verified_pros.title').label)}
-            content={VerifiedPros}
+            content={VerifiedPros(locale)}
           />
         </StyledCol>
         <StyledCol xs={12} m={4}>
@@ -73,6 +74,7 @@ const HowItWorks = ({ intl: { formatMessage } }) => (
 
 HowItWorks.propTypes = {
   intl: intlShape.isRequired,
+  locale: PropTypes.string,
 }
 
 export default injectIntl(HowItWorks)

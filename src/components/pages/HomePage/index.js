@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { injectIntl, intlShape } from 'react-intl'
 
@@ -12,7 +13,7 @@ import {
 } from 'components'
 import { Hero } from 'containers'
 
-const HomePage = props => (
+const HomePage = ({ locale, ...props }) => (
   <MainLayout {...props}>
     <Helmet>
       <meta name="description" content={props.intl.formatMessage({ id: 'pages.home.meta.description' })} />
@@ -20,9 +21,9 @@ const HomePage = props => (
     </Helmet>
     <Hero />
     <MainWrapper resetState>
-      <HowItWorks />
+      <HowItWorks locale={locale} />
       <Testimonials />
-      <TipsAndTricks />
+      <TipsAndTricks locale={locale} />
       <Reinsurance />
     </MainWrapper>
   </MainLayout>
@@ -30,6 +31,7 @@ const HomePage = props => (
 
 HomePage.propTypes = {
   intl: intlShape.isRequired,
+  locale: PropTypes.string,
 }
 
 export default injectIntl(HomePage)

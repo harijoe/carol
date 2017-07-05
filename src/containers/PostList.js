@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { fromPost } from 'store/selectors'
+import { fromPost, fromContext } from 'store/selectors'
 import { postList } from 'store/actions'
 import { PostList } from 'components'
 
@@ -34,6 +34,7 @@ class PostListContainer extends Component {
 
 const mapStateToProps = (state, { scope }) => ({
   list: fromPost.getList(state, scope),
+  locale: fromContext.getLocale(state),
 })
 
 const mapDispatchToProps = (dispatch, { scope, tags, limit }) => ({

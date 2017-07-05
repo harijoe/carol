@@ -4,9 +4,9 @@ import PropTypes from 'prop-types'
 import { Loading } from 'components'
 import { Carousel } from 'containers'
 
-const PostList = ({ list, loading, generateChild, generateBackground, carousel }) => {
+const PostList = ({ list, loading, generateChild, generateBackground, carousel, locale }) => {
   let children = list
-    .map((items, i) => generateChild(i, items))
+    .map((items, i) => generateChild(i, items, locale))
 
   children = typeof carousel !== 'undefined' && children.length !== 0 ? <Carousel {...carousel}>{children}</Carousel> : children
 
@@ -28,6 +28,7 @@ PostList.propTypes = {
   generateChild: PropTypes.func.isRequired,
   generateBackground: PropTypes.func,
   carousel: PropTypes.object,
+  locale: PropTypes.string,
 }
 
 export default PostList

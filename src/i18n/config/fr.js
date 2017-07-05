@@ -12,6 +12,9 @@ export default {
     directory: '/annuaire-artisan',
     proUrl: 'https://www.quotatispro.fr',
   },
+  homepage: {
+    verifiedProsLink: '/annuaire-artisan',
+  },
   footer: {
     advices: {
       column_1_1: {

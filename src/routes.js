@@ -10,7 +10,6 @@ import {
   FirmListPage,
   ForgotPasswordPage,
   HelpPage,
-  HomePage,
   LoginPage,
   MessagePage,
   NotFoundPage,
@@ -30,6 +29,7 @@ import {
   ProjectPreValidatePage,
   VerifyEmailPage,
   EmailValidationPage,
+  HomePage,
 } from 'containers'
 
 const routes = (
