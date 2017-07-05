@@ -30,7 +30,7 @@ export function* fetchWithoutRefreshingToken(actions, method, url, settings = {}
   const accessToken = yield select(fromAuth.getAccessToken)
 
   try {
-    console.info(`fetching — ${url} ${accessToken != null ? `— with token — ${accessToken.substr(0, 6)}...` : ''}`)
+    console.info(`fetching — ${url} ${lang} ${accessToken != null ? `— with token — ${accessToken.substr(0, 6)}...` : ''}`)
     let response
     const ssr = yield select(fromContext.isSSR)
 

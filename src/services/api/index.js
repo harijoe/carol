@@ -17,7 +17,7 @@ api.init = (method = 'GET', settings = {}, body = null) => {
   headers.Accept = 'application/ld+json'
   headers['Content-Type'] = 'application/json'
   if (settings.accessToken != null) { headers.Authorization = `Bearer ${settings.accessToken}` }
-  if (settings.lang != null) { headers['Accept-Language'] = settings.lang }
+  if (settings.lang != null) { headers['Accept-Language'] = settings.lang.replace('_', '-') }
 
   const fetchInit = { method, headers, rejectUnauthorized: false }
 
