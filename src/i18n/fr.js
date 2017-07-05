@@ -224,7 +224,7 @@ export default {
   'user.google_id': 'Google id',
   'user.invalid_login': 'Votre login et/ou mot de passe sont invalides',
   'user.last_name': 'Nom',
-  'user.log_out': 'Deconnexion ➔',
+  'user.log_out': 'Déconnexion ➔',
   'user.message_page': 'Ma page de messages',
   'user.messaging': 'Messagerie',
   'user.mobile_phone': 'Téléphone mobile',
