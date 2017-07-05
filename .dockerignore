@@ -1,0 +1,8 @@
+.dist
+.features
+.git
+.storybook
+node_modules
+test
+**/*.stories.js
+**/*.test.js
