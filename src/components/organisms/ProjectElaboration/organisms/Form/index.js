@@ -153,11 +153,14 @@ const StyledField = styled(Field)`${({ disabled }) => css`
 class Form extends Component {
 
   componentDidUpdate() {
-    this.getInput().focus()
+    if (this.props.disabled) {
+      this.getInput().blur()
+    } else {
+      this.getInput().focus()
+    }
   }
 
   onSubmit = submitHandler => (...args) => {
-    setImmediate(() => this.getInput().blur())
     submitHandler(...args)
   }
 
