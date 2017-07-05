@@ -12,11 +12,6 @@ import { RenderField, Icon, PopinMenu, PopinMenuButton } from 'components'
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: ${theme('colors.grayscale.lightest')};
-  z-index: 10;
 
   ${breakpoint('l')`
     padding-left: ${theme('spaces.l')};
