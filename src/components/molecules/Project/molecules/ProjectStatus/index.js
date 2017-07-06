@@ -38,7 +38,7 @@ const styles = ({ status }) => css`
     color: ${theme('colors.grayscale.dark')};
   `)}
 
-  ${ifThen(status === 'validated', css`
+  ${ifThen(status === 'validated' || status === 'pending_search', css`
     background-color: ${theme('colors.success')};
     color: ${theme('colors.white')};
 
