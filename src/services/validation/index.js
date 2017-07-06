@@ -1,6 +1,5 @@
 import isEmail from 'validator/lib/isEmail'
 import isInt from 'validator/lib/isInt'
-import isURL from 'validator/lib/isURL'
 
 const isEmpty = value => value === undefined || value === null || value === ''
 const join = rules => (value, data) => rules.map(rule => rule(value, data)).filter(error => !!error)[0]
@@ -8,7 +7,6 @@ const passwordPattern = /^(?=.*[a-z])(?=.*(_|[^\w\s])).{8,64}$/
 const postalCodePattern = /^\d{5}$/
 
 export const email = value => !isEmpty(value) && !isEmail(value) && { id: 'validators.user.invalid_email', values: {} }
-export const url = value => !isEmpty(value) && !isURL(value) && { id: 'validators.user.invalid_url', values: {} }
 export const required = value => isEmpty(value) && { id: 'validators.required_field', values: {} }
 export const minLength = min => value => !isEmpty(value) && value.length < min && { id: 'validators.min_length', values: { min } }
 export const maxLength = max => value => !isEmpty(value) && value.length > max && { id: 'validators.max_length', values: { max } }

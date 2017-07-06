@@ -6,13 +6,6 @@ test('email', () => {
   expect(v.email('valid@valid.com')).toBeFalsy()
 })
 
-test('url', () => {
-  expect(v.url('invalid')).toBeTruthy()
-  expect(v.url('valid.com')).toBeFalsy()
-  expect(v.url('valid.com/test')).toBeFalsy()
-  expect(v.url('http://valid.com')).toBeFalsy()
-})
-
 test('required', () => {
   expect(v.required('')).toBeTruthy()
   expect(v.required(null)).toBeTruthy()
