@@ -50,14 +50,20 @@ app.listen(port, (error) => {
   }
 })
 
-// Init SSR cache for front page
-// CURRENTLY, cache is only reloaded for FR and homepage
-// It needs to be extended later for other languages and other pages as necessary
-router.handle({
-  url: '/purge-ssr',
-  method: 'POST',
-  hostname: locales.fr_FR.url.replace('https://', ''),
-  headers: { authorization: `Bearer ${purgeCacheToken}` },
-}, { send: () => console.info('Cache regeneration attempt finished') })
+const purgeSSRCache = locale => new Promise(resolve =>
+  router.handle({
+    url: '/purge-ssr',
+    method: 'POST',
+    hostname: locales[locale].url.replace(new RegExp('https?://'), ''),
+    headers: { authorization: `Bearer ${purgeCacheToken}` },
+  }, { send: resolve })
+)
+
+const purgeAllCaches = async () => {
+  await Promise.all(Object.keys(locales).map(purgeSSRCache))
+  console.info('Cache regeneration attempt finished')
+}
+
+purgeAllCaches()
 
 export default app

@@ -10,7 +10,8 @@ import refreshToken from '../refreshToken'
   Tries to use cached responses during ssr
  */
 function* fetchUsingCache(method, url, settings, data) {
-  const cachedResponse = getCacheStorage()[method + url]
+  const cacheKey = settings.lang + method + url
+  const cachedResponse = getCacheStorage()[cacheKey]
 
   if (cachedResponse != null) {
     console.info(`  response from cache — size: ${cachedResponse.toString().length}`)
@@ -20,7 +21,7 @@ function* fetchUsingCache(method, url, settings, data) {
 
   const response = yield call(api[method], url, settings, data)
 
-  getCacheStorage()[method + url] = response
+  getCacheStorage()[cacheKey] = response
 
   return response
 }
