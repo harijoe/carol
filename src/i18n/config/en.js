@@ -8,8 +8,11 @@ export default {
       inspiring: 'inspirations',
       faq: 'FAQ',
     },
-    directory: '/annuaire-artisan',
+    directory: '/tradesmen-directory',
     proUrl: 'https://www.quotatispro.co.uk',
+  },
+  homepage: {
+    verifiedProsLink: '/tradesmen-directory',
   },
   footer: {
     advices: {
