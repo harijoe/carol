@@ -13,6 +13,10 @@ const StyledList = styled(List)`
   padding: ${theme('spaces.m')} 0;
   padding-bottom: 0;
   list-style: none;
+
+  li {
+    padding: 0;
+  }
 `
 
 StyledList.displayName = 'List'
