@@ -37,12 +37,6 @@ test('integer', () => {
   expect(v.integer('1')).toBeFalsy()
 })
 
-test('oneOf', () => {
-  expect(v.oneOf(['valid', 'test'])('invalid')).toBeTruthy()
-  expect(v.oneOf(['valid', 'test'])('valid')).toBeFalsy()
-  expect(v.oneOf(['valid', 'test'])('test')).toBeFalsy()
-})
-
 test('match', () => {
   expect(v.match('invalid')('123', { password: '321' })).toBeTruthy()
   expect(v.match('password')('123', { password: '321' })).toBeTruthy()
