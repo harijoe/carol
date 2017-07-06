@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { theme } from 'utils/style'
 import { cookiesUrl } from 'config'
 
-import { Icon, Paragraph, Col, Link } from 'components'
+import { Icon, Paragraph, Row, Col, Link } from 'components'
 
 const Wrapper = styled.div`
   position: fixed;
@@ -21,15 +21,14 @@ const Wrapper = styled.div`
   }
 `
 
-const Container = styled.div`
-  display: flex;
-  max-width: 120rem;
+const Container = styled(Row)`
+  max-width: ${theme('grid.container')}rem;
   margin: auto;
 `
 
 const StyledParagraph = styled(Paragraph)`
   padding-bottom: ${theme('spaces.m')};
-  padding-left: ${theme('spaces.s')};
+  padding-top: ${theme('spaces.m')};
   font: normal ${theme('fonts.size.s')} ${theme('fonts.family.montserratLight')};
   color: ${theme('colors.white')};
 `
