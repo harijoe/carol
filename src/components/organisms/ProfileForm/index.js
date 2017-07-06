@@ -243,20 +243,10 @@ class ProfileForm extends Component {
     this.setImage(nextProps.initialValues.imageBase64)
   }
 
-  componentDidUpdate() {
-    if (this.props.invalid) {
-      this.scrollTop()
-    }
-  }
-
   setImage(img) {
     this.setState({
       imageBase64: this.state.imageBase64 || img,
     })
-  }
-
-  scrollTop() {
-    this.form.scrollIntoView()
   }
 
   handleChange(e) {
@@ -273,9 +263,14 @@ class ProfileForm extends Component {
     }
   }
 
+  handleSubmitClick = () => {
+    if (this.props.invalid) {
+      this.form.scrollIntoView()
+    }
+  }
+
   render() {
-    const { initialValues, handleSubmit, loading, intl, details } = this.props
-    const formatMessage = intl.formatMessage
+    const { initialValues, handleSubmit, loading, intl: { formatMessage }, details } = this.props
 
     return (
       <div ref={(ref) => { this.form = ref }}>
@@ -403,7 +398,7 @@ class ProfileForm extends Component {
                 lightFont
                 inline
               />
-              <Button type="submit" loading={loading} center maxWidth>
+              <Button type="submit" loading={loading} center maxWidth onClick={this.handleSubmitClick}>
                 <FormattedMessage id="user.update" />
               </Button>
             </StyledGrid>

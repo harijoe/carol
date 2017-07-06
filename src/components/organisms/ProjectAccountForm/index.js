@@ -61,14 +61,10 @@ class ProjectAccountForm extends Component {
     invalid: PropTypes.bool,
   }
 
-  componentDidUpdate() {
+  handleSubmitClick = () => {
     if (this.props.invalid) {
-      this.scrollTop()
+      this.form.scrollIntoView()
     }
-  }
-
-  scrollTop() {
-    this.form.scrollIntoView()
   }
 
   render() {
@@ -204,7 +200,7 @@ class ProjectAccountForm extends Component {
             </Field>
           </StyledSection>
           <StyledSection>
-            <StyledButton type="submit" center loading={loading} >
+            <StyledButton type="submit" center loading={loading} onClick={this.handleSubmitClick}>
               <FormattedMessage id="user.send" tagName="span" />
             </StyledButton>
           </StyledSection>
