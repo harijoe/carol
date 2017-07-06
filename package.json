@@ -23,7 +23,7 @@
     "build-storybook": "build-storybook -s .storybook/public -o .storybook/public",
     "simulado:start": "simulado",
     "simulado:prime": "node scripts/simulado-prime.js",
-    "cucumber": "cucumberjs",
+    "cucumber": "cross-env NODE_ENV=mocks cucumberjs",
     "i18n": "babel-node ./scripts/i18n.js"
   },
   "repository": {

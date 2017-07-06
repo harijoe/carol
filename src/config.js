@@ -111,6 +111,14 @@ const config = {
     api: {
       url: 'http://carol-fr-dev.qarx.io:7001',
     },
+    locales: {
+      fr_FR: {
+        url: 'http://carol-fr-dev.qarx.io',
+      },
+      en_GB: {
+        url: 'http://carol-co-uk-dev.qarx.io',
+      },
+    },
     port: 4321,
     ssl: {
       enabled: false,
@@ -120,6 +128,14 @@ const config = {
     devServer: false,
     api: {
       url: 'http://carol-fr-dev.qarx.io:7001',
+    },
+    locales: {
+      fr_FR: {
+        url: 'http://carol-fr-dev.qarx.io',
+      },
+      en_GB: {
+        url: 'http://carol-co-uk-dev.qarx.io',
+      },
     },
     port: 4321,
     ssl: {

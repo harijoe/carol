@@ -38,7 +38,7 @@ const StyledSection = styled(Section)`
 `
 
 const FooterAdvices = ({ locale, intl: { formatMessage } }) => (
-  <StyledSection dark title={formatMessage(messages('footer.advices.section_title').label)} >
+  <StyledSection dark title={formatMessage(messages('footer.advices.section_title').label)} className="advices">
     <StyledRow>
       <StyledCol xs={6} m={3}>
         <StyledList>

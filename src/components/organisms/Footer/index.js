@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { FooterAdvices, FooterCorporate, FooterSocialNetworks, MainWrapper } from 'components'
 
 const Footer = ({ locale }) => (
-  <MainWrapper resetState>
+  <MainWrapper resetState className="footer">
     <FooterAdvices locale={locale} />
     <FooterCorporate locale={locale} />
     <FooterSocialNetworks locale={locale} />

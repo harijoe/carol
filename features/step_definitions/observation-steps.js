@@ -21,4 +21,10 @@ defineSupportCode(({ When }) => {
 
     expect(keyOneSlides.length).toEqual(parseInt(expectedCount, 10))
   })
+
+  When(/I should see (\d*) items in the footer advices section/, async (expectedCount) => {
+    const footerAdvicesItems = await driver.findElements({ css: '.footer .advices li' })
+
+    expect(footerAdvicesItems.length).toEqual(parseInt(expectedCount, 10))
+  })
 })
