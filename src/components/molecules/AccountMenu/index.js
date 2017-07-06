@@ -19,6 +19,10 @@ const StyledList = styled(List)`${() => css`
   box-shadow: 0 0 10px 0 rgba(19, 19, 19, 0.5);
   pointer-events: auto;
 
+  li {
+    padding: 0;
+  }
+
   @media screen and (max-width: 991px) and (min-width: 768px) {
     width: 70%;
   }
