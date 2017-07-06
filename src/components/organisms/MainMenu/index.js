@@ -171,12 +171,18 @@ const StyledImage = styled(Image)`
   `}  
 `
 
-const FirmResourceSubMenu = ({ locale, submenu }) =>
-  <li>
-    <SubMenuLink to={`${locales[locale].contentSiteUrl}${locales[locale].mainMenu.resource[submenu]}`}>
-      <FormattedMessage id={`firm.${submenu}`} />
-    </SubMenuLink>
-  </li>
+const FirmResourceSubMenu = ({ locale, submenu }) => {
+  const submenuConfig = locales[locale].mainMenu.resource[submenu]
+  const { path, ...otherProps } = submenuConfig
+
+  return (
+    <li>
+      <SubMenuLink to={`${locales[locale].contentSiteUrl}${path}`} {...otherProps}>
+        <FormattedMessage id={`firm.${submenu}`} />
+      </SubMenuLink>
+    </li>
+  )
+}
 
 FirmResourceSubMenu.propTypes = {
   locale: PropTypes.string,
