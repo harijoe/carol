@@ -6,6 +6,10 @@ const Paragraph = styled.p`
   color: inherit;
   letter-spacing: 0.3px;
   margin: ${theme('spaces.m')} 0 0 0;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
 `
 
 export default Paragraph

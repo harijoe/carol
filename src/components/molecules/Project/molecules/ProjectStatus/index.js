@@ -56,7 +56,7 @@ const StyledIcon = styled(Icon)`
   width: ${theme('icons.size.s')};
 `
 
-const ProjectStatus = ({ status }) => {
+const ProjectStatus = ({ status, ...props }) => {
   let icon
 
   switch (status) {
@@ -69,7 +69,7 @@ const ProjectStatus = ({ status }) => {
   }
 
   return (
-    <Wrapper {...{ status }}>
+    <Wrapper {...{ status, ...props }}>
       <StyledIcon
         size={16}
         icon={icon}

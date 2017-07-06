@@ -32,6 +32,10 @@ const StyledList = styled(List)`
   padding: 0;
   color: ${theme('colors.white')};
   list-style: none;
+
+  li {
+    padding-top: ${theme('spaces.s')};
+  }
 `
 
 const StyledListItem = styled(ListItem)`

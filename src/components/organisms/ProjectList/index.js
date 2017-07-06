@@ -86,7 +86,7 @@ const StyledCarousel = styled(Carousel)`
 `
 
 const ProjectList = ({ list, loading }) => (
-  <StyledSection light tall>
+  <StyledSection light>
     <StyledGrid narrow>
       <StyledHeading level={1}><FormattedMessage id="project.list.heading" /></StyledHeading>
       <Loading loading={loading && list.length === 0}>

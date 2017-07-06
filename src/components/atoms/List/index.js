@@ -4,10 +4,23 @@ import styled, { css } from 'styled-components'
 import { theme } from 'utils/style'
 
 const styles = css`
-  margin: 1rem 0;
-  padding-left: 1.6rem;
+  margin: ${theme('spaces.m')} 0;
+  padding-left: 0;
   line-height: 1.7rem;
+  list-style-position: inside;
   color: ${theme('colors.grayscale.darker')};
+
+  li {
+    padding-top: ${theme('spaces.m')};
+
+    &:first-child {
+      padding-top: 0;
+    }
+  }
+
+  ul, ol {
+    padding-left: ${theme('spaces.m')};
+  }
 `
 
 const Ol = styled.ol`${styles}`

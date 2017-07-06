@@ -18,6 +18,10 @@ const StyledList = styled(List)`
   color: ${theme('colors.white')};
   text-decoration: none;
   list-style-type: none;
+
+  li {
+    padding-top: ${theme('spaces.s')};
+  }
 `
 
 const StyledCol = styled(Col)`

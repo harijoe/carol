@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { theme, breakpoint } from 'utils/style'
 
-import { MainLayout, MainWrapper, Section, Grid } from 'components'
+import { MainLayout, MainWrapper, InnerWrapper, Section, Grid } from 'components'
 
 import { FirmList } from 'containers'
 
@@ -38,11 +38,13 @@ const StyledGrid = styled(Grid)`
 const FirmListPage = ({ params: { projectId } }) => (
   <MainLayout>
     <MainWrapper>
-      <StyledSection light tall>
-        <StyledGrid narrow>
-          <FirmList {...{ projectId }} />
-        </StyledGrid>
-      </StyledSection>
+      <InnerWrapper>
+        <StyledSection light>
+          <StyledGrid narrow>
+            <FirmList {...{ projectId }} />
+          </StyledGrid>
+        </StyledSection>
+      </InnerWrapper>
     </MainWrapper>
   </MainLayout>
 )

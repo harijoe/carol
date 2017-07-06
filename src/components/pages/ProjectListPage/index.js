@@ -1,12 +1,14 @@
 import React from 'react'
 
-import { MainLayout, MainWrapper } from 'components'
+import { MainLayout, MainWrapper, InnerWrapper } from 'components'
 import { ProjectList } from 'containers'
 
 const ProjectListPage = () => (
   <MainLayout>
     <MainWrapper>
-      <ProjectList />
+      <InnerWrapper>
+        <ProjectList />
+      </InnerWrapper>
     </MainWrapper>
   </MainLayout>
 )

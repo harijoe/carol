@@ -134,7 +134,7 @@ const listView = (items, ...props) => (
 
 const detailView = (items, ...props) => (
   <Article {...props}>
-    <Heading level={2}>{items.name}</Heading>
+    <Heading level={1}>{items.name}</Heading>
     <Paragraph>
       <FormattedMessage id="project.created_at" />: <DateTime value={items.createdAt} />
     </Paragraph>

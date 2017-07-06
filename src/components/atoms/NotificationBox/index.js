@@ -33,7 +33,7 @@ const blockStyles = ({ dark, grey, primary, secondary, success, alert }) => css`
     padding: ${theme('grid.gutterWidth.l')}rem;
   `}
 
-  ${ifThen(dark, css`background: ${theme('colors.black')};`)}
+  ${ifThen(dark, css`border-color: ${theme('colors.black')};`)}
   ${ifThen(primary, css`border-color: ${theme('colors.primary')};`)}   
   ${ifThen(grey, css`border-color: ${theme('colors.grayscale.light')};`)}
   ${ifThen(secondary, css`border-color: ${theme('colors.secondary')};`)}

@@ -17,6 +17,7 @@ const StyledList = styled(List)`${({ homepage, atTop }) => css`
 
   > li {
     position: relative;
+    padding: 0;
     color: ${theme('colors.black')};
 
     ${breakpointMax('l')`

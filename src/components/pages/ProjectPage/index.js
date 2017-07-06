@@ -1,12 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { MainLayout } from 'components'
+import { MainLayout, MainWrapper, InnerWrapper } from 'components'
 import { ProjectDetails } from 'containers'
 
 const ProjectPage = props => (
   <MainLayout>
-    <ProjectDetails id={props.params.projectId} />
+    <MainWrapper>
+      <InnerWrapper>
+        <ProjectDetails id={props.params.projectId} />
+      </InnerWrapper>
+    </MainWrapper>
   </MainLayout>
 )
 
