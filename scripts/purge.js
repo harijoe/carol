@@ -37,7 +37,7 @@ if (['-h', '--help'].includes(process.argv[2])) {
 }
 
 const environment = process.argv[2] || 'development'
-const country = process.argv[3].toLowerCase() || 'fr'
+const country = process.argv[3] || 'fr'
 
 if (!availableCountries.includes(country)) {
   console.error('%s is not available in the following countries: %s', colors.red(country), availableCountries.join(', '))
@@ -61,9 +61,12 @@ const config = require('../src/config')
 const { purgeCacheToken, locales } = config
 
 const protocol = config.ssl.enabled ? 'https' : 'http'
-const url = locales[locale].url.replace(/^https?/, protocol)
+const baseUrl = locales[locale].url.replace(/^https?/, protocol)
+const url = `${baseUrl}:${config.port}/purge-ssr`
 
-fetch(`${url}:${config.port}/purge-ssr`, {
+console.info(colors.white(`POST ${url}`))
+
+fetch(url, {
   method: 'POST',
   headers: { authorization: `Bearer ${purgeCacheToken}` },
 })

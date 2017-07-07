@@ -1,8 +1,8 @@
 /*
  This file is used to store cached response during ssr
  */
-let storage = {}
+const storage = {}
 
-export const reset = () => (storage = {})
+export const reset = locale => (storage[locale] = {})
 
-export default () => storage
+export default locale => storage[locale]

@@ -9,8 +9,11 @@ export default async function (store, renderProps, req, res) {
 
   // Handle cache purge
   if (req.url === '/purge-ssr' && req.method === 'POST' && req.headers.authorization === `Bearer ${config.purgeCacheToken}`) {
-    console.info('Cache purge requested')
-    resetCache()
+    const { lang, country } = store.getState().context
+    const locale = `${lang}_${country}`
+
+    console.info('Cache purge requested for', locale)
+    resetCache(locale)
     await initSagas(store, renderProps, true)
     res.send('Cache purged and rebuilt')
   } else {
