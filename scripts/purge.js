@@ -4,6 +4,8 @@ import colors from 'colors'
 const countriesLocales = {
   fr: 'fr_FR',
   gb: 'en_GB',
+  uk: 'en_GB',
+  en: 'en_GB',
   es: 'es_ES',
 }
 
