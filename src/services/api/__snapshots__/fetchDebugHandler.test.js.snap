@@ -1,0 +1,4 @@
+exports[`test log the response when api.debug is true 1`] = `
+"API Response for GET http://google.com: 
+  { foo: [32m\'bar\'[39m }"
+`;

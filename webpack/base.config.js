@@ -83,6 +83,7 @@ module.exports = options => ({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
         PORT: JSON.stringify(process.env.PORT),
+        DEBUG_API: 'false',
       },
     }),
   ]),

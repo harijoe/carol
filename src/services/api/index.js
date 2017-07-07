@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-fetch'
 import config from 'config'
 import { HTTPError } from 'utils/errors'
+import fetchDebugHandler from './fetchDebugHandler'
 
 const api = {}
 const headers = {}
@@ -11,6 +12,7 @@ api.request = (endpoint, method, settings, body) => {
   // @TODO 500 errors are not handled correctly — they throw a generic message instead of a specific one
   return fetch(url, api.init(method, settings, body))
     .then(api.checkStatus)
+    .then(fetchDebugHandler(config, method, url))
 }
 
 api.init = (method = 'GET', settings = {}, body = null) => {
