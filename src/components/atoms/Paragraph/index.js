@@ -7,7 +7,7 @@ const Paragraph = styled.p`
   letter-spacing: 0.3px;
   margin: ${theme('spaces.m')} 0 0 0;
 
-  &:first-of-type {
+  &:first-child {
     margin-top: 0;
   }
 `
