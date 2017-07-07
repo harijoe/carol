@@ -2,11 +2,11 @@ import merge from 'lodash/merge'
 
 import { fr, en } from './i18n/config'
 
-const config = {
+const configs = {
   all: {
-    env: (typeof process.env.NODE_ENV !== 'undefined' && process.env.NODE_ENV.toString()) || 'development',
-    ip: (typeof process.env.IP !== 'undefined' && process.env.IP.toString()) || '0.0.0.0',
-    port: process.env.PORT || 443,
+    env: process.env.NODE_ENV || 'development',
+    ip: process.env.IP || '0.0.0.0',
+    port: 443,
     browser: typeof window !== 'undefined',
     assetPath: '',
     devServer: true,
@@ -68,7 +68,7 @@ const config = {
     },
   },
   production: {
-    port: process.env.PORT || 80,
+    port: 80,
     devServer: false,
     api: {
       url: 'https://api.quotatis.com',
@@ -147,8 +147,10 @@ const config = {
   },
 }
 
-const exports = merge(config.all, config[config.all.env])
+const config = merge(configs.all, configs[configs.all.env])
 
-module.exports = exports
+config.port = (process.env.PORT && parseInt(process.env.PORT, 10)) || config.port
 
-export default exports
+module.exports = config
+
+export default config
