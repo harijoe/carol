@@ -69,7 +69,7 @@ export default {
       use_conditions: 'cgu',
       guides: '',
       directory: '/annuaire-artisan',
-      qpro: 'https://www.quotatispro.co.uk',
+      qpro: 'https://www.quotatispro.fr',
       adeo: 'http://www.adeo.com/',
       quote: '/travaux-entreprise.html',
       folder_projects: '/dossiers-travaux.html',

@@ -58,10 +58,11 @@ export default {
       qpro: 'https://www.quotatispro.co.uk',
     },
     social: {
-      facebook: 'https://www.facebook.com/Quotatis.FR/',
-      twitter: 'https://twitter.com/quotatisfr',
-      linkedin: 'https://www.linkedin.com/company-beta/50071/',
-      instagram: 'https://www.instagram.com/quotatis/',
+      facebook: 'https://www.facebook.com/Quotatis',
+      twitter: 'https://twitter.com/Quotatis',
+      google: 'https://plus.google.com/106376832204465138273',
+      youtube: 'https://www.youtube.com/user/quotatisuk',
+      pinterest: 'https://www.pinterest.com/quotatis/',
     },
   },
 }

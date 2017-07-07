@@ -27,6 +27,9 @@ const FooterSocialNetworks = ({ locale }) => (
     <FooterSocialNetworksLink id="twitter" locale={locale} />
     <FooterSocialNetworksLink id="linkedin" locale={locale} />
     <FooterSocialNetworksLink id="instagram" locale={locale} />
+    <FooterSocialNetworksLink id="google" locale={locale} />
+    <FooterSocialNetworksLink id="youtube" locale={locale} />
+    <FooterSocialNetworksLink id="pinterest" locale={locale} />
   </StyledSection>
 )
 
