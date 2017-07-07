@@ -1,3 +1,4 @@
+export const CONTEXT_ENABLE_FEATURE = 'CONTEXT_ENABLE_FEATURE'
 export const CONTEXT_SET_COUNTRY = 'CONTEXT_SET_COUNTRY'
 export const CONTEXT_SET_LANG = 'CONTEXT_SET_LANG'
 export const CONTEXT_TOGGLE_MAIN_NAVIGATION = 'CONTEXT_TOGGLE_MAIN_NAVIGATION'
@@ -15,6 +16,11 @@ export const setCountry = country => ({
 export const setLang = lang => ({
   type: CONTEXT_SET_LANG,
   payload: lang,
+})
+
+export const enableFeature = feature => ({
+  type: CONTEXT_ENABLE_FEATURE,
+  payload: feature,
 })
 
 export const toggleMainNavigation = (state = null) => ({

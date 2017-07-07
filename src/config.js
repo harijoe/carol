@@ -37,6 +37,9 @@ const config = {
       appId: '233630107058419',
       scope: 'public_profile, email, user_birthday, user_location',
     },
+    algolia: {
+      apiKey: '833cbf062e3b7c3979155c0d07e3f058',
+    },
     cloudinaryUrl: 'https://res.cloudinary.com/quotatis/image/upload/q_auto,f_auto/FrontApp/',
     defaultLocale: 'en_GB',
     locales: {

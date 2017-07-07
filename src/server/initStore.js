@@ -1,7 +1,7 @@
 import uuid from 'uuid/v4'
 import reactCookie from 'react-cookie'
 import isAuthenticated from 'utils/auth'
-import { setCountry, setLang, setAuthenticated, setProjectElaborationSessionId } from 'store/actions'
+import { setCountry, setLang, setAuthenticated, setProjectElaborationSessionId, enableFeature } from 'store/actions'
 import { getLocaleFromHostname, getLangFromLocale, getCountryFromLocale } from 'utils/locale'
 
 export default (store, req) => {
@@ -16,6 +16,13 @@ export default (store, req) => {
 
   // Initialize auth from cookies
   const grantType = reactCookie.load('grant_type')
+
+  // Initialize feature flags from cookies
+  const features = reactCookie.load('features')
+
+  if (features != null) {
+    features.split(',').map(feature => store.dispatch(enableFeature(feature.trim())))
+  }
 
   store.dispatch(setAuthenticated(isAuthenticated(grantType)))
 

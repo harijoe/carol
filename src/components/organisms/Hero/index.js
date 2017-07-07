@@ -14,6 +14,7 @@ import {
   Link,
   MainWrapper,
   Heading,
+  SearchEngine,
 } from 'components'
 import { Carousel } from 'containers'
 
@@ -176,10 +177,15 @@ const FirstChoices = (choices, reply) => (
   </CarouselWrapper>
 )
 
-const Hero = ({ hasActiveConversation, firstChoices, reply, hasConversations }) => (
+const Hero = ({ hasActiveConversation, firstChoices, reply, hasConversations, featureSearchEngineEnabled }) => (
   <HeroWrapper className="hero">
     <MainWrapper resetState>
       <StyledSection>
+        { featureSearchEngineEnabled &&
+          <StyledRow>
+            <SearchEngine />
+          </StyledRow>
+        }
         {
           hasActiveConversation || hasConversations ?
             <StyledRow>
@@ -219,6 +225,7 @@ const Hero = ({ hasActiveConversation, firstChoices, reply, hasConversations }) 
 Hero.propTypes = {
   hasConversations: PropTypes.bool,
   hasActiveConversation: PropTypes.bool,
+  featureSearchEngineEnabled: PropTypes.bool,
   firstChoices: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,

@@ -98,6 +98,7 @@
     "webpack-bundle-analyzer": "^2.8.2"
   },
   "dependencies": {
+    "algoliasearch": "^3.24.0",
     "anchorate": "^1.1.0",
     "babel-core": "^6.17.0",
     "babel-polyfill": "^6.16.0",

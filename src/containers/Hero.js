@@ -2,19 +2,14 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { fromProjectElaboration } from 'store/selectors'
+import { fromProjectElaboration, fromContext } from 'store/selectors'
 import { projectElaborationHeroDetails, setProjectElaborationHeroAnswer } from 'store/actions'
 
 import { Hero } from 'components'
 
 class HeroContainer extends Component {
   static propTypes = {
-    hasConversations: PropTypes.bool,
-    hasActiveConversation: PropTypes.bool,
-    firstChoices: PropTypes.array,
     request: PropTypes.func,
-    reply: PropTypes.func,
-    conversations: PropTypes.object,
   }
 
   componentWillMount() {
@@ -22,9 +17,7 @@ class HeroContainer extends Component {
   }
 
   render() {
-    const { hasActiveConversation, firstChoices, reply, hasConversations, conversations } = this.props
-
-    return <Hero {...{ firstChoices, reply, hasActiveConversation, hasConversations, conversations }} />
+    return <Hero {...this.props} />
   }
 }
 
@@ -33,6 +26,7 @@ const mapStateToProps = state => ({
   hasActiveConversation: fromProjectElaboration.hasActiveConversation(state),
   conversations: fromProjectElaboration.getConversations(state),
   firstChoices: fromProjectElaboration.getFirstChoices(state),
+  featureSearchEngineEnabled: fromContext.isFeatureEnabled(state, 'search_engine'),
 })
 
 const mapDispatchToProps = dispatch => (
