@@ -88,8 +88,9 @@ const SignLabel = styled.p`
 const LogInLabel = styled.p`
   position: relative;
   display: inline-block;
-  margin: 0 0 0 ${theme('spaces.m')};
+  margin: 0 0 0 ${theme('spaces.s')};
   padding-right: ${theme('spaces.m')};
+  min-height: ${theme('spaces.m')};
   overflow: hidden;
   font-family: ${theme('fonts.family.andesBlack')};
   font-size: ${theme('fonts.size.base')};
