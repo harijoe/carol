@@ -4,7 +4,7 @@ import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import styled from 'styled-components'
 import messages from 'utils/messages'
 import { theme } from 'utils/style'
-import { cloudinaryUrl, contentSiteUrl, locales } from 'config'
+import { cloudinaryUrl, locales } from 'config'
 
 import { Section, HowItWorksBlock, Paragraph, Link, Col, Grid, Row } from 'components'
 
@@ -32,10 +32,10 @@ const VerifiedPros = locale => (
   </Paragraph>
 )
 
-const Guide = (
+const Guide = locale => (
   <Paragraph>
     <FormattedMessage id="how_it_works.guide.first_part" />
-    <Link to={contentSiteUrl} highlight>
+    <Link to={locales[locale].contentSiteUrl} highlight target="_blank">
       <FormattedMessage id="how_it_works.guide.link" />
     </Link>
     <FormattedMessage id="how_it_works.guide.second_part" />
@@ -64,7 +64,7 @@ const HowItWorks = ({ intl: { formatMessage }, locale }) => (
           <HowItWorksBlock
             imageLink={`${cloudinaryUrl}guide_step3.svg`}
             title={formatMessage(messages('how_it_works.guide.title').label)}
-            content={Guide}
+            content={Guide(locale)}
           />
         </StyledCol>
       </Row>
