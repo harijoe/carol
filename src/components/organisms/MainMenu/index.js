@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 import { theme, ifThen, breakpoint, breakpointMax } from 'utils/style'
-import { locales, cloudinaryUrl } from 'config'
+import { locales } from 'config'
 import injectScroll from 'hoc/component/injectScroll'
 
-import { List, Link, Image, ListItemWithSubmenu } from 'components'
+import { List, Link, ListItemWithSubmenu } from 'components'
 
 const StyledList = styled(List)`${({ homepage, atTop }) => css`
   display: flex;
@@ -160,17 +160,6 @@ const SubMenuLink = styled(Link)`
   }
 `
 
-const StyledImage = styled(Image)`
-  display: inline-block;
-  margin-left: auto;
-  height: ${theme('icons.size.xxxl')};
-  width: ${theme('icons.size.xxxl')};
-
-  ${breakpoint('l')`
-    display: none;
-  `}  
-`
-
 const FirmResourceSubMenu = ({ locale, submenu }) => {
   const submenuConfig = locales[locale].mainMenu.resource[submenu]
   const { path, ...otherProps } = submenuConfig
@@ -194,7 +183,6 @@ const MainMenu = ({ locale, homepage, atTop }) => (
     <li key="firm.find_pro">
       <StyledLink to="/project-elaboration">
         <FormattedMessage id="firm.find_pro" />
-        <StyledImage src={`${cloudinaryUrl}bot.png`} />
       </StyledLink>
     </li>
     <ListItemWithSubmenu key="firm.resource" id="firm.resource" linkStyle={linkStyle} homepage={homepage}>
