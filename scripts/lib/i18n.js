@@ -22,7 +22,7 @@ const getMessagesByWorksheet = async (spreadsheet, worksheetId, languagesToInclu
   }), {})
 }
 
-const escapeValue = text => text.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, '\\n')
+const escapeValue = text => text.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/(\r\n|\r|\n)/g, '\\n')
 
 const getAllMessages = async (spreadsheet, languagesToInclude) => {
   const allMessagesByLanguage = {}
