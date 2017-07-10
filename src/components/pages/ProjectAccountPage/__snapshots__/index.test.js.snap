@@ -1,4 +1,6 @@
-exports[`test renders ProjectPage 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ProjectPage 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -109,13 +111,15 @@ ShallowWrapper {
               },
             },
           }
-    }>
+    }
+>
     <InjectIntl(ProjectAccountPage)
         params={
             Object {
                 "projectId": "1",
               }
-        } />
+        }
+    />
 </ThemeProvider>,
   "nodes": Array [
     <ThemeProvider
@@ -221,13 +225,15 @@ ShallowWrapper {
                     },
                   },
                 }
-      }>
+      }
+>
       <InjectIntl(ProjectAccountPage)
             params={
                   Object {
                         "projectId": "1",
                       }
-            } />
+            }
+      />
 </ThemeProvider>,
   ],
   "options": Object {},
@@ -238,7 +244,8 @@ ShallowWrapper {
       "_context": Object {},
       "_currentElement": <IntlProvider
         locale="en"
-        messages={Object {}}>
+        messages={Object {}}
+>
         <ThemeProvider
                 theme={
                         Object {
@@ -342,13 +349,15 @@ ShallowWrapper {
                                   },
                                 },
                               }
-                }>
+                }
+        >
                 <InjectIntl(ProjectAccountPage)
                         params={
                                 Object {
                                         "projectId": "1",
                                       }
-                        } />
+                        }
+                />
         </ThemeProvider>
 </IntlProvider>,
       "_debugID": 1,
@@ -463,13 +472,15 @@ ShallowWrapper {
                                       },
                                     },
                                   }
-            }>
+            }
+>
             <InjectIntl(ProjectAccountPage)
                         params={
                                     Object {
                                                 "projectId": "1",
                                               }
-                        } />
+                        }
+            />
 </ThemeProvider>,
           "locale": "en",
           "messages": Object {},
@@ -604,13 +615,15 @@ ShallowWrapper {
                                 },
                               },
                             }
-          }>
+          }
+>
           <InjectIntl(ProjectAccountPage)
                     params={
                               Object {
                                         "projectId": "1",
                                       }
-                    } />
+                    }
+          />
 </ThemeProvider>,
         "_debugID": 2,
         "_renderedOutput": <ThemeProvider
@@ -716,13 +729,15 @@ ShallowWrapper {
                                 },
                               },
                             }
-          }>
+          }
+>
           <InjectIntl(ProjectAccountPage)
                     params={
                               Object {
                                         "projectId": "1",
                                       }
-                    } />
+                    }
+          />
 </ThemeProvider>,
       },
       "_renderedNodeType": 1,
@@ -737,7 +752,8 @@ ShallowWrapper {
   "root": [Circular],
   "unrendered": <IntlProvider
     locale="en"
-    messages={Object {}}>
+    messages={Object {}}
+>
     <ThemeProvider
         theme={
             Object {
@@ -841,13 +857,15 @@ ShallowWrapper {
                   },
                 },
               }
-        }>
+        }
+    >
         <InjectIntl(ProjectAccountPage)
             params={
                 Object {
                     "projectId": "1",
                   }
-            } />
+            }
+        />
     </ThemeProvider>
 </IntlProvider>,
 }

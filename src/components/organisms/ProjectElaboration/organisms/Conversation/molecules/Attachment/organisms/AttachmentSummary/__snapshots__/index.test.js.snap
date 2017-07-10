@@ -1,1 +1,3 @@
-exports[`test renders AttachmentSummary 1`] = `[Function]`;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders AttachmentSummary 1`] = `[Function]`;

@@ -1,4 +1,6 @@
-exports[`test renders the FirmLight component 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the FirmLight component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -10,106 +12,124 @@ ShallowWrapper {
     <li>
         <FormattedMessage
             id="firm.details.logo"
-            values={Object {}} />
+            values={Object {}}
+        />
         : 
         <FormattedMessage
             id="firm.details.logo_missing"
-            values={Object {}} />
+            values={Object {}}
+        />
     </li>
     <li>
         <FormattedMessage
             id="firm.details.name"
-            values={Object {}} />
+            values={Object {}}
+        />
         : 
         test
     </li>
     <li>
         <FormattedMessage
             id="firm.details.postal_code"
-            values={Object {}} />
+            values={Object {}}
+        />
         : 
         96352
     </li>
     <li>
         <FormattedMessage
             id="firm.details.city"
-            values={Object {}} />
+            values={Object {}}
+        />
         : 
     </li>
     <li>
         <FormattedMessage
             id="firm.details.country"
-            values={Object {}} />
+            values={Object {}}
+        />
         : 
     </li>
     <li>
         <FormattedMessage
             id="firm.details.registration_number"
-            values={Object {}} />
+            values={Object {}}
+        />
         : 
     </li>
     <li>
         <FormattedMessage
             id="firm.details.description"
-            values={Object {}} />
+            values={Object {}}
+        />
         : 
     </li>
     <li>
         <FormattedMessage
             id="firm.details.website"
-            values={Object {}} />
+            values={Object {}}
+        />
         : 
         <FormattedMessage
             id="firm.details.website_missing"
-            values={Object {}} />
+            values={Object {}}
+        />
     </li>
     <li>
         <FormattedMessage
             id="firm.details.employees_number"
-            values={Object {}} />
+            values={Object {}}
+        />
         : 
     </li>
     <li>
         <FormattedMessage
             id="firm.details.client_since"
-            values={Object {}} />
+            values={Object {}}
+        />
         : 
     </li>
     <li>
         <FormattedMessage
             id="firm.details.certificate"
-            values={Object {}} />
+            values={Object {}}
+        />
         : 
     </li>
     <li>
         <FormattedMessage
             id="firm.details.budget"
-            values={Object {}} />
+            values={Object {}}
+        />
         : 
     </li>
     <li>
         <FormattedMessage
             id="firm.details.delay"
-            values={Object {}} />
+            values={Object {}}
+        />
         : 
     </li>
     <li>
         <FormattedMessage
             id="firm.details.conviviality"
-            values={Object {}} />
+            values={Object {}}
+        />
         : 
     </li>
     <li>
         <FormattedMessage
             id="firm.details.notation"
-            values={Object {}} />
+            values={Object {}}
+        />
         : 
         0.05113636363636364
     </li>
     <li>
         <FormattedMessage
             id="firm.details.served_area_cities"
-            values={Object {}} />
+            values={Object {}}
+        />
         : 
     </li>
 </Mock>,
@@ -118,106 +138,124 @@ ShallowWrapper {
       <li>
             <FormattedMessage
                   id="firm.details.logo"
-                  values={Object {}} />
+                  values={Object {}}
+            />
             : 
             <FormattedMessage
                   id="firm.details.logo_missing"
-                  values={Object {}} />
+                  values={Object {}}
+            />
       </li>
       <li>
             <FormattedMessage
                   id="firm.details.name"
-                  values={Object {}} />
+                  values={Object {}}
+            />
             : 
             test
       </li>
       <li>
             <FormattedMessage
                   id="firm.details.postal_code"
-                  values={Object {}} />
+                  values={Object {}}
+            />
             : 
             96352
       </li>
       <li>
             <FormattedMessage
                   id="firm.details.city"
-                  values={Object {}} />
+                  values={Object {}}
+            />
             : 
       </li>
       <li>
             <FormattedMessage
                   id="firm.details.country"
-                  values={Object {}} />
+                  values={Object {}}
+            />
             : 
       </li>
       <li>
             <FormattedMessage
                   id="firm.details.registration_number"
-                  values={Object {}} />
+                  values={Object {}}
+            />
             : 
       </li>
       <li>
             <FormattedMessage
                   id="firm.details.description"
-                  values={Object {}} />
+                  values={Object {}}
+            />
             : 
       </li>
       <li>
             <FormattedMessage
                   id="firm.details.website"
-                  values={Object {}} />
+                  values={Object {}}
+            />
             : 
             <FormattedMessage
                   id="firm.details.website_missing"
-                  values={Object {}} />
+                  values={Object {}}
+            />
       </li>
       <li>
             <FormattedMessage
                   id="firm.details.employees_number"
-                  values={Object {}} />
+                  values={Object {}}
+            />
             : 
       </li>
       <li>
             <FormattedMessage
                   id="firm.details.client_since"
-                  values={Object {}} />
+                  values={Object {}}
+            />
             : 
       </li>
       <li>
             <FormattedMessage
                   id="firm.details.certificate"
-                  values={Object {}} />
+                  values={Object {}}
+            />
             : 
       </li>
       <li>
             <FormattedMessage
                   id="firm.details.budget"
-                  values={Object {}} />
+                  values={Object {}}
+            />
             : 
       </li>
       <li>
             <FormattedMessage
                   id="firm.details.delay"
-                  values={Object {}} />
+                  values={Object {}}
+            />
             : 
       </li>
       <li>
             <FormattedMessage
                   id="firm.details.conviviality"
-                  values={Object {}} />
+                  values={Object {}}
+            />
             : 
       </li>
       <li>
             <FormattedMessage
                   id="firm.details.notation"
-                  values={Object {}} />
+                  values={Object {}}
+            />
             : 
             0.05113636363636364
       </li>
       <li>
             <FormattedMessage
                   id="firm.details.served_area_cities"
-                  values={Object {}} />
+                  values={Object {}}
+            />
             : 
       </li>
 </Mock>,
@@ -233,7 +271,8 @@ ShallowWrapper {
         globalRatingCount={88}
         logoUrl=""
         name="test"
-        postalCode="96352" />,
+        postalCode="96352"
+/>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -271,106 +310,124 @@ ShallowWrapper {
           <li>
                     <FormattedMessage
                               id="firm.details.logo"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
                     <FormattedMessage
                               id="firm.details.logo_missing"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.name"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
                     test
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.postal_code"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
                     96352
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.city"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.country"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.registration_number"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.description"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.website"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
                     <FormattedMessage
                               id="firm.details.website_missing"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.employees_number"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.client_since"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.certificate"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.budget"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.delay"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.conviviality"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.notation"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
                     0.05113636363636364
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.served_area_cities"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
 </Mock>,
@@ -379,106 +436,124 @@ ShallowWrapper {
           <li>
                     <FormattedMessage
                               id="firm.details.logo"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
                     <FormattedMessage
                               id="firm.details.logo_missing"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.name"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
                     test
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.postal_code"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
                     96352
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.city"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.country"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.registration_number"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.description"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.website"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
                     <FormattedMessage
                               id="firm.details.website_missing"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.employees_number"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.client_since"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.certificate"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.budget"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.delay"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.conviviality"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.notation"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
                     0.05113636363636364
           </li>
           <li>
                     <FormattedMessage
                               id="firm.details.served_area_cities"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
                     : 
           </li>
 </Mock>,
@@ -498,6 +573,7 @@ ShallowWrapper {
     globalRatingCount={88}
     logoUrl=""
     name="test"
-    postalCode="96352" />,
+    postalCode="96352"
+/>,
 }
 `;

@@ -1,4 +1,6 @@
-exports[`test renders LoginPage 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders LoginPage 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -14,7 +16,8 @@ ShallowWrapper {
                 Object {
                     "email": null,
                   }
-            } />
+            }
+        />
     </Mock>
 </Mock>,
   "nodes": Array [
@@ -26,7 +29,8 @@ ShallowWrapper {
                         Object {
                               "email": null,
                             }
-                  } />
+                  }
+            />
       </Mock>
 </Mock>,
   ],
@@ -72,7 +76,8 @@ ShallowWrapper {
                                         Object {
                                                   "email": null,
                                                 }
-                              } />
+                              }
+                    />
           </Mock>
 </Mock>,
         "_debugID": 2,
@@ -84,7 +89,8 @@ ShallowWrapper {
                                         Object {
                                                   "email": null,
                                                 }
-                              } />
+                              }
+                    />
           </Mock>
 </Mock>,
       },

@@ -1,4 +1,6 @@
-exports[`test renders the GoogleTagManager component 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the GoogleTagManager component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -12,25 +14,28 @@ ShallowWrapper {
             dangerouslySetInnerHTML={
                 Object {
                     "__html": "
-                        <iframe src=\"//www.googletagmanager.com/ns.html?id=GTM-123\"
-                            height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe>",
+                        <iframe src=\\"//www.googletagmanager.com/ns.html?id=GTM-123\\"
+                            height=\\"0\\" width=\\"0\\" style=\\"display:none;visibility:hidden\\"></iframe>",
                   }
-            } />
+            }
+        />
     </div>
     <div
-        id="react-google-tag-manager-gtm">
+        id="react-google-tag-manager-gtm"
+    >
         <script
             dangerouslySetInnerHTML={
                 Object {
                     "__html": "
                         (function(w,d,s,l,i){w[l]=w[l]||[];
-                            w[l].push({\'gtm.start\': new Date().getTime(),event:\'gtm.js\', });
-                            var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';
-                            j.async=true;j.src=\'//www.googletagmanager.com/gtm.js?id=\'+i+dl;
+                            w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js', });
+                            var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+                            j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;
                             f.parentNode.insertBefore(j,f);
-                        })(window,document,\'script\',\'dataLayer\',\'GTM-123\');",
+                        })(window,document,'script','dataLayer','GTM-123');",
                   }
-            } />
+            }
+        />
     </div>
 </div>,
   "nodes": Array [
@@ -40,25 +45,28 @@ ShallowWrapper {
                   dangerouslySetInnerHTML={
                         Object {
                               "__html": "
-                                <iframe src=\"//www.googletagmanager.com/ns.html?id=GTM-123\"
-                                    height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe>",
+                                <iframe src=\\"//www.googletagmanager.com/ns.html?id=GTM-123\\"
+                                    height=\\"0\\" width=\\"0\\" style=\\"display:none;visibility:hidden\\"></iframe>",
                             }
-                  } />
+                  }
+            />
       </div>
       <div
-            id="react-google-tag-manager-gtm">
+            id="react-google-tag-manager-gtm"
+      >
             <script
                   dangerouslySetInnerHTML={
                         Object {
                               "__html": "
                                 (function(w,d,s,l,i){w[l]=w[l]||[];
-                                    w[l].push({\'gtm.start\': new Date().getTime(),event:\'gtm.js\', });
-                                    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';
-                                    j.async=true;j.src=\'//www.googletagmanager.com/gtm.js?id=\'+i+dl;
+                                    w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js', });
+                                    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+                                    j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;
                                     f.parentNode.insertBefore(j,f);
-                                })(window,document,\'script\',\'dataLayer\',\'GTM-123\');",
+                                })(window,document,'script','dataLayer','GTM-123');",
                             }
-                  } />
+                  }
+            />
       </div>
 </div>,
   ],
@@ -72,7 +80,8 @@ ShallowWrapper {
         additionalEvents={Object {}}
         dataLayerName="dataLayer"
         gtmId="GTM-123"
-        scriptId="react-google-tag-manager-gtm" />,
+        scriptId="react-google-tag-manager-gtm"
+/>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -111,25 +120,28 @@ ShallowWrapper {
                               dangerouslySetInnerHTML={
                                         Object {
                                                   "__html": "
-                                                <iframe src=\"//www.googletagmanager.com/ns.html?id=GTM-123\"
-                                                    height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe>",
+                                                <iframe src=\\"//www.googletagmanager.com/ns.html?id=GTM-123\\"
+                                                    height=\\"0\\" width=\\"0\\" style=\\"display:none;visibility:hidden\\"></iframe>",
                                                 }
-                              } />
+                              }
+                    />
           </div>
           <div
-                    id="react-google-tag-manager-gtm">
+                    id="react-google-tag-manager-gtm"
+          >
                     <script
                               dangerouslySetInnerHTML={
                                         Object {
                                                   "__html": "
                                                 (function(w,d,s,l,i){w[l]=w[l]||[];
-                                                    w[l].push({\'gtm.start\': new Date().getTime(),event:\'gtm.js\', });
-                                                    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';
-                                                    j.async=true;j.src=\'//www.googletagmanager.com/gtm.js?id=\'+i+dl;
+                                                    w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js', });
+                                                    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+                                                    j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;
                                                     f.parentNode.insertBefore(j,f);
-                                                })(window,document,\'script\',\'dataLayer\',\'GTM-123\');",
+                                                })(window,document,'script','dataLayer','GTM-123');",
                                                 }
-                              } />
+                              }
+                    />
           </div>
 </div>,
         "_debugID": 2,
@@ -139,25 +151,28 @@ ShallowWrapper {
                               dangerouslySetInnerHTML={
                                         Object {
                                                   "__html": "
-                                                <iframe src=\"//www.googletagmanager.com/ns.html?id=GTM-123\"
-                                                    height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe>",
+                                                <iframe src=\\"//www.googletagmanager.com/ns.html?id=GTM-123\\"
+                                                    height=\\"0\\" width=\\"0\\" style=\\"display:none;visibility:hidden\\"></iframe>",
                                                 }
-                              } />
+                              }
+                    />
           </div>
           <div
-                    id="react-google-tag-manager-gtm">
+                    id="react-google-tag-manager-gtm"
+          >
                     <script
                               dangerouslySetInnerHTML={
                                         Object {
                                                   "__html": "
                                                 (function(w,d,s,l,i){w[l]=w[l]||[];
-                                                    w[l].push({\'gtm.start\': new Date().getTime(),event:\'gtm.js\', });
-                                                    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';
-                                                    j.async=true;j.src=\'//www.googletagmanager.com/gtm.js?id=\'+i+dl;
+                                                    w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js', });
+                                                    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+                                                    j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;
                                                     f.parentNode.insertBefore(j,f);
-                                                })(window,document,\'script\',\'dataLayer\',\'GTM-123\');",
+                                                })(window,document,'script','dataLayer','GTM-123');",
                                                 }
-                              } />
+                              }
+                    />
           </div>
 </div>,
       },
@@ -175,6 +190,7 @@ ShallowWrapper {
     additionalEvents={Object {}}
     dataLayerName="dataLayer"
     gtmId="GTM-123"
-    scriptId="react-google-tag-manager-gtm" />,
+    scriptId="react-google-tag-manager-gtm"
+/>,
 }
 `;

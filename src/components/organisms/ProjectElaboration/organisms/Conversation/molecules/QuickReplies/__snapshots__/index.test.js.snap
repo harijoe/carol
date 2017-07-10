@@ -1,4 +1,6 @@
-exports[`test renders QuickReplies 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders QuickReplies 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -9,7 +11,8 @@ ShallowWrapper {
   "node": <List>
     <styled.li>
         <styled.button
-            onClick={[Function]}>
+            onClick={[Function]}
+        >
             quick reply
         </styled.button>
     </styled.li>
@@ -18,7 +21,8 @@ ShallowWrapper {
     <List>
       <styled.li>
             <styled.button
-                  onClick={[Function]}>
+                  onClick={[Function]}
+            >
                   quick reply
             </styled.button>
       </styled.li>
@@ -37,7 +41,8 @@ ShallowWrapper {
                           "title": "quick reply",
                         },
                       ]
-        } />,
+        }
+/>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -74,7 +79,8 @@ ShallowWrapper {
         "_currentElement": <List>
           <styled.li>
                     <styled.button
-                              onClick={[Function]}>
+                              onClick={[Function]}
+                    >
                               quick reply
                     </styled.button>
           </styled.li>
@@ -83,7 +89,8 @@ ShallowWrapper {
         "_renderedOutput": <List>
           <styled.li>
                     <styled.button
-                              onClick={[Function]}>
+                              onClick={[Function]}
+                    >
                               quick reply
                     </styled.button>
           </styled.li>
@@ -106,6 +113,7 @@ ShallowWrapper {
               "title": "quick reply",
             },
           ]
-    } />,
+    }
+/>,
 }
 `;

@@ -1,4 +1,6 @@
-exports[`test should render MainLayout component 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render MainLayout component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -12,7 +14,8 @@ ShallowWrapper {
         <Mock>
             test children
         </Mock>
-    }>
+    }
+>
     test children
 </Mock>,
   "nodes": Array [
@@ -22,7 +25,8 @@ ShallowWrapper {
             <Mock>
                   test children
             </Mock>
-      }>
+      }
+>
       test children
 </Mock>,
   ],
@@ -70,7 +74,8 @@ ShallowWrapper {
                     <Mock>
                               test children
                     </Mock>
-          }>
+          }
+>
           test children
 </Mock>,
         "_debugID": 2,
@@ -80,7 +85,8 @@ ShallowWrapper {
                     <Mock>
                               test children
                     </Mock>
-          }>
+          }
+>
           test children
 </Mock>,
       },

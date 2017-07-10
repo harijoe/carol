@@ -1,4 +1,6 @@
-exports[`test renders PostList 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders PostList 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -7,14 +9,16 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <Mock
-    loading={undefined}>
+    loading={undefined}
+>
     <div />
     <div />
     <div />
 </Mock>,
   "nodes": Array [
     <Mock
-      loading={undefined}>
+      loading={undefined}
+>
       <div />
       <div />
       <div />
@@ -46,7 +50,8 @@ ShallowWrapper {
                           "title": "title 3",
                         },
                       ]
-        } />,
+        }
+/>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -94,14 +99,16 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Mock
-          loading={undefined}>
+          loading={undefined}
+>
           <div />
           <div />
           <div />
 </Mock>,
         "_debugID": 2,
         "_renderedOutput": <Mock
-          loading={undefined}>
+          loading={undefined}
+>
           <div />
           <div />
           <div />
@@ -137,6 +144,7 @@ ShallowWrapper {
               "title": "title 3",
             },
           ]
-    } />,
+    }
+/>,
 }
 `;

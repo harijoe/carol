@@ -1,4 +1,6 @@
-exports[`test renders ReinsuranceCarousel 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ReinsuranceCarousel 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -27,7 +29,8 @@ ShallowWrapper {
             Array [
                 "api-quotatis-reinsurance",
               ]
-        } />
+        }
+    />
 </styled.aside>,
   "nodes": Array [
     <styled.aside>
@@ -51,7 +54,8 @@ ShallowWrapper {
                   Array [
                         "api-quotatis-reinsurance",
                       ]
-            } />
+            }
+      />
 </styled.aside>,
   ],
   "options": Object {},
@@ -113,7 +117,8 @@ ShallowWrapper {
                               Array [
                                         "api-quotatis-reinsurance",
                                       ]
-                    } />
+                    }
+          />
 </styled.aside>,
         "_debugID": 2,
         "_renderedOutput": <styled.aside>
@@ -137,7 +142,8 @@ ShallowWrapper {
                               Array [
                                         "api-quotatis-reinsurance",
                                       ]
-                    } />
+                    }
+          />
 </styled.aside>,
       },
       "_renderedNodeType": 1,

@@ -1,4 +1,6 @@
-exports[`test renders PopinMenu 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders PopinMenu 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -9,20 +11,25 @@ ShallowWrapper {
   "node": <div>
     <styled.div
         display={false}
-        onClick={[Function]} />
+        onClick={[Function]}
+    />
     <styled.div
-        display={false}>
+        display={false}
+    >
         <Styled(Mock)
-            active={false}>
+            active={false}
+        >
             <Styled(Mock)
-                onClick={[Function]}>
+                onClick={[Function]}
+            >
                 hello
             </Styled(Mock)>
         </Styled(Mock)>
     </styled.div>
     <styled.button
         onClick={[Function]}
-        type="button">
+        type="button"
+    >
         Test
     </styled.button>
 </div>,
@@ -30,20 +37,25 @@ ShallowWrapper {
     <div>
       <styled.div
             display={false}
-            onClick={[Function]} />
+            onClick={[Function]}
+      />
       <styled.div
-            display={false}>
+            display={false}
+      >
             <Styled(Mock)
-                  active={false}>
+                  active={false}
+            >
                   <Styled(Mock)
-                        onClick={[Function]}>
+                        onClick={[Function]}
+                  >
                         hello
                   </Styled(Mock)>
             </Styled(Mock)>
       </styled.div>
       <styled.button
             onClick={[Function]}
-            type="button">
+            type="button"
+      >
             Test
       </styled.button>
 </div>,
@@ -59,7 +71,8 @@ ShallowWrapper {
                 Array [
                         "hello",
                       ]
-        }>
+        }
+>
         Test
 </PopinMenu>,
       "_debugID": 1,
@@ -103,20 +116,25 @@ ShallowWrapper {
         "_currentElement": <div>
           <styled.div
                     display={false}
-                    onClick={[Function]} />
+                    onClick={[Function]}
+          />
           <styled.div
-                    display={false}>
+                    display={false}
+          >
                     <Styled(Mock)
-                              active={false}>
+                              active={false}
+                    >
                               <Styled(Mock)
-                                        onClick={[Function]}>
+                                        onClick={[Function]}
+                              >
                                         hello
                               </Styled(Mock)>
                     </Styled(Mock)>
           </styled.div>
           <styled.button
                     onClick={[Function]}
-                    type="button">
+                    type="button"
+          >
                     Test
           </styled.button>
 </div>,
@@ -124,20 +142,25 @@ ShallowWrapper {
         "_renderedOutput": <div>
           <styled.div
                     display={false}
-                    onClick={[Function]} />
+                    onClick={[Function]}
+          />
           <styled.div
-                    display={false}>
+                    display={false}
+          >
                     <Styled(Mock)
-                              active={false}>
+                              active={false}
+                    >
                               <Styled(Mock)
-                                        onClick={[Function]}>
+                                        onClick={[Function]}
+                              >
                                         hello
                               </Styled(Mock)>
                     </Styled(Mock)>
           </styled.div>
           <styled.button
                     onClick={[Function]}
-                    type="button">
+                    type="button"
+          >
                     Test
           </styled.button>
 </div>,
@@ -157,7 +180,8 @@ ShallowWrapper {
         Array [
             "hello",
           ]
-    }>
+    }
+>
     Test
 </PopinMenu>,
 }

@@ -3,11 +3,11 @@ import { IntlProvider } from 'react-intl'
 
 import messages from '../src/i18n'
 
-const specialProperties = ['@@toStringTag', '$$typeof', 'toJSON']
+const specialProperties = [/^@@/, /^\$\$/, /^toJSON$/, /^nodeType$/]
 
 const messagesProxyHandler = {
   get(target, name) {
-    if (name in target || typeof name === 'symbol' || specialProperties.includes(name)) {
+    if (name in target || typeof name === 'symbol' || specialProperties.find(prop => name.match(prop))) {
       return target[name]
     }
 

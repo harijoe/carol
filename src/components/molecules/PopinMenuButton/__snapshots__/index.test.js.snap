@@ -1,4 +1,6 @@
-exports[`test renders PopinMenuButton 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders PopinMenuButton 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -8,13 +10,15 @@ ShallowWrapper {
   "length": 1,
   "node": <styled.button
     onClick={[Function]}
-    type="button">
+    type="button"
+>
     Test
 </styled.button>,
   "nodes": Array [
     <styled.button
       onClick={[Function]}
-      type="button">
+      type="button"
+>
       Test
 </styled.button>,
   ],
@@ -25,7 +29,8 @@ ShallowWrapper {
       "_compositeType": 2,
       "_context": Object {},
       "_currentElement": <PopinMenuButton
-        onClick={[Function]}>
+        onClick={[Function]}
+>
         Test
 </PopinMenuButton>,
       "_debugID": 1,
@@ -60,13 +65,15 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <styled.button
           onClick={[Function]}
-          type="button">
+          type="button"
+>
           Test
 </styled.button>,
         "_debugID": 2,
         "_renderedOutput": <styled.button
           onClick={[Function]}
-          type="button">
+          type="button"
+>
           Test
 </styled.button>,
       },
@@ -81,7 +88,8 @@ ShallowWrapper {
   },
   "root": [Circular],
   "unrendered": <PopinMenuButton
-    onClick={[Function]}>
+    onClick={[Function]}
+>
     Test
 </PopinMenuButton>,
 }

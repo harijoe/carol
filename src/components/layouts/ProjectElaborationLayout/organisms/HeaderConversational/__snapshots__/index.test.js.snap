@@ -1,4 +1,6 @@
-exports[`test renders the HeaderConversational component 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the HeaderConversational component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -109,21 +111,26 @@ ShallowWrapper {
               },
             },
           }
-    }>
+    }
+>
     <styled.div>
         <Mock />
     </styled.div>
     <Styled(Mock)
-        level={3}>
+        level={3}
+    >
         <FormattedMessage
             id="project.elaboration.title"
-            values={Object {}} />
+            values={Object {}}
+        />
     </Styled(Mock)>
     <styled.div>
         <Mock
-            to="/">
+            to="/"
+        >
             <Styled(Mock)
-                icon="close" />
+                icon="close"
+            />
         </Mock>
     </styled.div>
 </Styled(Mock)>,
@@ -231,21 +238,26 @@ ShallowWrapper {
                     },
                   },
                 }
-      }>
+      }
+>
       <styled.div>
             <Mock />
       </styled.div>
       <Styled(Mock)
-            level={3}>
+            level={3}
+      >
             <FormattedMessage
                   id="project.elaboration.title"
-                  values={Object {}} />
+                  values={Object {}}
+            />
       </Styled(Mock)>
       <styled.div>
             <Mock
-                  to="/">
+                  to="/"
+            >
                   <Styled(Mock)
-                        icon="close" />
+                        icon="close"
+                  />
             </Mock>
       </styled.div>
 </Styled(Mock)>,
@@ -359,7 +371,8 @@ ShallowWrapper {
                           },
                         },
                       }
-        } />,
+        }
+/>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -592,21 +605,26 @@ ShallowWrapper {
                                 },
                               },
                             }
-          }>
+          }
+>
           <styled.div>
                     <Mock />
           </styled.div>
           <Styled(Mock)
-                    level={3}>
+                    level={3}
+          >
                     <FormattedMessage
                               id="project.elaboration.title"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
           </Styled(Mock)>
           <styled.div>
                     <Mock
-                              to="/">
+                              to="/"
+                    >
                               <Styled(Mock)
-                                        icon="close" />
+                                        icon="close"
+                              />
                     </Mock>
           </styled.div>
 </Styled(Mock)>,
@@ -714,21 +732,26 @@ ShallowWrapper {
                                 },
                               },
                             }
-          }>
+          }
+>
           <styled.div>
                     <Mock />
           </styled.div>
           <Styled(Mock)
-                    level={3}>
+                    level={3}
+          >
                     <FormattedMessage
                               id="project.elaboration.title"
-                              values={Object {}} />
+                              values={Object {}}
+                    />
           </Styled(Mock)>
           <styled.div>
                     <Mock
-                              to="/">
+                              to="/"
+                    >
                               <Styled(Mock)
-                                        icon="close" />
+                                        icon="close"
+                              />
                     </Mock>
           </styled.div>
 </Styled(Mock)>,
@@ -846,6 +869,7 @@ ShallowWrapper {
               },
             },
           }
-    } />,
+    }
+/>,
 }
 `;

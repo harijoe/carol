@@ -1,4 +1,6 @@
-exports[`test renders the Hero component 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the Hero component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -109,7 +111,8 @@ ShallowWrapper {
               },
             },
           }
-    }>
+    }
+>
     <Hero
         firstChoices={
             Array [
@@ -124,7 +127,8 @@ ShallowWrapper {
                   "title": "test",
                 },
               ]
-        } />
+        }
+    />
 </ThemeProvider>,
   "nodes": Array [
     <ThemeProvider
@@ -230,7 +234,8 @@ ShallowWrapper {
                     },
                   },
                 }
-      }>
+      }
+>
       <Hero
             firstChoices={
                   Array [
@@ -245,7 +250,8 @@ ShallowWrapper {
                           "title": "test",
                         },
                       ]
-            } />
+            }
+      />
 </ThemeProvider>,
   ],
   "options": Object {},
@@ -256,7 +262,8 @@ ShallowWrapper {
       "_context": Object {},
       "_currentElement": <IntlProvider
         locale="en"
-        messages={Object {}}>
+        messages={Object {}}
+>
         <ThemeProvider
                 theme={
                         Object {
@@ -360,7 +367,8 @@ ShallowWrapper {
                                   },
                                 },
                               }
-                }>
+                }
+        >
                 <Hero
                         firstChoices={
                                 Array [
@@ -375,7 +383,8 @@ ShallowWrapper {
                                           "title": "test",
                                         },
                                       ]
-                        } />
+                        }
+                />
         </ThemeProvider>
 </IntlProvider>,
       "_debugID": 1,
@@ -490,7 +499,8 @@ ShallowWrapper {
                                       },
                                     },
                                   }
-            }>
+            }
+>
             <Hero
                         firstChoices={
                                     Array [
@@ -505,7 +515,8 @@ ShallowWrapper {
                                                   "title": "test",
                                                 },
                                               ]
-                        } />
+                        }
+            />
 </ThemeProvider>,
           "locale": "en",
           "messages": Object {},
@@ -640,7 +651,8 @@ ShallowWrapper {
                                 },
                               },
                             }
-          }>
+          }
+>
           <Hero
                     firstChoices={
                               Array [
@@ -655,7 +667,8 @@ ShallowWrapper {
                                           "title": "test",
                                         },
                                       ]
-                    } />
+                    }
+          />
 </ThemeProvider>,
         "_debugID": 2,
         "_renderedOutput": <ThemeProvider
@@ -761,7 +774,8 @@ ShallowWrapper {
                                 },
                               },
                             }
-          }>
+          }
+>
           <Hero
                     firstChoices={
                               Array [
@@ -776,7 +790,8 @@ ShallowWrapper {
                                           "title": "test",
                                         },
                                       ]
-                    } />
+                    }
+          />
 </ThemeProvider>,
       },
       "_renderedNodeType": 1,
@@ -791,7 +806,8 @@ ShallowWrapper {
   "root": [Circular],
   "unrendered": <IntlProvider
     locale="en"
-    messages={Object {}}>
+    messages={Object {}}
+>
     <ThemeProvider
         theme={
             Object {
@@ -895,7 +911,8 @@ ShallowWrapper {
                   },
                 },
               }
-        }>
+        }
+    >
         <Hero
             firstChoices={
                 Array [
@@ -910,7 +927,8 @@ ShallowWrapper {
                       "title": "test",
                     },
                   ]
-            } />
+            }
+        />
     </ThemeProvider>
 </IntlProvider>,
 }

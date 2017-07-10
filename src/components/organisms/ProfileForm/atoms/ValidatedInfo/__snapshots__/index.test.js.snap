@@ -1,4 +1,6 @@
-exports[`test renders a non-validated info 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a non-validated info 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -7,23 +9,29 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <styled.div
-    className="qs-Field--toValidate">
+    className="qs-Field--toValidate"
+>
     <Styled(Mock)
         icon="not-validated"
-        size={21} />
+        size={21}
+    />
     <FormattedMessage
         id="user.profile.field.not-validated"
-        values={Object {}} />
+        values={Object {}}
+    />
 </styled.div>,
   "nodes": Array [
     <styled.div
-      className="qs-Field--toValidate">
+      className="qs-Field--toValidate"
+>
       <Styled(Mock)
             icon="not-validated"
-            size={21} />
+            size={21}
+      />
       <FormattedMessage
             id="user.profile.field.not-validated"
-            values={Object {}} />
+            values={Object {}}
+      />
 </styled.div>,
   ],
   "options": Object {},
@@ -34,7 +42,8 @@ ShallowWrapper {
       "_context": Object {},
       "_currentElement": <ValidatedInfo
         field="field"
-        validated={false} />,
+        validated={false}
+/>,
       "_debugID": 3,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -66,23 +75,29 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <styled.div
-          className="qs-Field--toValidate">
+          className="qs-Field--toValidate"
+>
           <Styled(Mock)
                     icon="not-validated"
-                    size={21} />
+                    size={21}
+          />
           <FormattedMessage
                     id="user.profile.field.not-validated"
-                    values={Object {}} />
+                    values={Object {}}
+          />
 </styled.div>,
         "_debugID": 4,
         "_renderedOutput": <styled.div
-          className="qs-Field--toValidate">
+          className="qs-Field--toValidate"
+>
           <Styled(Mock)
                     icon="not-validated"
-                    size={21} />
+                    size={21}
+          />
           <FormattedMessage
                     id="user.profile.field.not-validated"
-                    values={Object {}} />
+                    values={Object {}}
+          />
 </styled.div>,
       },
       "_renderedNodeType": 1,
@@ -97,11 +112,12 @@ ShallowWrapper {
   "root": [Circular],
   "unrendered": <ValidatedInfo
     field="field"
-    validated={false} />,
+    validated={false}
+/>,
 }
 `;
 
-exports[`test renders a validated info 1`] = `
+exports[`renders a validated info 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -110,23 +126,29 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <styled.div
-    className="qs-Field--validated">
+    className="qs-Field--validated"
+>
     <Styled(Mock)
         icon="validated"
-        size={21} />
+        size={21}
+    />
     <FormattedMessage
         id="user.profile.field.validated"
-        values={Object {}} />
+        values={Object {}}
+    />
 </styled.div>,
   "nodes": Array [
     <styled.div
-      className="qs-Field--validated">
+      className="qs-Field--validated"
+>
       <Styled(Mock)
             icon="validated"
-            size={21} />
+            size={21}
+      />
       <FormattedMessage
             id="user.profile.field.validated"
-            values={Object {}} />
+            values={Object {}}
+      />
 </styled.div>,
   ],
   "options": Object {},
@@ -137,7 +159,8 @@ ShallowWrapper {
       "_context": Object {},
       "_currentElement": <ValidatedInfo
         field="field"
-        validated={true} />,
+        validated={true}
+/>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -169,23 +192,29 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <styled.div
-          className="qs-Field--validated">
+          className="qs-Field--validated"
+>
           <Styled(Mock)
                     icon="validated"
-                    size={21} />
+                    size={21}
+          />
           <FormattedMessage
                     id="user.profile.field.validated"
-                    values={Object {}} />
+                    values={Object {}}
+          />
 </styled.div>,
         "_debugID": 2,
         "_renderedOutput": <styled.div
-          className="qs-Field--validated">
+          className="qs-Field--validated"
+>
           <Styled(Mock)
                     icon="validated"
-                    size={21} />
+                    size={21}
+          />
           <FormattedMessage
                     id="user.profile.field.validated"
-                    values={Object {}} />
+                    values={Object {}}
+          />
 </styled.div>,
       },
       "_renderedNodeType": 1,
@@ -200,6 +229,7 @@ ShallowWrapper {
   "root": [Circular],
   "unrendered": <ValidatedInfo
     field="field"
-    validated={true} />,
+    validated={true}
+/>,
 }
 `;

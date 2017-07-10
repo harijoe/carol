@@ -1,4 +1,6 @@
-exports[`test renders Reinsurance 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Reinsurance 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -7,7 +9,8 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <Styled(Mock)
-    light={true}>
+    light={true}
+>
     <Mock
         carousel={
             Object {
@@ -39,11 +42,13 @@ ShallowWrapper {
             Array [
                 "api-quotatis-reinsurance",
               ]
-        } />
+        }
+    />
 </Styled(Mock)>,
   "nodes": Array [
     <Styled(Mock)
-      light={true}>
+      light={true}
+>
       <Mock
             carousel={
                   Object {
@@ -75,7 +80,8 @@ ShallowWrapper {
                   Array [
                         "api-quotatis-reinsurance",
                       ]
-            } />
+            }
+      />
 </Styled(Mock)>,
   ],
   "options": Object {},
@@ -117,7 +123,8 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Styled(Mock)
-          light={true}>
+          light={true}
+>
           <Mock
                     carousel={
                               Object {
@@ -149,11 +156,13 @@ ShallowWrapper {
                               Array [
                                         "api-quotatis-reinsurance",
                                       ]
-                    } />
+                    }
+          />
 </Styled(Mock)>,
         "_debugID": 2,
         "_renderedOutput": <Styled(Mock)
-          light={true}>
+          light={true}
+>
           <Mock
                     carousel={
                               Object {
@@ -185,7 +194,8 @@ ShallowWrapper {
                               Array [
                                         "api-quotatis-reinsurance",
                                       ]
-                    } />
+                    }
+          />
 </Styled(Mock)>,
       },
       "_renderedNodeType": 1,

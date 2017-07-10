@@ -1,6 +1,9 @@
-exports[`test renders Carousel 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Carousel 1`] = `
 <Carousel
-  itemProps={null}>
+  itemProps={null}
+>
   <div>
     1
   </div>

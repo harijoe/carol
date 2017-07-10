@@ -1,4 +1,6 @@
-exports[`test renders MinimalPageTemplate 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders MinimalPageTemplate 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -7,12 +9,14 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <MinimalPageTemplate
-    header="header">
+    header="header"
+>
     test
 </MinimalPageTemplate>,
   "nodes": Array [
     <MinimalPageTemplate
-      header="header">
+      header="header"
+>
       test
 </MinimalPageTemplate>,
   ],
@@ -29,11 +33,13 @@ ShallowWrapper {
                         "getState": [Function],
                         "replaceReducer": [Function],
                         "subscribe": [Function],
-                        Symbol(Symbol.observable): [Function],
+                        Symbol(observable): [Function],
                       }
-        }>
+        }
+>
         <MinimalPageTemplate
-                header="header">
+                header="header"
+        >
                 test
         </MinimalPageTemplate>
 </Provider>,
@@ -45,7 +51,8 @@ ShallowWrapper {
         "context": Object {},
         "props": Object {
           "children": <MinimalPageTemplate
-            header="header">
+            header="header"
+>
             test
 </MinimalPageTemplate>,
           "store": Object {
@@ -53,7 +60,7 @@ ShallowWrapper {
             "getState": [Function],
             "replaceReducer": [Function],
             "subscribe": [Function],
-            Symbol(Symbol.observable): [Function],
+            Symbol(observable): [Function],
           },
         },
         "refs": Object {},
@@ -63,7 +70,7 @@ ShallowWrapper {
           "getState": [Function],
           "replaceReducer": [Function],
           "subscribe": [Function],
-          Symbol(Symbol.observable): [Function],
+          Symbol(observable): [Function],
         },
         "updater": Object {
           "enqueueCallback": [Function],
@@ -84,12 +91,14 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <MinimalPageTemplate
-          header="header">
+          header="header"
+>
           test
 </MinimalPageTemplate>,
         "_debugID": 2,
         "_renderedOutput": <MinimalPageTemplate
-          header="header">
+          header="header"
+>
           test
 </MinimalPageTemplate>,
       },
@@ -110,11 +119,13 @@ ShallowWrapper {
             "getState": [Function],
             "replaceReducer": [Function],
             "subscribe": [Function],
-            Symbol(Symbol.observable): [Function],
+            Symbol(observable): [Function],
           }
-    }>
+    }
+>
     <MinimalPageTemplate
-        header="header">
+        header="header"
+    >
         test
     </MinimalPageTemplate>
 </Provider>,

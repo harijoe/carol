@@ -1,4 +1,6 @@
-exports[`test renders the HowItWorksBlock component 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the HowItWorksBlock component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -8,18 +10,22 @@ ShallowWrapper {
   "length": 1,
   "node": <div>
     <Styled(Mock)
-        src={undefined} />
+        src={undefined}
+    />
     <Mock
-        level={3}>
+        level={3}
+    >
         Test
     </Mock>
 </div>,
   "nodes": Array [
     <div>
       <Styled(Mock)
-            src={undefined} />
+            src={undefined}
+      />
       <Mock
-            level={3}>
+            level={3}
+      >
             Test
       </Mock>
 </div>,
@@ -32,7 +38,8 @@ ShallowWrapper {
       "_context": Object {},
       "_currentElement": <HowItWorksBlock
         Content="Test content"
-        title="Test" />,
+        title="Test"
+/>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -65,18 +72,22 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <div>
           <Styled(Mock)
-                    src={undefined} />
+                    src={undefined}
+          />
           <Mock
-                    level={3}>
+                    level={3}
+          >
                     Test
           </Mock>
 </div>,
         "_debugID": 2,
         "_renderedOutput": <div>
           <Styled(Mock)
-                    src={undefined} />
+                    src={undefined}
+          />
           <Mock
-                    level={3}>
+                    level={3}
+          >
                     Test
           </Mock>
 </div>,
@@ -93,6 +104,7 @@ ShallowWrapper {
   "root": [Circular],
   "unrendered": <HowItWorksBlock
     Content="Test content"
-    title="Test" />,
+    title="Test"
+/>,
 }
 `;

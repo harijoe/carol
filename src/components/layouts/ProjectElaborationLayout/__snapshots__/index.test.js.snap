@@ -1,4 +1,6 @@
-exports[`test should render ProjectElaborationLayout component 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ProjectElaborationLayout component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -7,12 +9,14 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <Mock
-    header={<Mock />}>
+    header={<Mock />}
+>
     test children
 </Mock>,
   "nodes": Array [
     <Mock
-      header={<Mock />}>
+      header={<Mock />}
+>
       test children
 </Mock>,
   ],
@@ -55,12 +59,14 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Mock
-          header={<Mock />}>
+          header={<Mock />}
+>
           test children
 </Mock>,
         "_debugID": 2,
         "_renderedOutput": <Mock
-          header={<Mock />}>
+          header={<Mock />}
+>
           test children
 </Mock>,
       },

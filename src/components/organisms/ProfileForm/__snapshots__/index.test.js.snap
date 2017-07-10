@@ -1,4 +1,6 @@
-exports[`test renders ProfileForm 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ProfileForm 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -109,7 +111,8 @@ ShallowWrapper {
               },
             },
           }
-    }>
+    }
+>
     <InjectIntl(ProfileForm) />
 </ThemeProvider>,
   "nodes": Array [
@@ -216,7 +219,8 @@ ShallowWrapper {
                     },
                   },
                 }
-      }>
+      }
+>
       <InjectIntl(ProfileForm) />
 </ThemeProvider>,
   ],
@@ -228,7 +232,8 @@ ShallowWrapper {
       "_context": Object {},
       "_currentElement": <IntlProvider
         locale="en"
-        messages={Object {}}>
+        messages={Object {}}
+>
         <ThemeProvider
                 theme={
                         Object {
@@ -332,7 +337,8 @@ ShallowWrapper {
                                   },
                                 },
                               }
-                }>
+                }
+        >
                 <InjectIntl(ProfileForm) />
         </ThemeProvider>
 </IntlProvider>,
@@ -448,7 +454,8 @@ ShallowWrapper {
                                       },
                                     },
                                   }
-            }>
+            }
+>
             <InjectIntl(ProfileForm) />
 </ThemeProvider>,
           "locale": "en",
@@ -584,7 +591,8 @@ ShallowWrapper {
                                 },
                               },
                             }
-          }>
+          }
+>
           <InjectIntl(ProfileForm) />
 </ThemeProvider>,
         "_debugID": 2,
@@ -691,7 +699,8 @@ ShallowWrapper {
                                 },
                               },
                             }
-          }>
+          }
+>
           <InjectIntl(ProfileForm) />
 </ThemeProvider>,
       },
@@ -707,7 +716,8 @@ ShallowWrapper {
   "root": [Circular],
   "unrendered": <IntlProvider
     locale="en"
-    messages={Object {}}>
+    messages={Object {}}
+>
     <ThemeProvider
         theme={
             Object {
@@ -811,7 +821,8 @@ ShallowWrapper {
                   },
                 },
               }
-        }>
+        }
+    >
         <InjectIntl(ProfileForm) />
     </ThemeProvider>
 </IntlProvider>,

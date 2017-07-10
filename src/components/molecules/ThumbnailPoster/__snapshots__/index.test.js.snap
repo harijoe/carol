@@ -1,4 +1,6 @@
-exports[`test renders the ThumbnailPoster component 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the ThumbnailPoster component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -8,18 +10,22 @@ ShallowWrapper {
   "length": 1,
   "node": <styled.figure>
     <Styled(Mock)
-        src="test.jpg" />
+        src="test.jpg"
+    />
     <Styled(Mock)
-        level={3}>
+        level={3}
+    >
         Test
     </Styled(Mock)>
 </styled.figure>,
   "nodes": Array [
     <styled.figure>
       <Styled(Mock)
-            src="test.jpg" />
+            src="test.jpg"
+      />
       <Styled(Mock)
-            level={3}>
+            level={3}
+      >
             Test
       </Styled(Mock)>
 </styled.figure>,
@@ -36,7 +42,8 @@ ShallowWrapper {
                         "src": "test.jpg",
                       }
         }
-        title="Test" />,
+        title="Test"
+/>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -71,18 +78,22 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <styled.figure>
           <Styled(Mock)
-                    src="test.jpg" />
+                    src="test.jpg"
+          />
           <Styled(Mock)
-                    level={3}>
+                    level={3}
+          >
                     Test
           </Styled(Mock)>
 </styled.figure>,
         "_debugID": 2,
         "_renderedOutput": <styled.figure>
           <Styled(Mock)
-                    src="test.jpg" />
+                    src="test.jpg"
+          />
           <Styled(Mock)
-                    level={3}>
+                    level={3}
+          >
                     Test
           </Styled(Mock)>
 </styled.figure>,
@@ -103,6 +114,7 @@ ShallowWrapper {
             "src": "test.jpg",
           }
     }
-    title="Test" />,
+    title="Test"
+/>,
 }
 `;

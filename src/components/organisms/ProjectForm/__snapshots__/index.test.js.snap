@@ -1,4 +1,6 @@
-exports[`test renders ProjectForm component 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ProjectForm component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -7,10 +9,12 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <ProjectForm
-    onClick={[Function]} />,
+    onClick={[Function]}
+/>,
   "nodes": Array [
     <ProjectForm
-      onClick={[Function]} />,
+      onClick={[Function]}
+/>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -20,9 +24,11 @@ ShallowWrapper {
       "_context": Object {},
       "_currentElement": <IntlProvider
         locale="en"
-        messages={Object {}}>
+        messages={Object {}}
+>
         <ProjectForm
-                onClick={[Function]} />
+                onClick={[Function]}
+        />
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -34,7 +40,8 @@ ShallowWrapper {
         },
         "props": Object {
           "children": <ProjectForm
-            onClick={[Function]} />,
+            onClick={[Function]}
+/>,
           "locale": "en",
           "messages": Object {},
         },
@@ -66,10 +73,12 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <ProjectForm
-          onClick={[Function]} />,
+          onClick={[Function]}
+/>,
         "_debugID": 2,
         "_renderedOutput": <ProjectForm
-          onClick={[Function]} />,
+          onClick={[Function]}
+/>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -83,9 +92,11 @@ ShallowWrapper {
   "root": [Circular],
   "unrendered": <IntlProvider
     locale="en"
-    messages={Object {}}>
+    messages={Object {}}
+>
     <ProjectForm
-        onClick={[Function]} />
+        onClick={[Function]}
+    />
 </IntlProvider>,
 }
 `;

@@ -1,4 +1,6 @@
-exports[`test renders the AutoValidationBlock component 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the AutoValidationBlock component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -9,9 +11,11 @@ ShallowWrapper {
   "node": <styled.div>
     <styled.div>
         <Styled(Mock)
-            src={undefined} />
+            src={undefined}
+        />
         <Mock
-            level={2}>
+            level={2}
+        >
             Test
         </Mock>
         <Mock />
@@ -21,9 +25,11 @@ ShallowWrapper {
     <styled.div>
       <styled.div>
             <Styled(Mock)
-                  src={undefined} />
+                  src={undefined}
+            />
             <Mock
-                  level={2}>
+                  level={2}
+            >
                   Test
             </Mock>
             <Mock />
@@ -38,7 +44,8 @@ ShallowWrapper {
       "_context": Object {},
       "_currentElement": <AutoValidationBlock
         Content="Test content"
-        title="Test" />,
+        title="Test"
+/>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -72,9 +79,11 @@ ShallowWrapper {
         "_currentElement": <styled.div>
           <styled.div>
                     <Styled(Mock)
-                              src={undefined} />
+                              src={undefined}
+                    />
                     <Mock
-                              level={2}>
+                              level={2}
+                    >
                               Test
                     </Mock>
                     <Mock />
@@ -84,9 +93,11 @@ ShallowWrapper {
         "_renderedOutput": <styled.div>
           <styled.div>
                     <Styled(Mock)
-                              src={undefined} />
+                              src={undefined}
+                    />
                     <Mock
-                              level={2}>
+                              level={2}
+                    >
                               Test
                     </Mock>
                     <Mock />
@@ -105,6 +116,7 @@ ShallowWrapper {
   "root": [Circular],
   "unrendered": <AutoValidationBlock
     Content="Test content"
-    title="Test" />,
+    title="Test"
+/>,
 }
 `;

@@ -1,4 +1,6 @@
-exports[`test renders QuickReplies 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders QuickReplies 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -24,7 +26,8 @@ ShallowWrapper {
             },
           }
     }
-    reply={[Function]} />,
+    reply={[Function]}
+/>,
   "nodes": Array [
     <AttachmentGeneric
       attachment={
@@ -44,7 +47,8 @@ ShallowWrapper {
                   },
                 }
       }
-      reply={[Function]} />,
+      reply={[Function]}
+/>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -70,7 +74,8 @@ ShallowWrapper {
                         },
                       }
         }
-        reply={[Function]} />,
+        reply={[Function]}
+/>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -133,7 +138,8 @@ ShallowWrapper {
                               },
                             }
           }
-          reply={[Function]} />,
+          reply={[Function]}
+/>,
         "_debugID": 2,
         "_renderedOutput": <AttachmentGeneric
           attachment={
@@ -153,7 +159,8 @@ ShallowWrapper {
                               },
                             }
           }
-          reply={[Function]} />,
+          reply={[Function]}
+/>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -183,6 +190,7 @@ ShallowWrapper {
             },
           }
     }
-    reply={[Function]} />,
+    reply={[Function]}
+/>,
 }
 `;

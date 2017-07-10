@@ -1,4 +1,6 @@
-exports[`test renders ProjectDetails 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ProjectDetails 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -13,7 +15,8 @@ ShallowWrapper {
             "name": "project1",
             "trade": "test",
           }
-    } />,
+    }
+/>,
   "nodes": Array [
     <InjectIntl(ProjectDetails)
       details={
@@ -22,7 +25,8 @@ ShallowWrapper {
                   "name": "project1",
                   "trade": "test",
                 }
-      } />,
+      }
+/>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -32,7 +36,8 @@ ShallowWrapper {
       "_context": Object {},
       "_currentElement": <IntlProvider
         locale="en"
-        messages={Object {}}>
+        messages={Object {}}
+>
         <InjectIntl(ProjectDetails)
                 details={
                         Object {
@@ -40,7 +45,8 @@ ShallowWrapper {
                                 "name": "project1",
                                 "trade": "test",
                               }
-                } />
+                }
+        />
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -58,7 +64,8 @@ ShallowWrapper {
                                     "name": "project1",
                                     "trade": "test",
                                   }
-            } />,
+            }
+/>,
           "locale": "en",
           "messages": Object {},
         },
@@ -96,7 +103,8 @@ ShallowWrapper {
                               "name": "project1",
                               "trade": "test",
                             }
-          } />,
+          }
+/>,
         "_debugID": 2,
         "_renderedOutput": <InjectIntl(ProjectDetails)
           details={
@@ -105,7 +113,8 @@ ShallowWrapper {
                               "name": "project1",
                               "trade": "test",
                             }
-          } />,
+          }
+/>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -119,7 +128,8 @@ ShallowWrapper {
   "root": [Circular],
   "unrendered": <IntlProvider
     locale="en"
-    messages={Object {}}>
+    messages={Object {}}
+>
     <InjectIntl(ProjectDetails)
         details={
             Object {
@@ -127,7 +137,8 @@ ShallowWrapper {
                 "name": "project1",
                 "trade": "test",
               }
-        } />
+        }
+    />
 </IntlProvider>,
 }
 `;

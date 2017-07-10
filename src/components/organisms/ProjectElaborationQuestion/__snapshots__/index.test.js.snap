@@ -1,4 +1,6 @@
-exports[`test renders Question 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Question 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -14,7 +16,8 @@ ShallowWrapper {
                 "default": "file",
               }
         }
-        width="32" />
+        width="32"
+    />
     <BubbleQuestion>
         my question
     </BubbleQuestion>
@@ -28,7 +31,8 @@ ShallowWrapper {
                         "default": "file",
                       }
             }
-            width="32" />
+            width="32"
+      />
       <BubbleQuestion>
             my question
       </BubbleQuestion>
@@ -80,7 +84,8 @@ ShallowWrapper {
                                         "default": "file",
                                       }
                     }
-                    width="32" />
+                    width="32"
+          />
           <BubbleQuestion>
                     my question
           </BubbleQuestion>
@@ -94,7 +99,8 @@ ShallowWrapper {
                                         "default": "file",
                                       }
                     }
-                    width="32" />
+                    width="32"
+          />
           <BubbleQuestion>
                     my question
           </BubbleQuestion>

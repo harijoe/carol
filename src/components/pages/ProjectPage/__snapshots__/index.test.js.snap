@@ -1,4 +1,6 @@
-exports[`test renders ProjectPage 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ProjectPage 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -10,7 +12,8 @@ ShallowWrapper {
     <Mock>
         <Mock>
             <Mock
-                id="1" />
+                id="1"
+            />
         </Mock>
     </Mock>
 </Mock>,
@@ -19,7 +22,8 @@ ShallowWrapper {
       <Mock>
             <Mock>
                   <Mock
-                        id="1" />
+                        id="1"
+                  />
             </Mock>
       </Mock>
 </Mock>,
@@ -35,7 +39,8 @@ ShallowWrapper {
                 Object {
                         "projectId": "1",
                       }
-        } />,
+        }
+/>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -71,7 +76,8 @@ ShallowWrapper {
           <Mock>
                     <Mock>
                               <Mock
-                                        id="1" />
+                                        id="1"
+                              />
                     </Mock>
           </Mock>
 </Mock>,
@@ -80,7 +86,8 @@ ShallowWrapper {
           <Mock>
                     <Mock>
                               <Mock
-                                        id="1" />
+                                        id="1"
+                              />
                     </Mock>
           </Mock>
 </Mock>,
@@ -100,6 +107,7 @@ ShallowWrapper {
         Object {
             "projectId": "1",
           }
-    } />,
+    }
+/>,
 }
 `;

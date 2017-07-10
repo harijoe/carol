@@ -1,4 +1,6 @@
-exports[`test render RenderDropzone withour error 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render RenderDropzone withour error 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -109,7 +111,8 @@ ShallowWrapper {
               },
             },
           }
-    }>
+    }
+>
     <RenderDropzone
         accept="image/png, image/jpeg, image/jpg"
         input={
@@ -225,7 +228,8 @@ ShallowWrapper {
                   },
                 },
               }
-        } />
+        }
+    />
 </ThemeProvider>,
   "nodes": Array [
     <ThemeProvider
@@ -331,7 +335,8 @@ ShallowWrapper {
                     },
                   },
                 }
-      }>
+      }
+>
       <RenderDropzone
             accept="image/png, image/jpeg, image/jpg"
             input={
@@ -447,7 +452,8 @@ ShallowWrapper {
                           },
                         },
                       }
-            } />
+            }
+      />
 </ThemeProvider>,
   ],
   "options": Object {},
@@ -458,7 +464,8 @@ ShallowWrapper {
       "_context": Object {},
       "_currentElement": <IntlProvider
         locale="en"
-        messages={Object {}}>
+        messages={Object {}}
+>
         <ThemeProvider
                 theme={
                         Object {
@@ -562,7 +569,8 @@ ShallowWrapper {
                                   },
                                 },
                               }
-                }>
+                }
+        >
                 <RenderDropzone
                         accept="image/png, image/jpeg, image/jpg"
                         input={
@@ -678,7 +686,8 @@ ShallowWrapper {
                                           },
                                         },
                                       }
-                        } />
+                        }
+                />
         </ThemeProvider>
 </IntlProvider>,
       "_debugID": 1,
@@ -793,7 +802,8 @@ ShallowWrapper {
                                       },
                                     },
                                   }
-            }>
+            }
+>
             <RenderDropzone
                         accept="image/png, image/jpeg, image/jpg"
                         input={
@@ -909,7 +919,8 @@ ShallowWrapper {
                                                   },
                                                 },
                                               }
-                        } />
+                        }
+            />
 </ThemeProvider>,
           "locale": "en",
           "messages": Object {},
@@ -1044,7 +1055,8 @@ ShallowWrapper {
                                 },
                               },
                             }
-          }>
+          }
+>
           <RenderDropzone
                     accept="image/png, image/jpeg, image/jpg"
                     input={
@@ -1160,7 +1172,8 @@ ShallowWrapper {
                                           },
                                         },
                                       }
-                    } />
+                    }
+          />
 </ThemeProvider>,
         "_debugID": 2,
         "_renderedOutput": <ThemeProvider
@@ -1266,7 +1279,8 @@ ShallowWrapper {
                                 },
                               },
                             }
-          }>
+          }
+>
           <RenderDropzone
                     accept="image/png, image/jpeg, image/jpg"
                     input={
@@ -1382,7 +1396,8 @@ ShallowWrapper {
                                           },
                                         },
                                       }
-                    } />
+                    }
+          />
 </ThemeProvider>,
       },
       "_renderedNodeType": 1,
@@ -1397,7 +1412,8 @@ ShallowWrapper {
   "root": [Circular],
   "unrendered": <IntlProvider
     locale="en"
-    messages={Object {}}>
+    messages={Object {}}
+>
     <ThemeProvider
         theme={
             Object {
@@ -1501,7 +1517,8 @@ ShallowWrapper {
                   },
                 },
               }
-        }>
+        }
+    >
         <RenderDropzone
             accept="image/png, image/jpeg, image/jpg"
             input={
@@ -1617,13 +1634,14 @@ ShallowWrapper {
                       },
                     },
                   }
-            } />
+            }
+        />
     </ThemeProvider>
 </IntlProvider>,
 }
 `;
 
-exports[`test trigger an error 1`] = `
+exports[`trigger an error 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -1734,7 +1752,8 @@ ShallowWrapper {
               },
             },
           }
-    }>
+    }
+>
     <RenderDropzone
         accept="image/png, image/jpeg, image/jpg"
         input={
@@ -1854,7 +1873,8 @@ ShallowWrapper {
                   },
                 },
               }
-        } />
+        }
+    />
 </ThemeProvider>,
   "nodes": Array [
     <ThemeProvider
@@ -1960,7 +1980,8 @@ ShallowWrapper {
                     },
                   },
                 }
-      }>
+      }
+>
       <RenderDropzone
             accept="image/png, image/jpeg, image/jpg"
             input={
@@ -2080,7 +2101,8 @@ ShallowWrapper {
                           },
                         },
                       }
-            } />
+            }
+      />
 </ThemeProvider>,
   ],
   "options": Object {},
@@ -2091,7 +2113,8 @@ ShallowWrapper {
       "_context": Object {},
       "_currentElement": <IntlProvider
         locale="en"
-        messages={Object {}}>
+        messages={Object {}}
+>
         <ThemeProvider
                 theme={
                         Object {
@@ -2195,7 +2218,8 @@ ShallowWrapper {
                                   },
                                 },
                               }
-                }>
+                }
+        >
                 <RenderDropzone
                         accept="image/png, image/jpeg, image/jpg"
                         input={
@@ -2315,7 +2339,8 @@ ShallowWrapper {
                                           },
                                         },
                                       }
-                        } />
+                        }
+                />
         </ThemeProvider>
 </IntlProvider>,
       "_debugID": 3,
@@ -2430,7 +2455,8 @@ ShallowWrapper {
                                       },
                                     },
                                   }
-            }>
+            }
+>
             <RenderDropzone
                         accept="image/png, image/jpeg, image/jpg"
                         input={
@@ -2550,7 +2576,8 @@ ShallowWrapper {
                                                   },
                                                 },
                                               }
-                        } />
+                        }
+            />
 </ThemeProvider>,
           "locale": "en",
           "messages": Object {},
@@ -2685,7 +2712,8 @@ ShallowWrapper {
                                 },
                               },
                             }
-          }>
+          }
+>
           <RenderDropzone
                     accept="image/png, image/jpeg, image/jpg"
                     input={
@@ -2805,7 +2833,8 @@ ShallowWrapper {
                                           },
                                         },
                                       }
-                    } />
+                    }
+          />
 </ThemeProvider>,
         "_debugID": 4,
         "_renderedOutput": <ThemeProvider
@@ -2911,7 +2940,8 @@ ShallowWrapper {
                                 },
                               },
                             }
-          }>
+          }
+>
           <RenderDropzone
                     accept="image/png, image/jpeg, image/jpg"
                     input={
@@ -3031,7 +3061,8 @@ ShallowWrapper {
                                           },
                                         },
                                       }
-                    } />
+                    }
+          />
 </ThemeProvider>,
       },
       "_renderedNodeType": 1,
@@ -3046,7 +3077,8 @@ ShallowWrapper {
   "root": [Circular],
   "unrendered": <IntlProvider
     locale="en"
-    messages={Object {}}>
+    messages={Object {}}
+>
     <ThemeProvider
         theme={
             Object {
@@ -3150,7 +3182,8 @@ ShallowWrapper {
                   },
                 },
               }
-        }>
+        }
+    >
         <RenderDropzone
             accept="image/png, image/jpeg, image/jpg"
             input={
@@ -3270,7 +3303,8 @@ ShallowWrapper {
                       },
                     },
                   }
-            } />
+            }
+        />
     </ThemeProvider>
 </IntlProvider>,
 }

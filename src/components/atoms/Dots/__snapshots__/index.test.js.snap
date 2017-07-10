@@ -1,4 +1,6 @@
-exports[`test renders the Dots component 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the Dots component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -119,7 +121,8 @@ ShallowWrapper {
                           },
                         },
                       }
-        }>
+        }
+>
         <Dots />
 </ThemeProvider>,
       "_debugID": 1,
@@ -376,7 +379,8 @@ ShallowWrapper {
               },
             },
           }
-    }>
+    }
+>
     <Dots />
 </ThemeProvider>,
 }

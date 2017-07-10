@@ -1,4 +1,6 @@
-exports[`test renders the ThumbnailCard component 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the ThumbnailCard component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -16,7 +18,8 @@ ShallowWrapper {
           ]
     }
     link="Test link"
-    title="Test" />,
+    title="Test"
+/>,
   "nodes": Array [
     <ThumbnailCard
       icon="icon"
@@ -28,7 +31,8 @@ ShallowWrapper {
                 ]
       }
       link="Test link"
-      title="Test" />,
+      title="Test"
+/>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -38,7 +42,8 @@ ShallowWrapper {
       "_context": Object {},
       "_currentElement": <IntlProvider
         locale="en"
-        messages={Object {}}>
+        messages={Object {}}
+>
         <ThumbnailCard
                 icon="icon"
                 image="test.jpg"
@@ -49,7 +54,8 @@ ShallowWrapper {
                               ]
                 }
                 link="Test link"
-                title="Test" />
+                title="Test"
+        />
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -70,7 +76,8 @@ ShallowWrapper {
                                   ]
             }
             link="Test link"
-            title="Test" />,
+            title="Test"
+/>,
           "locale": "en",
           "messages": Object {},
         },
@@ -111,7 +118,8 @@ ShallowWrapper {
                             ]
           }
           link="Test link"
-          title="Test" />,
+          title="Test"
+/>,
         "_debugID": 2,
         "_renderedOutput": <ThumbnailCard
           icon="icon"
@@ -123,7 +131,8 @@ ShallowWrapper {
                             ]
           }
           link="Test link"
-          title="Test" />,
+          title="Test"
+/>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -137,7 +146,8 @@ ShallowWrapper {
   "root": [Circular],
   "unrendered": <IntlProvider
     locale="en"
-    messages={Object {}}>
+    messages={Object {}}
+>
     <ThumbnailCard
         icon="icon"
         image="test.jpg"
@@ -148,7 +158,8 @@ ShallowWrapper {
               ]
         }
         link="Test link"
-        title="Test" />
+        title="Test"
+    />
 </IntlProvider>,
 }
 `;

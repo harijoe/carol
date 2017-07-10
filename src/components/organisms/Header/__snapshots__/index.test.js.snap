@@ -1,4 +1,6 @@
-exports[`test should render Header component 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Header component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -7,9 +9,11 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <styled.div
-    atTop={true}>
+    atTop={true}
+>
     <Styled(Mock)
-        homepage={undefined}>
+        homepage={undefined}
+    >
         <Mock />
         <Mock />
         <styled.div>
@@ -22,9 +26,11 @@ ShallowWrapper {
 </styled.div>,
   "nodes": Array [
     <styled.div
-      atTop={true}>
+      atTop={true}
+>
       <Styled(Mock)
-            homepage={undefined}>
+            homepage={undefined}
+      >
             <Mock />
             <Mock />
             <styled.div>
@@ -148,7 +154,8 @@ ShallowWrapper {
                           },
                         },
                       }
-        } />,
+        }
+/>,
       "_debugID": 3,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -282,9 +289,11 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <styled.div
-          atTop={true}>
+          atTop={true}
+>
           <Styled(Mock)
-                    homepage={undefined}>
+                    homepage={undefined}
+          >
                     <Mock />
                     <Mock />
                     <styled.div>
@@ -297,9 +306,11 @@ ShallowWrapper {
 </styled.div>,
         "_debugID": 4,
         "_renderedOutput": <styled.div
-          atTop={true}>
+          atTop={true}
+>
           <Styled(Mock)
-                    homepage={undefined}>
+                    homepage={undefined}
+          >
                     <Mock />
                     <Mock />
                     <styled.div>
@@ -427,6 +438,7 @@ ShallowWrapper {
               },
             },
           }
-    } />,
+    }
+/>,
 }
 `;

@@ -1,4 +1,6 @@
-exports[`test renders PopinMenuLink 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders PopinMenuLink 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -7,12 +9,14 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <Styled(Mock)
-    to="test">
+    to="test"
+>
     Test
 </Styled(Mock)>,
   "nodes": Array [
     <Styled(Mock)
-      to="test">
+      to="test"
+>
       Test
 </Styled(Mock)>,
   ],
@@ -23,7 +27,8 @@ ShallowWrapper {
       "_compositeType": 2,
       "_context": Object {},
       "_currentElement": <PopinMenuLink
-        to="test">
+        to="test"
+>
         Test
 </PopinMenuLink>,
       "_debugID": 1,
@@ -57,12 +62,14 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Styled(Mock)
-          to="test">
+          to="test"
+>
           Test
 </Styled(Mock)>,
         "_debugID": 2,
         "_renderedOutput": <Styled(Mock)
-          to="test">
+          to="test"
+>
           Test
 </Styled(Mock)>,
       },
@@ -77,7 +84,8 @@ ShallowWrapper {
   },
   "root": [Circular],
   "unrendered": <PopinMenuLink
-    to="test">
+    to="test"
+>
     Test
 </PopinMenuLink>,
 }

@@ -1,4 +1,6 @@
-exports[`test renders Conversation 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Conversation 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -8,7 +10,8 @@ ShallowWrapper {
   "length": 1,
   "node": <styled.div
     className="conversation"
-    innerRef={[Function]}>
+    innerRef={[Function]}
+>
     <div>
         <Mock>
             message
@@ -24,7 +27,8 @@ ShallowWrapper {
                 attachment={null}
                 locale={undefined}
                 redirectTo={undefined}
-                reply={undefined} />
+                reply={undefined}
+            />
             <QuickReplies
                 answer={
                     Object {
@@ -33,16 +37,19 @@ ShallowWrapper {
                       }
                 }
                 quick_replies={Array []}
-                reply={undefined} />
+                reply={undefined}
+            />
         </div>
         <Answer
-            answer="response" />
+            answer="response"
+        />
     </div>
 </styled.div>,
   "nodes": Array [
     <styled.div
       className="conversation"
-      innerRef={[Function]}>
+      innerRef={[Function]}
+>
       <div>
             <Mock>
                   message
@@ -58,7 +65,8 @@ ShallowWrapper {
                         attachment={null}
                         locale={undefined}
                         redirectTo={undefined}
-                        reply={undefined} />
+                        reply={undefined}
+                  />
                   <QuickReplies
                         answer={
                               Object {
@@ -67,10 +75,12 @@ ShallowWrapper {
                                   }
                         }
                         quick_replies={Array []}
-                        reply={undefined} />
+                        reply={undefined}
+                  />
             </div>
             <Answer
-                  answer="response" />
+                  answer="response"
+            />
       </div>
 </styled.div>,
   ],
@@ -94,7 +104,8 @@ ShallowWrapper {
                           },
                         },
                       ]
-        } />,
+        }
+/>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -137,7 +148,8 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <styled.div
           className="conversation"
-          innerRef={[Function]}>
+          innerRef={[Function]}
+>
           <div>
                     <Mock>
                               message
@@ -153,7 +165,8 @@ ShallowWrapper {
                                         attachment={null}
                                         locale={undefined}
                                         redirectTo={undefined}
-                                        reply={undefined} />
+                                        reply={undefined}
+                              />
                               <QuickReplies
                                         answer={
                                                   Object {
@@ -162,16 +175,19 @@ ShallowWrapper {
                                                           }
                                         }
                                         quick_replies={Array []}
-                                        reply={undefined} />
+                                        reply={undefined}
+                              />
                     </div>
                     <Answer
-                              answer="response" />
+                              answer="response"
+                    />
           </div>
 </styled.div>,
         "_debugID": 2,
         "_renderedOutput": <styled.div
           className="conversation"
-          innerRef={[Function]}>
+          innerRef={[Function]}
+>
           <div>
                     <Mock>
                               message
@@ -187,7 +203,8 @@ ShallowWrapper {
                                         attachment={null}
                                         locale={undefined}
                                         redirectTo={undefined}
-                                        reply={undefined} />
+                                        reply={undefined}
+                              />
                               <QuickReplies
                                         answer={
                                                   Object {
@@ -196,10 +213,12 @@ ShallowWrapper {
                                                           }
                                         }
                                         quick_replies={Array []}
-                                        reply={undefined} />
+                                        reply={undefined}
+                              />
                     </div>
                     <Answer
-                              answer="response" />
+                              answer="response"
+                    />
           </div>
 </styled.div>,
       },
@@ -227,6 +246,7 @@ ShallowWrapper {
               },
             },
           ]
-    } />,
+    }
+/>,
 }
 `;

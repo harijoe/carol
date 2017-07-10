@@ -1,4 +1,6 @@
-exports[`test renders FirmList 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders FirmList 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -109,7 +111,8 @@ ShallowWrapper {
               },
             },
           }
-    }>
+    }
+>
     <FirmList
         list={
             Array [
@@ -126,7 +129,8 @@ ShallowWrapper {
                   "name": "firm 3",
                 },
               ]
-        } />
+        }
+    />
 </ThemeProvider>,
   "nodes": Array [
     <ThemeProvider
@@ -232,7 +236,8 @@ ShallowWrapper {
                     },
                   },
                 }
-      }>
+      }
+>
       <FirmList
             list={
                   Array [
@@ -249,7 +254,8 @@ ShallowWrapper {
                           "name": "firm 3",
                         },
                       ]
-            } />
+            }
+      />
 </ThemeProvider>,
   ],
   "options": Object {},
@@ -260,7 +266,8 @@ ShallowWrapper {
       "_context": Object {},
       "_currentElement": <IntlProvider
         locale="en"
-        messages={Object {}}>
+        messages={Object {}}
+>
         <ThemeProvider
                 theme={
                         Object {
@@ -364,7 +371,8 @@ ShallowWrapper {
                                   },
                                 },
                               }
-                }>
+                }
+        >
                 <FirmList
                         list={
                                 Array [
@@ -381,7 +389,8 @@ ShallowWrapper {
                                           "name": "firm 3",
                                         },
                                       ]
-                        } />
+                        }
+                />
         </ThemeProvider>
 </IntlProvider>,
       "_debugID": 1,
@@ -496,7 +505,8 @@ ShallowWrapper {
                                       },
                                     },
                                   }
-            }>
+            }
+>
             <FirmList
                         list={
                                     Array [
@@ -513,7 +523,8 @@ ShallowWrapper {
                                                   "name": "firm 3",
                                                 },
                                               ]
-                        } />
+                        }
+            />
 </ThemeProvider>,
           "locale": "en",
           "messages": Object {},
@@ -648,7 +659,8 @@ ShallowWrapper {
                                 },
                               },
                             }
-          }>
+          }
+>
           <FirmList
                     list={
                               Array [
@@ -665,7 +677,8 @@ ShallowWrapper {
                                           "name": "firm 3",
                                         },
                                       ]
-                    } />
+                    }
+          />
 </ThemeProvider>,
         "_debugID": 2,
         "_renderedOutput": <ThemeProvider
@@ -771,7 +784,8 @@ ShallowWrapper {
                                 },
                               },
                             }
-          }>
+          }
+>
           <FirmList
                     list={
                               Array [
@@ -788,7 +802,8 @@ ShallowWrapper {
                                           "name": "firm 3",
                                         },
                                       ]
-                    } />
+                    }
+          />
 </ThemeProvider>,
       },
       "_renderedNodeType": 1,
@@ -803,7 +818,8 @@ ShallowWrapper {
   "root": [Circular],
   "unrendered": <IntlProvider
     locale="en"
-    messages={Object {}}>
+    messages={Object {}}
+>
     <ThemeProvider
         theme={
             Object {
@@ -907,7 +923,8 @@ ShallowWrapper {
                   },
                 },
               }
-        }>
+        }
+    >
         <FirmList
             list={
                 Array [
@@ -924,7 +941,8 @@ ShallowWrapper {
                       "name": "firm 3",
                     },
                   ]
-            } />
+            }
+        />
     </ThemeProvider>
 </IntlProvider>,
 }

@@ -1,4 +1,6 @@
-exports[`test renders MessagePage 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders MessagePage 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -10,14 +12,16 @@ ShallowWrapper {
     <FormattedMessage
         id="user.message_page"
         tagName="p"
-        values={Object {}} />
+        values={Object {}}
+    />
 </Mock>,
   "nodes": Array [
     <Mock>
       <FormattedMessage
             id="user.message_page"
             tagName="p"
-            values={Object {}} />
+            values={Object {}}
+      />
 </Mock>,
   ],
   "options": Object {},
@@ -58,14 +62,16 @@ ShallowWrapper {
           <FormattedMessage
                     id="user.message_page"
                     tagName="p"
-                    values={Object {}} />
+                    values={Object {}}
+          />
 </Mock>,
         "_debugID": 2,
         "_renderedOutput": <Mock>
           <FormattedMessage
                     id="user.message_page"
                     tagName="p"
-                    values={Object {}} />
+                    values={Object {}}
+          />
 </Mock>,
       },
       "_renderedNodeType": 1,

@@ -1,4 +1,6 @@
-exports[`test renders Answer 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Answer 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -25,7 +27,8 @@ ShallowWrapper {
       "_compositeType": 2,
       "_context": Object {},
       "_currentElement": <Answer
-        answer="response" />,
+        answer="response"
+/>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -78,6 +81,7 @@ ShallowWrapper {
   },
   "root": [Circular],
   "unrendered": <Answer
-    answer="response" />,
+    answer="response"
+/>,
 }
 `;

@@ -1,4 +1,6 @@
-exports[`test renders ProjectElaborationTemplate 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ProjectElaborationTemplate 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -7,12 +9,14 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <ProjectElaborationTemplate
-    header="header">
+    header="header"
+>
     test
 </ProjectElaborationTemplate>,
   "nodes": Array [
     <ProjectElaborationTemplate
-      header="header">
+      header="header"
+>
       test
 </ProjectElaborationTemplate>,
   ],
@@ -29,11 +33,13 @@ ShallowWrapper {
                         "getState": [Function],
                         "replaceReducer": [Function],
                         "subscribe": [Function],
-                        Symbol(Symbol.observable): [Function],
+                        Symbol(observable): [Function],
                       }
-        }>
+        }
+>
         <ProjectElaborationTemplate
-                header="header">
+                header="header"
+        >
                 test
         </ProjectElaborationTemplate>
 </Provider>,
@@ -45,7 +51,8 @@ ShallowWrapper {
         "context": Object {},
         "props": Object {
           "children": <ProjectElaborationTemplate
-            header="header">
+            header="header"
+>
             test
 </ProjectElaborationTemplate>,
           "store": Object {
@@ -53,7 +60,7 @@ ShallowWrapper {
             "getState": [Function],
             "replaceReducer": [Function],
             "subscribe": [Function],
-            Symbol(Symbol.observable): [Function],
+            Symbol(observable): [Function],
           },
         },
         "refs": Object {},
@@ -63,7 +70,7 @@ ShallowWrapper {
           "getState": [Function],
           "replaceReducer": [Function],
           "subscribe": [Function],
-          Symbol(Symbol.observable): [Function],
+          Symbol(observable): [Function],
         },
         "updater": Object {
           "enqueueCallback": [Function],
@@ -84,12 +91,14 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <ProjectElaborationTemplate
-          header="header">
+          header="header"
+>
           test
 </ProjectElaborationTemplate>,
         "_debugID": 2,
         "_renderedOutput": <ProjectElaborationTemplate
-          header="header">
+          header="header"
+>
           test
 </ProjectElaborationTemplate>,
       },
@@ -110,11 +119,13 @@ ShallowWrapper {
             "getState": [Function],
             "replaceReducer": [Function],
             "subscribe": [Function],
-            Symbol(Symbol.observable): [Function],
+            Symbol(observable): [Function],
           }
-    }>
+    }
+>
     <ProjectElaborationTemplate
-        header="header">
+        header="header"
+    >
         test
     </ProjectElaborationTemplate>
 </Provider>,

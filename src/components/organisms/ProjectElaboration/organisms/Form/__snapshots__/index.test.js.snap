@@ -1,4 +1,6 @@
-exports[`test renders Form 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Form 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -19,7 +21,8 @@ ShallowWrapper {
     shouldAsyncValidate={[Function]}
     shouldValidate={[Function]}
     touchOnBlur={true}
-    touchOnChange={false} />,
+    touchOnChange={false}
+/>,
   "nodes": Array [
     <Connect(Form(InjectIntl(Form)))
       destroyOnUnmount={true}
@@ -34,7 +37,8 @@ ShallowWrapper {
       shouldAsyncValidate={[Function]}
       shouldValidate={[Function]}
       touchOnBlur={true}
-      touchOnChange={false} />,
+      touchOnChange={false}
+/>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -83,7 +87,8 @@ ShallowWrapper {
           shouldAsyncValidate={[Function]}
           shouldValidate={[Function]}
           touchOnBlur={true}
-          touchOnChange={false} />,
+          touchOnChange={false}
+/>,
         "_debugID": 2,
         "_renderedOutput": <Connect(Form(InjectIntl(Form)))
           destroyOnUnmount={true}
@@ -98,7 +103,8 @@ ShallowWrapper {
           shouldAsyncValidate={[Function]}
           shouldValidate={[Function]}
           touchOnBlur={true}
-          touchOnChange={false} />,
+          touchOnChange={false}
+/>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,

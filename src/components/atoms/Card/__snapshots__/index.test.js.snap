@@ -1,4 +1,6 @@
-exports[`test renders the Card component 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the Card component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -110,7 +112,8 @@ ShallowWrapper {
               },
             },
           }
-    } />,
+    }
+/>,
   "nodes": Array [
     <styled.div
       strongShadow={undefined}
@@ -216,7 +219,8 @@ ShallowWrapper {
                     },
                   },
                 }
-      } />,
+      }
+/>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -327,7 +331,8 @@ ShallowWrapper {
                           },
                         },
                       }
-        } />,
+        }
+/>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -561,7 +566,8 @@ ShallowWrapper {
                                 },
                               },
                             }
-          } />,
+          }
+/>,
         "_debugID": 2,
         "_renderedOutput": <styled.div
           strongShadow={undefined}
@@ -667,7 +673,8 @@ ShallowWrapper {
                                 },
                               },
                             }
-          } />,
+          }
+/>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -782,6 +789,7 @@ ShallowWrapper {
               },
             },
           }
-    } />,
+    }
+/>,
 }
 `;

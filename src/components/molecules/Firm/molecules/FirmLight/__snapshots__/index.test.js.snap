@@ -1,4 +1,6 @@
-exports[`test renders the FirmLight component 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the FirmLight component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -8,10 +10,12 @@ ShallowWrapper {
   "length": 1,
   "node": <styled.div>
     <styled.header
-        imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg">
+        imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
+    >
         <styled.div>
             <Styled(Mock)
-                imageLink="" />
+                imageLink=""
+            />
             <styled.div>
                 <p>
                     <strong>
@@ -24,19 +28,22 @@ ShallowWrapper {
                      
                     <FormattedMessage
                         id="firm.details.reviews"
-                        values={Object {}} />
+                        values={Object {}}
+                    />
                 </span>
             </styled.div>
         </styled.div>
     </styled.header>
     <styled.footer>
         <Styled(Mock)
-            level={3}>
+            level={3}
+        >
             test
         </Styled(Mock)>
         <Styled(Mock)>
             <Styled(Mock)
-                icon="location-pin" />
+                icon="location-pin"
+            />
             96352
         </Styled(Mock)>
     </styled.footer>
@@ -44,10 +51,12 @@ ShallowWrapper {
   "nodes": Array [
     <styled.div>
       <styled.header
-            imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg">
+            imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
+      >
             <styled.div>
                   <Styled(Mock)
-                        imageLink="" />
+                        imageLink=""
+                  />
                   <styled.div>
                         <p>
                               <strong>
@@ -60,19 +69,22 @@ ShallowWrapper {
                                
                               <FormattedMessage
                                     id="firm.details.reviews"
-                                    values={Object {}} />
+                                    values={Object {}}
+                              />
                         </span>
                   </styled.div>
             </styled.div>
       </styled.header>
       <styled.footer>
             <Styled(Mock)
-                  level={3}>
+                  level={3}
+            >
                   test
             </Styled(Mock)>
             <Styled(Mock)>
                   <Styled(Mock)
-                        icon="location-pin" />
+                        icon="location-pin"
+                  />
                   96352
             </Styled(Mock)>
       </styled.footer>
@@ -90,7 +102,8 @@ ShallowWrapper {
         imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
         logoUrl=""
         name="test"
-        postalCode="96352" />,
+        postalCode="96352"
+/>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -127,10 +140,12 @@ ShallowWrapper {
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <styled.div>
           <styled.header
-                    imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg">
+                    imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
+          >
                     <styled.div>
                               <Styled(Mock)
-                                        imageLink="" />
+                                        imageLink=""
+                              />
                               <styled.div>
                                         <p>
                                                   <strong>
@@ -143,19 +158,22 @@ ShallowWrapper {
                                                    
                                                   <FormattedMessage
                                                             id="firm.details.reviews"
-                                                            values={Object {}} />
+                                                            values={Object {}}
+                                                  />
                                         </span>
                               </styled.div>
                     </styled.div>
           </styled.header>
           <styled.footer>
                     <Styled(Mock)
-                              level={3}>
+                              level={3}
+                    >
                               test
                     </Styled(Mock)>
                     <Styled(Mock)>
                               <Styled(Mock)
-                                        icon="location-pin" />
+                                        icon="location-pin"
+                              />
                               96352
                     </Styled(Mock)>
           </styled.footer>
@@ -163,10 +181,12 @@ ShallowWrapper {
         "_debugID": 2,
         "_renderedOutput": <styled.div>
           <styled.header
-                    imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg">
+                    imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
+          >
                     <styled.div>
                               <Styled(Mock)
-                                        imageLink="" />
+                                        imageLink=""
+                              />
                               <styled.div>
                                         <p>
                                                   <strong>
@@ -179,19 +199,22 @@ ShallowWrapper {
                                                    
                                                   <FormattedMessage
                                                             id="firm.details.reviews"
-                                                            values={Object {}} />
+                                                            values={Object {}}
+                                                  />
                                         </span>
                               </styled.div>
                     </styled.div>
           </styled.header>
           <styled.footer>
                     <Styled(Mock)
-                              level={3}>
+                              level={3}
+                    >
                               test
                     </Styled(Mock)>
                     <Styled(Mock)>
                               <Styled(Mock)
-                                        icon="location-pin" />
+                                        icon="location-pin"
+                              />
                               96352
                     </Styled(Mock)>
           </styled.footer>
@@ -213,6 +236,7 @@ ShallowWrapper {
     imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
     logoUrl=""
     name="test"
-    postalCode="96352" />,
+    postalCode="96352"
+/>,
 }
 `;

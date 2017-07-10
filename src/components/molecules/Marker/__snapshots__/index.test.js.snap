@@ -1,4 +1,6 @@
-exports[`test renders the Marker component 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the Marker component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -7,10 +9,12 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <Styled(Mock)
-    icon="marker-window" />,
+    icon="marker-window"
+/>,
   "nodes": Array [
     <Styled(Mock)
-      icon="marker-window" />,
+      icon="marker-window"
+/>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -20,7 +24,8 @@ ShallowWrapper {
       "_context": Object {},
       "_currentElement": <Marker
         title="test"
-        trade="trade" />,
+        trade="trade"
+/>,
       "_debugID": 1,
       "_hostContainerInfo": null,
       "_hostParent": null,
@@ -52,10 +57,12 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Styled(Mock)
-          icon="marker-window" />,
+          icon="marker-window"
+/>,
         "_debugID": 2,
         "_renderedOutput": <Styled(Mock)
-          icon="marker-window" />,
+          icon="marker-window"
+/>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -69,6 +76,7 @@ ShallowWrapper {
   "root": [Circular],
   "unrendered": <Marker
     title="test"
-    trade="trade" />,
+    trade="trade"
+/>,
 }
 `;
