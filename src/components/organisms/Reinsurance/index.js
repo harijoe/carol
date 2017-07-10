@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import stripTags from 'utils/stripTags'
 import styled, { css } from 'styled-components'
 import { ifThen, theme, mapBreakpoints, breakpoint } from 'utils/style'
 
@@ -79,8 +78,8 @@ const StyledSimpleCardContent = styled(SimpleCardContent)`
 const generateChild = (i, items) => (
   <StyledCard key={i}>
     <StyledSimpleCardContent
-      title={stripTags(items.title)}
-      content={stripTags(items.body)}
+      title={items.title}
+      content={items.body}
     />
   </StyledCard>
 )

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import { theme } from 'utils/style'
 import styled from 'styled-components'
 
-import { Heading, Paragraph } from 'components'
+import { Heading } from 'components'
+import WordPressPostContent from './molecules/WordPressPostContent'
 
 const Wrapper = styled.div`
   padding: ${theme('spaces.m')};
@@ -12,7 +13,7 @@ const Wrapper = styled.div`
 const SimpleCardContent = ({ title, content, ...props }) => (
   <Wrapper {...props}>
     <Heading className="title" level={3}>{title}</Heading>
-    <Paragraph>{content}</Paragraph>
+    <WordPressPostContent content={content} />
   </Wrapper>
 )
 
