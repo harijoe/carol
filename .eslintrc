@@ -28,6 +28,13 @@
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/forbid-prop-types": 0,
     "react/no-danger": 0,
+    "react/require-default-props": 0, // TODO: fix code and remove rule exception
+    "react/no-array-index-key": 0, // TODO: fix code and remove rule exception
+    "react/jsx-wrap-multilines": 0, // TODO: fix code and remove rule exception
+    "react/jsx-max-props-per-line": 0, // TODO: fix code and remove rule exception
+    "react/jsx-tag-spacing": 0, // TODO: fix code and remove rule exception
+    "no-multi-assign": 0, // TODO: fix code and remove rule exception
+    "jsx-a11y/accessible-emoji": 0, // TODO: fix code and remove rule exception
     "import/no-dynamic-require": 0,
     "newline-after-var": "error",
     "newline-before-return": "error",
