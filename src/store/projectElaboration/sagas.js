@@ -140,7 +140,7 @@ function* preValidate({ chatbotStorageId }) {
     chatbotKey1: heroAnswer.text,
     proFormLabel,
   })
-  yield put(push(`/projects/${projectId}/search-firms`))
+  yield put(push(`${projectId}/search-firms`))
   yield* notify('user.thank_you', 'project.elaboration.project_prevalidation.success', 'success', {}, { name: projectName })
 }
 
