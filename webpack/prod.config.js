@@ -5,6 +5,7 @@ const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin')
 
 const plugins = [
   new ExtractTextPlugin({ filename: '[name].[chunkhash].css', allChunks: true }),
+  new webpack.optimize.ModuleConcatenationPlugin(),
   new webpack.optimize.OccurrenceOrderPlugin(),
   new webpack.optimize.UglifyJsPlugin({
     compress: { warnings: false },
