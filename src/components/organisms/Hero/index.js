@@ -128,7 +128,6 @@ const CarouselWrapper = styled.div`
 const generateChild = (items, reply) => items.map(({ title, image_url, buttons, subtitle }, i) => (
   <ThumbnailCard
     key={i}
-    link="project-elaboration"
     // eslint-disable-next-line camelcase
     image={image_url}
     title={title}

@@ -88,8 +88,8 @@ const CardFooter = styled.footer`
   `}
 `
 
-const ThumbnailCard = ({ link, image, title, items, onClick }) => (
-  <Wrapper to={link} onClick={onClick}>
+const ThumbnailCard = ({ image, title, items, onClick }) => (
+  <Wrapper onClick={onClick}>
     <StyledCard>
       <ThumbnailPoster image={{ src: image, alt: title }} title={title} />
       <CardContent>
@@ -105,7 +105,6 @@ const ThumbnailCard = ({ link, image, title, items, onClick }) => (
 )
 
 ThumbnailCard.propTypes = {
-  link: PropTypes.string,
   image: PropTypes.string,
   title: PropTypes.string,
   items: PropTypes.array.isRequired,
