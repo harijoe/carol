@@ -23,4 +23,4 @@ const config = {
   patch_require: true,
 }
 
-module.exports = exports = config
+module.exports = config

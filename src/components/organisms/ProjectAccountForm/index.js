@@ -78,7 +78,8 @@ class ProjectAccountForm extends Component {
               <strong><FormattedMessage id="user.gender" tagName="div" /></strong>
               <Field
                 component={RadioGroup}
-                name="gender" required
+                name="gender"
+                required
                 options={[
                   { value: 'Mr', id: 'mr', translation: 'user.mr' },
                   { value: 'Mrs', id: 'mrs', translation: 'user.mrs' },

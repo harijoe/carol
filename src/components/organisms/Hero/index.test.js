@@ -23,7 +23,8 @@ it('renders the Hero component with a conversation in progress', () => {
   const wrapperHasConversation = mount(mockIntl(
     <ThemeProvider theme={theme}>
       <Hero
-        hasActiveConversation firstChoices={[{
+        hasActiveConversation
+        firstChoices={[{
           title: 'test',
           image_url: 'test',
           buttons: [{ payload: 'test' }],
@@ -35,7 +36,8 @@ it('renders the Hero component with a conversation in progress', () => {
   const wrapperHasConversations = mount(mockIntl(
     <ThemeProvider theme={theme}>
       <Hero
-        hasConversations firstChoices={[{
+        hasConversations
+        firstChoices={[{
           title: 'test',
           image_url: 'test',
           buttons: [{ payload: 'test' }],

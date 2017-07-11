@@ -8,6 +8,6 @@ Mock.propTypes = {
   children: PropTypes.any,
 }
 
-exports = module.exports = new Proxy({}, {
+module.exports = new Proxy({}, {
   get: () => Mock,
 })

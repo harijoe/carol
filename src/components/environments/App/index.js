@@ -5,7 +5,7 @@ import { injectIntl, intlShape } from 'react-intl'
 
 import { IntlProvider, GoogleTagManager } from 'containers'
 
-const Head = ({ intl: { formatMessage } }) =>
+const Head = ({ intl: { formatMessage } }) => (
   <Helmet titleTemplate={formatMessage({ id: 'pages.default.titleTemplate' })}>
     <title>{formatMessage({ id: 'pages.default.title' })}</title>
     <meta name="description" content={formatMessage({ id: 'pages.default.meta.description' })} />
@@ -15,6 +15,7 @@ const Head = ({ intl: { formatMessage } }) =>
     <meta property="og:image:type" content="image/jpg" />
     <meta property="og:url" content="https://quotatis.fr" />
   </Helmet>
+)
 
 Head.propTypes = {
   intl: intlShape.isRequired,

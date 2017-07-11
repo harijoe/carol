@@ -62,7 +62,7 @@ const CarouselPageTemplate = ({ heading, description, children }) => (
     <StyledRow>
       <LeftCol l={4}>
         <ReinsuranceCarousel />
-      </ LeftCol>
+      </LeftCol>
       <RightCol l={8} s={12}>
         <StyledHeading level={2}>{heading}</StyledHeading>
         <StyledParagraph>{description}</StyledParagraph>

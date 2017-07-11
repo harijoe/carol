@@ -43,7 +43,7 @@ const StyledGrid = styled(Grid)`
   `}
 `
 
-const generateChild = (i, { link, featuredMedia, customFields }) =>
+const generateChild = (i, { link, featuredMedia, customFields }) => (
   <StyledCard key={i}>
     <TestimonialCardContent
       link={link}
@@ -54,8 +54,9 @@ const generateChild = (i, { link, featuredMedia, customFields }) =>
       quote={stripTags(customFields.ttml_quote)}
     />
   </StyledCard>
+)
 
-const Testimonials = ({ intl: { formatMessage } }) =>
+const Testimonials = ({ intl: { formatMessage } }) => (
   <Section title={formatMessage(messages('testimonials.section_title').label)} light>
     <StyledGrid>
       <PostList
@@ -76,6 +77,7 @@ const Testimonials = ({ intl: { formatMessage } }) =>
       />
     </StyledGrid>
   </Section>
+)
 
 Testimonials.propTypes = {
   intl: intlShape.isRequired,

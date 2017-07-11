@@ -111,12 +111,12 @@ const ProjectList = ({ list, loading }) => (
               },
             ]}
           >
-            {list.map((items, i) =>
+            {list.map((items, i) => (
               <Project
                 key={i}
                 items={items}
               />
-            )}
+            ))}
           </StyledCarousel>
         </StyledRow>
       </Loading>

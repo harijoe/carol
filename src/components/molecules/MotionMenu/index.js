@@ -305,7 +305,7 @@ class MotionMenu extends Component {
       <Wrapper isOpen={this.state.isOpen}>
         <Motion style={style}>
           {
-            ({ width, height, scale }) =>
+            ({ width, height, scale }) => (
               <Background
                 isOpen={this.state.isOpen}
                 style={{
@@ -317,7 +317,7 @@ class MotionMenu extends Component {
                 }}
                 onClick={this.closeMenu}
               />
-            }
+            )}
 
         </Motion>
         {
@@ -327,7 +327,7 @@ class MotionMenu extends Component {
         }
         <Motion style={mainButtonRotation}>
           {
-            ({ rotate }) =>
+            ({ rotate }) => (
               <StyledMainButton
                 style={{
                   top: mainButtonPositionY - (mainButtonDiam / 2),
@@ -338,7 +338,7 @@ class MotionMenu extends Component {
               >
                 <StyledMainIcon icon="more" />
               </StyledMainButton>
-          }
+            )}
         </Motion>
       </Wrapper>
     )
