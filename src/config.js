@@ -42,10 +42,10 @@ const configs = {
       apiKey: '833cbf062e3b7c3979155c0d07e3f058',
     },
     cloudinaryUrl: 'https://res.cloudinary.com/quotatis/image/upload/q_auto,f_auto/FrontApp/',
-    defaultLocale: 'en_GB',
+    defaultLocale: 'en-GB',
     locales: {
-      fr_FR: fr,
-      en_GB: en,
+      'fr-FR': fr,
+      'en-GB': en,
     },
     purgeCacheToken: '41Xdkf2c7lflo2o065BTV21y6V6xhg9t',
     termsUrl: 'https://www.quotatis.fr/conseils-travaux/cgu',
@@ -57,13 +57,13 @@ const configs = {
       url: 'https://api.qarx.io',
     },
     locales: {
-      fr_FR: {
+      'fr-FR': {
         url: 'https://carol-fr.qarx.io',
       },
-      es_ES: {
+      'es-ES': {
         url: 'https://carol-es.qarx.io',
       },
-      en_GB: {
+      'en-GB': {
         url: 'https://carol-co-uk.qarx.io',
       },
     },
@@ -77,13 +77,13 @@ const configs = {
       clientSecret: '5fbpmtbpwkcg0w8gk8ssg44084okg8co4koccssgws8ko0c440',
     },
     locales: {
-      fr_FR: {
+      'fr-FR': {
         url: 'https://www.quotatis.fr',
       },
-      es_ES: {
+      'es-ES': {
         url: 'https://www.quotatis.es',
       },
-      en_GB: {
+      'en-GB': {
         url: 'https://www.quotatis.co.uk',
       },
     },
@@ -116,10 +116,10 @@ const configs = {
       url: 'http://carol-fr-dev.qarx.io:7001',
     },
     locales: {
-      fr_FR: {
+      'fr-FR': {
         url: 'http://carol-fr-dev.qarx.io',
       },
-      en_GB: {
+      'en-GB': {
         url: 'http://carol-co-uk-dev.qarx.io',
       },
     },
@@ -134,10 +134,10 @@ const configs = {
       url: 'http://carol-fr-dev.qarx.io:7001',
     },
     locales: {
-      fr_FR: {
+      'fr-FR': {
         url: 'http://carol-fr-dev.qarx.io',
       },
-      en_GB: {
+      'en-GB': {
         url: 'http://carol-co-uk-dev.qarx.io',
       },
     },

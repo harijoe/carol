@@ -20,5 +20,5 @@ export const getAccountNavigation = (state = initialState) => state.accountNavig
 export const getSignInPopin = (state = initialState) => state.signInPopin
 export const isPopin = (state = initialState) => state.accountNavigation || state.mainNavigation
 export const getCountry = (state = initialState) => state.country
-export const getLocale = (state = initialState) => `${state.lang}_${state.country}`
+export const getLocale = (state = initialState) => `${state.lang}-${state.country}`
 export const isFeatureEnabled = (state = initialState, feature) => !!state.features[feature]

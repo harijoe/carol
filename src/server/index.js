@@ -10,7 +10,7 @@ export default async function (store, renderProps, req, res) {
   // Handle cache purge
   if (req.url === '/purge-ssr' && req.method === 'POST' && req.headers.authorization === `Bearer ${config.purgeCacheToken}`) {
     const { lang, country } = store.getState().context
-    const locale = `${lang}_${country}`
+    const locale = `${lang}-${country}`
 
     console.info('Cache purge requested for', locale)
     resetCache(locale)

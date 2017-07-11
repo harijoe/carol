@@ -25,9 +25,9 @@ CountryOption.propTypes = {
 
 const CountryMenu = ({ currentLocale, className }) => (
   <select defaultValue={currentLocale} className={className} onChange={(e) => { location.href = homePageUrl(e.target.value) }}>
-    <CountryOption name="country.spain" value="es_ES" />
-    <CountryOption name="country.france" value="fr_FR" />
-    <CountryOption name="country.great_britain" value="en_GB" />
+    <CountryOption name="country.spain" value="es-ES" />
+    <CountryOption name="country.france" value="fr-FR" />
+    <CountryOption name="country.great_britain" value="en-GB" />
   </select>
 )
 

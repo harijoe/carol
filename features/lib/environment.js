@@ -1,5 +1,5 @@
 const defaultValues = {
-  locale: 'fr_FR',
+  locale: 'fr-FR',
 }
 
 const environment = { ...defaultValues }
