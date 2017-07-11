@@ -138,8 +138,7 @@ function* preValidate({ chatbotStorageId }) {
     return
   }
 
-  yield* fetch(projectElaborationPreValidate, 'post', `/project-prevalidate/${chatbotStorageId}`)
-
+  yield* fetch(projectElaborationPreValidate, 'post', `/project-start/${chatbotStorageId}`)
 
   const projectId = yield select(fromProjectElaboration.getProjectId)
   const { sqn } = yield select(fromContext.getInitialQueryParams)
