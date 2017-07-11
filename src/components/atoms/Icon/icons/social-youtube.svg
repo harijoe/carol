@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="YouTube_Icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 20 20" style="enable-background:new 0 0 20 20;" xml:space="preserve">
+<style type="text/css">
+	.social-youtube-white{fill:#FFFFFF;}
+	.social-youtube-shadow{opacity:0.12;fill-rule:evenodd;clip-rule:evenodd;}
+	.social-youtube-black{fill:#262626;}
+</style>
+<path id="Triangle" class="social-youtube-white" d="M7.9,12.6l5.4-2.8L7.9,7V12.6z"/>
+<path id="The_Sharpness" class="social-youtube-shadow" d="M7.9,7l4.7,3.2l0.7-0.3L7.9,7z"/>
+<g id="Lozenge">
+	<g>
+		<path class="social-youtube-black" d="M19.8,6c0,0-0.2-1.4-0.8-2c-0.8-0.8-1.6-0.8-2-0.8C14.2,3,10,3,10,3h0c0,0-4.2,0-7,0.2C2.6,3.2,1.8,3.2,1,4
+			C0.4,4.6,0.2,6,0.2,6S0,7.6,0,9.2v1.5C0,12.4,0.2,14,0.2,14s0.2,1.4,0.8,2c0.8,0.8,1.8,0.8,2.2,0.9C4.8,17,10,17,10,17
+			s4.2,0,7-0.2c0.4,0,1.2-0.1,2-0.8c0.6-0.6,0.8-2,0.8-2s0.2-1.6,0.2-3.2V9.2C20,7.6,19.8,6,19.8,6z M7.9,12.6l0-5.6l5.4,2.8
+			L7.9,12.6z"/>
+	</g>
+</g>
+</svg>
