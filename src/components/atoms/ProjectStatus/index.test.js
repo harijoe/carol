@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import mockIntl from '../../../../../../test/intlMock'
+import mockIntl from '../../../../test/intlMock'
 import ProjectStatus from './'
 
 it('renders the ProjectStatus component', () => {

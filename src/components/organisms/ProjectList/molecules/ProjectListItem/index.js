@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import { cloudinaryUrl } from 'config'
 
-import { Heading, DateTime, Paragraph, Link, Firm, Card, Image, ProjectStatus, Divider } from 'components'
+import { Heading, DateTime, Paragraph, Link, Card, Image, ProjectStatus, Divider } from 'components'
 
 const Article = styled(Card)`
   display: flex;
@@ -70,6 +70,10 @@ const ImageWrapper = styled.figure`
   }
 `
 
+const BackgroundImage = styled(Image)`
+  width: 100%;
+`
+
 const FooterCard = styled.footer`
   position: relative;
   display: flex;
@@ -103,78 +107,68 @@ const ButtonLink = styled(Link)`
   `}
 `
 
-const listView = (items, ...props) => (
-  <Article {...props}>
+const PartnerImage = styled(Image)`
+  width: 50px;
+  height: 50px;
+  display: block;
+`
+
+const PartnerImageWrapper = styled.div`
+  z-index: 3;
+  position: absolute;
+  bottom: 0;
+  background: white;
+  padding: 5px;
+  border-radius: 50%;
+  margin-bottom: -1.4rem;
+  right: 10%;
+  box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, 0.15);
+`
+
+const Project = ({ name, createdAt, status, partner: { headerLink }, ...items }) => (
+  <Article>
     <HeaderCard>
       <ImageWrapper>
-        <Image src={`${cloudinaryUrl}thumbnail-poster-keyone.jpg`} />
+        <BackgroundImage src={`${cloudinaryUrl}thumbnail-poster-keyone.jpg`} />
       </ImageWrapper>
-      <ProjectStatus status={items.status} />
+      <ProjectStatus status={status} />
+      <PartnerImageWrapper>
+        <PartnerImage src={headerLink} />
+      </PartnerImageWrapper>
     </HeaderCard>
     <FooterCard>
-      <StyledHeading level={3}>{items.name}</StyledHeading>
+      <StyledHeading level={3}>{name}</StyledHeading>
       <DateCreation>
-        <FormattedMessage id="project.created_at" /> <DateTime value={items.createdAt} />
+        <FormattedMessage id="project.created_at" /> <DateTime value={createdAt} />
       </DateCreation>
       <Divider />
       <StyledParagraph>
-        <FormattedMessage id={`project.describe.${items.status}`} />
+        <FormattedMessage id={`project.describe.${status}`} />
       </StyledParagraph>
       {
-        items.status === 'completion_in_progress' &&
-        <ButtonLink button to="/project-elaboration"><FormattedMessage id="project.continue" /></ButtonLink>
+        status === 'completion_in_progress' &&
+        <ButtonLink button to="/project-elaboration">
+          <FormattedMessage id="project.continue" />
+        </ButtonLink>
       }
       {
-        items.status === 'to_validate' &&
-        <ButtonLink button to={`${items['@id']}/account`}><FormattedMessage id="project.button.to_validate" /></ButtonLink>
+        status === 'to_validate' &&
+        <ButtonLink button to={`${items['@id']}/account`}>
+          <FormattedMessage id="project.button.to_validate" />
+        </ButtonLink>
       }
     </FooterCard>
   </Article>
 )
 
-const detailView = (items, ...props) => (
-  <Article {...props}>
-    <Heading level={1}>{items.name}</Heading>
-    <Paragraph>
-      <FormattedMessage id="project.created_at" />: <DateTime value={items.createdAt} />
-    </Paragraph>
-    <Paragraph>
-      <FormattedMessage id="project.updated_at" />: <DateTime value={items.updatedAt} />
-    </Paragraph>
-    <Paragraph>
-      <FormattedMessage id="project.reference" />: {items.leadReference}
-    </Paragraph>
-    <Paragraph>
-      <FormattedMessage id="project.status" />: {items.status != null && <FormattedMessage id={items.status} />}
-    </Paragraph>
-    <Paragraph>
-      <FormattedMessage id="project.question" />:
-      {
-        items.answers !== undefined ? Object.keys(items.answers).map(key => `${key} ':' ${items.answers[key]}`) : ''
-      }
-    </Paragraph>
-    <Paragraph>
-      <FormattedMessage id="project.transmitted_to_firms" />:
-    </Paragraph>
-    { items.firms !== undefined ? items.firms.map((firm, i) => <Firm key={i} items={firm} />) : ''}
-  </Article>
-)
-
-const Project = ({ items, full, ...props }) => (
-  full ? detailView(items, ...props) : listView(items, ...props)
-)
-
 Project.propTypes = {
-  items: PropTypes.shape({
-    name: PropTypes.string,
-    leadReference: PropTypes.string,
-    createdAt: PropTypes.string,
-    updatedAt: PropTypes.string,
-    status: PropTypes.string,
-    answers: PropTypes.array,
-    firms: PropTypes.array,
-  }).isRequired,
-  full: PropTypes.bool,
+  name: PropTypes.string,
+  leadReference: PropTypes.string,
+  createdAt: PropTypes.string,
+  status: PropTypes.string,
+  partner: PropTypes.shape({
+    headerLink: PropTypes.string,
+  }),
 }
 
 Project.defaultProps = {

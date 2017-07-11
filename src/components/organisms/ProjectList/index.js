@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 
-import { Section, Heading, Project, Loading, Grid, Row } from 'components'
+import { Section, Heading, ProjectListItem, Loading, Grid, Row } from 'components'
 import { Carousel } from 'containers'
 
 const StyledSection = styled(Section)`
@@ -23,10 +23,6 @@ const StyledSection = styled(Section)`
     ${breakpoint('m')`
       height: 32rem;
     `}
-  }
-
-  img {
-    width: 100%;
   }
 `
 
@@ -111,10 +107,10 @@ const ProjectList = ({ list, loading }) => (
               },
             ]}
           >
-            {list.map((items, i) => (
-              <Project
-                key={i}
-                items={items}
+            {list.map(items => (
+              <ProjectListItem
+                key={items['@id']}
+                {...items}
               />
             ))}
           </StyledCarousel>

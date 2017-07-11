@@ -6,8 +6,6 @@ import { theme, breakpoint, breakpointMax } from 'utils/style'
 import messages from 'utils/messages'
 
 import {
-  Project,
-  Loading,
   Section,
   Grid,
   Heading,
@@ -146,14 +144,14 @@ const ItemProject = styled.p`
   }
 `
 
-const ProjectDetails = ({ intl: { formatMessage }, details, loading, ...props }) => (
+const ProjectDetails = ({ intl: { formatMessage }, ...props }) => (
   <Wrapper {...props}>
     <Section>
       <Grid narrow>
         <StyledIconLink icon="back_arrow"><FormattedMessage id="project.back_link_title" /></StyledIconLink>
         <Heading level={1}>{'Project Name'}</Heading>
         <StyledProjectStatus />
-        <DateCreation><FormattedMessage id="project.created_at" /></DateCreation> {/* To refacto*/}
+        <DateCreation><FormattedMessage id="project.created_at" /></DateCreation>
       </Grid>
     </Section>
 
@@ -206,16 +204,6 @@ const ProjectDetails = ({ intl: { formatMessage }, details, loading, ...props })
     </Section>
 
     <Section title={formatMessage(messages('project.cross_sell_title').label)} light />
-
-    <Loading loading={loading && details === null}>
-      {
-        details != null &&
-        <Project
-          items={details}
-          full
-        />
-      }
-    </Loading>
   </Wrapper>
 )
 

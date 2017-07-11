@@ -8,6 +8,7 @@ import { takeLatest } from 'utils/effects'
 import fetch from 'sagas/fetch'
 import ssr from 'sagas/ssr'
 import notify from 'sagas/notify'
+import { projectUpdate } from 'store/actions'
 
 import {
   PROJECT_ELABORATION_CONVERSATION_REPLY,
@@ -26,7 +27,6 @@ import {
   projectElaborationHeroDetails,
   projectElaborationResetConversation,
   projectElaborationPreValidate,
-  projectUpdate,
 } from './actions'
 
 function* replyConversation({ text, payload = null }) {
@@ -145,7 +145,7 @@ function* preValidate({ chatbotStorageId }) {
   const { sqn } = yield select(fromContext.getInitialQueryParams)
 
   if (sqn != null) {
-    yield* fetch(projectUpdate, 'put', `/projects/${projectId}`, {}, { sqn: parseInt(sqn, 10) })
+    yield* fetch(projectUpdate, 'put', projectId, {}, { sqn: parseInt(sqn, 10) })
   }
 
   const projectName = yield select(fromProjectElaboration.getProjectName)
