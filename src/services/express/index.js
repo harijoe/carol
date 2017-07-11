@@ -5,6 +5,7 @@ import compression from 'compression'
 import morgan from 'morgan'
 import cookieParser from 'cookie-parser'
 import bodyParser from 'body-parser'
+import methodOverride from 'method-override'
 import path from 'path'
 import https from 'https'
 import fs from 'fs'
@@ -22,6 +23,7 @@ export default (routes) => {
   app.use(favicon(path.join(root, 'src/components/themes/default/favicon.ico')))
   app.use(bodyParser.urlencoded({ extended: false }))
   app.use(bodyParser.json())
+  app.use(methodOverride('X-HTTP-Method-Override'))
 
   // We use hot reloading with webpack in dev environment
   if (devServer) {

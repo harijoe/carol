@@ -8,7 +8,7 @@ export default async function (store, renderProps, req, res) {
   initStore(store, req)
 
   // Handle cache purge
-  if (req.url === '/purge-ssr' && req.method === 'POST' && req.headers.authorization === `Bearer ${config.purgeCacheToken}`) {
+  if (req.method === 'PURGE' && req.headers.authorization === `Bearer ${config.purgeCacheToken}`) {
     const { lang, country } = store.getState().context
     const locale = `${lang}-${country}`
 

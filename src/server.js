@@ -52,8 +52,8 @@ app.listen(port, (error) => {
 
 const purgeSSRCache = locale => new Promise(resolve =>
   router.handle({
-    url: '/purge-ssr',
-    method: 'POST',
+    url: '/',
+    method: 'PURGE',
     hostname: locales[locale].url.replace(new RegExp('https?://'), ''),
     headers: { authorization: `Bearer ${purgeCacheToken}` },
   }, { send: resolve })
