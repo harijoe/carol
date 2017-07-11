@@ -7,7 +7,6 @@ import {
   App,
   FavoritePage,
   FirmPage,
-  FirmListPage,
   ForgotPasswordPage,
   HelpPage,
   LoginPage,
@@ -45,7 +44,6 @@ const routes = (
     <Route path="projects" component={requiresAuth(ProjectListPage)} />
     <Route path="projects/:projectId/account" component={requiresAuth(ProjectAccountPage)} />
     <Route path="projects/:projectId" component={requiresAuth(ProjectPage)} />
-    <Route path="projects/:projectId/search-firms" component={requiresAuth(FirmListPage)} />
     <Route path="project-elaboration" component={ProjectElaborationPage} />
     <Route path="project-prevalidate/:chatbotStorageId" component={ProjectPreValidatePage} />
     <Route path="project-validation" component={requiresAuth(ProjectValidationPage)} />

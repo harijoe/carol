@@ -1,6 +1,5 @@
 import { select, put } from 'redux-saga/effects'
 import { stopSubmit } from 'redux-form'
-import { push } from 'react-router-redux'
 import notify from 'sagas/notify'
 import { HTTPError } from 'utils/errors'
 import { fromUser, fromRouting } from 'store/selectors'
@@ -8,19 +7,16 @@ import { fromUser, fromRouting } from 'store/selectors'
 import fetch from 'sagas/fetch'
 import redirectToNextValidationStep from 'sagas/redirectToNextValidationStep'
 import getFormErrors from 'utils/formErrors'
-import pushGtmEvent from 'utils/gtm'
 import { takeLatest } from 'utils/effects'
 import { userUpdate } from 'store/actions'
 import {
   projectList,
   projectDetails,
   projectUpdate,
-  projectAcceptFirm,
   PROJECT_LIST,
   PROJECT_DETAILS,
   PROJECT_UPDATE,
   PROJECT_CHECK_VALIDATION_FLOW,
-  PROJECT_ACCEPT_FIRM,
 } from './actions'
 
 function* handleUpdateProjectRequest({ projectData, userData, projectId }) {
@@ -36,15 +32,6 @@ function* handleUpdateProjectRequest({ projectData, userData, projectId }) {
       yield put(stopSubmit('ProjectAccountForm', getFormErrors(error.message)))
     }
   }
-}
-
-function* handleProjectAcceptFirmRequest({ id }) {
-  yield* fetch(projectAcceptFirm, 'put', `/projects/${id}`, {}, { status: 'to_validate' }, { id })
-
-  const email = yield select(fromUser.getEmail)
-
-  yield pushGtmEvent({ event: 'StartAutoValidation', email })
-  yield put(push(`/projects/${id}/account`))
 }
 
 export function* handleReadProjectListRequest() {
@@ -66,7 +53,6 @@ export default function* () {
     takeLatest(PROJECT_LIST.REQUEST, handleReadProjectListRequest),
     takeLatest(PROJECT_DETAILS.REQUEST, handleReadProjectDetailsRequest),
     takeLatest(PROJECT_UPDATE.REQUEST, handleUpdateProjectRequest),
-    takeLatest(PROJECT_ACCEPT_FIRM.REQUEST, handleProjectAcceptFirmRequest),
     takeLatest(PROJECT_CHECK_VALIDATION_FLOW, handleCheckValidationFlow),
   ]
 }

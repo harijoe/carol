@@ -173,7 +173,7 @@ export default {
   'project.submit_success_title': 'Félicitation!',
   'project.transmitted_to_firms': 'Votre projet à été transmis à',
   'project.updated_at': 'Mis à jour le',
-  'project.validation.describe': 'Pour nous permettre de sélectionner les professionnels de confiance les plus adaptés à votre projet, veuillez renseigner les informations ci-dessous. Pour que les professionnels puissent vous contacter, vous devrez confirmer votre numéro de téléphone et adresse email aux étapes suivantes.',
+  'project.validation.describe': 'Nous avons dans notre réseau plusieurs professionnels de confiance pouvant répondre à votre projet. Pour nous permettre de sélectionner les professionnels de confiance les plus adaptés à votre projet, veuillez renseigner les informations ci-dessous. Pour que les professionnels puissent vous contacter, vous devrez confirmer votre numéro de téléphone et adresse email aux étapes suivantes.',
   'project.validation_page': 'Valider mon projet',
   'renovation': 'Rénovation',
   'search': 'Recherche',

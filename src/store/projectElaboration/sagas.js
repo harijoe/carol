@@ -2,7 +2,7 @@ import { put, select } from 'redux-saga/effects'
 import cookie from 'react-cookie'
 import { push } from 'react-router-redux'
 import uuid from 'uuid/v4'
-import { fromProjectElaboration, fromAuth, fromRouting, fromContext } from 'store/selectors'
+import { fromProjectElaboration, fromAuth, fromUser, fromRouting, fromContext } from 'store/selectors'
 import pushGtmEvent from 'utils/gtm'
 import { takeLatest } from 'utils/effects'
 import fetch from 'sagas/fetch'
@@ -151,6 +151,7 @@ function* preValidate({ chatbotStorageId }) {
   const projectName = yield select(fromProjectElaboration.getProjectName)
   const proFormLabel = yield select(fromProjectElaboration.getProFormLabel)
   const postalCode = yield select(fromProjectElaboration.getPostalCode)
+  const email = yield select(fromUser.getEmail)
 
   yield pushGtmEvent({
     event: 'ProjectCreated',
@@ -158,8 +159,12 @@ function* preValidate({ chatbotStorageId }) {
     chatbotKey1: heroAnswer.text,
     proFormLabel,
   })
-  yield put(push(`${projectId}/search-firms`))
+  yield put(push(`/projects/${projectId}/account`))
   yield* notify('user.thank_you', 'project.elaboration.project_prevalidation.success', 'success', {}, { name: projectName })
+  yield pushGtmEvent({
+    event: 'StartAutoValidation',
+    email,
+  })
 }
 
 export default function* () {
