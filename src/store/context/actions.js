@@ -7,6 +7,7 @@ export const CONTEXT_TOGGLE_SIGN_IN_POPIN = 'CONTEXT_TOGGLE_SIGN_IN_POPIN'
 export const CONTEXT_CLOSE_ALL = 'CONTEXT_CLOSE_ALL'
 export const CONTEXT_SET_SSR = 'CONTEXT_SET_SSR'
 export const CONTEXT_SET_DRY_RUN = 'CONTEXT_SET_DRY_RUN'
+export const CONTEXT_SET_INITIAL_QUERY_PARAMS = 'CONTEXT_SET_INITIAL_QUERY_PARAMS'
 
 export const setCountry = country => ({
   type: CONTEXT_SET_COUNTRY,
@@ -21,6 +22,11 @@ export const setLang = lang => ({
 export const enableFeature = feature => ({
   type: CONTEXT_ENABLE_FEATURE,
   payload: feature,
+})
+
+export const setInitialQueryParams = queryParams => ({
+  type: CONTEXT_SET_INITIAL_QUERY_PARAMS,
+  payload: queryParams,
 })
 
 export const toggleMainNavigation = (state = null) => ({

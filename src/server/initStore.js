@@ -1,7 +1,14 @@
 import uuid from 'uuid/v4'
 import reactCookie from 'react-cookie'
 import isAuthenticated from 'utils/auth'
-import { setCountry, setLang, setAuthenticated, setProjectElaborationSessionId, enableFeature } from 'store/actions'
+import {
+  setCountry,
+  setLang,
+  setAuthenticated,
+  setProjectElaborationSessionId,
+  enableFeature,
+  setInitialQueryParams,
+} from 'store/actions'
 import { getLocaleFromHostname, getLangFromLocale, getCountryFromLocale } from 'utils/locale'
 
 export default (store, req) => {
@@ -24,6 +31,10 @@ export default (store, req) => {
     features.split(',').map(feature => store.dispatch(enableFeature(feature.trim())))
   }
 
+  // Initialize query params
+  store.dispatch(setInitialQueryParams(req.query))
+
+  // Handle authentication
   store.dispatch(setAuthenticated(isAuthenticated(grantType)))
 
   // Initialize projectElaboration sessionId

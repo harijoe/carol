@@ -30,9 +30,13 @@ export const initialState = {
   postalCode: null,
   proFormId: null,
   proFormLabel: null,
+  tracking: {},
 }
 
 export const getConversation = (state = initialState) => state.activeConversation
+export const getTracking = (state = initialState) => state.tracking
+export const getPartnerHeaderText = (state = initialState) => state.tracking.partnerHeaderText
+export const getPartnerHeaderLink = (state = initialState) => state.tracking.partnerHeaderLink
 export const hasActiveConversation = (state = initialState) => {
   const activeConversation = getConversation(state)
 

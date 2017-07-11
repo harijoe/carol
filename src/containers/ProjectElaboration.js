@@ -15,14 +15,7 @@ import { ProjectElaboration } from 'components'
 
 class ProjectElaborationContainer extends Component {
   static propTypes = {
-    reply: PropTypes.func,
     request: PropTypes.func,
-    selectConversation: PropTypes.func,
-    redirectTo: PropTypes.func,
-    activeConversation: PropTypes.array,
-    conversations: PropTypes.object,
-    hasConversations: PropTypes.bool,
-    locale: PropTypes.string,
   }
 
   componentWillMount() {
@@ -30,27 +23,9 @@ class ProjectElaborationContainer extends Component {
   }
 
   render() {
-    const {
-      activeConversation,
-      conversations,
-      reply,
-      selectConversation,
-      hasConversations,
-      locale,
-      redirectTo,
-    } = this.props
-
     return (
       <ProjectElaboration
-        {...{
-          activeConversation,
-          conversations,
-          reply,
-          selectConversation,
-          hasConversations,
-          locale,
-          redirectTo,
-        }}
+        {...this.props}
       />
     )
   }

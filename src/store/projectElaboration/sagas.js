@@ -2,7 +2,7 @@ import { put, select } from 'redux-saga/effects'
 import cookie from 'react-cookie'
 import { push } from 'react-router-redux'
 import uuid from 'uuid/v4'
-import { fromProjectElaboration, fromAuth, fromRouting } from 'store/selectors'
+import { fromProjectElaboration, fromAuth, fromRouting, fromContext } from 'store/selectors'
 import pushGtmEvent from 'utils/gtm'
 import { takeLatest } from 'utils/effects'
 import fetch from 'sagas/fetch'
@@ -26,23 +26,41 @@ import {
   projectElaborationHeroDetails,
   projectElaborationResetConversation,
   projectElaborationPreValidate,
+  projectUpdate,
 } from './actions'
 
 function* replyConversation({ text, payload = null }) {
   const user = yield select(fromProjectElaboration.getSessionId)
-
-  if (!['new_project.reset', 'new_project.back', 'new_project.current'].includes(text)) {
-    yield put(setProjectElaborationConversationAnswer(text))
-  }
-
-  yield* fetch(projectElaborationReply, 'post', '/chatbot', {}, {
+  const requestPayload = {
     message: {
       text,
-      quick_reply: { payload },
     },
     user,
     channel: 'project',
-  })
+  }
+
+  if (payload != null) {
+    requestPayload.message.quick_reply = { payload }
+  }
+
+  const reservedAnswers = ['new_project.reset', 'new_project.back', 'new_project.current']
+
+  if (!reservedAnswers.includes(text)) {
+    yield put(setProjectElaborationConversationAnswer(text))
+  }
+
+  // @TODO must be conditioned by 'new_project.reset', but this has to wait an API evolution
+  const { utm_source, acq_activity } = yield select(fromContext.getInitialQueryParams)
+
+  // eslint-disable-next-line camelcase
+  if (utm_source != null && acq_activity != null) {
+    requestPayload.tracking = {
+      acqSource: utm_source,
+      acqActivity: acq_activity,
+    }
+  }
+
+  yield* fetch(projectElaborationReply, 'post', '/chatbot', {}, requestPayload)
 }
 
 function* getConversations() {
@@ -77,18 +95,10 @@ function* selectConversation({ authType }) {
 
 function* replyHero() {
   const hero = yield select(fromProjectElaboration.getHero)
-  const user = yield select(fromProjectElaboration.getSessionId)
 
   yield* replyConversation({ text: 'new_project.reset' })
   yield put(setProjectElaborationConversationAnswer(hero[1].answer.text))
-  yield* fetch(projectElaborationReply, 'post', '/chatbot', {}, {
-    message: {
-      text: hero[1].answer.text,
-      quick_reply: { payload: hero[1].answer.payload },
-    },
-    user,
-    channel: 'project',
-  })
+  yield* replyConversation({ text: hero[1].answer.text, payload: hero[1].answer.payload })
   yield put(push('/project-elaboration'))
 }
 
@@ -129,7 +139,15 @@ function* preValidate({ chatbotStorageId }) {
   }
 
   yield* fetch(projectElaborationPreValidate, 'post', `/project-prevalidate/${chatbotStorageId}`)
+
+
   const projectId = yield select(fromProjectElaboration.getProjectId)
+  const { sqn } = yield select(fromContext.getInitialQueryParams)
+
+  if (sqn != null) {
+    yield* fetch(projectUpdate, 'put', `/projects/${projectId}`, {}, { sqn: parseInt(sqn, 10) })
+  }
+
   const projectName = yield select(fromProjectElaboration.getProjectName)
   const proFormLabel = yield select(fromProjectElaboration.getProFormLabel)
   const postalCode = yield select(fromProjectElaboration.getPostalCode)

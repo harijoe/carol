@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { ProjectElaborationTemplate, HeaderConversational } from 'components'
+import { ProjectElaborationTemplate } from 'components'
+import { HeaderConversational } from 'containers'
 
 const ProjectElaborationLayout = ({ children, ...props }) => (
   <ProjectElaborationTemplate header={<HeaderConversational {...props} />}>

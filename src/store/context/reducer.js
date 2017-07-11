@@ -7,6 +7,7 @@ import {
   CONTEXT_CLOSE_ALL,
   CONTEXT_SET_SSR,
   CONTEXT_SET_DRY_RUN,
+  CONTEXT_SET_INITIAL_QUERY_PARAMS,
   CONTEXT_ENABLE_FEATURE,
 } from './actions'
 import { initialState } from './selectors'
@@ -62,6 +63,12 @@ export default (state = initialState,
       return {
         ...state,
         dryRun: action.payload,
+      }
+    }
+    case CONTEXT_SET_INITIAL_QUERY_PARAMS: {
+      return {
+        ...state,
+        initialQueryParams: action.payload,
       }
     }
     case CONTEXT_ENABLE_FEATURE: {

@@ -2,7 +2,15 @@ import * as selectors from './selectors'
 
 test('initialState', () => {
   expect(selectors.initialState).toEqual({
-    country: 'GB', accountNavigation: false, mainNavigation: false, lang: 'en', signInPopin: false, ssr: true, dryRun: false, features: {},
+    country: 'GB',
+    accountNavigation: false,
+    mainNavigation: false,
+    lang: 'en',
+    signInPopin: false,
+    ssr: true,
+    dryRun: false,
+    features: {},
+    initialQueryParams: {},
   })
 })
 

@@ -100,6 +100,7 @@ export default (state = initialState, action) => {
           ...state,
           activeConversation: payload[Object.keys(payload)[0]].conversation,
           sessionId: payload[Object.keys(payload)[0]].sessionId,
+          tracking: payload[Object.keys(payload)[0]].tracking,
         }
       }
 

@@ -105,7 +105,7 @@ const ThumbnailCard = ({ link, image, title, items, onClick }) => (
 )
 
 ThumbnailCard.propTypes = {
-  link: PropTypes.string.isRequired,
+  link: PropTypes.string,
   image: PropTypes.string,
   title: PropTypes.string,
   items: PropTypes.array.isRequired,

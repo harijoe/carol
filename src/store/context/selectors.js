@@ -10,6 +10,7 @@ export const initialState = {
   ssr: true,
   dryRun: false,
   features: {},
+  initialQueryParams: {},
 }
 
 export const isSSR = (state = initialState) => state.ssr
@@ -22,3 +23,4 @@ export const isPopin = (state = initialState) => state.accountNavigation || stat
 export const getCountry = (state = initialState) => state.country
 export const getLocale = (state = initialState) => `${state.lang}-${state.country}`
 export const isFeatureEnabled = (state = initialState, feature) => !!state.features[feature]
+export const getInitialQueryParams = (state = initialState) => state.initialQueryParams
