@@ -16,6 +16,12 @@ defineSupportCode(({ When }) => {
     expect(text).toInclude(expectedText)
   })
 
+  When(/I should not see '(.*)'/, async (expectedText) => {
+    const text = await driver.findElement({ css: 'body' }).getText()
+
+    expect(text).toNotInclude(expectedText)
+  })
+
   When(/I should see (\d*) Key-one slides/, async (expectedCount) => {
     const keyOneSlides = await driver.findElements({ css: '.hero .slick-slide' })
 

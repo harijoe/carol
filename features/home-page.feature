@@ -1,5 +1,5 @@
-Feature: As a customer going to the home page
-  I would like to see home page contents
+Feature: As a user going to the home page
+  I see home page contents
 
   Scenario: Home page fr
     Given I go to the home page
