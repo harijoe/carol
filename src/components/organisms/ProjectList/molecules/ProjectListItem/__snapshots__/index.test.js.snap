@@ -9,7 +9,6 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <Project
-    full={false}
     items={
         Object {
             "createdAt": "2017-02-01",
@@ -21,7 +20,6 @@ ShallowWrapper {
 />,
   "nodes": Array [
     <Project
-      full={false}
       items={
             Object {
                   "createdAt": "2017-02-01",
@@ -43,7 +41,6 @@ ShallowWrapper {
         messages={Object {}}
 >
         <Project
-                full={false}
                 items={
                         Object {
                                 "createdAt": "2017-02-01",
@@ -64,7 +61,6 @@ ShallowWrapper {
         },
         "props": Object {
           "children": <Project
-            full={false}
             items={
                         Object {
                                     "createdAt": "2017-02-01",
@@ -105,7 +101,6 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Project
-          full={false}
           items={
                     Object {
                               "createdAt": "2017-02-01",
@@ -117,7 +112,6 @@ ShallowWrapper {
 />,
         "_debugID": 2,
         "_renderedOutput": <Project
-          full={false}
           items={
                     Object {
                               "createdAt": "2017-02-01",
@@ -143,7 +137,6 @@ ShallowWrapper {
     messages={Object {}}
 >
     <Project
-        full={false}
         items={
             Object {
                 "createdAt": "2017-02-01",

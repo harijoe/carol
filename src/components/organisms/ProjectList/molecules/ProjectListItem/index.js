@@ -125,16 +125,18 @@ const PartnerImageWrapper = styled.div`
   box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, 0.15);
 `
 
-const Project = ({ name, createdAt, status, partner: { headerLink }, ...items }) => (
+const Project = ({ name, createdAt, status, partner, ...items }) => (
   <Article>
     <HeaderCard>
       <ImageWrapper>
         <BackgroundImage src={`${cloudinaryUrl}thumbnail-poster-keyone.jpg`} />
       </ImageWrapper>
       <ProjectStatus status={status} />
-      <PartnerImageWrapper>
-        <PartnerImage src={headerLink} />
-      </PartnerImageWrapper>
+      { partner != null &&
+        <PartnerImageWrapper>
+          <PartnerImage src={partner.headerLink} />
+        </PartnerImageWrapper>
+      }
     </HeaderCard>
     <FooterCard>
       <StyledHeading level={3}>{name}</StyledHeading>
@@ -169,10 +171,6 @@ Project.propTypes = {
   partner: PropTypes.shape({
     headerLink: PropTypes.string,
   }),
-}
-
-Project.defaultProps = {
-  full: false,
 }
 
 export default Project
