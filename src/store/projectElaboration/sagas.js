@@ -1,14 +1,15 @@
 import { put, select } from 'redux-saga/effects'
 import cookie from 'react-cookie'
 import { push } from 'react-router-redux'
-import uuid from 'uuid/v4'
 import { fromProjectElaboration, fromAuth, fromUser, fromRouting, fromContext } from 'store/selectors'
 import pushGtmEvent from 'utils/gtm'
 import { takeLatest } from 'utils/effects'
+import generateSessionId from 'utils/generateSessionId'
 import fetch from 'sagas/fetch'
 import ssr from 'sagas/ssr'
 import notify from 'sagas/notify'
 import { projectUpdate } from 'store/actions'
+import { saveProjectElaborationIdInCookies } from './utils'
 
 import {
   PROJECT_ELABORATION_CONVERSATION_REPLY,
@@ -19,6 +20,7 @@ import {
   PROJECT_ELABORATION_RESET,
   PROJECT_ELABORATION_CONVERSATION_CURRENT,
   PROJECT_ELABORATION_PRE_VALIDATE,
+  PROJECT_ELABORATION_CLICK_FIND_A_PRO,
   projectElaborationReply,
   projectElaborationConversationsDetails,
   setProjectElaborationConversationAnswer,
@@ -96,7 +98,8 @@ function* selectConversation({ authType }) {
 function* replyHero() {
   const hero = yield select(fromProjectElaboration.getHero)
 
-  yield* replyConversation({ text: 'new_project.reset' })
+  yield* resetAll()
+
   yield put(setProjectElaborationConversationAnswer(hero[1].answer.text))
   yield* replyConversation({ text: hero[1].answer.text, payload: hero[1].answer.payload })
   yield put(push('/project-elaboration'))
@@ -117,13 +120,6 @@ function* requestHero() {
     user,
     channel: 'project',
   })
-}
-
-function* resetAll() {
-  const sessionId = uuid()
-
-  yield cookie.save('project_elaboration_session_id', sessionId, { path: '/', maxAge: 86400, secure: true })
-  yield put(setProjectElaborationSessionId(sessionId))
 }
 
 function* preValidate({ chatbotStorageId }) {
@@ -166,12 +162,26 @@ function* preValidate({ chatbotStorageId }) {
   })
 }
 
+function* handleClickOnFindAPro() {
+  yield* resetAll()
+  yield put(push('/project-elaboration'))
+  yield* replyConversation({ text: 'new_project.reset' })
+}
+
+function* resetAll() {
+  const sessionId = generateSessionId()
+
+  saveProjectElaborationIdInCookies(sessionId)
+  yield put(setProjectElaborationSessionId(sessionId))
+}
+
 export default function* () {
   yield [
     takeLatest(PROJECT_ELABORATION_CONVERSATION_REPLY.REQUEST, replyConversation),
     takeLatest(PROJECT_ELABORATION_HERO_DETAILS.REQUEST, getConversations),
     takeLatest(PROJECT_ELABORATION_HERO_DETAILS.REQUEST, ssr(requestHero)),
     takeLatest(PROJECT_ELABORATION_HERO_SET_RESPONSE, replyHero),
+    takeLatest(PROJECT_ELABORATION_CLICK_FIND_A_PRO, handleClickOnFindAPro),
     takeLatest(PROJECT_ELABORATION_CONVERSATIONS_DETAILS.REQUEST, getConversations),
     takeLatest(PROJECT_ELABORATION_CONVERSATIONS_SELECT.REQUEST, selectConversation),
     takeLatest(PROJECT_ELABORATION_RESET, resetAll),

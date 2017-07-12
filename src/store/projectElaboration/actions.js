@@ -14,6 +14,7 @@ export const PROJECT_ELABORATION_CONVERSATION_REPLY = createRequestTypes('PROJEC
 export const PROJECT_ELABORATION_CONVERSATION_SET_RESPONSE = 'PROJECT_ELABORATION_CONVERSATION_SET_RESPONSE'
 export const PROJECT_ELABORATION_CONVERSATIONS_DETAILS = createRequestTypes('PROJECT_ELABORATION_CONVERSATIONS_DETAILS')
 export const PROJECT_ELABORATION_CONVERSATIONS_SELECT = createRequestTypes('PROJECT_ELABORATION_CONVERSATIONS_SELECT')
+export const PROJECT_ELABORATION_CLICK_FIND_A_PRO = 'PROJECT_ELABORATION_CLICK_FIND_A_PRO'
 
 export const projectElaborationHeroDetails = {
   request: () => (actionTypes(PROJECT_ELABORATION_HERO_DETAILS.REQUEST)),
@@ -49,6 +50,10 @@ export const setProjectElaborationSessionId = sessionId => ({
 export const setProjectElaborationConversationAnswer = text => ({
   type: PROJECT_ELABORATION_CONVERSATION_SET_RESPONSE,
   payload: text,
+})
+
+export const clickOnFindAPro = () => ({
+  type: PROJECT_ELABORATION_CLICK_FIND_A_PRO,
 })
 
 export const projectElaborationConversationsSelect = {

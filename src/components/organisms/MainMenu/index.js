@@ -7,6 +7,7 @@ import { locales } from 'config'
 import injectScroll from 'hoc/component/injectScroll'
 
 import { List, Link, ListItemWithSubmenu } from 'components'
+import { FindAProLink } from 'containers'
 
 const StyledList = styled(List)`${({ homepage, atTop }) => css`
   display: flex;
@@ -149,6 +150,7 @@ const linkStyle = css`
 `
 
 const StyledLink = styled(Link)`${linkStyle}`
+const StyledFindAProLink = styled(FindAProLink)`${linkStyle}`
 
 const SubMenuLink = styled(Link)`
   display: block;
@@ -181,9 +183,7 @@ FirmResourceSubMenu.propTypes = {
 const MainMenu = ({ locale, homepage, atTop }) => (
   <StyledList homepage={homepage} atTop={atTop}>
     <li key="firm.find_pro">
-      <StyledLink to="/project-elaboration">
-        <FormattedMessage id="firm.find_pro" />
-      </StyledLink>
+      <StyledFindAProLink />
     </li>
     <ListItemWithSubmenu key="firm.resource" id="firm.resource" linkStyle={linkStyle} homepage={homepage}>
       {Object.keys(locales[locale].mainMenu.resource).map(submenu => (

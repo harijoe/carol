@@ -1,4 +1,3 @@
-import uuid from 'uuid/v4'
 import reactCookie from 'react-cookie'
 import isAuthenticated from 'utils/auth'
 import {
@@ -10,6 +9,8 @@ import {
   setInitialQueryParams,
 } from 'store/actions'
 import { getLocaleFromHostname, getLangFromLocale, getCountryFromLocale } from 'utils/locale'
+import generateSessionId from 'utils/generateSessionId'
+import { saveProjectElaborationIdInCookies } from 'store/utils'
 
 export default (store, req) => {
   // Initialize locale from hostname
@@ -38,12 +39,9 @@ export default (store, req) => {
   store.dispatch(setAuthenticated(isAuthenticated(grantType)))
 
   // Initialize projectElaboration sessionId
-  let sessionId = reactCookie.load('project_elaboration_session_id') || null
+  const sessionId = reactCookie.load('project_elaboration_session_id') || generateSessionId()
 
-  if (sessionId === null) {
-    sessionId = uuid()
-    reactCookie.save('project_elaboration_session_id', sessionId, { path: '/', maxAge: 86400000, secure: true })
-  }
+  saveProjectElaborationIdInCookies(sessionId)
 
   store.dispatch(setProjectElaborationSessionId(sessionId))
 
