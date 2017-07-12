@@ -158,7 +158,7 @@ function* preValidate({ chatbotStorageId }) {
     chatbotKey1: heroAnswer.text,
     proFormLabel,
   })
-  yield put(push(`/projects/${projectId}/account`))
+  yield put(push(`${projectId}/account`))
   yield* notify('user.thank_you', 'project.elaboration.project_prevalidation.success', 'success', {}, { name: projectName })
   yield pushGtmEvent({
     event: 'StartAutoValidation',
