@@ -28,7 +28,7 @@ const StyledButton = styled(Button)`
 `
 
 const PhoneForm = (props) => {
-  const { error, handleSubmit, intl: { formatMessage }, disabled, loading } = props
+  const { error, handleSubmit, intl: { formatMessage }, disabled, loading, language } = props
 
   return (
     <Form onSubmit={handleSubmit}>
@@ -39,7 +39,8 @@ const PhoneForm = (props) => {
         placeholder={formatMessage(messages('user.mobile_phone').label)}
         disabled={loading || disabled}
         type="phone"
-        {...{ format, normalize }}
+        normalize={normalize(language)}
+        format={format(language)}
       />
       {error && <FormattedMessage id={error} tagName="strong" />}
       <StyledButton type="submit" {...{ disabled, loading }}>
@@ -54,6 +55,7 @@ PhoneForm.propTypes = {
   disabled: PropTypes.bool,
   error: PropTypes.string,
   loading: PropTypes.bool,
+  language: PropTypes.string,
   intl: intlShape.isRequired,
 }
 

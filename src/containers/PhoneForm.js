@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 import { validatePhone } from 'store/actions'
-import { fromUser, fromStatus } from 'store/selectors'
+import { fromUser, fromStatus, fromContext } from 'store/selectors'
 import { createValidator, required } from 'services/validation'
 
 import { PhoneForm } from 'components'
@@ -21,6 +21,7 @@ const mapStateToProps = (state) => {
     },
     disabled: details['@id'] == null,
     loading: fromStatus.getLoading(state).USER_VALIDATE_PHONE,
+    language: fromContext.getLang(state),
   }
 }
 
