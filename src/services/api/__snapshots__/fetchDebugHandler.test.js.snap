@@ -1,6 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`log the response when api.debug is true 1`] = `
-"API Response for GET http://google.com: 
-  { foo: [32m'bar'[39m }"
+"API GET http://google.com [fr-FR]: 
+  Request body:
+    { data: [32m'payload'[39m } 
+  Response: 
+    { foo: [32m'bar'[39m }"
 `;

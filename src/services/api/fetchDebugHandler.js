@@ -1,11 +1,13 @@
-export default (config, method, url) => (response) => {
+export default (config, method, settings, body, url) => (response) => {
   if (process.env.NODE_ENV !== 'production' && config.api.debug && !config.browser) {
     const { inspect } = require('util')
-    const indent = '\n  '
+    const indent = '\n    '
+    const formatAndIndent = object => `${indent}${inspect(object, { colors: true, depth: null }).split('\n').join(indent)}`
 
     console.info(
-      'API Response for', method.toUpperCase(), `${url}:`,
-      `${indent}${inspect(response, { colors: true, depth: null }).split('\n').join(indent)}`)
+      'API', method.toUpperCase(), `${url} [${settings.lang}]:`,
+      body ? `\n  Request body:${formatAndIndent(body)}` : '',
+      `\n  Response: ${formatAndIndent(response)}`)
   }
 
   return response
