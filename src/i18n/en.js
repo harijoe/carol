@@ -129,7 +129,7 @@ export default {
   'pages.default.meta.og.title': 'Compare prices with 4 free quotes',
   'pages.default.title': 'Find the right pro with Quotatis: Compare quotes and bring your ideas to life',
   'pages.default.titleTemplate': 'Quote Works',
-  'pages.home.ld+json': '\\{ "@context": "http://schema.org", "@type": "Organization", "url": "https://www.quotatis.co.uk", "name": "Quotatis", "logo": "https://res.cloudinary.com/quotatis/image/upload/v1496149619/FrontApp/icons/quotatis-firm.svg", "sameAs": [ "https://www.facebook.com/Quotatis", "https://twitter.com/Quotatis", "https://www.youtube.com/user/quotatisuk", "http://fr.viadeo.com/fr/company/quotatis", "https://www.linkedin.com/company/quotatisuk", "https://www.instagram.com/quotatisuk/" ] \\}',
+  'pages.home.ld+json': '\\{ "@context": "http://schema.org", "@type": "Organization", "url": "https://www.quotatis.co.uk", "name": "Quotatis", "logo": "https://res.cloudinary.com/quotatis/image/upload/v1496149619/FrontApp/icons/quotatis-firm.svg", "sameAs": [ "https://www.facebook.com/Quotatis", "https://twitter.com/Quotatis", "https://www.youtube.com/user/quotatisuk", "https://plus.google.com/106376832204465138273", "https://www.pinterest.com/quotatis/" ] \\}',
   'pages.home.meta.description': 'Need work done in your home? Quotatis connects you with trusted tradespeople in your area.',
   'Phone number is invalid': 'Invalid phone number. Please try again.',
   'project.button.in_progress': 'Continue my project',
