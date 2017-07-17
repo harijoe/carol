@@ -8,9 +8,9 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <InjectIntl(ForgotPasswordForm) />,
+  "node": <InjectTranslate(ForgotPasswordForm) />,
   "nodes": Array [
-    <InjectIntl(ForgotPasswordForm) />,
+    <InjectTranslate(ForgotPasswordForm) />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -22,7 +22,7 @@ ShallowWrapper {
         locale="en"
         messages={Object {}}
 >
-        <InjectIntl(ForgotPasswordForm) />
+        <InjectTranslate(ForgotPasswordForm) />
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -33,7 +33,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <InjectIntl(ForgotPasswordForm) />,
+          "children": <InjectTranslate(ForgotPasswordForm) />,
           "locale": "en",
           "messages": Object {},
         },
@@ -64,9 +64,9 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <InjectIntl(ForgotPasswordForm) />,
+        "_currentElement": <InjectTranslate(ForgotPasswordForm) />,
         "_debugID": 2,
-        "_renderedOutput": <InjectIntl(ForgotPasswordForm) />,
+        "_renderedOutput": <InjectTranslate(ForgotPasswordForm) />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -82,7 +82,7 @@ ShallowWrapper {
     locale="en"
     messages={Object {}}
 >
-    <InjectIntl(ForgotPasswordForm) />
+    <InjectTranslate(ForgotPasswordForm) />
 </IntlProvider>,
 }
 `;

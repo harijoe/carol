@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 import styled from 'styled-components'
-import messages from 'utils/messages'
 import { breakpoint } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
 
@@ -30,10 +30,10 @@ const StyledGrid = styled(Grid)`
   `}
 `
 
-const ProjectAccountPage = ({ params: { projectId }, intl: { formatMessage } }) => (
+const ProjectAccountPage = ({ params: { projectId }, translate }) => (
   <MainLayout>
     <MainWrapper>
-      <StyledHeroSection title={formatMessage(messages('project.validation_page').label)} imageLink={cloudinary('/hero-fullscreen_image.jpg')} />
+      <StyledHeroSection title={translate('project.validation_page')} imageLink={cloudinary('/hero-fullscreen_image.jpg')} />
       <Section light>
         <StyledGrid>
           <FormattedMessage id="project.validation.describe" />
@@ -45,10 +45,10 @@ const ProjectAccountPage = ({ params: { projectId }, intl: { formatMessage } }) 
 )
 
 ProjectAccountPage.propTypes = {
-  intl: intlShape.isRequired,
+  translate: PropTypes.func.isRequired,
   params: PropTypes.shape({
     projectId: PropTypes.string,
   }),
 }
 
-export default injectIntl(ProjectAccountPage)
+export default injectTranslate(ProjectAccountPage)

@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Field } from 'redux-form'
 import styled from 'styled-components'
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme } from 'utils/style'
-import messages from 'utils/messages'
 
 import { RenderField, SendSMSButton, Icon } from 'components'
 
@@ -19,7 +19,7 @@ const Form = styled.form`
 `
 
 const PhoneCodeForm = (props) => {
-  const { error, handleSubmit, loading, intl: { formatMessage }, resendSMS, disabled, submit } = props
+  const { error, handleSubmit, loading, translate, resendSMS, disabled, submit } = props
 
   const handleChange = (e) => {
     // auto-submit when the users enters 6 char
@@ -37,7 +37,7 @@ const PhoneCodeForm = (props) => {
       <Field
         name="code"
         component={RenderField}
-        label={formatMessage(messages('user.code').label)}
+        label={translate('user.code')}
         placeholder={'XXXXXX'}
         onChange={handleChange}
         disabled={loading || disabled}
@@ -57,7 +57,7 @@ PhoneCodeForm.propTypes = {
   submit: PropTypes.func,
   disabled: PropTypes.bool,
   error: PropTypes.string,
-  intl: intlShape.isRequired,
+  translate: PropTypes.func.isRequired,
 }
 
-export default injectIntl(PhoneCodeForm)
+export default injectTranslate(PhoneCodeForm)

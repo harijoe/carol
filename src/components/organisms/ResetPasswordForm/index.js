@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Field } from 'redux-form'
 import styled from 'styled-components'
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
-import messages from 'utils/messages'
+import { FormattedMessage } from 'react-intl'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint } from 'utils/style'
 
 import { Button, CarouselPageTemplate, AnimatedLabelField } from 'components'
@@ -29,10 +29,10 @@ const StyledButton = styled(Button)`
   `}
 `
 
-const ResetPasswordForm = ({ error, handleSubmit, loading, intl: { formatMessage } }) => (
+const ResetPasswordForm = ({ error, handleSubmit, loading, translate }) => (
   <CarouselPageTemplate
-    heading={formatMessage(messages('user.reset_password.heading').label)}
-    description={formatMessage(messages('user.reset_password.description').label)}
+    heading={translate('user.reset_password.heading')}
+    description={translate('user.reset_password.description')}
   >
     <Form onSubmit={handleSubmit}>
       <Field name="token" type="hidden" component="input" />
@@ -41,13 +41,13 @@ const ResetPasswordForm = ({ error, handleSubmit, loading, intl: { formatMessage
         name="password"
         type="password"
         icon="pwd-login"
-        label={formatMessage(messages('user.password').label)}
+        label={translate('user.password')}
       />
       <AnimatedLabelField
         name="passwordValidation"
         type="password"
         icon="pwd-login"
-        label={formatMessage(messages('user.confirm_password').label)}
+        label={translate('user.confirm_password')}
       />
       <StyledButton type="submit" loading={loading}>
         <FormattedMessage id="user.send" />
@@ -60,7 +60,7 @@ ResetPasswordForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   loading: PropTypes.bool,
   error: PropTypes.string,
-  intl: intlShape.isRequired,
+  translate: PropTypes.func.isRequired,
 }
 
-export default injectIntl(ResetPasswordForm)
+export default injectTranslate(ResetPasswordForm)

@@ -1,24 +1,24 @@
 import React from 'react'
-import { injectIntl, intlShape } from 'react-intl'
+import PropTypes from 'prop-types'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 
 import { facebook } from 'config'
-import messages from 'utils/messages'
 import { SocialLogin } from 'containers'
 
-const FacebookLogin = ({ intl }) => (
+const FacebookLogin = ({ translate }) => (
   <SocialLogin
     platform="facebook"
     appId={facebook.appId}
     grantType={facebook.grantType}
     icon="fa-facebook"
     size="small"
-    textButton={intl.formatMessage(messages('user.continue_with_facebook').label)}
+    textButton={translate('user.continue_with_facebook')}
     scope={facebook.scope}
   />
 )
 
 FacebookLogin.propTypes = {
-  intl: intlShape.isRequired,
+  translate: PropTypes.func.isRequired,
 }
 
-export default injectIntl(FacebookLogin)
+export default injectTranslate(FacebookLogin)

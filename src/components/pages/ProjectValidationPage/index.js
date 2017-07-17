@@ -1,6 +1,7 @@
 import React from 'react'
-import messages from 'utils/messages'
-import { injectIntl, intlShape, FormattedMessage } from 'react-intl'
+import PropTypes from 'prop-types'
+import { FormattedMessage } from 'react-intl'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 import cloudinary from 'utils/cloudinary'
 import styled from 'styled-components'
 import { breakpoint } from 'utils/style'
@@ -15,15 +16,15 @@ const StyledLink = styled(Link)`
   `}
 `
 
-const ProjectValidationPage = ({ intl: { formatMessage } }) => (
+const ProjectValidationPage = ({ translate }) => (
   <MainLayout>
     <MainWrapper>
       <InnerWrapper>
         <Section>
           <AutoValidationBlock
             imageLink={cloudinary('/autovalidation-validate.svg')}
-            title={formatMessage(messages('auto-validation.validate.title').label)}
-            paragraph={formatMessage(messages('auto-validation.validate.message').label)}
+            title={translate('auto-validation.validate.title')}
+            paragraph={translate('auto-validation.validate.message')}
           >
             <StyledLink to="/projects" button>
               <FormattedMessage id="auto-validation.validate.call_to_action" />
@@ -36,7 +37,7 @@ const ProjectValidationPage = ({ intl: { formatMessage } }) => (
 )
 
 ProjectValidationPage.propTypes = {
-  intl: intlShape.isRequired,
+  translate: PropTypes.func.isRequired,
 }
 
-export default injectIntl(ProjectValidationPage)
+export default injectTranslate(ProjectValidationPage)

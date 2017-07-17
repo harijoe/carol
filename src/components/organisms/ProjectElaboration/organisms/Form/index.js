@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import { Field, reduxForm } from 'redux-form'
 import styled, { css } from 'styled-components'
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, ifThen, breakpoint } from 'utils/style'
-import messages from 'utils/messages'
 
 import { RenderField, Icon, PopinMenu, PopinMenuButton } from 'components'
 
@@ -170,7 +170,7 @@ class Form extends Component {
   render() {
     const {
       reply,
-      intl: { formatMessage },
+      translate,
       handleSubmit,
       reset,
       pristine,
@@ -217,7 +217,7 @@ class Form extends Component {
             disabled={disabled}
             name="answer"
             component={RenderField}
-            placeholder={formatMessage(messages('project.elaboration.answer').label)}
+            placeholder={translate('project.elaboration.answer')}
             autoFocus
             onFocus={scrollToBottom}
             innerRef={(field) => { this.field = field }}
@@ -234,7 +234,7 @@ class Form extends Component {
 
 Form.propTypes = {
   reply: PropTypes.func.isRequired,
-  intl: intlShape,
+  translate: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func,
   reset: PropTypes.func,
   pristine: PropTypes.bool,
@@ -242,4 +242,4 @@ Form.propTypes = {
   disabled: PropTypes.bool,
 }
 
-export default reduxForm({ form: 'ProjectElaboration' })(injectIntl(Form))
+export default reduxForm({ form: 'ProjectElaboration' })(injectTranslate(Form))

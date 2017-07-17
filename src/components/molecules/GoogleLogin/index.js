@@ -1,17 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { injectIntl, intlShape } from 'react-intl'
 
+import injectTranslate from 'i18n/hoc/injectTranslate'
 import { google } from 'config'
-import messages from 'utils/messages'
 import { SocialLogin } from 'containers'
 
-const GoogleLogin = ({ intl, buttonStyle }) => (
+const GoogleLogin = ({ translate, buttonStyle }) => (
   <SocialLogin
     platform="google"
     clientId={google.clientId}
     grantType={google.grantType}
-    buttonText={intl.formatMessage(messages('user.continue_with_google').label)}
+    buttonText={translate('user.continue_with_google')}
     buttonStyle={buttonStyle}
     onFailure={() => {}}
     scope={google.scope}
@@ -19,8 +18,8 @@ const GoogleLogin = ({ intl, buttonStyle }) => (
 )
 
 GoogleLogin.propTypes = {
-  intl: intlShape.isRequired,
+  translate: PropTypes.func.isRequired,
   buttonStyle: PropTypes.string,
 }
 
-export default injectIntl(GoogleLogin)
+export default injectTranslate(GoogleLogin)

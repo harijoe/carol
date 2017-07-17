@@ -8,7 +8,7 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <Connect(Form(InjectIntl(Form)))
+  "node": <Connect(Form(InjectTranslate(Form)))
     destroyOnUnmount={true}
     enableReinitialize={false}
     forceUnregisterOnUnmount={false}
@@ -24,7 +24,7 @@ ShallowWrapper {
     touchOnChange={false}
 />,
   "nodes": Array [
-    <Connect(Form(InjectIntl(Form)))
+    <Connect(Form(InjectTranslate(Form)))
       destroyOnUnmount={true}
       enableReinitialize={false}
       forceUnregisterOnUnmount={false}
@@ -74,7 +74,7 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <Connect(Form(InjectIntl(Form)))
+        "_currentElement": <Connect(Form(InjectTranslate(Form)))
           destroyOnUnmount={true}
           enableReinitialize={false}
           forceUnregisterOnUnmount={false}
@@ -90,7 +90,7 @@ ShallowWrapper {
           touchOnChange={false}
 />,
         "_debugID": 2,
-        "_renderedOutput": <Connect(Form(InjectIntl(Form)))
+        "_renderedOutput": <Connect(Form(InjectTranslate(Form)))
           destroyOnUnmount={true}
           enableReinitialize={false}
           forceUnregisterOnUnmount={false}

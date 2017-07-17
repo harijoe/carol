@@ -8,12 +8,12 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <InjectIntl(HowItWorks)
+  "node": <InjectTranslate(HowItWorks)
     Content="Test content"
     title="Test"
 />,
   "nodes": Array [
-    <InjectIntl(HowItWorks)
+    <InjectTranslate(HowItWorks)
       Content="Test content"
       title="Test"
 />,
@@ -28,7 +28,7 @@ ShallowWrapper {
         locale="en"
         messages={Object {}}
 >
-        <InjectIntl(HowItWorks)
+        <InjectTranslate(HowItWorks)
                 Content="Test content"
                 title="Test"
         />
@@ -42,7 +42,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <InjectIntl(HowItWorks)
+          "children": <InjectTranslate(HowItWorks)
             Content="Test content"
             title="Test"
 />,
@@ -76,12 +76,12 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <InjectIntl(HowItWorks)
+        "_currentElement": <InjectTranslate(HowItWorks)
           Content="Test content"
           title="Test"
 />,
         "_debugID": 2,
-        "_renderedOutput": <InjectIntl(HowItWorks)
+        "_renderedOutput": <InjectTranslate(HowItWorks)
           Content="Test content"
           title="Test"
 />,
@@ -100,7 +100,7 @@ ShallowWrapper {
     locale="en"
     messages={Object {}}
 >
-    <InjectIntl(HowItWorks)
+    <InjectTranslate(HowItWorks)
         Content="Test content"
         title="Test"
     />

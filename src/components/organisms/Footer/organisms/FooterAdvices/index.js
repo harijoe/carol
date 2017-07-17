@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { injectIntl, intlShape } from 'react-intl'
 import styled from 'styled-components'
 import { theme, breakpoint } from 'utils/style'
-import messages from 'utils/messages'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 
 import { Section, List, Col, Row, FooterAdvicesListItem } from 'components'
 
@@ -37,8 +36,8 @@ const StyledSection = styled(Section)`
   `}
 `
 
-const FooterAdvices = ({ locale, intl: { formatMessage } }) => (
-  <StyledSection dark title={formatMessage(messages('footer.advices.section_title').label)} className="advices">
+const FooterAdvices = ({ locale, translate }) => (
+  <StyledSection dark title={translate('footer.advices.section_title')} className="advices">
     <StyledRow>
       <StyledCol xs={6} m={3}>
         <StyledList>
@@ -73,8 +72,8 @@ const FooterAdvices = ({ locale, intl: { formatMessage } }) => (
 )
 
 FooterAdvices.propTypes = {
-  intl: intlShape.isRequired,
+  translate: PropTypes.func.isRequired,
   locale: PropTypes.string,
 }
 
-export default injectIntl(FooterAdvices)
+export default injectTranslate(FooterAdvices)

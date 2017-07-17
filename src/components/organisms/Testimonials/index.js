@@ -1,8 +1,8 @@
 import React from 'react'
-import { injectIntl, intlShape } from 'react-intl'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import stripTags from 'utils/stripTags'
-import messages from 'utils/messages'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint } from 'utils/style'
 
 import { Card, Section, TestimonialCardContent, Grid } from 'components'
@@ -56,8 +56,8 @@ const generateChild = (i, { link, featuredMedia, customFields }) => (
   </StyledCard>
 )
 
-const Testimonials = ({ intl: { formatMessage } }) => (
-  <Section title={formatMessage(messages('testimonials.section_title').label)} light>
+const Testimonials = ({ translate }) => (
+  <Section title={translate('testimonials.section_title')} light>
     <StyledGrid>
       <PostList
         scope="testimonialArticles"
@@ -80,7 +80,7 @@ const Testimonials = ({ intl: { formatMessage } }) => (
 )
 
 Testimonials.propTypes = {
-  intl: intlShape.isRequired,
+  translate: PropTypes.func.isRequired,
 }
 
-export default injectIntl(Testimonials)
+export default injectTranslate(Testimonials)

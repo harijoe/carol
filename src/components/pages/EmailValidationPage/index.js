@@ -1,12 +1,12 @@
 import React from 'react'
-import { injectIntl, intlShape } from 'react-intl'
+import PropTypes from 'prop-types'
 import cloudinary from 'utils/cloudinary'
-import messages from 'utils/messages'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 
 import { MainLayout, MainWrapper, InnerWrapper, Section, AutoValidationBlock } from 'components'
 import { EmailForm } from 'containers'
 
-const EmailValidationPage = ({ intl: { formatMessage } }) => (
+const EmailValidationPage = ({ translate }) => (
   <MainLayout>
     <MainWrapper>
       <InnerWrapper>
@@ -14,8 +14,8 @@ const EmailValidationPage = ({ intl: { formatMessage } }) => (
           <AutoValidationBlock
             secondDot
             imageLink={cloudinary('/autovalidation-mail.svg')}
-            title={formatMessage(messages('auto-validation.mail.title').label)}
-            paragraph={formatMessage(messages('auto-validation.mail.message').label)}
+            title={translate('auto-validation.mail.title')}
+            paragraph={translate('auto-validation.mail.message')}
           >
             <EmailForm />
           </AutoValidationBlock>
@@ -26,7 +26,7 @@ const EmailValidationPage = ({ intl: { formatMessage } }) => (
 )
 
 EmailValidationPage.propTypes = {
-  intl: intlShape.isRequired,
+  translate: PropTypes.func.isRequired,
 }
 
-export default injectIntl(EmailValidationPage)
+export default injectTranslate(EmailValidationPage)

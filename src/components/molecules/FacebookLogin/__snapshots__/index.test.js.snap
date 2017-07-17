@@ -8,9 +8,9 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <InjectIntl(FacebookLogin) />,
+  "node": <InjectTranslate(FacebookLogin) />,
   "nodes": Array [
-    <InjectIntl(FacebookLogin) />,
+    <InjectTranslate(FacebookLogin) />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -22,7 +22,7 @@ ShallowWrapper {
         locale="en"
         messages={Object {}}
 >
-        <InjectIntl(FacebookLogin) />
+        <InjectTranslate(FacebookLogin) />
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -33,7 +33,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <InjectIntl(FacebookLogin) />,
+          "children": <InjectTranslate(FacebookLogin) />,
           "locale": "en",
           "messages": Object {},
         },
@@ -64,9 +64,9 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <InjectIntl(FacebookLogin) />,
+        "_currentElement": <InjectTranslate(FacebookLogin) />,
         "_debugID": 2,
-        "_renderedOutput": <InjectIntl(FacebookLogin) />,
+        "_renderedOutput": <InjectTranslate(FacebookLogin) />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -82,7 +82,7 @@ ShallowWrapper {
     locale="en"
     messages={Object {}}
 >
-    <InjectIntl(FacebookLogin) />
+    <InjectTranslate(FacebookLogin) />
 </IntlProvider>,
 }
 `;

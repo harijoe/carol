@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
 import styled from 'styled-components'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
-import messages from 'utils/messages'
 
+import injectTranslate from 'i18n/hoc/injectTranslate'
 import { List, ListItem, Link, Icon, Grid, Col, Row, Paragraph, Section, FooterCorporateListItem } from 'components'
 import { CountryMenu } from 'containers'
 
@@ -178,7 +178,7 @@ const StyledLinkPhone = styled(Link)`
   `}
 `
 
-const FooterCorporate = ({ locale, intl: { formatMessage } }) => (
+const FooterCorporate = ({ locale, translate }) => (
   <StyledSection>
     <Grid>
       <StyledRow>
@@ -224,7 +224,7 @@ const FooterCorporate = ({ locale, intl: { formatMessage } }) => (
             <TitlePhone>
               <FormattedMessage id="footer.corporate.phone_help" />
             </TitlePhone>
-            <StyledLinkPhone forceRedirect to={`tel:${formatMessage(messages('footer.corporate.phone_help_number').label).replace(/ /g, '')}`}>
+            <StyledLinkPhone forceRedirect to={`tel:${translate('footer.corporate.phone_help_number').replace(/ /g, '')}`}>
               <Icon icon="support-phone" />
               <FormattedMessage id="footer.corporate.phone_help_number" />
             </StyledLinkPhone>
@@ -233,7 +233,7 @@ const FooterCorporate = ({ locale, intl: { formatMessage } }) => (
             <TitlePhone>
               <FormattedMessage id="footer.corporate.phone_pros" />
             </TitlePhone>
-            <StyledLinkPhone forceRedirect to={`tel:${formatMessage(messages('footer.corporate.phone_pros_number').label).replace(/ /g, '')}`}>
+            <StyledLinkPhone forceRedirect to={`tel:${translate('footer.corporate.phone_pros_number').replace(/ /g, '')}`}>
               <Icon icon="support-pro" />
               <FormattedMessage id="footer.corporate.phone_pros_number" />
             </StyledLinkPhone>
@@ -245,8 +245,8 @@ const FooterCorporate = ({ locale, intl: { formatMessage } }) => (
 )
 
 FooterCorporate.propTypes = {
-  intl: intlShape.isRequired,
+  translate: PropTypes.func.isRequired,
   locale: PropTypes.string,
 }
 
-export default injectIntl(FooterCorporate)
+export default injectTranslate(FooterCorporate)

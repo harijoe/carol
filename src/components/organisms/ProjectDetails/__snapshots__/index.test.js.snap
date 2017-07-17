@@ -8,7 +8,7 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <InjectIntl(ProjectDetails)
+  "node": <InjectTranslate(ProjectDetails)
     details={
         Object {
             "id": "1",
@@ -18,7 +18,7 @@ ShallowWrapper {
     }
 />,
   "nodes": Array [
-    <InjectIntl(ProjectDetails)
+    <InjectTranslate(ProjectDetails)
       details={
             Object {
                   "id": "1",
@@ -38,7 +38,7 @@ ShallowWrapper {
         locale="en"
         messages={Object {}}
 >
-        <InjectIntl(ProjectDetails)
+        <InjectTranslate(ProjectDetails)
                 details={
                         Object {
                                 "id": "1",
@@ -57,7 +57,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <InjectIntl(ProjectDetails)
+          "children": <InjectTranslate(ProjectDetails)
             details={
                         Object {
                                     "id": "1",
@@ -96,7 +96,7 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <InjectIntl(ProjectDetails)
+        "_currentElement": <InjectTranslate(ProjectDetails)
           details={
                     Object {
                               "id": "1",
@@ -106,7 +106,7 @@ ShallowWrapper {
           }
 />,
         "_debugID": 2,
-        "_renderedOutput": <InjectIntl(ProjectDetails)
+        "_renderedOutput": <InjectTranslate(ProjectDetails)
           details={
                     Object {
                               "id": "1",
@@ -130,7 +130,7 @@ ShallowWrapper {
     locale="en"
     messages={Object {}}
 >
-    <InjectIntl(ProjectDetails)
+    <InjectTranslate(ProjectDetails)
         details={
             Object {
                 "id": "1",

@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { injectIntl, intlShape, FormattedMessage } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
-import messages from 'utils/messages'
 
 import {
   Section,
@@ -144,7 +144,7 @@ const ItemProject = styled.p`
   }
 `
 
-const ProjectDetails = ({ intl: { formatMessage }, ...props }) => (
+const ProjectDetails = ({ translate, ...props }) => (
   <Wrapper {...props}>
     <Section>
       <Grid narrow>
@@ -157,7 +157,7 @@ const ProjectDetails = ({ intl: { formatMessage }, ...props }) => (
 
     <Section light />
 
-    <Section title={formatMessage(messages('project.resume_title').label)}>
+    <Section title={translate('project.resume_title')}>
       <Grid narrow>
         <Row>
           <LeftCol xs={12} m={8}>
@@ -203,14 +203,14 @@ const ProjectDetails = ({ intl: { formatMessage }, ...props }) => (
       </Grid>
     </Section>
 
-    <Section title={formatMessage(messages('project.cross_sell_title').label)} light />
+    <Section title={translate('project.cross_sell_title')} light />
   </Wrapper>
 )
 
 ProjectDetails.propTypes = {
-  intl: intlShape.isRequired,
+  translate: PropTypes.func.isRequired,
   details: PropTypes.object,
   loading: PropTypes.bool,
 }
 
-export default injectIntl(ProjectDetails)
+export default injectTranslate(ProjectDetails)

@@ -1,12 +1,12 @@
 import React from 'react'
-import { injectIntl, intlShape } from 'react-intl'
+import PropTypes from 'prop-types'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 import cloudinary from 'utils/cloudinary'
-import messages from 'utils/messages'
 
 import { MainLayout, AutoValidationBlock, Section, MainWrapper, InnerWrapper } from 'components'
 import { PhoneAlreadyVerified, PhoneForm } from 'containers'
 
-const PhoneValidationPage = ({ intl: { formatMessage } }) => (
+const PhoneValidationPage = ({ translate }) => (
   <MainLayout>
     <MainWrapper>
       <InnerWrapper>
@@ -14,8 +14,8 @@ const PhoneValidationPage = ({ intl: { formatMessage } }) => (
           <AutoValidationBlock
             firstDot
             imageLink={cloudinary('/autovalidation-phone.svg')}
-            title={formatMessage(messages('auto-validation.phone.title').label)}
-            paragraph={formatMessage(messages('auto-validation.phone.message').label)}
+            title={translate('auto-validation.phone.title')}
+            paragraph={translate('auto-validation.phone.message')}
           >
             <PhoneAlreadyVerified>
               <PhoneForm />
@@ -28,7 +28,7 @@ const PhoneValidationPage = ({ intl: { formatMessage } }) => (
 )
 
 PhoneValidationPage.propTypes = {
-  intl: intlShape.isRequired,
+  translate: PropTypes.func.isRequired,
 }
 
-export default injectIntl(PhoneValidationPage)
+export default injectTranslate(PhoneValidationPage)

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { injectIntl, intlShape } from 'react-intl'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 
 import {
   MainLayout,
@@ -13,11 +13,11 @@ import {
 } from 'components'
 import { Hero } from 'containers'
 
-const HomePage = ({ locale, ...props }) => (
+const HomePage = ({ locale, translate, ...props }) => (
   <MainLayout {...props}>
     <Helmet>
-      <meta name="description" content={props.intl.formatMessage({ id: 'pages.home.meta.description' })} />
-      <script type="application/ld+json">{props.intl.formatMessage({ id: 'pages.home.ld+json' })}</script>
+      <meta name="description" content={translate('pages.home.meta.description')} />
+      <script type="application/ld+json">{translate('pages.home.ld+json')}</script>
     </Helmet>
     <Hero />
     <MainWrapper resetState>
@@ -30,8 +30,8 @@ const HomePage = ({ locale, ...props }) => (
 )
 
 HomePage.propTypes = {
-  intl: intlShape.isRequired,
   locale: PropTypes.string,
+  translate: PropTypes.func,
 }
 
-export default injectIntl(HomePage)
+export default injectTranslate(HomePage)

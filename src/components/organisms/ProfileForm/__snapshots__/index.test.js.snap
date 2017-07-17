@@ -113,7 +113,7 @@ ShallowWrapper {
           }
     }
 >
-    <InjectIntl(ProfileForm) />
+    <InjectTranslate(ProfileForm) />
 </ThemeProvider>,
   "nodes": Array [
     <ThemeProvider
@@ -221,7 +221,7 @@ ShallowWrapper {
                 }
       }
 >
-      <InjectIntl(ProfileForm) />
+      <InjectTranslate(ProfileForm) />
 </ThemeProvider>,
   ],
   "options": Object {},
@@ -339,7 +339,7 @@ ShallowWrapper {
                               }
                 }
         >
-                <InjectIntl(ProfileForm) />
+                <InjectTranslate(ProfileForm) />
         </ThemeProvider>
 </IntlProvider>,
       "_debugID": 1,
@@ -456,7 +456,7 @@ ShallowWrapper {
                                   }
             }
 >
-            <InjectIntl(ProfileForm) />
+            <InjectTranslate(ProfileForm) />
 </ThemeProvider>,
           "locale": "en",
           "messages": Object {},
@@ -593,7 +593,7 @@ ShallowWrapper {
                             }
           }
 >
-          <InjectIntl(ProfileForm) />
+          <InjectTranslate(ProfileForm) />
 </ThemeProvider>,
         "_debugID": 2,
         "_renderedOutput": <ThemeProvider
@@ -701,7 +701,7 @@ ShallowWrapper {
                             }
           }
 >
-          <InjectIntl(ProfileForm) />
+          <InjectTranslate(ProfileForm) />
 </ThemeProvider>,
       },
       "_renderedNodeType": 1,
@@ -823,7 +823,7 @@ ShallowWrapper {
               }
         }
     >
-        <InjectIntl(ProfileForm) />
+        <InjectTranslate(ProfileForm) />
     </ThemeProvider>
 </IntlProvider>,
 }

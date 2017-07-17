@@ -8,9 +8,9 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <InjectIntl(GoogleLogin) />,
+  "node": <InjectTranslate(GoogleLogin) />,
   "nodes": Array [
-    <InjectIntl(GoogleLogin) />,
+    <InjectTranslate(GoogleLogin) />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -22,7 +22,7 @@ ShallowWrapper {
         locale="en"
         messages={Object {}}
 >
-        <InjectIntl(GoogleLogin) />
+        <InjectTranslate(GoogleLogin) />
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -33,7 +33,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <InjectIntl(GoogleLogin) />,
+          "children": <InjectTranslate(GoogleLogin) />,
           "locale": "en",
           "messages": Object {},
         },
@@ -64,9 +64,9 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <InjectIntl(GoogleLogin) />,
+        "_currentElement": <InjectTranslate(GoogleLogin) />,
         "_debugID": 2,
-        "_renderedOutput": <InjectIntl(GoogleLogin) />,
+        "_renderedOutput": <InjectTranslate(GoogleLogin) />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -82,7 +82,7 @@ ShallowWrapper {
     locale="en"
     messages={Object {}}
 >
-    <InjectIntl(GoogleLogin) />
+    <InjectTranslate(GoogleLogin) />
 </IntlProvider>,
 }
 `;

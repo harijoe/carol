@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
 import styled from 'styled-components'
-import messages from 'utils/messages'
 import { theme } from 'utils/style'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 import { locales } from 'config'
 import cloudinary from 'utils/cloudinary'
 
@@ -43,28 +43,28 @@ const Guide = locale => (
   </Paragraph>
 )
 
-const HowItWorks = ({ intl: { formatMessage }, locale }) => (
-  <Section title={formatMessage(messages('how_it_works.section_title').label)}>
+const HowItWorks = ({ translate, locale }) => (
+  <Section title={translate('how_it_works.section_title')}>
     <Grid>
       <Row>
         <StyledCol xs={12} m={4}>
           <HowItWorksBlock
             imageLink={cloudinary('/step1.svg')}
-            title={formatMessage(messages('how_it_works.describe_project.title').label)}
+            title={translate('how_it_works.describe_project.title')}
             content={DescribeProject}
           />
         </StyledCol>
         <StyledCol xs={12} m={4}>
           <HowItWorksBlock
             imageLink={cloudinary('/step2.svg')}
-            title={formatMessage(messages('how_it_works.verified_pros.title').label)}
+            title={translate('how_it_works.verified_pros.title')}
             content={VerifiedPros(locale)}
           />
         </StyledCol>
         <StyledCol xs={12} m={4}>
           <HowItWorksBlock
             imageLink={cloudinary('/step3.svg')}
-            title={formatMessage(messages('how_it_works.guide.title').label)}
+            title={translate('how_it_works.guide.title')}
             content={Guide(locale)}
           />
         </StyledCol>
@@ -74,8 +74,8 @@ const HowItWorks = ({ intl: { formatMessage }, locale }) => (
 )
 
 HowItWorks.propTypes = {
-  intl: intlShape.isRequired,
+  translate: PropTypes.func.isRequired,
   locale: PropTypes.string,
 }
 
-export default injectIntl(HowItWorks)
+export default injectTranslate(HowItWorks)

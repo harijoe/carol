@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Field } from 'redux-form'
 import styled from 'styled-components'
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
-import messages from 'utils/messages'
+import { FormattedMessage } from 'react-intl'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 import { normalize, format } from 'utils/transformPhone'
 import { theme, breakpoint } from 'utils/style'
 
@@ -28,15 +28,15 @@ const StyledButton = styled(Button)`
 `
 
 const PhoneForm = (props) => {
-  const { error, handleSubmit, intl: { formatMessage }, disabled, loading, language } = props
+  const { error, handleSubmit, translate, disabled, loading, language } = props
 
   return (
     <Form onSubmit={handleSubmit}>
       <Field
         name="mobilePhone"
         component={RenderField}
-        label={formatMessage(messages('user.mobile_phone').label)}
-        placeholder={formatMessage(messages('user.mobile_phone').label)}
+        label={translate('user.mobile_phone')}
+        placeholder={translate('user.mobile_phone')}
         disabled={loading || disabled}
         type="phone"
         normalize={normalize(language)}
@@ -56,7 +56,7 @@ PhoneForm.propTypes = {
   error: PropTypes.string,
   loading: PropTypes.bool,
   language: PropTypes.string,
-  intl: intlShape.isRequired,
+  translate: PropTypes.func.isRequired,
 }
 
-export default injectIntl(PhoneForm)
+export default injectTranslate(PhoneForm)

@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Field } from 'redux-form'
 import styled from 'styled-components'
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpointMax, breakpoint } from 'utils/style'
 import pushGtmEvent from 'utils/gtm'
 
@@ -18,7 +19,6 @@ import {
   Paragraph,
   Link,
 } from 'components'
-import messages from 'utils/messages'
 
 const StyledRow = styled(Row)`
   ${breakpoint('m')`
@@ -118,7 +118,7 @@ class SignUpForm extends Component {
     redirectTo: PropTypes.func,
     redirectPathname: PropTypes.string,
     loading: PropTypes.bool,
-    intl: intlShape.isRequired,
+    translate: PropTypes.func.isRequired,
   }
 
   state = {
@@ -140,12 +140,12 @@ class SignUpForm extends Component {
   }
 
   render() {
-    const { handleSubmit, loading, redirectTo, intl: { formatMessage } } = this.props
+    const { handleSubmit, loading, redirectTo, translate } = this.props
 
     return (
       <CarouselPageTemplate
-        heading={formatMessage(messages('user.sign_up.heading').label)}
-        description={formatMessage(messages('user.sign_up.description').label)}
+        heading={translate('user.sign_up.heading')}
+        description={translate('user.sign_up.description')}
       >
         <StyledRow>
           <LeftColumn m={6} s={12}>
@@ -154,19 +154,19 @@ class SignUpForm extends Component {
                 name="email"
                 type="email"
                 icon="mail-login"
-                label={formatMessage(messages('user.email').label)}
+                label={translate('user.email')}
               />
               <AnimatedLabelField
                 name="password"
                 type={this.state.passwordInputType}
                 icon={this.state.passwordIcon}
-                label={formatMessage(messages('user.password').label)}
+                label={translate('user.password')}
                 onIconClick={this.togglePassword}
               />
               <Field
                 name="newsletterSubscription"
                 type="checkbox"
-                label={formatMessage(messages('user.newsletter_subscription').label)}
+                label={translate('user.newsletter_subscription')}
                 hideBorder
                 lightFont
                 inline
@@ -197,4 +197,4 @@ class SignUpForm extends Component {
   }
 }
 
-export default injectIntl(SignUpForm)
+export default injectTranslate(SignUpForm)

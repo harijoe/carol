@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Field } from 'redux-form'
 import styled from 'styled-components'
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import { normalize, format } from 'utils/transformPhone'
 import cloudinary from 'utils/cloudinary'
 
-import messages from 'utils/messages'
 import {
   RenderField,
   Heading,
@@ -212,7 +212,7 @@ class ProfileForm extends Component {
   static propTypes = {
     handleSubmit: PropTypes.func,
     loading: PropTypes.bool,
-    intl: intlShape.isRequired,
+    translate: PropTypes.func.isRequired,
     details: PropTypes.shape({
       email: PropTypes.string,
       facebookId: PropTypes.string,
@@ -270,7 +270,7 @@ class ProfileForm extends Component {
   }
 
   render() {
-    const { initialValues, handleSubmit, loading, intl: { formatMessage }, details } = this.props
+    const { initialValues, handleSubmit, loading, translate, details } = this.props
 
     return (
       <div ref={(ref) => { this.form = ref }}>
@@ -282,7 +282,7 @@ class ProfileForm extends Component {
               <p><Icon icon="mail-login" /><span>{details.email}</span></p>
             </ProfileContentWrapper>
           </StyledHeroSection>
-          <StyledSection title={formatMessage(messages('user.profile_info').label)}>
+          <StyledSection title={translate('user.profile_info')}>
             <StyledGrid>
               <div className="qs-Infos-wrapper">
                 <RadioBlock>
@@ -299,27 +299,27 @@ class ProfileForm extends Component {
                 <Field
                   name="firstName"
                   component={RenderField}
-                  label={formatMessage(messages('user.first_name').label)}
-                  placeholder={formatMessage(messages('user.first_name').label)}
+                  label={translate('user.first_name')}
+                  placeholder={translate('user.first_name')}
                   icon="login"
                 />
                 <Field
                   name="lastName"
                   component={RenderField}
-                  label={formatMessage(messages('user.last_name').label)}
-                  placeholder={formatMessage(messages('user.last_name').label)}
+                  label={translate('user.last_name')}
+                  placeholder={translate('user.last_name')}
                   icon="login"
                 />
               </div>
-              <BorderBox grey mediumBorder title={formatMessage(messages('user.contact_info').label)}>
+              <BorderBox grey mediumBorder title={translate('user.contact_info')}>
                 <VerifiedFieldWrapper>
                   <Field
                     name="email"
                     type="email"
                     icon="mail-login"
                     component={RenderField}
-                    label={formatMessage(messages('user.email').label)}
-                    placeholder={formatMessage(messages('user.email').label)}
+                    label={translate('user.email')}
+                    placeholder={translate('user.email')}
                     disabled
                   />
                   <ValidatedInfo validated={initialValues.emailVerified} field="email" />
@@ -328,8 +328,8 @@ class ProfileForm extends Component {
                   <Field
                     name="mobilePhone"
                     component={RenderField}
-                    label={formatMessage(messages('user.mobile_phone').label)}
-                    placeholder={formatMessage(messages('user.mobile_phone').label)}
+                    label={translate('user.mobile_phone')}
+                    placeholder={translate('user.mobile_phone')}
                     {...{ format, normalize }}
                   />
                   <ValidatedInfo validated={initialValues.mobilePhoneVerified} field="mobile" />
@@ -337,13 +337,13 @@ class ProfileForm extends Component {
                 <Field
                   name="fixedPhone"
                   component={RenderField}
-                  label={formatMessage(messages('user.fixed_phone').label)}
-                  placeholder={formatMessage(messages('user.fixed_phone').label)}
+                  label={translate('user.fixed_phone')}
+                  placeholder={translate('user.fixed_phone')}
                 />
               </BorderBox>
             </StyledGrid>
           </StyledSection>
-          <StyledSection title={formatMessage(messages('user.contact_preferences').label)}>
+          <StyledSection title={translate('user.contact_preferences')}>
             <StyledGrid>
               <div className="qs-Infos-wrapper">
                 <RadioBlock>
@@ -361,7 +361,7 @@ class ProfileForm extends Component {
                   name="contactComment"
                   component={RenderField}
                   type="select"
-                  label={formatMessage(messages('user.contactComment').label)}
+                  label={translate('user.contactComment')}
                 >
                   {[
                     {
@@ -386,14 +386,14 @@ class ProfileForm extends Component {
             </StyledGrid>
           </StyledSection>
 
-          <StyledSection title={formatMessage(messages('user.profile_other').label)}>
+          <StyledSection title={translate('user.profile_other')}>
             <StyledGrid>
               <Field
                 name="newsletterSubscription"
                 type="checkbox"
                 component={RenderField}
-                label={formatMessage(messages('user.newsletter_subscription').label)}
-                placeholder={formatMessage(messages('user.newsletter_subscription').label)}
+                label={translate('user.newsletter_subscription')}
+                placeholder={translate('user.newsletter_subscription')}
                 hideBorder
                 lightFont
                 inline
@@ -409,4 +409,4 @@ class ProfileForm extends Component {
   }
 }
 
-export default injectIntl(ProfileForm)
+export default injectTranslate(ProfileForm)

@@ -8,9 +8,9 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <InjectIntl(PhoneCodeForm) />,
+  "node": <InjectTranslate(PhoneCodeForm) />,
   "nodes": Array [
-    <InjectIntl(PhoneCodeForm) />,
+    <InjectTranslate(PhoneCodeForm) />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -22,7 +22,7 @@ ShallowWrapper {
         locale="en"
         messages={Object {}}
 >
-        <InjectIntl(PhoneCodeForm) />
+        <InjectTranslate(PhoneCodeForm) />
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -33,7 +33,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <InjectIntl(PhoneCodeForm) />,
+          "children": <InjectTranslate(PhoneCodeForm) />,
           "locale": "en",
           "messages": Object {},
         },
@@ -64,9 +64,9 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <InjectIntl(PhoneCodeForm) />,
+        "_currentElement": <InjectTranslate(PhoneCodeForm) />,
         "_debugID": 2,
-        "_renderedOutput": <InjectIntl(PhoneCodeForm) />,
+        "_renderedOutput": <InjectTranslate(PhoneCodeForm) />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -82,7 +82,7 @@ ShallowWrapper {
     locale="en"
     messages={Object {}}
 >
-    <InjectIntl(PhoneCodeForm) />
+    <InjectTranslate(PhoneCodeForm) />
 </IntlProvider>,
 }
 `;

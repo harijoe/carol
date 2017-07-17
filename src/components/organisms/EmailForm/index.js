@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Field } from 'redux-form'
 import styled from 'styled-components'
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
 import { theme } from 'utils/style'
-import messages from 'utils/messages'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 
 import { RenderField, Button } from 'components'
 
@@ -33,15 +33,15 @@ class EmailForm extends Component {
   }
 
   render() {
-    const { error, intl: { formatMessage }, disabled, loading } = this.props
+    const { error, translate, disabled, loading } = this.props
 
     return (
       <Form onSubmit={this.handleSubmit}>
         <Field
           name="email"
           component={RenderField}
-          label={formatMessage(messages('user.email').label)}
-          placeholder={formatMessage(messages('user.email').label)}
+          label={translate('user.email')}
+          placeholder={translate('user.email')}
           disabled // Email modifications are disabled for V1
         />
         {error && <FormattedMessage id={error} tagName="strong" />}
@@ -62,7 +62,7 @@ EmailForm.propTypes = {
   disabled: PropTypes.bool,
   error: PropTypes.string,
   loading: PropTypes.bool,
-  intl: intlShape.isRequired,
+  translate: PropTypes.func.isRequired,
 }
 
-export default injectIntl(EmailForm)
+export default injectTranslate(EmailForm)

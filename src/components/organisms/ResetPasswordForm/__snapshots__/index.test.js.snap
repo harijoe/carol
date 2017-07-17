@@ -8,9 +8,9 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <InjectIntl(ResetPasswordForm) />,
+  "node": <InjectTranslate(ResetPasswordForm) />,
   "nodes": Array [
-    <InjectIntl(ResetPasswordForm) />,
+    <InjectTranslate(ResetPasswordForm) />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -22,7 +22,7 @@ ShallowWrapper {
         locale="en"
         messages={Object {}}
 >
-        <InjectIntl(ResetPasswordForm) />
+        <InjectTranslate(ResetPasswordForm) />
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -33,7 +33,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <InjectIntl(ResetPasswordForm) />,
+          "children": <InjectTranslate(ResetPasswordForm) />,
           "locale": "en",
           "messages": Object {},
         },
@@ -64,9 +64,9 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <InjectIntl(ResetPasswordForm) />,
+        "_currentElement": <InjectTranslate(ResetPasswordForm) />,
         "_debugID": 2,
-        "_renderedOutput": <InjectIntl(ResetPasswordForm) />,
+        "_renderedOutput": <InjectTranslate(ResetPasswordForm) />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -82,7 +82,7 @@ ShallowWrapper {
     locale="en"
     messages={Object {}}
 >
-    <InjectIntl(ResetPasswordForm) />
+    <InjectTranslate(ResetPasswordForm) />
 </IntlProvider>,
 }
 `;

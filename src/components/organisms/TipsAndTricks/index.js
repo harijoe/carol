@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { injectIntl, intlShape, FormattedMessage } from 'react-intl'
+import { FormattedMessage } from 'react-intl'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 import { locales } from 'config'
-import messages from 'utils/messages'
 import { breakpoint } from 'utils/style'
 
 import { PostList } from 'containers'
@@ -72,8 +72,8 @@ const StyledLink = styled(Link)`
   margin-right: auto;
 `
 
-const TipsAndTricks = ({ intl: { formatMessage }, locale }) => (
-  <Section title={formatMessage(messages('tips_and_tricks.section_title').label)}>
+const TipsAndTricks = ({ translate, locale }) => (
+  <Section title={translate('tips_and_tricks.section_title')}>
     <Grid narrow>
       <StyledRow>
         <PostList
@@ -91,8 +91,8 @@ const TipsAndTricks = ({ intl: { formatMessage }, locale }) => (
 )
 
 TipsAndTricks.propTypes = {
-  intl: intlShape.isRequired,
+  translate: PropTypes.func.isRequired,
   locale: PropTypes.string,
 }
 
-export default injectIntl(TipsAndTricks)
+export default injectTranslate(TipsAndTricks)

@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
-import messages from 'utils/messages'
+import { FormattedMessage } from 'react-intl'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpointMax, breakpoint } from 'utils/style'
 
 import {
@@ -106,13 +106,13 @@ const StyledParagraph = styled(Paragraph)`
   margin: 0;
 `
 
-const SignInForm = ({ error, handleSubmit, loading, intl: { formatMessage }, className, carousel, redirectTo }) => (
+const SignInForm = ({ error, handleSubmit, loading, translate, className, carousel, redirectTo }) => (
   <div>
     {
       carousel &&
       <CarouselPageTemplate
-        heading={formatMessage(messages('login.coming_back').label)}
-        description={formatMessage(messages('user.sign_in.introduction').label)}
+        heading={translate('login.coming_back')}
+        description={translate('user.sign_in.introduction')}
       >
         <StyledRow>
           <LeftColumn m={6} s={12}>
@@ -121,13 +121,13 @@ const SignInForm = ({ error, handleSubmit, loading, intl: { formatMessage }, cla
                 name="email"
                 type="email"
                 icon="mail-login"
-                label={formatMessage(messages('user.email').label)}
+                label={translate('user.email')}
               />
               <AnimatedLabelField
                 name="password"
                 type="password"
                 icon="pwd-login"
-                label={formatMessage(messages('user.password').label)}
+                label={translate('user.password')}
               />
               {error && <FormattedMessage id={error} tagName="strong" />}
               <Link kind="black" to="/forgot-password" highlight>
@@ -167,13 +167,13 @@ const SignInForm = ({ error, handleSubmit, loading, intl: { formatMessage }, cla
             name="email"
             type="email"
             icon="mail-login"
-            label={formatMessage(messages('user.email').label)}
+            label={translate('user.email')}
           />
           <AnimatedLabelField
             name="password"
             type="password"
             icon="pwd-login"
-            label={formatMessage(messages('user.password').label)}
+            label={translate('user.password')}
           />
           {error && <FormattedMessage id={error} tagName="strong" />}
           <Link kind="black" to="/forgot-password" highlight><FormattedMessage id="user.forgot_password.heading" /></Link>
@@ -196,8 +196,8 @@ SignInForm.propTypes = {
   carousel: PropTypes.bool,
   error: PropTypes.string,
   loading: PropTypes.bool,
-  intl: intlShape.isRequired,
+  translate: PropTypes.func.isRequired,
   redirectTo: PropTypes.func,
 }
 
-export default injectIntl(SignInForm)
+export default injectTranslate(SignInForm)

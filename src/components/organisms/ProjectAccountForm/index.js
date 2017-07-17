@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Field } from 'redux-form'
 import styled from 'styled-components'
-import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
-import messages from 'utils/messages'
+import { FormattedMessage } from 'react-intl'
 import { theme, breakpoint } from 'utils/style'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 
 import { RenderField, Button, Section, RadioGroup } from 'components'
 
@@ -56,7 +56,7 @@ const StyledButton = styled(Button)`
 class ProjectAccountForm extends Component {
   static propTypes = {
     handleSubmit: PropTypes.func,
-    intl: intlShape.isRequired,
+    translate: PropTypes.func.isRequired,
     loading: PropTypes.bool,
     invalid: PropTypes.bool,
   }
@@ -68,12 +68,12 @@ class ProjectAccountForm extends Component {
   }
 
   render() {
-    const { handleSubmit, loading, intl: { formatMessage } } = this.props
+    const { handleSubmit, loading, translate } = this.props
 
     return (
       <div ref={(ref) => { this.form = ref }}>
         <Form onSubmit={handleSubmit}>
-          <StyledSection title={formatMessage(messages('auto-validation.title.informations').label)}>
+          <StyledSection title={translate('auto-validation.title.informations')}>
             <RadioBlock>
               <strong><FormattedMessage id="user.gender" tagName="div" /></strong>
               <Field
@@ -89,19 +89,19 @@ class ProjectAccountForm extends Component {
             <Field
               name="firstName"
               component={RenderField}
-              label={formatMessage(messages('user.first_name').label)}
-              placeholder={formatMessage(messages('user.first_name').label)}
+              label={translate('user.first_name')}
+              placeholder={translate('user.first_name')}
               icon="login"
             />
             <Field
               name="lastName"
               component={RenderField}
-              label={formatMessage(messages('user.last_name').label)}
-              placeholder={formatMessage(messages('user.last_name').label)}
+              label={translate('user.last_name')}
+              placeholder={translate('user.last_name')}
               icon="login"
             />
           </StyledSection>
-          <StyledSection title={formatMessage(messages('auto-validation.title.contact_preferences').label)}>
+          <StyledSection title={translate('auto-validation.title.contact_preferences')}>
             <RadioBlock>
               <strong><FormattedMessage id="user.contactPreference" tagName="div" /></strong>
               <Field
@@ -118,7 +118,7 @@ class ProjectAccountForm extends Component {
               name="contactComment"
               component={RenderField}
               type="select"
-              label={formatMessage(messages('user.contactComment').label)}
+              label={translate('user.contactComment')}
             >
               {[
                 {
@@ -140,12 +140,12 @@ class ProjectAccountForm extends Component {
               ))}
             </Field>
           </StyledSection>
-          <StyledSection title={formatMessage(messages('auto-validation.title.project').label)}>
+          <StyledSection title={translate('auto-validation.title.project')}>
             <Field
               name="startTimeframe"
               component={RenderField}
               type="select"
-              label={formatMessage(messages('project.startTimeframe').label)}
+              label={translate('project.startTimeframe')}
             >
               {[
                 {
@@ -178,7 +178,7 @@ class ProjectAccountForm extends Component {
               name="purpose"
               component={RenderField}
               type="select"
-              label={formatMessage(messages('project.purpose').label)}
+              label={translate('project.purpose')}
             >
               {[
                 {
@@ -211,4 +211,4 @@ class ProjectAccountForm extends Component {
   }
 }
 
-export default injectIntl(ProjectAccountForm)
+export default injectTranslate(ProjectAccountForm)

@@ -8,9 +8,9 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <InjectIntl(ProjectAccountForm) />,
+  "node": <InjectTranslate(ProjectAccountForm) />,
   "nodes": Array [
-    <InjectIntl(ProjectAccountForm) />,
+    <InjectTranslate(ProjectAccountForm) />,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -22,7 +22,7 @@ ShallowWrapper {
         locale="en"
         messages={Object {}}
 >
-        <InjectIntl(ProjectAccountForm) />
+        <InjectTranslate(ProjectAccountForm) />
 </IntlProvider>,
       "_debugID": 1,
       "_hostContainerInfo": null,
@@ -33,7 +33,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <InjectIntl(ProjectAccountForm) />,
+          "children": <InjectTranslate(ProjectAccountForm) />,
           "locale": "en",
           "messages": Object {},
         },
@@ -64,9 +64,9 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <InjectIntl(ProjectAccountForm) />,
+        "_currentElement": <InjectTranslate(ProjectAccountForm) />,
         "_debugID": 2,
-        "_renderedOutput": <InjectIntl(ProjectAccountForm) />,
+        "_renderedOutput": <InjectTranslate(ProjectAccountForm) />,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -82,7 +82,7 @@ ShallowWrapper {
     locale="en"
     messages={Object {}}
 >
-    <InjectIntl(ProjectAccountForm) />
+    <InjectTranslate(ProjectAccountForm) />
 </IntlProvider>,
 }
 `;
