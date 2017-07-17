@@ -29,10 +29,13 @@ import {
   projectElaborationHeroDetails,
   projectElaborationResetConversation,
   projectElaborationPreValidate,
+  setSlugUsed,
 } from './actions'
 
-function* replyConversation({ text, payload = null }) {
+// @TODO: this function must be refactored to split sagas, one to send the answer, other to get the question
+function* replyConversation({ text, payload = null, isFirst = false }) {
   const user = yield select(fromProjectElaboration.getSessionId)
+  const isSSR = yield select(fromContext.isSSR)
   const requestPayload = {
     message: {
       text,
@@ -52,13 +55,22 @@ function* replyConversation({ text, payload = null }) {
   }
 
   // @TODO must be conditioned by 'new_project.reset', but this has to wait an API evolution
-  const { utm_source, acq_activity } = yield select(fromContext.getInitialQueryParams)
+  const { utm_source, acq_activity, slug } = yield select(fromContext.getInitialQueryParams)
 
   // eslint-disable-next-line camelcase
   if (utm_source != null && acq_activity != null) {
     requestPayload.tracking = {
       acqSource: utm_source,
       acqActivity: acq_activity,
+    }
+  }
+
+  if (!isSSR && slug !== undefined && !isFirst) {
+    const isSlugUsed = yield select(fromProjectElaboration.isSlugUsed)
+
+    if (!isSlugUsed) {
+      requestPayload.start_flow = slug
+      yield put(setSlugUsed(true))
     }
   }
 
@@ -76,13 +88,18 @@ function* getConversationCurrent() {
   yield* getConversations()
 
   const heroAnswer = yield select(fromProjectElaboration.getHeroAnswer)
+  const initialQueryParams = yield select(fromContext.getInitialQueryParams)
 
   yield pushGtmEvent({ event: 'OpenForm', chatbotKey1: heroAnswer.text })
 
   if ((yield select(fromProjectElaboration.hasActiveConversation))) {
     yield* replyConversation({ text: 'new_project.current' })
   } else if (!(yield select(fromProjectElaboration.hasConversations))) {
-    yield* replyConversation({ text: 'new_project.reset' })
+    if (initialQueryParams.slug !== undefined) {
+      yield* replyConversation({ text: `new_project.first_question:${initialQueryParams.slug}`, isFirst: true })
+    } else {
+      yield* replyConversation({ text: 'new_project.first_question' })
+    }
   }
 }
 

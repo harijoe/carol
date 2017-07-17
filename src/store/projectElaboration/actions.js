@@ -15,6 +15,7 @@ export const PROJECT_ELABORATION_CONVERSATION_SET_RESPONSE = 'PROJECT_ELABORATIO
 export const PROJECT_ELABORATION_CONVERSATIONS_DETAILS = createRequestTypes('PROJECT_ELABORATION_CONVERSATIONS_DETAILS')
 export const PROJECT_ELABORATION_CONVERSATIONS_SELECT = createRequestTypes('PROJECT_ELABORATION_CONVERSATIONS_SELECT')
 export const PROJECT_ELABORATION_CLICK_FIND_A_PRO = 'PROJECT_ELABORATION_CLICK_FIND_A_PRO'
+export const PROJECT_ELABORATION_SET_SLUG_USED = 'PROJECT_ELABORATION_SET_SLUG_USED'
 
 export const projectElaborationHeroDetails = {
   request: () => (actionTypes(PROJECT_ELABORATION_HERO_DETAILS.REQUEST)),
@@ -86,3 +87,8 @@ export const projectElaborationPreValidate = {
   success: payload => (actionTypes(PROJECT_ELABORATION_PRE_VALIDATE.SUCCESS, { payload })),
   failure: error => (actionTypes(PROJECT_ELABORATION_PRE_VALIDATE.FAILURE, { error })),
 }
+
+export const setSlugUsed = value => ({
+  type: PROJECT_ELABORATION_SET_SLUG_USED,
+  payload: value,
+})
