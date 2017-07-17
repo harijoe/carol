@@ -30,6 +30,7 @@ const mapStateToProps = (state) => {
   const details = fromUser.getDetails(state)
 
   return {
+    language: fromContext.getLang(state),
     details: {
       email: details.email,
       facebookId: details.facebookId,
@@ -38,7 +39,7 @@ const mapStateToProps = (state) => {
     initialValues: {
       ...pick(details, [
         '@id', 'gender', 'firstName', 'lastName',
-        'email', 'preferedLanguage', 'mobilePhone', 'mobilePhone',
+        'email', 'preferedLanguage', 'mobilePhone',
         'fixedPhone', 'region', 'newsletterSubscription', 'contactPreference',
         'contactComment', 'emailVerified', 'mobilePhoneVerified',
       ]),

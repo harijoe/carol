@@ -210,6 +210,7 @@ const VerifiedFieldWrapper = styled.div `
 
 class ProfileForm extends Component {
   static propTypes = {
+    language: PropTypes.string.isRequired,
     handleSubmit: PropTypes.func,
     loading: PropTypes.bool,
     translate: PropTypes.func.isRequired,
@@ -270,7 +271,7 @@ class ProfileForm extends Component {
   }
 
   render() {
-    const { initialValues, handleSubmit, loading, translate, details } = this.props
+    const { initialValues, handleSubmit, loading, translate, details, language } = this.props
 
     return (
       <div ref={(ref) => { this.form = ref }}>
@@ -330,7 +331,8 @@ class ProfileForm extends Component {
                     component={RenderField}
                     label={translate('user.mobile_phone')}
                     placeholder={translate('user.mobile_phone')}
-                    {...{ format, normalize }}
+                    format={format(language)}
+                    normalize={normalize(language)}
                   />
                   <ValidatedInfo validated={initialValues.mobilePhoneVerified} field="mobile" />
                 </VerifiedFieldWrapper>
