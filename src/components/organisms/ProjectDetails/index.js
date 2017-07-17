@@ -202,8 +202,6 @@ const ProjectDetails = ({ translate, ...props }) => (
         </Row>
       </Grid>
     </Section>
-
-    <Section title={translate('project.cross_sell_title')} light />
   </Wrapper>
 )
 
