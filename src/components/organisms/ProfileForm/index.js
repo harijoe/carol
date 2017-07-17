@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import { normalize, format } from 'utils/transformPhone'
-import { cloudinaryUrl } from 'config'
+import cloudinary from 'utils/cloudinary'
 
 import messages from 'utils/messages'
 import {
@@ -275,7 +275,7 @@ class ProfileForm extends Component {
     return (
       <div ref={(ref) => { this.form = ref }}>
         <Form onSubmit={handleSubmit}>
-          <StyledHeroSection imageLink={`${cloudinaryUrl}hero-fullscreen_image.jpg`}>
+          <StyledHeroSection imageLink={cloudinary('/hero-fullscreen_image.jpg')}>
             <StyledProfileImage imageLink={initialValues.imageBase64} />
             <ProfileContentWrapper>
               <Heading level={1} className="qs-Profil-titleName">Bonjour {initialValues.firstName}</Heading>

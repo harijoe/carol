@@ -41,7 +41,10 @@ const configs = {
     algolia: {
       apiKey: '833cbf062e3b7c3979155c0d07e3f058',
     },
-    cloudinaryUrl: 'https://res.cloudinary.com/quotatis/image/upload/q_auto,f_auto/FrontApp/',
+    cloudinary: {
+      url: 'https://res.cloudinary.com/quotatis/image/upload',
+      app: 'FrontApp',
+    },
     defaultLocale: 'en-GB',
     locales: {
       'fr-FR': fr,

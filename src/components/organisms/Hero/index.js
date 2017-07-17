@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
 import styled, { css } from 'styled-components'
 import { theme, breakpoint, breakpointMax, mapBreakpoints } from 'utils/style'
-import { cloudinaryUrl } from 'config'
+import cloudinary from 'utils/cloudinary'
 
 import {
   Section,
@@ -38,7 +38,7 @@ const HeroWrapper = styled.div`
   }
 
   &::before {
-    background: url(${cloudinaryUrl}hero-fullscreen_image.jpg) center center no-repeat;
+    background: url(${cloudinary('/hero-fullscreen_image.jpg')}) center center no-repeat;
     background-size: cover;
   }
 

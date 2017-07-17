@@ -6,12 +6,13 @@ import { Image, Heading } from 'components'
 
 const StyledImage = styled(Image)`
   width: 100%;
+  margin-bottom: 5rem;
 `
 
 const HowItWorksBlock = ({ imageLink, title, content }) => (
   <div>
     <StyledImage src={imageLink} />
-    <Heading level={3}>{title}</Heading>
+    <Heading level={2}>{title}</Heading>
     {content}
   </div>
 )

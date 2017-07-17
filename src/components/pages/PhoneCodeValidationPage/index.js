@@ -1,6 +1,6 @@
 import React from 'react'
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl'
-import { cloudinaryUrl } from 'config'
+import cloudinary from 'utils/cloudinary'
 import messages from 'utils/messages'
 
 import { MainLayout, AutoValidationBlock, InnerWrapper, Section, MainWrapper, Link } from 'components'
@@ -13,7 +13,7 @@ const PhoneCodeValidationPage = ({ intl: { formatMessage } }) => (
         <Section>
           <AutoValidationBlock
             firstDot
-            imageLink={`${cloudinaryUrl}autovalidation-phone.svg`}
+            imageLink={cloudinary('/autovalidation-phone.svg')}
             title={formatMessage(messages('auto-validation.phone_code.title').label)}
             paragraph={formatMessage(messages('auto-validation.phone_code.message').label)}
           >

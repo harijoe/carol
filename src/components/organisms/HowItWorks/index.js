@@ -4,7 +4,8 @@ import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import styled from 'styled-components'
 import messages from 'utils/messages'
 import { theme } from 'utils/style'
-import { cloudinaryUrl, locales } from 'config'
+import { locales } from 'config'
+import cloudinary from 'utils/cloudinary'
 
 import { Section, HowItWorksBlock, Paragraph, Link, Col, Grid, Row } from 'components'
 
@@ -48,21 +49,21 @@ const HowItWorks = ({ intl: { formatMessage }, locale }) => (
       <Row>
         <StyledCol xs={12} m={4}>
           <HowItWorksBlock
-            imageLink={`${cloudinaryUrl}project-info_step1.svg`}
+            imageLink={cloudinary('/step1.svg')}
             title={formatMessage(messages('how_it_works.describe_project.title').label)}
             content={DescribeProject}
           />
         </StyledCol>
         <StyledCol xs={12} m={4}>
           <HowItWorksBlock
-            imageLink={`${cloudinaryUrl}verified-pros_step2.svg`}
+            imageLink={cloudinary('/step2.svg')}
             title={formatMessage(messages('how_it_works.verified_pros.title').label)}
             content={VerifiedPros(locale)}
           />
         </StyledCol>
         <StyledCol xs={12} m={4}>
           <HowItWorksBlock
-            imageLink={`${cloudinaryUrl}guide_step3.svg`}
+            imageLink={cloudinary('/step3.svg')}
             title={formatMessage(messages('how_it_works.guide.title').label)}
             content={Guide(locale)}
           />

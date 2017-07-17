@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { theme } from 'utils/style'
-import { cloudinaryUrl } from 'config'
+import cloudinary from 'utils/cloudinary'
 
 const StyledFigure = styled.figure`${({ imageLink }) => css`
   position: relative;
@@ -11,7 +11,7 @@ const StyledFigure = styled.figure`${({ imageLink }) => css`
   min-height: ${theme('icons.size.xxxl')};
   min-width: ${theme('icons.size.xxxl')};
   background-color: ${theme('colors.white')};
-  background-image: url(${imageLink}), url(${cloudinaryUrl}icons/default-logo-profil.svg);
+  background-image: url(${imageLink}), url(${cloudinary('/icons/default-logo-profil.svg')});
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover, ${theme('icons.size.l')};

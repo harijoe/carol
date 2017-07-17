@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
-import { cloudinaryUrl } from 'config'
+import cloudinary from 'utils/cloudinary'
 
 import { Heading, DateTime, Paragraph, Link, Card, Image, ProjectStatus, Divider } from 'components'
 
@@ -129,7 +129,7 @@ const Project = ({ name, createdAt, status, partner, ...items }) => (
   <Article>
     <HeaderCard>
       <ImageWrapper>
-        <BackgroundImage src={`${cloudinaryUrl}thumbnail-poster-keyone.jpg`} />
+        <BackgroundImage src={cloudinary('/thumbnail-poster-keyone.jpg')} />
       </ImageWrapper>
       <ProjectStatus status={status} />
       { partner != null &&

@@ -4,7 +4,7 @@ import { FormattedMessage, injectIntl, intlShape } from 'react-intl'
 import styled from 'styled-components'
 import messages from 'utils/messages'
 import { breakpoint } from 'utils/style'
-import { cloudinaryUrl } from 'config'
+import cloudinary from 'utils/cloudinary'
 
 import { MainLayout, MainWrapper, HeroSection, Section, Grid } from 'components'
 import { ProjectAccountForm } from 'containers'
@@ -33,7 +33,7 @@ const StyledGrid = styled(Grid)`
 const ProjectAccountPage = ({ params: { projectId }, intl: { formatMessage } }) => (
   <MainLayout>
     <MainWrapper>
-      <StyledHeroSection title={formatMessage(messages('project.validation_page').label)} imageLink={`${cloudinaryUrl}hero-fullscreen_image.jpg`} />
+      <StyledHeroSection title={formatMessage(messages('project.validation_page').label)} imageLink={cloudinary('/hero-fullscreen_image.jpg')} />
       <Section light>
         <StyledGrid>
           <FormattedMessage id="project.validation.describe" />

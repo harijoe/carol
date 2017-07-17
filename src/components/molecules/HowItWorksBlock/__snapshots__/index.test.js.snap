@@ -13,7 +13,7 @@ ShallowWrapper {
         src={undefined}
     />
     <Mock
-        level={3}
+        level={2}
     >
         Test
     </Mock>
@@ -24,7 +24,7 @@ ShallowWrapper {
             src={undefined}
       />
       <Mock
-            level={3}
+            level={2}
       >
             Test
       </Mock>
@@ -75,7 +75,7 @@ ShallowWrapper {
                     src={undefined}
           />
           <Mock
-                    level={3}
+                    level={2}
           >
                     Test
           </Mock>
@@ -86,7 +86,7 @@ ShallowWrapper {
                     src={undefined}
           />
           <Mock
-                    level={3}
+                    level={2}
           >
                     Test
           </Mock>

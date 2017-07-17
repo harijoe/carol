@@ -1,7 +1,7 @@
 import React from 'react'
 import messages from 'utils/messages'
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl'
-import { cloudinaryUrl } from 'config'
+import cloudinary from 'utils/cloudinary'
 import styled from 'styled-components'
 import { breakpoint } from 'utils/style'
 
@@ -21,7 +21,7 @@ const ProjectValidationPage = ({ intl: { formatMessage } }) => (
       <InnerWrapper>
         <Section>
           <AutoValidationBlock
-            imageLink={`${cloudinaryUrl}autovalidation-validate.svg`}
+            imageLink={cloudinary('/autovalidation-validate.svg')}
             title={formatMessage(messages('auto-validation.validate.title').label)}
             paragraph={formatMessage(messages('auto-validation.validate.message').label)}
           >
