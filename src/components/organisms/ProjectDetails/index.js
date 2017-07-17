@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
+import transformDate from 'utils/transformDate'
 
 import {
   Section,
@@ -144,14 +145,14 @@ const ItemProject = styled.p`
   }
 `
 
-const ProjectDetails = ({ translate, ...props }) => (
+const ProjectDetails = ({ project: { name, status, createdAt }, translate, ...props }) => (
   <Wrapper {...props}>
     <Section>
       <Grid narrow>
         <StyledIconLink icon="back_arrow"><FormattedMessage id="project.back_link_title" /></StyledIconLink>
-        <Heading level={1}>{'Project Name'}</Heading>
-        <StyledProjectStatus />
-        <DateCreation><FormattedMessage id="project.created_at" /></DateCreation>
+        <Heading level={1}>{name}</Heading>
+        <StyledProjectStatus status={status} />
+        <DateCreation><FormattedMessage id="project.created_at" /> {transformDate(createdAt)}</DateCreation>
       </Grid>
     </Section>
 
@@ -207,7 +208,11 @@ const ProjectDetails = ({ translate, ...props }) => (
 
 ProjectDetails.propTypes = {
   translate: PropTypes.func.isRequired,
-  details: PropTypes.object,
+  project: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    createdAt: PropTypes.string.isRequired,
+  }).isRequired,
   loading: PropTypes.bool,
 }
 

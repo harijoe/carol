@@ -8,7 +8,7 @@ import { ProjectDetails } from 'components'
 
 class ProjectDetailsContainer extends Component {
   static propTypes = {
-    details: PropTypes.object,
+    project: PropTypes.object,
     loading: PropTypes.bool,
     request: PropTypes.func.isRequired,
   }
@@ -18,14 +18,14 @@ class ProjectDetailsContainer extends Component {
   }
 
   render() {
-    const { details, loading } = this.props
+    const { project, loading } = this.props
 
-    return <ProjectDetails {...{ details, loading }} />
+    return <ProjectDetails {...{ project, loading }} />
   }
 }
 
 const mapStateToProps = (state, { id }) => ({
-  details: fromProject.getDetails(state, id),
+  project: fromProject.getDetails(state, `/projects/${id}`),
   loading: fromStatus.isLoading(state, PROJECT_DETAILS.prefix),
 })
 
