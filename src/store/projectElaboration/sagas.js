@@ -1,15 +1,17 @@
 import { put, select } from 'redux-saga/effects'
 import cookie from 'services/cookies'
-import { push } from 'react-router-redux'
+import { push, replace } from 'react-router-redux'
 import { fromProjectElaboration, fromAuth, fromUser, fromRouting, fromContext } from 'store/selectors'
 import pushGtmEvent from 'utils/gtm'
 import { takeLatest } from 'utils/effects'
-import generateSessionId from 'utils/generateSessionId'
 import fetch from 'sagas/fetch'
+import { requirePartner } from 'sagas/require'
 import ssr from 'sagas/ssr'
 import notify from 'sagas/notify'
-import { projectUpdate } from 'store/actions'
-import { saveProjectElaborationIdInCookies } from './utils'
+import {
+  projectUpdate,
+  removeInitialQueryParam,
+} from 'store/actions'
 
 import {
   PROJECT_ELABORATION_CONVERSATION_REPLY,
@@ -17,7 +19,6 @@ import {
   PROJECT_ELABORATION_HERO_DETAILS,
   PROJECT_ELABORATION_CONVERSATIONS_DETAILS,
   PROJECT_ELABORATION_CONVERSATIONS_SELECT,
-  PROJECT_ELABORATION_RESET,
   PROJECT_ELABORATION_CONVERSATION_CURRENT,
   PROJECT_ELABORATION_PRE_VALIDATE,
   PROJECT_ELABORATION_CLICK_FIND_A_PRO,
@@ -25,15 +26,12 @@ import {
   projectElaborationConversationsDetails,
   setProjectElaborationConversationAnswer,
   projectElaborationConversationDetails,
-  setProjectElaborationSessionId,
   projectElaborationHeroDetails,
   projectElaborationResetConversation,
   projectElaborationPreValidate,
-  setSlugUsed,
 } from './actions'
 
-// @TODO: this function must be refactored to split sagas, one to send the answer, other to get the question
-function* replyConversation({ text, payload = null, isFirst = false }) {
+function* replyConversation({ text, payload = null }) {
   const user = yield select(fromProjectElaboration.getSessionId)
   const isSSR = yield select(fromContext.isSSR)
   const requestPayload = {
@@ -54,7 +52,6 @@ function* replyConversation({ text, payload = null, isFirst = false }) {
     yield put(setProjectElaborationConversationAnswer(text))
   }
 
-  // @TODO must be conditioned by 'new_project.reset', but this has to wait an API evolution
   const { utm_source, acq_activity, slug } = yield select(fromContext.getInitialQueryParams)
 
   // eslint-disable-next-line camelcase
@@ -63,15 +60,18 @@ function* replyConversation({ text, payload = null, isFirst = false }) {
       acqSource: utm_source,
       acqActivity: acq_activity,
     }
+    yield* requirePartner(requestPayload.tracking.acqSource)
   }
 
-  if (!isSSR && slug !== undefined && !isFirst) {
-    const isSlugUsed = yield select(fromProjectElaboration.isSlugUsed)
+  if (!isSSR && slug != null) {
+    requestPayload.start_flow = slug
+    const pathname = yield select(fromRouting.getPathname)
+    const query = yield select(fromRouting.getQuery)
 
-    if (!isSlugUsed) {
-      requestPayload.start_flow = slug
-      yield put(setSlugUsed(true))
-    }
+    delete query.slug
+
+    yield put(removeInitialQueryParam('slug'))
+    yield put(replace({ pathname, query }))
   }
 
   yield* fetch(projectElaborationReply, 'post', '/chatbot', {}, requestPayload)
@@ -84,22 +84,28 @@ function* getConversations() {
 }
 
 function* getConversationCurrent() {
+  const initialQueryParams = yield select(fromContext.getInitialQueryParams)
+
   yield put(projectElaborationResetConversation)
+
+  if (initialQueryParams.slug != null) {
+    yield* replyConversation({ text: `new_project.first_question:${initialQueryParams.slug}` })
+
+    return
+  }
+
   yield* getConversations()
 
   const heroAnswer = yield select(fromProjectElaboration.getHeroAnswer)
-  const initialQueryParams = yield select(fromContext.getInitialQueryParams)
 
   yield pushGtmEvent({ event: 'OpenForm', chatbotKey1: heroAnswer.text })
 
-  if ((yield select(fromProjectElaboration.hasActiveConversation))) {
+  const hasActiveConversation = yield select(fromProjectElaboration.hasActiveConversation)
+
+  if (hasActiveConversation) {
     yield* replyConversation({ text: 'new_project.current' })
-  } else if (!(yield select(fromProjectElaboration.hasConversations))) {
-    if (initialQueryParams.slug !== undefined) {
-      yield* replyConversation({ text: `new_project.first_question:${initialQueryParams.slug}`, isFirst: true })
-    } else {
-      yield* replyConversation({ text: 'new_project.first_question' })
-    }
+  } else {
+    yield* replyConversation({ text: 'new_project.first_question' })
   }
 }
 
@@ -115,9 +121,8 @@ function* selectConversation({ authType }) {
 function* replyHero() {
   const hero = yield select(fromProjectElaboration.getHero)
 
-  yield* resetAll()
+  yield* replyConversation({ text: 'new_project.reset' })
 
-  yield put(setProjectElaborationConversationAnswer(hero[1].answer.text))
   yield* replyConversation({ text: hero[1].answer.text, payload: hero[1].answer.payload })
   yield put(push('/project-elaboration'))
 }
@@ -180,16 +185,8 @@ function* preValidate({ chatbotStorageId }) {
 }
 
 function* handleClickOnFindAPro() {
-  yield* resetAll()
-  yield put(push('/project-elaboration'))
   yield* replyConversation({ text: 'new_project.reset' })
-}
-
-function* resetAll() {
-  const sessionId = generateSessionId()
-
-  saveProjectElaborationIdInCookies(sessionId)
-  yield put(setProjectElaborationSessionId(sessionId))
+  yield put(push('/project-elaboration'))
 }
 
 export default function* () {
@@ -201,7 +198,6 @@ export default function* () {
     takeLatest(PROJECT_ELABORATION_CLICK_FIND_A_PRO, handleClickOnFindAPro),
     takeLatest(PROJECT_ELABORATION_CONVERSATIONS_DETAILS.REQUEST, getConversations),
     takeLatest(PROJECT_ELABORATION_CONVERSATIONS_SELECT.REQUEST, selectConversation),
-    takeLatest(PROJECT_ELABORATION_RESET, resetAll),
     takeLatest(PROJECT_ELABORATION_CONVERSATION_CURRENT.REQUEST, getConversationCurrent),
     takeLatest(PROJECT_ELABORATION_PRE_VALIDATE.REQUEST, preValidate),
   ]

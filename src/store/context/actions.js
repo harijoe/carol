@@ -8,6 +8,7 @@ export const CONTEXT_CLOSE_ALL = 'CONTEXT_CLOSE_ALL'
 export const CONTEXT_SET_SSR = 'CONTEXT_SET_SSR'
 export const CONTEXT_SET_DRY_RUN = 'CONTEXT_SET_DRY_RUN'
 export const CONTEXT_SET_INITIAL_QUERY_PARAMS = 'CONTEXT_SET_INITIAL_QUERY_PARAMS'
+export const CONTEXT_REMOVE_INITIAL_QUERY_PARAM = 'CONTEXT_REMOVE_INITIAL_QUERY_PARAM'
 
 export const setCountry = country => ({
   type: CONTEXT_SET_COUNTRY,
@@ -27,6 +28,11 @@ export const enableFeature = feature => ({
 export const setInitialQueryParams = queryParams => ({
   type: CONTEXT_SET_INITIAL_QUERY_PARAMS,
   payload: queryParams,
+})
+
+export const removeInitialQueryParam = queryParam => ({
+  type: CONTEXT_REMOVE_INITIAL_QUERY_PARAM,
+  payload: queryParam,
 })
 
 export const toggleMainNavigation = (state = null) => ({

@@ -9,7 +9,7 @@ import {
   PROJECT_ELABORATION_CONVERSATION_DETAILS,
   PROJECT_ELABORATION_RESET_CONVERSATION,
   PROJECT_ELABORATION_PRE_VALIDATE,
-  PROJECT_ELABORATION_SET_SLUG_USED,
+  PROJECT_ELABORATION_PARTNER,
 } from './actions'
 
 const addQuestions = (activeConversation, questions) => {
@@ -87,11 +87,6 @@ export default (state = initialState, action) => {
         ...state,
         sessionId: payload,
       }
-    case PROJECT_ELABORATION_SET_SLUG_USED:
-      return {
-        ...state,
-        slugUsed: payload,
-      }
     case PROJECT_ELABORATION_HERO_SET_RESPONSE:
       return {
         ...state,
@@ -136,6 +131,19 @@ export default (state = initialState, action) => {
         ...state,
         activeConversation: [],
       }
+    case PROJECT_ELABORATION_PARTNER.SUCCESS: {
+      const tracking = action.payload['hydra:member'][0]
+
+      tracking.partnerHeaderText = tracking.headerText
+      tracking.partnerHeaderLink = tracking.headerLink
+      delete tracking.headerText
+      delete tracking.headerLink
+
+      return {
+        ...state,
+        tracking,
+      }
+    }
     case PROJECT_ELABORATION_PRE_VALIDATE.SUCCESS:
       return {
         ...state,

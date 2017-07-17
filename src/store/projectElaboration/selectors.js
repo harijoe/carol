@@ -31,7 +31,6 @@ export const initialState = {
   proFormId: null,
   proFormLabel: null,
   tracking: {},
-  slugUsed: false,
 }
 
 export const getConversation = (state = initialState) => state.activeConversation
@@ -58,4 +57,3 @@ export const getProjectId = (state = initialState) => state.projectId
 export const getProjectName = (state = initialState) => state.projectName
 export const getProFormId = (state = initialState) => state.proFormId
 export const getProFormLabel = (state = initialState) => state.proFormLabel
-export const isSlugUsed = (state = initialState) => state.slugUsed

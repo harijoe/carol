@@ -8,6 +8,7 @@ import {
   CONTEXT_SET_SSR,
   CONTEXT_SET_DRY_RUN,
   CONTEXT_SET_INITIAL_QUERY_PARAMS,
+  CONTEXT_REMOVE_INITIAL_QUERY_PARAM,
   CONTEXT_ENABLE_FEATURE,
 } from './actions'
 import { initialState } from './selectors'
@@ -69,6 +70,12 @@ export default (state = initialState,
       return {
         ...state,
         initialQueryParams: action.payload,
+      }
+    }
+    case CONTEXT_REMOVE_INITIAL_QUERY_PARAM: {
+      return {
+        ...state,
+        initialQueryParams: { ...state.initialQueryParams, [action.payload]: null },
       }
     }
     case CONTEXT_ENABLE_FEATURE: {
