@@ -5,7 +5,7 @@ import { theme } from 'utils/style'
 
 import { Icon } from 'components'
 
-const StyledListItem = styled.li`
+const StyledLink = styled.a`
   background: white;
   height: 7rem;
   margin: 9px;
@@ -14,6 +14,14 @@ const StyledListItem = styled.li`
   align-items: center;
   justify-content: center;
   font-size: 20px;
+
+  color: ${theme('colors.grayscale.darkest')};
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  :hover {
+    background-color: ${theme('colors.grayscale.light')}
+  }
 
   em {
       background-color: ${theme('colors.secondary')};
@@ -29,15 +37,18 @@ const StyledLabel = styled.span`
   width: 80%;
 `
 
-const SearchResultItem = ({ name, _highlightResult: { name: { value } } }) => (
-  <StyledListItem>
-    <StyledIcon size={70} icon="quotatis" />
-    { value != null ? <StyledLabel dangerouslySetInnerHTML={{ __html: value }} /> : <StyledLabel>{name}</StyledLabel> }
-  </StyledListItem>
+const SearchResultItem = ({ name, slug, _highlightResult: { name: { value } } }) => (
+  <li>
+    <StyledLink href={`/project-elaboration/?slug=${slug}`}>
+      <StyledIcon size={70} icon="quotatis" />
+      { value != null ? <StyledLabel dangerouslySetInnerHTML={{ __html: value }} /> : <StyledLabel>{name}</StyledLabel> }
+    </StyledLink>
+  </li>
 )
 
 SearchResultItem.propTypes = {
-  name: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
   _highlightResult: PropTypes.any,
 }
 

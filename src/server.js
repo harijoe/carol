@@ -8,8 +8,6 @@ import configureStore from 'store/configure'
 import { port, ip, locales, purgeCacheToken, devServer } from 'config'
 import renderResponse from './server/index'
 
-// global.window = require('utils/windowOrGlobal')
-
 global.navigator = { userAgent: 'all' }
 
 const router = new Router()
