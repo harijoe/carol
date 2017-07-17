@@ -1,5 +1,5 @@
 import { put, select } from 'redux-saga/effects'
-import cookie from 'react-cookie'
+import cookie from 'services/cookies'
 import { push } from 'react-router-redux'
 import { fromProjectElaboration, fromAuth, fromUser, fromRouting, fromContext } from 'store/selectors'
 import pushGtmEvent from 'utils/gtm'
@@ -108,7 +108,7 @@ function* selectConversation({ authType }) {
 
   const sessionId = yield select(fromProjectElaboration.getSessionId)
 
-  cookie.save('project_elaboration_session_id', sessionId)
+  cookie.set('project_elaboration_session_id', sessionId)
   yield* replyConversation({ text: 'new_project.current' })
 }
 

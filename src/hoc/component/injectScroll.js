@@ -12,13 +12,15 @@ const injectScroll = (WrappedComponent) => {
 
     componentWillMount() {
       // To avoid SSR issues
-      if (window.addEventListener != null) {
+      if (typeof window !== 'undefined' && window.addEventListener != null) {
         window.addEventListener('scroll', this.handleScroll)
       }
     }
 
     componentWillUnmount() {
-      window.removeEventListener('scroll', this.handleScroll)
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('scroll', this.handleScroll)
+      }
     }
 
     handleScroll = throttle(() => {

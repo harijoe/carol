@@ -25,8 +25,10 @@ const addQuestions = (activeConversation, questions) => {
 const addAnswer = (activeConversation, answer) => {
   const updatedConversation = activeConversation.slice()
 
-  updatedConversation[activeConversation.length - 1].answer = {
-    text: answer,
+  if (activeConversation.length > 0) {
+    updatedConversation[activeConversation.length - 1].answer = {
+      text: answer,
+    }
   }
 
   return updatedConversation

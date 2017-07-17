@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { FormattedMessage } from 'react-intl'
-import cookie from 'react-cookie'
+import cookie from 'services/cookies'
 import styled from 'styled-components'
 import { theme } from 'utils/style'
 import { cookiesUrl } from 'config'
@@ -43,11 +43,11 @@ const CloseIcon = styled(Icon)`
 
 class CookiesBanner extends Component {
   state = {
-    hidden: cookie.load('cookies_banner_hidden') || false,
+    hidden: cookie.get('cookies_banner_hidden') || false,
   }
 
   componentDidMount() {
-    cookie.save('cookies_banner_hidden', true)
+    cookie.set('cookies_banner_hidden', true)
   }
 
   handleClose = (e) => {
@@ -56,7 +56,7 @@ class CookiesBanner extends Component {
   }
 
   handleClickMore = () => {
-    cookie.remove('cookies_banner_hidden')
+    cookie.delete('cookies_banner_hidden')
   }
 
   render() {

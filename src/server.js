@@ -1,14 +1,14 @@
 import { createMemoryHistory, match } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { Router } from 'express'
-import reactCookie from 'react-cookie'
+import reactCookie from 'services/cookies'
 import express from 'services/express'
 import routes from 'routes'
 import configureStore from 'store/configure'
 import { port, ip, locales, purgeCacheToken, devServer } from 'config'
 import renderResponse from './server/index'
 
-global.window = require('utils/windowOrGlobal')
+// global.window = require('utils/windowOrGlobal')
 
 global.navigator = { userAgent: 'all' }
 

@@ -1,6 +1,6 @@
 import { fork, put, take, select } from 'redux-saga/effects'
 import { stopSubmit, reset } from 'redux-form'
-import cookie from 'react-cookie'
+import cookie from 'services/cookies'
 import { push } from 'react-router-redux'
 import notify from 'sagas/notify'
 import { saveToken, removeToken } from 'sagas/token'
@@ -32,8 +32,8 @@ export function* handleAuthLoginRequest({ grantType = 'client_credentials', form
   try {
     let actualGrantType = grantType
     let actualCredentials = credentials
-    const token = cookie.load('access_token')
-    const refreshToken = cookie.load('refresh_token')
+    const token = cookie.get('access_token')
+    const refreshToken = cookie.get('refresh_token')
 
     if (credentials === '' && token != null) {
       const currentToken = yield select(fromAuth.getAccessToken)

@@ -1,4 +1,4 @@
-import reactCookie from 'react-cookie'
+import reactCookie from 'services/cookies'
 import isAuthenticated from 'utils/auth'
 import {
   setCountry,
@@ -23,10 +23,10 @@ export default (store, req) => {
   store.dispatch(setCountry(country))
 
   // Initialize auth from cookies
-  const grantType = reactCookie.load('grant_type')
+  const grantType = reactCookie.get('grant_type')
 
   // Initialize feature flags from cookies
-  const features = reactCookie.load('features')
+  const features = reactCookie.get('features')
 
   if (features != null) {
     features.split(',').map(feature => store.dispatch(enableFeature(feature.trim())))
@@ -39,7 +39,7 @@ export default (store, req) => {
   store.dispatch(setAuthenticated(isAuthenticated(grantType)))
 
   // Initialize projectElaboration sessionId
-  const sessionId = reactCookie.load('project_elaboration_session_id') || generateSessionId()
+  const sessionId = reactCookie.get('project_elaboration_session_id') || generateSessionId()
 
   saveProjectElaborationIdInCookies(sessionId)
 
