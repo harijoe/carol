@@ -1,6 +1,6 @@
 import merge from 'lodash/merge'
 
-import { fr, en } from './i18n/config'
+import { fr, en, es } from './i18n/config'
 
 const configs = {
   all: {
@@ -49,6 +49,7 @@ const configs = {
     locales: {
       'fr-FR': fr,
       'en-GB': en,
+      'es-ES': es,
     },
     purgeCacheToken: '41Xdkf2c7lflo2o065BTV21y6V6xhg9t',
     termsUrl: 'https://www.quotatis.fr/conseils-travaux/cgu',
@@ -125,6 +126,9 @@ const configs = {
       'en-GB': {
         url: 'http://carol-co-uk-dev.qarx.io',
       },
+      'en-ES': {
+        url: 'http://carol-es-dev.qarx.io',
+      },
     },
     port: 4321,
     ssl: {
@@ -142,6 +146,9 @@ const configs = {
       },
       'en-GB': {
         url: 'http://carol-co-uk-dev.qarx.io',
+      },
+      'es-ES': {
+        url: 'http://carol-es-dev.qarx.io',
       },
     },
     port: 4321,
