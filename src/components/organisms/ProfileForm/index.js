@@ -19,6 +19,7 @@ import {
   ProfileImage,
   BorderBox,
   Icon,
+  Loading,
 } from 'components'
 import ValidatedInfo from './atoms/ValidatedInfo'
 
@@ -213,6 +214,7 @@ class ProfileForm extends Component {
     language: PropTypes.string.isRequired,
     handleSubmit: PropTypes.func,
     loading: PropTypes.bool,
+    updating: PropTypes.bool,
     translate: PropTypes.func.isRequired,
     details: PropTypes.shape({
       email: PropTypes.string,
@@ -271,141 +273,145 @@ class ProfileForm extends Component {
   }
 
   render() {
-    const { initialValues, handleSubmit, loading, translate, details, language } = this.props
+    const { initialValues, handleSubmit, loading, updating, translate, details, language } = this.props
 
     return (
       <div ref={(ref) => { this.form = ref }}>
-        <Form onSubmit={handleSubmit}>
-          <StyledHeroSection imageLink={cloudinary('/hero-fullscreen_image.jpg')}>
-            <StyledProfileImage imageLink={initialValues.imageBase64} />
-            <ProfileContentWrapper>
-              <Heading level={1} className="qs-Profil-titleName">Bonjour {initialValues.firstName}</Heading>
-              <p><Icon icon="mail-login" /><span>{details.email}</span></p>
-            </ProfileContentWrapper>
-          </StyledHeroSection>
-          <StyledSection title={translate('user.profile_info')}>
-            <StyledGrid>
-              <div className="qs-Infos-wrapper">
-                <RadioBlock>
-                  <strong><FormattedMessage id="user.gender" tagName="div" /></strong>
-                  <Field
-                    component={RadioGroup}
-                    name="gender"
-                    options={[
-                      { value: 'Mr', id: 'mr', translation: 'user.mr' },
-                      { value: 'Mrs', id: 'mrs', translation: 'user.mrs' },
-                    ]}
-                  />
-                </RadioBlock>
-                <Field
-                  name="firstName"
-                  component={RenderField}
-                  label={translate('user.first_name')}
-                  placeholder={translate('user.first_name')}
-                  icon="login"
-                />
-                <Field
-                  name="lastName"
-                  component={RenderField}
-                  label={translate('user.last_name')}
-                  placeholder={translate('user.last_name')}
-                  icon="login"
-                />
-              </div>
-              <BorderBox grey mediumBorder title={translate('user.contact_info')}>
-                <VerifiedFieldWrapper>
-                  <Field
-                    name="email"
-                    type="email"
-                    icon="mail-login"
-                    component={RenderField}
-                    label={translate('user.email')}
-                    placeholder={translate('user.email')}
-                    disabled
-                  />
-                  <ValidatedInfo validated={initialValues.emailVerified} field="email" />
-                </VerifiedFieldWrapper>
-                <VerifiedFieldWrapper>
-                  <Field
-                    name="mobilePhone"
-                    component={RenderField}
-                    label={translate('user.mobile_phone')}
-                    placeholder={translate('user.mobile_phone')}
-                    format={format(language)}
-                    normalize={normalize(language)}
-                  />
-                  <ValidatedInfo validated={initialValues.mobilePhoneVerified} field="mobile" />
-                </VerifiedFieldWrapper>
-                <Field
-                  name="fixedPhone"
-                  component={RenderField}
-                  label={translate('user.fixed_phone')}
-                  placeholder={translate('user.fixed_phone')}
-                />
-              </BorderBox>
-            </StyledGrid>
-          </StyledSection>
-          <StyledSection title={translate('user.contact_preferences')}>
-            <StyledGrid>
-              <div className="qs-Infos-wrapper">
-                <RadioBlock>
-                  <strong><FormattedMessage id="user.contactPreference" tagName="div" /></strong>
-                  <Field
-                    component={RadioGroup}
-                    name="contactPreference"
-                    options={[
-                      { value: 'email', id: 'email', translation: 'user.contactPreference.email' },
-                      { value: 'phone', id: 'phone', translation: 'user.contactPreference.phone' },
-                    ]}
-                  />
-                </RadioBlock>
-                <Field
-                  name="contactComment"
-                  component={RenderField}
-                  type="select"
-                  label={translate('user.contactComment')}
-                >
-                  {[
-                    {
-                      value: 'no_preferences',
-                      id: 'user.contactComment.no_preferences',
-                    },
-                    {
-                      value: 'during_business_hours',
-                      id: 'user.contactComment.during_business_hours',
-                    },
-                    {
-                      value: 'outside_business_hours',
-                      id: 'user.contactComment.outside_business_hours',
-                    },
-                  ].map(({ value, id }, key) => (
-                    <FormattedMessage {...{ key, id }}>
-                      {formattedMessage => <option {...{ value }}>{formattedMessage}</option>}
-                    </FormattedMessage>
-                  ))}
-                </Field>
-              </div>
-            </StyledGrid>
-          </StyledSection>
+        <Loading loading={loading}>
+          {!loading && (
+            <Form onSubmit={handleSubmit}>
+              <StyledHeroSection imageLink={cloudinary('/hero-fullscreen_image.jpg')}>
+                <StyledProfileImage imageLink={initialValues.imageBase64} />
+                <ProfileContentWrapper>
+                  <Heading level={1} className="qs-Profil-titleName">Bonjour {initialValues.firstName}</Heading>
+                  <p><Icon icon="mail-login" /><span>{details.email}</span></p>
+                </ProfileContentWrapper>
+              </StyledHeroSection>
+              <StyledSection title={translate('user.profile_info')}>
+                <StyledGrid>
+                  <div className="qs-Infos-wrapper">
+                    <RadioBlock>
+                      <strong><FormattedMessage id="user.gender" tagName="div" /></strong>
+                      <Field
+                        component={RadioGroup}
+                        name="gender"
+                        options={[
+                          { value: 'Mr', id: 'mr', translation: 'user.mr' },
+                          { value: 'Mrs', id: 'mrs', translation: 'user.mrs' },
+                        ]}
+                      />
+                    </RadioBlock>
+                    <Field
+                      name="firstName"
+                      component={RenderField}
+                      label={translate('user.first_name')}
+                      placeholder={translate('user.first_name')}
+                      icon="login"
+                    />
+                    <Field
+                      name="lastName"
+                      component={RenderField}
+                      label={translate('user.last_name')}
+                      placeholder={translate('user.last_name')}
+                      icon="login"
+                    />
+                  </div>
+                  <BorderBox grey mediumBorder title={translate('user.contact_info')}>
+                    <VerifiedFieldWrapper>
+                      <Field
+                        name="email"
+                        type="email"
+                        icon="mail-login"
+                        component={RenderField}
+                        label={translate('user.email')}
+                        placeholder={translate('user.email')}
+                        disabled
+                      />
+                      <ValidatedInfo validated={initialValues.emailVerified} field="email" />
+                    </VerifiedFieldWrapper>
+                    <VerifiedFieldWrapper>
+                      <Field
+                        name="mobilePhone"
+                        component={RenderField}
+                        label={translate('user.mobile_phone')}
+                        placeholder={translate('user.mobile_phone')}
+                        format={format(language)}
+                        normalize={normalize(language)}
+                      />
+                      <ValidatedInfo validated={initialValues.mobilePhoneVerified} field="mobile" />
+                    </VerifiedFieldWrapper>
+                    <Field
+                      name="fixedPhone"
+                      component={RenderField}
+                      label={translate('user.fixed_phone')}
+                      placeholder={translate('user.fixed_phone')}
+                    />
+                  </BorderBox>
+                </StyledGrid>
+              </StyledSection>
+              <StyledSection title={translate('user.contact_preferences')}>
+                <StyledGrid>
+                  <div className="qs-Infos-wrapper">
+                    <RadioBlock>
+                      <strong><FormattedMessage id="user.contactPreference" tagName="div" /></strong>
+                      <Field
+                        component={RadioGroup}
+                        name="contactPreference"
+                        options={[
+                          { value: 'email', id: 'email', translation: 'user.contactPreference.email' },
+                          { value: 'phone', id: 'phone', translation: 'user.contactPreference.phone' },
+                        ]}
+                      />
+                    </RadioBlock>
+                    <Field
+                      name="contactComment"
+                      component={RenderField}
+                      type="select"
+                      label={translate('user.contactComment')}
+                    >
+                      {[
+                        {
+                          value: 'no_preferences',
+                          id: 'user.contactComment.no_preferences',
+                        },
+                        {
+                          value: 'during_business_hours',
+                          id: 'user.contactComment.during_business_hours',
+                        },
+                        {
+                          value: 'outside_business_hours',
+                          id: 'user.contactComment.outside_business_hours',
+                        },
+                      ].map(({ value, id }, key) => (
+                        <FormattedMessage {...{ key, id }}>
+                          {formattedMessage => <option {...{ value }}>{formattedMessage}</option>}
+                        </FormattedMessage>
+                      ))}
+                    </Field>
+                  </div>
+                </StyledGrid>
+              </StyledSection>
 
-          <StyledSection title={translate('user.profile_other')}>
-            <StyledGrid>
-              <Field
-                name="newsletterSubscription"
-                type="checkbox"
-                component={RenderField}
-                label={translate('user.newsletter_subscription')}
-                placeholder={translate('user.newsletter_subscription')}
-                hideBorder
-                lightFont
-                inline
-              />
-              <Button type="submit" loading={loading} center maxWidth onClick={this.handleSubmitClick}>
-                <FormattedMessage id="user.update" />
-              </Button>
-            </StyledGrid>
-          </StyledSection>
-        </Form>
+              <StyledSection title={translate('user.profile_other')}>
+                <StyledGrid>
+                  <Field
+                    name="newsletterSubscription"
+                    type="checkbox"
+                    component={RenderField}
+                    label={translate('user.newsletter_subscription')}
+                    placeholder={translate('user.newsletter_subscription')}
+                    hideBorder
+                    lightFont
+                    inline
+                  />
+                  <Button type="submit" loading={updating} center maxWidth onClick={this.handleSubmitClick}>
+                    <FormattedMessage id="user.update" />
+                  </Button>
+                </StyledGrid>
+              </StyledSection>
+            </Form>
+          )}
+        </Loading>
       </div>
     )
   }

@@ -15,7 +15,7 @@ class ProfileFormContainer extends Component {
     request: PropTypes.func,
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.request()
   }
 
@@ -47,7 +47,8 @@ const mapStateToProps = (state) => {
       birthday: transformDate(details.birthday),
       country: fromContext.getCountry(state),
     },
-    loading: fromStatus.getLoading(state).USER_UPDATE,
+    loading: fromStatus.getLoading(state).USER_DETAILS,
+    updating: fromStatus.getLoading(state).USER_UPDATE,
   }
 }
 
