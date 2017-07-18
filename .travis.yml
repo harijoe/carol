@@ -52,15 +52,15 @@ script:
       sleep 1
     done
   - yarn cucumber
-
-after_success:
   - docker build -t eu.gcr.io/quotatis-152617/carol:${BRANCH} .
-  - ./deploy-carol.sh
+
+deploy:
+  provider: script
+  script: scripts/deploy.sh
+  on:
+    branch: develop
 
 after_failure:
-  - echo 'simulado.log:\n============='
   - cat simulado.log
-  - echo '\nsimulado-prime.log:\n==================='
   - cat simulado-prime.log
-  - echo '\nserver.log:\n==================='
   - cat server.log
