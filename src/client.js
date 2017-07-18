@@ -11,6 +11,7 @@ import sagas from 'store/sagas'
 import { anchorate } from 'anchorate'
 import { setSSR } from 'store/actions'
 import { list as sagaList } from 'sagas/ssr/collector'
+import 'logging'
 
 import routes from 'routes'
 

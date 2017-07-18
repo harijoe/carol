@@ -6,6 +6,7 @@ import { join, race, call } from 'redux-saga/effects'
 import { delay } from 'redux-saga'
 import sagas, { handleAuthLoginRequest } from 'store/sagas'
 import { setDryRun } from 'store/actions'
+import logging from 'logging'
 import { list as sagaList, clear as sagaClear } from '../../src/sagas/ssr/collector'
 
 export default async function initSagas(store, renderProps, disableTimeout = false) {
@@ -62,7 +63,10 @@ export default async function initSagas(store, renderProps, disableTimeout = fal
       })
 
       if (timeout) {
-        console.error('Timeout for startup calls reached - ', startupCallsTimeout / 1000, 's')
+        const message = `Timeout for startup calls reached - ${startupCallsTimeout / 1000}s`
+
+        logging.captureMessage(message)
+        console.error(message)
       }
     }
   }

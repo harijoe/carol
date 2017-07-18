@@ -1,5 +1,6 @@
 import { put, take } from 'redux-saga/effects'
 import { channel } from 'redux-saga'
+import logging from 'logging'
 
 /*
  Channels are a feature of redux-saga — https://goo.gl/B0s6aG
@@ -16,6 +17,7 @@ export default function* () {
   const refreshTokenResult = yield take(responseChannel)
 
   if (typeof refreshTokenResult === 'object' && refreshTokenResult.name === 'HTTPError') {
+    logging.captureMessage('token failed', { refreshTokenResult })
     console.error('token failed — ', refreshTokenResult.toString())
   }
 }

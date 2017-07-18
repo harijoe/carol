@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import logging from 'logging'
 
 const styles = ({ size }) => css`
   display: inline-block;
@@ -23,6 +24,7 @@ const Icon = ({ icon, ...props }) => {
 
     return <Wrapper {...props} dangerouslySetInnerHTML={{ __html: svg }} />
   } catch (e) {
+    logging.captureException(e)
     console.warn(e)
 
     return null

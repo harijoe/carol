@@ -1,4 +1,5 @@
 import { spawn } from 'redux-saga/effects'
+import logging from 'logging'
 
 /*
   This file is used to store sagas during SSR
@@ -12,6 +13,9 @@ function* protectSaga(saga, args) {
   try {
     yield* saga(args)
   } catch (e) {
+    logging.captureException(e, {
+      saga: saga.name,
+    })
     console.error(e.toString())
   }
 }

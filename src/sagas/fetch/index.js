@@ -4,6 +4,7 @@ import { fromAuth, fromContext } from 'store/selectors'
 import getCacheStorage from 'sagas/ssr/cache'
 import api from 'services/api'
 import { removeToken } from 'sagas/token'
+import logging from 'logging'
 import refreshToken from '../refreshToken'
 
 /*
@@ -44,6 +45,7 @@ export function* fetchWithoutRefreshingToken(actions, method, url, settings = {}
 
     yield put(actions.success(response, actionParams))
   } catch (e) {
+    logging.captureException(e, { method, url, settings, lang, data })
     console.error('FAILURE - ', url)
 
     yield put(actions.failure(e, actionParams))
