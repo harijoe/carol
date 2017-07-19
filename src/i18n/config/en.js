@@ -4,9 +4,9 @@ export default {
   contentSiteUrl: 'https://www.quotatis.co.uk/advice/',
   mainMenu: {
     resource: {
-      guide: { path: 'guide' },
-      inspiring: { path: 'inspirations' },
-      faq: { path: 'FAQ' },
+      guide: { path: 'guide', target: '_blank' },
+      inspiring: { path: 'inspiration', target: '_blank' },
+      faq: { path: 'FAQ', target: '_blank' },
     },
     directory: '/tradesmen-directory',
     proUrl: 'https://www.quotatispro.co.uk',

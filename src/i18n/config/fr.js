@@ -4,9 +4,9 @@ export default {
   contentSiteUrl: 'https://www.quotatis.fr/conseils-travaux/',
   mainMenu: {
     resource: {
-      guide: { path: 'guide' },
-      inspiring: { path: 'inspirations' },
-      faq: { path: 'FAQ' },
+      guide: { path: 'guide', target: '_blank' },
+      inspiring: { path: 'inspirations', target: '_blank' },
+      faq: { path: 'FAQ', target: '_blank' },
       tools: { path: 'outils', target: '_blank' },
     },
     directory: '/annuaire-artisan',

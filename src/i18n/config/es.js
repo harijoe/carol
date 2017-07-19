@@ -4,7 +4,7 @@ export default {
   contentSiteUrl: 'https://www.quotatis.es/advice/',
   mainMenu: {
     resource: {
-      guide: { path: 'https://noticias.quotatis.es/' },
+      guide: { path: 'https://noticias.quotatis.es/', target: '_blank' },
     },
     directory: '/tradesmen-directory',
     proUrl: 'https://www.quotatispro.co.uk',

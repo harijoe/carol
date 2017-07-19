@@ -6,7 +6,7 @@ import { theme, ifThen, breakpoint, breakpointMax } from 'utils/style'
 import { locales } from 'config'
 import injectScroll from 'hoc/component/injectScroll'
 
-import { List, Link, ListItemWithSubmenu } from 'components'
+import { List, Link, ListItemWithSubmenu, FirmResourceSubMenu } from 'components'
 import { FindAProLink } from 'containers'
 
 const StyledList = styled(List)`${({ homepage, atTop }) => css`
@@ -152,34 +152,6 @@ const linkStyle = css`
 const StyledLink = styled(Link)`${linkStyle}`
 const StyledFindAProLink = styled(FindAProLink)`${linkStyle}`
 
-const SubMenuLink = styled(Link)`
-  display: block;
-  color: ${theme('colors.black')};
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: ${theme('colors.secondary')};
-  }
-`
-
-const FirmResourceSubMenu = ({ locale, submenu }) => {
-  const submenuConfig = locales[locale].mainMenu.resource[submenu]
-  const { path, ...otherProps } = submenuConfig
-
-  return (
-    <li>
-      <SubMenuLink to={`${locales[locale].contentSiteUrl}${path}`} {...otherProps}>
-        <FormattedMessage id={`firm.${submenu}`} />
-      </SubMenuLink>
-    </li>
-  )
-}
-
-FirmResourceSubMenu.propTypes = {
-  locale: PropTypes.string,
-  submenu: PropTypes.string,
-}
-
 const MainMenu = ({ locale, homepage, atTop }) => (
   <StyledList homepage={homepage} atTop={atTop}>
     <li key="firm.find_pro">
@@ -191,12 +163,12 @@ const MainMenu = ({ locale, homepage, atTop }) => (
       ))}
     </ListItemWithSubmenu>
     <li key="directory">
-      <StyledLink to={locales[locale].mainMenu.directory} forceRedirect>
+      <StyledLink to={locales[locale].mainMenu.directory} forceRedirect target="_blank">
         <FormattedMessage id="directory" />
       </StyledLink>
     </li>
     <li key="firm.i_am_pro.one">
-      <StyledLink to={locales[locale].mainMenu.proUrl} className="qs-linkMenu-pro">
+      <StyledLink to={locales[locale].mainMenu.proUrl} className="qs-linkMenu-pro" target="_blank">
         <FormattedMessage id="firm.i_am_pro.one" /> <FormattedMessage id="firm.i_am_pro.two" />
       </StyledLink>
     </li>
