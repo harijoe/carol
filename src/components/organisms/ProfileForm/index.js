@@ -274,6 +274,7 @@ class ProfileForm extends Component {
 
   render() {
     const { initialValues, handleSubmit, loading, updating, translate, details, language } = this.props
+    const { imageBase64, firstName, emailVerified, mobilePhoneVerified } = initialValues
 
     return (
       <div ref={(ref) => { this.form = ref }}>
@@ -281,9 +282,9 @@ class ProfileForm extends Component {
           {!loading && (
             <Form onSubmit={handleSubmit}>
               <StyledHeroSection imageLink={cloudinary('/hero-fullscreen_image.jpg')}>
-                <StyledProfileImage imageLink={initialValues.imageBase64} />
+                <StyledProfileImage imageLink={imageBase64} />
                 <ProfileContentWrapper>
-                  <Heading level={1} className="qs-Profil-titleName">Bonjour {initialValues.firstName}</Heading>
+                  <Heading level={1} className="qs-Profil-titleName">{translate('user.profile.hello', { firstName })}</Heading>
                   <p><Icon icon="mail-login" /><span>{details.email}</span></p>
                 </ProfileContentWrapper>
               </StyledHeroSection>
@@ -327,7 +328,7 @@ class ProfileForm extends Component {
                         placeholder={translate('user.email')}
                         disabled
                       />
-                      <ValidatedInfo validated={initialValues.emailVerified} field="email" />
+                      <ValidatedInfo validated={emailVerified} field="email" />
                     </VerifiedFieldWrapper>
                     <VerifiedFieldWrapper>
                       <Field
@@ -338,7 +339,7 @@ class ProfileForm extends Component {
                         format={format(language)}
                         normalize={normalize(language)}
                       />
-                      <ValidatedInfo validated={initialValues.mobilePhoneVerified} field="mobile" />
+                      <ValidatedInfo validated={mobilePhoneVerified} field="mobile" />
                     </VerifiedFieldWrapper>
                     <Field
                       name="fixedPhone"

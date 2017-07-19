@@ -240,6 +240,7 @@ export default {
   'user.prefered_language': 'Preferred language',
   'user.profile.email.not-validated': 'Email address not verified',
   'user.profile.email.validated': 'Email address verified',
+  'user.profile.hello': 'Hello {firstName}',
   'user.profile.mobile.not-validated': 'Mobile number not verified',
   'user.profile.mobile.validated': 'Mobile number verified',
   'user.profile_info': 'Your Details',

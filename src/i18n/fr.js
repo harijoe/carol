@@ -247,6 +247,7 @@ export default {
   'user.prefered_language': 'Language préféré',
   'user.profile.email.not-validated': 'Adresse email non vérifiée',
   'user.profile.email.validated': 'Adresse email vérifiée',
+  'user.profile.hello': 'Bonjour {firstName}',
   'user.profile.mobile.not-validated': 'Numéro de mobile non vérifié',
   'user.profile.mobile.validated': 'Numéro de mobile vérifié',
   'user.profile_info': 'Vos informations',

@@ -243,6 +243,7 @@ export default {
   'user.prefered_language': 'Idioma',
   'user.profile.email.not-validated': 'Dirección de correo electrónico no verificada',
   'user.profile.email.validated': 'Dirección de correo electrónico verificada',
+  'user.profile.hello': 'Hola {firstName}',
   'user.profile.mobile.not-validated': 'Teléfono móvil no verificado',
   'user.profile.mobile.validated': 'Teléfono móvil verificado',
   'user.profile_info': 'Tus datos',
