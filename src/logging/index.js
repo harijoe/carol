@@ -14,7 +14,6 @@ const requireRaven = () => {
 
   RavenJS.config('https://3ccd80466e1946569044c33368ed7885@sentry.io/192401', {
     environment: process.env.NODE_ENV,
-    release: process.env.GIT_COMMIT,
   }).install()
 
   window.addEventListener('unhandledrejection', rejection => RavenJS.captureException(rejection.reason))

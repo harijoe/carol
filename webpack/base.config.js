@@ -1,8 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
 
-const gitCommit = require('child_process').execSync('git rev-parse HEAD').toString().trim()
-
 module.exports = options => ({
   entry: options.entry,
   output: Object.assign({
@@ -86,7 +84,6 @@ module.exports = options => ({
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
         PORT: JSON.stringify(process.env.PORT),
         DEBUG_API: 'false',
-        GIT_COMMIT: `'${gitCommit}'`,
       },
     }),
   ]),
