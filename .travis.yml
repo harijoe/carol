@@ -53,12 +53,7 @@ script:
     done
   - yarn cucumber
   - docker build -t eu.gcr.io/quotatis-152617/carol:${BRANCH} .
-
-deploy:
-  provider: script
-  script: scripts/deploy.sh
-  on:
-    branch: develop
+  - scripts/deploy.sh
 
 after_failure:
   - cat simulado.log
