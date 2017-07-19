@@ -29,6 +29,7 @@ const BubbleQuestion = styled.div`
   border-radius: 0 1rem 1rem 1rem;
   color: ${theme('colors.black')};
   box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, 0.15);
+  white-space: pre;
 
   &::before, 
   &::after {
