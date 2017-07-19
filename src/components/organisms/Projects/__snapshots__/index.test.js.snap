@@ -8,7 +8,7 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <ProjectList
+  "node": <Projects
     list={
         Array [
             Object {
@@ -27,7 +27,7 @@ ShallowWrapper {
     }
 />,
   "nodes": Array [
-    <ProjectList
+    <Projects
       list={
             Array [
                   Object {
@@ -56,7 +56,7 @@ ShallowWrapper {
         locale="en"
         messages={Object {}}
 >
-        <ProjectList
+        <Projects
                 list={
                         Array [
                                 Object {
@@ -84,7 +84,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <ProjectList
+          "children": <Projects
             list={
                         Array [
                                     Object {
@@ -132,7 +132,7 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <ProjectList
+        "_currentElement": <Projects
           list={
                     Array [
                               Object {
@@ -151,7 +151,7 @@ ShallowWrapper {
           }
 />,
         "_debugID": 2,
-        "_renderedOutput": <ProjectList
+        "_renderedOutput": <Projects
           list={
                     Array [
                               Object {
@@ -184,7 +184,7 @@ ShallowWrapper {
     locale="en"
     messages={Object {}}
 >
-    <ProjectList
+    <Projects
         list={
             Array [
                 Object {

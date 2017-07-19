@@ -26,9 +26,11 @@ const DescribeProject = (
 const VerifiedPros = locale => (
   <Paragraph>
     <FormattedMessage id="how_it_works.verified_pros.first_part" />
+    {' '}
     <Link to={locales[locale].homepage.verifiedProsLink} highlight target="_blank">
       <FormattedMessage id="how_it_works.verified_pros.link" />
     </Link>
+    {' '}
     <FormattedMessage id="how_it_works.verified_pros.second_part" />
   </Paragraph>
 )
@@ -36,9 +38,11 @@ const VerifiedPros = locale => (
 const Guide = locale => (
   <Paragraph>
     <FormattedMessage id="how_it_works.guide.first_part" />
+    {' '}
     <Link to={locales[locale].contentSiteUrl} highlight target="_blank">
       <FormattedMessage id="how_it_works.guide.link" />
     </Link>
+    {' '}
     <FormattedMessage id="how_it_works.guide.second_part" />
   </Paragraph>
 )

@@ -1,3 +1,4 @@
+import { USER_RESET } from 'store/actions'
 import { PROJECT_LIST, PROJECT_DETAILS, PROJECT_UPDATE } from './actions'
 import { initialState } from './selectors'
 
@@ -13,6 +14,10 @@ export default (state = initialState, action) => {
       return {
         ...state,
         [action.payload['@id']]: action.payload,
+      }
+    case USER_RESET:
+      return {
+        ...initialState,
       }
     default: {
       return state

@@ -17,6 +17,7 @@ import {
   closeAll,
   setAccessToken,
   saveProjectElaborationIdInCookies,
+  projectElaborationResetConversation,
 } from 'store/actions'
 import { fromAuth, fromRouting } from 'store/selectors'
 import { fetchWithoutRefreshingToken } from 'sagas/fetch'
@@ -74,6 +75,7 @@ function* handleAuthLogout() {
   yield put(closeAll())
   yield* removeToken()
   yield put(resetUser())
+  yield put(projectElaborationResetConversation)
   yield put(saveProjectElaborationIdInCookies(generateSessionId()))
 
   const pathName = yield select(fromRouting.getPathname)

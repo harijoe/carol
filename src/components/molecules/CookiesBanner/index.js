@@ -71,7 +71,7 @@ class CookiesBanner extends Component {
         <Container>
           <Col xs={10} m={11}>
             <StyledParagraph>
-              <FormattedMessage id="cookies.message" />
+              <FormattedMessage id="cookies.message" /> {' '}
               <Link to={cookiesUrl} onClick={this.handleClickMore}><FormattedMessage id="cookies.more" /></Link>
             </StyledParagraph>
           </Col>

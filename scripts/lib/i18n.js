@@ -43,7 +43,7 @@ const caseInsensitiveSort = keys => keys.slice().sort((a, b) => a.toLowerCase() 
 
 const serialize = translations =>
   caseInsensitiveSort(Object.keys(translations))
-    .map(key => `  '${key}': '${escapeValue(translations[key])}'`)
+    .map(key => `  '${key}': '${escapeValue(translations[key]).trim()}'`)
     .join(',\n')
 
 const writeToFiles = (messages, outputPath) =>

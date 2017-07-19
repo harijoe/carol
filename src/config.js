@@ -72,6 +72,22 @@ const configs = {
       },
     },
   },
+  preprod: {
+    port: 443,
+    devServer: false,
+    locales: {
+      'fr-FR': {
+        url: 'https://preprod-fr.qarx.io',
+      },
+
+      'es-ES': {
+        url: 'https://preprod-es.qarx.io',
+      },
+      'en-GB': {
+        url: 'https://preprod-co-uk.qarx.io',
+      },
+    },
+  },
   production: {
     port: 80,
     devServer: false,

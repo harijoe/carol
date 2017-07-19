@@ -14,6 +14,7 @@ const availableCountries = Object.keys(countriesLocales)
 const availableEnvironments = [
   'development',
   'qa',
+  'preprod',
   'production',
   'outsideDocker',
   'insideDocker',
