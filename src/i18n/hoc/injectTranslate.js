@@ -1,9 +1,11 @@
 import React from 'react'
 import { intlShape } from 'react-intl'
 
-const injectTranslate = (Component) => {
+export const translateForIntl = intl => (id, values) => intl.formatMessage({ id }, values)
+
+export const injectTranslateImpl = translateForIntlImpl => (Component) => {
   const InjectTranslate = (props, { intl }) =>
-    <Component translate={(id, ...values) => intl.formatMessage({ id, values })} {...props} />
+    <Component translate={translateForIntlImpl(intl)} {...props} />
 
   InjectTranslate.contextTypes = {
     intl: intlShape,
@@ -13,5 +15,7 @@ const injectTranslate = (Component) => {
 
   return InjectTranslate
 }
+
+const injectTranslate = injectTranslateImpl(translateForIntl)
 
 export default injectTranslate
