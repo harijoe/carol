@@ -168,7 +168,7 @@ const ProjectDetails = ({ project: { name, status, createdAt, questionsAnswers, 
   <Wrapper {...props}>
     <Section>
       <Grid narrow>
-        <StyledIconLink icon="back_arrow"><FormattedMessage id="project.back_link_title" /></StyledIconLink>
+        <StyledIconLink to="/projects" icon="back_arrow"><FormattedMessage id="project.back_link_title" /></StyledIconLink>
         <Heading level={1}>{name}</Heading>
         <StyledProjectStatus status={status} />
         <DateCreation><FormattedMessage id="project.created_at" /> {transformDate(createdAt)}</DateCreation>

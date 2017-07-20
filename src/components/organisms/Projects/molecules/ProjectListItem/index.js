@@ -5,7 +5,16 @@ import { FormattedMessage } from 'react-intl'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
 
-import { Heading, DateTime, Paragraph, Link, Card, Image, ProjectStatus, Divider } from 'components'
+import {
+  Heading,
+  DateTime,
+  Paragraph,
+  Link,
+  Card,
+  Image,
+  ProjectStatus,
+  Divider,
+} from 'components'
 
 const Article = styled(Card)`
   display: flex;
@@ -126,41 +135,41 @@ const PartnerImageWrapper = styled.div`
 `
 
 const Project = ({ name, createdAt, status, partner, ...items }) => (
-  <Article>
-    <HeaderCard>
-      <ImageWrapper>
-        <BackgroundImage src={cloudinary('/thumbnail-poster-keyone.jpg')} />
-      </ImageWrapper>
-      <ProjectStatus status={status} />
-      { partner != null &&
-        <PartnerImageWrapper>
-          <PartnerImage src={partner.headerLink} />
-        </PartnerImageWrapper>
-      }
-    </HeaderCard>
-    <FooterCard>
-      <StyledHeading level={3}>{name}</StyledHeading>
-      <DateCreation>
-        <FormattedMessage id="project.created_at" /> <DateTime value={createdAt} />
-      </DateCreation>
-      <Divider />
-      <StyledParagraph>
-        <FormattedMessage id={`project.describe.${status}`} />
-      </StyledParagraph>
-      {
-        status === 'completion_in_progress' &&
-        <ButtonLink button to="/project-elaboration">
-          <FormattedMessage id="project.continue" />
-        </ButtonLink>
-      }
-      {
-        status === 'to_validate' &&
-        <ButtonLink button to={`${items['@id']}/account`}>
-          <FormattedMessage id="project.button.to_validate" />
-        </ButtonLink>
-      }
-    </FooterCard>
-  </Article>
+  <Link to={items['@id']}>
+    <Article>
+      <HeaderCard>
+        <ImageWrapper>
+          <BackgroundImage src={cloudinary('/thumbnail-poster-keyone.jpg')} />
+        </ImageWrapper>
+        <ProjectStatus status={status} />
+        {partner && (
+          <PartnerImageWrapper>
+            <PartnerImage src={partner.headerLink} />
+          </PartnerImageWrapper>
+        )}
+      </HeaderCard>
+      <FooterCard>
+        <StyledHeading level={3}>{name}</StyledHeading>
+        <DateCreation>
+          <FormattedMessage id="project.created_at" /> <DateTime value={createdAt} />
+        </DateCreation>
+        <Divider />
+        <StyledParagraph>
+          <FormattedMessage id={`project.describe.${status}`} />
+        </StyledParagraph>
+        {status === 'completion_in_progress' && (
+          <ButtonLink button to="/project-elaboration">
+            <FormattedMessage id="project.continue" />
+          </ButtonLink>
+        )}
+        {status === 'to_validate' && (
+          <ButtonLink button to={`${items['@id']}/account`}>
+            <FormattedMessage id="project.button.to_validate" />
+          </ButtonLink>
+        )}
+      </FooterCard>
+    </Article>
+  </Link>
 )
 
 Project.propTypes = {
