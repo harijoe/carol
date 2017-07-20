@@ -5,6 +5,7 @@ WORKDIR /app
 
 ARG INSTALL_DEP=true
 ENV NODE_ENV="insideDocker"
+ENV GIT_SHA1="not-set"
 
 RUN apk add --no-cache curl && \
   mkdir -p /opt && \

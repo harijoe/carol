@@ -28,7 +28,7 @@ if [ $BRANCH == "develop" ]; then
      kubectl get svc --namespace=${BRANCH} carol-${BRANCH} -o jsonpath='{.status.loadBalancer.ingress[0].ip}';
   done;
   export CAROL_IP=`kubectl get svc --namespace=${BRANCH} carol-${BRANCH} -o jsonpath="{.status.loadBalancer.ingress[0].ip}"`
-  export JSON_PATCH=`echo '{"spec":{"template":{"spec":{"containers":[{"env":[{"name":"API_IP","value":"104.199.107.196"}],"name":"carol-BRANCH"}]}}}}' | sed s/BRANCH/$BRANCH/g`
+  export JSON_PATCH=`echo '{"spec":{"template":{"spec":{"containers":[{"env":[{"name":"API_IP","value":"104.199.107.196"}, {"name":"GIT_SHA1","value":"GIT_SHA1_VALUE"}],"name":"carol-BRANCH"}]}}}}' | sed s/BRANCH/$BRANCH/g | sed s/GIT_SHA1_VALUE/$GIT_SHA1/g`
   echo ${JSON_PATCH}
   kubectl patch deployment carol-${BRANCH} --namespace=${BRANCH} -p $JSON_PATCH
   kubectl delete pods `kubectl get pod -l "run=carol-${BRANCH}" -o=template --template="{{ with index .items 0}}{{ .metadata.name }}{{ end }}" --namespace=${BRANCH}` --namespace=${BRANCH}
