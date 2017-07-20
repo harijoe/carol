@@ -11,12 +11,7 @@ ShallowWrapper {
   "node": <styled.div>
     <Styled(Mock)
         alt="quotatis"
-        src={
-            Object {
-                "default": "file",
-              }
-        }
-        width="32"
+        icon="logo"
     />
     <BubbleQuestion>
         my question
@@ -26,12 +21,7 @@ ShallowWrapper {
     <styled.div>
       <Styled(Mock)
             alt="quotatis"
-            src={
-                  Object {
-                        "default": "file",
-                      }
-            }
-            width="32"
+            icon="logo"
       />
       <BubbleQuestion>
             my question
@@ -79,12 +69,7 @@ ShallowWrapper {
         "_currentElement": <styled.div>
           <Styled(Mock)
                     alt="quotatis"
-                    src={
-                              Object {
-                                        "default": "file",
-                                      }
-                    }
-                    width="32"
+                    icon="logo"
           />
           <BubbleQuestion>
                     my question
@@ -94,12 +79,7 @@ ShallowWrapper {
         "_renderedOutput": <styled.div>
           <Styled(Mock)
                     alt="quotatis"
-                    src={
-                              Object {
-                                        "default": "file",
-                                      }
-                    }
-                    width="32"
+                    icon="logo"
           />
           <BubbleQuestion>
                     my question

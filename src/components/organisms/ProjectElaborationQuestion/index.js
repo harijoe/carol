@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { theme } from 'utils/style'
 
-import { Image } from 'components'
+import { Icon } from 'components'
 
 const Wrapper = styled.div`
   position: relative;
@@ -14,9 +14,11 @@ const Wrapper = styled.div`
   padding-top: ${theme('spaces.m')};
 `
 
-const StyledImage = styled(Image)`
+const StyledIcon = styled(Icon)`
   position: relative;
   z-index: 1;
+  width: 3.6rem;
+  height: 3.6rem;
 `
 
 const BubbleQuestion = styled.div`
@@ -53,17 +55,16 @@ const BubbleQuestion = styled.div`
 
 BubbleQuestion.displayName = 'BubbleQuestion'
 
-const ProjectElaborationQuestion = ({ children }) => {
+const ProjectElaborationQuestion = ({ children, ...props }) => {
   if (children == null) {
     return null
   }
 
   return (
-    <Wrapper>
-      <StyledImage
+    <Wrapper {...{ ...props }}>
+      <StyledIcon
         alt="quotatis"
-        src={require('./logo.png')}
-        width="32"
+        icon="logo"
       />
       <BubbleQuestion>{children}</BubbleQuestion>
     </Wrapper>
