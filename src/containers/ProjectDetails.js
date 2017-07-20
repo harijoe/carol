@@ -4,11 +4,12 @@ import { connect } from 'react-redux'
 
 import { fromProject, fromStatus } from 'store/selectors'
 import { projectDetails, PROJECT_DETAILS } from 'store/actions'
-import { ProjectDetails } from 'components'
+import { Loading, ProjectDetails } from 'components'
 
 class ProjectDetailsContainer extends Component {
   static propTypes = {
     project: PropTypes.object,
+    placeCoords: PropTypes.object,
     loading: PropTypes.bool,
     request: PropTypes.func.isRequired,
   }
@@ -18,16 +19,25 @@ class ProjectDetailsContainer extends Component {
   }
 
   render() {
-    const { project, loading } = this.props
+    const { project, loading, placeCoords } = this.props
 
-    return <ProjectDetails {...{ project, loading }} />
+    return (<Loading loading={loading}>
+      {project && <ProjectDetails {...{ project, loading, placeCoords }} />}
+    </Loading>)
   }
 }
 
-const mapStateToProps = (state, { id }) => ({
-  project: fromProject.getDetails(state, `/projects/${id}`),
-  loading: fromStatus.isLoading(state, PROJECT_DETAILS.prefix),
-})
+const mapStateToProps = (state, { id }) => {
+  const project = fromProject.getDetails(state, `/projects/${id}`)
+  const placeCoords = state.project.placeCoords
+
+  return {
+    project,
+    placeCoords,
+    loading: fromStatus.isLoading(state, PROJECT_DETAILS.prefix),
+  }
+}
+
 
 const mapDispatchToProps = (dispatch, { id }) => ({
   request: () => dispatch(projectDetails.request(id)),

@@ -1,5 +1,10 @@
 import { USER_RESET } from 'store/actions'
-import { PROJECT_LIST, PROJECT_DETAILS, PROJECT_UPDATE } from './actions'
+import {
+  PROJECT_LIST,
+  PROJECT_DETAILS,
+  PROJECT_UPDATE,
+  GOOGLE_PLACE_COORDS_RESULTS,
+} from './actions'
 import { initialState } from './selectors'
 
 export default (state = initialState, action) => {
@@ -18,6 +23,11 @@ export default (state = initialState, action) => {
     case USER_RESET:
       return {
         ...initialState,
+      }
+    case GOOGLE_PLACE_COORDS_RESULTS:
+      return {
+        ...state,
+        placeCoords: action.payload,
       }
     default: {
       return state

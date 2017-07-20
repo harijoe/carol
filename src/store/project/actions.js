@@ -5,6 +5,7 @@ export const PROJECT_LIST = createRequestTypes('PROJECT_LIST')
 export const PROJECT_DETAILS = createRequestTypes('PROJECT_DETAILS')
 export const PROJECT_UPDATE = createRequestTypes('PROJECT_UPDATE')
 export const PROJECT_CHECK_VALIDATION_FLOW = 'PROJECT_CHECK_VALIDATION_FLOW'
+export const GOOGLE_PLACE_COORDS_RESULTS = 'GOOGLE_PLACE_COORDS_RESULTS'
 
 export const projectList = {
   request: () => (actionTypes(PROJECT_LIST.REQUEST)),
@@ -29,3 +30,5 @@ export const projectUpdate = {
 }
 
 export const checkValidationFlow = () => actionTypes(PROJECT_CHECK_VALIDATION_FLOW)
+
+export const googlePlaceCoordsResults = payload => actionTypes(GOOGLE_PLACE_COORDS_RESULTS, { payload })

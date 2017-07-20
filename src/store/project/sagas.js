@@ -9,10 +9,12 @@ import redirectToNextValidationStep from 'sagas/redirectToNextValidationStep'
 import getFormErrors from 'utils/formErrors'
 import { takeLatest } from 'utils/effects'
 import { userUpdate } from 'store/actions'
+import fetchGooglePlaceCoords from 'services/google/fetchGooglePlaceCoords'
 import {
   projectList,
   projectDetails,
   projectUpdate,
+  googlePlaceCoordsResults,
   PROJECT_LIST,
   PROJECT_DETAILS,
   PROJECT_UPDATE,
@@ -42,6 +44,12 @@ export function* handleReadProjectDetailsRequest({ id }) {
   yield* fetch(projectDetails, 'get', `/projects/${id}`)
 }
 
+function* handleUpdateProjectSuccess({ payload: { postalCode: { city, postalCode } } }) {
+  const location = yield fetchGooglePlaceCoords(city, postalCode)
+
+  yield put(googlePlaceCoordsResults(location))
+}
+
 function* handleCheckValidationFlow() {
   const query = yield select(fromRouting.getQuery)
 
@@ -52,6 +60,7 @@ export default function* () {
   yield [
     takeLatest(PROJECT_LIST.REQUEST, handleReadProjectListRequest),
     takeLatest(PROJECT_DETAILS.REQUEST, handleReadProjectDetailsRequest),
+    takeLatest(PROJECT_DETAILS.SUCCESS, handleUpdateProjectSuccess),
     takeLatest(PROJECT_UPDATE.REQUEST, handleUpdateProjectRequest),
     takeLatest(PROJECT_CHECK_VALIDATION_FLOW, handleCheckValidationFlow),
   ]

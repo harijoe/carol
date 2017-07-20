@@ -5,6 +5,8 @@ import { FormattedMessage } from 'react-intl'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import transformDate from 'utils/transformDate'
+import config from 'config'
+import cloudinary from 'utils/cloudinary'
 
 import {
   Section,
@@ -145,7 +147,24 @@ const ItemProject = styled.p`
   }
 `
 
-const ProjectDetails = ({ project: { name, status, createdAt }, translate, ...props }) => (
+const googleMapsParams = ({ lat, lng }) => {
+  const markerImageUrl = cloudinary('/icons/marker-map_img.png')
+  const googleMapParams = {
+    center: `${lat},${lng}`,
+    zoom: 13,
+    scale: 2,
+    size: '600x300',
+    maptype: 'roadmap',
+    key: config.google.mapsKey,
+    format: 'png',
+    visual_refresh: true,
+    markers: `icon:${markerImageUrl}|shadow:true|${lat},${lng}`,
+  }
+
+  return Object.keys(googleMapParams).map(key => `${key}=${encodeURIComponent(googleMapParams[key])}`).join('&')
+}
+
+const ProjectDetails = ({ project: { name, status, createdAt, questionsAnswers, comment, postalCode, startTimeframe, purpose }, placeCoords, translate, ...props }) => (
   <Wrapper {...props}>
     <Section>
       <Grid narrow>
@@ -163,41 +182,40 @@ const ProjectDetails = ({ project: { name, status, createdAt }, translate, ...pr
         <Row>
           <LeftCol xs={12} m={8}>
             <Paragraph>
-              {'Lors de lélaboratipon de votre projet test, vous nous avez indiqué les éléments ci-dessous :'}
+              {translate('project.resume_intro', { name })}
             </Paragraph>
             <ProjectImage>
-              <StyledImage src={'http://loremflickr.com/g/640/320/paris'} />
+              <StyledImage src={cloudinary('/thumbnail-poster-keyone.jpg')} />
             </ProjectImage>
 
             <StyledList>
-              <li>{'Rénovation de cuisine existante'}</li>
-              <li>{'5-10m²'}</li>
-              <li>{'Confort - Meilleur prix'}</li>
-              <li>{'Appartement'}</li>
-              <li>{'Locataire avec accord du propriétaire'}</li>
+              {Object.values(questionsAnswers).map((key, index) => <li key={index}>{key}</li>)}
             </StyledList>
-
-            <StyledHeading level={4}><FormattedMessage id="project.comment_title" /></StyledHeading>
-            <NotificationBox dark>
-              {'"Votre commentaire"'}
-            </NotificationBox>
+            {comment && (
+              <div>
+                <StyledHeading level={4}><FormattedMessage id="project.comment_title" /></StyledHeading>
+                <NotificationBox dark>
+                  {comment}
+                </NotificationBox>
+              </div>
+            )}
           </LeftCol>
           <RightCol xs={12} m={4}>
             <StyledHeading level={4}><FormattedMessage id="project.col_title" /></StyledHeading>
             <ItemProject>
               <Icon icon="location-pin" />
-              {'Lieu: 75015 Paris'}
+              {`Lieu:${postalCode.postalCode} ${postalCode.city}`}
             </ItemProject>
             <MapImage>
-              <StyledImage src={'https://maps.googleapis.com/maps/api/staticmap?center=Berkeley,CA&zoom=13&size=500x250'} />
+              {placeCoords && <StyledImage src={`https://maps.googleapis.com/maps/api/staticmap?${googleMapsParams(placeCoords)}`} /> }
             </MapImage>
             <ItemProject>
               <Icon icon="project_start" />
-              {'Début de projet: Dans 3 à 6 mois'}
+              {translate('project.startTimeframe')} : {translate(`project.startTimeframe.${startTimeframe}`)}
             </ItemProject>
             <ItemProject>
               <Icon icon="project_goal" />
-              {'Votre besoin: Trouver un professionnel pour démarrer mon projet'}
+              {translate('project.purpose')} : {translate(`project.${purpose}`)}
             </ItemProject>
           </RightCol>
         </Row>
@@ -213,6 +231,7 @@ ProjectDetails.propTypes = {
     status: PropTypes.string.isRequired,
     createdAt: PropTypes.string.isRequired,
   }).isRequired,
+  placeCoords: PropTypes.object,
   loading: PropTypes.bool,
 }
 
