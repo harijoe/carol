@@ -160,9 +160,9 @@ const googleMapsParams = ({ lat, lng }) => {
   const markerImageUrl = cloudinary('/icons/marker-map_img.png')
   const googleMapParams = {
     center: `${lat},${lng}`,
-    zoom: 15,
-    scale: 2,
-    size: '600x300',
+    zoom: 13,
+    scale: 1,
+    size: '300x150',
     maptype: 'roadmap',
     key: config.google.mapsKey,
     format: 'png',
