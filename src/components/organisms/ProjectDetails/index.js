@@ -71,8 +71,17 @@ const StyledImage = styled(Image)`
   width: 100%;
 `
 
+const ParagraphWithStrong = styled(Paragraph)`
+  strong {
+    font-family: ${theme('fonts.family.montserratBold')};
+    font-weight: normal;
+  }
+`
+
 const StyledList = styled(List)`
   margin-top: ${theme('spaces.m')};
+  padding: 0;
+  list-style-type: none;
 
   ${breakpoint('m')`
     margin-top: ${theme('spaces.l')};
@@ -181,15 +190,13 @@ const ProjectDetails = ({ project: { name, status, createdAt, questionsAnswers, 
       <Grid narrow>
         <Row>
           <LeftCol xs={12} m={8}>
-            <Paragraph>
-              {translate('project.resume_intro', { name })}
-            </Paragraph>
+            <ParagraphWithStrong dangerouslySetInnerHTML={{ __html: translate('project.resume_intro', { name: `<strong>${name}</strong>` }) }} />
             <ProjectImage>
               <StyledImage src={cloudinary('/thumbnail-poster-keyone.jpg')} />
             </ProjectImage>
 
             <StyledList>
-              {Object.values(questionsAnswers).map((key, index) => <li key={index}>{key}</li>)}
+              {Object.entries(questionsAnswers).map(key => <li key={key[0]}>{key[0]}<br /><strong>{key[1]}</strong></li>)}
             </StyledList>
             {comment && (
               <div>
