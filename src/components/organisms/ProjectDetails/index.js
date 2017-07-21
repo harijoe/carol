@@ -106,12 +106,12 @@ const StyledIconLink = styled(IconLink)`
   }
 
   span {
-    vertical-align: middle;
+    vertical-align: top;
 
     &:first-child {
       margin-right: ${theme('spaces.m')};
-      height: auto;
-      width: auto;
+      height: 9px;
+      width: 23px;
     }
   }
 
