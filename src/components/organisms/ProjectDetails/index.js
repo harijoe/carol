@@ -82,6 +82,8 @@ const StyledList = styled(List)`
 `
 
 const StyledHeading = styled(Heading)`
+  margin-top: ${theme('spaces.xl')};
+  font-family: ${theme('fonts.family.montserrat')};
   font-weight: bold;
 `
 
