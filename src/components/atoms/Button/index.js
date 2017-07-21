@@ -11,7 +11,7 @@ const StyledButton = styled.button`${({ large, block, secondary, maxWidth, cente
   margin: ${theme('spaces.m')} 0 0 0;
   padding: ${ifThen(loading, css`${theme('spaces.xs')}`, css`${theme('spaces.m')}`)};
   width: 100%;
-  font-family: ${theme('fonts.family.montserratBold')};
+  font-weight: bold;
   font-size: ${theme('fonts.size.base')};
   letter-spacing: 0.05rem;
   text-align: center;
@@ -42,8 +42,7 @@ const StyledButton = styled.button`${({ large, block, secondary, maxWidth, cente
     padding: 0 4px 0 4px;
     width: auto;
     text-decoration: none;
-    font-family: ${theme('fonts.family.montserratLight')};
-    font-size: ${theme('fonts.size.base')};
+    font-weight: normal;
     letter-spacing: 0rem;
     line-height: 1;
     background-color: transparent;

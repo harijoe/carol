@@ -21,7 +21,7 @@ const Wrapper = styled(MainWrapper)`
 
 const StyledHeading = styled(Heading)`
   margin: 0;
-  font-family: ${theme('fonts.family.montserratBold')};
+  font-weight: bold;
   font-size: ${theme('fonts.size.base')};
 
   ${breakpoint('m')`

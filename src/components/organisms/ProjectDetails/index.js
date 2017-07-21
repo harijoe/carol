@@ -89,7 +89,7 @@ const StyledList = styled(List)`
 `
 
 const StyledHeading = styled(Heading)`
-  font-family: ${theme('fonts.family.montserratBold')};
+  font-weight: bold;
 `
 
 const StyledIconLink = styled(IconLink)`

@@ -7,7 +7,7 @@ import { Paragraph } from 'components'
 
 const StyledParagraph = styled(Paragraph)`
   margin-top: ${theme('spaces.xl')};
-  font-family: ${theme('fonts.family.montserratBold')};
+  font-weight: bold;
 `
 
 const Question = ({ children }) => (

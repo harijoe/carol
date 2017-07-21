@@ -54,7 +54,7 @@ const NoteFirm = styled.div`
   p {margin: 0;}
 
   strong {
-    font-family: ${theme('fonts.family.montserratBold')};
+    font-weight: bold;
     font-size: ${theme('fonts.size.xxl')};
   }
 

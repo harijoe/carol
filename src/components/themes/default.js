@@ -39,9 +39,7 @@ theme.fonts = {
   family: {
     andesLight: 'andes-extralight, serif',
     andesBlack: 'andes-black, serif',
-    montserratLight: 'montserrat-light, sans-serif',
-    montserratBold: 'montserrat-bold, sans-serif',
-    montserratBlack: 'montserrat-black, sans-serif',
+    montserrat: 'montserrat, sans-serif',
   },
 }
 

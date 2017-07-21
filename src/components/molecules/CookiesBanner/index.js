@@ -29,7 +29,7 @@ const Container = styled(Row)`
 const StyledParagraph = styled(Paragraph)`
   padding-bottom: ${theme('spaces.m')};
   padding-top: ${theme('spaces.m')};
-  font: normal ${theme('fonts.size.s')} ${theme('fonts.family.montserratLight')};
+  font-size: ${theme('fonts.size.s')};
   color: ${theme('colors.white')};
 `
 

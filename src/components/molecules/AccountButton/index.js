@@ -68,7 +68,7 @@ const Wrapper = styled.div`${({ homepage, atTop }) => css`
 const SignLabel = styled.p`
   display: inline-block;
   margin: 0 0 0 ${theme('spaces.m')};
-  font-family: ${theme('fonts.family.montserratBold')};
+  font-weight: bold;
   font-size: ${theme('fonts.size.s')};
   transition: color 0.3s ease;
 

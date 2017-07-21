@@ -100,8 +100,7 @@ const FooterCard = styled.footer`
 const StyledParagraph = styled(Paragraph)`
   margin-bottom: ${theme('spaces.xl')};
   margin-top: ${theme('spaces.m')};
-  color: ${theme('colors.grayscale.dark')} !important;
-  font-family: ${theme('fonts.family.montserratLight')} !important;
+  color: ${theme('colors.grayscale.dark')};
 
   ${breakpoint('m')`
     margin-bottom: ${theme('spaces.xl')};

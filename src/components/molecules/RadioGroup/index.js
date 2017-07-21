@@ -9,7 +9,6 @@ import { Label, Block } from 'components'
 const StyledLabel = styled(Label)`
   display: inline-block;
   padding-left: ${theme('spaces.m')};
-  font-family: ${theme('fonts.family.montserratLight')};
   font-size: ${theme('fonts.size.base')};
   color: ${theme('colors.grayscale.darker')};
 `

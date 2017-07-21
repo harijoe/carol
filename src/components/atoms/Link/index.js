@@ -36,7 +36,7 @@ const styles = ({ kind, highlight, button, large }) => css`
     padding: ${theme('spaces.m')};
     min-width: 20rem;
     width: 100%;
-    font-family: ${theme('fonts.family.montserratBold')};
+    font-weight: bold;
     font-size: ${theme('fonts.size.base')};
     letter-spacing: 0.05rem;
     text-align: center;

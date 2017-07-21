@@ -102,17 +102,14 @@ const StyledIconLink = styled(IconLink)`
 const StyledLabel = styled(Label)`${({ hideLabel, lightFont, inline }) => css`
   margin-bottom: ${theme('spaces.s')};
   visibility: ${ifThen(hideLabel, 'hidden', 'visible')};
-  font-family: ${theme('fonts.family.montserratBold')};
+  font-weight: bold;
   font-size: ${theme('fonts.size.base')};
   line-height: 1;
   color: ${theme('colors.black')};
 
   ${ifThen(lightFont,
     css`
-      font-family: ${theme('fonts.family.montserratLight')};
-    `,
-    css`
-      font-family: ${theme('fonts.family.montserratBold')};
+      font-weight: normal;
     `
   )}
 

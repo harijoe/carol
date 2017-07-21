@@ -160,7 +160,7 @@ const RadioBlock = styled.div`
   strong {
     display: block;
     margin-bottom: ${theme('spaces.m')};
-    font-family: ${theme('fonts.family.montserratBold')};
+    font-weight: bold;
     font-size: ${theme('fonts.size.base')};
     line-height: 1rem;
     color: ${theme('colors.black')};

@@ -12,7 +12,7 @@ import Answer from './molecules/Answer'
 
 const SummaryTitle = styled(Paragraph)`
   margin-bottom: ${theme('spaces.m')};
-  font-family: ${theme('fonts.family.montserratBold')};
+  font-weight: bold;
 `
 
 const StyledParagraph = styled(Paragraph)`

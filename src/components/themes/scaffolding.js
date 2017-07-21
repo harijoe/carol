@@ -9,10 +9,6 @@ import andesExtralightWebfontEot from './default/fonts/andes-extralight-webfont.
 import andesExtralightWebfontTtf from './default/fonts/andes-extralight-webfont.ttf'
 import andesExtralightWebfontWoff from './default/fonts/andes-extralight-webfont.woff'
 import andesExtralightWebfontWoff2 from './default/fonts/andes-extralight-webfont.woff2'
-import montserratBlackWebfontEot from './default/fonts/montserrat-black-webfont.eot'
-import montserratBlackWebfontTtf from './default/fonts/montserrat-black-webfont.ttf'
-import montserratBlackWebfontWoff from './default/fonts/montserrat-black-webfont.woff'
-import montserratBlackWebfontWoff2 from './default/fonts/montserrat-black-webfont.woff2'
 import montserratBoldWebfontEot from './default/fonts/montserrat-bold-webfont.eot'
 import montserratBoldWebfontTtf from './default/fonts/montserrat-bold-webfont.ttf'
 import montserratBoldWebfontWoff from './default/fonts/montserrat-bold-webfont.woff'
@@ -48,31 +44,7 @@ const scaffolding = theme => css`
   }
 
   @font-face {
-    font-family: 'montserrat-black';
-    src:
-      url('${assetPath + montserratBlackWebfontEot}'),
-      url('${assetPath + montserratBlackWebfontEot}?#iefix') format('embedded-opentype'),
-      url('${assetPath + montserratBlackWebfontWoff2}') format('woff2'),
-      url('${assetPath + montserratBlackWebfontWoff}') format('woff'),
-      url('${assetPath + montserratBlackWebfontTtf}') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'montserrat-bold';
-    src:
-      url('${assetPath + montserratBoldWebfontEot}'),
-      url('${assetPath + montserratBoldWebfontEot}?#iefix') format('embedded-opentype'),
-      url('${assetPath + montserratBoldWebfontWoff2}') format('woff2'),
-      url('${assetPath + montserratBoldWebfontWoff}') format('woff'),
-      url('${assetPath + montserratBoldWebfontTtf}') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'montserrat-light';
+    font-family: 'montserrat';
     src:
       url('${assetPath + montserratLightWebfontEot}'),
       url('${assetPath + montserratLightWebfontEot}?#iefix') format('embedded-opentype'),
@@ -80,6 +52,18 @@ const scaffolding = theme => css`
       url('${assetPath + montserratLightWebfontWoff}') format('woff'),
       url('${assetPath + montserratLightWebfontTtf}') format('truetype');
     font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'montserrat';
+    src:
+      url('${assetPath + montserratBoldWebfontEot}'),
+      url('${assetPath + montserratBoldWebfontEot}?#iefix') format('embedded-opentype'),
+      url('${assetPath + montserratBoldWebfontWoff2}') format('woff2'),
+      url('${assetPath + montserratBoldWebfontWoff}') format('woff'),
+      url('${assetPath + montserratBoldWebfontTtf}') format('truetype');
+    font-weight: bold;
     font-style: normal;
   }
 
@@ -97,7 +81,7 @@ const scaffolding = theme => css`
   }
 
   body {
-    font-family: 'montserrat-light', sans-serif;
+    font-family: 'montserrat', sans-serif;
     font-size: ${theme.fonts.size.base};
     line-height: 2.1rem;
     color: ${theme.colors.grayscale.darker};

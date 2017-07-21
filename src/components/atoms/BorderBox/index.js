@@ -13,7 +13,7 @@ const titleStyles = ({ dark, grey, primary }) => css`
   margin-top: 0;
   margin-bottom: ${theme('spaces.l')};
   width: 100%;
-  font-family: ${theme('fonts.family.montserratBold')};
+  font-weight: bold;
   font-size: ${theme('fonts.size.s')};
   font-weight: normal;
   text-transform: uppercase;

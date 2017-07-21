@@ -29,7 +29,7 @@ const StyledList = styled(List)`${({ homepage, atTop }) => css`
         > a {
           display: flex;
           align-items: center;
-          font-family: ${theme('fonts.family.montserratBold')};
+          font-weight: bold;
         }
       }
     `}
@@ -100,7 +100,7 @@ const linkStyle = css`
   `}
 
   ${breakpoint('l')`
-    font-family: ${theme('fonts.family.montserratBold')};
+    font-weight: bold;
     font-size: ${theme('fonts.size.s')};
     padding: ${theme('spaces.m')};
   `}
@@ -144,7 +144,7 @@ const linkStyle = css`
 
   &.qs-linkMenu-pro {
     span:first-child {
-      font-family: ${theme('fonts.family.montserratLight')};
+      font-weight: normal;
     }
   }
 `
