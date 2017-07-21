@@ -71,13 +71,6 @@ const StyledImage = styled(Image)`
   width: 100%;
 `
 
-const ParagraphWithStrong = styled(Paragraph)`
-  strong {
-    font-family: ${theme('fonts.family.montserratBold')};
-    font-weight: normal;
-  }
-`
-
 const StyledList = styled(List)`
   margin-top: ${theme('spaces.m')};
   padding: 0;
@@ -190,7 +183,7 @@ const ProjectDetails = ({ project: { name, status, createdAt, questionsAnswers, 
       <Grid narrow>
         <Row>
           <LeftCol xs={12} m={8}>
-            <ParagraphWithStrong dangerouslySetInnerHTML={{ __html: translate('project.resume_intro', { name: `<strong>${name}</strong>` }) }} />
+            <Paragraph dangerouslySetInnerHTML={{ __html: translate('project.resume_intro', { name: `<strong>${name}</strong>` }) }} />
             <ProjectImage>
               <StyledImage src={cloudinary('/thumbnail-poster-keyone.jpg')} />
             </ProjectImage>
