@@ -16,7 +16,6 @@ const titleStyles = ({ dark }) => css`
       background: ${theme('colors.black')};
     }
   `)}
-  font-family: 'montserrat-light', sans-serif;
   font-weight: normal;
   position: relative;
   display: block;
