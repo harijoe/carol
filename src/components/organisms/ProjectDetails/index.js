@@ -160,7 +160,7 @@ const googleMapsParams = ({ lat, lng }) => {
   const markerImageUrl = cloudinary('/icons/marker-map_img.png')
   const googleMapParams = {
     center: `${lat},${lng}`,
-    zoom: 13,
+    zoom: 15,
     scale: 2,
     size: '600x300',
     maptype: 'roadmap',
@@ -211,7 +211,7 @@ const ProjectDetails = ({ project: { name, status, createdAt, questionsAnswers, 
             <StyledHeading level={4}><FormattedMessage id="project.col_title" /></StyledHeading>
             <ItemProject>
               <Icon icon="location-pin" />
-              {`Lieu:${postalCode.postalCode} ${postalCode.city}`}
+              {`Lieu : ${postalCode.postalCode} ${postalCode.city}`}
             </ItemProject>
             <MapImage>
               {placeCoords && <StyledImage src={`https://maps.googleapis.com/maps/api/staticmap?${googleMapsParams(placeCoords)}`} /> }
