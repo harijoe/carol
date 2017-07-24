@@ -13,7 +13,7 @@ export default {
   'auto-validation.title.contact_preferences': 'Contact Preferences',
   'auto-validation.title.informations': 'Your Details',
   'auto-validation.title.project': 'Your Project',
-  'auto-validation.validate.call_to_action': 'Go back to my projects',
+  'auto-validation.validate.call_to_action': 'Continue with my project',
   'auto-validation.validate.message': 'You\'ll soon receive an email with the trusted pros\' contact details that we have selected for you.',
   'auto-validation.validate.title': 'Thank you for validating your details',
   'burger_menu': 'Burger Menu',

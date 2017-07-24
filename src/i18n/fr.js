@@ -126,7 +126,7 @@ export default {
   'project.button.in_progress': 'Continuer mon projet',
   'project.button.to_validate': 'Valider mon projet',
   'project.col_title': 'Votre projet',
-  'project.comment_title': 'Informations supplémentaires fournies aux professionnels',
+  'project.comment_title': 'Informations supplémentaires fournies aux professionnels :',
   'project.continue': 'Continuer mon projet',
   'project.created_at': 'Créé le',
   'project.describe.completion_in_progress': 'Vous n\'avez pas encore répondu à toutes les questions permettant de valider votre projet.',

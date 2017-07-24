@@ -73,21 +73,23 @@ const StyledImage = styled(Image)`
 
 const StyledList = styled(List)`
   margin-top: ${theme('spaces.m')};
-  padding: 0;
-  list-style-type: none;
 
   ${breakpoint('m')`
     margin-top: ${theme('spaces.l')};
   `}
+
+  list-style-position: outside;
+  margin-left: 1em;
+
 `
 
 const StyledHeading = styled(Heading)`
-  margin-top: ${theme('spaces.xl')};
   font-family: ${theme('fonts.family.montserrat')};
   font-weight: bold;
 `
 
 const StyledIconLink = styled(IconLink)`
+  transition: all 0.2s ease;
   display: block;
   margin-bottom: ${theme('spaces.m')};
   color: ${theme('colors.grayscale.dark')};
@@ -95,10 +97,6 @@ const StyledIconLink = styled(IconLink)`
   ${breakpoint('m')`
     margin-bottom: ${theme('spaces.l')};
   `}
-
-  &, * {
-    transition: all 0.3s ease;
-  }
 
   span {
     vertical-align: top;
@@ -155,7 +153,7 @@ const googleMapsParams = ({ lat, lng }) => {
   const markerImageUrl = cloudinary('/icons/marker-map_img.png')
   const googleMapParams = {
     center: `${lat},${lng}`,
-    zoom: 13,
+    zoom: 12,
     scale: 1,
     size: '300x150',
     maptype: 'roadmap',
