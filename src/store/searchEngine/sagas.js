@@ -1,6 +1,7 @@
-import { put, call } from 'redux-saga/effects'
+import { put, call, select } from 'redux-saga/effects'
 import { takeLatest } from 'utils/effects'
 import { projectFlowIndex } from 'services/algolia'
+import { fromContext } from 'store/selectors'
 import {
   SEARCH_ENGINE_SEARCH,
   projectElaborationSetResults,
@@ -13,10 +14,13 @@ function* search({ query }) {
     return
   }
 
+  const country = yield select(fromContext.getCountry)
+
   const response = yield call(() => projectFlowIndex.search({
     query,
     page: 0,
     hitsPerPage: 5,
+    filters: `countryCode:${country}`,
   }))
 
   yield put(projectElaborationSetResults(response.hits))
