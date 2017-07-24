@@ -5,6 +5,7 @@ import { push } from 'react-router-redux'
 import notify from 'sagas/notify'
 import { saveToken, removeToken } from 'sagas/token'
 import generateSessionId from 'utils/generateSessionId'
+import { saveProjectElaborationIdInCookies } from 'store/utils'
 import { takeLatest } from 'utils/effects'
 import config from 'config'
 
@@ -16,8 +17,8 @@ import {
   authLogin,
   closeAll,
   setAccessToken,
-  saveProjectElaborationIdInCookies,
   projectElaborationResetConversation,
+  setProjectElaborationSessionId,
 } from 'store/actions'
 import { fromAuth, fromRouting } from 'store/selectors'
 import { fetchWithoutRefreshingToken } from 'sagas/fetch'
@@ -76,7 +77,11 @@ function* handleAuthLogout() {
   yield* removeToken()
   yield put(resetUser())
   yield put(projectElaborationResetConversation)
-  yield put(saveProjectElaborationIdInCookies(generateSessionId()))
+
+  const sessionId = generateSessionId()
+
+  saveProjectElaborationIdInCookies(sessionId)
+  yield put(setProjectElaborationSessionId(sessionId))
 
   const pathName = yield select(fromRouting.getPathname)
 
