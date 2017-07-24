@@ -134,7 +134,7 @@ const PartnerImageWrapper = styled.div`
 `
 
 const Project = ({ name, createdAt, status, partner, ...items }) => (
-  <Link to={items['@id']}>
+  <Link to={['validated', 'pending_search', 'found'].includes(status) ? items['@id'] : `${items['@id']}/account`}>
     <Article>
       <HeaderCard>
         <ImageWrapper>
