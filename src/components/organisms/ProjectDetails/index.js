@@ -177,8 +177,6 @@ const ProjectDetails = ({ project: { name, status, createdAt, questionsAnswers, 
       </Grid>
     </Section>
 
-    <Section light />
-
     <Section title={translate('project.resume_title')}>
       <Grid narrow>
         <Row>
