@@ -16,6 +16,7 @@ const StyledGrid = styled(Grid)`
   max-height: 100vh;
   padding-bottom: 0;
   padding-top: 5.6rem;
+  background: white;
 `
 
 const ProjectElaboration = ({

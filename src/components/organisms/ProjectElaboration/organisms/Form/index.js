@@ -35,16 +35,11 @@ const BottomBar = styled.div`
 
   div:nth-child(2) {
     flex-grow: 1;
-    margin: 0;
+    margin: 0 20px 0 0;
     padding: 0;
     border: none;
     max-width: none;
   }
-
-  ${breakpoint('l')`
-    border-left: 0.1rem solid ${theme('colors.grayscale.light')};
-    border-right: 0.1rem solid ${theme('colors.grayscale.light')};
-  `}
 
   button {
     background: transparent;
@@ -59,10 +54,10 @@ const BackButton = styled.button`
   padding: ${theme('spaces.s')} ${theme('spaces.m')};
   font-size: ${theme('fonts.size.s')};
   line-height: 1;
-  background: transparent;
-  border: 0.1rem solid ${theme('colors.grayscale.medium')};
+  background: ${theme('colors.grayscale.lightest')};
+  border: 1px solid ${theme('colors.grayscale.lighter')};
   border-radius: 6rem;
-  color: ${theme('colors.grayscale.medium')};
+  color: ${theme('colors.grayscale.dark')};
   text-align: center;
   white-space: nowrap;
 `
@@ -110,6 +105,10 @@ const BackIcon = styled(Icon)`
   display: inline-block;
   margin-right: ${theme('spaces.s')};
   vertical-align: text-bottom;
+
+  .cls-1 {
+     fill: ${theme('colors.grayscale.dark')};
+  }
 `
 
 const SubmitIcon = styled(Icon)`
@@ -139,6 +138,7 @@ const StyledField = styled(Field)`${({ disabled }) => css`
   border-radius: 0.2rem;
   color: ${theme('colors.grayscale.darker')};
   transition: all 0.3s;
+  border-bottom: white 1px solid;
 
   &:disabled {
     opacity: 0.4;
@@ -146,7 +146,7 @@ const StyledField = styled(Field)`${({ disabled }) => css`
 
   &:focus, &:-webkit-autofill {
     outline: 0;
-    background: ${theme('colors.grayscale.lightest')}; 
+    border-bottom: ${theme('colors.primary')} 1px solid;
   }
 `}`
 

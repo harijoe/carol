@@ -5,7 +5,7 @@ import { addLocaleData } from 'react-intl'
 import fr from 'react-intl/locale-data/fr'
 import en from 'react-intl/locale-data/en'
 import es from 'react-intl/locale-data/es'
-import { injectGlobals, theme } from 'utils/style'
+import { injectGlobals, theme, breakpoint } from 'utils/style'
 
 import defaultTheme, { resets, scaffolding } from '../../themes/default'
 
@@ -17,6 +17,10 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: white;
+  ${breakpoint('xl')`
+    background: ${theme('colors.grayscale.lighter')};
+  `}
 `
 
 const Header = styled.header`
@@ -31,15 +35,20 @@ const Header = styled.header`
   box-shadow: 0.1rem 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.1);
 `
 
-const Content = styled.div`
-  background: ${theme('colors.grayscale.lightest')};
+const Background = styled.div`
+
+  ${breakpoint('xl')`
+    background: white;
+    width: 1200px;
+    margin: auto;
+  `}
 `
 
 const ProjectElaborationTemplate = ({ header, children, ...props }) => (
   <ThemeProvider theme={defaultTheme}>
     <Wrapper {...props}>
       <Header {...props}>{header}</Header>
-      <Content>{children}</Content>
+      <Background>{children}</Background>
     </Wrapper>
   </ThemeProvider>
 )

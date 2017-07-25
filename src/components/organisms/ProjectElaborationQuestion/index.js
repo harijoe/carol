@@ -27,10 +27,9 @@ const BubbleQuestion = styled.div`
   padding: ${theme('spaces.s')} ${theme('spaces.m')};
   overflow-wrap: break-word;
   max-width: 70%;
-  background: ${theme('colors.white')};
+  background: ${theme('colors.grayscale.lighter')};
   border-radius: 0 1rem 1rem 1rem;
   color: ${theme('colors.black')};
-  box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, 0.15);
   white-space: pre-wrap;
 
   &::before, 
@@ -44,7 +43,7 @@ const BubbleQuestion = styled.div`
   }
 
   &::before {
-    background: ${theme('colors.white')};
+    background: ${theme('colors.grayscale.lighter')};
   }
 
   &::after {
