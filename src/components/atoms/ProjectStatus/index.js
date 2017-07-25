@@ -75,7 +75,7 @@ const ProjectStatus = ({ status, firms, translate, ...props }) => {
         size={16}
         icon={icon}
       />
-      {status === 'found' ? translate(`project.status.${status}`, { firmsNumber: firms.length }) : translate(`project.status.${status}`) }
+      <span>{status === 'found' ? translate(`project.status.${status}`, { firmsNumber: firms.length }) : translate(`project.status.${status}`) }</span>
     </Wrapper>
   )
 }
