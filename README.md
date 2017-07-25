@@ -5,7 +5,7 @@ Develop: [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Quotatis/caro
 
 Dependencies:
 
-Version: 1.1.1
+Version: 1.4
 
 ## 1. Requirements
 [Node.js](https://nodejs.org/), [Docker](https://docker.io)
