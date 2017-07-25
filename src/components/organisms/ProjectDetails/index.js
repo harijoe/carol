@@ -166,13 +166,13 @@ const googleMapsParams = ({ lat, lng }) => {
   return Object.keys(googleMapParams).map(key => `${key}=${encodeURIComponent(googleMapParams[key])}`).join('&')
 }
 
-const ProjectDetails = ({ project: { name, status, createdAt, questionsAnswers, comment, postalCode, startTimeframe, purpose }, placeCoords, translate, ...props }) => (
+const ProjectDetails = ({ project: { name, status, createdAt, questionsAnswers, comment, postalCode, startTimeframe, purpose, firms }, placeCoords, translate, ...props }) => (
   <Wrapper {...props}>
     <Section>
       <Grid narrow>
         <StyledIconLink to="/projects" icon="back_arrow"><FormattedMessage id="project.back_link_title" /></StyledIconLink>
         <Heading level={1}>{name}</Heading>
-        <StyledProjectStatus status={status} />
+        <StyledProjectStatus {...{ status, firms }} />
         <DateCreation><FormattedMessage id="project.created_at" /> {transformDate(createdAt)}</DateCreation>
       </Grid>
     </Section>
@@ -228,6 +228,12 @@ ProjectDetails.propTypes = {
     name: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     createdAt: PropTypes.string.isRequired,
+    questionsAnswers: PropTypes.object.isRequired,
+    comment: PropTypes.string,
+    postalCode: PropTypes.object.isRequired,
+    startTimeframe: PropTypes.string.isRequired,
+    purpose: PropTypes.string.isRequired,
+    firms: PropTypes.array.isRequired,
   }).isRequired,
   placeCoords: PropTypes.object,
   loading: PropTypes.bool,
