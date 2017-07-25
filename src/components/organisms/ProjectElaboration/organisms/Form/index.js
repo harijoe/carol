@@ -31,7 +31,6 @@ const BottomBar = styled.div`
   align-items: center;
   padding: ${theme('spaces.m')};
   background-color: ${theme('colors.white')};
-  border-top: 0.1rem solid ${theme('colors.grayscale.light')};
 
   div:nth-child(2) {
     flex-grow: 1;
