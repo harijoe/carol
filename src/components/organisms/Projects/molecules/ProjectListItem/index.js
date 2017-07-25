@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
 
@@ -14,6 +15,7 @@ import {
   Image,
   ProjectStatus,
   Divider,
+  Button,
 } from 'components'
 
 const Article = styled(Card)`
@@ -115,6 +117,89 @@ const ButtonLink = styled(Link)`
   `}
 `
 
+const FirmImage = styled(Image)`
+  position: absolute;
+  display: block;
+  bottom: ${theme('spaces.l')};
+  border-radius: ${theme('spaces.l')};
+  width: ${theme('spaces.xxl')};
+  height: ${theme('spaces.xxl')};
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.10);
+  transition: all 0.3s ease;
+
+  &:first-child {
+    margin-left: ${theme('spaces.l')};
+    left: 0;
+  }
+  &:nth-child(2) {
+    margin-left: ${theme('spaces.l')};
+    left: ${theme('spaces.xl')};
+  }
+  &:nth-child(3) {
+    margin-left: ${theme('spaces.l')};
+    left: calc(${theme('spaces.xl')} * 2);
+  }
+  &:nth-child(4) {
+    margin-left: ${theme('spaces.l')};
+    left: calc(${theme('spaces.xl')} * 3);
+  }
+  &:nth-child(5) {
+    margin-left: ${theme('spaces.l')};
+    left: calc(${theme('spaces.xl')} * 4);
+  }
+
+  &:hover {
+    bottom: calc(${theme('spaces.l')} + 0.8rem);
+  }
+`
+
+const ButtonArrow = styled(Button)`
+  position: absolute;
+  display: block;
+  right: 0;
+  bottom: 0;
+  margin-right: ${theme('spaces.l')};
+  border-radius: ${theme('spaces.l')};
+  width: ${theme('spaces.xxl')};
+  height: ${theme('spaces.xxl')};
+  background-color: ${theme('colors.primary')};
+  color: ${theme('colors.white')};
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.10);
+  transition: all 0.3s ease;
+
+  &::before {
+    position: absolute;
+    content: '→';
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-size: 1.8rem;
+    opacity: 1;
+  }
+
+  &:hover {
+    color: ${theme('colors.primary')};
+    background-color: ${theme('colors.white')};
+  }
+`
+
+const FirmWrapper = styled.div`
+  display: block;
+  margin-top: ${theme('spaces.xxl')};
+
+  &::before {
+    position: absolute;
+    bottom: 0;
+    margin-left: -2.5rem;
+    content: '';
+    width: 100%;
+    height: ${theme('spaces.xxl')};
+    background-color: ${theme('colors.grey')};
+  }
+`
+
 const PartnerImage = styled(Image)`
   width: 50px;
   height: 50px;
@@ -133,14 +218,14 @@ const PartnerImageWrapper = styled.div`
   box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, 0.15);
 `
 
-const Project = ({ name, createdAt, status, partner, ...items }) => (
+const Project = ({ name, createdAt, status, partner, firms, translate, ...items }) => (
   <Link to={['validated', 'pending_search', 'found'].includes(status) ? items['@id'] : `${items['@id']}/account`}>
     <Article>
       <HeaderCard>
         <ImageWrapper>
           <BackgroundImage src={cloudinary('/thumbnail-poster-keyone.jpg')} />
         </ImageWrapper>
-        <ProjectStatus status={status} />
+        <ProjectStatus {...{ status, firms }} />
         {partner && (
           <PartnerImageWrapper>
             <PartnerImage src={partner.headerLink} />
@@ -154,8 +239,13 @@ const Project = ({ name, createdAt, status, partner, ...items }) => (
         </DateCreation>
         <Divider />
         <StyledParagraph>
-          <FormattedMessage id={`project.describe.${status}`} />
+          {status === 'found' ? translate(`project.describe.${status}`, { firmsNumber: firms.length }) : translate(`project.describe.${status}`) }
         </StyledParagraph>
+        { status === 'found' &&
+        <FirmWrapper>
+          {firms.map(firm => <FirmImage alt={'alt'} src={firm.logoUrl ? firm.logoUrl : 'https://lorempixel.com/100/100/sports/'} width="100" height="100" />)}
+          <ButtonArrow />
+        </FirmWrapper>}
         {status === 'completion_in_progress' && (
           <ButtonLink button to="/project-elaboration">
             <FormattedMessage id="project.continue" />
@@ -172,13 +262,15 @@ const Project = ({ name, createdAt, status, partner, ...items }) => (
 )
 
 Project.propTypes = {
+  translate: PropTypes.func.isRequired,
   name: PropTypes.string,
   leadReference: PropTypes.string,
   createdAt: PropTypes.string,
   status: PropTypes.string,
+  firms: PropTypes.array,
   partner: PropTypes.shape({
     headerLink: PropTypes.string,
   }),
 }
 
-export default Project
+export default injectTranslate(Project)

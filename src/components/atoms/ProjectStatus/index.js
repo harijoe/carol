@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FormattedMessage } from 'react-intl'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 import styled, { css } from 'styled-components'
 import { theme, ifThen, breakpoint } from 'utils/style'
 
@@ -38,7 +38,7 @@ const styles = ({ status }) => css`
     color: ${theme('colors.grayscale.dark')};
   `)}
 
-  ${ifThen(status === 'validated' || status === 'pending_search', css`
+  ${ifThen(['validated', 'pending_search', 'found'].includes(status), css`
     background-color: ${theme('colors.success')};
     color: ${theme('colors.white')};
 
@@ -56,12 +56,13 @@ const StyledIcon = styled(Icon)`
   width: ${theme('icons.size.s')};
 `
 
-const ProjectStatus = ({ status, ...props }) => {
+const ProjectStatus = ({ status, firms, translate, ...props }) => {
   let icon
 
   switch (status) {
     case 'pending_search':
     case 'validated':
+    case 'found':
       icon = 'validated'
       break
     default:
@@ -74,13 +75,15 @@ const ProjectStatus = ({ status, ...props }) => {
         size={16}
         icon={icon}
       />
-      <FormattedMessage id={`project.status.${status}`} />
+      {status === 'found' ? translate(`project.status.${status}`, { firmsNumber: firms.length }) : translate(`project.status.${status}`) }
     </Wrapper>
   )
 }
 
 ProjectStatus.propTypes = {
+  translate: PropTypes.func.isRequired,
+  firms: PropTypes.array,
   status: PropTypes.string,
 }
 
-export default ProjectStatus
+export default injectTranslate(ProjectStatus)

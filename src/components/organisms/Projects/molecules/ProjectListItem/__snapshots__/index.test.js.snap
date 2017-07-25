@@ -8,7 +8,7 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <Project
+  "node": <InjectTranslate(Project)
     items={
         Object {
             "createdAt": "2017-02-01",
@@ -19,7 +19,7 @@ ShallowWrapper {
     }
 />,
   "nodes": Array [
-    <Project
+    <InjectTranslate(Project)
       items={
             Object {
                   "createdAt": "2017-02-01",
@@ -40,7 +40,7 @@ ShallowWrapper {
         locale="en"
         messages={Object {}}
 >
-        <Project
+        <InjectTranslate(Project)
                 items={
                         Object {
                                 "createdAt": "2017-02-01",
@@ -60,7 +60,7 @@ ShallowWrapper {
           "intl": undefined,
         },
         "props": Object {
-          "children": <Project
+          "children": <InjectTranslate(Project)
             items={
                         Object {
                                     "createdAt": "2017-02-01",
@@ -100,7 +100,7 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <Project
+        "_currentElement": <InjectTranslate(Project)
           items={
                     Object {
                               "createdAt": "2017-02-01",
@@ -111,7 +111,7 @@ ShallowWrapper {
           }
 />,
         "_debugID": 2,
-        "_renderedOutput": <Project
+        "_renderedOutput": <InjectTranslate(Project)
           items={
                     Object {
                               "createdAt": "2017-02-01",
@@ -136,7 +136,7 @@ ShallowWrapper {
     locale="en"
     messages={Object {}}
 >
-    <Project
+    <InjectTranslate(Project)
         items={
             Object {
                 "createdAt": "2017-02-01",
