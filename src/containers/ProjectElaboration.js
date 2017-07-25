@@ -33,7 +33,6 @@ class ProjectElaborationContainer extends Component {
 
 const mapStateToProps = state => ({
   activeConversation: fromProjectElaboration.getConversation(state),
-  hero: fromProjectElaboration.getHero(state),
   conversations: fromProjectElaboration.getConversations(state),
   hasConversations: fromProjectElaboration.hasConversations(state),
   locale: fromContext.getLocale(state),

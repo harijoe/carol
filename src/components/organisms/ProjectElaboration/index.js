@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
+import isFirstChatbotStep from 'utils/isFirstChatbotStep'
 
 import { Grid } from 'components'
 import Conversation from './organisms/Conversation'
@@ -27,6 +28,7 @@ const ProjectElaboration = ({
   redirectTo,
 }) => {
   const quickReplies = activeConversation.length > 0 ? activeConversation[activeConversation.length - 1].message.quick_replies : null
+  const enableBack = !isFirstChatbotStep(activeConversation)
 
   return (
     <StyledGrid narrow>
@@ -45,7 +47,11 @@ const ProjectElaboration = ({
           :
           <div>
             <Conversation {...{ activeConversation, reply, locale, redirectTo }} />
-            <Form reply={reply} disabled={quickReplies != null ? quickReplies.length !== 0 : true} />
+            <Form
+              reply={reply}
+              disabled={quickReplies != null ? quickReplies.length !== 0 : true}
+              enableBack={enableBack}
+            />
           </div>
       }
     </StyledGrid>

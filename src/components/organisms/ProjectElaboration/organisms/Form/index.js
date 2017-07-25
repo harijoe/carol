@@ -176,6 +176,7 @@ class Form extends Component {
       pristine,
       submitting,
       disabled,
+      enableBack,
     } = this.props
 
     const submit = (values) => {
@@ -203,7 +204,11 @@ class Form extends Component {
 
     return (
       <StyledForm onSubmit={this.onSubmit(handleSubmit(submit))}>
-        <BackButton type="button" onClick={submitBack}>
+        <BackButton
+          type="button"
+          onClick={submitBack}
+          style={{ visibility: enableBack ? 'visible' : 'hidden' }}
+        >
           <BackIcon icon="back" />
           <FormattedMessage id="project.elaboration.back" />
         </BackButton>
@@ -240,6 +245,7 @@ Form.propTypes = {
   pristine: PropTypes.bool,
   submitting: PropTypes.bool,
   disabled: PropTypes.bool,
+  enableBack: PropTypes.bool,
 }
 
 export default reduxForm({ form: 'ProjectElaboration' })(injectTranslate(Form))
