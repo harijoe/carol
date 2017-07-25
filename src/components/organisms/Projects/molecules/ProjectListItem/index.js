@@ -243,7 +243,7 @@ const Project = ({ name, createdAt, status, partner, firms, translate, ...items 
         </StyledParagraph>
         { status === 'found' &&
         <FirmWrapper>
-          {firms.map(firm => <FirmImage alt={'alt'} src={firm.logoUrl ? firm.logoUrl : 'https://lorempixel.com/100/100/sports/'} width="100" height="100" />)}
+          {firms.map(firm => <FirmImage alt={'alt'} src={firm.logoUrl ? firm.logoUrl : cloudinary('/icons/placeholder-logo.png')} width="50" height="50" />)}
           <ButtonArrow />
         </FirmWrapper>}
         {status === 'completion_in_progress' && (
