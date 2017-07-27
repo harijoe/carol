@@ -73,73 +73,6 @@ class ProjectAccountForm extends Component {
     return (
       <div ref={(ref) => { this.form = ref }}>
         <Form onSubmit={handleSubmit}>
-          <StyledSection title={translate('auto-validation.title.informations')}>
-            <RadioBlock>
-              <strong><FormattedMessage id="user.gender" tagName="div" /></strong>
-              <Field
-                component={RadioGroup}
-                name="gender"
-                required
-                options={[
-                  { value: 'Mr', id: 'mr', translation: 'user.mr' },
-                  { value: 'Mrs', id: 'mrs', translation: 'user.mrs' },
-                ]}
-              />
-            </RadioBlock>
-            <Field
-              name="firstName"
-              component={RenderField}
-              label={translate('user.first_name')}
-              placeholder={translate('user.first_name')}
-              icon="login"
-            />
-            <Field
-              name="lastName"
-              component={RenderField}
-              label={translate('user.last_name')}
-              placeholder={translate('user.last_name')}
-              icon="login"
-            />
-          </StyledSection>
-          <StyledSection title={translate('auto-validation.title.contact_preferences')}>
-            <RadioBlock>
-              <strong><FormattedMessage id="user.contactPreference" tagName="div" /></strong>
-              <Field
-                component={RadioGroup}
-                name="contactPreference"
-                required
-                options={[
-                  { value: 'email', id: 'email', translation: 'user.contactPreference.email' },
-                  { value: 'phone', id: 'phone', translation: 'user.contactPreference.phone' },
-                ]}
-              />
-            </RadioBlock>
-            <Field
-              name="contactComment"
-              component={RenderField}
-              type="select"
-              label={translate('user.contactComment')}
-            >
-              {[
-                {
-                  value: 'no_preferences',
-                  id: 'user.contactComment.no_preferences',
-                },
-                {
-                  value: 'during_business_hours',
-                  id: 'user.contactComment.during_business_hours',
-                },
-                {
-                  value: 'outside_business_hours',
-                  id: 'user.contactComment.outside_business_hours',
-                },
-              ].map(({ value, id }, key) => (
-                <FormattedMessage {...{ key, id }}>
-                  {formattedMessage => <option {...{ value }}>{formattedMessage}</option>}
-                </FormattedMessage>
-              ))}
-            </Field>
-          </StyledSection>
           <StyledSection title={translate('auto-validation.title.project')}>
             <Field
               name="startTimeframe"
@@ -199,6 +132,73 @@ class ProjectAccountForm extends Component {
                 </FormattedMessage>
               ))}
             </Field>
+          </StyledSection>
+          <StyledSection title={translate('auto-validation.title.contact_preferences')}>
+            <RadioBlock>
+              <strong><FormattedMessage id="user.contactPreference" tagName="div" /></strong>
+              <Field
+                component={RadioGroup}
+                name="contactPreference"
+                required
+                options={[
+                  { value: 'email', id: 'email', translation: 'user.contactPreference.email' },
+                  { value: 'phone', id: 'phone', translation: 'user.contactPreference.phone' },
+                ]}
+              />
+            </RadioBlock>
+            <Field
+              name="contactComment"
+              component={RenderField}
+              type="select"
+              label={translate('user.contactComment')}
+            >
+              {[
+                {
+                  value: 'no_preferences',
+                  id: 'user.contactComment.no_preferences',
+                },
+                {
+                  value: 'during_business_hours',
+                  id: 'user.contactComment.during_business_hours',
+                },
+                {
+                  value: 'outside_business_hours',
+                  id: 'user.contactComment.outside_business_hours',
+                },
+              ].map(({ value, id }, key) => (
+                <FormattedMessage {...{ key, id }}>
+                  {formattedMessage => <option {...{ value }}>{formattedMessage}</option>}
+                </FormattedMessage>
+              ))}
+            </Field>
+          </StyledSection>
+          <StyledSection title={translate('auto-validation.title.informations')}>
+            <RadioBlock>
+              <strong><FormattedMessage id="user.gender" tagName="div" /></strong>
+              <Field
+                component={RadioGroup}
+                name="gender"
+                required
+                options={[
+                  { value: 'Mr', id: 'mr', translation: 'user.mr' },
+                  { value: 'Mrs', id: 'mrs', translation: 'user.mrs' },
+                ]}
+              />
+            </RadioBlock>
+            <Field
+              name="firstName"
+              component={RenderField}
+              label={translate('user.first_name')}
+              placeholder={translate('user.first_name')}
+              icon="login"
+            />
+            <Field
+              name="lastName"
+              component={RenderField}
+              label={translate('user.last_name')}
+              placeholder={translate('user.last_name')}
+              icon="login"
+            />
           </StyledSection>
           <StyledSection>
             <StyledButton type="submit" center loading={loading} onClick={this.handleSubmitClick}>
