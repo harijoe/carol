@@ -46,7 +46,10 @@ const BottomBar = styled.div`
 `
 
 const BackButton = styled.button`
+  position: absolute;
   display: block;
+  bottom: 6.5rem;
+  right: ${theme('spaces.s')};
   align-self: flex-end;
   min-width: 7rem;
   margin: ${theme('spaces.m')} ${theme('spaces.m')} ${theme('spaces.m')} 0 ;
@@ -59,6 +62,14 @@ const BackButton = styled.button`
   color: ${theme('colors.grayscale.dark')};
   text-align: center;
   white-space: nowrap;
+
+  ${breakpoint('m')`
+    right: ${theme('spaces.m')};
+  `}
+
+  ${breakpoint('xl')`
+    right: 4.2rem;
+  `}
 `
 
 const SubmitButton = styled.button`

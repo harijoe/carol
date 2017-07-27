@@ -12,7 +12,9 @@ const Wrapper = styled.div`
   bottom: 0;
   display:flex;
   flex-direction: column;
-  max-height: calc(100vh - 5.6rem - 13rem);
+  margin-top: -10px;
+  padding-bottom: 5.6rem;
+  max-height: calc(100vh - 12.1rem);
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
