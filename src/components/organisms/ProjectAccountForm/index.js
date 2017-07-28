@@ -44,6 +44,9 @@ const RadioBlock = styled.div`
 `
 
 const StyledSection = styled(Section)`
+  padding-right: 0;
+  padding-left: 0;
+
   &:not(:first-child) {
     padding-top: 0;
   }

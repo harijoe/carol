@@ -1,45 +1,29 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FormattedMessage } from 'react-intl'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import styled from 'styled-components'
-import { breakpoint } from 'utils/style'
+import { theme } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
 
-import { MainLayout, MainWrapper, HeroSection, Section, Grid } from 'components'
+import { MainLayout, MainWrapper, Section, AutoValidationBlock } from 'components'
 import { ProjectAccountForm } from 'containers'
 
-const StyledHeroSection = styled(HeroSection)`
-  > section {
-    ${breakpoint('m')`
-      max-width: 60rem;
-    `}
-  }
-`
-
-const StyledGrid = styled(Grid)`
-  margin-left: auto;
-  margin-right: auto;
-
-  ${breakpoint('m')`
-    max-width: 55rem;
-  `}
-
-  ${breakpoint('xl')`
-    max-width: 50rem;
-  `}
+const StyledSection = styled(Section)`
+  margin-top: ${theme('spaces.xxl')};
 `
 
 const ProjectAccountPage = ({ params: { projectId }, translate }) => (
   <MainLayout>
     <MainWrapper>
-      <StyledHeroSection title={translate('project.validation_page')} imageLink={cloudinary('/hero-fullscreen_image.jpg')} />
-      <Section light>
-        <StyledGrid>
-          <FormattedMessage id="project.validation.describe" />
-        </StyledGrid>
-      </Section>
-      <ProjectAccountForm {...{ projectId }} />
+      <StyledSection>
+        <AutoValidationBlock
+          imageLink={cloudinary('/autovalidation-enrichingform.svg')}
+          title={translate('project.validation_page')}
+          paragraph={translate('project.validation.describe')}
+        >
+          <ProjectAccountForm {...{ projectId }} />
+        </AutoValidationBlock>
+      </StyledSection>
     </MainWrapper>
   </MainLayout>
 )
