@@ -62,9 +62,8 @@ export default {
     social: {
       facebook: 'https://www.facebook.com/Quotatis.Es',
       twitter: 'https://twitter.com/QuotatisEspana',
-      google: 'https://plus.google.com/106376832204465138273',
-      youtube: 'https://www.youtube.com/user/quotatises',
-      pinterest: 'https://www.pinterest.com/quotatis/',
+      linkedin: 'https://www.linkedin.com/company-beta/10811205/',
+      instagram: 'https://www.instagram.com/quotatis_es/',
     },
   },
 }
