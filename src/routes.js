@@ -54,7 +54,7 @@ const routes = (
     <Route path="verify-email" component={requiresAuth(VerifyEmailPage)} />
     <Route path="reset-password" component={ResetPasswordPage} />
     <Route path="search" component={requiresAuth(SearchPage)} />
-    <Route path="search-result" component={requiresAuth(SearchResultPage)} />
+    <Route path="search-result" component={SearchResultPage} />
     <Route path="signup" component={anonymousOnly(SignupPage)} />
     <Route path="*" component={NotFoundPage} />
   </Route>
