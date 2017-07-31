@@ -1,10 +1,20 @@
 import React from 'react'
+import styled from 'styled-components'
+import { theme } from 'utils/style'
 
-import { MainLayout, Paragraph } from 'components'
+import { MainLayout, MainWrapper, Paragraph } from 'components'
+
+const StyledParagraph = styled(Paragraph)`
+  min-height: 500px;
+  padding-top: ${theme('spaces.xxl')};
+  text-align: center;
+`
 
 const SearchResultPage = () => (
   <MainLayout>
-    <Paragraph>Blank Search Result Page</Paragraph>
+    <MainWrapper>
+      <StyledParagraph>Blank Search Result Page</StyledParagraph>
+    </MainWrapper>
   </MainLayout>
 )
 
