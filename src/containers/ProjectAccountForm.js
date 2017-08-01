@@ -86,4 +86,4 @@ const mapDispatchToProps = (dispatch, { projectId }) => ({
   requestCheckValidationFlow: () => dispatch(checkValidationFlow()),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(reduxForm(config)(ProjectAccountFormContainer))
+export default reduxForm(config)(connect(mapStateToProps, mapDispatchToProps)(ProjectAccountFormContainer))

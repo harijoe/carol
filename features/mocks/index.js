@@ -4,6 +4,7 @@ import postListReinsurance from './postListReinsurance'
 import postListTestimony from './postListTestimony'
 import postListWorkResources from './postListWorkResources'
 import token from './token'
+import me from './me'
 
 export default [
   {
@@ -34,5 +35,9 @@ export default [
   {
     path: '/chatbot-conversations/',
     status: 204,
+  },
+  {
+    path: '/users/me',
+    response: me,
   },
 ]

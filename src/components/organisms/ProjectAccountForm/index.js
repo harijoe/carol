@@ -62,6 +62,11 @@ class ProjectAccountForm extends Component {
     translate: PropTypes.func.isRequired,
     loading: PropTypes.bool,
     invalid: PropTypes.bool,
+    initialValues: PropTypes.shape({
+      gender: PropTypes.string,
+      firstName: PropTypes.string,
+      lastName: PropTypes.string,
+    }),
   }
 
   handleSubmitClick = () => {
@@ -71,7 +76,9 @@ class ProjectAccountForm extends Component {
   }
 
   render() {
-    const { handleSubmit, loading, translate } = this.props
+    const { handleSubmit, loading, translate, initialValues: { gender, firstName, lastName } } = this.props
+
+    const askPersonalInfo = [gender, firstName, lastName].some(field => !field)
 
     return (
       <div ref={(ref) => { this.form = ref }}>
@@ -175,34 +182,36 @@ class ProjectAccountForm extends Component {
               ))}
             </Field>
           </StyledSection>
-          <StyledSection title={translate('auto-validation.title.informations')}>
-            <RadioBlock>
-              <strong><FormattedMessage id="user.gender" tagName="div" /></strong>
+          {askPersonalInfo && (
+            <StyledSection title={translate('auto-validation.title.informations')}>
+              <RadioBlock>
+                <strong><FormattedMessage id="user.gender" tagName="div" /></strong>
+                <Field
+                  component={RadioGroup}
+                  name="gender"
+                  required
+                  options={[
+                    { value: 'Mr', id: 'mr', translation: 'user.mr' },
+                    { value: 'Mrs', id: 'mrs', translation: 'user.mrs' },
+                  ]}
+                />
+              </RadioBlock>
               <Field
-                component={RadioGroup}
-                name="gender"
-                required
-                options={[
-                  { value: 'Mr', id: 'mr', translation: 'user.mr' },
-                  { value: 'Mrs', id: 'mrs', translation: 'user.mrs' },
-                ]}
+                name="firstName"
+                component={RenderField}
+                label={translate('user.first_name')}
+                placeholder={translate('user.first_name')}
+                icon="login"
               />
-            </RadioBlock>
-            <Field
-              name="firstName"
-              component={RenderField}
-              label={translate('user.first_name')}
-              placeholder={translate('user.first_name')}
-              icon="login"
-            />
-            <Field
-              name="lastName"
-              component={RenderField}
-              label={translate('user.last_name')}
-              placeholder={translate('user.last_name')}
-              icon="login"
-            />
-          </StyledSection>
+              <Field
+                name="lastName"
+                component={RenderField}
+                label={translate('user.last_name')}
+                placeholder={translate('user.last_name')}
+                icon="login"
+              />
+            </StyledSection>
+          )}
           <StyledSection>
             <StyledButton type="submit" center loading={loading} onClick={this.handleSubmitClick}>
               <FormattedMessage id="user.send" tagName="span" />
