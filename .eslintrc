@@ -33,8 +33,6 @@
     "react/require-default-props": 0, // TODO: fix code and remove rule exception
     "react/no-array-index-key": 0, // TODO: fix code and remove rule exception
     "import/no-dynamic-require": 0,
-    "newline-after-var": "error",
-    "newline-before-return": "error",
     "func-names": 0,
     "import/prefer-default-export": 0,
     "import/no-extraneous-dependencies": [
