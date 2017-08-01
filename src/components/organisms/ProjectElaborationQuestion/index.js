@@ -47,7 +47,7 @@ const BubbleQuestion = styled.div`
   }
 
   &::after {
-    background: ${theme('colors.grayscale.lightest')};
+    background: ${theme('colors.white')};
     border-top-right-radius: 6rem;
   }
 `
