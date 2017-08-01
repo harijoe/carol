@@ -7,9 +7,22 @@ const indicator = (language) => {
     case 'es':
       return '34'
     default:
-      return '33'
+      throw new Error(`Unknown language: ${language}`)
   }
 }
 
-export const normalize = language => userInput => (userInput == null ? '' : `+${indicator(language)}${userInput.replace(/[^\d]/g, '').substr(1)}`)
-export const format = language => storeValue => (storeValue == null ? '' : storeValue.replace(`+${indicator(language)}`, '0'))
+export const normalize = language => (value) => {
+  if (!value) return value
+  const onlyNums = value.replace(/[^\d]/g, '')
+
+  if (['fr', 'en'].includes(language)) return `+${indicator(language)}${onlyNums.replace(/[^\d]/g, '').substr(1)}`
+  if (['es'].includes(language)) return `+${indicator(language)}${onlyNums}`
+  throw new Error(`Unknown language: ${language}`)
+}
+
+export const format = language => (storeValue) => {
+  if (!storeValue) return storeValue
+  if (['fr', 'en'].includes(language)) return storeValue.replace(`+${indicator(language)}`, '0')
+  if (['es'].includes(language)) return storeValue.replace(`+${indicator(language)}`, '')
+  throw new Error(`Unknown language: ${language}`)
+}

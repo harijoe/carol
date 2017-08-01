@@ -187,6 +187,7 @@ export default {
   'renovation': 'Renovation',
   'search': 'Search',
   'server_error': 'An error occured, please try again later',
+  'sms.mobile_phone.invalid': 'Invalid confirmation code. Please try again.',
   'special_question_comment.length_max_message': '{{ limit }} maximum characters (you entered {{ length }} characters)',
   'special_question_postal_code.invalid_message': 'Invalid postcode. Please try again',
   'testimonials.read_it': 'Learn more ➔',

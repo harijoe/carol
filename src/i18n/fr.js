@@ -190,6 +190,7 @@ export default {
   'renovation': 'Rénovation',
   'search': 'Recherche',
   'server_error': 'Une erreur s\'est produite, merci de réessayer plus tard',
+  'sms.mobile_phone.invalid': 'Le numéro de téléphone n\'est pas valide',
   'special_question_comment.length_max_message': '{{ limit }} caractères maximum (vous en avez saisi {{ length }})\'',
   'special_question_postal_code.invalid_message': 'Code postal invalide, veuillez réessayer',
   'testimonials.read_it': 'Découvrir son projet ➔',

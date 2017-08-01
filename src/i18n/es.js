@@ -190,6 +190,7 @@ export default {
   'renovation': 'renovación',
   'search': 'búsqueda',
   'server_error': 'Se ha producido un error, gracias de nuevo más tarde',
+  'sms.mobile_phone.invalid': 'El código de confirmación no es valido, por favor intenta de nuevo',
   'special_question_comment.length_max_message': '{{ limit }} caracteres maximo (has puesto {{ length }})\'',
   'special_question_postal_code.invalid_message': 'El código postal no es válido. Por favor vuelve a intentar.',
   'testimonials.read_it': 'Descubrir el proyecto',
