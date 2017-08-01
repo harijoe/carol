@@ -37,6 +37,7 @@ const DateCreation = styled.time`
   ${breakpoint('m')`
     display: inline-block;
     margin-left: ${theme('spaces.m')};
+    vertical-align: middle;
     font-size: ${theme('fonts.size.base')};
   `}
 `
