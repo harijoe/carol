@@ -63,17 +63,14 @@ const config = require('../src/config')
 
 const { purgeCacheToken, locales } = config
 
-const protocol = config.ssl.enabled ? 'https' : 'http'
-const baseUrl = locales[locale].url.replace(/^https?/, protocol)
-const url = `${baseUrl}:${config.port}`
+const url = locales[locale].url
 
-console.info(colors.white(`POST ${url}`))
+console.info(colors.white(`PURGE ${url}`))
 
 fetch(url, {
-  method: 'POST',
+  method: 'PURGE',
   headers: {
     authorization: `Bearer ${purgeCacheToken}`,
-    'X-HTTP-Method-Override': 'PURGE',
   },
 })
   .then(() => console.info('SSR cache purged'))

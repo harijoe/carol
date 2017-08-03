@@ -79,7 +79,6 @@ const configs = {
       'fr-FR': {
         url: 'https://preprod-fr.qarx.io',
       },
-
       'es-ES': {
         url: 'https://preprod-es.qarx.io',
       },
@@ -124,9 +123,31 @@ const configs = {
     api: {
       url: 'https://api.qarx.io',
     },
+    locales: {
+      'fr-FR': {
+        url: 'https://carol-fr-dev.qarx.io:4433',
+      },
+      'en-GB': {
+        url: 'https://carol-co-uk-dev.qarx.io:4433',
+      },
+      'es-ES': {
+        url: 'https://carol-es-dev.qarx.io:4433',
+      },
+    },
   },
   outsideDocker: {
     port: 4433,
+    locales: {
+      'fr-FR': {
+        url: 'https://carol-fr-dev.qarx.io:4433',
+      },
+      'en-GB': {
+        url: 'https://carol-co-uk-dev.qarx.io:4433',
+      },
+      'es-ES': {
+        url: 'https://carol-es-dev.qarx.io:4433',
+      },
+    },
   },
   insideDocker: {
     // inherits everything from `config.all` above
@@ -137,13 +158,13 @@ const configs = {
     },
     locales: {
       'fr-FR': {
-        url: 'http://carol-fr-dev.qarx.io',
+        url: 'http://carol-fr-dev.qarx.io:4321',
       },
       'en-GB': {
-        url: 'http://carol-co-uk-dev.qarx.io',
+        url: 'http://carol-co-uk-dev.qarx.io:4321',
       },
-      'en-ES': {
-        url: 'http://carol-es-dev.qarx.io',
+      'es-ES': {
+        url: 'http://carol-es-dev.qarx.io:4321',
       },
     },
     port: 4321,
@@ -158,13 +179,13 @@ const configs = {
     },
     locales: {
       'fr-FR': {
-        url: 'http://carol-fr-dev.qarx.io',
+        url: 'http://carol-fr-dev.qarx.io:4321',
       },
       'en-GB': {
-        url: 'http://carol-co-uk-dev.qarx.io',
+        url: 'http://carol-co-uk-dev.qarx.io:4321',
       },
       'es-ES': {
-        url: 'http://carol-es-dev.qarx.io',
+        url: 'http://carol-es-dev.qarx.io:4321',
       },
     },
     port: 4321,

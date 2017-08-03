@@ -5,9 +5,7 @@ import { connect } from 'react-redux'
 import { CountryMenu } from 'components'
 import { fromContext } from 'store/selectors'
 
-const CountryMenuContainer = props => (
-  <CountryMenu {...props} />
-)
+const CountryMenuContainer = props => <CountryMenu {...props} />
 
 CountryMenuContainer.propTypes = {
   locale: PropTypes.string,

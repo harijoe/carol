@@ -2,15 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
 import { getUrlFromLocale } from 'utils/locale'
-import { port, ssl } from 'config'
-
-const homePageUrl = (locale) => {
-  const standardPortUsed = (ssl.enabled && port === 443) || (!ssl.enabled && port === 80)
-
-  return getUrlFromLocale(locale)
-    .replace(/https?/, ssl.enabled ? 'https' : 'http')
-    .replace(/(:\d+)?$/, standardPortUsed ? '' : `:${port}`)
-}
 
 const CountryOption = ({ name, value }) => (
   <FormattedMessage id={name} key={value}>
@@ -24,7 +15,11 @@ CountryOption.propTypes = {
 }
 
 const CountryMenu = ({ currentLocale, className }) => (
-  <select defaultValue={currentLocale} className={className} onChange={(e) => { location.href = homePageUrl(e.target.value) }}>
+  <select
+    defaultValue={currentLocale}
+    className={className}
+    onChange={(e) => { location.href = ((locale) => getUrlFromLocale(locale))(e.target.value) }}
+  >
     <CountryOption name="country.spain" value="es-ES" />
     <CountryOption name="country.france" value="fr-FR" />
     <CountryOption name="country.great_britain" value="en-GB" />

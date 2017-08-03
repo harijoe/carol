@@ -7,6 +7,7 @@ import routes from 'routes'
 import configureStore from 'store/configure'
 import { port, ip, locales, purgeCacheToken, devServer } from 'config'
 import renderResponse from './server/index'
+import hostNameFromUrl from './utils/hostNameFromUrl'
 
 global.navigator = { userAgent: 'all' }
 
@@ -52,7 +53,7 @@ const purgeSSRCache = locale => new Promise(resolve =>
   router.handle({
     url: '/',
     method: 'PURGE',
-    hostname: locales[locale].url.replace(new RegExp('https?://'), ''),
+    hostname: hostNameFromUrl(locales[locale].url),
     headers: { authorization: `Bearer ${purgeCacheToken}` },
   }, { send: resolve })
 )
