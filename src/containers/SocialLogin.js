@@ -19,11 +19,11 @@ const Wrapper = styled.div`
   position: relative;
   
   .social {
-    width: calc(100% - 10px);
+    width: 100%;
     border: none;
     box-shadow: 0 0 10px 0 rgba(19, 19, 19, 0.15);
-    margin: 5px;
     padding: 15px;
+    margin-bottom: ${theme('spaces.s')};
 
     &.facebook {
       background: #3a5a97;
@@ -36,6 +36,7 @@ const Wrapper = styled.div`
 
     &.google {
       background: ${theme('colors.white')};
+      border: 1px solid ${theme('colors.grayscale.lighter')};
     }
   }
 
@@ -72,7 +73,7 @@ class SocialLoginContainer extends Component {
     return (
       <Wrapper>
         {SocialButton}
-        <StyledIcon icon={`${platform}-login`} size={50} />
+        <StyledIcon icon={`${platform}-login`} size={35} />
       </Wrapper>
     )
   }

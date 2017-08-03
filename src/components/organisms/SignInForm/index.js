@@ -15,39 +15,17 @@ import {
   GoogleLogin,
   Paragraph,
   Row,
-  Col,
+  Divider,
 } from 'components'
 
 const StyledRow = styled(Row)`
-  ${breakpoint('m')`
-    flex-wrap: nowrap;
-  `}
+  flex-direction: column;
+  margin: 0;
 `
 
-const LeftColumn = styled(Col)`
-  ${breakpointMax('m')`
-    order: 2;
-    width: 100%;
-    border-top: 1px solid ${theme('colors.grayscale.light')};
-    padding: 0;
-  `}
-
-  ${breakpoint('m')`
-    border-right: 1px solid ${theme('colors.grayscale.light')};
-  `}
-`
-
-const RightColumn = styled(Col)`
-  ${breakpointMax('m')`
-    order: 1;
-    width: 100%;
-    padding: 0;
-    padding-bottom: ${theme('spaces.l')};
-  `}
-
-  > div:first-child {
-    margin-bottom:  ${theme('spaces.m')}; 
-  }
+const StyledDivider = styled(Divider)`
+  margin-top: ${theme('spaces.m')};
+  margin-bottom: ${theme('spaces.l')};
 `
 
 const Form = styled.form`
@@ -56,50 +34,41 @@ const Form = styled.form`
   ${breakpointMax('m')`
     padding: 0;
   `}
-
-  strong {
-    display: block;
-    margin-bottom: ${theme('spaces.s')};
-    color: ${theme('colors.danger')};
-  }
 `
 
 Form.displayName = 'Form'
 
 const StyledLink = styled(Link)`
   display: block;
-  width: 80px;
+  width: 110px;
+  margin-top: ${theme('spaces.s')};
+  font-weight: bold;
+  line-height: 1;
+
+  &::after {
+    content: ' →';
+  }
+`
+
+const StyledLinkPopIn = styled(Link)`
+  display: block;
+  width: 105px;
   margin: 10px auto;
   font-weight: bold;
   line-height: 1;
+
+  &::after {
+    content: ' →';
+  }
 `
 
 const Footer = styled.footer`
-  margin-top: ${theme('spaces.xl')};
-  padding: ${theme('spaces.xl')};
-  border-top: 1px solid ${theme('colors.grayscale.light')};
-  background-color: ${theme('colors.grayscale.lightest')};
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  
-  ${breakpointMax('m')`
-    margin-left: -${theme('spaces.m')};
-    margin-right: -${theme('spaces.m')};
-    padding: ${theme('spaces.m')};
-  `}
+  margin-top: ${theme('spaces.s')};
+  margin-bottom: ${theme('spaces.xxl')};
 
   ${breakpoint('m')`
-    margin-left: -${theme('spaces.l')};
-    margin-right: -${theme('spaces.l')};
-  `}
-
-  ${breakpoint('l')`
-    margin-left: -${theme('spaces.xxl')};
-    margin-right: -${theme('spaces.xxl')};
-    margin-top: ${theme('spaces.xxl')};
-  `}
+    margin-bottom: ${theme('spaces.xxxl')};
+  `} 
 `
 
 const StyledParagraph = styled(Paragraph)`
@@ -115,33 +84,30 @@ const SignInForm = ({ error, handleSubmit, loading, translate, className, carous
         description={translate('user.sign_in.introduction')}
       >
         <StyledRow>
-          <LeftColumn m={6} s={12}>
-            <Form onSubmit={handleSubmit}>
-              <AnimatedLabelField
-                name="email"
-                type="email"
-                icon="mail-login"
-                label={translate('user.email')}
-              />
-              <AnimatedLabelField
-                name="password"
-                type="password"
-                icon="pwd-login"
-                label={translate('user.password')}
-              />
-              {error && <FormattedMessage id={error} tagName="strong" />}
-              <Link kind="black" to="/forgot-password" highlight>
-                <FormattedMessage id="user.forget_password" />
-              </Link>
-              <Button type="submit" block loading={loading}>
-                <FormattedMessage id="user.sign_in" />
-              </Button>
-            </Form>
-          </LeftColumn>
-          <RightColumn m={6} s={12}>
-            <FacebookLogin />
-            <GoogleLogin />
-          </RightColumn>
+          <FacebookLogin />
+          <GoogleLogin />
+          <StyledDivider or />
+          <Form onSubmit={handleSubmit}>
+            <AnimatedLabelField
+              name="email"
+              type="email"
+              icon="mail-login"
+              label={translate('user.email')}
+            />
+            <AnimatedLabelField
+              name="password"
+              type="password"
+              icon="pwd-login"
+              label={translate('user.password')}
+            />
+            {error && <FormattedMessage id={error} tagName="strong" />}
+            <Link kind="black" to="/forgot-password" highlight>
+              <FormattedMessage id="user.forget_password" />
+            </Link>
+            <Button type="submit" block loading={loading}>
+              <FormattedMessage id="user.sign_in" />
+            </Button>
+          </Form>
         </StyledRow>
         <Footer>
           <StyledParagraph>
@@ -181,9 +147,9 @@ const SignInForm = ({ error, handleSubmit, loading, translate, className, carous
         </Form>
         <div className="footer">
           <FormattedMessage id="user.no_account_question" />
-          <StyledLink highlight kind="black" onClick={() => onSwitch ? onSwitch() : redirectTo('/signup')}>
+          <StyledLinkPopIn highlight kind="black" onClick={() => onSwitch ? onSwitch() : redirectTo('/signup')}>
             <FormattedMessage id="user.create_account" />
-          </StyledLink>
+          </StyledLinkPopIn>
         </div>
       </div>
     }

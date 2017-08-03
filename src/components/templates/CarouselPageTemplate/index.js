@@ -14,14 +14,14 @@ import {
 
 const StyledHeading = styled(Heading)`
   ${breakpoint('m')`
-    font-size: ${theme('fonts.size.xxxl')};
+    font-size: ${theme('fonts.size.xxl')};
     margin-top: ${theme('grid.outerMargin.l')}rem;
   `}
 `
 
 const StyledParagraph = styled(Paragraph)`
-  margin-top: ${theme('spaces.m')};
   margin-bottom: ${theme('spaces.xl')};
+  margin-top: 0;
 `
 
 const StyledRow = styled(Row)`
@@ -31,6 +31,8 @@ const StyledRow = styled(Row)`
 `
 
 const LeftCol = styled(Col)`
+  background-color: ${theme('colors.grayscale.lightest')};
+
   ${breakpointMax('l')`
     display: none;
   `}
@@ -52,18 +54,18 @@ const RightCol = styled(Col)`
   `}
 
   ${mapBreakpoints(bp => css`
-    padding-right: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
-    padding-left: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
+    padding-right: calc( ${theme(`grid.gutterWidth.${bp}`, 'rem')} + ${theme('spaces.l')} );
+    padding-left: calc( ${theme(`grid.gutterWidth.${bp}`, 'rem')} + ${theme('spaces.l')} );
   `)}
 `
 
 const CarouselPageTemplate = ({ heading, description, children }) => (
   <MainWrapper>
     <StyledRow>
-      <LeftCol l={4}>
+      <LeftCol l={7}>
         <ReinsuranceCarousel />
       </LeftCol>
-      <RightCol l={8} s={12}>
+      <RightCol l={5} s={12}>
         <StyledHeading level={2}>{heading}</StyledHeading>
         <StyledParagraph>{description}</StyledParagraph>
         {children}

@@ -15,7 +15,7 @@ const Error = styled(Block)`
 
 const Wrapper = styled.div`${({ type, smallSize, mediumSize }) => css`
   position: relative;
-  margin-bottom: ${theme('spaces.m')};
+  margin-bottom: ${theme('spaces.xs')};
   padding-bottom: ${theme('spaces.m')};
 
   input[type="checkbox"],
@@ -24,7 +24,7 @@ const Wrapper = styled.div`${({ type, smallSize, mediumSize }) => css`
   }
 
   label {
-    vertical-align: middle;
+    vertical-align: top;
   }
 
   fieldset {
@@ -43,6 +43,8 @@ const Wrapper = styled.div`${({ type, smallSize, mediumSize }) => css`
   , '')}
   ${ifThen(type === 'checkbox', css`
     ${breakpointMax('l')`
+      vertical-align: top;
+
       label {
         width: 90%;
       }
@@ -100,7 +102,6 @@ const StyledIconLink = styled(IconLink)`
 `
 
 const StyledLabel = styled(Label)`${({ hideLabel, lightFont, inline }) => css`
-  margin-bottom: ${theme('spaces.s')};
   visibility: ${ifThen(hideLabel, 'hidden', 'visible')};
   font-weight: bold;
   font-size: ${theme('fonts.size.base')};
