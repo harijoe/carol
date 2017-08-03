@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux'
-import { routerReducer as routing } from 'react-router-redux'
 import { reducer as form } from 'redux-form'
 import { reducer as notificationsReducer } from 'reapop'
 
@@ -15,7 +14,6 @@ const notificationsDefaultValues = {
 const notifications = notificationsReducer(notificationsDefaultValues)
 
 const reducers = {
-  routing,
   notifications,
   form,
 }

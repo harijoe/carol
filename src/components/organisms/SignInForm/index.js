@@ -106,7 +106,7 @@ const StyledParagraph = styled(Paragraph)`
   margin: 0;
 `
 
-const SignInForm = ({ error, handleSubmit, loading, translate, className, carousel, redirectTo }) => (
+const SignInForm = ({ error, handleSubmit, loading, translate, className, carousel, redirectTo, onSwitch }) => (
   <div>
     {
       carousel &&
@@ -148,7 +148,7 @@ const SignInForm = ({ error, handleSubmit, loading, translate, className, carous
             <FormattedMessage id="user.no_account_question" />
           </StyledParagraph>
           <StyledParagraph>
-            <StyledLink highlight kind="black" onClick={() => redirectTo('/signup')}>
+            <StyledLink highlight kind="black" onClick={() => onSwitch ? onSwitch() : redirectTo('/signup')}>
               <FormattedMessage id="user.create_account" />
             </StyledLink>
           </StyledParagraph>
@@ -181,7 +181,7 @@ const SignInForm = ({ error, handleSubmit, loading, translate, className, carous
         </Form>
         <div className="footer">
           <FormattedMessage id="user.no_account_question" />
-          <StyledLink highlight kind="black" onClick={() => redirectTo('/signup')}>
+          <StyledLink highlight kind="black" onClick={() => onSwitch ? onSwitch() : redirectTo('/signup')}>
             <FormattedMessage id="user.create_account" />
           </StyledLink>
         </div>
@@ -198,6 +198,7 @@ SignInForm.propTypes = {
   loading: PropTypes.bool,
   translate: PropTypes.func.isRequired,
   redirectTo: PropTypes.func,
+  onSwitch: PropTypes.func,
 }
 
 export default injectTranslate(SignInForm)

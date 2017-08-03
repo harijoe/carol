@@ -17,6 +17,7 @@ import {
   authLogin,
   closeAll,
   setAccessToken,
+  setRedirectPathname,
   projectElaborationResetConversation,
   setProjectElaborationSessionId,
 } from 'store/actions'
@@ -99,6 +100,10 @@ function* handleAuthLoginSuccess() {
   if (authenticated) {
     yield* notify('', 'user.sign_in.success')
     yield* handleGetUserRequest()
+
+    const redirectPathname = yield select(fromRouting.getRedirectPathname)
+    yield put(push(redirectPathname))
+    yield put(setRedirectPathname(null))
   }
 }
 

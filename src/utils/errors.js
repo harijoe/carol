@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/prefer-default-export
 export const HTTPError = function (message, status = null) {
   this.name = 'HTTPError'
-  this.message = message || 'An errored response was returned by the API'
+  this.message = message || `An errored response was returned by the API - ${status}`
   this.status = status
 }
 

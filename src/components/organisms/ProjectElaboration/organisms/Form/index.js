@@ -217,6 +217,7 @@ class Form extends Component {
         <BackButton
           type="button"
           onClick={submitBack}
+          className="back-button"
           style={{ visibility: enableBack ? 'visible' : 'hidden' }}
         >
           <BackIcon icon="back" />

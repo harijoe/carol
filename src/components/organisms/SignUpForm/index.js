@@ -118,6 +118,7 @@ class SignUpForm extends Component {
     redirectTo: PropTypes.func,
     redirectPathname: PropTypes.string,
     loading: PropTypes.bool,
+    onSwitch: PropTypes.func,
     translate: PropTypes.func.isRequired,
   }
 
@@ -140,7 +141,7 @@ class SignUpForm extends Component {
   }
 
   render() {
-    const { handleSubmit, loading, redirectTo, translate } = this.props
+    const { handleSubmit, loading, redirectTo, translate, onSwitch } = this.props
 
     return (
       <CarouselPageTemplate
@@ -187,7 +188,7 @@ class SignUpForm extends Component {
             <FormattedMessage id="user.account_question" />
           </StyledParagraph>
           <StyledParagraph>
-            <StyledLink highlight kind="black" onClick={() => redirectTo('/login')}>
+            <StyledLink highlight kind="black" onClick={() => onSwitch ? onSwitch() : redirectTo('/login')}>
               <FormattedMessage id="user.sign_in" />
             </StyledLink>
           </StyledParagraph>

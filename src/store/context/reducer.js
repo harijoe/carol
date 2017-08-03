@@ -4,6 +4,8 @@ import {
   CONTEXT_TOGGLE_MAIN_NAVIGATION,
   CONTEXT_TOGGLE_ACCOUNT_NAVIGATION,
   CONTEXT_TOGGLE_SIGN_IN_POPIN,
+  CONTEXT_TOGGLE_CHATBOT_POPIN_MODE,
+  CONTEXT_TOGGLE_CHATBOT_POPIN,
   CONTEXT_CLOSE_ALL,
   CONTEXT_SET_SSR,
   CONTEXT_SET_DRY_RUN,
@@ -46,12 +48,34 @@ export default (state = initialState,
         signInPopin: action.payload != null ? action.payload : !state.signInPopin,
       }
     }
+    case CONTEXT_TOGGLE_CHATBOT_POPIN: {
+      return {
+        ...state,
+        chatbotPopin: {
+          ...state.chatbotPopin,
+          enabled: action.payload != null ? action.payload : !state.chatbotPopin.enabled,
+        },
+      }
+    }
+    case CONTEXT_TOGGLE_CHATBOT_POPIN_MODE: {
+      return {
+        ...state,
+        chatbotPopin: {
+          ...state.chatbotPopin,
+          mode: state.chatbotPopin.mode === 'signin' ? 'signup' : 'signin',
+        },
+      }
+    }
     case CONTEXT_CLOSE_ALL: {
       return {
         ...state,
         mainNavigation: false,
         accountNavigation: false,
         signInPopin: false,
+        chatbotPopin: {
+          ...state.chatbotPopin,
+          enabled: false,
+        },
       }
     }
     case CONTEXT_SET_SSR: {

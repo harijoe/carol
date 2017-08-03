@@ -6,7 +6,7 @@ Feature: As a logged in user going to the auto validation tunnel
     And I have already filled some personal information:
       | gender   | firstName   | lastName   |
       | <gender> | <firstName> | <lastName> |
-    When I go to the auto-validation step 1 page
+    When I go to the 'auto-validation step 1' page
     Then I should see 'Vos informations'
     Examples:
       | gender | firstName | lastName |
@@ -21,6 +21,6 @@ Feature: As a logged in user going to the auto validation tunnel
     And I have already filled some personal information:
       | gender | firstName | lastName |
       | Mr     | John      | Doe      |
-    When I go to the auto-validation step 1 page
+    When I go to the 'auto-validation step 1' page
     Then I should not see 'Vos informations'
 

@@ -69,7 +69,7 @@ const Background = styled.div`
 const Popin = ({ children, show, closeAll }) => (
   <OuterWrapper show={show}>
     <Background onClick={closeAll} />
-    <InnerWrapper show={show}>
+    <InnerWrapper className={`popin ${show ? 'visible' : ''}`} show={show}>
       <CloseAllButton />
       {children}
     </InnerWrapper>

@@ -43,12 +43,12 @@ script:
   - if [ "${BRANCH}" = "" ]; then BRANCH=develop; fi;
   - if [[ "$TRAVIS_BRANCH" = "master" && $TRAVIS_PULL_REQUEST_BRANCH = "" ]]; then BRANCH=master; fi;
   - yarn run lint && yarn test
-  - yarn build
   - yarn simulado:start &> simulado.log &
   - yarn simulado:prime &> simulado-prime.log &
+  - yarn build
   - yarn start &> server.log &
   - |
-    while ! grep "Server listening" server.log; do
+    while ! grep "Cache regeneration attempt finished" server.log; do
       echo "waiting for server to be listening…"
       sleep 1
     done

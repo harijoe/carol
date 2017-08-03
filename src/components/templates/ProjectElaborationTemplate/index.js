@@ -8,6 +8,7 @@ import es from 'react-intl/locale-data/es'
 import { injectGlobals, theme, breakpoint } from 'utils/style'
 
 import { Divider } from 'components'
+import { ChatbotPopin } from 'containers'
 import defaultTheme, { resets, scaffolding } from '../../themes/default'
 
 injectGlobals([resets, scaffolding])
@@ -55,6 +56,7 @@ const StyledDivider = styled(Divider)`
 const ProjectElaborationTemplate = ({ header, children, ...props }) => (
   <ThemeProvider theme={defaultTheme}>
     <Wrapper {...props}>
+      <ChatbotPopin />
       <Header {...props}>{header}</Header>
       <Background>{children}<StyledDivider /></Background>
     </Wrapper>

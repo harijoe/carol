@@ -171,6 +171,7 @@ const configs = {
     ssl: {
       enabled: false,
     },
+    mocking: true,
   },
   travis: {
     devServer: false,
@@ -192,6 +193,7 @@ const configs = {
     ssl: {
       enabled: false,
     },
+    mocking: true,
   },
 }
 

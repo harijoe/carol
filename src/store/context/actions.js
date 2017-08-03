@@ -4,6 +4,8 @@ export const CONTEXT_SET_LANG = 'CONTEXT_SET_LANG'
 export const CONTEXT_TOGGLE_MAIN_NAVIGATION = 'CONTEXT_TOGGLE_MAIN_NAVIGATION'
 export const CONTEXT_TOGGLE_ACCOUNT_NAVIGATION = 'CONTEXT_TOGGLE_ACCOUNT_NAVIGATION'
 export const CONTEXT_TOGGLE_SIGN_IN_POPIN = 'CONTEXT_TOGGLE_SIGN_IN_POPIN'
+export const CONTEXT_TOGGLE_CHATBOT_POPIN = 'CONTEXT_TOGGLE_CHATBOT_POPIN'
+export const CONTEXT_TOGGLE_CHATBOT_POPIN_MODE = 'CONTEXT_TOGGLE_CHATBOT_POPIN_MODE'
 export const CONTEXT_CLOSE_ALL = 'CONTEXT_CLOSE_ALL'
 export const CONTEXT_SET_SSR = 'CONTEXT_SET_SSR'
 export const CONTEXT_SET_DRY_RUN = 'CONTEXT_SET_DRY_RUN'
@@ -58,6 +60,16 @@ export const toggleAccountNavigation = (state = null) => ({
 export const toggleSignInPopin = (state = null) => ({
   type: CONTEXT_TOGGLE_SIGN_IN_POPIN,
   payload: state,
+})
+
+export const toggleChatbotPopin = (state = null) => ({
+  type: CONTEXT_TOGGLE_CHATBOT_POPIN,
+  payload: state,
+})
+
+
+export const toggleChatbotPopinMode = () => ({
+  type: CONTEXT_TOGGLE_CHATBOT_POPIN_MODE,
 })
 
 export const closeAll = () => ({

@@ -48,7 +48,7 @@ const QuickReplies = ({ quick_replies, answer, reply }) => {
 
   const quickRepliesList = () => (
     quick_replies.map(({ title, payload }, i) => (
-      <Item key={i}>
+      <Item key={i} className="quick-reply">
         <StyledButton onClick={() => reply(title, payload)}>{title}</StyledButton>
       </Item>
     ))

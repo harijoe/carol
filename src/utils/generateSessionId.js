@@ -1,3 +1,11 @@
 import uuid from 'uuid/v4'
 
-export default uuid
+import { mocking } from 'config'
+
+export default () => {
+  if (mocking) {
+    return 'MOCK_SESSION_ID'
+  }
+
+  return uuid()
+}

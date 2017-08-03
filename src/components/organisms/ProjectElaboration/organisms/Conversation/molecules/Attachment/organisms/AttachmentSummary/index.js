@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
-import config from 'config'
 import styled from 'styled-components'
-import pushGtmEvent from 'utils/gtm'
 import { theme, breakpoint } from 'utils/style'
 
-import { ThumbnailPoster, ProjectElaborationQuestion, Paragraph, Link } from 'components'
+import { ThumbnailPoster, ProjectElaborationQuestion, Paragraph } from 'components'
+import { ValidateProjectButton } from 'containers'
 import Question from './molecules/Question'
 import Answer from './molecules/Answer'
 
@@ -44,11 +43,6 @@ const Wrapper = styled.div`
   }
 `
 
-const StyledLink = styled(Link)`
-  margin-bottom: ${theme('spaces.s')};
-  min-width: 100%;
-`
-
 class AttachmentSummary extends Component {
   componentDidMount() {
     const { redirectTo } = this.props
@@ -57,8 +51,8 @@ class AttachmentSummary extends Component {
   }
 
   render() {
-    const { element: { title, image_url, subtitle, buttons }, locale, heroAnswer: { text } } = this.props
-    const validateButton = buttons[0]
+    const { element: { title, image_url, subtitle, buttons } } = this.props
+    const validateButtonDetails = buttons[0]
 
     /*
      * subtitle contains all the summary in one block. So, we have to split questions (odd) and answers (even)
@@ -70,16 +64,10 @@ class AttachmentSummary extends Component {
         <Question key={i}>{message}</Question>
     )))
 
-    const validateProjectLink = (<StyledLink
-      onClick={() => pushGtmEvent({
-        event: 'FormCreated',
-        chatbotKey1: text,
-      })}
-      to={validateButton.url.replace(config.locales[locale].url, '')}
-      button
-    >
-      {validateButton.title}
-    </StyledLink>)
+    const validateProjectLink = (<ValidateProjectButton
+      title={validateButtonDetails.title}
+      url={validateButtonDetails.url}
+    />)
 
     return (
       <Wrapper id="summary">
@@ -103,11 +91,7 @@ class AttachmentSummary extends Component {
 }
 
 AttachmentSummary.propTypes = {
-  locale: PropTypes.string,
   redirectTo: PropTypes.func,
-  heroAnswer: PropTypes.shape({
-    text: PropTypes.string.isRequired,
-  }),
   element: PropTypes.shape({
     title: PropTypes.string.isRequired,
     image_url: PropTypes.string.isRequired,

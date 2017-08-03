@@ -64,7 +64,7 @@ const StyledLink = styled(removeStyledProps(RouterLink))`${styles}`
 const Anchor = styled.a`${styles}`
 
 const Link = ({ to, forceRedirect, ...props }) => {
-  if (to == null) {
+  if (!to) {
     return <Anchor {...props} />
   }
 
