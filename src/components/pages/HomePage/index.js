@@ -11,9 +11,9 @@ import {
   Reinsurance,
   MainWrapper,
 } from 'components'
-import { Hero } from 'containers'
+import { Hero, MotionMenu } from 'containers'
 
-const HomePage = ({ locale, translate, ...props }) => (
+const HomePage = ({ locale, translate, featureMotionMenuEnabled, ...props }) => (
   <MainLayout {...props}>
     <Helmet>
       <meta name="description" content={translate('pages.home.meta.description')} />
@@ -26,12 +26,14 @@ const HomePage = ({ locale, translate, ...props }) => (
       <TipsAndTricks locale={locale} />
       <Reinsurance />
     </MainWrapper>
+    {featureMotionMenuEnabled && <MotionMenu />}
   </MainLayout>
 )
 
 HomePage.propTypes = {
   locale: PropTypes.string,
   translate: PropTypes.func,
+  featureMotionMenuEnabled: PropTypes.bool,
 }
 
 export default injectTranslate(HomePage)

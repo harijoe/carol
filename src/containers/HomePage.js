@@ -9,6 +9,7 @@ const HomePageContainer = props => (
 
 const mapStateToProps = state => ({
   locale: fromContext.getLocale(state),
+  featureMotionMenuEnabled: fromContext.isFeatureEnabled(state, 'motion_menu'),
 })
 
 export default connect(mapStateToProps)(HomePageContainer)
