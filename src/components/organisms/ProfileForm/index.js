@@ -359,8 +359,8 @@ class ProfileForm extends Component {
                         component={RadioGroup}
                         name="contactPreference"
                         options={[
-                          { value: 'email', id: 'email', translation: 'user.contactPreference.email' },
-                          { value: 'phone', id: 'phone', translation: 'user.contactPreference.phone' },
+                          { value: 'email', id: 'contactPreference.email', translation: 'user.contactPreference.email' },
+                          { value: 'phone', id: 'contactPreference.phone', translation: 'user.contactPreference.phone' },
                         ]}
                       />
                     </RadioBlock>
