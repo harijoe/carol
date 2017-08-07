@@ -99,4 +99,16 @@ defineSupportCode(({ When }) => {
     const events = dataLayerCopy.slice(-1 * nbOfEvents)
     events.map(({ event }, index) => expect(event).toEqual(expectedEvents[index]))
   })
+
+  When(/I should see option '(.*)' populated with '(.*)'/, async (target, value) => {
+    const label = await driver.findElement({ xpath: `//label[contains(text(), "${target}")]`})
+    const forAttr = await label.getAttribute('for')
+
+    const selectedValue = await driver.executeScript((forParam) => {
+      const select = document.querySelector(`select[name=${forParam}]`)
+      return select.options[select.selectedIndex].text
+    }, forAttr)
+
+    expect(selectedValue).toEqual(value)
+  })
 })

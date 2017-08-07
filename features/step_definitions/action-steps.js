@@ -14,4 +14,12 @@ defineSupportCode(({ When }) => {
 
     await element.sendKeys(value)
   })
+  When(/I select the option '(.*)' for field '(.*)'/, async (value, target) => {
+    const label = await driver.findElement({ xpath: `//label[contains(text(), "${target}")]`})
+    const forAttr = await label.getAttribute('for')
+    const select = await driver.findElement({ css: `select[name=${forAttr}]` })
+    await select.click()
+    const option = await select.findElement({ xpath: `//option[contains(text(), "${value}")]`})
+    option.click()
+  })
 })

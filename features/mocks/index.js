@@ -4,7 +4,8 @@ import postListReinsurance from './postListReinsurance'
 import postListTestimony from './postListTestimony'
 import postListWorkResources from './postListWorkResources'
 import * as token from './token'
-import * as users from './users'
+import project from './project'
+import projects from './projects'
 import me from './me'
 
 export default [
@@ -58,9 +59,22 @@ export default [
     },
   },
   {
+    path: '/projects',
+    response: projects,
+  },
+  {
+    path: '/projects/MOCK_PROJECT_ID',
+    response: project,
+  },
+  {
+    method: 'PUT',
+    path: '/projects/MOCK_PROJECT_ID',
+    response: project,
+  },
+  {
     method: 'POST',
     path: '/project-start/MOCK_SESSION_ID',
-    response: chatbot.projectStart,
+    response: project,
   },
   {
     path: '/posts?tag[]=api-last-project&itemsPerPage=3&order[project_date]=DESC',
@@ -90,6 +104,11 @@ export default [
     path: '/users',
     method: 'POST',
     status: 201,
-    response: users.create,
+    response: me,
+  },
+  {
+    path: '/users',
+    method: 'PUT',
+    response: me,
   },
 ]

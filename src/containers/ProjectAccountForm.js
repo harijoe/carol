@@ -15,7 +15,7 @@ class ProjectAccountFormContainer extends Component {
     requestProjectDetails: PropTypes.func,
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.requestCheckValidationFlow()
     this.props.requestUserDetails()
     this.props.requestProjectDetails()
@@ -86,4 +86,4 @@ const mapDispatchToProps = (dispatch, { projectId }) => ({
   requestCheckValidationFlow: () => dispatch(checkValidationFlow()),
 })
 
-export default reduxForm(config)(connect(mapStateToProps, mapDispatchToProps)(ProjectAccountFormContainer))
+export default connect(mapStateToProps, mapDispatchToProps)(reduxForm(config)(ProjectAccountFormContainer))

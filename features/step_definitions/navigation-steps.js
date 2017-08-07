@@ -5,8 +5,6 @@ import driver from '../lib/driver'
 
 defineSupportCode(({ When }) => {
   When(/I go to the '(home|auto-validation step 1|chatbot)' page/, async page => {
-    const navigateTo = path => driver.get(getAppUrl(path))
-
-    await navigateTo(paths[page])
+    await driver.get(getAppUrl(paths[page]))
   })
 })

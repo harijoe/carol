@@ -1,6 +1,6 @@
 export default {
   '@context': '/contexts/User',
-  '@id': '/users/99ac08f6-12da-46f5-8ecb-942c5ae3203b',
+  '@id': '/users/me',
   '@type': 'User',
   countryCode: 'FR',
   email: 'johndoe@gmail.com',

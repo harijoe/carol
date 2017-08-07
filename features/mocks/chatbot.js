@@ -303,53 +303,6 @@ export const currentSummary = [
     },
   },
 ]
-export const projectStart = {
-  '@context': '/contexts/Project',
-  '@id': '/projects/MOCK_PROJECT_ID',
-  '@type': 'Project',
-  name: 'Porte d\u0027entr\u00e9e et porte de service',
-  leadReference: null,
-  status: 'to_validate',
-  startTimeframe: null,
-  purpose: null,
-  duplicate: false,
-  createdAt: '2017-08-02T09:34:33+00:00',
-  updatedAt: '2017-08-02T09:34:33+00:00',
-  sqn: null,
-  imageUrl: null,
-  questionsAnswers: {
-    'Bonjour, quel type de travaux souhaitez-vous faire ?': 'Fen\u00eatres et ouvertures ext\u00e9rieures',
-    'Quel est votre projet ?': 'Porte d\u0027entr\u00e9e et porte de service',
-    'S\u0027agit-il d\u0027une porte d\u0027entr\u00e9e ou de service ?': 'Porte d\u0027entr\u00e9e',
-    'Quelle mati\u00e8re pr\u00e9f\u00e9rez-vous ?': 'J\u0027ai besoin du conseil d\u0027un pro',
-    'Souhaitez-vous que votre porte soit blind\u00e9e ?': 'J\u0027ai besoin du conseil d\u0027un pro',
-    'Quel niveau de gamme souhaitez-vous ?': 'Premium - Haute qualit\u00e9',
-    'Quel type de bien est concern\u00e9 ?': 'Locaux et bureaux commerciaux',
-    'Quelle est votre situation personnelle ?': 'Mandat\u00e9 par ma soci\u00e9t\u00e9',
-    'Quel est votre ville ?': 'PARIS 17 (75017)',
-  },
-  comment: null,
-  postalCode: {
-    '@id': '/postal_codes/3f1942d4-e055-459d-a18d-57cdf3c70938',
-    '@type': 'PostalCode',
-    postalCode: '75017',
-    city: 'PARIS 17',
-    countryCode: 'FR',
-  },
-  proForm: {
-    '@id': '/pro_forms/02f6edf6-8e18-40d2-be2c-8dcc3f16d6b4',
-    '@type': 'ProForm',
-    legacyId: 12504,
-    label: 'Porte d\u0027entr\u00e9e',
-    countryCode: 'FR',
-  },
-  chatbotStorage: { countryCode: 'FR' },
-  user: '/users/f83db26c-09e6-479d-adac-2b9b835c9311',
-  firms: [],
-  partner: null,
-  acqActivity: null,
-  countryCode: 'FR',
-}
 export const current = [
   {
     message: {
