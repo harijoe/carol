@@ -61,6 +61,18 @@ const StyledLinkPopIn = styled(Link)`
   }
 `
 
+const PopinWrapper = styled.div`
+  ${breakpointMax('xl')`
+    margin-top: ${theme('spaces.xl')};
+  `}
+`
+
+const StyledButton = styled(Button)`
+  ${breakpointMax('m')`
+    margin-bottom: ${theme('spaces.m')};
+  `}
+`
+
 const Footer = styled.footer`
   flex-direction: column;
   align-items: center;
@@ -71,10 +83,11 @@ const Footer = styled.footer`
   background-color: ${theme('colors.grayscale.lightest')};
   
   ${breakpointMax('m')`
-    padding: ${theme('spaces.m')};
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
     margin-left: -${theme('spaces.m')};
     margin-right: -${theme('spaces.m')};
-    margin-bottom: -${theme('spaces.m')};
   `}
 
   ${breakpoint('m')`
@@ -138,7 +151,7 @@ const SignInForm = ({ error, handleSubmit, loading, translate, className, carous
     }
     {
       !carousel &&
-      <div className={className}>
+      <PopinWrapper className={className}>
         <Heading level={2}><FormattedMessage id="login.coming_back" /></Heading>
         <FacebookLogin />
         <GoogleLogin />
@@ -158,7 +171,7 @@ const SignInForm = ({ error, handleSubmit, loading, translate, className, carous
           />
           {error && <FormattedMessage id={error} tagName="strong" />}
           <Link kind="black" to="/forgot-password" highlight><FormattedMessage id="user.forgot_password.heading" /></Link>
-          <Button type="submit" block loading={loading}><FormattedMessage id="user.sign_in" /></Button>
+          <StyledButton type="submit" block loading={loading}><FormattedMessage id="user.sign_in" /></StyledButton>
         </Form>
         <Footer>
           <FormattedMessage id="user.no_account_question" />
@@ -166,7 +179,7 @@ const SignInForm = ({ error, handleSubmit, loading, translate, className, carous
             <FormattedMessage id="user.create_account" />
           </StyledLinkPopIn>
         </Footer>
-      </div>
+      </PopinWrapper>
     }
   </div>
 )

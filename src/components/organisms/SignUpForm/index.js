@@ -65,7 +65,7 @@ const Footer = styled.footer`
   background-color: ${theme('colors.grayscale.lightest')};
   
   ${breakpointMax('m')`
-    padding: ${theme('spaces.m')};
+    width: 100vw;
     margin-left: -${theme('spaces.m')};
     margin-right: -${theme('spaces.m')};
     margin-bottom: -${theme('spaces.m')};
@@ -110,6 +110,12 @@ const StyledLinkPopIn = styled(Link)`
   &::after {
     content: ' →';
   }
+`
+
+const PopinWrapper = styled.div`
+  ${breakpointMax('xl')`
+    margin-top: ${theme('spaces.xl')};
+  `}
 `
 
 const RadioBlock = styled.div`
@@ -250,7 +256,7 @@ class SignUpForm extends Component {
         }
         {
           !carousel &&
-          <div className={className}>
+          <PopinWrapper className={className}>
             <Heading level={2}>
               <FormattedMessage id="user.sign_up.heading" />
             </Heading>
@@ -322,7 +328,7 @@ class SignUpForm extends Component {
                 <FormattedMessage id="user.sign_in" />
               </StyledLinkPopIn>
             </Footer>
-          </div>
+          </PopinWrapper>
         }
       </div>
     )

@@ -16,3 +16,4 @@ ChatbotPopin.propTypes = {
 }
 
 export default ChatbotPopin
+
