@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import injectTranslate from 'i18n/hoc/injectTranslate'
+import { mocking } from 'config'
 
 import { IntlProvider, GoogleTagManager } from 'containers'
 
@@ -30,6 +31,9 @@ class App extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0)
+    if (mocking) {
+      window.dataLayer = []
+    }
   }
 
   render() {
@@ -40,7 +44,7 @@ class App extends Component {
         <div>
           <HeadWithTranslate />
           {children}
-          <GoogleTagManager />
+          { !mocking && <GoogleTagManager /> }
         </div>
       </IntlProvider>
     )

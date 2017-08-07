@@ -22,10 +22,16 @@ Feature: As a user, I can interact with the chatbot
     And I click on 'Valider mon projet'
     Then I should be redirected to '/projects/MOCK_PROJECT_ID/account'
 
-  Scenario: Login on chatbot popin
+  Scenario: Trigger chatbot popin
     Given I reached the project summary in my conversation
     When I go to the 'chatbot' page
     And I click on 'Valider mon projet'
+    Then I should see a popin
+    And I should have emitted 2 analytics tags named 'FormCreated, AccountCreation'
+
+  Scenario: Signin on chatbot popin
+    Given I opened the chatbot popin
+    And I click on 'Connexion'
     And I fill 'email' with 'hello@world.com'
     And I fill 'password' with 'myp4$$w0rld'
     And I click on 'Connexion'
@@ -33,10 +39,7 @@ Feature: As a user, I can interact with the chatbot
     And I should not see 'Se connecter'
     
   Scenario: Signup on chatbot popin
-    Given I reached the project summary in my conversation
-    When I go to the 'chatbot' page
-    And I click on 'Valider mon projet'
-    And I click on 'Inscription'
+    Given I opened the chatbot popin
     And I fill 'gender' with 'Mr'
     And I fill 'firstName' with 'John'
     And I fill 'lastName' with 'Doe'
@@ -44,3 +47,4 @@ Feature: As a user, I can interact with the chatbot
     And I fill 'password' with 'myp4$$w0rld'
     And I click on 'S'inscrire'
     Then I should be redirected to '/projects/MOCK_PROJECT_ID/account'
+    And I should not see 'Se connecter'

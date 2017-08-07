@@ -85,7 +85,7 @@ const Link = ({ to, forceRedirect, ...props }) => {
 Link.propTypes = {
   kind: PropTypes.string,
   light: PropTypes.bool,
-  to: PropTypes.string,
+  to: PropTypes.oneOfType([ PropTypes.string, PropTypes.bool ]),
   highlight: PropTypes.bool,
   button: PropTypes.bool,
   large: PropTypes.bool,

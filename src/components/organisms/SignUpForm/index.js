@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpointMax, breakpoint } from 'utils/style'
-import pushGtmEvent from 'utils/gtm'
 
 import {
   RenderField,
@@ -146,7 +145,6 @@ class SignUpForm extends Component {
   static propTypes = {
     handleSubmit: PropTypes.func.isRequired,
     redirectTo: PropTypes.func,
-    redirectPathname: PropTypes.string,
     loading: PropTypes.bool,
     onSwitch: PropTypes.func,
     translate: PropTypes.func.isRequired,
@@ -155,12 +153,6 @@ class SignUpForm extends Component {
   state = {
     passwordInputType: 'password',
     passwordIcon: 'eye',
-  }
-
-  componentDidMount() {
-    if (this.props.redirectPathname.indexOf('/project-prevalidate') === 0) {
-      pushGtmEvent({ event: 'AccountCreation' })
-    }
   }
 
   togglePassword = () => {

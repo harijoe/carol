@@ -79,7 +79,7 @@ export default [
     response: postListWorkResources,
   },
   {
-    path: '/chatbot-conversations/',
+    path: '/chatbot-conversations/MOCK_SESSION_ID',
     status: 204,
   },
   {

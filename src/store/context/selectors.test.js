@@ -3,7 +3,7 @@ import * as selectors from './selectors'
 test('initialState', () => {
   expect(selectors.initialState).toEqual({
     accountNavigation: false,
-    chatbotPopin: {enabled: false, mode: 'signin'},
+    chatbotPopin: {enabled: false, mode: 'signup'},
     country: 'GB',
     dryRun: false,
     features: {},

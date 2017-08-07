@@ -82,4 +82,21 @@ defineSupportCode(({ When }) => {
 
     expect(footerAdvicesItems.length).toEqual(parseInt(expectedCount, 10))
   })
+
+  When(/I should have emitted an analytics tag named '(.*)'/, async expectedEvent => {
+    const dataLayer = await driver.executeScript(() => window.dataLayer)
+    const { event } = [...dataLayer].pop()
+
+    expect(event).toEqual(expectedEvent)
+  })
+
+  When(/I should have emitted (\d*) analytics tags named '(.*)'/, async (nbOfEvents, rawEvents) => {
+    const expectedEvents = rawEvents.split(', ')
+    expect(expectedEvents.length).toEqual(nbOfEvents)
+
+    const dataLayer = await driver.executeScript(() => window.dataLayer)
+    const dataLayerCopy = [...dataLayer]
+    const events = dataLayerCopy.slice(-1 * nbOfEvents)
+    events.map(({ event }, index) => expect(event).toEqual(expectedEvents[index]))
+  })
 })

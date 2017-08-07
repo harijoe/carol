@@ -9,7 +9,7 @@ export const initialState = {
   signInPopin: false,
   chatbotPopin: {
     enabled: false,
-    mode: 'signin',
+    mode: 'signup',
   },
   ssr: true,
   dryRun: false,
