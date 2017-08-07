@@ -1,12 +1,20 @@
 import { css } from 'styled-components'
 import { assetPath } from 'config'
 
+import andesBlackWebfontEot from './default/fonts/andes-black-webfont.eot'
+import andesBlackWebfontTtf from './default/fonts/andes-black-webfont.ttf'
 import andesBlackWebfontWoff from './default/fonts/andes-black-webfont.woff'
 import andesBlackWebfontWoff2 from './default/fonts/andes-black-webfont.woff2'
+import andesExtralightWebfontEot from './default/fonts/andes-extralight-webfont.eot'
+import andesExtralightWebfontTtf from './default/fonts/andes-extralight-webfont.ttf'
 import andesExtralightWebfontWoff from './default/fonts/andes-extralight-webfont.woff'
 import andesExtralightWebfontWoff2 from './default/fonts/andes-extralight-webfont.woff2'
+import montserratBoldWebfontEot from './default/fonts/montserrat-bold-webfont.eot'
+import montserratBoldWebfontTtf from './default/fonts/montserrat-bold-webfont.ttf'
 import montserratBoldWebfontWoff from './default/fonts/montserrat-bold-webfont.woff'
 import montserratBoldWebfontWoff2 from './default/fonts/montserrat-bold-webfont.woff2'
+import montserratLightWebfontEot from './default/fonts/montserrat-light-webfont.eot'
+import montserratLightWebfontTtf from './default/fonts/montserrat-light-webfont.ttf'
 import montserratLightWebfontWoff from './default/fonts/montserrat-light-webfont.woff'
 import montserratLightWebfontWoff2 from './default/fonts/montserrat-light-webfont.woff2'
 
@@ -14,8 +22,11 @@ const scaffolding = theme => css`
   @font-face {
     font-family: 'andes-black';
     src:
+      url('${assetPath + andesBlackWebfontEot}'),
+      url('${assetPath + andesBlackWebfontTtf}?#iefix') format('embedded-opentype'),
       url('${assetPath + andesBlackWebfontWoff2}') format('woff2'),
       url('${assetPath + andesBlackWebfontWoff}') format('woff'),
+      url('${assetPath + andesBlackWebfontTtf}') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
@@ -23,8 +34,11 @@ const scaffolding = theme => css`
   @font-face {
     font-family: 'andes-extralight';
     src:
+      url('${assetPath + andesExtralightWebfontEot}'),
+      url('${assetPath + andesExtralightWebfontEot}?#iefix') format('embedded-opentype'),
       url('${assetPath + andesExtralightWebfontWoff2}') format('woff2'),
       url('${assetPath + andesExtralightWebfontWoff}') format('woff'),
+      url('${assetPath + andesExtralightWebfontTtf}') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
@@ -32,8 +46,11 @@ const scaffolding = theme => css`
   @font-face {
     font-family: 'montserrat';
     src:
+      url('${assetPath + montserratLightWebfontEot}'),
+      url('${assetPath + montserratLightWebfontEot}?#iefix') format('embedded-opentype'),
       url('${assetPath + montserratLightWebfontWoff2}') format('woff2'),
       url('${assetPath + montserratLightWebfontWoff}') format('woff'),
+      url('${assetPath + montserratLightWebfontTtf}') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
@@ -41,8 +58,11 @@ const scaffolding = theme => css`
   @font-face {
     font-family: 'montserrat';
     src:
+      url('${assetPath + montserratBoldWebfontEot}'),
+      url('${assetPath + montserratBoldWebfontEot}?#iefix') format('embedded-opentype'),
       url('${assetPath + montserratBoldWebfontWoff2}') format('woff2'),
       url('${assetPath + montserratBoldWebfontWoff}') format('woff'),
+      url('${assetPath + montserratBoldWebfontTtf}') format('truetype');
     font-weight: bold;
     font-style: normal;
   }
