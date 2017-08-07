@@ -59,6 +59,13 @@ ShallowWrapper {
               },
               "container": 120,
               "gridSize": 12,
+              "gutterGrid": Object {
+                "l": 2.5,
+                "m": 2.5,
+                "s": 1.6,
+                "xl": 2.5,
+                "xs": 1.6,
+              },
               "gutterWidth": Object {
                 "l": 2.5,
                 "m": 2.5,
@@ -171,6 +178,13 @@ ShallowWrapper {
                     },
                     "container": 120,
                     "gridSize": 12,
+                    "gutterGrid": Object {
+                      "l": 2.5,
+                      "m": 2.5,
+                      "s": 1.6,
+                      "xl": 2.5,
+                      "xs": 1.6,
+                    },
                     "gutterWidth": Object {
                       "l": 2.5,
                       "m": 2.5,
@@ -293,6 +307,13 @@ ShallowWrapper {
                                   },
                                   "container": 120,
                                   "gridSize": 12,
+                                  "gutterGrid": Object {
+                                    "l": 2.5,
+                                    "m": 2.5,
+                                    "s": 1.6,
+                                    "xl": 2.5,
+                                    "xs": 1.6,
+                                  },
                                   "gutterWidth": Object {
                                     "l": 2.5,
                                     "m": 2.5,
@@ -414,6 +435,13 @@ ShallowWrapper {
                                       },
                                       "container": 120,
                                       "gridSize": 12,
+                                      "gutterGrid": Object {
+                                        "l": 2.5,
+                                        "m": 2.5,
+                                        "s": 1.6,
+                                        "xl": 2.5,
+                                        "xs": 1.6,
+                                      },
                                       "gutterWidth": Object {
                                         "l": 2.5,
                                         "m": 2.5,
@@ -555,6 +583,13 @@ ShallowWrapper {
                                 },
                                 "container": 120,
                                 "gridSize": 12,
+                                "gutterGrid": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 2.5,
+                                  "xs": 1.6,
+                                },
                                 "gutterWidth": Object {
                                   "l": 2.5,
                                   "m": 2.5,
@@ -667,6 +702,13 @@ ShallowWrapper {
                                 },
                                 "container": 120,
                                 "gridSize": 12,
+                                "gutterGrid": Object {
+                                  "l": 2.5,
+                                  "m": 2.5,
+                                  "s": 1.6,
+                                  "xl": 2.5,
+                                  "xs": 1.6,
+                                },
                                 "gutterWidth": Object {
                                   "l": 2.5,
                                   "m": 2.5,
@@ -793,6 +835,13 @@ ShallowWrapper {
                   },
                   "container": 120,
                   "gridSize": 12,
+                  "gutterGrid": Object {
+                    "l": 2.5,
+                    "m": 2.5,
+                    "s": 1.6,
+                    "xl": 2.5,
+                    "xs": 1.6,
+                  },
                   "gutterWidth": Object {
                     "l": 2.5,
                     "m": 2.5,

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 70 70" style="enable-background:new 0 0 70 70;" xml:space="preserve">
+<style type="text/css">
+	.circle-arrow{fill:#FFFFFF;}
+</style>
+<path class="circle-arrow" d="M35,1.7c18.2,0,33,14.8,33,33s-14.8,33-33,33S2,52.9,2,34.7S16.8,1.7,35,1.7 M35-0.3c-19.3,0-35,15.7-35,35
+	s15.7,35,35,35s35-15.7,35-35S54.3-0.3,35-0.3L35-0.3z"/>
+<path class="circle-arrow" d="M37.8,29.3c-0.2-0.2-0.6-0.2-0.8,0c-0.2,0.2-0.2,0.6,0,0.8l4.1,4.1H27.6c-0.3,0-0.6,0.2-0.6,0.6
+	s0.3,0.6,0.6,0.6h13.5L37,39.4c-0.2,0.2-0.2,0.6,0,0.8c0.2,0.2,0.6,0.2,0.8,0l5.1-5.1c0.2-0.2,0.2-0.6,0-0.8L37.8,29.3z"/>
+</svg>

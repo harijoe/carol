@@ -76,6 +76,13 @@ theme.spaces = {
 theme.grid = {
   gridSize: 12,
   container: 120,
+  gutterGrid: {
+    xs: 1.6,
+    s: 1.6,
+    m: 2.5,
+    l: 2.5,
+    xl: 2.5,
+  },
   gutterWidth: {
     xs: 1.6,
     s: 1.6,

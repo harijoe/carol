@@ -9,8 +9,8 @@ const styles = ({ reverse, column, start, center, end, top, middle, bottom, arou
   flex-direction: row;
   flex-wrap: wrap;
   ${mapBreakpoints(bp => css`
-    margin-right: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} / 2 * -1);
-    margin-left: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} / 2 * -1);
+    margin-right: calc(${theme(`grid.gutterGrid.${bp}`, 'rem')} / 2 * -1);
+    margin-left: calc(${theme(`grid.gutterGrid.${bp}`, 'rem')} / 2 * -1);
   `)}
   ${ifThen(reverse, 'flex-direction: row-reverse;')}
   ${ifThen(column, 'flex-direction: column;')}

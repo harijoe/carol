@@ -8,7 +8,9 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <styled.figure>
+  "node": <styled.figure
+    height="s"
+>
     <Styled(Mock)
         src="test.jpg"
     />
@@ -19,7 +21,9 @@ ShallowWrapper {
     </Styled(Mock)>
 </styled.figure>,
   "nodes": Array [
-    <styled.figure>
+    <styled.figure
+      height="s"
+>
       <Styled(Mock)
             src="test.jpg"
       />
@@ -37,6 +41,7 @@ ShallowWrapper {
       "_compositeType": 2,
       "_context": Object {},
       "_currentElement": <ThumbnailPoster
+        height="s"
         image={
                 Object {
                         "src": "test.jpg",
@@ -51,6 +56,7 @@ ShallowWrapper {
         "_reactInternalInstance": [Circular],
         "context": Object {},
         "props": Object {
+          "height": "s",
           "image": Object {
             "src": "test.jpg",
           },
@@ -76,7 +82,9 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <styled.figure>
+        "_currentElement": <styled.figure
+          height="s"
+>
           <Styled(Mock)
                     src="test.jpg"
           />
@@ -87,7 +95,9 @@ ShallowWrapper {
           </Styled(Mock)>
 </styled.figure>,
         "_debugID": 2,
-        "_renderedOutput": <styled.figure>
+        "_renderedOutput": <styled.figure
+          height="s"
+>
           <Styled(Mock)
                     src="test.jpg"
           />
@@ -109,6 +119,7 @@ ShallowWrapper {
   },
   "root": [Circular],
   "unrendered": <ThumbnailPoster
+    height="s"
     image={
         Object {
             "src": "test.jpg",
