@@ -31,12 +31,15 @@ Feature: As a user, I can interact with the chatbot
     And I click on 'Connexion'
     Then I should be redirected to '/projects/MOCK_PROJECT_ID/account'
     And I should not see 'Se connecter'
-
+    
   Scenario: Signup on chatbot popin
     Given I reached the project summary in my conversation
     When I go to the 'chatbot' page
     And I click on 'Valider mon projet'
     And I click on 'Inscription'
+    And I fill 'gender' with 'Mr'
+    And I fill 'firstName' with 'John'
+    And I fill 'lastName' with 'Doe'
     And I fill 'email' with 'hello@world.com'
     And I fill 'password' with 'myp4$$w0rld'
     And I click on 'S'inscrire'

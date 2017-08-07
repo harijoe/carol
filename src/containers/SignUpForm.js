@@ -15,6 +15,9 @@ const SignUpFormContainer = props => (
 const onSubmit = (data, dispatch) => dispatch(userCreate.request(data))
 
 const validate = createValidator({
+  gender: required,
+  firstName: required,
+  lastName: required,
   email: [email, required],
   password: [password, required],
 })
