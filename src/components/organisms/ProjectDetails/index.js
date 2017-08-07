@@ -184,7 +184,7 @@ const ProjectDetails = ({ project: { name, status, createdAt, questionsAnswers, 
           <LeftCol xs={12} m={8}>
             <Paragraph dangerouslySetInnerHTML={{ __html: translate('project.resume_intro', { name: `<strong>${name}</strong>` }) }} />
             <ProjectImage>
-              <StyledImage src={cloudinary('/thumbnail-poster-keyone.jpg')} />
+              <StyledImage src={cloudinary('/placeholder-project_image.jpg')} />
             </ProjectImage>
 
             <StyledList>

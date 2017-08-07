@@ -82,6 +82,8 @@ const ImageWrapper = styled.figure`
 `
 
 const BackgroundImage = styled(Image)`
+  max-height: 100%;
+  height: auto;
   width: 100%;
 `
 
@@ -223,7 +225,7 @@ const Project = ({ name, createdAt, status, partner, firms, translate, ...items 
     <Article>
       <HeaderCard>
         <ImageWrapper>
-          <BackgroundImage src={cloudinary('/thumbnail-poster-keyone.jpg')} />
+          <BackgroundImage src={cloudinary('/placeholder-project_image.jpg')} />
         </ImageWrapper>
         <ProjectStatus {...{ status, firms }} />
         {partner && (
