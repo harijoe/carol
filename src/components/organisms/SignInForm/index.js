@@ -61,7 +61,7 @@ const StyledLinkPopIn = styled(Link)`
   }
 `
 
-const PopinWrapper = styled.div`
+const Wrapper = styled.div`
   ${breakpointMax('xl')`
     margin-top: ${theme('spaces.xl')};
   `}
@@ -151,7 +151,7 @@ const SignInForm = ({ error, handleSubmit, loading, translate, className, carous
     }
     {
       !carousel &&
-      <PopinWrapper className={className}>
+      <Wrapper className={className}>
         <Heading level={2}><FormattedMessage id="login.coming_back" /></Heading>
         <FacebookLogin />
         <GoogleLogin />
@@ -179,7 +179,7 @@ const SignInForm = ({ error, handleSubmit, loading, translate, className, carous
             <FormattedMessage id="user.create_account" />
           </StyledLinkPopIn>
         </Footer>
-      </PopinWrapper>
+      </Wrapper>
     }
   </div>
 )

@@ -111,7 +111,7 @@ const StyledLinkPopIn = styled(Link)`
   }
 `
 
-const PopinWrapper = styled.div`
+const Wrapper = styled.div`
   ${breakpointMax('xl')`
     margin-top: ${theme('spaces.xl')};
   `}
@@ -248,7 +248,7 @@ class SignUpForm extends Component {
         }
         {
           !carousel &&
-          <PopinWrapper className={className}>
+          <Wrapper className={className}>
             <Heading level={2}>
               <FormattedMessage id="user.sign_up.heading" />
             </Heading>
@@ -320,7 +320,7 @@ class SignUpForm extends Component {
                 <FormattedMessage id="user.sign_in" />
               </StyledLinkPopIn>
             </Footer>
-          </PopinWrapper>
+          </Wrapper>
         }
       </div>
     )
