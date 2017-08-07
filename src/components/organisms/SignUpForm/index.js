@@ -19,12 +19,14 @@ import {
   Link,
   Divider,
   RadioGroup,
+  Heading,
 } from 'components'
 
 const StyledRow = styled(Row)`
   flex-wrap: nowrap;
   flex-direction: column;
   margin: auto;
+  width: 100%;
 `
 
 const StyledDivider = styled(Divider)`
@@ -50,25 +52,58 @@ const StyledButton = styled(Button)`
 
 const UseConditions = styled(Paragraph)`
   font-size: ${theme('fonts.size.s')};
+  margin-bottom: ${theme('spaces.l')};
 `
 
 const Footer = styled.footer`
-  margin-top: ${theme('spaces.xl')};
-  margin-bottom: ${theme('spaces.xxl')};
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: ${theme('spaces.l')};
+  border-top: 1px solid ${theme('colors.grayscale.light')};
+  background-color: ${theme('colors.grayscale.lightest')};
+  
+  ${breakpointMax('m')`
+    padding: ${theme('spaces.m')};
+    margin-left: -${theme('spaces.m')};
+    margin-right: -${theme('spaces.m')};
+    margin-bottom: -${theme('spaces.m')};
+  `}
 
   ${breakpoint('m')`
-    margin-bottom: ${theme('spaces.xxxl')};
-  `} 
+    margin-left: -${theme('spaces.l')};
+    margin-right: -${theme('spaces.l')};
+    margin-bottom: -${theme('spaces.l')};
+  `}
+
+  ${breakpoint('xl')`
+    margin-left: -${theme('spaces.xxl')};
+    margin-right: -${theme('spaces.xxl')};
+    margin-bottom: -${theme('spaces.xxl')};
+  `}
 `
 
 const StyledParagraph = styled(Paragraph)`
-  margin: 0;
+  margin-bottom: ${theme('spaces.l')};
 `
 
 const StyledLink = styled(Link)`
   display: block;
   width: 110px;
   margin-top: ${theme('spaces.s')};
+  font-weight: bold;
+  line-height: 1;
+
+  &::after {
+    content: ' →';
+  }
+`
+
+const StyledLinkPopIn = styled(Link)`
+  display: block;
+  width: 105px;
+  margin: 10px auto;
   font-weight: bold;
   line-height: 1;
 
@@ -130,87 +165,178 @@ class SignUpForm extends Component {
   }
 
   render() {
-    const { handleSubmit, loading, redirectTo, translate, onSwitch } = this.props
+    const { handleSubmit, loading, redirectTo, translate, className, carousel, onSwitch } = this.props
 
     return (
-      <CarouselPageTemplate
-        heading={translate('user.sign_up.heading')}
-        description={translate('user.sign_up.description')}
-      >
-        <StyledRow>
-          <FacebookLogin />
-          <GoogleLogin />
-          <StyledDivider or />
-          <Form onSubmit={handleSubmit}>
-            <RadioBlock>
-              <strong><FormattedMessage id="user.gender" tagName="div" /></strong>
-              <Field
-                component={RadioGroup}
-                name="gender"
-                required
-                options={[
-                  { value: 'Mr', id: 'mr', translation: 'user.mr' },
-                  { value: 'Mrs', id: 'mrs', translation: 'user.mrs' },
-                ]}
+      <div>
+        {
+          carousel &&
+          <CarouselPageTemplate
+            heading={translate('user.sign_up.heading')}
+            description={translate('user.sign_up.description')}
+          >
+            <StyledRow>
+              <FacebookLogin />
+              <GoogleLogin />
+              <StyledDivider or />
+              <Form onSubmit={handleSubmit}>
+                <RadioBlock>
+                  <strong><FormattedMessage id="user.gender" tagName="div" /></strong>
+                  <Field
+                    component={RadioGroup}
+                    name="gender"
+                    required
+                    options={[
+                      { value: 'Mr', id: 'mr', translation: 'user.mr' },
+                      { value: 'Mrs', id: 'mrs', translation: 'user.mrs' },
+                    ]}
+                  />
+                </RadioBlock>
+                <AnimatedLabelField
+                  name="firstName"
+                  component={RenderField}
+                  label={translate('user.first_name')}
+                  placeholder={translate('user.first_name')}
+                  icon="login"
+                />
+                <AnimatedLabelField
+                  name="lastName"
+                  component={RenderField}
+                  label={translate('user.last_name')}
+                  placeholder={translate('user.last_name')}
+                  icon="login"
+                />
+                <AnimatedLabelField
+                  name="email"
+                  type="email"
+                  icon="mail-login"
+                  label={translate('user.email')}
+                />
+                <AnimatedLabelField
+                  name="password"
+                  type={this.state.passwordInputType}
+                  icon={this.state.passwordIcon}
+                  label={translate('user.password')}
+                  onIconClick={this.togglePassword}
+                />
+                <Field
+                  name="newsletterSubscription"
+                  type="checkbox"
+                  label={translate('user.newsletter_subscription')}
+                  hideBorder
+                  lightFont
+                  inline
+                  component={RenderField}
+                />
+                <StyledButton type="submit" loading={loading}>
+                  <FormattedMessage id="user.sign_up" />
+                </StyledButton>
+                <UseConditions>
+                  <FormattedMessage id="user.conditions_of_use" />
+                </UseConditions>
+              </Form>
+              <div className="footer">
+                <div>
+                  <FormattedMessage id="user.account_question" />
+                </div>
+                <div>
+                  <StyledLink highlight kind="black" onClick={() => onSwitch ? onSwitch() : redirectTo('/login')}>
+                    <FormattedMessage id="user.sign_in" />
+                  </StyledLink>
+                </div>
+              </div>
+            </StyledRow>
+          </CarouselPageTemplate>
+        }
+        {
+          !carousel &&
+          <div className={className}>
+            <Heading level={2}>
+              <FormattedMessage id="user.sign_up.heading" />
+            </Heading>
+            <StyledParagraph>
+              <FormattedMessage id="user.sign_up.description" />
+            </StyledParagraph>
+            <FacebookLogin />
+            <GoogleLogin />
+            <StyledDivider or />
+            <Form onSubmit={handleSubmit}>
+              <RadioBlock>
+                <strong><FormattedMessage id="user.gender" tagName="div" /></strong>
+                <Field
+                  component={RadioGroup}
+                  name="gender"
+                  required
+                  options={[
+                    { value: 'Mr', id: 'mr', translation: 'user.mr' },
+                    { value: 'Mrs', id: 'mrs', translation: 'user.mrs' },
+                  ]}
+                />
+              </RadioBlock>
+              <AnimatedLabelField
+                name="firstName"
+                component={RenderField}
+                label={translate('user.first_name')}
+                placeholder={translate('user.first_name')}
+                icon="login"
               />
-            </RadioBlock>
-            <AnimatedLabelField
-              name="firstName"
-              component={RenderField}
-              label={translate('user.first_name')}
-              placeholder={translate('user.first_name')}
-              icon="login"
-            />
-            <AnimatedLabelField
-              name="lastName"
-              component={RenderField}
-              label={translate('user.last_name')}
-              placeholder={translate('user.last_name')}
-              icon="login"
-            />
-            <AnimatedLabelField
-              name="email"
-              type="email"
-              icon="mail-login"
-              label={translate('user.email')}
-            />
-            <AnimatedLabelField
-              name="password"
-              type={this.state.passwordInputType}
-              icon={this.state.passwordIcon}
-              label={translate('user.password')}
-              onIconClick={this.togglePassword}
-            />
-            <Field
-              name="newsletterSubscription"
-              type="checkbox"
-              label={translate('user.newsletter_subscription')}
-              hideBorder
-              lightFont
-              inline
-              component={RenderField}
-            />
-            <StyledButton type="submit" loading={loading}>
-              <FormattedMessage id="user.sign_up" />
-            </StyledButton>
-            <UseConditions>
-              <FormattedMessage id="user.conditions_of_use" />
-            </UseConditions>
-          </Form>
-          <Footer>
-            <StyledParagraph>
+              <AnimatedLabelField
+                name="lastName"
+                component={RenderField}
+                label={translate('user.last_name')}
+                placeholder={translate('user.last_name')}
+                icon="login"
+              />
+              <AnimatedLabelField
+                name="email"
+                type="email"
+                icon="mail-login"
+                label={translate('user.email')}
+              />
+              <AnimatedLabelField
+                name="password"
+                type={this.state.passwordInputType}
+                icon={this.state.passwordIcon}
+                label={translate('user.password')}
+                onIconClick={this.togglePassword}
+              />
+              <Field
+                name="newsletterSubscription"
+                type="checkbox"
+                label={translate('user.newsletter_subscription')}
+                hideBorder
+                lightFont
+                inline
+                component={RenderField}
+              />
+              <StyledButton type="submit" loading={loading}>
+                <FormattedMessage id="user.sign_up" />
+              </StyledButton>
+              <UseConditions>
+                <FormattedMessage id="user.conditions_of_use" />
+              </UseConditions>
+            </Form>
+            <Footer>
               <FormattedMessage id="user.account_question" />
-            </StyledParagraph>
-            <StyledParagraph>
-              <StyledLink highlight kind="black" onClick={() => onSwitch ? onSwitch() : redirectTo('/login')}>
+              <StyledLinkPopIn highlight kind="black" onClick={() => onSwitch ? onSwitch() : redirectTo('/login')}>
                 <FormattedMessage id="user.sign_in" />
-              </StyledLink>
-            </StyledParagraph>
-          </Footer>
-        </StyledRow>
-      </CarouselPageTemplate>
+              </StyledLinkPopIn>
+            </Footer>
+          </div>
+        }
+      </div>
     )
+    }
   }
+
+SignUpForm.propTypes = {
+  handleSubmit: PropTypes.func,
+  className: PropTypes.string,
+  carousel: PropTypes.bool,
+  loading: PropTypes.bool,
+  translate: PropTypes.func.isRequired,
+  redirectTo: PropTypes.func,
+  onSwitch: PropTypes.func,
 }
 
 export default injectTranslate(SignUpForm)

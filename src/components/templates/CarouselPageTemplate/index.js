@@ -48,14 +48,10 @@ const RightCol = styled(Col)`
   width: 100%;
   margin-top: ${theme('spaces.xxl')};
 
-  ${breakpoint('l')`
-    padding-left: ${theme('spaces.xxl')};
-    padding-right: ${theme('spaces.xxl')};
-  `}
-
   ${mapBreakpoints(bp => css`
     padding-right: calc( ${theme(`grid.gutterWidth.${bp}`, 'rem')} + ${theme('spaces.l')} );
     padding-left: calc( ${theme(`grid.gutterWidth.${bp}`, 'rem')} + ${theme('spaces.l')} );
+    padding-bottom: calc( ${theme(`grid.gutterWidth.${bp}`, 'rem')} + ${theme('spaces.l')} );
   `)}
 `
 

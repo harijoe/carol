@@ -13,7 +13,6 @@ import {
   Link,
   FacebookLogin,
   GoogleLogin,
-  Paragraph,
   Row,
   Divider,
 } from 'components'
@@ -63,16 +62,32 @@ const StyledLinkPopIn = styled(Link)`
 `
 
 const Footer = styled.footer`
-  margin-top: ${theme('spaces.s')};
-  margin-bottom: ${theme('spaces.xxl')};
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: ${theme('spaces.l')};
+  border-top: 1px solid ${theme('colors.grayscale.light')};
+  background-color: ${theme('colors.grayscale.lightest')};
+  
+  ${breakpointMax('m')`
+    padding: ${theme('spaces.m')};
+    margin-left: -${theme('spaces.m')};
+    margin-right: -${theme('spaces.m')};
+    margin-bottom: -${theme('spaces.m')};
+  `}
 
   ${breakpoint('m')`
-    margin-bottom: ${theme('spaces.xxxl')};
-  `} 
-`
+    margin-left: -${theme('spaces.l')};
+    margin-right: -${theme('spaces.l')};
+    margin-bottom: -${theme('spaces.l')};
+  `}
 
-const StyledParagraph = styled(Paragraph)`
-  margin: 0;
+  ${breakpoint('xl')`
+    margin-left: -${theme('spaces.xxl')};
+    margin-right: -${theme('spaces.xxl')};
+    margin-bottom: -${theme('spaces.xxl')};
+  `}
 `
 
 const SignInForm = ({ error, handleSubmit, loading, translate, className, carousel, redirectTo, onSwitch }) => (
@@ -109,16 +124,16 @@ const SignInForm = ({ error, handleSubmit, loading, translate, className, carous
             </Button>
           </Form>
         </StyledRow>
-        <Footer>
-          <StyledParagraph>
+        <div className="footer">
+          <div>
             <FormattedMessage id="user.no_account_question" />
-          </StyledParagraph>
-          <StyledParagraph>
+          </div>
+          <div>
             <StyledLink highlight kind="black" onClick={() => onSwitch ? onSwitch() : redirectTo('/signup')}>
               <FormattedMessage id="user.create_account" />
             </StyledLink>
-          </StyledParagraph>
-        </Footer>
+          </div>
+        </div>
       </CarouselPageTemplate>
     }
     {
@@ -145,12 +160,12 @@ const SignInForm = ({ error, handleSubmit, loading, translate, className, carous
           <Link kind="black" to="/forgot-password" highlight><FormattedMessage id="user.forgot_password.heading" /></Link>
           <Button type="submit" block loading={loading}><FormattedMessage id="user.sign_in" /></Button>
         </Form>
-        <div className="footer">
+        <Footer>
           <FormattedMessage id="user.no_account_question" />
           <StyledLinkPopIn highlight kind="black" onClick={() => onSwitch ? onSwitch() : redirectTo('/signup')}>
             <FormattedMessage id="user.create_account" />
           </StyledLinkPopIn>
-        </div>
+        </Footer>
       </div>
     }
   </div>
