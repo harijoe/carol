@@ -22,7 +22,6 @@ class HeroContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  hasConversations: fromProjectElaboration.hasConversations(state),
   hasActiveConversation: fromProjectElaboration.hasActiveConversation(state),
   conversations: fromProjectElaboration.getConversations(state),
   firstChoices: fromProjectElaboration.getFirstChoices(state),

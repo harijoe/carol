@@ -27,10 +27,16 @@ defineSupportCode(({ When }) => {
     })
   })
 
-  When(/I should see '(.*)'/, async expectedText => {
+  When(/I should see '(.*)'(?: (\d) times)?$/, async (expectedText, expectedOccurences) => {
     const text = await driver.findElement({ css: 'body' }).getText()
 
-    expect(text).toInclude(expectedText)
+    if (!expectedOccurences) {
+      return expect(text).toInclude(expectedText)
+    }
+
+    const occurences = text.split(expectedText).length - 1
+
+    return expect(occurences).toEqual(expectedOccurences)
   })
 
   When(/I should see a popin/, async () => {

@@ -6,7 +6,6 @@ import {
   PROJECT_ELABORATION_HERO_DETAILS,
   PROJECT_ELABORATION_HERO_SET_RESPONSE,
   PROJECT_ELABORATION_CONVERSATIONS_DETAILS,
-  PROJECT_ELABORATION_CONVERSATION_DETAILS,
   PROJECT_ELABORATION_RESET_CONVERSATION,
   PROJECT_ELABORATION_PRE_VALIDATE,
   PROJECT_ELABORATION_PARTNER,
@@ -98,32 +97,18 @@ export default (state = initialState, action) => {
         hero: setHero(state.hero, Object.values(payload)),
       }
     case PROJECT_ELABORATION_CONVERSATIONS_DETAILS.SUCCESS:
-      if (Object.keys(payload).length === 1) {
+      if (payload.conversation) {
         return {
           ...state,
-          activeConversation: payload[Object.keys(payload)[0]].conversation,
-          sessionId: payload[Object.keys(payload)[0]].sessionId,
-          tracking: payload[Object.keys(payload)[0]].tracking,
-        }
-      }
-
-      if (Object.keys(payload).length > 1) {
-        return {
-          ...state,
-          conversations: payload,
+          activeConversation: payload.conversation,
+          sessionId: payload.sessionId,
+          partner: payload.partner,
         }
       }
 
       return {
         ...state,
         activeConversation: [],
-        conversations: {},
-      }
-    case PROJECT_ELABORATION_CONVERSATION_DETAILS:
-      return {
-        ...state,
-        activeConversation: state.conversations[payload].conversation,
-        sessionId: state.conversations[payload].sessionId,
         conversations: {},
       }
     case PROJECT_ELABORATION_RESET_CONVERSATION:
@@ -132,16 +117,10 @@ export default (state = initialState, action) => {
         activeConversation: [],
       }
     case PROJECT_ELABORATION_PARTNER.SUCCESS: {
-      const tracking = action.payload['hydra:member'][0]
-
-      tracking.partnerHeaderText = tracking.headerText
-      tracking.partnerHeaderLink = tracking.headerLink
-      delete tracking.headerText
-      delete tracking.headerLink
-
+      const partner = action.payload['hydra:member'][0]
       return {
         ...state,
-        tracking,
+        partner,
       }
     }
     case PROJECT_ELABORATION_PRE_VALIDATE.SUCCESS:

@@ -33,20 +33,6 @@ it('renders the Hero component with a conversation in progress', () => {
       />
     </ThemeProvider>
   ))
-  const wrapperHasConversations = mount(mockIntl(
-    <ThemeProvider theme={theme}>
-      <Hero
-        hasConversations
-        firstChoices={[{
-          title: 'test',
-          image_url: 'test',
-          buttons: [{ payload: 'test' }],
-          subtitle: 'test',
-        }]}
-      />
-    </ThemeProvider>
-  ))
 
   expect(wrapperHasConversation.find('FormattedMessage').first().prop('id')).toEqual('hero.conversation_in_progress')
-  expect(wrapperHasConversations.find('FormattedMessage').first().prop('id')).toEqual('hero.conversation_in_progress')
 })

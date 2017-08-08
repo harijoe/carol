@@ -1,5 +1,4 @@
 import { put, select } from 'redux-saga/effects'
-import cookie from 'services/cookies'
 import { push, replace } from 'react-router-redux'
 import { fromProjectElaboration, fromAuth, fromUser, fromRouting, fromContext } from 'store/selectors'
 import pushGtmEvent from 'utils/gtm'
@@ -18,14 +17,12 @@ import {
   PROJECT_ELABORATION_HERO_SET_RESPONSE,
   PROJECT_ELABORATION_HERO_DETAILS,
   PROJECT_ELABORATION_CONVERSATIONS_DETAILS,
-  PROJECT_ELABORATION_CONVERSATIONS_SELECT,
   PROJECT_ELABORATION_CONVERSATION_CURRENT,
   PROJECT_ELABORATION_PRE_VALIDATE,
   PROJECT_ELABORATION_CLICK_FIND_A_PRO,
   projectElaborationReply,
   projectElaborationConversationsDetails,
   setProjectElaborationConversationAnswer,
-  projectElaborationConversationDetails,
   projectElaborationHeroDetails,
   projectElaborationResetConversation,
   projectElaborationPreValidate,
@@ -80,7 +77,7 @@ function* replyConversation({ text, payload = null }) {
 function* getConversations() {
   const sessionId = yield select(fromProjectElaboration.getSessionId)
 
-  yield* fetch(projectElaborationConversationsDetails, 'get', `/chatbot-conversations/${sessionId}`)
+  yield* fetch(projectElaborationConversationsDetails, 'get', `/chatbot_storages/conversation/${sessionId}`)
 }
 
 function* getConversationCurrent() {
@@ -107,15 +104,6 @@ function* getConversationCurrent() {
   } else {
     yield* replyConversation({ text: 'new_project.first_question' })
   }
-}
-
-function* selectConversation({ authType }) {
-  yield put(projectElaborationConversationDetails(authType))
-
-  const sessionId = yield select(fromProjectElaboration.getSessionId)
-
-  cookie.set('project_elaboration_session_id', sessionId)
-  yield* replyConversation({ text: 'new_project.current' })
 }
 
 function* replyHero() {
@@ -197,7 +185,6 @@ export default function* () {
     takeLatest(PROJECT_ELABORATION_HERO_SET_RESPONSE, replyHero),
     takeLatest(PROJECT_ELABORATION_CLICK_FIND_A_PRO, handleClickOnFindAPro),
     takeLatest(PROJECT_ELABORATION_CONVERSATIONS_DETAILS.REQUEST, getConversations),
-    takeLatest(PROJECT_ELABORATION_CONVERSATIONS_SELECT.REQUEST, selectConversation),
     takeLatest(PROJECT_ELABORATION_CONVERSATION_CURRENT.REQUEST, getConversationCurrent),
     takeLatest(PROJECT_ELABORATION_PRE_VALIDATE.REQUEST, preValidate),
   ]

@@ -6,7 +6,6 @@ import { bindActionCreators } from 'redux'
 import {
   projectElaborationReply,
   projectElaborationConversationCurrent,
-  projectElaborationConversationsSelect,
 } from 'store/actions'
 import { fromProjectElaboration, fromContext } from 'store/selectors'
 
@@ -33,15 +32,12 @@ class ProjectElaborationContainer extends Component {
 
 const mapStateToProps = state => ({
   activeConversation: fromProjectElaboration.getConversation(state),
-  conversations: fromProjectElaboration.getConversations(state),
-  hasConversations: fromProjectElaboration.hasConversations(state),
   locale: fromContext.getLocale(state),
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   reply: (text, payload) => projectElaborationReply.request(text, payload),
   request: () => projectElaborationConversationCurrent.request(),
-  selectConversation: authType => projectElaborationConversationsSelect.request(authType),
   redirectTo: url => push(url),
 }, dispatch)
 

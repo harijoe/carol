@@ -30,24 +30,17 @@ export const initialState = {
   postalCode: null,
   proFormId: null,
   proFormLabel: null,
-  tracking: {},
+  partner: {},
 }
 
 export const getConversation = (state = initialState) => state.activeConversation
-export const getTracking = (state = initialState) => state.tracking
-export const getPartnerHeaderText = (state = initialState) => state.tracking.partnerHeaderText
-export const getPartnerHeaderLink = (state = initialState) => state.tracking.partnerHeaderLink
+export const getPartnerHeaderText = (state = initialState) => state.partner.headerText
+export const getPartnerHeaderLink = (state = initialState) => state.partner.headerLink
 export const hasActiveConversation = (state = initialState) => {
   const activeConversation = getConversation(state)
-
-  if (activeConversation.length > 0) {
-    return activeConversation[0].answer != null && activeConversation[0].answer.text !== null
-  }
-
-  return false
+  return activeConversation.length > 0 && activeConversation[0].answer && activeConversation[0].answer.text
 }
 export const getConversations = (state = initialState) => state.conversations
-export const hasConversations = (state = initialState) => Object.keys(getConversations(state)).length > 1
 export const getSessionId = (state = initialState) => state.sessionId
 export const getFirstChoices = (state = initialState) => state.hero[1].message.attachment.payload.elements
 export const getHeroAnswer = (state = initialState) => state.hero[1].answer

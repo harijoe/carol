@@ -334,17 +334,15 @@ it('handles PROJECT_ELABORATION_CONVERSATIONS_DETAILS with user', () => {
   const action = {
     type: actions.PROJECT_ELABORATION_CONVERSATIONS_DETAILS.SUCCESS,
     payload: {
-      user: {
-        conversation: [{
-          message: {
-            text: 'My message test',
-          },
-          answer: {
-            text: 'My response test',
-          },
-        }],
-        sessionId: '456546535435',
-      },
+      conversation: [{
+        message: {
+          text: 'My message test',
+        },
+        answer: {
+          text: 'My response test',
+        },
+      }],
+      sessionId: '456546535435',
     },
   }
 
@@ -386,66 +384,6 @@ it('handles PROJECT_ELABORATION_CONVERSATIONS_DETAILS with user', () => {
   expect(reducer(initialState, action)).toEqual(expected)
 })
 
-it('handles PROJECT_ELABORATION_CONVERSATIONS_DETAILS with user and anonym', () => {
-  const action = {
-    type: actions.PROJECT_ELABORATION_CONVERSATIONS_DETAILS.SUCCESS,
-    payload: {
-      user: {
-        conversation: [{
-          message: {
-            text: 'My message test',
-          },
-          answer: {
-            text: 'My response test',
-          },
-        }],
-        sessionId: '456546535435',
-      },
-      anonym: {
-        conversation: [{
-          message: {
-            text: 'My message test',
-          },
-          answer: {
-            text: 'My response test',
-          },
-        }],
-        sessionId: '456546535435',
-      },
-    },
-  }
-
-  const expected = {
-    ...initialState,
-    conversations: {
-      user: {
-        conversation: [{
-          message: {
-            text: 'My message test',
-          },
-          answer: {
-            text: 'My response test',
-          },
-        }],
-        sessionId: '456546535435',
-      },
-      anonym: {
-        conversation: [{
-          message: {
-            text: 'My message test',
-          },
-          answer: {
-            text: 'My response test',
-          },
-        }],
-        sessionId: '456546535435',
-      },
-    },
-  }
-
-  expect(reducer(initialState, action)).toEqual(expected)
-})
-
 it('handles PROJECT_ELABORATION_CONVERSATIONS_DETAILS with no conversation', () => {
   const action = {
     type: actions.PROJECT_ELABORATION_CONVERSATIONS_DETAILS.SUCCESS,
@@ -456,49 +394,6 @@ it('handles PROJECT_ELABORATION_CONVERSATIONS_DETAILS with no conversation', () 
     ...initialState,
     activeConversation: [],
     conversations: {},
-  }
-
-  expect(reducer(initialState, action)).toEqual(expected)
-})
-
-it('handles PROJECT_ELABORATION_CONVERSATION_DETAILS', () => {
-  const action = {
-    type: actions.PROJECT_ELABORATION_CONVERSATION_DETAILS,
-    payload: 'user',
-  }
-
-  initialState = {
-    ...initialState,
-    conversations: {
-      user: {
-        conversation: [{
-          message: {
-            text: 'My message test',
-          },
-          answer: {
-            text: 'My response test',
-          },
-        }],
-        sessionId: '456546535435',
-      },
-      anonym: {
-        conversation: [{
-          message: {
-            text: 'My message test',
-          },
-          answer: {
-            text: 'My response test',
-          },
-        }],
-        sessionId: '456546535435',
-      },
-    },
-  }
-  const expected = {
-    ...initialState,
-    activeConversation: initialState.conversations.user.conversation,
-    conversations: {},
-    sessionId: initialState.conversations.user.sessionId,
   }
 
   expect(reducer(initialState, action)).toEqual(expected)

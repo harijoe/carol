@@ -244,41 +244,37 @@ export const firstKey = [
   },
 ]
 export const conversations = {
-  anonym: {
-    sessionId: 'MOCK_SESSION_ID',
-    conversation: [
-      {
-        message: { text: 'Bonjour, quel type de travaux souhaitez-vous faire ?' },
-        answer: { text: 'Fen\u00eatres et ouvertures ext\u00e9rieures' },
-      },
-    ],
-    createdAt: { date: '2017-07-28 15:45:05.000000', timezone_type: 3, timezone: 'UTC' },
-    updatedAt: { date: '2017-07-28 15:45:06.000000', timezone_type: 3, timezone: 'UTC' },
-    tracking: [],
-  },
+  sessionId: 'MOCK_SESSION_ID',
+  conversation: [
+    {
+      message: { text: 'Bonjour, quel type de travaux souhaitez-vous faire ?' },
+      answer: { text: 'Fen\u00eatres et ouvertures ext\u00e9rieures' },
+    },
+  ],
+  createdAt: '2017-07-28T15:45:05+00:00',
+  updatedAt: '2017-07-28T15:45:06.000000',
+  partner: {},
 }
 export const conversationsSummary = {
-  anonym: {
-    sessionId: 'MOCK_SESSION_ID',
-    conversation: [
-      {
-        message: { text: 'Bonjour, quel type de travaux souhaitez-vous faire ?' },
-        answer: { text: 'Fen\u00eatres et ouvertures ext\u00e9rieures' },
-      },
-      { message: { text: 'Quel est votre projet ?' }, answer: { text: 'Double vitrage et vitrage' } },
-      {
-        message: { text: 'S\u0027agit-il d\u0027une installation, d\u0027une r\u00e9paration ou d\u0027un entretien ?' },
-        answer: { text: 'Installation - Remplacement' },
-      },
-      { message: { text: 'De quel type de vitrage s\u0027agit-il ?' }, answer: { text: 'Double vitrage' } },
-      { message: { text: 'Quel type de bien est concern\u00e9 ?' }, answer: { text: 'Locaux et bureaux commerciaux' } },
-      { message: { text: 'Quelle est votre situation personnelle ?' }, answer: { text: 'Locataire sans accord du propri\u00e9taire' } },
-      { message: { text: 'Quel est votre ville ?' }, answer: { text: 'PARIS 17 (75017)' } },
-    ],
-    createdAt: { date: '2017-08-02 08:28:08.000000', timezone_type: 3, timezone: 'UTC' },
-    updatedAt: { date: '2017-08-02 08:28:21.000000', timezone_type: 3, timezone: 'UTC' },
-    tracking: [],
-  },
+  sessionId: 'MOCK_SESSION_ID',
+  conversation: [
+    {
+      message: { text: 'Bonjour, quel type de travaux souhaitez-vous faire ?' },
+      answer: { text: 'Fen\u00eatres et ouvertures ext\u00e9rieures' },
+    },
+    { message: { text: 'Quel est votre projet ?' }, answer: { text: 'Double vitrage et vitrage' } },
+    {
+      message: { text: 'S\u0027agit-il d\u0027une installation, d\u0027une r\u00e9paration ou d\u0027un entretien ?' },
+      answer: { text: 'Installation - Remplacement' },
+    },
+    { message: { text: 'De quel type de vitrage s\u0027agit-il ?' }, answer: { text: 'Double vitrage' } },
+    { message: { text: 'Quel type de bien est concern\u00e9 ?' }, answer: { text: 'Locaux et bureaux commerciaux' } },
+    { message: { text: 'Quelle est votre situation personnelle ?' }, answer: { text: 'Locataire sans accord du propri\u00e9taire' } },
+    { message: { text: 'Quel est votre ville ?' }, answer: { text: 'PARIS 17 (75017)' } },
+  ],
+  createdAt: '2017-08-02T08:28:08+00:00',
+  updatedAt: '2017-08-02T08:28:21+00:00',
+  partner: {},
 }
 export const currentSummary = [
   {

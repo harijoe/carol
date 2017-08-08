@@ -4,7 +4,7 @@ import postListReinsurance from './postListReinsurance'
 import postListTestimony from './postListTestimony'
 import postListWorkResources from './postListWorkResources'
 import * as token from './token'
-import project from './project'
+import * as project from './project'
 import projects from './projects'
 import me from './me'
 
@@ -64,17 +64,21 @@ export default [
   },
   {
     path: '/projects/MOCK_PROJECT_ID',
-    response: project,
+    response: project.toValidate,
   },
   {
     method: 'PUT',
     path: '/projects/MOCK_PROJECT_ID',
-    response: project,
+    response: project.toValidateWithInformations,
+    conditionalRequestBody: {
+      startTimeframe: "now",
+      purpose: "quotation",
+    },
   },
   {
     method: 'POST',
     path: '/project-start/MOCK_SESSION_ID',
-    response: project,
+    response: project.toValidate,
   },
   {
     path: '/posts?tag[]=api-last-project&itemsPerPage=3&order[project_date]=DESC',
@@ -93,7 +97,7 @@ export default [
     response: postListWorkResources,
   },
   {
-    path: '/chatbot-conversations/MOCK_SESSION_ID',
+    path: '/chatbot_storages/conversation/',
     status: 204,
   },
   {

@@ -32,19 +32,19 @@ Feature: As a user, I can interact with the chatbot
   Scenario: Signin on chatbot popin
     Given I opened the chatbot popin
     And I click on 'Connexion'
-    And I fill 'email' with 'hello@world.com'
-    And I fill 'password' with 'myp4$$w0rld'
+    And I fill 'Adresse e-mail' with 'hello@world.com'
+    And I fill 'Mot de passe' with 'myp4$$w0rld'
     And I click on 'Connexion'
     Then I should be redirected to '/projects/MOCK_PROJECT_ID/account'
     And I should not see 'Se connecter'
-    
+
   Scenario: Signup on chatbot popin
     Given I opened the chatbot popin
-    And I fill 'gender' with 'Mr'
-    And I fill 'firstName' with 'John'
-    And I fill 'lastName' with 'Doe'
-    And I fill 'email' with 'hello@world.com'
-    And I fill 'password' with 'myp4$$w0rld'
+    And I click on 'Mr'
+    And I fill 'Prénom' with 'John'
+    And I fill 'Nom' with 'Doe'
+    And I fill 'Adresse e-mail' with 'hello@world.com'
+    And I fill 'Mot de passe' with 'myp4$$w0rld'
     And I click on 'S'inscrire'
     Then I should be redirected to '/projects/MOCK_PROJECT_ID/account'
     And I should not see 'Se connecter'

@@ -176,7 +176,7 @@ const FirstChoices = (choices, reply) => (
   </CarouselWrapper>
 )
 
-const Hero = ({ hasActiveConversation, firstChoices, reply, hasConversations, featureSearchEngineEnabled }) => (
+const Hero = ({ hasActiveConversation, firstChoices, reply, featureSearchEngineEnabled }) => (
   <HeroWrapper className="hero">
     <MainWrapper resetState>
       <StyledSection>
@@ -186,7 +186,7 @@ const Hero = ({ hasActiveConversation, firstChoices, reply, hasConversations, fe
           </StyledRow>
         }
         {
-          hasActiveConversation || hasConversations ?
+          hasActiveConversation ?
             <StyledRow>
               <header>
                 <StyledHeading level={1}>
@@ -222,7 +222,6 @@ const Hero = ({ hasActiveConversation, firstChoices, reply, hasConversations, fe
 )
 
 Hero.propTypes = {
-  hasConversations: PropTypes.bool,
   hasActiveConversation: PropTypes.bool,
   featureSearchEngineEnabled: PropTypes.bool,
   firstChoices: PropTypes.arrayOf(

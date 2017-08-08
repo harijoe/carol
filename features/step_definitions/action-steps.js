@@ -5,12 +5,15 @@ import driver from '../lib/driver'
 defineSupportCode(({ When }) => {
   When(/I click on '(.*)'/, async target => {
     // https://goo.gl/VHmvXp
-    const element = await driver.findElement({ xpath: `//*[contains(text(), "${target}")]` })
+    // Style tags are removed from the query because they create false positives (probably selenium bug)
+    const element = await driver.findElement({ xpath: `//*[not(self::style)][contains(text(), "${target}")]` })
 
     await element.click()
   })
   When(/I fill '(.*)' with '(.*)'/, async (target, value) => {
-    const element = await driver.findElement({ css: `input[name=${target}]` })
+    const label = await driver.findElement({ xpath: `//label[contains(text(), "${target}")]`})
+    const forAttr = await label.getAttribute('for')
+    const element = await driver.findElement({ css: `input[name=${forAttr}]` })
 
     await element.sendKeys(value)
   })
@@ -21,5 +24,14 @@ defineSupportCode(({ When }) => {
     await select.click()
     const option = await select.findElement({ xpath: `//option[contains(text(), "${value}")]`})
     option.click()
+  })
+  When(/I wait until I see '(.*)'/, async (expectedText) => {
+    const check = async d => {
+      const text = await d.findElement({ css: 'body' }).getText()
+
+      return text.indexOf(expectedText) !== -1
+    }
+
+    await driver.wait(check)
   })
 })

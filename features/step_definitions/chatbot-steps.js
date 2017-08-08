@@ -17,7 +17,7 @@ const reachedProjectSummary = async () => {
     },
   })
   await simulado.mock({
-    path: '/chatbot-conversations/MOCK_SESSION_ID',
+    path: '/chatbot_storages/conversation/',
     response: chatbot.conversationsSummary,
   })
 }
@@ -27,7 +27,7 @@ defineSupportCode(({ Given }) => {
     const elements = await driver.findElements({ css: '.hero .slick-slide' })
     await elements[0].click()
     await simulado.mock({
-      path: '/chatbot-conversations/MOCK_SESSION_ID',
+      path: '/chatbot_storages/conversation/MOCK_SESSION_ID',
       response: chatbot.conversations,
     })
   })

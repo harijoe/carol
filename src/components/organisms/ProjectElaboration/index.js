@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { FormattedMessage } from 'react-intl'
 import isFirstChatbotStep from 'utils/isFirstChatbotStep'
 
 import { Grid } from 'components'
@@ -21,10 +20,7 @@ const StyledGrid = styled(Grid)`
 
 const ProjectElaboration = ({
   activeConversation,
-  conversations,
   reply,
-  selectConversation,
-  hasConversations,
   locale,
   redirectTo,
 }) => {
@@ -33,28 +29,14 @@ const ProjectElaboration = ({
 
   return (
     <StyledGrid narrow>
-      {
-        hasConversations ?
-          <ul style={{ marginTop: 100 }}>
-            <p><FormattedMessage id="project.elaboration.choose_conversation" /></p>
-            {
-              Object.keys(conversations).map((authType, i) => (
-                <li key={i}>
-                  <button onClick={() => selectConversation(authType)}>{authType}</button>
-                </li>
-              ))
-            }
-          </ul>
-          :
-          <div>
-            <Conversation {...{ activeConversation, reply, locale, redirectTo }} />
-            <Form
-              reply={reply}
-              disabled={quickReplies != null ? quickReplies.length !== 0 : true}
-              enableBack={enableBack}
-            />
-          </div>
-      }
+      <div>
+        <Conversation {...{ activeConversation, reply, locale, redirectTo }} />
+        <Form
+          reply={reply}
+          disabled={quickReplies != null ? quickReplies.length !== 0 : true}
+          enableBack={enableBack}
+        />
+      </div>
     </StyledGrid>
   )
 }
@@ -72,9 +54,6 @@ ProjectElaboration.propTypes = {
   ),
   reply: PropTypes.func,
   redirectTo: PropTypes.func,
-  selectConversation: PropTypes.func,
-  conversations: PropTypes.object,
-  hasConversations: PropTypes.bool,
   locale: PropTypes.string,
 }
 
