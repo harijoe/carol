@@ -17,6 +17,7 @@ import {
   Paragraph,
   NotificationBox,
   ProjectStatus,
+  FirmList,
   Image,
   List,
   IconLink,
@@ -24,6 +25,30 @@ import {
 } from 'components'
 
 const Wrapper = styled.div``
+
+const StyledSection = styled(Section)`
+  padding-bottom: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    margin-top: -${theme('spaces.xl')};
+    margin-left: -${theme('spaces.m')};
+    width: 100%;
+    height: 40rem;
+    background-color: ${theme('colors.grayscale.lightest')};
+
+    ${breakpoint('m')`
+      margin-top: -${theme('spaces.xxl')};
+      margin-left: -${theme('spaces.l')};
+    `}
+
+    ${breakpoint('xl')`
+      margin-top: -${theme('spaces.xxl')};
+      margin-left: -${theme('spaces.xxl')};
+    `}
+  }
+`
 
 const DateCreation = styled.time`
   display: block;
@@ -81,7 +106,20 @@ const StyledList = styled(List)`
 
   list-style-position: outside;
   margin-left: 1em;
+`
 
+const StyledGrid = styled(Grid)`
+  max-width: 120rem;
+  margin: ${theme('spaces.l')} auto 0 auto;
+
+  .slick-list {
+    padding-top: ${theme('spaces.m')};
+    padding-bottom: ${theme('spaces.m')};
+  }
+
+  .slick-slider {
+    padding-bottom: ${theme('spaces.m')};
+  }
 `
 
 const StyledHeading = styled(Heading)`
@@ -177,6 +215,16 @@ const ProjectDetails = ({ project: { name, status, createdAt, questionsAnswers, 
         <DateCreation><FormattedMessage id="project.created_at" /> {transformDate(createdAt)}</DateCreation>
       </Grid>
     </Section>
+
+    {status === 'found' &&
+    <StyledSection>
+      <Grid narrow>
+        <Paragraph dangerouslySetInnerHTML={{ __html: translate('project.firm_intro', { firmsNumber: `<strong>${firms.length}</strong>` }) }} />
+      </Grid>
+      <StyledGrid>
+        <FirmList list={firms} />
+      </StyledGrid>
+    </StyledSection>}
 
     <Section title={translate('project.resume_title')}>
       <Grid narrow>

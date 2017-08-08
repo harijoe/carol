@@ -54,12 +54,13 @@ const InnerWrapper = styled.div`${({ show }) => css`
   `}
 `}`
 
-const ScrollWrapper = styled.div`
+const ScrollWrapper = styled.div`${({ show }) => css`
   position: fixed;
   width: 100%;
   height: 100%;
   overflow-y: scroll;
-`
+  ${ifThen(show, '', 'pointer-events: none;')};
+`}`
 
 const Background = styled.div`
   ${breakpoint('m')`

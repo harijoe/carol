@@ -15,7 +15,6 @@ import {
   Image,
   ProjectStatus,
   Divider,
-  Button,
 } from 'components'
 
 const Article = styled(Card)`
@@ -132,22 +131,42 @@ const FirmImage = styled(Image)`
   &:first-child {
     margin-left: ${theme('spaces.l')};
     left: 0;
+
+    ${breakpointMax('m')`
+      margin-left: ${theme('spaces.m')};
+    `}
   }
   &:nth-child(2) {
     margin-left: ${theme('spaces.l')};
     left: ${theme('spaces.xl')};
+
+    ${breakpointMax('m')`
+      margin-left: ${theme('spaces.m')};
+    `}
   }
   &:nth-child(3) {
     margin-left: ${theme('spaces.l')};
     left: calc(${theme('spaces.xl')} * 2);
+
+    ${breakpointMax('m')`
+      margin-left: ${theme('spaces.m')};
+    `}
   }
   &:nth-child(4) {
     margin-left: ${theme('spaces.l')};
     left: calc(${theme('spaces.xl')} * 3);
+
+    ${breakpointMax('m')`
+      margin-left: ${theme('spaces.m')};
+    `}
   }
   &:nth-child(5) {
     margin-left: ${theme('spaces.l')};
     left: calc(${theme('spaces.xl')} * 4);
+
+    ${breakpointMax('m')`
+      margin-left: ${theme('spaces.m')};
+    `}
   }
 
   &:hover {
@@ -155,11 +174,11 @@ const FirmImage = styled(Image)`
   }
 `
 
-const ButtonArrow = styled(Button)`
+const ButtonArrow = styled(Link)`
   position: absolute;
   display: block;
   right: 0;
-  bottom: 0;
+  bottom: ${theme('spaces.l')};
   margin-right: ${theme('spaces.l')};
   border-radius: ${theme('spaces.l')};
   width: ${theme('spaces.xxl')};
@@ -168,6 +187,10 @@ const ButtonArrow = styled(Button)`
   color: ${theme('colors.white')};
   box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.10);
   transition: all 0.3s ease;
+
+  ${breakpointMax('m')`
+      margin-right: ${theme('spaces.m')};
+  `}
 
   &::before {
     position: absolute;
@@ -194,11 +217,15 @@ const FirmWrapper = styled.div`
   &::before {
     position: absolute;
     bottom: 0;
-    margin-left: -2.5rem;
+    margin-left: -${theme('spaces.m')};
     content: '';
     width: 100%;
     height: ${theme('spaces.xxl')};
     background-color: ${theme('colors.grey')};
+    
+    ${breakpoint('m')`
+      margin-left: -${theme('spaces.l')};
+    `}
   }
 `
 
@@ -221,46 +248,44 @@ const PartnerImageWrapper = styled.div`
 `
 
 const Project = ({ name, createdAt, status, partner, firms, translate, ...items }) => (
-  <Link to={['validated', 'pending_search', 'found'].includes(status) ? items['@id'] : `${items['@id']}/account`}>
-    <Article>
-      <HeaderCard>
-        <ImageWrapper>
-          <BackgroundImage src={cloudinary('/placeholder-project_image.jpg')} />
-        </ImageWrapper>
-        <ProjectStatus {...{ status, firms }} />
-        {partner && (
-          <PartnerImageWrapper>
-            <PartnerImage src={partner.headerLink} />
-          </PartnerImageWrapper>
-        )}
-      </HeaderCard>
-      <FooterCard>
-        <StyledHeading level={3}>{name}</StyledHeading>
-        <DateCreation>
-          <FormattedMessage id="project.created_at" /> <DateTime value={createdAt} />
-        </DateCreation>
-        <Divider />
-        <StyledParagraph>
-          {status === 'found' ? translate(`project.describe.${status}`, { firmsNumber: firms.length }) : translate(`project.describe.${status}`) }
-        </StyledParagraph>
-        { status === 'found' &&
-        <FirmWrapper>
-          {firms.map(firm => <FirmImage alt={'alt'} src={firm.logoUrl ? firm.logoUrl : cloudinary('/icons/placeholder-logo.png')} width="50" height="50" />)}
-          <ButtonArrow />
-        </FirmWrapper>}
-        {status === 'completion_in_progress' && (
-          <ButtonLink button to="/project-elaboration">
-            <FormattedMessage id="project.continue" />
-          </ButtonLink>
-        )}
-        {status === 'to_validate' && (
-          <ButtonLink button to={`${items['@id']}/account`}>
-            <FormattedMessage id="project.button.to_validate" />
-          </ButtonLink>
-        )}
-      </FooterCard>
-    </Article>
-  </Link>
+  <Article>
+    <HeaderCard>
+      <ImageWrapper>
+        <BackgroundImage src={cloudinary('/thumbnail-poster-keyone.jpg')} />
+      </ImageWrapper>
+      <ProjectStatus {...{ status, firms }} />
+      {partner && (
+        <PartnerImageWrapper>
+          <PartnerImage src={partner.headerLink} />
+        </PartnerImageWrapper>
+      )}
+    </HeaderCard>
+    <FooterCard>
+      <StyledHeading level={3}>{name}</StyledHeading>
+      <DateCreation>
+        <FormattedMessage id="project.created_at" /> <DateTime value={createdAt} />
+      </DateCreation>
+      <Divider />
+      <StyledParagraph>
+        {status === 'found' ? translate(`project.describe.${status}`, { firmsNumber: firms.length }) : translate(`project.describe.${status}`) }
+      </StyledParagraph>
+      { status === 'found' &&
+      <FirmWrapper>
+        {firms.map(firm => <FirmImage key={firm.name} alt={'alt'} src={firm.logoUrl ? firm.logoUrl : cloudinary('/icons/placeholder-logo.png')} width="50" height="50" />)}
+        <ButtonArrow to={items['@id']} />
+      </FirmWrapper>}
+      {status === 'completion_in_progress' && (
+        <ButtonLink button to="/project-elaboration">
+          <FormattedMessage id="project.continue" />
+        </ButtonLink>
+      )}
+      {status === 'to_validate' && (
+        <ButtonLink button to={`${items['@id']}/account`}>
+          <FormattedMessage id="project.button.to_validate" />
+        </ButtonLink>
+      )}
+    </FooterCard>
+  </Article>
 )
 
 Project.propTypes = {
