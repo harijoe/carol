@@ -251,7 +251,7 @@ const Project = ({ name, createdAt, status, partner, leadSales, translate, ...it
   <Article>
     <HeaderCard>
       <ImageWrapper>
-        <BackgroundImage src={cloudinary('/thumbnail-poster-keyone.jpg')} />
+        <BackgroundImage src={cloudinary('/placeholder-project_image.jpg')} />
       </ImageWrapper>
       <ProjectStatus {...{ status, leadSales }} />
       {partner && (
