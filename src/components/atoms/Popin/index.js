@@ -28,6 +28,7 @@ const OuterWrapper = styled.div`${({ show }) => css`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background: transparent;
     transition: opacity 0.2s linear;
     ${ifThen(!show, 'pointer-events: none;', '')}
   `}
