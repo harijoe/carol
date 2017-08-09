@@ -33,6 +33,12 @@ const Form = styled.form`
   ${breakpointMax('m')`
     padding: 0;
   `}
+
+  strong {
+    display: block;
+    font-weight: normal;
+    color: ${theme('colors.danger')};
+  }
 `
 
 Form.displayName = 'Form'
