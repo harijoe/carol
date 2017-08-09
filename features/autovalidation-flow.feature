@@ -22,3 +22,14 @@ Feature: As a logged in user going to the auto validation tunnel, I can go throu
     And I wait until I see 'Saisissez le code à 6 chiffres'
     And I fill 'Code de confirmation' with '123456'
     Then I should be redirected to '/validation/email?projectId=/projects/MOCK_PROJECT_ID'
+
+  #Scenario: Validating step 3 redirects to project validated page
+  #  Given I am logged in
+  #  And My current project already has informations
+  #  And My phone is validated
+  #  When I go to the 'auto-validation step 2' page
+  #  And I fill 'Téléphone mobile' with '0606060606'
+  #  And I click on 'Envoyer'
+  #  And I wait until I see 'Saisissez le code à 6 chiffres'
+  #  And I fill 'Code de confirmation' with '123456'
+  #  Then I should be redirected to '/validation/email?projectId=/projects/MOCK_PROJECT_ID'

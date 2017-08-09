@@ -289,9 +289,7 @@ export const currentSummary = [
               image_url: 'https://res.cloudinary.com/quotatis/image/upload/c_crop,g_west,h_484,w_440,x_250/v1495181695/FR/ChatbotImages/Q1/fenetres-et-ouvertures-exterieures.jpg',
               item_url: null,
               subtitle: 'Bonjour, quel type de travaux souhaitez-vous faire ?\nFen\u00eatres et ouvertures ext\u00e9rieures\nQuel est votre projet ?\nDouble vitrage et vitrage\nS\u0027agit-il d\u0027une installation, d\u0027une r\u00e9paration ou d\u0027un entretien ?\nInstallation - Remplacement\nDe quel type de vitrage s\u0027agit-il ?\nDouble vitrage\nQuel type de bien est concern\u00e9 ?\nLocaux et bureaux commerciaux\nQuelle est votre situation personnelle ?\nLocataire sans accord du propri\u00e9taire\nQuel est votre ville ?\nPARIS 17 (75017)\n',
-              buttons: [
-                { type: 'web_url', title: 'Valider mon projet', url: '/project-prevalidate/MOCK_SESSION_ID' },
-              ],
+              buttons: [{ type: 'web_url', title: 'Valider mon projet', url: '/project-prevalidate/MOCK_SESSION_ID' }],
             },
           ],
         },

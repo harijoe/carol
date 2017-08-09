@@ -5,8 +5,9 @@ import postListTestimony from './postListTestimony'
 import postListWorkResources from './postListWorkResources'
 import * as token from './token'
 import * as project from './project'
+import * as emailVerified from './emailVerified'
 import projects from './projects'
-import me from './me'
+import * as user from './user'
 
 export default [
   {
@@ -31,9 +32,7 @@ export default [
     method: 'POST',
     path: '/chatbot',
     response: chatbot.reset,
-    conditionalRequestBody: JSON.parse(
-      '{"message":{"text":"new_project.reset"},"user":"MOCK_SESSION_ID","channel":"project"}',
-    ),
+    conditionalRequestBody: JSON.parse('{"message":{"text":"new_project.reset"},"user":"MOCK_SESSION_ID","channel":"project"}'),
   },
   {
     method: 'POST',
@@ -71,8 +70,16 @@ export default [
     path: '/projects/MOCK_PROJECT_ID',
     response: project.toValidateWithInformations,
     conditionalRequestBody: {
-      startTimeframe: "now",
-      purpose: "quotation",
+      startTimeframe: 'now',
+      purpose: 'quotation',
+    },
+  },
+  {
+    method: 'PUT',
+    path: '/projects/MOCK_PROJECT_ID',
+    response: project.validated,
+    conditionalRequestBody: {
+      status: 'validated',
     },
   },
   {
@@ -102,17 +109,22 @@ export default [
   },
   {
     path: '/users/me',
-    response: me,
+    response: user.basic,
   },
   {
     path: '/users',
     method: 'POST',
     status: 201,
-    response: me,
+    response: user.basic,
   },
   {
     path: '/users',
     method: 'PUT',
-    response: me,
+    response: user.basic,
+  },
+  {
+    path: '/email-verified',
+    method: 'PUT',
+    response: emailVerified.verify,
   },
 ]

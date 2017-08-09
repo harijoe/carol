@@ -174,6 +174,7 @@ const FirmImage = styled(Image)`
   }
 `
 
+/*
 const ButtonArrow = styled(Link)`
   position: absolute;
   display: block;
@@ -209,6 +210,7 @@ const ButtonArrow = styled(Link)`
     background-color: ${theme('colors.white')};
   }
 `
+*/
 
 const FirmWrapper = styled.div`
   display: block;
@@ -272,7 +274,8 @@ const Project = ({ name, createdAt, status, partner, leadSales, translate, ...it
       { status === 'found' &&
       <FirmWrapper>
         {leadSales.map(({ firm }) => <FirmImage key={firm.name} alt={'alt'} src={firm.logoUrl ? firm.logoUrl : cloudinary('/icons/placeholder-logo.png')} width="50" height="50" />)}
-        <ButtonArrow to={items['@id']} />
+        {/* disabled for release v1.5 */}
+        {/* <ButtonArrow to={items['@id']} /> */}
       </FirmWrapper>}
       {status === 'completion_in_progress' && (
         <ButtonLink button to="/project-elaboration">

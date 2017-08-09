@@ -4,7 +4,5 @@ export default {
   '@context': '/contexts/Project',
   '@id': '/projects',
   '@type': 'hydra:Collection',
-  'hydra:member': [
-    project,
-  ],
+  'hydra:member': [project],
 }

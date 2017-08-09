@@ -11,21 +11,21 @@ defineSupportCode(({ When }) => {
     await element.click()
   })
   When(/I fill '(.*)' with '(.*)'/, async (target, value) => {
-    const label = await driver.findElement({ xpath: `//label[contains(text(), "${target}")]`})
+    const label = await driver.findElement({ xpath: `//label[contains(text(), "${target}")]` })
     const forAttr = await label.getAttribute('for')
     const element = await driver.findElement({ css: `input[name=${forAttr}]` })
 
     await element.sendKeys(value)
   })
   When(/I select the option '(.*)' for field '(.*)'/, async (value, target) => {
-    const label = await driver.findElement({ xpath: `//label[contains(text(), "${target}")]`})
+    const label = await driver.findElement({ xpath: `//label[contains(text(), "${target}")]` })
     const forAttr = await label.getAttribute('for')
     const select = await driver.findElement({ css: `select[name=${forAttr}]` })
     await select.click()
-    const option = await select.findElement({ xpath: `//option[contains(text(), "${value}")]`})
+    const option = await select.findElement({ xpath: `//option[contains(text(), "${value}")]` })
     option.click()
   })
-  When(/I wait until I see '(.*)'/, async (expectedText) => {
+  When(/I wait until I see '(.*)'/, async expectedText => {
     const check = async d => {
       const text = await d.findElement({ css: 'body' }).getText()
 
