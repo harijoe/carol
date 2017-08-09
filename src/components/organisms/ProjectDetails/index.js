@@ -205,13 +205,13 @@ const googleMapsParams = ({ lat, lng }) => {
   return Object.keys(googleMapParams).map(key => `${key}=${encodeURIComponent(googleMapParams[key])}`).join('&')
 }
 
-const ProjectDetails = ({ project: { name, status, createdAt, questionsAnswers, comment, postalCode, startTimeframe, purpose, firms }, placeCoords, translate, ...props }) => (
+const ProjectDetails = ({ project: { name, status, createdAt, questionsAnswers, comment, postalCode, startTimeframe, purpose, leadSales }, placeCoords, translate, ...props }) => (
   <Wrapper {...props}>
     <Section>
       <Grid narrow>
         <StyledIconLink to="/projects" icon="back_arrow"><FormattedMessage id="project.back_link_title" /></StyledIconLink>
         <Heading level={1}>{name}</Heading>
-        <StyledProjectStatus {...{ status, firms }} />
+        <StyledProjectStatus {...{ status, leadSales }} />
         <DateCreation><FormattedMessage id="project.created_at" /> {transformDate(createdAt)}</DateCreation>
       </Grid>
     </Section>
@@ -219,10 +219,10 @@ const ProjectDetails = ({ project: { name, status, createdAt, questionsAnswers, 
     {status === 'found' &&
     <StyledSection>
       <Grid narrow>
-        <Paragraph dangerouslySetInnerHTML={{ __html: translate('project.firm_intro', { firmsNumber: `<strong>${firms.length}</strong>` }) }} />
+        <Paragraph dangerouslySetInnerHTML={{ __html: translate('project.firm_intro', { firmsNumber: `<strong>${leadSales.length}</strong>` }) }} />
       </Grid>
       <StyledGrid>
-        <FirmList list={firms} />
+        <FirmList list={leadSales} />
       </StyledGrid>
     </StyledSection>}
 
@@ -282,7 +282,7 @@ ProjectDetails.propTypes = {
     postalCode: PropTypes.object.isRequired,
     startTimeframe: PropTypes.string.isRequired,
     purpose: PropTypes.string.isRequired,
-    firms: PropTypes.array.isRequired,
+    leadSales: PropTypes.array.isRequired,
   }).isRequired,
   placeCoords: PropTypes.object,
   loading: PropTypes.bool,

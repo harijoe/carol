@@ -1,7 +1,7 @@
 import get from 'lodash/get'
 
 export const initialState = {
-  locationBeforeTransitions: null,
+  locationBeforeTransitions: {},
 }
 
 // eslint-disable-next-line import/prefer-default-export

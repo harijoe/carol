@@ -101,7 +101,6 @@ export default (state = initialState, action) => {
         return {
           ...state,
           activeConversation: payload.conversation,
-          sessionId: payload.sessionId,
           partner: payload.partner,
         }
       }

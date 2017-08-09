@@ -342,12 +342,12 @@ it('handles PROJECT_ELABORATION_CONVERSATIONS_DETAILS with user', () => {
           text: 'My response test',
         },
       }],
-      sessionId: '456546535435',
+      sessionId: '1234',
     },
   }
 
   const expected = {
-    sessionId: '456546535435',
+    sessionId: '1234',
     hero: [
       {
         message: {

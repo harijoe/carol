@@ -247,13 +247,13 @@ const PartnerImageWrapper = styled.div`
   box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, 0.15);
 `
 
-const Project = ({ name, createdAt, status, partner, firms, translate, ...items }) => (
+const Project = ({ name, createdAt, status, partner, leadSales, translate, ...items }) => (
   <Article>
     <HeaderCard>
       <ImageWrapper>
         <BackgroundImage src={cloudinary('/thumbnail-poster-keyone.jpg')} />
       </ImageWrapper>
-      <ProjectStatus {...{ status, firms }} />
+      <ProjectStatus {...{ status, leadSales }} />
       {partner && (
         <PartnerImageWrapper>
           <PartnerImage src={partner.headerLink} />
@@ -267,11 +267,11 @@ const Project = ({ name, createdAt, status, partner, firms, translate, ...items 
       </DateCreation>
       <Divider />
       <StyledParagraph>
-        {status === 'found' ? translate(`project.describe.${status}`, { firmsNumber: firms.length }) : translate(`project.describe.${status}`) }
+        {status === 'found' ? translate(`project.describe.${status}`, {firmsNumber: leadSales.length}) : translate(`project.describe.${status}`)}
       </StyledParagraph>
       { status === 'found' &&
       <FirmWrapper>
-        {firms.map(firm => <FirmImage key={firm.name} alt={'alt'} src={firm.logoUrl ? firm.logoUrl : cloudinary('/icons/placeholder-logo.png')} width="50" height="50" />)}
+        {leadSales.map(({ firm }) => <FirmImage key={firm.name} alt={'alt'} src={firm.logoUrl ? firm.logoUrl : cloudinary('/icons/placeholder-logo.png')} width="50" height="50" />)}
         <ButtonArrow to={items['@id']} />
       </FirmWrapper>}
       {status === 'completion_in_progress' && (
@@ -294,7 +294,7 @@ Project.propTypes = {
   leadReference: PropTypes.string,
   createdAt: PropTypes.string,
   status: PropTypes.string,
-  firms: PropTypes.array,
+  leadSales: PropTypes.array,
   partner: PropTypes.shape({
     headerLink: PropTypes.string,
   }),

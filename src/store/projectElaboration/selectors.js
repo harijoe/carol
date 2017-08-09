@@ -1,3 +1,5 @@
+import get from 'lodash/get'
+
 export const initialState = {
   sessionId: null,
   hero: [
@@ -34,11 +36,11 @@ export const initialState = {
 }
 
 export const getConversation = (state = initialState) => state.activeConversation
-export const getPartnerHeaderText = (state = initialState) => state.partner.headerText
-export const getPartnerHeaderLink = (state = initialState) => state.partner.headerLink
+export const getPartnerHeaderText = (state = initialState) => get(state, ['partner', 'headerText'])
+export const getPartnerHeaderLink = (state = initialState) => get(state, ['partner', 'headerLink'])
 export const hasActiveConversation = (state = initialState) => {
   const activeConversation = getConversation(state)
-  return activeConversation.length > 0 && activeConversation[0].answer && activeConversation[0].answer.text
+  return !!(activeConversation.length > 0 && activeConversation[0].answer && activeConversation[0].answer.text)
 }
 export const getConversations = (state = initialState) => state.conversations
 export const getSessionId = (state = initialState) => state.sessionId

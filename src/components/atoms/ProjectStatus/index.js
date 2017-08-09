@@ -56,7 +56,7 @@ const StyledIcon = styled(Icon)`
   width: ${theme('icons.size.s')};
 `
 
-const ProjectStatus = ({ status, firms, translate, ...props }) => {
+const ProjectStatus = ({ status, leadSales, translate, ...props }) => {
   let icon
 
   switch (status) {
@@ -75,14 +75,14 @@ const ProjectStatus = ({ status, firms, translate, ...props }) => {
         size={16}
         icon={icon}
       />
-      <span>{status === 'found' ? translate(`project.status.${status}`, { firmsNumber: firms.length }) : translate(`project.status.${status}`) }</span>
+      <span>{status === 'found' ? translate(`project.status.${status}`, { firmsNumber: leadSales.length }) : translate(`project.status.${status}`) }</span>
     </Wrapper>
   )
 }
 
 ProjectStatus.propTypes = {
   translate: PropTypes.func.isRequired,
-  firms: PropTypes.array,
+  leadSales: PropTypes.array,
   status: PropTypes.string,
 }
 

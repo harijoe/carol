@@ -80,8 +80,8 @@ function* handleAuthLogout() {
   yield put(projectElaborationResetConversation)
 
   const sessionId = generateSessionId()
-
   saveProjectElaborationIdInCookies(sessionId)
+
   yield put(setProjectElaborationSessionId(sessionId))
 
   const pathName = yield select(fromRouting.getPathname)

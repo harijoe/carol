@@ -7,6 +7,8 @@ import fetch from 'sagas/fetch'
 import { requirePartner } from 'sagas/require'
 import ssr from 'sagas/ssr'
 import notify from 'sagas/notify'
+import { saveProjectElaborationIdInCookies } from 'store/utils'
+import generateSessionId from 'utils/generateSessionId'
 import {
   projectUpdate,
   removeInitialQueryParam,
@@ -145,6 +147,9 @@ function* preValidate({ chatbotStorageId }) {
   }
 
   yield* fetch(projectElaborationPreValidate, 'post', `/project-start/${chatbotStorageId}`)
+
+  const sessionId = generateSessionId()
+  saveProjectElaborationIdInCookies(sessionId)
 
   const projectId = yield select(fromProjectElaboration.getProjectId)
   const { sqn } = yield select(fromContext.getInitialQueryParams)

@@ -170,7 +170,7 @@ const StyledCertificateList = styled(List)`${() => css`
   }
 `}`
 
-const FirmListItem = ({ name, logoUrl, globalRating, globalRatingCount, postalCode, firmCertificates }) => (
+const FirmListItem = ({ firm: { name, logoUrl, globalRating, globalRatingCount, firmCertificates }, proPostCode, proPhone, proEmail}) => (
   <StyledCard>
     <HeaderCard>
       <ImageWrapper>
@@ -185,9 +185,9 @@ const FirmListItem = ({ name, logoUrl, globalRating, globalRatingCount, postalCo
     <FooterCard>
       <StyledHeading level={3}>{name}</StyledHeading>
       <StyledList>
-        <li><Icon icon="location-pin" /> {postalCode}</li>
-        <li><Icon icon="phone" /> {'01 23 45 67 89'}</li>
-        <li><Icon icon="mail" /> {'demo@proartisans.com'}</li>
+        <li><Icon icon="location-pin" /> {proPostCode}</li>
+        <li><Icon icon="phone" /> {proPhone}</li>
+        <li><Icon icon="mail" /> {proEmail}</li>
       </StyledList>
       <Divider />
       {firmCertificates.length > 0 &&
@@ -202,12 +202,16 @@ const FirmListItem = ({ name, logoUrl, globalRating, globalRatingCount, postalCo
 )
 
 FirmListItem.propTypes = {
-  name: PropTypes.string,
-  logoUrl: PropTypes.string,
-  globalRating: PropTypes.number,
-  globalRatingCount: PropTypes.number,
-  postalCode: PropTypes.string,
-  firmCertificates: PropTypes.array,
+  firm: PropTypes.shape({
+    name: PropTypes.string,
+    logoUrl: PropTypes.string,
+    globalRating: PropTypes.number,
+    globalRatingCount: PropTypes.number,
+    firmCertificates: PropTypes.array,
+  }),
+  proPostCode: PropTypes.string,
+  proPhone: PropTypes.string,
+  proEmail: PropTypes.string,
 }
 
 export default injectTranslate(FirmListItem)
