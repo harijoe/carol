@@ -36,7 +36,7 @@ const StyledParagraph = styled(Paragraph)`
 const CloseIcon = styled(Icon)`
   margin: ${theme('spaces.m')} auto auto auto;
 
-  .cls-1 {
+  svg {
     fill: ${theme('colors.white')};
   }
 `
