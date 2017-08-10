@@ -79,7 +79,11 @@ function* replyConversation({ text, payload = null }) {
 function* getConversations() {
   const sessionId = yield select(fromProjectElaboration.getSessionId)
 
-  yield* fetch(projectElaborationConversationsDetails, 'get', `/chatbot_storages/conversation/${sessionId}`)
+  try {
+    yield* fetch(projectElaborationConversationsDetails, 'get', `/chatbot_storages/conversation/${sessionId}`)
+  } catch (error) {
+    if (error.status !== 404) throw error.status
+  }
 }
 
 function* getConversationCurrent() {

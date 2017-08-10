@@ -10,6 +10,13 @@ Feature: As a user, I can interact with the chatbot
     And I should see 8 quick replies
     And I should see the back button
 
+  Scenario: Click on 'Find a pro' on homepage
+    When I go to the 'home' page
+    And I click on 'Trouver un pro'
+    Then I should be redirected to '/project-elaboration'
+    And I should see 'Bonjour, quel type de travaux souhaitez-vous faire ?'
+    And I should see 11 quick replies
+
   Scenario: Reach project summary
     Given I reached the project summary in my conversation
     When I go to the 'chatbot' page

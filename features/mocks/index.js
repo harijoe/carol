@@ -105,7 +105,7 @@ export default [
   },
   {
     path: '/chatbot_storages/conversation/',
-    status: 204,
+    status: 404,
   },
   {
     path: '/users/me',
