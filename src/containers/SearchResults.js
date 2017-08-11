@@ -10,6 +10,7 @@ const SearchResultsContainer = props => (
 
 const mapStateToProps = state => ({
   results: fromSearchEngine.getResults(state),
+  query: fromSearchEngine.getQuery(state),
 })
 
 export default connect(mapStateToProps)(SearchResultsContainer)

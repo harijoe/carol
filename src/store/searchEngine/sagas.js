@@ -19,7 +19,7 @@ function* search({ query }) {
   const response = yield call(() => projectFlowIndex.search({
     query,
     page: 0,
-    hitsPerPage: 5,
+    hitsPerPage: 4,
     filters: `countryCode:${country}`,
   }))
 

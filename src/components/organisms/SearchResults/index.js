@@ -12,6 +12,7 @@ import {
   ThumbnailPoster,
   Heading,
   Paragraph,
+  Link,
   Icon,
 } from 'components'
 
@@ -112,47 +113,34 @@ const SubHeading = styled(Paragraph)`
   font-size:  ${theme('fonts.size.xl')};
 `
 
-const SearchResults = ({ translate }) => (
+const SearchResults = ({ translate, results, query }) => (
   <WrapperResults>
-    <Header>
+    {query && <Header>
       <StyledGrid narrow>
         <StyledRow>
           <Col xs={12} l={8}>
-            <SearchTerm term="Salle de bain" />
+            <SearchTerm term={query} />
           </Col>
           <NewSearchWrapper xs={12} l={4}>
             <NewSearch />
           </NewSearchWrapper>
         </StyledRow>
       </StyledGrid>
-    </Header>
-    <Section light title={translate('search_page.result_section_title.projects')}>
+    </Header>}
+    {results && <Section light title={translate('search_page.result_section_title.projects')}>
       <StyledGrid narrow>
         <Row>
-          <ColGrid xs={6} m={4} l={3}>
-            <StyledThumbnailPoster image="" title="Salle de bain" height="m">
-              <StyledIcon icon="circle-arrow" className="qs-icon" />
+          {results.map(({name, slug, id}) => <ColGrid xs={6} m={4} l={3} key={id}x>
+            <StyledThumbnailPoster image="" title={name} height="m">
+              <Link to={`/project-elaboration/?slug=${slug}`}>
+                <StyledIcon icon="circle-arrow" className="qs-icon" />
+              </Link>
             </StyledThumbnailPoster>
-          </ColGrid>
-          <ColGrid xs={6} m={4} l={3}>
-            <StyledThumbnailPoster image="" title="Salle de bain" height="m">
-              <StyledIcon icon="circle-arrow" className="qs-icon" />
-            </StyledThumbnailPoster>
-          </ColGrid>
-          <ColGrid xs={6} m={4} l={3}>
-            <StyledThumbnailPoster image="" title="Salle de bain" height="m">
-              <StyledIcon icon="circle-arrow" className="qs-icon" />
-            </StyledThumbnailPoster>
-          </ColGrid>
-          <ColGrid xs={6} m={4} l={3}>
-            <StyledThumbnailPoster image="" title="Salle de bain" height="m">
-              <StyledIcon icon="circle-arrow" className="qs-icon" />
-            </StyledThumbnailPoster>
-          </ColGrid>
+          </ColGrid>)}
         </Row>
       </StyledGrid>
-    </Section>
-    <Section light>
+    </Section>}
+    {!results && query !== '' && <Section light>
       <StyledGrid narrow>
         <Row column>
           <StyledHeading level={3}>
@@ -163,13 +151,15 @@ const SearchResults = ({ translate }) => (
           </SubHeading>
         </Row>
       </StyledGrid>
-    </Section>
+    </Section>}
   </WrapperResults>
 )
 
 
 SearchResults.propTypes = {
   translate: PropTypes.func.isRequired,
+  results: PropTypes.array,
+  query: PropTypes.string.isRequired,
 }
 
 export default injectTranslate(SearchResults)

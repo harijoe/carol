@@ -77,6 +77,12 @@ defineSupportCode(({ When }) => {
     expect(possibleAnswers.length).toEqual(parseInt(expectedCount, 10))
   })
 
+  When(/I should see the search input field/, async () => {
+    const searchField = await driver.findElement({ css: 'input[placeholder="What is your project?"]' })
+
+    expect(searchField).toNotEqual(null)
+  })
+
   When(/I should see the back button/, async () => {
     const element = await driver.findElement({ css: '.back-button' })
 
