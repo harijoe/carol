@@ -113,7 +113,7 @@ const SubHeading = styled(Paragraph)`
   font-size:  ${theme('fonts.size.xl')};
 `
 
-const SearchResults = ({ translate, results, query }) => (
+const SearchResults = ({ translate, results, query, nbHits }) => (
   <WrapperResults>
     {query && <Header>
       <StyledGrid narrow>
@@ -140,6 +140,9 @@ const SearchResults = ({ translate, results, query }) => (
         </Row>
       </StyledGrid>
     </Section>}
+    {results && nbHits > 4 && <Section>
+      <Link to="search-result">{translate('search_page.see_all_results')} ({nbHits})</Link>
+    </Section>}
     {!results && query !== '' && <Section light>
       <StyledGrid narrow>
         <Row column>
@@ -160,6 +163,7 @@ SearchResults.propTypes = {
   translate: PropTypes.func.isRequired,
   results: PropTypes.array,
   query: PropTypes.string.isRequired,
+  nbHits: PropTypes.number,
 }
 
 export default injectTranslate(SearchResults)

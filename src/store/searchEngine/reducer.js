@@ -11,11 +11,14 @@ export default (state = initialState, action) => {
         ...state,
         query: action.query,
       }
-    case SEARCH_ENGINE_SET_RESULTS:
+    case SEARCH_ENGINE_SET_RESULTS: {
+      const { results, nbHits } = action.payload
       return {
         ...state,
-        results: action.results,
+        results,
+        nbHits,
       }
+    }
     default:
       return state
   }

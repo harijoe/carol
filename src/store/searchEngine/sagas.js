@@ -23,7 +23,7 @@ function* search({ query }) {
     filters: `countryCode:${country}`,
   }))
 
-  yield put(projectElaborationSetResults(response.hits))
+  yield put(projectElaborationSetResults({ results: response.hits, nbHits: response.nbHits }))
 }
 
 export default function* () {

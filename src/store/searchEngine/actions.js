@@ -6,7 +6,7 @@ export const projectElaborationSearch = query => ({
   query,
 })
 
-export const projectElaborationSetResults = results => ({
+export const projectElaborationSetResults = payload => ({
   type: SEARCH_ENGINE_SET_RESULTS,
-  results,
+  payload,
 })
