@@ -1,10 +1,10 @@
 import isFirstChatbotStep from './isFirstChatbotStep'
 
-const firstQuestion = { }
+const firstQuestion = {}
 
 const key1 = { message: { is_first_step: true, attachment: { type: 'template', payload: { template_type: 'generic' } } } }
 
-const key2 = { message: { text: 'C\'est parti ! Quel est votre projet ?', quick_replies: [] } }
+const key2 = { message: { text: "C'est parti ! Quel est votre projet ?", quick_replies: [] } }
 
 const keySummary = { message: { attachment: { type: 'template', payload: { template_type: 'generic.summary' } } } }
 

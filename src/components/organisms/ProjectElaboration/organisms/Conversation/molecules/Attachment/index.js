@@ -6,25 +6,21 @@ import AttachmentGeneric from './organisms/AttachmentGeneric'
 
 const Attachment = ({ attachment, reply, answer, locale, redirectTo }) => {
   if (
-    attachment == null
-    || attachment.payload == null
-    || !Array.isArray(attachment.payload.elements)
-    || attachment.payload.elements.length === 0
-    || answer != null
+    attachment == null ||
+    attachment.payload == null ||
+    !Array.isArray(attachment.payload.elements) ||
+    attachment.payload.elements.length === 0 ||
+    answer != null
   ) {
     return null
   }
 
   switch (attachment.payload.template_type) {
     case 'generic.summary':
-      return (
-        <AttachmentSummary element={attachment.payload.elements[0]} {...{ locale, redirectTo }} />
-      )
+      return <AttachmentSummary element={attachment.payload.elements[0]} {...{ locale, redirectTo }} />
     default:
     case 'generic':
-      return (
-        <AttachmentGeneric {...{ attachment, reply }} />
-      )
+      return <AttachmentGeneric {...{ attachment, reply }} />
   }
 }
 

@@ -25,12 +25,7 @@ import {
   SearchResultPage,
   SignupPage,
 } from 'components'
-import {
-  ProjectPreValidatePage,
-  VerifyEmailPage,
-  EmailValidationPage,
-  HomePage,
-} from 'containers'
+import { ProjectPreValidatePage, VerifyEmailPage, EmailValidationPage, HomePage } from 'containers'
 
 const routes = (
   <Route path="/" component={App}>

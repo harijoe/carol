@@ -7,9 +7,7 @@ import { fromStatus } from 'store/selectors'
 
 import { ResetPasswordForm } from 'components'
 
-const ResetPasswordFormContainer = props => (
-  <ResetPasswordForm {...props} />
-)
+const ResetPasswordFormContainer = props => <ResetPasswordForm {...props} />
 
 const onSubmit = (data, dispatch) => dispatch(resetPassword.request(data, data.token))
 

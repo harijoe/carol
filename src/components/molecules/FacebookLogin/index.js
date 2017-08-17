@@ -5,7 +5,7 @@ import injectTranslate from 'i18n/hoc/injectTranslate'
 import { facebook } from 'config'
 import { SocialLogin } from 'containers'
 
-const FacebookLogin = ({ translate }) => (
+const FacebookLogin = ({ translate }) =>
   <SocialLogin
     platform="facebook"
     appId={facebook.appId}
@@ -15,7 +15,6 @@ const FacebookLogin = ({ translate }) => (
     textButton={translate('user.continue_with_facebook')}
     scope={facebook.scope}
   />
-)
 
 FacebookLogin.propTypes = {
   translate: PropTypes.func.isRequired,

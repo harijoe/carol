@@ -32,7 +32,7 @@ beforeEach(() => {
     hero,
     activeConversation: [
       {
-        message: { text: 'C\'est embetant mais nous allons devoir recommencer...' },
+        message: { text: "C'est embetant mais nous allons devoir recommencer..." },
       },
       {
         message: {
@@ -78,7 +78,7 @@ it('handles PROJECT_ELABORATION_REPLY_REQUEST', () => {
     hero,
     activeConversation: [
       {
-        message: { text: 'C\'est embetant mais nous allons devoir recommencer...' },
+        message: { text: "C'est embetant mais nous allons devoir recommencer..." },
       },
       {
         message: {
@@ -125,7 +125,7 @@ it('handles PROJECT_ELABORATION_REPLY_SUCCESS', () => {
     hero,
     activeConversation: [
       {
-        message: { text: 'C\'est embetant mais nous allons devoir recommencer...' },
+        message: { text: "C'est embetant mais nous allons devoir recommencer..." },
       },
       {
         message: {
@@ -160,7 +160,6 @@ it('handles PROJECT_ELABORATION_REPLY_SUCCESS', () => {
 
   expect(reducer(initialState, action)).toEqual(expected)
 })
-
 
 it('handles PROJECT_ELABORATION_SET_SESSION_ID', () => {
   const action = {
@@ -209,7 +208,7 @@ it('handles PROJECT_ELABORATION_HERO_SET_RESPONSE', () => {
     ],
     activeConversation: [
       {
-        message: { text: 'C\'est embetant mais nous allons devoir recommencer...' },
+        message: { text: "C'est embetant mais nous allons devoir recommencer..." },
       },
       {
         message: {
@@ -297,7 +296,7 @@ it('handles PROJECT_ELABORATION_HERO_DETAILS', () => {
     ],
     activeConversation: [
       {
-        message: { text: 'C\'est embetant mais nous allons devoir recommencer...' },
+        message: { text: "C'est embetant mais nous allons devoir recommencer..." },
       },
       {
         message: {
@@ -334,14 +333,16 @@ it('handles PROJECT_ELABORATION_CONVERSATIONS_DETAILS with user', () => {
   const action = {
     type: actions.PROJECT_ELABORATION_CONVERSATIONS_DETAILS.SUCCESS,
     payload: {
-      conversation: [{
-        message: {
-          text: 'My message test',
+      conversation: [
+        {
+          message: {
+            text: 'My message test',
+          },
+          answer: {
+            text: 'My response test',
+          },
         },
-        answer: {
-          text: 'My response test',
-        },
-      }],
+      ],
       sessionId: '1234',
     },
   }

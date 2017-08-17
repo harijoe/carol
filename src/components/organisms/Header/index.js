@@ -7,30 +7,41 @@ import injectScroll from 'hoc/component/injectScroll'
 import { MainWrapper } from 'components'
 import { AccountButton, MainNavigation, AccountNavigation, BurgerButton, SignInPopin, QuotatisLogo } from 'containers'
 
-const Background = styled.div`${({ atTop }) => css`
+const Background = styled.div`
+  ${({ atTop }) => css`
   width: 100%;
   transition: height 300ms ease-in-out, background-color 300ms ease-in-out;
-  ${ifThen(!atTop, `
+  ${ifThen(
+    !atTop,
+    `
     transition: background-color 200ms ease-out;
     background-color: white;
     box-shadow: 0 0.1rem 0 #D1D1D1;
-  `)};
-`}`
+  `,
+  )};
+`};
+`
 
 const StyledMainWrapper = styled(MainWrapper)`${({ homepage }) => css`
   display: flex;
   align-items: center;
   min-height: 5.6rem;
-  ${mapBreakpoints(bp => css`
+  ${mapBreakpoints(
+    bp => css`
     padding: 0 ${theme(`grid.gutterWidth.${bp}`, 'rem')};
-  `)}
+  `,
+  )}
 
-  ${ifThen(!homepage, `
+  ${ifThen(
+    !homepage,
+    `
     background-color: white;
     box-shadow: 0 0.1rem 0 #D1D1D1;
-  `, `
+  `,
+    `
     background-color: transparent;
-  `)};
+  `,
+  )};
 `}`
 
 const SecondNavigation = styled.div`
@@ -55,14 +66,12 @@ const SecondNavigation = styled.div`
       background-color: ${theme('colors.grayscale.lighter')};
       border-radius: 2rem;
     }
-  `}
-
-  ${breakpoint('xl')`
+  `} ${breakpoint('xl')`
     padding-left: ${theme('spaces.l')};
-  `}
+  `};
 `
 
-const Header = ({ atTop, homepage }) => (
+const Header = ({ atTop, homepage }) =>
   <Background atTop={atTop}>
     <StyledMainWrapper homepage={homepage}>
       <QuotatisLogo />
@@ -75,7 +84,6 @@ const Header = ({ atTop, homepage }) => (
       <SignInPopin />
     </StyledMainWrapper>
   </Background>
-)
 
 Header.propTypes = {
   atTop: PropTypes.bool,

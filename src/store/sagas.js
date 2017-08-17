@@ -7,7 +7,7 @@ const sagas = []
 
 req.keys().forEach(key => sagas.push(req(key).default))
 
-req.keys().forEach((key) => {
+req.keys().forEach(key => {
   const elements = req(key)
 
   forIn(elements, (element, name) => {
@@ -26,6 +26,6 @@ req.keys().forEach((key) => {
   })
 })
 
-export default function* () {
+export default function*() {
   yield sagas.map(fork)
 }

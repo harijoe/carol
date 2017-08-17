@@ -5,14 +5,16 @@ import { Loading } from 'components'
 import { Carousel } from 'containers'
 
 const PostList = ({ list, loading, generateChild, generateBackground, carousel, locale }) => {
-  let children = list
-    .map((items, i) => generateChild(i, items, locale))
+  let children = list.map((items, i) => generateChild(i, items, locale))
 
-  children = typeof carousel !== 'undefined' && children.length !== 0 ? <Carousel {...carousel}>{children}</Carousel> : children
+  children =
+    typeof carousel !== 'undefined' && children.length !== 0
+      ? <Carousel {...carousel}>
+          {children}
+        </Carousel>
+      : children
 
-  const background = typeof generateBackground !== 'undefined' ?
-    list.map((items, i) => generateBackground(i, items)) :
-    null
+  const background = typeof generateBackground !== 'undefined' ? list.map((items, i) => generateBackground(i, items)) : null
 
   return (
     <Loading loading={loading}>

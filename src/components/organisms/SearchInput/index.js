@@ -24,9 +24,7 @@ const StyledInput = styled(Input)`
   }
 `
 
-const SearchInput = ({ search }) => (
-  <StyledInput onChange={e => search(e.target.value)} placeholder="What is your project?" />
-)
+const SearchInput = ({ search }) => <StyledInput onChange={e => search(e.target.value)} placeholder="What is your project?" />
 
 SearchInput.propTypes = {
   search: PropTypes.func,

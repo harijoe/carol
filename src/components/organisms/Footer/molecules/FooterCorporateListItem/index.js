@@ -26,17 +26,13 @@ const FooterCorporateListItem = ({ id, locale, forceRedirect, target, contentSit
     return null
   }
 
-  const url = contentSite ?
-    `${locales[locale].contentSiteUrl}${locales[locale].footer.corporate[id]}` :
-    locales[locale].footer.corporate[id]
+  const url = contentSite
+    ? `${locales[locale].contentSiteUrl}${locales[locale].footer.corporate[id]}`
+    : locales[locale].footer.corporate[id]
 
   return (
     <StyledListItem id="window">
-      <StyledLink
-        to={url}
-        forceRedirect={forceRedirect}
-        target={target}
-      >
+      <StyledLink to={url} forceRedirect={forceRedirect} target={target}>
         <FormattedMessage id={`footer.corporate.${id}`} />
       </StyledLink>
     </StyledListItem>

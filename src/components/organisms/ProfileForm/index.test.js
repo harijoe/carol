@@ -5,7 +5,14 @@ import ProfileForm from '.'
 import theme from '../../themes/default'
 import mockIntl from '../../../../test/intlMock'
 
-const wrap = (props = {}) => shallow(mockIntl(<ThemeProvider theme={theme}><ProfileForm {...props} /></ThemeProvider>))
+const wrap = (props = {}) =>
+  shallow(
+    mockIntl(
+      <ThemeProvider theme={theme}>
+        <ProfileForm {...props} />
+      </ThemeProvider>,
+    ),
+  )
 
 it('renders ProfileForm', () => {
   expect(wrap()).toMatchSnapshot()

@@ -45,12 +45,10 @@ class EmailForm extends Component {
           disabled // Email modifications are disabled for V1
         />
         {error && <FormattedMessage id={error} tagName="strong" />}
-        {
-          !this.state.clicked &&
+        {!this.state.clicked &&
           <StyledButton type="submit" {...{ disabled, loading }} highlight>
             <FormattedMessage id="user.resend" />
-          </StyledButton>
-        }
+          </StyledButton>}
         {this.state.clicked && <FormattedMessage id="user.email.sent" />}
       </Form>
     )

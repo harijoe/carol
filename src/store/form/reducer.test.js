@@ -7,10 +7,12 @@ it('returns the initial state', () => {
 })
 
 it('handles FORM_SET_CSRF_TOKEN', () => {
-  expect(reducer(initialState, {
-    type: actions.FORM_SET_CSRF_TOKEN,
-    token: 'test',
-  })).toEqual({
+  expect(
+    reducer(initialState, {
+      type: actions.FORM_SET_CSRF_TOKEN,
+      token: 'test',
+    }),
+  ).toEqual({
     ...initialState,
     csrfToken: 'test',
   })

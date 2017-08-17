@@ -35,7 +35,7 @@ const StyledLink = styled(Link)`
   max-width: 32rem;
 `
 
-const NotFoundPage = ({ ...props }) => (
+const NotFoundPage = ({ ...props }) =>
   <MinimalPageTemplate {...props}>
     <Wrapper>
       <ContentBlock>
@@ -51,6 +51,5 @@ const NotFoundPage = ({ ...props }) => (
       </ContentBlock>
     </Wrapper>
   </MinimalPageTemplate>
-)
 
 export default NotFoundPage

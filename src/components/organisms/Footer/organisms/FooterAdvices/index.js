@@ -36,7 +36,7 @@ const StyledSection = styled(Section)`
   `}
 `
 
-const FooterAdvices = ({ locale, translate }) => (
+const FooterAdvices = ({ locale, translate }) =>
   <StyledSection dark title={translate('footer.advices.section_title')} className="advices">
     <StyledRow>
       <StyledCol xs={6} m={3}>
@@ -69,7 +69,6 @@ const FooterAdvices = ({ locale, translate }) => (
       </StyledCol>
     </StyledRow>
   </StyledSection>
-)
 
 FooterAdvices.propTypes = {
   translate: PropTypes.func.isRequired,

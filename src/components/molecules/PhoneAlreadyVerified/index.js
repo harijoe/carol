@@ -7,7 +7,11 @@ const PhoneAlreadyVerified = ({ verified, children }) => {
     return <FormattedMessage id="user.phone_already_verified" />
   }
 
-  return <div>{children}</div>
+  return (
+    <div>
+      {children}
+    </div>
+  )
 }
 
 PhoneAlreadyVerified.propTypes = {

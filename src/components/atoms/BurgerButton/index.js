@@ -46,7 +46,9 @@ const styles = ({ isPopin }) => {
   `
 
   if (isPopin === true) {
-    commonStyles = merge(commonStyles, css`
+    commonStyles = merge(
+      commonStyles,
+      css`
   & {
     transition-delay: 0.14s;
     transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -70,13 +72,14 @@ const styles = ({ isPopin }) => {
   &::after {
     background: ${theme('colors.secondary')};
   }
-`)
+`,
+    )
   }
 
   return commonStyles
 }
 
-const StyledSpan = styled.span`${styles}`
+const StyledSpan = styled.span`${styles};`
 
 const Wrapper = styled.span`
   position: relative;
@@ -86,14 +89,13 @@ const Wrapper = styled.span`
   height: ${theme('icons.size.l')};
   width: ${theme('icons.size.l')};
   cursor: pointer;
-  ${breakpoint('l')`display: none;`}
+  ${breakpoint('l')`display: none;`};
 `
 
-const BurgerButton = ({ isPopin, toggleMainNavigation, closeAll }) => (
+const BurgerButton = ({ isPopin, toggleMainNavigation, closeAll }) =>
   <Wrapper onClick={isPopin ? closeAll : toggleMainNavigation}>
     <StyledSpan isPopin={isPopin} />
   </Wrapper>
-)
 
 BurgerButton.propTypes = {
   toggleMainNavigation: PropTypes.func.isRequired,

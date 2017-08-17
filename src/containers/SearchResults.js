@@ -4,9 +4,7 @@ import { fromSearchEngine } from 'store/selectors'
 
 import { SearchResults } from 'components'
 
-const SearchResultsContainer = props => (
-  <SearchResults {...props} />
-)
+const SearchResultsContainer = props => <SearchResults {...props} />
 
 const mapStateToProps = state => ({
   results: fromSearchEngine.getResults(state),

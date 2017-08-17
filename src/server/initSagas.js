@@ -22,7 +22,7 @@ export default async function initSagas(store, renderProps, disableTimeout = fal
   renderToStaticMarkup(
     <Provider store={store}>
       <RouterContext {...renderProps} />
-    </Provider>
+    </Provider>,
   )
 
   function* getToken() {

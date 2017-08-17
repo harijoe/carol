@@ -32,7 +32,7 @@ const BubbleQuestion = styled.div`
   color: ${theme('colors.black')};
   white-space: pre-wrap;
 
-  &::before, 
+  &::before,
   &::after {
     position: absolute;
     top: 0;
@@ -61,11 +61,10 @@ const ProjectElaborationQuestion = ({ children, ...props }) => {
 
   return (
     <Wrapper {...{ ...props }}>
-      <StyledIcon
-        alt="quotatis"
-        icon="logo"
-      />
-      <BubbleQuestion>{children}</BubbleQuestion>
+      <StyledIcon alt="quotatis" icon="logo" />
+      <BubbleQuestion>
+        {children}
+      </BubbleQuestion>
     </Wrapper>
   )
 }

@@ -8,25 +8,26 @@ export const PROJECT_CHECK_VALIDATION_FLOW = 'PROJECT_CHECK_VALIDATION_FLOW'
 export const GOOGLE_PLACE_COORDS_RESULTS = 'GOOGLE_PLACE_COORDS_RESULTS'
 
 export const projectList = {
-  request: () => (actionTypes(PROJECT_LIST.REQUEST)),
-  success: payload => (actionTypes(PROJECT_LIST.SUCCESS, { payload })),
-  failure: error => (actionTypes(PROJECT_LIST.FAILURE, { error })),
+  request: () => actionTypes(PROJECT_LIST.REQUEST),
+  success: payload => actionTypes(PROJECT_LIST.SUCCESS, { payload }),
+  failure: error => actionTypes(PROJECT_LIST.FAILURE, { error }),
 }
 
 export const projectDetails = {
-  request: id => (actionTypes(PROJECT_DETAILS.REQUEST, { id })),
-  success: (payload, actionParams) => (actionTypes(PROJECT_DETAILS.SUCCESS, { payload, actionParams })),
-  failure: error => (actionTypes(PROJECT_DETAILS.FAILURE, { error })),
+  request: id => actionTypes(PROJECT_DETAILS.REQUEST, { id }),
+  success: (payload, actionParams) => actionTypes(PROJECT_DETAILS.SUCCESS, { payload, actionParams }),
+  failure: error => actionTypes(PROJECT_DETAILS.FAILURE, { error }),
 }
 
 export const projectUpdate = {
-  request: (projectData, userData, projectId) => (actionTypes(PROJECT_UPDATE.REQUEST, {
-    projectData,
-    userData,
-    projectId,
-  })),
-  success: (payload, actionParams) => (actionTypes(PROJECT_UPDATE.SUCCESS, { payload, actionParams })),
-  failure: error => (actionTypes(PROJECT_UPDATE.FAILURE, { error })),
+  request: (projectData, userData, projectId) =>
+    actionTypes(PROJECT_UPDATE.REQUEST, {
+      projectData,
+      userData,
+      projectId,
+    }),
+  success: (payload, actionParams) => actionTypes(PROJECT_UPDATE.SUCCESS, { payload, actionParams }),
+  failure: error => actionTypes(PROJECT_UPDATE.FAILURE, { error }),
 }
 
 export const checkValidationFlow = () => actionTypes(PROJECT_CHECK_VALIDATION_FLOW)

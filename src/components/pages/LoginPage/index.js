@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { MainLayout } from 'components'
 import { SignInForm } from 'containers'
 
-const LoginPage = (props) => {
+const LoginPage = props => {
   const email = props.location != null ? props.location.query.email : null
 
   return (

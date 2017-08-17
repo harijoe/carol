@@ -50,17 +50,18 @@ const Wrapper = styled.div`
   width: ${theme('icons.size.l')};
   margin: 0;
   cursor: pointer;
-  ${mapBreakpoints(bp => css`
+  ${mapBreakpoints(
+    bp => css`
     top: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} / 2);
     right: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} / 2);
-  `)}
+  `,
+  )};
 `
 
-const CloseAllButton = ({ closeAll, className }) => (
+const CloseAllButton = ({ closeAll, className }) =>
   <Wrapper className={className} onClick={closeAll}>
     <StyledSpan />
   </Wrapper>
-)
 
 CloseAllButton.propTypes = {
   closeAll: PropTypes.func.isRequired,

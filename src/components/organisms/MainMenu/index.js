@@ -35,7 +35,9 @@ const StyledList = styled(List)`${({ homepage, atTop }) => css`
     `}
 
     ${breakpoint('l')`
-      ${ifThen(atTop && homepage, css`
+      ${ifThen(
+        atTop && homepage,
+        css`
         > a {
           color: ${theme('colors.white')};
 
@@ -43,13 +45,17 @@ const StyledList = styled(List)`${({ homepage, atTop }) => css`
             border-top-color: ${theme('colors.white')};
           }
         }
-      `)}
+      `,
+      )}
 
-      ${ifThen(!atTop, css`
+      ${ifThen(
+        !atTop,
+        css`
         > a {
           color: ${theme('colors.black')};
         }
-      `)}
+      `,
+      )}
     `}
   }
 
@@ -152,15 +158,15 @@ const linkStyle = css`
 const StyledLink = styled(Link)`${linkStyle}`
 const StyledFindAProLink = styled(FindAProLink)`${linkStyle}`
 
-const MainMenu = ({ locale, homepage, atTop }) => (
+const MainMenu = ({ locale, homepage, atTop }) =>
   <StyledList homepage={homepage} atTop={atTop}>
     <li key="firm.find_pro">
       <StyledFindAProLink />
     </li>
     <ListItemWithSubmenu key="firm.resource" id="firm.resource" linkStyle={linkStyle} homepage={homepage}>
-      {Object.keys(locales[locale].mainMenu.resource).map(submenu => (
-        <FirmResourceSubMenu key={submenu} locale={locale} submenu={submenu} />
-      ))}
+      {Object.keys(locales[locale].mainMenu.resource).map(submenu =>
+        <FirmResourceSubMenu key={submenu} locale={locale} submenu={submenu} />,
+      )}
     </ListItemWithSubmenu>
     <li key="directory">
       <StyledLink to={locales[locale].mainMenu.directory} forceRedirect target="_blank">
@@ -173,7 +179,6 @@ const MainMenu = ({ locale, homepage, atTop }) => (
       </StyledLink>
     </li>
   </StyledList>
-)
 
 MainMenu.propTypes = {
   locale: PropTypes.string,

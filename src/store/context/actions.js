@@ -67,7 +67,6 @@ export const toggleChatbotPopin = (state = null) => ({
   payload: state,
 })
 
-
 export const toggleChatbotPopinMode = () => ({
   type: CONTEXT_TOGGLE_CHATBOT_POPIN_MODE,
 })

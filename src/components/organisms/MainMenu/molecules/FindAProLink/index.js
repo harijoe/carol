@@ -4,11 +4,10 @@ import { FormattedMessage } from 'react-intl'
 
 import { Link } from 'components'
 
-const FindAProLink = ({ redirectToConversation, className }) => (
+const FindAProLink = ({ redirectToConversation, className }) =>
   <Link onClick={redirectToConversation} className={className}>
     <FormattedMessage id="firm.find_pro" />
   </Link>
-)
 
 FindAProLink.propTypes = {
   redirectToConversation: PropTypes.func,

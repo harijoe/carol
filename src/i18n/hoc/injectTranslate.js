@@ -3,9 +3,8 @@ import { intlShape } from 'react-intl'
 
 export const translateForIntl = intl => (id, values) => intl.formatMessage({ id }, values)
 
-export const injectTranslateImpl = translateForIntlImpl => (Component) => {
-  const InjectTranslate = (props, { intl }) =>
-    <Component translate={translateForIntlImpl(intl)} {...props} />
+export const injectTranslateImpl = translateForIntlImpl => Component => {
+  const InjectTranslate = (props, { intl }) => <Component translate={translateForIntlImpl(intl)} {...props} />
 
   InjectTranslate.contextTypes = {
     intl: intlShape,

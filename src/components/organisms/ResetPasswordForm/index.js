@@ -11,12 +11,10 @@ import { Button, CarouselPageTemplate, AnimatedLabelField } from 'components'
 const Form = styled.form`
   width: 100%;
   box-sizing: border-box;
-  
+
   ${breakpoint('m')`
     width: 50%;
-  `}
-
-  strong {
+  `} strong {
     color: ${theme('colors.danger')};
   }
 `
@@ -29,32 +27,18 @@ const StyledButton = styled(Button)`
   `}
 `
 
-const ResetPasswordForm = ({ error, handleSubmit, loading, translate }) => (
-  <CarouselPageTemplate
-    heading={translate('user.reset_password.heading')}
-    description={translate('user.reset_password.description')}
-  >
+const ResetPasswordForm = ({ error, handleSubmit, loading, translate }) =>
+  <CarouselPageTemplate heading={translate('user.reset_password.heading')} description={translate('user.reset_password.description')}>
     <Form onSubmit={handleSubmit}>
       <Field name="token" type="hidden" component="input" />
       {error && <FormattedMessage id={error} tagName="strong" />}
-      <AnimatedLabelField
-        name="password"
-        type="password"
-        icon="pwd-login"
-        label={translate('user.password')}
-      />
-      <AnimatedLabelField
-        name="passwordValidation"
-        type="password"
-        icon="pwd-login"
-        label={translate('user.confirm_password')}
-      />
+      <AnimatedLabelField name="password" type="password" icon="pwd-login" label={translate('user.password')} />
+      <AnimatedLabelField name="passwordValidation" type="password" icon="pwd-login" label={translate('user.confirm_password')} />
       <StyledButton type="submit" loading={loading}>
         <FormattedMessage id="user.send" />
       </StyledButton>
     </Form>
   </CarouselPageTemplate>
-)
 
 ResetPasswordForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,

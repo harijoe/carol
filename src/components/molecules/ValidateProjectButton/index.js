@@ -26,18 +26,20 @@ class ValidateProjectButton extends Component {
   render() {
     const { url, authenticated, title, openPopin, setRedirectPathname } = this.props
 
-    return (<StyledLink
-      onClick={() => {
-        setRedirectPathname(url)
-        openPopin()
-        if (!this.state.clicked) pushGtmEvent({ event: 'FormCreated' })
-        this.setState({ clicked: true })
-      }}
-      to={authenticated && url}
-      button
-    >
-      {title}
-    </StyledLink>)
+    return (
+      <StyledLink
+        onClick={() => {
+          setRedirectPathname(url)
+          openPopin()
+          if (!this.state.clicked) pushGtmEvent({ event: 'FormCreated' })
+          this.setState({ clicked: true })
+        }}
+        to={authenticated && url}
+        button
+      >
+        {title}
+      </StyledLink>
+    )
   }
 }
 

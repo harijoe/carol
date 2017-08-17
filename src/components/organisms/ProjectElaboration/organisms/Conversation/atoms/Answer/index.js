@@ -23,7 +23,7 @@ const BubbleAnswer = styled.p`
   border-radius: 1rem 0 1rem 1rem;
   color: ${theme('colors.white')};
 
-  &::before, 
+  &::before,
   &::after {
     position: absolute;
     top: 0;
@@ -52,7 +52,9 @@ const Answer = ({ answer }) => {
 
   return (
     <Wrapper>
-      <BubbleAnswer>{answer}</BubbleAnswer>
+      <BubbleAnswer>
+        {answer}
+      </BubbleAnswer>
     </Wrapper>
   )
 }

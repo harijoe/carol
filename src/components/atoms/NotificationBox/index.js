@@ -16,7 +16,7 @@ const textStyles = ({ dark, grey, primary, secondary, success, alert }) => css`
   font-size: ${theme('fonts.size.base')};
 `
 
-const Text = styled.p`${textStyles}`
+const Text = styled.p`${textStyles};`
 
 const blockStyles = ({ dark, grey, primary, secondary, success, alert }) => css`
   background: ${theme('colors.white')};
@@ -25,9 +25,11 @@ const blockStyles = ({ dark, grey, primary, secondary, success, alert }) => css`
   border-bottom-style: solid;
   border-top-style: solid;
 
-  ${mapBreakpoints(bp => css`
+  ${mapBreakpoints(
+    bp => css`
     padding: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
-  `)}
+  `,
+  )}
 
   ${breakpoint('xl')`
     padding: ${theme('grid.gutterWidth.l')}rem;
@@ -41,14 +43,16 @@ const blockStyles = ({ dark, grey, primary, secondary, success, alert }) => css`
   ${ifThen(alert, css`border-color: ${theme('colors.alert')};`)}   
 `
 
-const Wrapper = styled.div`${blockStyles}`
+const Wrapper = styled.div`${blockStyles};`
 
-const NotificationBox = ({ primary, grey, dark, success, alert, children, text, ...props }) => (
+const NotificationBox = ({ primary, grey, dark, success, alert, children, text, ...props }) =>
   <Wrapper {...{ primary, grey, dark, success, alert }} {...props}>
-    {text != null && <Text {...{ primary, grey, dark, success, alert }} {...props}>{text}</Text>}
+    {text != null &&
+      <Text {...{ primary, grey, dark, success, alert }} {...props}>
+        {text}
+      </Text>}
     {children}
   </Wrapper>
-)
 
 NotificationBox.propTypes = {
   grey: PropTypes.bool,

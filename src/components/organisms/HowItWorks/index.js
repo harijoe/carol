@@ -23,31 +23,25 @@ const DescribeProject = (
   </Paragraph>
 )
 
-const VerifiedPros = locale => (
+const VerifiedPros = locale =>
   <Paragraph>
-    <FormattedMessage id="how_it_works.verified_pros.first_part" />
-    {' '}
+    <FormattedMessage id="how_it_works.verified_pros.first_part" />{' '}
     <Link to={locales[locale].homepage.verifiedProsLink} highlight target="_blank">
       <FormattedMessage id="how_it_works.verified_pros.link" />
-    </Link>
-    {' '}
+    </Link>{' '}
     <FormattedMessage id="how_it_works.verified_pros.second_part" />
   </Paragraph>
-)
 
-const Guide = locale => (
+const Guide = locale =>
   <Paragraph>
-    <FormattedMessage id="how_it_works.guide.first_part" />
-    {' '}
+    <FormattedMessage id="how_it_works.guide.first_part" />{' '}
     <Link to={locales[locale].contentSiteUrl} highlight target="_blank">
       <FormattedMessage id="how_it_works.guide.link" />
-    </Link>
-    {' '}
+    </Link>{' '}
     <FormattedMessage id="how_it_works.guide.second_part" />
   </Paragraph>
-)
 
-const HowItWorks = ({ translate, locale }) => (
+const HowItWorks = ({ translate, locale }) =>
   <Section title={translate('how_it_works.section_title')}>
     <Grid>
       <Row>
@@ -66,16 +60,11 @@ const HowItWorks = ({ translate, locale }) => (
           />
         </StyledCol>
         <StyledCol xs={12} m={4}>
-          <HowItWorksBlock
-            imageLink={cloudinary('/step3.svg')}
-            title={translate('how_it_works.guide.title')}
-            content={Guide(locale)}
-          />
+          <HowItWorksBlock imageLink={cloudinary('/step3.svg')} title={translate('how_it_works.guide.title')} content={Guide(locale)} />
         </StyledCol>
       </Row>
     </Grid>
   </Section>
-)
 
 HowItWorks.propTypes = {
   translate: PropTypes.func.isRequired,

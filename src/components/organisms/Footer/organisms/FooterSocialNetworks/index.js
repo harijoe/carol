@@ -20,8 +20,7 @@ const StyledSection = styled(Section)`
   `}
 `
 
-
-const FooterSocialNetworks = ({ locale }) => (
+const FooterSocialNetworks = ({ locale }) =>
   <StyledSection>
     <FooterSocialNetworksLink id="facebook" locale={locale} />
     <FooterSocialNetworksLink id="twitter" locale={locale} />
@@ -31,7 +30,6 @@ const FooterSocialNetworks = ({ locale }) => (
     <FooterSocialNetworksLink id="youtube" locale={locale} />
     <FooterSocialNetworksLink id="pinterest" locale={locale} />
   </StyledSection>
-)
 
 FooterSocialNetworks.propTypes = {
   locale: PropTypes.string,

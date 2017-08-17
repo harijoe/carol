@@ -23,24 +23,19 @@ const textStyle = ({ responsive }) => css`
 `
 
 const StyledIcon = styled(Icon)`${iconStyles}`
-const Text = styled.span`${textStyle}`
+const Text = styled.span`${textStyle};`
 
 const IconLink = ({ color, size, icon, right, responsive, children, ...props }) => {
   const iconElement = (
-    <StyledIcon
-      size={size && size / 3}
-      icon={icon}
-      hasText={!!children}
-      right={right}
-      responsive={responsive}
-      color={color}
-    />
+    <StyledIcon size={size && size / 3} icon={icon} hasText={!!children} right={right} responsive={responsive} color={color} />
   )
 
   return (
     <Link {...props}>
       {right || iconElement}
-      <Text responsive={responsive}>{children}</Text>
+      <Text responsive={responsive}>
+        {children}
+      </Text>
       {right && iconElement}
     </Link>
   )

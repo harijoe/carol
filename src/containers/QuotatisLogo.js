@@ -4,9 +4,7 @@ import { fromRouting } from 'store/selectors'
 
 import { QuotatisLogo } from 'components'
 
-const QuotatisLogoContainer = props => (
-  <QuotatisLogo {...props} />
-)
+const QuotatisLogoContainer = props => <QuotatisLogo {...props} />
 
 const mapStateToProps = state => ({
   homepage: fromRouting.isHomepage(state),

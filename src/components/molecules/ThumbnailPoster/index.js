@@ -64,7 +64,7 @@ const styles = ({ height }) => {
   return merge(baseStyle, commonStyle)
 }
 
-const Wrapper = styled.figure`${styles}`
+const Wrapper = styled.figure`${styles};`
 
 const StyledImage = styled(Image)`
   position: absolute;
@@ -96,13 +96,14 @@ const StyledHeading = styled(Heading)`
   `}
 `
 
-const ThumbnailPoster = ({ image, title, children, ...props }) => (
+const ThumbnailPoster = ({ image, title, children, ...props }) =>
   <Wrapper {...props}>
     <StyledImage {...image} />
-    <StyledHeading level={3}>{title}</StyledHeading>
+    <StyledHeading level={3}>
+      {title}
+    </StyledHeading>
     {children}
   </Wrapper>
-)
 
 ThumbnailPoster.propTypes = {
   height: PropTypes.string,

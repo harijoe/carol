@@ -5,9 +5,7 @@ import { toggleChatbotPopinMode } from 'store/actions'
 
 import { ChatbotPopin } from 'components'
 
-const ChatbotPopinContainer = props => (
-  <ChatbotPopin {...props} />
-)
+const ChatbotPopinContainer = props => <ChatbotPopin {...props} />
 
 const mapStateToProps = state => ({
   show: fromContext.getChatbotPopin(state),

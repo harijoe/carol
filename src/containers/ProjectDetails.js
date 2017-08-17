@@ -21,9 +21,11 @@ class ProjectDetailsContainer extends Component {
   render() {
     const { project, loading, placeCoords } = this.props
 
-    return (<Loading loading={loading}>
-      {project && <ProjectDetails {...{ project, loading, placeCoords }} />}
-    </Loading>)
+    return (
+      <Loading loading={loading}>
+        {project && <ProjectDetails {...{ project, loading, placeCoords }} />}
+      </Loading>
+    )
   }
 }
 
@@ -37,7 +39,6 @@ const mapStateToProps = (state, { id }) => {
     loading: fromStatus.isLoading(state, PROJECT_DETAILS.prefix),
   }
 }
-
 
 const mapDispatchToProps = (dispatch, { id }) => ({
   request: () => dispatch(projectDetails.request(id)),

@@ -12,11 +12,10 @@ const StyledLink = styled(Link)`
   display: block;
 `
 
-const PopinMenuLink = ({ children, to }) => (
+const PopinMenuLink = ({ children, to }) =>
   <StyledLink to={to}>
     {children}
   </StyledLink>
-)
 
 PopinMenuLink.propTypes = {
   children: PropTypes.any.isRequired,

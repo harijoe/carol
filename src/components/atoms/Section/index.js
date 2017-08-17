@@ -5,17 +5,21 @@ import styled, { css } from 'styled-components'
 import { theme, ifThen, mapBreakpoints, breakpoint } from 'utils/style'
 
 const titleStyles = ({ dark }) => css`
-  ${ifThen(dark, css`
+  ${ifThen(
+    dark,
+    css`
     color: ${theme('colors.white')};
     &::before {
       background: ${theme('colors.white')};
     }
-  `, css`
+  `,
+    css`
     color: ${theme('colors.black')};
     &::before {
       background: ${theme('colors.black')};
     }
-  `)}
+  `,
+  )}
   font-weight: normal;
   position: relative;
   display: block;
@@ -42,13 +46,15 @@ const titleStyles = ({ dark }) => css`
   `}
 `
 
-const Title = styled.h2`${titleStyles}`
+const Title = styled.h2`${titleStyles};`
 
 const sectionStyles = ({ light, primary, dark, tall }) => css`
   background: ${theme('colors.white')};
-  ${mapBreakpoints(bp => css`
+  ${mapBreakpoints(
+    bp => css`
     padding: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} * 2) ${theme(`grid.gutterWidth.${bp}`, 'rem')};
-  `)}
+  `,
+  )}
 
   ${breakpoint('xl')`
     padding-bottom: ${theme('grid.gutterWidth.xl')}rem;
@@ -58,7 +64,9 @@ const sectionStyles = ({ light, primary, dark, tall }) => css`
   ${ifThen(light, css`background: ${theme('colors.grayscale.lightest')};`)}
   ${ifThen(primary, css`background: ${theme('colors.primary')};`)}   
   ${ifThen(dark, css`background: ${theme('colors.black')};`)}
-  ${ifThen(tall, css`
+  ${ifThen(
+    tall,
+    css`
     ${breakpoint('xs')`
       padding-bottom: calc(${theme('grid.gutterWidth.l')}rem * 2);
       padding-top: calc(${theme('grid.gutterWidth.l')}rem * 2);
@@ -68,17 +76,20 @@ const sectionStyles = ({ light, primary, dark, tall }) => css`
       padding-bottom: calc(${theme('grid.gutterWidth.xl')}rem * 2);
       padding-top: calc(${theme('grid.gutterWidth.xl')}rem * 2);
     `}
-  `)}
+  `,
+  )}
 `
 
-const StyledSection = styled.section`${sectionStyles}`
+const StyledSection = styled.section`${sectionStyles};`
 
-const Section = ({ light, primary, dark, tall, children, title, ...props }) => (
+const Section = ({ light, primary, dark, tall, children, title, ...props }) =>
   <StyledSection light={light} primary={primary} dark={dark} tall={tall} {...props}>
-    {title != null && <Title light={light} primary={primary} dark={dark}>{title}</Title>}
+    {title != null &&
+      <Title light={light} primary={primary} dark={dark}>
+        {title}
+      </Title>}
     {children}
   </StyledSection>
-)
 
 Section.propTypes = {
   light: PropTypes.bool,

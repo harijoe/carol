@@ -5,9 +5,7 @@ import { toggleSignInPopin, toggleAccountNavigation } from 'store/actions'
 
 import { AccountButton } from 'components'
 
-const AccountButtonContainer = props => (
-  <AccountButton {...props} />
-)
+const AccountButtonContainer = props => <AccountButton {...props} />
 
 const mapStateToProps = state => ({
   accountNavigation: fromContext.getAccountNavigation(state),
@@ -19,7 +17,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   toggleSignInPopin: () => dispatch(toggleSignInPopin()),
   toggleAccountNavigation: () => dispatch(toggleAccountNavigation()),
-
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountButtonContainer)

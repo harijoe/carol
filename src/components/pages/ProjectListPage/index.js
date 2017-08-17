@@ -3,7 +3,7 @@ import React from 'react'
 import { MainLayout, MainWrapper, InnerWrapper } from 'components'
 import { Projects } from 'containers'
 
-const ProjectListPage = () => (
+const ProjectListPage = () =>
   <MainLayout>
     <MainWrapper>
       <InnerWrapper>
@@ -11,6 +11,5 @@ const ProjectListPage = () => (
       </InnerWrapper>
     </MainWrapper>
   </MainLayout>
-)
 
 export default ProjectListPage

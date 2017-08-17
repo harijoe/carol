@@ -19,7 +19,7 @@ import translations from '../../i18n'
 const replace = (str, replacer = {}) => {
   let strTransformed = str
 
-  Object.keys(replacer).forEach((key) => {
+  Object.keys(replacer).forEach(key => {
     strTransformed = strTransformed.replace(`%${key}%`, replacer[key])
   })
 
@@ -43,11 +43,13 @@ export default function* notify(title, message, status = 'success', titleValues 
   const titleTranslated = title != null ? translations[language][title] : ''
   const messageTranslated = message != null ? translations[language][message] : ''
 
-  yield put(addNotification({
-    title: replace(titleTranslated, titleValues),
-    message: replace(messageTranslated, messageValues),
-    status,
-  }))
+  yield put(
+    addNotification({
+      title: replace(titleTranslated, titleValues),
+      message: replace(messageTranslated, messageValues),
+      status,
+    }),
+  )
 
   return null
 }

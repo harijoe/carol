@@ -7,9 +7,11 @@ it('returns the initial state', () => {
 })
 
 it('handles SOMETHING_REQUEST', () => {
-  expect(reducer(initialState, {
-    type: 'SOMETHING_REQUEST',
-  })).toEqual({
+  expect(
+    reducer(initialState, {
+      type: 'SOMETHING_REQUEST',
+    }),
+  ).toEqual({
     loading: {
       ...getLoading(),
       SOMETHING: true,
@@ -22,9 +24,11 @@ it('handles SOMETHING_REQUEST', () => {
 })
 
 it('handles SOMETHING_SUCCESS', () => {
-  expect(reducer(initialState, {
-    type: 'SOMETHING_SUCCESS',
-  })).toEqual({
+  expect(
+    reducer(initialState, {
+      type: 'SOMETHING_SUCCESS',
+    }),
+  ).toEqual({
     loading: {
       ...getLoading(),
       SOMETHING: false,
@@ -37,9 +41,11 @@ it('handles SOMETHING_SUCCESS', () => {
 })
 
 it('handles SOMETHING_FAILURE', () => {
-  expect(reducer(initialState, {
-    type: 'SOMETHING_FAILURE',
-  })).toEqual({
+  expect(
+    reducer(initialState, {
+      type: 'SOMETHING_FAILURE',
+    }),
+  ).toEqual({
     loading: {
       ...getLoading(),
       SOMETHING: false,

@@ -4,9 +4,7 @@ import { clickOnFindAPro } from 'store/actions'
 
 import { FindAProLink } from 'components'
 
-const FindAProLinkContainer = props => (
-  <FindAProLink {...props} />
-)
+const FindAProLinkContainer = props => <FindAProLink {...props} />
 
 const mapDispatchToProps = dispatch => ({
   redirectToConversation: () => dispatch(clickOnFindAPro()),

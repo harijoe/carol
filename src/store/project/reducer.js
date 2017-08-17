@@ -1,10 +1,5 @@
 import { USER_RESET } from 'store/actions'
-import {
-  PROJECT_LIST,
-  PROJECT_DETAILS,
-  PROJECT_UPDATE,
-  GOOGLE_PLACE_COORDS_RESULTS,
-} from './actions'
+import { PROJECT_LIST, PROJECT_DETAILS, PROJECT_UPDATE, GOOGLE_PLACE_COORDS_RESULTS } from './actions'
 import { initialState } from './selectors'
 
 export default (state = initialState, action) => {

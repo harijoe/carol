@@ -17,18 +17,16 @@ const ContentWrapper = styled.div`
 
   ${breakpoint('m')`
     padding: ${theme('spaces.l')} ${theme('spaces.l')} 0 ${theme('spaces.l')};
-  `}
+  `};
 `
 const CardFooter = styled.footer`
   padding: ${theme('spaces.m')};
 
   ${breakpoint('m')`
     padding: ${theme('spaces.l')};
-  `}
+  `};
 `
-const HeaderWrapper = styled.div`
-  margin-bottom: ${theme('spaces.m')};
-`
+const HeaderWrapper = styled.div`margin-bottom: ${theme('spaces.m')};`
 const ImageWrapper = styled.div`
   height: 20rem;
   overflow: hidden;
@@ -51,7 +49,7 @@ const StyledLocation = styled(Paragraph)`
   margin-bottom: ${theme('spaces.m')};
 `
 
-const TestimonialCardContent = ({ image, firstName, age, location, quote, link }) => (
+const TestimonialCardContent = ({ image, firstName, age, location, quote, link }) =>
   <Wrapper>
     <ImageWrapper>
       <StyledImage src={image.sizes['350_220']} alt={image.alt} />
@@ -59,13 +57,20 @@ const TestimonialCardContent = ({ image, firstName, age, location, quote, link }
     <ContentWrapper>
       <HeaderWrapper>
         <StyledHeading level={3}>
-          {firstName}{', '}
-          <StyledSubtitle>{age}</StyledSubtitle>
+          {firstName}
+          {', '}
+          <StyledSubtitle>
+            {age}
+          </StyledSubtitle>
         </StyledHeading>
-        <StyledLocation>{location}</StyledLocation>
+        <StyledLocation>
+          {location}
+        </StyledLocation>
       </HeaderWrapper>
 
-      <Paragraph>« {quote} »</Paragraph>
+      <Paragraph>
+        « {quote} »
+      </Paragraph>
     </ContentWrapper>
     <CardFooter>
       <Link to={link} target="_blank" highlight>
@@ -73,13 +78,9 @@ const TestimonialCardContent = ({ image, firstName, age, location, quote, link }
       </Link>
     </CardFooter>
   </Wrapper>
-)
 
 TestimonialCardContent.propTypes = {
-  image: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.object,
-  ]),
+  image: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   firstName: PropTypes.string.isRequired,
   age: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,

@@ -3,7 +3,7 @@ import throttle from 'lodash/throttle'
 
 const scrollTopThreshold = 50
 
-const injectScroll = (WrappedComponent) => {
+const injectScroll = WrappedComponent => {
   class injectScrollWrapper extends Component {
     state = {
       scrollX: null,
@@ -34,11 +34,7 @@ const injectScroll = (WrappedComponent) => {
       const { scrollX, scrollY } = this.state
       const atTop = scrollY == null ? true : scrollY < scrollTopThreshold
 
-      return (
-        <WrappedComponent
-          {...{ ...this.props, scrollX, scrollY, atTop }}
-        />
-      )
+      return <WrappedComponent {...{ ...this.props, scrollX, scrollY, atTop }} />
     }
   }
 

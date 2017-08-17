@@ -17,7 +17,7 @@
     "build:bench:sizemap": "yarn run clean && cross-env NODE_ENV=production webpack --config webpack/bench.config",
     "build:bench:gzipped": "cross-env NODE_ENV=production yarn build && tar -czf dist/gzipped.tar.gz dist/main.*.js && ls -l dist/gzipped.tar.gz",
     "postinstall": "yarn webpack-assets:create",
-    "prettier": "yarn prettier:single -- **/*.js",
+    "prettier": "yarn prettier:single -- \"./**/*.js\"",
     "prettier:single": "prettier --no-semi  --trailing-comma=all --single-quote --print-width 140 --list-different --write",
     "webpack-assets:create": "node scripts/ensure-webpack-assets.js",
     "webpack-assets:refresh": "yarn run clean && yarn webpack-assets:create",

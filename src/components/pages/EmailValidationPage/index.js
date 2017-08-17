@@ -6,7 +6,7 @@ import injectTranslate from 'i18n/hoc/injectTranslate'
 import { MainLayout, MainWrapper, InnerWrapper, Section, AutoValidationBlock } from 'components'
 import { EmailForm } from 'containers'
 
-const EmailValidationPage = ({ translate }) => (
+const EmailValidationPage = ({ translate }) =>
   <MainLayout>
     <MainWrapper>
       <InnerWrapper>
@@ -23,7 +23,6 @@ const EmailValidationPage = ({ translate }) => (
       </InnerWrapper>
     </MainWrapper>
   </MainLayout>
-)
 
 EmailValidationPage.propTypes = {
   translate: PropTypes.func.isRequired,

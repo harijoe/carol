@@ -4,11 +4,10 @@ import PropTypes from 'prop-types'
 import { ProjectElaborationTemplate } from 'components'
 import { HeaderConversational } from 'containers'
 
-const ProjectElaborationLayout = ({ children, ...props }) => (
+const ProjectElaborationLayout = ({ children, ...props }) =>
   <ProjectElaborationTemplate header={<HeaderConversational {...props} />}>
     {children}
   </ProjectElaborationTemplate>
-)
 
 ProjectElaborationLayout.propTypes = {
   children: PropTypes.any,

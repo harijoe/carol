@@ -39,11 +39,10 @@ const StyledSignInForm = styled(SignInForm)`
   }
 `
 
-const SignInPopin = ({ show }) => (
+const SignInPopin = ({ show }) =>
   <Popin show={show}>
     <StyledSignInForm />
   </Popin>
-)
 
 SignInPopin.propTypes = {
   show: PropTypes.bool,

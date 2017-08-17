@@ -54,7 +54,7 @@ const getTags = (items, locale) => {
   return tags
 }
 
-const generateChild = (i, { featuredMedia, categories, tags, title, link }, locale) => (
+const generateChild = (i, { featuredMedia, categories, tags, title, link }, locale) =>
   <StyledCol xs={12} key={i}>
     <TipsAndTricksBlock
       header={categories[0]}
@@ -64,7 +64,6 @@ const generateChild = (i, { featuredMedia, categories, tags, title, link }, loca
       link={link}
     />
   </StyledCol>
-)
 
 const StyledLink = styled(Link)`
   max-width: 32rem;
@@ -72,23 +71,17 @@ const StyledLink = styled(Link)`
   margin-right: auto;
 `
 
-const TipsAndTricks = ({ translate, locale }) => (
+const TipsAndTricks = ({ translate, locale }) =>
   <Section title={translate('tips_and_tricks.section_title')}>
     <Grid narrow>
       <StyledRow>
-        <PostList
-          scope="latestProjectsResources"
-          tags={['api-work-resources']}
-          limit={3}
-          generateChild={generateChild}
-        />
+        <PostList scope="latestProjectsResources" tags={['api-work-resources']} limit={3} generateChild={generateChild} />
       </StyledRow>
       <StyledLink button large to={locales[locale].contentSiteUrl}>
         <FormattedMessage id="tips_and_tricks.call_to_action" />
       </StyledLink>
     </Grid>
   </Section>
-)
 
 TipsAndTricks.propTypes = {
   translate: PropTypes.func.isRequired,

@@ -6,9 +6,7 @@ import { toggleMainNavigation } from 'store/actions'
 
 import { MainNavigation } from 'components'
 
-const MainNavigationContainer = ({ show }) => (
-  <MainNavigation show={show} />
-)
+const MainNavigationContainer = ({ show }) => <MainNavigation show={show} />
 
 MainNavigationContainer.propTypes = {
   show: PropTypes.bool,

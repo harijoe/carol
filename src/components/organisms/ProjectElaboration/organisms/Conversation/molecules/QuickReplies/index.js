@@ -21,9 +21,7 @@ const StyledList = styled(List)`
 
 StyledList.displayName = 'List'
 
-const Item = styled.li`
-  margin: ${theme('spaces.xs')};
-`
+const Item = styled.li`margin: ${theme('spaces.xs')};`
 
 const StyledButton = styled.button`
   min-width: 7rem;
@@ -46,13 +44,14 @@ const QuickReplies = ({ quick_replies, answer, reply }) => {
     return null
   }
 
-  const quickRepliesList = () => (
-    quick_replies.map(({ title, payload }, i) => (
+  const quickRepliesList = () =>
+    quick_replies.map(({ title, payload }, i) =>
       <Item key={i} className="quick-reply">
-        <StyledButton onClick={() => reply(title, payload)}>{title}</StyledButton>
-      </Item>
-    ))
-  )
+        <StyledButton onClick={() => reply(title, payload)}>
+          {title}
+        </StyledButton>
+      </Item>,
+    )
 
   return (
     <StyledList>

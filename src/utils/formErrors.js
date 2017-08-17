@@ -1,4 +1,4 @@
-const getFormErrors = (errors) => {
+const getFormErrors = errors => {
   if (!Array.isArray(errors)) {
     return null
   }

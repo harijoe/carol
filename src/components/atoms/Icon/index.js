@@ -16,7 +16,7 @@ const styles = ({ size }) => css`
   }
 `
 
-const Wrapper = styled.span`${styles}`
+const Wrapper = styled.span`${styles};`
 
 const Icon = ({ icon, ...props }) => {
   try {

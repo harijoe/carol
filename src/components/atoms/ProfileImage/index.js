@@ -4,7 +4,8 @@ import styled, { css } from 'styled-components'
 import { theme } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
 
-const StyledFigure = styled.figure`${({ imageLink }) => css`
+const StyledFigure = styled.figure`
+  ${({ imageLink }) => css`
   position: relative;
   z-index: 5;
   display: block;
@@ -17,13 +18,13 @@ const StyledFigure = styled.figure`${({ imageLink }) => css`
   background-size: cover, ${theme('icons.size.l')};
   border-radius: 60rem;
   box-shadow: 0 0 10px 0 rgba(19, 19, 19, 0.15);
-`}`
+`};
+`
 
-const ProfileImage = ({ imageLink, children, ...props }) => (
+const ProfileImage = ({ imageLink, children, ...props }) =>
   <StyledFigure imageLink={imageLink} {...props}>
     {children}
   </StyledFigure>
-)
 
 ProfileImage.propTypes = {
   imageLink: PropTypes.string,

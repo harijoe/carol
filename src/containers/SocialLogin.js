@@ -17,7 +17,7 @@ const StyledIcon = styled(Icon)`
 
 const Wrapper = styled.div`
   position: relative;
-  
+
   .social {
     width: 100%;
     border: none;

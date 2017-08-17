@@ -4,9 +4,7 @@ import { fromProjectElaboration } from 'store/selectors'
 
 import { HeaderConversational } from 'components'
 
-const HeaderConversationalContainer = props => (
-  <HeaderConversational {...props} />
-)
+const HeaderConversationalContainer = props => <HeaderConversational {...props} />
 
 const mapStateToProps = state => ({
   partnerHeaderText: fromProjectElaboration.getPartnerHeaderText(state),

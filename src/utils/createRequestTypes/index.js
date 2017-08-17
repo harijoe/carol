@@ -7,7 +7,7 @@ const action = (type, payload = {}) => ({
   ...payload,
 })
 
-export const createRequestTypes = base => (
+export const createRequestTypes = base =>
   [REQUEST, SUCCESS, FAILURE].reduce((acc, type) => {
     const newAcc = acc
 
@@ -17,6 +17,5 @@ export const createRequestTypes = base => (
 
     return newAcc
   }, {})
-)
 
 export default action

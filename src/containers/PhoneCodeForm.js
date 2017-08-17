@@ -7,9 +7,7 @@ import { fromUser, fromStatus } from 'store/selectors'
 
 import { PhoneCodeForm } from 'components'
 
-const PhoneCodeFormContainer = props => (
-  <PhoneCodeForm {...props} />
-)
+const PhoneCodeFormContainer = props => <PhoneCodeForm {...props} />
 
 const mapStateToProps = state => ({
   disabled: fromUser.getId(state) == null,
@@ -20,7 +18,7 @@ const onSubmit = (values, dispatch) => {
   dispatch(validatePhoneCode.request(values))
 }
 
-const resendSMS = (dispatch) => {
+const resendSMS = dispatch => {
   dispatch(validatePhoneAgain())
 }
 

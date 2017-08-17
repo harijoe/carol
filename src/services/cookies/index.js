@@ -17,7 +17,6 @@ const universalSet = (name, value, { maxAge, ...options } = {}) => {
   reactCookie.save(name, value, universalOptions)
 }
 
-
 const cookies = {
   get: (...args) => reactCookie.load(...args),
   set: (...args) => universalSet(...args),

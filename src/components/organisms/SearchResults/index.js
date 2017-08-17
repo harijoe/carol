@@ -4,17 +4,7 @@ import styled from 'styled-components'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 
-import {
-  Grid,
-  Row,
-  Col,
-  Section,
-  ThumbnailPoster,
-  Heading,
-  Paragraph,
-  Link,
-  Icon,
-} from 'components'
+import { Grid, Row, Col, Section, ThumbnailPoster, Heading, Paragraph, Link, Icon } from 'components'
 
 import NewSearch from './molecules/NewSearch'
 import SearchTerm from './molecules/SearchTerm'
@@ -113,51 +103,59 @@ const SubHeading = styled(Paragraph)`
   font-size:  ${theme('fonts.size.xl')};
 `
 
-const SearchResults = ({ translate, results, query, nbHits }) => (
+const SearchResults = ({ translate, results, query, nbHits }) =>
   <WrapperResults>
-    {query && <Header>
-      <StyledGrid narrow>
-        <StyledRow>
-          <Col xs={12} l={8}>
-            <SearchTerm term={query} />
-          </Col>
-          <NewSearchWrapper xs={12} l={4}>
-            <NewSearch />
-          </NewSearchWrapper>
-        </StyledRow>
-      </StyledGrid>
-    </Header>}
-    {results && <Section light title={translate('search_page.result_section_title.projects')}>
-      <StyledGrid narrow>
-        <Row>
-          {results.map(({name, slug, id}) => <ColGrid xs={6} m={4} l={3} key={id}x>
-            <StyledThumbnailPoster image="" title={name} height="m">
-              <Link to={`/project-elaboration/?slug=${slug}`}>
-                <StyledIcon icon="circle-arrow" className="qs-icon" />
-              </Link>
-            </StyledThumbnailPoster>
-          </ColGrid>)}
-        </Row>
-      </StyledGrid>
-    </Section>}
-    {results && nbHits > 4 && <Section>
-      <Link to="search-result">{translate('search_page.see_all_results')} ({nbHits})</Link>
-    </Section>}
-    {!results && query !== '' && <Section light>
-      <StyledGrid narrow>
-        <Row column>
-          <StyledHeading level={3}>
-            {translate('search_page.no_result_title')}
-          </StyledHeading>
-          <SubHeading>
-            {translate('search_page.no_result_subtitle')}
-          </SubHeading>
-        </Row>
-      </StyledGrid>
-    </Section>}
+    {query &&
+      <Header>
+        <StyledGrid narrow>
+          <StyledRow>
+            <Col xs={12} l={8}>
+              <SearchTerm term={query} />
+            </Col>
+            <NewSearchWrapper xs={12} l={4}>
+              <NewSearch />
+            </NewSearchWrapper>
+          </StyledRow>
+        </StyledGrid>
+      </Header>}
+    {results &&
+      <Section light title={translate('search_page.result_section_title.projects')}>
+        <StyledGrid narrow>
+          <Row>
+            {results.map(({ name, slug, id }) =>
+              <ColGrid xs={6} m={4} l={3} key={id} x>
+                <StyledThumbnailPoster image="" title={name} height="m">
+                  <Link to={`/project-elaboration/?slug=${slug}`}>
+                    <StyledIcon icon="circle-arrow" className="qs-icon" />
+                  </Link>
+                </StyledThumbnailPoster>
+              </ColGrid>,
+            )}
+          </Row>
+        </StyledGrid>
+      </Section>}
+    {results &&
+      nbHits > 4 &&
+      <Section>
+        <Link to="search-result">
+          {translate('search_page.see_all_results')} ({nbHits})
+        </Link>
+      </Section>}
+    {!results &&
+      query !== '' &&
+      <Section light>
+        <StyledGrid narrow>
+          <Row column>
+            <StyledHeading level={3}>
+              {translate('search_page.no_result_title')}
+            </StyledHeading>
+            <SubHeading>
+              {translate('search_page.no_result_subtitle')}
+            </SubHeading>
+          </Row>
+        </StyledGrid>
+      </Section>}
   </WrapperResults>
-)
-
 
 SearchResults.propTypes = {
   translate: PropTypes.func.isRequired,

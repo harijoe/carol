@@ -8,9 +8,4 @@ const l11n = {
   es,
 }
 
-export {
-  l11n as default,
-  fr,
-  en,
-  es,
-}
+export { l11n as default, fr, en, es }

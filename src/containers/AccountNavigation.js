@@ -6,9 +6,7 @@ import { toggleAccountNavigation } from 'store/actions'
 
 import { AccountNavigation } from 'components'
 
-const AccountNavigationContainer = (({ ...props }) => (
-  <AccountNavigation {...props} />
-))
+const AccountNavigationContainer = ({ ...props }) => <AccountNavigation {...props} />
 
 AccountNavigationContainer.propTypes = {
   show: PropTypes.bool,

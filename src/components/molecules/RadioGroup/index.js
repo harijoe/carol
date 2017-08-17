@@ -29,15 +29,19 @@ const RadioGroup = ({ input, meta, options }) => {
 
   return (
     <div>
-      {options.map(({ value, translation, id }) => (
+      {options.map(({ value, translation, id }) =>
         <fieldset key={value}>
           <input type="radio" {...input} id={id} value={value} checked={value === input.value} />
-          <StyledLabel htmlFor={id}><FormattedMessage id={translation} /></StyledLabel>
-        </fieldset>
-      ))}
-      {invalid && error != null && <Error role="alert" color="danger" transparent>
-        <FormattedMessage id={error.id} values={error.values} />
-      </Error>}
+          <StyledLabel htmlFor={id}>
+            <FormattedMessage id={translation} />
+          </StyledLabel>
+        </fieldset>,
+      )}
+      {invalid &&
+        error != null &&
+        <Error role="alert" color="danger" transparent>
+          <FormattedMessage id={error.id} values={error.values} />
+        </Error>}
     </div>
   )
 }

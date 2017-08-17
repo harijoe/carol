@@ -1,9 +1,7 @@
 import set from 'lodash/set'
 import { routerReducer } from 'react-router-redux'
 import { initialState } from './selectors'
-import {
-  ROUTING_SET_REDIRECT_PATHNAME,
-} from './actions'
+import { ROUTING_SET_REDIRECT_PATHNAME } from './actions'
 
 export default (state = initialState, action) => {
   switch (action.type) {

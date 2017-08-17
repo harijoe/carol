@@ -23,8 +23,8 @@ const styles = css`
   }
 `
 
-const Ol = styled.ol`${styles}`
-const Ul = styled.ul`${styles}`
+const Ol = styled.ol`${styles};`
+const Ul = styled.ul`${styles};`
 
 const List = ({ ordered, children, ...props }) => React.createElement(ordered ? Ol : Ul, props, children)
 

@@ -8,9 +8,7 @@ import { fromForm, fromStatus, fromRouting } from 'store/selectors'
 import { userCreate } from 'store/actions'
 import { SignUpForm } from 'components'
 
-const SignUpFormContainer = props => (
-  <SignUpForm {...props} />
-)
+const SignUpFormContainer = props => <SignUpForm {...props} />
 
 const onSubmit = (data, dispatch) => dispatch(userCreate.request(data))
 

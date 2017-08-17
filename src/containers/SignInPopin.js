@@ -5,9 +5,7 @@ import { fromContext } from 'store/selectors'
 
 import { SignInPopin } from 'components'
 
-const SignInPopinContainer = ({ show }) => (
-  <SignInPopin show={show} />
-)
+const SignInPopinContainer = ({ show }) => <SignInPopin show={show} />
 
 SignInPopinContainer.propTypes = {
   show: PropTypes.bool,

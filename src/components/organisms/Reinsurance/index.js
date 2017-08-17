@@ -5,11 +5,13 @@ import { ifThen, theme, mapBreakpoints, breakpoint } from 'utils/style'
 import { Card, Section, SimpleCardContent, Image } from 'components'
 import { PostList } from 'containers'
 
-const StyledImageWrapper = styled.div`${({ active }) => `
+const StyledImageWrapper = styled.div`
+  ${({ active }) => `
   position: relative;
   transition: opacity 0.4s ease-in;
   opacity: ${ifThen(active, '1', '0')};
-`}`
+`};
+`
 
 const StyledImage = styled(Image)`
   z-index: 0;
@@ -46,10 +48,12 @@ const StyledSection = styled(Section)`
 `
 
 const StyledCard = styled(Card)`
-  ${mapBreakpoints(bp => css`
+  ${mapBreakpoints(
+    bp => css`
     margin-left: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} / 2);
     margin-right: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} / 2);
-  `)}
+  `,
+  )}
 
   min-height: 20rem;
   width: calc(100vw - 4.8rem);
@@ -75,31 +79,26 @@ const StyledSimpleCardContent = styled(SimpleCardContent)`
   `}
 `
 
-const generateChild = (i, items) => (
+const generateChild = (i, items) =>
   <StyledCard key={i}>
-    <StyledSimpleCardContent
-      title={items.title}
-      content={items.body}
-    />
+    <StyledSimpleCardContent title={items.title} content={items.body} />
   </StyledCard>
-)
 
 class Reinsurance extends Component {
   state = {
     activeImage: 0,
   }
 
-  afterChange = (slideIndex) => {
+  afterChange = slideIndex => {
     this.setState({
       activeImage: slideIndex,
     })
   }
 
-  generateBackground = (i, { featuredMedia }) => (
-    <StyledImageWrapper active={this.state.activeImage === i} key={i} >
+  generateBackground = (i, { featuredMedia }) =>
+    <StyledImageWrapper active={this.state.activeImage === i} key={i}>
       <StyledImage {...featuredMedia} />
     </StyledImageWrapper>
-  )
 
   render() {
     return (

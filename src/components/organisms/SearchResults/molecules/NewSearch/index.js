@@ -34,11 +34,11 @@ const StyledIcon = styled(Icon)`
   }
 `
 
-const NewSearch = ({ translate }) => (
+const NewSearch = ({ translate }) =>
   <Wrapper>
-    {translate('search_page.new_search')}<StyledIcon icon="search" />
+    {translate('search_page.new_search')}
+    <StyledIcon icon="search" />
   </Wrapper>
-)
 
 NewSearch.propTypes = {
   translate: PropTypes.func.isRequired,

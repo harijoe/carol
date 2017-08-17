@@ -13,25 +13,25 @@ import getFormErrors from 'utils/formErrors'
 import pushGtmEvent from 'utils/gtm'
 import { takeLatest } from 'utils/effects'
 import {
-    USER_CREATE,
-    USER_DETAILS,
-    USER_UPDATE,
-    USER_UPDATE_PASSWORD,
-    USER_FORGOT_PASSWORD,
-    USER_VALIDATE_PHONE,
-    USER_VALIDATE_PHONE_CODE,
-    USER_VALIDATE_EMAIL,
-    USER_VALIDATE_PHONE_AGAIN,
-    USER_VERIFY_EMAIL,
-    userCreate,
-    userDetails,
-    userUpdate,
-    forgotPassword,
-    resetPassword,
-    validatePhone,
-    validatePhoneCode,
-    verifyEmail,
-    resendEmail,
+  USER_CREATE,
+  USER_DETAILS,
+  USER_UPDATE,
+  USER_UPDATE_PASSWORD,
+  USER_FORGOT_PASSWORD,
+  USER_VALIDATE_PHONE,
+  USER_VALIDATE_PHONE_CODE,
+  USER_VALIDATE_EMAIL,
+  USER_VALIDATE_PHONE_AGAIN,
+  USER_VERIFY_EMAIL,
+  userCreate,
+  userDetails,
+  userUpdate,
+  forgotPassword,
+  resetPassword,
+  validatePhone,
+  validatePhoneCode,
+  verifyEmail,
+  resendEmail,
 } from './actions'
 
 function* handleCreateUserRequest({ data }) {
@@ -170,7 +170,7 @@ function* handleEmailVerification() {
   yield* redirectToNextValidationStep()
 }
 
-export default function* () {
+export default function*() {
   yield [
     takeLatest(USER_CREATE.REQUEST, handleCreateUserRequest),
     takeLatest(USER_DETAILS.REQUEST, handleGetUserRequest),

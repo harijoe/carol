@@ -41,7 +41,7 @@ router.use((req, res, next) => {
 
 const app = express(router)
 
-app.listen(port, (error) => {
+app.listen(port, error => {
   if (error) {
     console.error('server', error)
   } else {
@@ -49,14 +49,18 @@ app.listen(port, (error) => {
   }
 })
 
-const purgeSSRCache = locale => new Promise(resolve =>
-  router.handle({
-    url: '/',
-    method: 'PURGE',
-    hostname: hostNameFromUrl(locales[locale].url),
-    headers: { authorization: `Bearer ${purgeCacheToken}` },
-  }, { send: resolve })
-)
+const purgeSSRCache = locale =>
+  new Promise(resolve =>
+    router.handle(
+      {
+        url: '/',
+        method: 'PURGE',
+        hostname: hostNameFromUrl(locales[locale].url),
+        headers: { authorization: `Bearer ${purgeCacheToken}` },
+      },
+      { send: resolve },
+    ),
+  )
 
 const purgeAllCaches = async () => {
   await Promise.all(Object.keys(locales).map(purgeSSRCache))

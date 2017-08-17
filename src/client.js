@@ -28,18 +28,12 @@ history.listen(() => {
   anchorate()
 })
 
-const renderApp = () => (
+const renderApp = () =>
   <AppContainer>
     <Provider store={store}>
-      <Router
-        key={Math.random()}
-        history={browserHistory}
-        routes={routes}
-        render={applyRouterMiddleware(useScroll())}
-      />
+      <Router key={Math.random()} history={browserHistory} routes={routes} render={applyRouterMiddleware(useScroll())} />
     </Provider>
   </AppContainer>
-)
 
 injectTapEventPlugin()
 

@@ -29,12 +29,14 @@ const mapStateToProps = state => ({
   featureSearchEngineEnabled: fromContext.isFeatureEnabled(state, 'search_engine'),
 })
 
-const mapDispatchToProps = dispatch => (
-  bindActionCreators({
-    redirectToConversation: () => dispatch(clickOnFindAPro()),
-    request: () => projectElaborationHeroDetails.request(),
-    reply: (text, payload) => setProjectElaborationHeroAnswer(text, payload),
-  }, dispatch)
-)
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      redirectToConversation: () => dispatch(clickOnFindAPro()),
+      request: () => projectElaborationHeroDetails.request(),
+      reply: (text, payload) => setProjectElaborationHeroAnswer(text, payload),
+    },
+    dispatch,
+  )
 
 export default connect(mapStateToProps, mapDispatchToProps)(MotionMenuContainer)

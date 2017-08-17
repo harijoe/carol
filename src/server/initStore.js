@@ -1,13 +1,6 @@
 import reactCookie from 'services/cookies'
 import isAuthenticated from 'utils/auth'
-import {
-  setCountry,
-  setLang,
-  setAuthenticated,
-  setProjectElaborationSessionId,
-  enableFeature,
-  setInitialQueryParams,
-} from 'store/actions'
+import { setCountry, setLang, setAuthenticated, setProjectElaborationSessionId, enableFeature, setInitialQueryParams } from 'store/actions'
 import { getLocaleFromHostname, getLangFromLocale, getCountryFromLocale } from 'utils/locale'
 import generateSessionId from 'utils/generateSessionId'
 import { saveProjectElaborationIdInCookies } from 'store/utils'

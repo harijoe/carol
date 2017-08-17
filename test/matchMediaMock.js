@@ -1,5 +1,7 @@
-window.matchMedia = window.matchMedia || (() => ({
-  matches: false,
-  addListener: () => {},
-  removeListener: () => {},
-}))
+window.matchMedia =
+  window.matchMedia ||
+  (() => ({
+    matches: false,
+    addListener: () => {},
+    removeListener: () => {},
+  }))

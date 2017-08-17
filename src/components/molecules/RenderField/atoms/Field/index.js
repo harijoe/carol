@@ -13,7 +13,8 @@ const Error = styled(Block)`
   color: ${theme('colors.danger')};
 `
 
-const Wrapper = styled.div`${({ type, smallSize, mediumSize }) => css`
+const Wrapper = styled.div`
+  ${({ type, smallSize, mediumSize }) => css`
   position: relative;
   margin-bottom: ${theme('spaces.xs')};
   padding-bottom: ${theme('spaces.m')};
@@ -35,13 +36,18 @@ const Wrapper = styled.div`${({ type, smallSize, mediumSize }) => css`
     outline: none;
   }
 
-  ${ifThen(type === 'select', css`
+  ${ifThen(
+    type === 'select',
+    css`
     fieldset {
       background: transparent;
     }
-  `
-  , '')}
-  ${ifThen(type === 'checkbox', css`
+  `,
+    '',
+  )}
+  ${ifThen(
+    type === 'checkbox',
+    css`
     ${breakpointMax('l')`
       vertical-align: top;
 
@@ -49,20 +55,28 @@ const Wrapper = styled.div`${({ type, smallSize, mediumSize }) => css`
         width: 90%;
       }
     `}
-  `
-  , '')}
-  ${ifThen(smallSize, css`
+  `,
+    '',
+  )}
+  ${ifThen(
+    smallSize,
+    css`
     ${breakpoint('m')`
       width: 30%;
     `}
-  `)};
+  `,
+  )};
 
-  ${ifThen(mediumSize, css`
+  ${ifThen(
+    mediumSize,
+    css`
     ${breakpoint('m')`
       width: 50%;
     `}
-  `)};
-`}`
+  `,
+  )};
+`};
+`
 
 const StyledInput = styled(Input)`${({ hideBorder }) => css`
   padding: 0 ${theme('spaces.l')} 0 0;
@@ -71,7 +85,10 @@ const StyledInput = styled(Input)`${({ hideBorder }) => css`
   font-size: ${theme('fonts.size.base')};
   color: ${theme('colors.grayscale.darker')};
 
-  ${ifThen(hideBorder, '', css`
+  ${ifThen(
+    hideBorder,
+    '',
+    css`
     border-bottom: 0.1rem solid ${theme('colors.grayscale.light')};
     transition: all 0.3s ease;
 
@@ -79,7 +96,8 @@ const StyledInput = styled(Input)`${({ hideBorder }) => css`
       border-color: ${theme('colors.primary')};
       outline: none;
     }
-  `)};
+  `,
+  )};
 `}`
 
 const StyledIconLink = styled(IconLink)`
@@ -108,23 +126,40 @@ const StyledLabel = styled(Label)`${({ hideLabel, lightFont, inline }) => css`
   line-height: 1;
   color: ${theme('colors.black')};
 
-  ${ifThen(lightFont,
+  ${ifThen(
+    lightFont,
     css`
       font-weight: normal;
-    `
+    `,
   )}
 
-  ${ifThen(inline,
+  ${ifThen(
+    inline,
     css`
       display: inline-block;
     `,
     css`
       display: block;
-    `
+    `,
   )}
 `}`
 
-const Field = ({ error, name, invalid, label, hideLabel, lightFont, inline, hideBorder, onIconClick, type, icon, smallSize, mediumSize, ...props }) => {
+const Field = ({
+  error,
+  name,
+  invalid,
+  label,
+  hideLabel,
+  lightFont,
+  inline,
+  hideBorder,
+  onIconClick,
+  type,
+  icon,
+  smallSize,
+  mediumSize,
+  ...props
+}) => {
   const inputProps = { id: name, name, type, invalid, 'aria-describedby': `${name}Error`, ...props }
   const renderInputFirst = type === 'checkbox' || type === 'radio'
 
@@ -132,21 +167,18 @@ const Field = ({ error, name, invalid, label, hideLabel, lightFont, inline, hide
     <Wrapper {...{ hideBorder, type, smallSize, mediumSize }}>
       {renderInputFirst && <Input {...inputProps} />}
       {label &&
-        <StyledLabel {...{ hideLabel, lightFont, inline }} htmlFor={inputProps.id}>{label}</StyledLabel>
-      }
+        <StyledLabel {...{ hideLabel, lightFont, inline }} htmlFor={inputProps.id}>
+          {label}
+        </StyledLabel>}
       <fieldset>
-        {renderInputFirst ||
-          <StyledInput {...inputProps} />
-        }
-        {icon &&
-          <StyledIconLink onClick={onIconClick} {...{ icon }} />
-        }
+        {renderInputFirst || <StyledInput {...inputProps} />}
+        {icon && <StyledIconLink onClick={onIconClick} {...{ icon }} />}
       </fieldset>
-      {invalid && error &&
+      {invalid &&
+        error &&
         <Error id={`${name}Error`} role="alert" color="danger" transparent>
           <FormattedMessage id={error.id} values={error.values} />
-        </Error>
-      }
+        </Error>}
     </Wrapper>
   )
 }

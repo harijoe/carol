@@ -5,7 +5,8 @@ import { theme, breakpoint } from 'utils/style'
 
 import { Heading, Section } from 'components'
 
-const Wrapper = styled.header`${({ imageLink }) => css`
+const Wrapper = styled.header`
+  ${({ imageLink }) => css`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -30,7 +31,8 @@ const Wrapper = styled.header`${({ imageLink }) => css`
   ${breakpoint('l')`
     min-height: 25rem;
   `}
-`}`
+`};
+`
 
 const StyledSection = styled(Section)`
   position: relative;
@@ -44,14 +46,15 @@ const StyledHeading = styled(Heading)`
   color: ${theme('colors.white')};
 `
 
-const HeroSection = ({ title, imageLink, children, ...props }) => (
+const HeroSection = ({ title, imageLink, children, ...props }) =>
   <Wrapper imageLink={imageLink} {...props}>
     <StyledSection>
-      <StyledHeading level={1} className="qs-Hero-title">{title}</StyledHeading>
+      <StyledHeading level={1} className="qs-Hero-title">
+        {title}
+      </StyledHeading>
       {children}
     </StyledSection>
   </Wrapper>
-)
 
 HeroSection.propTypes = {
   title: PropTypes.string,

@@ -20,13 +20,11 @@ class ProfileFormContainer extends Component {
   }
 
   render() {
-    return (
-      <ProfileForm {...this.props} />
-    )
+    return <ProfileForm {...this.props} />
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const details = fromUser.getDetails(state)
 
   return {
@@ -38,10 +36,20 @@ const mapStateToProps = (state) => {
     },
     initialValues: {
       ...pick(details, [
-        '@id', 'gender', 'firstName', 'lastName',
-        'email', 'preferedLanguage', 'mobilePhone',
-        'fixedPhone', 'region', 'newsletterSubscription', 'contactPreference',
-        'contactComment', 'emailVerified', 'mobilePhoneVerified',
+        '@id',
+        'gender',
+        'firstName',
+        'lastName',
+        'email',
+        'preferedLanguage',
+        'mobilePhone',
+        'fixedPhone',
+        'region',
+        'newsletterSubscription',
+        'contactPreference',
+        'contactComment',
+        'emailVerified',
+        'mobilePhoneVerified',
       ]),
       imageBase64: details.imageUrl,
       birthday: transformDate(details.birthday),

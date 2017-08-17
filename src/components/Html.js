@@ -18,7 +18,9 @@ const Html = ({ styles, assets, serializedState, content, lang }) => {
         <style dangerouslySetInnerHTML={{ __html: styles }} />
       </head>
       <body>
-        <main id="app"><div dangerouslySetInnerHTML={{ __html: content }} /></main>
+        <main id="app">
+          <div dangerouslySetInnerHTML={{ __html: content }} />
+        </main>
         <script dangerouslySetInnerHTML={{ __html: serializedState }} />
         <script src={assetPath + assets.javascript.main} />
       </body>

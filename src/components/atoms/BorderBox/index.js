@@ -21,17 +21,19 @@ const titleStyles = ({ dark, grey, primary }) => css`
   letter-spacing: 0.1rem;
 `
 
-const Title = styled.h3`${titleStyles}`
+const Title = styled.h3`${titleStyles};`
 
 const blockStyles = ({ dark, grey, primary, mediumBorder, bigBorder }) => css`
   background: ${theme('colors.white')};
   border-width: 0.1rem;
   border-style: solid;
 
-  ${mapBreakpoints(bp => css`
+  ${mapBreakpoints(
+    bp => css`
     margin-bottom: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
     padding: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
-  `)}
+  `,
+  )}
 
   ${breakpoint('xl')`
     margin-bottom: ${theme('grid.gutterWidth.l')}rem;
@@ -45,14 +47,16 @@ const blockStyles = ({ dark, grey, primary, mediumBorder, bigBorder }) => css`
   ${ifThen(bigBorder, css`border-width: 0.3rem;`)}   
 `
 
-const Wrapper = styled.div`${blockStyles}`
+const Wrapper = styled.div`${blockStyles};`
 
-const BorderBox = ({ primary, grey, dark, children, title, mediumBorder, bigBorder, ...props }) => (
+const BorderBox = ({ primary, grey, dark, children, title, mediumBorder, bigBorder, ...props }) =>
   <Wrapper {...{ primary, grey, dark, mediumBorder, bigBorder }} {...props}>
-    {title != null && <Title dark={dark} primary={primary} grey={grey}>{title}</Title>}
+    {title != null &&
+      <Title dark={dark} primary={primary} grey={grey}>
+        {title}
+      </Title>}
     {children}
   </Wrapper>
-)
 
 BorderBox.propTypes = {
   grey: PropTypes.bool,

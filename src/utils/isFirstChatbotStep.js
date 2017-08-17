@@ -1,4 +1,4 @@
-export default (activeConversation) => {
+export default activeConversation => {
   if (activeConversation.length < 1) {
     return false
   }
@@ -7,4 +7,3 @@ export default (activeConversation) => {
 
   return lastMessage.is_first_step || false
 }
-

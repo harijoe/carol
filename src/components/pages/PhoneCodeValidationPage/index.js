@@ -7,7 +7,7 @@ import injectTranslate from 'i18n/hoc/injectTranslate'
 import { MainLayout, AutoValidationBlock, InnerWrapper, Section, MainWrapper, Link } from 'components'
 import { PhoneAlreadyVerified, PhoneCodeForm } from 'containers'
 
-const PhoneCodeValidationPage = ({ translate }) => (
+const PhoneCodeValidationPage = ({ translate }) =>
   <MainLayout>
     <MainWrapper>
       <InnerWrapper>
@@ -20,14 +20,15 @@ const PhoneCodeValidationPage = ({ translate }) => (
           >
             <PhoneAlreadyVerified>
               <PhoneCodeForm />
-              <Link to="/validation/phone" highlight><FormattedMessage id="user.change_phone_number" /></Link>
+              <Link to="/validation/phone" highlight>
+                <FormattedMessage id="user.change_phone_number" />
+              </Link>
             </PhoneAlreadyVerified>
           </AutoValidationBlock>
         </Section>
       </InnerWrapper>
     </MainWrapper>
   </MainLayout>
-)
 
 PhoneCodeValidationPage.propTypes = {
   translate: PropTypes.func.isRequired,

@@ -15,19 +15,21 @@ const blockStyles = ({ resetState }) => css`
     max-width: ${theme('grid.container')}rem;
   `}
 
-  ${ifThen(resetState, css`
+  ${ifThen(
+    resetState,
+    css`
     padding-top: 0;
     background: transparent;
-  `)}
+  `,
+  )}
 `
 
-const StyledMainWrapper = styled.div`${blockStyles}`
+const StyledMainWrapper = styled.div`${blockStyles};`
 
-const MainWrapper = ({ resetState, children, ...props }) => (
+const MainWrapper = ({ resetState, children, ...props }) =>
   <StyledMainWrapper {...{ resetState }} {...props}>
     {children}
   </StyledMainWrapper>
-)
 
 MainWrapper.propTypes = {
   resetState: PropTypes.bool,

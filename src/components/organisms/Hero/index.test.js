@@ -7,32 +7,44 @@ import mockIntl from '../../../../test/intlMock'
 import Hero from './'
 
 it('renders the Hero component', () => {
-  const wrapper = shallow(mockIntl(<ThemeProvider theme={theme}><Hero
-    firstChoices={[{
-      title: 'test',
-      image_url: 'test',
-      buttons: [{ payload: 'test' }],
-      subtitle: 'test',
-    }]}
-  /></ThemeProvider>))
+  const wrapper = shallow(
+    mockIntl(
+      <ThemeProvider theme={theme}>
+        <Hero
+          firstChoices={[
+            {
+              title: 'test',
+              image_url: 'test',
+              buttons: [{ payload: 'test' }],
+              subtitle: 'test',
+            },
+          ]}
+        />
+      </ThemeProvider>,
+    ),
+  )
 
   expect(wrapper).toMatchSnapshot()
 })
 
 it('renders the Hero component with a conversation in progress', () => {
-  const wrapperHasConversation = mount(mockIntl(
-    <ThemeProvider theme={theme}>
-      <Hero
-        hasActiveConversation
-        firstChoices={[{
-          title: 'test',
-          image_url: 'test',
-          buttons: [{ payload: 'test' }],
-          subtitle: 'test',
-        }]}
-      />
-    </ThemeProvider>
-  ))
+  const wrapperHasConversation = mount(
+    mockIntl(
+      <ThemeProvider theme={theme}>
+        <Hero
+          hasActiveConversation
+          firstChoices={[
+            {
+              title: 'test',
+              image_url: 'test',
+              buttons: [{ payload: 'test' }],
+              subtitle: 'test',
+            },
+          ]}
+        />
+      </ThemeProvider>,
+    ),
+  )
 
   expect(wrapperHasConversation.find('FormattedMessage').first().prop('id')).toEqual('hero.conversation_in_progress')
 })

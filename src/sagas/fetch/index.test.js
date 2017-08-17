@@ -17,7 +17,15 @@ describe('fetchEntity', () => {
   const actionParams = { param1: 'test1', param2: 'test2' }
 
   it('calls success', () => {
-    const generator = fetchEntity(actions, 'get', 'url', { setting1: 'test1', lang: 'fr', accessToken: '123test' }, 'test2', actionParams, false)
+    const generator = fetchEntity(
+      actions,
+      'get',
+      'url',
+      { setting1: 'test1', lang: 'fr', accessToken: '123test' },
+      'test2',
+      actionParams,
+      false,
+    )
     const responseMock = { data: { token: 1 } }
 
     expect(generator.next().value).toEqual(select(fromContext.getLang))
@@ -28,7 +36,15 @@ describe('fetchEntity', () => {
   })
 
   it('calls failure', () => {
-    const generator = fetchEntity(actions, 'get', 'url', { setting1: 'test1', lang: 'fr', accessToken: '123test' }, 'test2', actionParams, false)
+    const generator = fetchEntity(
+      actions,
+      'get',
+      'url',
+      { setting1: 'test1', lang: 'fr', accessToken: '123test' },
+      'test2',
+      actionParams,
+      false,
+    )
     const errorMock = 'error'
 
     expect(generator.next().value).toEqual(select(fromContext.getLang))

@@ -13,13 +13,12 @@ const blockStyles = () => css`
   `}
 `
 
-const StyledInnerWrapper = styled.div`${blockStyles}`
+const StyledInnerWrapper = styled.div`${blockStyles};`
 
-const InnerWrapper = ({ children, ...props }) => (
+const InnerWrapper = ({ children, ...props }) =>
   <StyledInnerWrapper {...props}>
     {children}
   </StyledInnerWrapper>
-)
 
 InnerWrapper.propTypes = {
   children: PropTypes.any,

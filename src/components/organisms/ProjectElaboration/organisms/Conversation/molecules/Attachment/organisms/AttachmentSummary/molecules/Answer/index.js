@@ -9,11 +9,10 @@ const StyledParagraph = styled(Paragraph)`
   margin: ${theme('spaces.m')} 0;
 `
 
-const Answer = ({ children }) => (
+const Answer = ({ children }) =>
   <StyledParagraph>
     {children}
   </StyledParagraph>
-)
 
 Answer.propTypes = {
   children: PropTypes.any,

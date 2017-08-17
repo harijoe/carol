@@ -7,7 +7,8 @@ import injectScroll from 'hoc/component/injectScroll'
 
 import { Icon } from 'components'
 
-const Wrapper = styled.div`${({ homepage, atTop }) => css`
+const Wrapper = styled.div`
+  ${({ homepage, atTop }) => css`
   position: relative;
   display: flex;
   align-items: center;
@@ -22,7 +23,9 @@ const Wrapper = styled.div`${({ homepage, atTop }) => css`
     min-width: ${theme('icons.size.l')};
   `}
 
-  ${ifThen(homepage, css`
+  ${ifThen(
+    homepage,
+    css`
     .qs-header-cnx {
       fill: ${theme('colors.white')};
     }
@@ -34,9 +37,12 @@ const Wrapper = styled.div`${({ homepage, atTop }) => css`
         border-top-color: ${theme('colors.white')};
       }
     }
-  `)} 
+  `,
+  )} 
 
-  ${ifThen(!homepage || !atTop, css`
+  ${ifThen(
+    !homepage || !atTop,
+    css`
     .qs-header-cnx {
       fill: ${theme('colors.black')};
     }
@@ -48,7 +54,8 @@ const Wrapper = styled.div`${({ homepage, atTop }) => css`
         border-top-color: ${theme('colors.black')};
       }
     }
-  `)}
+  `,
+  )}
 
   &:hover {
     .qs-header-cnx {
@@ -63,7 +70,8 @@ const Wrapper = styled.div`${({ homepage, atTop }) => css`
       }
     }
   }
-`}`
+`};
+`
 
 const SignLabel = styled.p`
   display: inline-block;
@@ -78,11 +86,9 @@ const SignLabel = styled.p`
 
   ${breakpointMax('l')`
     display: none;
-  `}
-
-  ${breakpoint('xl')`
+  `} ${breakpoint('xl')`
     font-size: ${theme('fonts.size.base')};
-  `}
+  `};
 `
 
 const LogInLabel = styled.p`
@@ -103,8 +109,8 @@ const LogInLabel = styled.p`
     right: 0;
     top: 50%;
     margin-top: -0.25rem;
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 0.5rem solid transparent;
     border-right: 0.5rem solid transparent;
     border-top: 0.5rem solid ${theme('colors.black')};
@@ -118,18 +124,20 @@ const LogInLabel = styled.p`
 
   ${breakpoint('xl')`
     font-size: ${theme('fonts.size.l')};
-  `}
+  `};
 `
 
-const AccountButton = ({ atTop, authenticated, toggleAccountNavigation, toggleSignInPopin, homepage, firstName }) => (
+const AccountButton = ({ atTop, authenticated, toggleAccountNavigation, toggleSignInPopin, homepage, firstName }) =>
   <Wrapper homepage={homepage} atTop={atTop} onClick={authenticated ? toggleAccountNavigation : toggleSignInPopin}>
-    <Icon
-      size={32}
-      icon="login"
-    />
-    {authenticated ? <LogInLabel>{firstName}</LogInLabel> : <SignLabel><FormattedMessage id="login" /></SignLabel>}
+    <Icon size={32} icon="login" />
+    {authenticated
+      ? <LogInLabel>
+          {firstName}
+        </LogInLabel>
+      : <SignLabel>
+          <FormattedMessage id="login" />
+        </SignLabel>}
   </Wrapper>
-)
 
 AccountButton.propTypes = {
   toggleAccountNavigation: PropTypes.func,

@@ -8,24 +8,10 @@ import { theme, breakpoint, breakpointMax } from 'utils/style'
 import { normalize, format } from 'utils/transformPhone'
 import cloudinary from 'utils/cloudinary'
 
-import {
-  RenderField,
-  Heading,
-  Button,
-  RadioGroup,
-  HeroSection,
-  Section,
-  Grid,
-  ProfileImage,
-  BorderBox,
-  Icon,
-  Loading,
-} from 'components'
+import { RenderField, Heading, Button, RadioGroup, HeroSection, Section, Grid, ProfileImage, BorderBox, Icon, Loading } from 'components'
 import ValidatedInfo from './atoms/ValidatedInfo'
 
-const Form = styled.form`
-  width: 100%;
-`
+const Form = styled.form`width: 100%;`
 
 const StyledHeroSection = styled(HeroSection)`
   padding-top: ${theme('spaces.xxl')};
@@ -81,8 +67,7 @@ const ProfileContentWrapper = styled.div`
 
       ${breakpoint('l')`
         fill: ${theme('colors.white')};
-      `}
-
+      `};
     }
   }
 
@@ -99,13 +84,11 @@ const ProfileContentWrapper = styled.div`
     p {
       color: ${theme('colors.grayscale.darker')};
     }
-  `}
-
-  ${breakpoint('l')`
+  `} ${breakpoint('l')`
     .qs-Profil-titleName, p {
       color: ${theme('colors.white')};
     }
-  `}
+  `};
 `
 
 const StyledSection = styled(Section)`
@@ -176,7 +159,7 @@ const RadioBlock = styled.div`
   }
 `
 
-const VerifiedFieldWrapper = styled.div `
+const VerifiedFieldWrapper = styled.div`
   display: flex;
 
   ${breakpointMax('m')`
@@ -192,9 +175,7 @@ const VerifiedFieldWrapper = styled.div `
       margin-bottom: ${theme('spaces.m')};
       margin-top: -${theme('spaces.m')};
     }
-  `}
-
-  ${breakpoint('m')`
+  `} ${breakpoint('m')`
     align-items: center;
 
     div {
@@ -206,7 +187,7 @@ const VerifiedFieldWrapper = styled.div `
         margin-left: ${theme('spaces.m')};
       }
     }
-  `}
+  `};
 `
 
 class ProfileForm extends Component {
@@ -277,29 +258,39 @@ class ProfileForm extends Component {
     const { imageBase64, firstName, emailVerified, mobilePhoneVerified } = initialValues
 
     return (
-      <div ref={(ref) => { this.form = ref }}>
+      <div
+        ref={ref => {
+          this.form = ref
+        }}
+      >
         <Loading loading={loading}>
-          {!loading && (
+          {!loading &&
             <Form onSubmit={handleSubmit}>
               <StyledHeroSection imageLink={cloudinary('/hero-fullscreen_image.jpg')}>
                 <StyledProfileImage imageLink={imageBase64} />
                 <ProfileContentWrapper>
-                  <Heading level={1} className="qs-Profil-titleName">{translate('user.profile.hello', { firstName })}</Heading>
-                  <p><Icon icon="mail-login" /><span>{details.email}</span></p>
+                  <Heading level={1} className="qs-Profil-titleName">
+                    {translate('user.profile.hello', { firstName })}
+                  </Heading>
+                  <p>
+                    <Icon icon="mail-login" />
+                    <span>
+                      {details.email}
+                    </span>
+                  </p>
                 </ProfileContentWrapper>
               </StyledHeroSection>
               <StyledSection title={translate('user.profile_info')}>
                 <StyledGrid>
                   <div className="qs-Infos-wrapper">
                     <RadioBlock>
-                      <strong><FormattedMessage id="user.gender" tagName="div" /></strong>
+                      <strong>
+                        <FormattedMessage id="user.gender" tagName="div" />
+                      </strong>
                       <Field
                         component={RadioGroup}
                         name="gender"
-                        options={[
-                          { value: 'Mr', id: 'mr', translation: 'user.mr' },
-                          { value: 'Mrs', id: 'mrs', translation: 'user.mrs' },
-                        ]}
+                        options={[{ value: 'Mr', id: 'mr', translation: 'user.mr' }, { value: 'Mrs', id: 'mrs', translation: 'user.mrs' }]}
                       />
                     </RadioBlock>
                     <Field
@@ -354,7 +345,9 @@ class ProfileForm extends Component {
                 <StyledGrid>
                   <div className="qs-Infos-wrapper">
                     <RadioBlock>
-                      <strong><FormattedMessage id="user.contactPreference" tagName="div" /></strong>
+                      <strong>
+                        <FormattedMessage id="user.contactPreference" tagName="div" />
+                      </strong>
                       <Field
                         component={RadioGroup}
                         name="contactPreference"
@@ -364,12 +357,7 @@ class ProfileForm extends Component {
                         ]}
                       />
                     </RadioBlock>
-                    <Field
-                      name="contactComment"
-                      component={RenderField}
-                      type="select"
-                      label={translate('user.contactComment')}
-                    >
+                    <Field name="contactComment" component={RenderField} type="select" label={translate('user.contactComment')}>
                       {[
                         {
                           value: 'no_preferences',
@@ -383,11 +371,14 @@ class ProfileForm extends Component {
                           value: 'outside_business_hours',
                           id: 'user.contactComment.outside_business_hours',
                         },
-                      ].map(({ value, id }, key) => (
+                      ].map(({ value, id }, key) =>
                         <FormattedMessage {...{ key, id }}>
-                          {formattedMessage => <option {...{ value }}>{formattedMessage}</option>}
-                        </FormattedMessage>
-                      ))}
+                          {formattedMessage =>
+                            <option {...{ value }}>
+                              {formattedMessage}
+                            </option>}
+                        </FormattedMessage>,
+                      )}
                     </Field>
                   </div>
                 </StyledGrid>
@@ -410,8 +401,7 @@ class ProfileForm extends Component {
                   </Button>
                 </StyledGrid>
               </StyledSection>
-            </Form>
-          )}
+            </Form>}
         </Loading>
       </div>
     )

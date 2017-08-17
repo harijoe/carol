@@ -11,11 +11,13 @@ import * as user from './user'
 
 export default [
   {
-    path: '/oauth/v2/token?client_id=4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k&client_secret=4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc&grant_type=password&username=hello%40world.com&password=myp4%24%24w0rld',
+    path:
+      '/oauth/v2/token?client_id=4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k&client_secret=4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc&grant_type=password&username=hello%40world.com&password=myp4%24%24w0rld',
     response: token.login,
   },
   {
-    path: '/oauth/v2/token?client_id=4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k&client_secret=4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc&grant_type=client_credentials',
+    path:
+      '/oauth/v2/token?client_id=4qhq3n20xi4gww0gokc0k44k0ss48ssw4g88kgg8kkkscgco0k&client_secret=4aoyh39n19usgos8ss0osscwg8ogkgkg0wcw0wkkg0kkow8gwc&grant_type=client_credentials',
     response: token.anonymous,
   },
   {

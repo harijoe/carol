@@ -26,12 +26,10 @@ const StyledHeading = styled(Heading)`
   }
 `
 
-
-const SearchTerm = ({ term, translate, ...props }) => (
+const SearchTerm = ({ term, translate, ...props }) =>
   <StyledHeading level={1} {...props}>
     {translate('search_page.result_title')} <strong>{term}</strong>
   </StyledHeading>
-)
 
 SearchTerm.propTypes = {
   term: PropTypes.string,

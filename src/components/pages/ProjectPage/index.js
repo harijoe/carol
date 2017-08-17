@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { MainLayout, MainWrapper, InnerWrapper } from 'components'
 import { ProjectDetails } from 'containers'
 
-const ProjectPage = props => (
+const ProjectPage = props =>
   <MainLayout>
     <MainWrapper>
       <InnerWrapper>
@@ -12,7 +12,6 @@ const ProjectPage = props => (
       </InnerWrapper>
     </MainWrapper>
   </MainLayout>
-)
 
 ProjectPage.propTypes = {
   params: PropTypes.shape({

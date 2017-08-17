@@ -4,9 +4,7 @@ import { closeAll } from 'store/actions'
 
 import { CloseAllButton } from 'components'
 
-const CloseAllButtonContainer = props => (
-  <CloseAllButton {...props} />
-)
+const CloseAllButtonContainer = props => <CloseAllButton {...props} />
 
 const mapDispatchToProps = dispatch => ({
   closeAll: () => dispatch(closeAll()),

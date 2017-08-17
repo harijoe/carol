@@ -12,7 +12,9 @@ export function* handlePopinChange() {
   /*
     Adds a noscroll class to the body to prevent scrolling while popin is opened
    */
-  if (typeof document === 'undefined') { return }
+  if (typeof document === 'undefined') {
+    return
+  }
 
   const isPopin = yield select(fromContext.isPopin)
   let classes = document.body.className.split(' ').filter(e => e !== '')
@@ -26,7 +28,7 @@ export function* handlePopinChange() {
   document.body.className = classes.join(' ')
 }
 
-export default function* () {
+export default function*() {
   yield [
     takeLatest(LOCATION_CHANGE, handleLocationChange),
     takeLatest(CONTEXT_TOGGLE_MAIN_NAVIGATION, handlePopinChange),

@@ -2,15 +2,11 @@ import cookie from 'services/cookies'
 import { fromAuth } from 'store/selectors'
 import { select } from 'redux-saga/effects'
 
-export const removeToken = function* () {
-  yield [
-    cookie.delete('access_token'),
-    cookie.delete('refresh_token'),
-    cookie.delete('grant_type'),
-  ]
+export const removeToken = function*() {
+  yield [cookie.delete('access_token'), cookie.delete('refresh_token'), cookie.delete('grant_type')]
 }
 
-export const saveToken = function* (grantType) {
+export const saveToken = function*(grantType) {
   const accessToken = yield select(fromAuth.getAccessToken)
   const expiresIn = yield select(fromAuth.getExpiresIn)
   const refreshToken = yield select(fromAuth.getRefreshToken)

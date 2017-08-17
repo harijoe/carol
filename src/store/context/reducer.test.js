@@ -7,20 +7,24 @@ it('returns the initial state', () => {
 })
 
 it('handles CONTEXT_SET_COUNTRY', () => {
-  expect(reducer(initialState, {
-    type: actions.CONTEXT_SET_COUNTRY,
-    payload: 'myCountry',
-  })).toEqual({
+  expect(
+    reducer(initialState, {
+      type: actions.CONTEXT_SET_COUNTRY,
+      payload: 'myCountry',
+    }),
+  ).toEqual({
     ...initialState,
     country: 'myCountry',
   })
 })
 
 it('handles CONTEXT_SET_LANG', () => {
-  expect(reducer(initialState, {
-    type: actions.CONTEXT_SET_LANG,
-    payload: 'myLang',
-  })).toEqual({
+  expect(
+    reducer(initialState, {
+      type: actions.CONTEXT_SET_LANG,
+      payload: 'myLang',
+    }),
+  ).toEqual({
     ...initialState,
     lang: 'myLang',
   })

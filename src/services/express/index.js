@@ -13,7 +13,7 @@ import { env, devServer, ssl } from 'config'
 
 const root = path.join(__dirname, '../../..')
 
-export default (routes) => {
+export default routes => {
   const app = express()
 
   app.use(compression())
@@ -59,11 +59,14 @@ export default (routes) => {
     })
     app.use(forceSSL)
 
-    const server = https.createServer({
-      key: fs.readFileSync(path.join(root, ssl.privateKey)),
-      cert: fs.readFileSync(path.join(root, ssl.certificate)),
-      ca: [fs.readFileSync(path.join(root, ssl.intermediate))],
-    }, app)
+    const server = https.createServer(
+      {
+        key: fs.readFileSync(path.join(root, ssl.privateKey)),
+        cert: fs.readFileSync(path.join(root, ssl.certificate)),
+        ca: [fs.readFileSync(path.join(root, ssl.intermediate))],
+      },
+      app,
+    )
 
     return server
   }

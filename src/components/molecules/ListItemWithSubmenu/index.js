@@ -6,7 +6,8 @@ import { theme, ifThen, breakpoint, breakpointMax } from 'utils/style'
 
 import { Link } from 'components'
 
-const StyledSubmenu = styled.ul`${({ isOpen }) => css`
+const StyledSubmenu = styled.ul`
+  ${({ isOpen }) => css`
   list-style: none;
   z-index: 1;
 
@@ -64,7 +65,10 @@ const StyledSubmenu = styled.ul`${({ isOpen }) => css`
     `}
   }
 
-  ${ifThen(!isOpen, '', css`
+  ${ifThen(
+    !isOpen,
+    '',
+    css`
     ${breakpointMax('l')`
       height: auto;
       opacity: 1;
@@ -75,8 +79,10 @@ const StyledSubmenu = styled.ul`${({ isOpen }) => css`
       opacity: 1;
       pointer-events: auto;
     `}
-  `)};
-`}`
+  `,
+  )};
+`};
+`
 
 const HitBox = styled.div`
   position: fixed;
@@ -86,7 +92,7 @@ const HitBox = styled.div`
   left: 0;
   ${breakpointMax('l')`
     display: none;
-  `}
+  `};
 `
 
 const StyledLink = styled(Link)`${({ linkStyle }) => css`
@@ -109,13 +115,7 @@ class ListItemWithSubmenu extends Component {
     return (
       <li>
         {isOpen && <HitBox onClick={this.toggleState} />}
-        <StyledLink
-          onClick={this.toggleState}
-          className="qs-linkMenu--toggle"
-          homepage={homepage}
-          isOpen={isOpen}
-          linkStyle={linkStyle}
-        >
+        <StyledLink onClick={this.toggleState} className="qs-linkMenu--toggle" homepage={homepage} isOpen={isOpen} linkStyle={linkStyle}>
           <FormattedMessage id={id} />
         </StyledLink>
         <StyledSubmenu isOpen={isOpen}>

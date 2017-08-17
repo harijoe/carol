@@ -57,14 +57,12 @@ const DateCreation = styled.time`
 
   ${breakpointMax('m')`
     margin-top: ${theme('spaces.m')};
-  `}
-
-  ${breakpoint('m')`
+  `} ${breakpoint('m')`
     display: inline-block;
     margin-left: ${theme('spaces.m')};
     vertical-align: middle;
     font-size: ${theme('fonts.size.base')};
-  `}
+  `};
 `
 
 const StyledProjectStatus = styled(ProjectStatus)`
@@ -81,7 +79,7 @@ const ProjectImage = styled.figure`
   ${breakpoint('m')`
     margin-top: ${theme('spaces.l')};
     height: 22.5rem;
-  `}
+  `};
 `
 
 const MapImage = styled.figure`
@@ -205,26 +203,39 @@ const googleMapsParams = ({ lat, lng }) => {
   return Object.keys(googleMapParams).map(key => `${key}=${encodeURIComponent(googleMapParams[key])}`).join('&')
 }
 
-const ProjectDetails = ({ project: { name, status, createdAt, questionsAnswers, comment, postalCode, startTimeframe, purpose, leadSales }, placeCoords, translate, ...props }) => (
+const ProjectDetails = ({
+  project: { name, status, createdAt, questionsAnswers, comment, postalCode, startTimeframe, purpose, leadSales },
+  placeCoords,
+  translate,
+  ...props
+}) =>
   <Wrapper {...props}>
     <Section>
       <Grid narrow>
-        <StyledIconLink to="/projects" icon="back_arrow"><FormattedMessage id="project.back_link_title" /></StyledIconLink>
-        <Heading level={1}>{name}</Heading>
+        <StyledIconLink to="/projects" icon="back_arrow">
+          <FormattedMessage id="project.back_link_title" />
+        </StyledIconLink>
+        <Heading level={1}>
+          {name}
+        </Heading>
         <StyledProjectStatus {...{ status, leadSales }} />
-        <DateCreation><FormattedMessage id="project.created_at" /> {transformDate(createdAt)}</DateCreation>
+        <DateCreation>
+          <FormattedMessage id="project.created_at" /> {transformDate(createdAt)}
+        </DateCreation>
       </Grid>
     </Section>
 
     {status === 'found' &&
-    <StyledSection>
-      <Grid narrow>
-        <Paragraph dangerouslySetInnerHTML={{ __html: translate('project.firm_intro', { firmsNumber: `<strong>${leadSales.length}</strong>` }) }} />
-      </Grid>
-      <StyledGrid>
-        <FirmList list={leadSales} />
-      </StyledGrid>
-    </StyledSection>}
+      <StyledSection>
+        <Grid narrow>
+          <Paragraph
+            dangerouslySetInnerHTML={{ __html: translate('project.firm_intro', { firmsNumber: `<strong>${leadSales.length}</strong>` }) }}
+          />
+        </Grid>
+        <StyledGrid>
+          <FirmList list={leadSales} />
+        </StyledGrid>
+      </StyledSection>}
 
     <Section title={translate('project.resume_title')}>
       <Grid narrow>
@@ -236,25 +247,36 @@ const ProjectDetails = ({ project: { name, status, createdAt, questionsAnswers, 
             </ProjectImage>
 
             <StyledList>
-              {Object.entries(questionsAnswers).map(key => <li key={key[0]}>{key[0]}<br /><strong>{key[1]}</strong></li>)}
+              {Object.entries(questionsAnswers).map(key =>
+                <li key={key[0]}>
+                  {key[0]}
+                  <br />
+                  <strong>
+                    {key[1]}
+                  </strong>
+                </li>,
+              )}
             </StyledList>
-            {comment && (
+            {comment &&
               <div>
-                <StyledHeading level={4}><FormattedMessage id="project.comment_title" /></StyledHeading>
+                <StyledHeading level={4}>
+                  <FormattedMessage id="project.comment_title" />
+                </StyledHeading>
                 <NotificationBox dark>
                   {comment}
                 </NotificationBox>
-              </div>
-            )}
+              </div>}
           </LeftCol>
           <RightCol xs={12} m={4}>
-            <StyledHeading level={4}><FormattedMessage id="project.col_title" /></StyledHeading>
+            <StyledHeading level={4}>
+              <FormattedMessage id="project.col_title" />
+            </StyledHeading>
             <ItemProject>
               <Icon icon="location-pin" />
               {`Lieu : ${postalCode.postalCode} ${postalCode.city}`}
             </ItemProject>
             <MapImage>
-              {placeCoords && <StyledImage src={`https://maps.googleapis.com/maps/api/staticmap?${googleMapsParams(placeCoords)}`} /> }
+              {placeCoords && <StyledImage src={`https://maps.googleapis.com/maps/api/staticmap?${googleMapsParams(placeCoords)}`} />}
             </MapImage>
             <ItemProject>
               <Icon icon="project_start" />
@@ -269,7 +291,6 @@ const ProjectDetails = ({ project: { name, status, createdAt, questionsAnswers, 
       </Grid>
     </Section>
   </Wrapper>
-)
 
 ProjectDetails.propTypes = {
   translate: PropTypes.func.isRequired,

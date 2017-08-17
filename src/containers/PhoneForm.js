@@ -8,11 +8,9 @@ import { createValidator, required } from 'services/validation'
 
 import { PhoneForm } from 'components'
 
-const PhoneFormContainer = props => (
-  <PhoneForm {...props} />
-)
+const PhoneFormContainer = props => <PhoneForm {...props} />
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const details = fromUser.getDetails(state)
 
   return {

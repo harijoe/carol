@@ -11,11 +11,13 @@ describe('grantType is client_credentials', () => {
     })
   })
   it('should render succes type ', () => {
-    expect(actions.authLogin(grantType).success({
-      access_token: '65x4dfgdx654xdg5f68dxfg644xg',
-      refresh_token: '65x4dfg654xdg5f68dxfg644xg',
-      expires_in: 3600,
-    })).toEqual({
+    expect(
+      actions.authLogin(grantType).success({
+        access_token: '65x4dfgdx654xdg5f68dxfg644xg',
+        refresh_token: '65x4dfg654xdg5f68dxfg644xg',
+        expires_in: 3600,
+      }),
+    ).toEqual({
       type: actions.AUTH_LOGIN.SUCCESS,
       payload: {
         accessToken: '65x4dfgdx654xdg5f68dxfg644xg',

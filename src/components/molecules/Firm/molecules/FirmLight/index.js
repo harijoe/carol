@@ -10,7 +10,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 `
-const HeaderWrapper = styled.header`${({ imageUrl }) => css`
+const HeaderWrapper = styled.header`
+  ${({ imageUrl }) => css`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -34,7 +35,8 @@ const HeaderWrapper = styled.header`${({ imageUrl }) => css`
   ${breakpoint('l')`
     padding: ${theme('spaces.l')};
   `}
-`}`
+`};
+`
 
 const TopHeaderWrapper = styled.div`
   position: relative;
@@ -51,7 +53,9 @@ const NoteFirm = styled.div`
   line-height: 1;
   color: ${theme('colors.white')};
 
-  p {margin: 0;}
+  p {
+    margin: 0;
+  }
 
   strong {
     font-weight: bold;
@@ -90,7 +94,7 @@ const FooterWrapper = styled.footer`
 
   ${breakpoint('l')`
     padding: ${theme('spaces.l')};
-  `}
+  `};
 `
 
 const StyledParagraph = styled(Paragraph)`
@@ -114,27 +118,24 @@ const StyledIcon = styled(Icon)`
  *
  * @param value
  */
-const formatNotation = value => (
-  value.toFixed(`${value}`.split('.')[1] ?
-    Math.min(`${value}`.split('.')[1].length, 2) :
-    1
-  )
-)
+const formatNotation = value => value.toFixed(`${value}`.split('.')[1] ? Math.min(`${value}`.split('.')[1].length, 2) : 1)
 
-const FirmLight = ({ imageUrl, logoUrl, globalRating, name, globalRatingCount, postalCode }) => (
+const FirmLight = ({ imageUrl, logoUrl, globalRating, name, globalRatingCount, postalCode }) =>
   <Wrapper>
     <HeaderWrapper {...{ imageUrl }}>
       <TopHeaderWrapper>
         <StyledProfileImage imageLink={logoUrl} />
         <NoteFirm>
-          {globalRatingCount ?
-            <p><strong>{formatNotation(globalRating)}</strong>/5 </p> :
-            ''
-          }
-          {globalRatingCount ?
-            <span>{globalRatingCount} <FormattedMessage id="firm.details.reviews" /></span> :
-            ''
-          }
+          {globalRatingCount
+            ? <p>
+                <strong>{formatNotation(globalRating)}</strong>/5{' '}
+              </p>
+            : ''}
+          {globalRatingCount
+            ? <span>
+                {globalRatingCount} <FormattedMessage id="firm.details.reviews" />
+              </span>
+            : ''}
         </NoteFirm>
       </TopHeaderWrapper>
     </HeaderWrapper>
@@ -143,11 +144,11 @@ const FirmLight = ({ imageUrl, logoUrl, globalRating, name, globalRatingCount, p
         {name}
       </StyledHeading>
       <StyledParagraph>
-        <StyledIcon icon="location-pin" />{postalCode}
+        <StyledIcon icon="location-pin" />
+        {postalCode}
       </StyledParagraph>
     </FooterWrapper>
   </Wrapper>
-)
 
 FirmLight.propTypes = {
   name: PropTypes.string.isRequired,
@@ -161,7 +162,8 @@ FirmLight.propTypes = {
 FirmLight.defaultProps = {
   globalRating: null,
   globalRatingCount: null,
-  imageUrl: 'https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg', /* @TODO: To remove when dora will provide it */
+  imageUrl:
+    'https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg' /* @TODO: To remove when dora will provide it */,
 }
 
 export default FirmLight

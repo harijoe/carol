@@ -5,9 +5,10 @@ import { fromContext } from 'store/selectors'
 
 import { Carousel } from 'components'
 
-const CarouselContainer = props => (
-  <Carousel {...props}>{props.children}</Carousel>
-)
+const CarouselContainer = props =>
+  <Carousel {...props}>
+    {props.children}
+  </Carousel>
 
 CarouselContainer.propTypes = {
   children: PropTypes.any,

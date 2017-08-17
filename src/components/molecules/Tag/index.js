@@ -17,9 +17,10 @@ const StyledLink = styled(Link)`
   display: inline-block;
 `
 
-const Tag = ({ link, label }) => (
-  <StyledLink to={link}>{label}</StyledLink>
-)
+const Tag = ({ link, label }) =>
+  <StyledLink to={link}>
+    {label}
+  </StyledLink>
 
 Tag.propTypes = {
   label: PropTypes.string,

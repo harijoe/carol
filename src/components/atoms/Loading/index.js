@@ -5,10 +5,7 @@ import { Icon } from 'components'
 
 class Loading extends Component {
   static propTypes = {
-    children: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.node),
-      PropTypes.node,
-    ]),
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
     loading: PropTypes.bool,
   }
 
@@ -21,7 +18,11 @@ class Loading extends Component {
     const { loading, children } = this.props
     const content = loading === true ? <Icon icon="spinner" size={60} /> : children
 
-    return <div>{content}</div>
+    return (
+      <div>
+        {content}
+      </div>
+    )
   }
 }
 

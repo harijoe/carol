@@ -18,10 +18,10 @@ const Form = styled.form`
   }
 `
 
-const PhoneCodeForm = (props) => {
+const PhoneCodeForm = props => {
   const { error, handleSubmit, loading, translate, resendSMS, disabled, submit } = props
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     // auto-submit when the users enters 6 char
     if (e.target.value.length === 6) {
       /*

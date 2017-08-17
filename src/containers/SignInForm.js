@@ -8,11 +8,14 @@ import { fromStatus, fromRouting } from 'store/selectors'
 
 import { SignInForm } from 'components'
 
-const SignInFormContainer = props => (
-  <SignInForm {...props} />
-)
+const SignInFormContainer = props => <SignInForm {...props} />
 
-const onSubmit = (values, dispatch) => dispatch(authLogin('password', 'SignInForm').request(`&username=${encodeURIComponent(values.email)}&password=${encodeURIComponent(values.password)}`))
+const onSubmit = (values, dispatch) =>
+  dispatch(
+    authLogin('password', 'SignInForm').request(
+      `&username=${encodeURIComponent(values.email)}&password=${encodeURIComponent(values.password)}`,
+    ),
+  )
 
 const validate = createValidator({
   email: [required, email],

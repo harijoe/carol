@@ -10,15 +10,13 @@ const StyledParagraph = styled(Paragraph)`
   font-weight: bold;
 `
 
-const Question = ({ children }) => (
+const Question = ({ children }) =>
   <StyledParagraph>
     {children}
   </StyledParagraph>
-)
 
 Question.propTypes = {
   children: PropTypes.any,
 }
-
 
 export default Question

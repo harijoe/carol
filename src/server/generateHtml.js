@@ -11,11 +11,13 @@ import { setDryRun } from 'store/actions'
 export default (store, renderProps) => {
   store.dispatch(setDryRun(true))
   const sheet = new ServerStyleSheet()
-  const content = renderToString(sheet.collectStyles(
-    <Provider store={store}>
-      <RouterContext {...renderProps} />
-    </Provider>
-  ))
+  const content = renderToString(
+    sheet.collectStyles(
+      <Provider store={store}>
+        <RouterContext {...renderProps} />
+      </Provider>,
+    ),
+  )
 
   store.dispatch(setDryRun(false))
 

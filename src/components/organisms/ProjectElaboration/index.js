@@ -18,12 +18,7 @@ const StyledGrid = styled(Grid)`
   background: white;
 `
 
-const ProjectElaboration = ({
-  activeConversation,
-  reply,
-  locale,
-  redirectTo,
-}) => {
+const ProjectElaboration = ({ activeConversation, reply, locale, redirectTo }) => {
   const quickReplies = activeConversation.length > 0 ? activeConversation[activeConversation.length - 1].message.quick_replies : null
   const enableBack = !isFirstChatbotStep(activeConversation)
 
@@ -31,11 +26,7 @@ const ProjectElaboration = ({
     <StyledGrid narrow>
       <div>
         <Conversation {...{ activeConversation, reply, locale, redirectTo }} />
-        <Form
-          reply={reply}
-          disabled={quickReplies != null ? quickReplies.length !== 0 : true}
-          enableBack={enableBack}
-        />
+        <Form reply={reply} disabled={quickReplies != null ? quickReplies.length !== 0 : true} enableBack={enableBack} />
       </div>
     </StyledGrid>
   )

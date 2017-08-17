@@ -7,10 +7,12 @@ it('returns the initial state', () => {
 })
 
 it('handles AUTH_SUCCESS', () => {
-  expect(reducer(initialState, {
-    type: actions.AUTH_LOGIN.SUCCESS,
-    payload: { grantType: 'password', accessToken: '123test', expiresIn: 12000, refreshToken: '345test' },
-  })).toEqual({
+  expect(
+    reducer(initialState, {
+      type: actions.AUTH_LOGIN.SUCCESS,
+      payload: { grantType: 'password', accessToken: '123test', expiresIn: 12000, refreshToken: '345test' },
+    }),
+  ).toEqual({
     ...initialState,
     authenticated: true,
     accessToken: '123test',
@@ -20,10 +22,12 @@ it('handles AUTH_SUCCESS', () => {
 })
 
 it('handles AUTH_SET_AUTHENTICATED', () => {
-  expect(reducer(initialState, {
-    type: actions.AUTH_SET_AUTHENTICATED,
-    payload: true,
-  })).toEqual({
+  expect(
+    reducer(initialState, {
+      type: actions.AUTH_SET_AUTHENTICATED,
+      payload: true,
+    }),
+  ).toEqual({
     ...initialState,
     authenticated: true,
   })

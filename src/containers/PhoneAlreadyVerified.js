@@ -33,5 +33,4 @@ const mapDispatchToProps = dispatch => ({
   request: () => dispatch(checkValidationFlow()),
 })
 
-
 export default connect(mapStateToProps, mapDispatchToProps)(PhoneAlreadyVerifiedContainer)

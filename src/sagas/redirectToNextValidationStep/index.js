@@ -3,10 +3,7 @@ import { push } from 'react-router-redux'
 import { fromUser, fromProject } from 'store/selectors'
 import fetch from 'sagas/fetch'
 import notify from 'sagas/notify'
-import {
-  projectUpdate,
-  projectList,
-} from 'store/actions'
+import { projectUpdate, projectList } from 'store/actions'
 import pushGtmEvent from 'utils/gtm'
 import { requireUser, requireProjectDetails } from '../require'
 import softPush from '../softPush'

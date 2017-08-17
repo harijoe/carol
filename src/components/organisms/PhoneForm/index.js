@@ -27,7 +27,7 @@ const StyledButton = styled(Button)`
   `}
 `
 
-const PhoneForm = (props) => {
+const PhoneForm = props => {
   const { error, handleSubmit, translate, disabled, loading, language } = props
 
   return (

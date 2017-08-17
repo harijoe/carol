@@ -6,9 +6,7 @@ import { fromContext } from 'store/selectors'
 
 import { GoogleTagManager } from 'components'
 
-const GoogleTagManagerContainer = ({ country }) => (
-  <GoogleTagManager gtmId={google.tagManagerId[country]} />
-)
+const GoogleTagManagerContainer = ({ country }) => <GoogleTagManager gtmId={google.tagManagerId[country]} />
 
 GoogleTagManagerContainer.propTypes = {
   country: PropTypes.string,

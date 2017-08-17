@@ -6,7 +6,6 @@ import { theme, breakpoint } from 'utils/style'
 
 import { Section, Heading, NoProjectYet, Loading, Grid, ProjectList } from 'components'
 
-
 const StyledSection = styled(Section)`
   position: relative;
   min-height: 100vh;
@@ -40,17 +39,18 @@ const StyledGrid = styled(Grid)`
   `}
 `
 
-const Projects = ({ list, loading }) => (
+const Projects = ({ list, loading }) =>
   <StyledSection light>
     <StyledGrid narrow>
-      <StyledHeading level={1}><FormattedMessage id="project.list.heading" /></StyledHeading>
+      <StyledHeading level={1}>
+        <FormattedMessage id="project.list.heading" />
+      </StyledHeading>
       <Loading loading={loading}>
-        { list.length === 0 && <NoProjectYet /> }
-        { list.length !== 0 && <ProjectList list={list} /> }
+        {list.length === 0 && <NoProjectYet />}
+        {list.length !== 0 && <ProjectList list={list} />}
       </Loading>
     </StyledGrid>
   </StyledSection>
-)
 
 Projects.propTypes = {
   list: PropTypes.array.isRequired,

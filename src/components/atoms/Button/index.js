@@ -5,7 +5,8 @@ import styled, { css } from 'styled-components'
 
 import { theme, ifThen, breakpoint } from 'utils/style'
 
-const StyledButton = styled.button`${({ large, block, secondary, maxWidth, center, cssDisabled, loading, highlight }) => css`
+const StyledButton = styled.button`
+  ${({ large, block, secondary, maxWidth, center, cssDisabled, loading, highlight }) => css`
   cursor: pointer;
   display: block;
   margin: ${theme('spaces.m')} 0 0 0;
@@ -15,9 +16,10 @@ const StyledButton = styled.button`${({ large, block, secondary, maxWidth, cente
   font-size: ${theme('fonts.size.base')};
   letter-spacing: 0.05rem;
   text-align: center;
-  background-color: ${ifThen(loading,
+  background-color: ${ifThen(
+    loading,
     css`${theme('colors.white')}`,
-    css`${ifThen(cssDisabled, css`${theme('colors.grayscale.light')}`, css`${theme('colors.secondary')}`)}`
+    css`${ifThen(cssDisabled, css`${theme('colors.grayscale.light')}`, css`${theme('colors.secondary')}`)}`,
   )};
   border: ${ifThen(loading, css`1px solid ${theme('colors.secondary')}`, 0)};
   color: ${theme('colors.black')};
@@ -26,17 +28,25 @@ const StyledButton = styled.button`${({ large, block, secondary, maxWidth, cente
     margin-bottom: ${theme('spaces.l')};
     margin-top: ${theme('spaces.l')};
   `}
-  ${ifThen(large, css`
+  ${ifThen(
+    large,
+    css`
     ${breakpoint('m')`
       padding: ${theme('spaces.l')};
     `}
-  `)}
+  `,
+  )}
   ${ifThen(block, 'width: 100%')};
-  ${ifThen(secondary, css`
+  ${ifThen(
+    secondary,
+    css`
     background-color: ${theme('colors.grayscale.lighter')};
     color: ${theme('colors.grayscale.dark')};
-  `)};
-  ${ifThen(highlight, css`
+  `,
+  )};
+  ${ifThen(
+    highlight,
+    css`
     position: relative;
     margin: 0;
     padding: 0 4px 0 4px;
@@ -61,24 +71,37 @@ const StyledButton = styled.button`${({ large, block, secondary, maxWidth, cente
       margin: 0;
       padding: 0 4px 0 4px;
     `}
-  `)};
-  ${ifThen(maxWidth, css`
+  `,
+  )};
+  ${ifThen(
+    maxWidth,
+    css`
     ${breakpoint('m')`
       max-width: 32rem;
     `}
-  `)};
-  ${ifThen(center, css`
+  `,
+  )};
+  ${ifThen(
+    center,
+    css`
     margin-left: auto;
     margin-right: auto;
-  `)};
-`}`
+  `,
+  )};
+`};
+`
 
 const Button = ({ type, children, loading, disabled, highlight, ...props }) => {
   const loadingButton = <Icon icon="spinner" size={55} />
   const actualChildren = loading && !highlight ? loadingButton : children
   const actualDisabled = loading || disabled
 
-  return <StyledButton {...{ ...props, highlight, loading, cssDisabled: disabled, children: actualChildren, disabled: actualDisabled }} type={type} />
+  return (
+    <StyledButton
+      {...{ ...props, highlight, loading, cssDisabled: disabled, children: actualChildren, disabled: actualDisabled }}
+      type={type}
+    />
+  )
 }
 
 Button.propTypes = {

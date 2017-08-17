@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   background: white;
   ${breakpoint('xl')`
     background: ${theme('colors.grayscale.lighter')};
-  `}
+  `};
 `
 
 const Header = styled.header`
@@ -38,12 +38,11 @@ const Header = styled.header`
 `
 
 const Background = styled.div`
-
   ${breakpoint('xl')`
     background: white;
     width: 1200px;
     margin: auto;
-  `}
+  `};
 `
 
 const StyledDivider = styled(Divider)`
@@ -53,15 +52,19 @@ const StyledDivider = styled(Divider)`
   background-color: ${theme('colors.grayscale.light')};
 `
 
-const ProjectElaborationTemplate = ({ header, children, ...props }) => (
+const ProjectElaborationTemplate = ({ header, children, ...props }) =>
   <ThemeProvider theme={defaultTheme}>
     <Wrapper {...props}>
       <ChatbotPopin />
-      <Header {...props}>{header}</Header>
-      <Background>{children}<StyledDivider /></Background>
+      <Header {...props}>
+        {header}
+      </Header>
+      <Background>
+        {children}
+        <StyledDivider />
+      </Background>
     </Wrapper>
   </ThemeProvider>
-)
 
 ProjectElaborationTemplate.propTypes = {
   header: PropTypes.any.isRequired,

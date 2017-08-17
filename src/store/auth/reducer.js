@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
           Refresh front token way before back invalidates it, "/ 2" is arbitrary
           but it should be strictly inferior to 1
          */
-        expiresIn: (expiresIn / 2),
+        expiresIn: expiresIn / 2,
       }
     }
     case AUTH_SET_AUTHENTICATED: {

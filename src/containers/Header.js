@@ -5,9 +5,10 @@ import { fromRouting } from 'store/selectors'
 
 import { Header } from 'components'
 
-const HeaderContainer = props => (
-  <Header {...props}>{props.children}</Header>
-)
+const HeaderContainer = props =>
+  <Header {...props}>
+    {props.children}
+  </Header>
 
 HeaderContainer.propTypes = {
   children: PropTypes.any,

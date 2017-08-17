@@ -22,13 +22,12 @@ const styles = ({ strongShadow }) => {
   return merge(baseStyle, commonStyle)
 }
 
-const Wrapper = styled.div`${styles}`
+const Wrapper = styled.div`${styles};`
 
-const Card = ({ strongShadow, children, ...props }) => (
+const Card = ({ strongShadow, children, ...props }) =>
   <Wrapper strongShadow={strongShadow} {...props}>
     {children}
   </Wrapper>
-)
 
 Card.propTypes = {
   strongShadow: PropTypes.bool,

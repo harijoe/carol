@@ -28,27 +28,36 @@ const styles = ({ status }) => css`
     left: ${theme('spaces.l')};
   `}
 
-  ${ifThen(status === 'completion_in_progress', css`
+  ${ifThen(
+    status === 'completion_in_progress',
+    css`
     background-color: ${theme('colors.grayscale.lighter')};
     color: ${theme('colors.grayscale.dark')};
-  `)}
+  `,
+  )}
 
-  ${ifThen(status === 'to_validate', css`
+  ${ifThen(
+    status === 'to_validate',
+    css`
     background-color: #FED289;
     color: ${theme('colors.grayscale.dark')};
-  `)}
+  `,
+  )}
 
-  ${ifThen(['validated', 'pending_search', 'found'].includes(status), css`
+  ${ifThen(
+    ['validated', 'pending_search', 'found'].includes(status),
+    css`
     background-color: ${theme('colors.success')};
     color: ${theme('colors.white')};
 
     svg .check-color1 {
       fill: ${theme('colors.white')};
     }
-  `)}
+  `,
+  )}
 `
 
-const Wrapper = styled.div`${styles}`
+const Wrapper = styled.div`${styles};`
 
 const StyledIcon = styled(Icon)`
   margin-right: ${theme('spaces.s')};
@@ -71,11 +80,12 @@ const ProjectStatus = ({ status, leadSales, translate, ...props }) => {
 
   return (
     <Wrapper {...{ status, ...props }}>
-      <StyledIcon
-        size={16}
-        icon={icon}
-      />
-      <span>{status === 'found' ? translate(`project.status.${status}`, { firmsNumber: leadSales.length }) : translate(`project.status.${status}`) }</span>
+      <StyledIcon size={16} icon={icon} />
+      <span>
+        {status === 'found'
+          ? translate(`project.status.${status}`, { firmsNumber: leadSales.length })
+          : translate(`project.status.${status}`)}
+      </span>
     </Wrapper>
   )
 }

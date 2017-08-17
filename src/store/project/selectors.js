@@ -18,4 +18,5 @@ export const getPurpose = (state = initialState, id) => get(state, id, 'purpose'
 export const getProjectPath = (state = initialState, id) => get(state, id, '@id')
 export const getProjectId = (state = initialState, id) => get(state, id, '@id')
 export const getProjectsToValidate = (state = initialState) => state.list.filter(project => project.status === 'to_validate')
-export const getProjectsCompletionInProgress = (state = initialState) => state.list.filter(project => project.status === 'completion_in_progress')
+export const getProjectsCompletionInProgress = (state = initialState) =>
+  state.list.filter(project => project.status === 'completion_in_progress')

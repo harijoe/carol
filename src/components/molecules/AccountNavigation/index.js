@@ -5,20 +5,27 @@ import { theme, ifThen, breakpoint, breakpointMax } from 'utils/style'
 
 import { AccountMenu } from 'containers'
 
-const StyledNav = styled.div`${({ show }) => css`
+const StyledNav = styled.div`
+  ${({ show }) => css`
   pointer-events: none;
 
-  ${ifThen(show, css`
+  ${ifThen(
+    show,
+    css`
     pointer-events: auto;
-  `)}
+  `,
+  )}
 
   ${breakpointMax('m')`
     transform: translateY(-100%);
     transition: transform 0.3s ease-in;
 
-    ${ifThen(show, css`
+    ${ifThen(
+      show,
+      css`
       transform: translateY(0);
-    `)}
+    `,
+    )}
   `}
 
   ${breakpointMax('l')`
@@ -47,7 +54,9 @@ const StyledNav = styled.div`${({ show }) => css`
       transition: transform 0.2s 0.2s ease-in;
     }
 
-    ${ifThen(show, css`
+    ${ifThen(
+      show,
+      css`
       &::before {
         opacity: 1;
       }
@@ -55,7 +64,8 @@ const StyledNav = styled.div`${({ show }) => css`
       > ul {
         transform: translateX(0);
       }
-    `)}
+    `,
+    )}
   }
 
   ${breakpoint('l')`
@@ -66,11 +76,15 @@ const StyledNav = styled.div`${({ show }) => css`
     background: ${theme('colors.white')};
     transition: opacity 0.15s ease-in;
 
-    ${ifThen(show, css`
+    ${ifThen(
+      show,
+      css`
       opacity: 1;
-    `)}
+    `,
+    )}
   `}
-`}`
+`};
+`
 
 const HitBox = styled.div`
   position: fixed;
@@ -80,14 +94,13 @@ const HitBox = styled.div`
   left: 0;
 `
 
-const AccountNavigation = ({ show, toggleAccountNavigation }) => (
+const AccountNavigation = ({ show, toggleAccountNavigation }) =>
   <div>
     {show && <HitBox onClick={toggleAccountNavigation} />}
     <StyledNav show={show}>
       {show && <AccountMenu />}
     </StyledNav>
   </div>
-)
 
 AccountNavigation.propTypes = {
   show: PropTypes.bool,

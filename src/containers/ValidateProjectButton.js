@@ -5,9 +5,7 @@ import { toggleChatbotPopin, setRedirectPathname } from 'store/actions'
 
 import { ValidateProjectButton } from 'components'
 
-const ValidateProjectButtonContainer = props => (
-  <ValidateProjectButton {...props} />
-)
+const ValidateProjectButtonContainer = props => <ValidateProjectButton {...props} />
 
 const mapStateToProps = state => ({
   authenticated: fromAuth.isAuthenticated(state),

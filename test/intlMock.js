@@ -11,7 +11,7 @@ const messagesProxyHandler = {
       return target[name]
     }
 
-    Object.keys(messages).forEach((locale) => {
+    Object.keys(messages).forEach(locale => {
       if (name !== 'test' && !(name in messages[locale])) {
         throw new Error(`'${name}' key is missing from the '${locale}' message bundle!`)
       }
@@ -23,6 +23,9 @@ const messagesProxyHandler = {
 
 const messagesProxy = new Proxy({}, messagesProxyHandler)
 
-const mockIntl = node => <IntlProvider locale="en" messages={messagesProxy}>{node}</IntlProvider>
+const mockIntl = node =>
+  <IntlProvider locale="en" messages={messagesProxy}>
+    {node}
+  </IntlProvider>
 
 export default mockIntl

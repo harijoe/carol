@@ -16,12 +16,10 @@ const StyledForm = styled.form`
   ${breakpoint('l')`
     padding-left: ${theme('spaces.l')};
     padding-right: ${theme('spaces.l')};
-  `}
-
-  ${breakpoint('xl')`
+  `} ${breakpoint('xl')`
     padding-left: ${theme('spaces.xxl')};
     padding-right: ${theme('spaces.xxl')};
-  `}
+  `};
 `
 
 const BottomBar = styled.div`
@@ -52,7 +50,7 @@ const BackButton = styled.button`
   right: ${theme('spaces.s')};
   align-self: flex-end;
   min-width: 7rem;
-  margin: ${theme('spaces.m')} ${theme('spaces.m')} ${theme('spaces.m')} 0 ;
+  margin: ${theme('spaces.m')} ${theme('spaces.m')} ${theme('spaces.m')} 0;
   padding: ${theme('spaces.s')} ${theme('spaces.m')};
   font-size: ${theme('fonts.size.s')};
   line-height: 1;
@@ -65,11 +63,9 @@ const BackButton = styled.button`
 
   ${breakpoint('m')`
     right: ${theme('spaces.m')};
-  `}
-
-  ${breakpoint('xl')`
+  `} ${breakpoint('xl')`
     right: 4.2rem;
-  `}
+  `};
 `
 
 const SubmitButton = styled.button`
@@ -138,10 +134,7 @@ const VerticalDotsIcon = styled(Icon)`
 `
 
 const StyledField = styled(Field)`${({ disabled }) => css`
-  ${ifThen(disabled,
-    'border: none',
-    css`border: none;`
-  )};
+  ${ifThen(disabled, 'border: none', css`border: none;`)};
   padding-left: ${theme('spaces.m')};
   width: 100%;
   background: transparent;
@@ -161,7 +154,6 @@ const StyledField = styled(Field)`${({ disabled }) => css`
 `}`
 
 class Form extends Component {
-
   componentDidUpdate() {
     if (this.props.disabled) {
       this.getInput().blur()
@@ -178,27 +170,17 @@ class Form extends Component {
   getInput = () => ReactDOM.findDOMNode(this.field).querySelector('input')
 
   render() {
-    const {
-      reply,
-      translate,
-      handleSubmit,
-      reset,
-      pristine,
-      submitting,
-      disabled,
-      enableBack,
-    } = this.props
+    const { reply, translate, handleSubmit, reset, pristine, submitting, disabled, enableBack } = this.props
 
-    const submit = (values) => {
+    const submit = values => {
       reply(values.answer)
       reset()
     }
 
-    const SubMenuReset = () => (
+    const SubMenuReset = () =>
       <PopinMenuButton onClick={() => submit({ answer: 'new_project.reset' })}>
         <FormattedMessage id="project.elaboration.reset" />
       </PopinMenuButton>
-    )
 
     const scrollToBottom = () => {
       //  Android bug reference : https://goo.gl/W4uu8i
@@ -214,12 +196,7 @@ class Form extends Component {
 
     return (
       <StyledForm onSubmit={this.onSubmit(handleSubmit(submit))}>
-        <BackButton
-          type="button"
-          onClick={submitBack}
-          className="back-button"
-          style={{ visibility: enableBack ? 'visible' : 'hidden' }}
-        >
+        <BackButton type="button" onClick={submitBack} className="back-button" style={{ visibility: enableBack ? 'visible' : 'hidden' }}>
           <BackIcon icon="back" />
           <FormattedMessage id="project.elaboration.back" />
         </BackButton>
@@ -236,7 +213,9 @@ class Form extends Component {
             placeholder={translate('project.elaboration.answer')}
             autoFocus
             onFocus={scrollToBottom}
-            innerRef={(field) => { this.field = field }}
+            innerRef={field => {
+              this.field = field
+            }}
           />
           <SubmitButton disabled={pristine || submitting} type="submit">
             <SubmitIcon icon="send" />

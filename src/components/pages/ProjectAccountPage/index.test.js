@@ -7,5 +7,13 @@ import mockIntl from '../../../../test/intlMock'
 import ProjectPage from './'
 
 it('renders ProjectPage', () => {
-  expect(shallow(mockIntl(<ThemeProvider theme={theme}><ProjectPage params={{ projectId: '1' }} /></ThemeProvider>))).toMatchSnapshot()
+  expect(
+    shallow(
+      mockIntl(
+        <ThemeProvider theme={theme}>
+          <ProjectPage params={{ projectId: '1' }} />
+        </ThemeProvider>,
+      ),
+    ),
+  ).toMatchSnapshot()
 })

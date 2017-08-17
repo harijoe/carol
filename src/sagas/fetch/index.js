@@ -59,7 +59,7 @@ export function* fetchWithoutRefreshingToken(actions, method, url, settings = {}
   }
 }
 
-export default function* (actions, method, url, settings = {}, data = null, actionParams = null) {
+export default function*(actions, method, url, settings = {}, data = null, actionParams = null) {
   // dryRun is used to prevent unwanted fetches during SSR
   const dryRun = yield select(fromContext.isDryRun)
 

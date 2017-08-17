@@ -3,14 +3,10 @@ import PropTypes from 'prop-types'
 import { push } from 'react-router-redux'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import {
-  projectElaborationReply,
-  projectElaborationConversationCurrent,
-} from 'store/actions'
+import { projectElaborationReply, projectElaborationConversationCurrent } from 'store/actions'
 import { fromProjectElaboration, fromContext } from 'store/selectors'
 
 import { ProjectElaboration } from 'components'
-
 
 class ProjectElaborationContainer extends Component {
   static propTypes = {
@@ -22,11 +18,7 @@ class ProjectElaborationContainer extends Component {
   }
 
   render() {
-    return (
-      <ProjectElaboration
-        {...this.props}
-      />
-    )
+    return <ProjectElaboration {...this.props} />
   }
 }
 
@@ -35,10 +27,14 @@ const mapStateToProps = state => ({
   locale: fromContext.getLocale(state),
 })
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  reply: (text, payload) => projectElaborationReply.request(text, payload),
-  request: () => projectElaborationConversationCurrent.request(),
-  redirectTo: url => push(url),
-}, dispatch)
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      reply: (text, payload) => projectElaborationReply.request(text, payload),
+      request: () => projectElaborationConversationCurrent.request(),
+      redirectTo: url => push(url),
+    },
+    dispatch,
+  )
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectElaborationContainer)

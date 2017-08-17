@@ -18,13 +18,11 @@ class EmailFormContainer extends Component {
   }
 
   render() {
-    return (
-      <EmailForm {...this.props} />
-    )
+    return <EmailForm {...this.props} />
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   const details = fromUser.getDetails(state)
 
   return {

@@ -47,7 +47,7 @@ const StyledCarousel = styled(Carousel)`
   `}
 `
 
-const ProjectList = ({ list }) => (
+const ProjectList = ({ list }) =>
   <StyledRow className="qs-Carousel-Projects">
     <StyledCarousel
       slidesToShow={1}
@@ -68,15 +68,9 @@ const ProjectList = ({ list }) => (
         },
       ]}
     >
-      {list.map(items => (
-        <ProjectListItem
-          key={items['@id']}
-          {...items}
-        />
-      ))}
+      {list.map(items => <ProjectListItem key={items['@id']} {...items} />)}
     </StyledCarousel>
   </StyledRow>
-)
 
 ProjectList.propTypes = {
   list: PropTypes.array.isRequired,

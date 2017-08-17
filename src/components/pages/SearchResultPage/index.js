@@ -1,13 +1,8 @@
 import React from 'react'
 
-import {
-  MainLayout,
-  MainWrapper,
-  InnerWrapper,
-  SearchResults,
-} from 'components'
+import { MainLayout, MainWrapper, InnerWrapper, SearchResults } from 'components'
 
-const SearchResultPage = () => (
+const SearchResultPage = () =>
   <MainLayout>
     <MainWrapper>
       <InnerWrapper>
@@ -15,6 +10,5 @@ const SearchResultPage = () => (
       </InnerWrapper>
     </MainWrapper>
   </MainLayout>
-)
 
 export default SearchResultPage

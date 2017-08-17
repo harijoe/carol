@@ -15,10 +15,7 @@ const plugins = [
 ]
 
 module.exports = require('./base.config')({
-  entry: [
-    'babel-polyfill',
-    path.resolve(process.cwd(), 'src/client.js'),
-  ],
+  entry: ['babel-polyfill', path.resolve(process.cwd(), 'src/client.js')],
   output: {
     filename: '[name].[chunkhash].js',
     chunkFilename: '[name].[chunkhash].chunk.js',

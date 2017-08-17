@@ -6,16 +6,20 @@ import Conversation from './'
 const wrap = (props = {}) => shallow(<Conversation {...props} />)
 
 it('renders Conversation', () => {
-  expect(wrap({
-    activeConversation: [{
-      message: {
-        text: 'message',
-        quick_replies: [],
-      },
-      answer: {
-        text: 'response',
-        payload: '6843531-515-56465',
-      },
-    }],
-  })).toMatchSnapshot()
+  expect(
+    wrap({
+      activeConversation: [
+        {
+          message: {
+            text: 'message',
+            quick_replies: [],
+          },
+          answer: {
+            text: 'response',
+            payload: '6843531-515-56465',
+          },
+        },
+      ],
+    }),
+  ).toMatchSnapshot()
 })

@@ -14,11 +14,10 @@ const SearchEngineWrapper = styled.div`
   padding: 5rem;
 `
 
-const SearchEngine = () => (
+const SearchEngine = () =>
   <SearchEngineWrapper>
     <SearchInput />
     <SearchResults />
   </SearchEngineWrapper>
-)
 
 export default SearchEngine

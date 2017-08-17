@@ -3,9 +3,10 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { DropDownMenu } from 'components'
 
-const DropDownMenuContainer = ({ routing, label, children }) => (
-  <DropDownMenu routing={routing} label={label}>{children}</DropDownMenu>
-)
+const DropDownMenuContainer = ({ routing, label, children }) =>
+  <DropDownMenu routing={routing} label={label}>
+    {children}
+  </DropDownMenu>
 
 DropDownMenuContainer.propTypes = {
   routing: PropTypes.object,

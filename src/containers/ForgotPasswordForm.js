@@ -7,9 +7,7 @@ import { forgotPassword } from 'store/actions'
 
 import { ForgotPasswordForm } from 'components'
 
-const ForgotPasswordFormContainer = props => (
-  <ForgotPasswordForm {...props} />
-)
+const ForgotPasswordFormContainer = props => <ForgotPasswordForm {...props} />
 
 const onSubmit = (data, dispatch) => dispatch(forgotPassword.request(data))
 

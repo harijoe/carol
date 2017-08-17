@@ -5,14 +5,7 @@ import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
 
-import {
-  Heading,
-  Card,
-  Image,
-  Divider,
-  Icon,
-  List,
-} from 'components'
+import { Heading, Card, Image, Divider, Icon, List } from 'components'
 
 const StyledCard = styled(Card)`
   ${breakpoint('xs')`
@@ -44,7 +37,7 @@ const HeaderCard = styled.header`
   ${breakpoint('m')`
     padding: ${theme('spaces.l')};
     padding-bottom: calc(${theme('spaces.l')} + 1.4rem);
-  `}
+  `};
 `
 
 const StyledHeading = styled(Heading)`
@@ -62,7 +55,8 @@ const StyledHeading = styled(Heading)`
 const ImageWrapper = styled.figure`
   overflow: hidden;
 
-  &::after , & {
+  &::after,
+  & {
     position: absolute;
     top: 0;
     left: 0;
@@ -91,7 +85,7 @@ const FooterCard = styled.footer`
   ${breakpoint('m')`
     padding: ${theme('spaces.l')};
     padding-top: calc(${theme('spaces.l')} + 2rem);
-  `}
+  `};
 `
 
 const FirmImage = styled(Image)`
@@ -170,7 +164,7 @@ const StyledCertificateList = styled(List)`${() => css`
   }
 `}`
 
-const FirmListItem = ({ firm: { name, logoUrl, globalRating, globalRatingCount, firmCertificates }, proPostCode, proPhone, proEmail}) => (
+const FirmListItem = ({ firm: { name, logoUrl, globalRating, globalRatingCount, firmCertificates }, proPostCode, proPhone, proEmail }) =>
   <StyledCard>
     <HeaderCard>
       <ImageWrapper>
@@ -178,28 +172,40 @@ const FirmListItem = ({ firm: { name, logoUrl, globalRating, globalRatingCount, 
       </ImageWrapper>
       <FirmImage alt={'alt'} src={logoUrl || cloudinary('/icons/placeholder-logo.png')} width="50" height="50" />
       <FirmNotationWrapper>
-        <StyledGlobalRating><span>{globalRating}</span> / 5</StyledGlobalRating>
-        <StyledRating>{globalRatingCount} avis</StyledRating>
+        <StyledGlobalRating>
+          <span>{globalRating}</span> / 5
+        </StyledGlobalRating>
+        <StyledRating>
+          {globalRatingCount} avis
+        </StyledRating>
       </FirmNotationWrapper>
     </HeaderCard>
     <FooterCard>
-      <StyledHeading level={3}>{name}</StyledHeading>
+      <StyledHeading level={3}>
+        {name}
+      </StyledHeading>
       <StyledList>
-        <li><Icon icon="location-pin" /> {proPostCode}</li>
-        <li><Icon icon="phone" /> {proPhone}</li>
-        <li><Icon icon="mail" /> {proEmail}</li>
+        <li>
+          <Icon icon="location-pin" /> {proPostCode}
+        </li>
+        <li>
+          <Icon icon="phone" /> {proPhone}
+        </li>
+        <li>
+          <Icon icon="mail" /> {proEmail}
+        </li>
       </StyledList>
       <Divider />
       {firmCertificates.length > 0 &&
         <StyledCertificateList>
-          {firmCertificates.map(item => (
-            <li key={item['@id']}>{item.certificate.name}</li>
-          ))}
-        </StyledCertificateList>
-      }
+          {firmCertificates.map(item =>
+            <li key={item['@id']}>
+              {item.certificate.name}
+            </li>,
+          )}
+        </StyledCertificateList>}
     </FooterCard>
   </StyledCard>
-)
 
 FirmListItem.propTypes = {
   firm: PropTypes.shape({

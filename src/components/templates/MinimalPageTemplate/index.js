@@ -13,11 +13,10 @@ injectGlobals([resets, scaffolding])
 
 addLocaleData([...es, ...en, ...fr])
 
-const MinimalPageTemplate = ({ children }) => (
+const MinimalPageTemplate = ({ children }) =>
   <ThemeProvider theme={defaultTheme}>
     {children}
   </ThemeProvider>
-)
 
 MinimalPageTemplate.propTypes = {
   children: PropTypes.any.isRequired,

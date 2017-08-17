@@ -4,11 +4,10 @@ import PropTypes from 'prop-types'
 import { MainLayout } from 'components'
 import { FirmDetails } from 'containers'
 
-const FirmPage = props => (
+const FirmPage = props =>
   <MainLayout>
     <FirmDetails id={props.params.firmId} />
   </MainLayout>
-)
 
 FirmPage.propTypes = {
   params: PropTypes.shape({

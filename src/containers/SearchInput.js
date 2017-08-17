@@ -4,9 +4,7 @@ import { projectElaborationSearch } from 'store/actions'
 
 import { SearchInput } from 'components'
 
-const SearchInputContainer = props => (
-  <SearchInput {...props} />
-)
+const SearchInputContainer = props => <SearchInput {...props} />
 
 const mapDispatchToProps = dispatch => ({
   search: query => dispatch(projectElaborationSearch(query)),

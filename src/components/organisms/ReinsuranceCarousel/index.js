@@ -7,10 +7,8 @@ import { Heading, Paragraph, Card } from 'components'
 import { PostList } from 'containers'
 
 const StyledAside = styled.aside`
-
   width: 100%;
   padding: 0;
-
 
   > div:first-child {
     display: flex;
@@ -30,7 +28,9 @@ const StyledAside = styled.aside`
     padding: 0;
     margin-bottom: 5rem;
 
-    &, .slick-list, .slick-track {
+    &,
+    .slick-list,
+    .slick-track {
       display: block;
       height: 100%;
     }
@@ -45,7 +45,8 @@ const StyledAside = styled.aside`
   }
 `
 
-const StyledItem = styled.div`${({ src }) => `
+const StyledItem = styled.div`
+  ${({ src }) => `
   position: relative;
   display: flex;
   flex-direction: column;
@@ -55,7 +56,8 @@ const StyledItem = styled.div`${({ src }) => `
   background-size: 100% 45rem;
   background-repeat:no-repeat;
   background-position:center top;
-`}`
+`};
+`
 
 const StyledHeading = styled(Heading)`
   position: relative;
@@ -74,10 +76,12 @@ const StyledParagraph = styled(Paragraph)`
 `
 
 const StyledCard = styled(Card)`
-  ${mapBreakpoints(bp => css`
+  ${mapBreakpoints(
+    bp => css`
     margin-left: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
     margin-right: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
-  `)}
+  `,
+  )}
 
   width: calc(100vw - 4.8rem);
   margin-bottom: 0.8rem;
@@ -94,31 +98,32 @@ const StyledCard = styled(Card)`
   `}
 `
 
-const WrapContent = styled.div`
-  margin: 15rem ${theme('spaces.xl')} 0 ${theme('spaces.xl')};
-`
+const WrapContent = styled.div`margin: 15rem ${theme('spaces.xl')} 0 ${theme('spaces.xl')};`
 
 class ReinsuranceCarousel extends Component {
   state = {
     activeImage: 0,
   }
 
-  afterChange = (slideIndex) => {
+  afterChange = slideIndex => {
     this.setState({
       activeImage: slideIndex,
     })
   }
 
-  generateChild = (i, { featuredMedia: { src }, title, body }) => (
+  generateChild = (i, { featuredMedia: { src }, title, body }) =>
     <StyledItem key={i} src={src}>
       <WrapContent>
         <StyledCard>
-          <StyledHeading level={3}>{stripTags(title)}</StyledHeading>
-          <StyledParagraph>{stripTags(body)}</StyledParagraph>
+          <StyledHeading level={3}>
+            {stripTags(title)}
+          </StyledHeading>
+          <StyledParagraph>
+            {stripTags(body)}
+          </StyledParagraph>
         </StyledCard>
       </WrapContent>
     </StyledItem>
-  )
 
   render() {
     return (

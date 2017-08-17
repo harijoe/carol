@@ -28,7 +28,7 @@ const StyledThumbnailPosterWrapper = styled.div`
 
     ${breakpoint('m')`
       height: 18rem;
-    `}
+    `};
   }
 `
 
@@ -39,7 +39,7 @@ const Wrapper = styled.div`
 
     ${breakpoint('m')`
       max-width: 50%;
-    `}
+    `};
   }
 `
 
@@ -57,24 +57,29 @@ class AttachmentSummary extends Component {
     /*
      * subtitle contains all the summary in one block. So, we have to split questions (odd) and answers (even)
      */
-    const summary = subtitle.split('\n').map(((message, i) => (
-      (i % 2) ?
-        <Answer key={i}>{message}</Answer>
-        :
-        <Question key={i}>{message}</Question>
-    )))
+    const summary = subtitle.split('\n').map(
+      (message, i) =>
+        i % 2
+          ? <Answer key={i}>
+              {message}
+            </Answer>
+          : <Question key={i}>
+              {message}
+            </Question>,
+    )
 
-    const validateProjectLink = (<ValidateProjectButton
-      title={validateButtonDetails.title}
-      url={validateButtonDetails.url}
-    />)
+    const validateProjectLink = <ValidateProjectButton title={validateButtonDetails.title} url={validateButtonDetails.url} />
 
     return (
       <Wrapper id="summary">
         <ProjectElaborationQuestion>
-          <SummaryTitle><FormattedMessage id="project.elaboration.summary.title" /></SummaryTitle>
+          <SummaryTitle>
+            <FormattedMessage id="project.elaboration.summary.title" />
+          </SummaryTitle>
           {validateProjectLink}
-          <StyledParagraph><FormattedMessage id="project.elaboration.summary.subtitle" /></StyledParagraph>
+          <StyledParagraph>
+            <FormattedMessage id="project.elaboration.summary.subtitle" />
+          </StyledParagraph>
           <StyledThumbnailPosterWrapper>
             <ThumbnailPoster
               // eslint-disable-next-line camelcase

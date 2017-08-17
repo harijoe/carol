@@ -5,9 +5,7 @@ import { fromContext, fromRouting } from 'store/selectors'
 
 import { MainMenu } from 'components'
 
-const MainMenuContainer = props => (
-  <MainMenu {...props} />
-)
+const MainMenuContainer = props => <MainMenu {...props} />
 
 MainMenuContainer.propTypes = {
   locale: PropTypes.string,

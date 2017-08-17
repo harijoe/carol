@@ -93,15 +93,24 @@ const LogOutLink = styled(Link)`
   display: inline-block;
 `
 
-const AccountMenu = ({ logout }) => (
+const AccountMenu = ({ logout }) =>
   <StyledList>
-    <li><StyledLink to="/projects"><FormattedMessage id="user.my_projects" /></StyledLink></li>
-    <li><StyledLink to="/profile"><FormattedMessage id="user.my_account" /></StyledLink></li>
     <li>
-      <LogOutLink onClick={logout} highlight><FormattedMessage id="user.log_out" /></LogOutLink>
+      <StyledLink to="/projects">
+        <FormattedMessage id="user.my_projects" />
+      </StyledLink>
+    </li>
+    <li>
+      <StyledLink to="/profile">
+        <FormattedMessage id="user.my_account" />
+      </StyledLink>
+    </li>
+    <li>
+      <LogOutLink onClick={logout} highlight>
+        <FormattedMessage id="user.log_out" />
+      </LogOutLink>
     </li>
   </StyledList>
-)
 
 AccountMenu.propTypes = {
   logout: PropTypes.func.isRequired,

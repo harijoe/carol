@@ -15,8 +15,7 @@ import {
 } from './actions'
 import { initialState } from './selectors'
 
-export default (state = initialState,
-                action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case CONTEXT_SET_COUNTRY: {
       return {

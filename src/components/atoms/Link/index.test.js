@@ -5,12 +5,21 @@ import Link from '.'
 import theme from '../../themes/default'
 
 const wrap = (props = {}) => shallow(<Link theme={theme} {...props} />).dive()
-const wrapMounted = (props = {}) => mount(<ThemeProvider theme={theme}><Link {...props} /></ThemeProvider>).find(Link)
+const wrapMounted = (props = {}) =>
+  mount(
+    <ThemeProvider theme={theme}>
+      <Link {...props} />
+    </ThemeProvider>,
+  ).find(Link)
 
 it('mounts with different combination of props', () => {
   mount(<Link theme={theme} />)
   mount(<Link theme={theme} light />)
-  mount(<Link theme={theme} light>test</Link>)
+  mount(
+    <Link theme={theme} light>
+      test
+    </Link>,
+  )
 })
 
 it('renders children when passed in', () => {
@@ -71,4 +80,3 @@ expect.extend({
     }
   },
 })
-

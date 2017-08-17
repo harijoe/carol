@@ -3,21 +3,16 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 
-import {
-  MainLayout,
-  HowItWorks,
-  Testimonials,
-  TipsAndTricks,
-  Reinsurance,
-  MainWrapper,
-} from 'components'
+import { MainLayout, HowItWorks, Testimonials, TipsAndTricks, Reinsurance, MainWrapper } from 'components'
 import { Hero, MotionMenu } from 'containers'
 
-const HomePage = ({ locale, translate, featureMotionMenuEnabled, ...props }) => (
+const HomePage = ({ locale, translate, featureMotionMenuEnabled, ...props }) =>
   <MainLayout {...props}>
     <Helmet>
       <meta name="description" content={translate('pages.home.meta.description')} />
-      <script type="application/ld+json">{translate('pages.home.ld+json')}</script>
+      <script type="application/ld+json">
+        {translate('pages.home.ld+json')}
+      </script>
     </Helmet>
     <Hero />
     <MainWrapper resetState>
@@ -28,7 +23,6 @@ const HomePage = ({ locale, translate, featureMotionMenuEnabled, ...props }) => 
     </MainWrapper>
     {featureMotionMenuEnabled && <MotionMenu />}
   </MainLayout>
-)
 
 HomePage.propTypes = {
   locale: PropTypes.string,

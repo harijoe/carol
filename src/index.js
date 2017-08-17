@@ -11,7 +11,6 @@ const path = require('path')
 
 const projectBasePath = path.resolve(__dirname, '../')
 
-global.webpackIsomorphicTools = new WebpackIsomorphicTools(webpackIsomorphicToolsConfig)
-  .server(projectBasePath, () => {
-    require('./server')
-  })
+global.webpackIsomorphicTools = new WebpackIsomorphicTools(webpackIsomorphicToolsConfig).server(projectBasePath, () => {
+  require('./server')
+})

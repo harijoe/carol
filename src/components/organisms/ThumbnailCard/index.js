@@ -25,17 +25,15 @@ const Wrapper = styled.div`
 
   ${breakpoint('m')`
     width: 20rem;
-  `}
-
-  ${mapBreakpoints(bp => css`
+  `} ${mapBreakpoints(
+      bp => css`
     margin-right: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} / 2);
     margin-left: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} / 2);
-  `)}
-
-  ${breakpoint('xl')`
+  `,
+    )} ${breakpoint('xl')`
     margin-left: calc(${theme('spaces.l')} / 2);
     margin-right: calc(${theme('spaces.l')} / 2);
-  `}
+  `};
 `
 
 const StyledCard = styled(Card)`
@@ -59,7 +57,7 @@ const CardContent = styled.div`
   ${breakpoint('m')`
     padding: ${theme('spaces.m')};
     font-size: ${theme('fonts.size.base')};
-  `}
+  `};
 `
 
 const StyledList = styled(List)`
@@ -85,16 +83,20 @@ const CardFooter = styled.footer`
   ${breakpoint('m')`
     padding: 0 ${theme('spaces.m')} ${theme('spaces.m')} ${theme('spaces.m')};
     font-size: ${theme('fonts.size.base')};
-  `}
+  `};
 `
 
-const ThumbnailCard = ({ image, title, items, onClick }) => (
+const ThumbnailCard = ({ image, title, items, onClick }) =>
   <Wrapper onClick={onClick}>
     <StyledCard>
       <ThumbnailPoster className="quick-reply" image={{ src: image, alt: title }} title={title} />
       <CardContent>
         <StyledList>
-          {items.map((item, i) => <li key={i}>{item}</li>)}
+          {items.map((item, i) =>
+            <li key={i}>
+              {item}
+            </li>,
+          )}
         </StyledList>
       </CardContent>
       <CardFooter>
@@ -102,7 +104,6 @@ const ThumbnailCard = ({ image, title, items, onClick }) => (
       </CardFooter>
     </StyledCard>
   </Wrapper>
-)
 
 ThumbnailCard.propTypes = {
   image: PropTypes.string,

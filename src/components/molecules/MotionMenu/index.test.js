@@ -5,8 +5,16 @@ import { ThemeProvider } from 'styled-components'
 
 import MotionMenu from './'
 
-const wrapper = shallow(<ThemeProvider theme={theme}><MotionMenu /></ThemeProvider>)
-const wrapperMounted = mount(<ThemeProvider theme={theme}><MotionMenu /></ThemeProvider>)
+const wrapper = shallow(
+  <ThemeProvider theme={theme}>
+    <MotionMenu />
+  </ThemeProvider>,
+)
+const wrapperMounted = mount(
+  <ThemeProvider theme={theme}>
+    <MotionMenu />
+  </ThemeProvider>,
+)
 
 const clickMainButton = () => {
   wrapperMounted.find('Motion').last().simulate('click')

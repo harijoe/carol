@@ -4,9 +4,7 @@ import { closeAll } from 'store/actions'
 
 import { Popin } from 'components'
 
-const PopinContainer = props => (
-  <Popin {...props} />
-)
+const PopinContainer = props => <Popin {...props} />
 
 const mapDispatchToProps = dispatch => ({
   closeAll: () => dispatch(closeAll()),

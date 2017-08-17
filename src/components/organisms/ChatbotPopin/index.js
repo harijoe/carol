@@ -22,14 +22,15 @@ class ChatbotPopin extends Component {
   }
 
   render() {
-    const {show, mode, toggleChatbotPopinMode } = this.props
+    const { show, mode, toggleChatbotPopinMode } = this.props
 
-    return <Popin show={show}>
-      {mode === 'signin' && <SignInForm onSwitch={toggleChatbotPopinMode} />}
-      {mode === 'signup' && <SignUpForm onSwitch={toggleChatbotPopinMode} />}
-    </Popin>
+    return (
+      <Popin show={show}>
+        {mode === 'signin' && <SignInForm onSwitch={toggleChatbotPopinMode} />}
+        {mode === 'signup' && <SignUpForm onSwitch={toggleChatbotPopinMode} />}
+      </Popin>
+    )
   }
 }
 
 export default ChatbotPopin
-

@@ -15,11 +15,9 @@ const styles = ({ focus }) => css`
   ${ifThen(focus, css`background: ${theme('colors.primary')};`)}   
 `
 
-const StyledDots = styled.div`${styles}`
+const StyledDots = styled.div`${styles};`
 
-const Dots = ({ focus, ...props }) => (
-  <StyledDots focus={focus} {...props} />
-)
+const Dots = ({ focus, ...props }) => <StyledDots focus={focus} {...props} />
 
 Dots.propTypes = {
   focus: PropTypes.bool,

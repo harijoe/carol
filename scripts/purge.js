@@ -11,15 +11,7 @@ const countriesLocales = {
 
 const availableCountries = Object.keys(countriesLocales)
 
-const availableEnvironments = [
-  'development',
-  'qa',
-  'preprod',
-  'production',
-  'outsideDocker',
-  'insideDocker',
-  'mocks',
-]
+const availableEnvironments = ['development', 'qa', 'preprod', 'production', 'outsideDocker', 'insideDocker', 'mocks']
 
 const usage = () => {
   console.info(`Usage: yarn purge [<environment>] [<country>]

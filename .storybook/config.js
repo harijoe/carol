@@ -10,10 +10,12 @@ function loadStories() {
   req.keys().forEach(filename => req(filename))
 }
 
-addDecorator(story => (
+addDecorator(story =>
   <BrowserRouter>
-    <ThemeProvider theme={theme}>{story()}</ThemeProvider>
-  </BrowserRouter>
-))
+    <ThemeProvider theme={theme}>
+      {story()}
+    </ThemeProvider>
+  </BrowserRouter>,
+)
 
 configure(loadStories, module)

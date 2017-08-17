@@ -15,12 +15,10 @@ const Wrapper = styled.div`
 
   ${breakpoint('s')`
     padding: 0;
-  `}
+  `};
 `
 
-const Container = styled.div`
-  margin: 0 auto;
-`
+const Container = styled.div`margin: 0 auto;`
 
 const StyledImage = styled(Image)`
   margin: auto auto ${theme('spaces.xl')} auto;
@@ -35,28 +33,29 @@ const DotsWrapper = styled.div`
   text-align: center;
 `
 
-const AutoValidationBlock = ({ imageLink, title, paragraph, children, firstDot, secondDot }) => (
+const AutoValidationBlock = ({ imageLink, title, paragraph, children, firstDot, secondDot }) =>
   <Container>
     <Wrapper>
       {firstDot &&
         <DotsWrapper>
           <Dots focus />
           <Dots />
-        </DotsWrapper>
-      }
+        </DotsWrapper>}
       {secondDot &&
         <DotsWrapper>
           <Dots />
           <Dots focus />
-        </DotsWrapper>
-      }
+        </DotsWrapper>}
       <StyledImage src={imageLink} />
-      <Heading level={2}>{title}</Heading>
-      <Paragraph>{paragraph}</Paragraph>
+      <Heading level={2}>
+        {title}
+      </Heading>
+      <Paragraph>
+        {paragraph}
+      </Paragraph>
       {children}
     </Wrapper>
   </Container>
-)
 
 AutoValidationBlock.propTypes = {
   imageLink: PropTypes.string,

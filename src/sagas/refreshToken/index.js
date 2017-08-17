@@ -12,7 +12,7 @@ import logging from 'logging'
 export const requestChannel = channel()
 export const responseChannel = channel()
 
-export default function* () {
+export default function*() {
   yield put(requestChannel, {})
   const refreshTokenResult = yield take(responseChannel)
 

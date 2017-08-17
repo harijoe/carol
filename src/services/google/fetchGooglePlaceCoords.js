@@ -6,4 +6,3 @@ export default async (city, postalCode) => {
 
   return json.results[0].geometry.location
 }
-

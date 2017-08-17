@@ -4,7 +4,7 @@ import fs from 'fs'
 import { promisify } from 'util'
 import colors from 'colors'
 
-process.on('unhandledRejection', (err) => {
+process.on('unhandledRejection', err => {
   throw err
 })
 
@@ -16,10 +16,13 @@ const getMessagesByWorksheet = async (spreadsheet, worksheetId, languagesToInclu
   const isValidRow = language => row => row.key !== '' && row[language] !== ''
   const addRowReducer = language => (messages, row) => ({ ...messages, [row.key]: row[language] })
 
-  return languages.reduce((allMessages, language) => ({
-    ...allMessages,
-    [language]: rows.filter(isValidRow(language)).reduce(addRowReducer(language), {}),
-  }), {})
+  return languages.reduce(
+    (allMessages, language) => ({
+      ...allMessages,
+      [language]: rows.filter(isValidRow(language)).reduce(addRowReducer(language), {}),
+    }),
+    {},
+  )
 }
 
 const escapeValue = text => text.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/(\r\n|\r|\n)/g, '\\n')
@@ -32,22 +35,21 @@ const getAllMessages = async (spreadsheet, languagesToInclude) => {
   const worksheetsMessages = await Promise.all(worksheetsMessagesPromises)
 
   worksheetsMessages.forEach(worksheetMessages =>
-    Object.keys(worksheetMessages).forEach((language) => {
+    Object.keys(worksheetMessages).forEach(language => {
       allMessagesByLanguage[language] = { ...allMessagesByLanguage[language], ...worksheetMessages[language] }
-    }))
+    }),
+  )
 
   return allMessagesByLanguage
 }
 
-const caseInsensitiveSort = keys => keys.slice().sort((a, b) => a.toLowerCase() < b.toLowerCase() ? -1 : 1)
+const caseInsensitiveSort = keys => keys.slice().sort((a, b) => (a.toLowerCase() < b.toLowerCase() ? -1 : 1))
 
 const serialize = translations =>
-  caseInsensitiveSort(Object.keys(translations))
-    .map(key => `  '${key}': '${escapeValue(translations[key]).trim()}'`)
-    .join(',\n')
+  caseInsensitiveSort(Object.keys(translations)).map(key => `  '${key}': '${escapeValue(translations[key]).trim()}'`).join(',\n')
 
 const writeToFiles = (messages, outputPath) =>
-  Object.keys(messages).forEach((language) => {
+  Object.keys(messages).forEach(language => {
     const file = `${path.normalize(outputPath)}/${language}.js`
     const translations = `{\n${serialize(messages[language])},\n}`
 

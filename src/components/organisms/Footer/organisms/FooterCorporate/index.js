@@ -92,13 +92,9 @@ const SelectWrap = styled.div`
 
   ${breakpoint('m')`
     width: 60%;
-  `}
-
-  ${breakpoint('l')`
+  `} ${breakpoint('l')`
     width: 80%;
-  `}
-
-  &::after {
+  `} &::after {
     position: absolute;
     display: inline-block;
     right: ${theme('spaces.s')};
@@ -155,7 +151,7 @@ const PhoneWrapper = styled.div`
 
   ${breakpoint('m')`
     margin-top: ${theme('spaces.l')};
-  `}
+  `};
 `
 
 const TitlePhone = styled(Paragraph)`
@@ -178,7 +174,7 @@ const StyledLinkPhone = styled(Link)`
   `}
 `
 
-const FooterCorporate = ({ locale, translate }) => (
+const FooterCorporate = ({ locale, translate }) =>
   <StyledSection>
     <Grid>
       <StyledRow>
@@ -242,7 +238,6 @@ const FooterCorporate = ({ locale, translate }) => (
       </StyledRow>
     </Grid>
   </StyledSection>
-)
 
 FooterCorporate.propTypes = {
   translate: PropTypes.func.isRequired,

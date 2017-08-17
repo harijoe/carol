@@ -6,17 +6,21 @@ import { mocking } from 'config'
 
 import { IntlProvider, GoogleTagManager } from 'containers'
 
-const Head = ({ translate }) => (
+const Head = ({ translate }) =>
   <Helmet titleTemplate={translate('pages.default.titleTemplate')}>
-    <title>{translate('pages.default.title')}</title>
+    <title>
+      {translate('pages.default.title')}
+    </title>
     <meta name="description" content={translate('pages.default.meta.description')} />
     <meta property="og:site_name" content="Quotatis" />
     <meta property="og:title" content={translate('pages.default.meta.og.title')} />
-    <meta property="og:image" content="https://lh5.googleusercontent.com/-H8MZCl-4zME/UI-VaVpuRjI/AAAAAAAAAAc/rc9uPeRIwsc/w851-h315-no/Quotatis-fond-googleplus.jpg" />
+    <meta
+      property="og:image"
+      content="https://lh5.googleusercontent.com/-H8MZCl-4zME/UI-VaVpuRjI/AAAAAAAAAAc/rc9uPeRIwsc/w851-h315-no/Quotatis-fond-googleplus.jpg"
+    />
     <meta property="og:image:type" content="image/jpg" />
     <meta property="og:url" content="https://quotatis.fr" />
   </Helmet>
-)
 
 Head.propTypes = {
   translate: PropTypes.func.isRequired,
@@ -44,7 +48,7 @@ class App extends Component {
         <div>
           <HeadWithTranslate />
           {children}
-          { !mocking && <GoogleTagManager /> }
+          {!mocking && <GoogleTagManager />}
         </div>
       </IntlProvider>
     )

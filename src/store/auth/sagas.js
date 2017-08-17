@@ -54,7 +54,8 @@ export function* handleAuthLoginRequest({ grantType = 'client_credentials', form
       actualCredentials = `&refresh_token=${refreshToken}`
     }
 
-    const url = `/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api.clientSecret}&grant_type=${actualGrantType}${actualCredentials}`
+    const url = `/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api
+      .clientSecret}&grant_type=${actualGrantType}${actualCredentials}`
 
     yield* fetchWithoutRefreshingToken(authLogin(actualGrantType), 'get', url, {}, null, null, false)
 
@@ -129,7 +130,7 @@ function* watchAuthChannelRequest() {
   }
 }
 
-export default function* () {
+export default function*() {
   yield [
     takeLatest(AUTH_LOGIN.REQUEST, handleAuthLoginRequest),
     takeLatest(AUTH_LOGIN.SUCCESS, handleAuthLoginSuccess),

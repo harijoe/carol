@@ -10,7 +10,7 @@ import Attachment from './molecules/Attachment'
 
 const Wrapper = styled.div`
   bottom: 0;
-  display:flex;
+  display: flex;
   flex-direction: column;
   margin-top: -10px;
   padding-bottom: 5.6rem;
@@ -21,18 +21,16 @@ const Wrapper = styled.div`
 
   ${breakpoint('m')`
     min-height: 29rem;
-  `}
-
-  ${mapBreakpoints(bp => css`
+  `} ${mapBreakpoints(
+      bp => css`
     padding-left: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
     padding-right: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
-  `)}
-
-  &::-webkit-scrollbar-track {
+  `,
+    )} &::-webkit-scrollbar-track {
     border-radius: 6rem;
     background-color: ${theme('colors.grayscale.lightest')};
   }
-  
+
   &::-webkit-scrollbar {
     height: ${theme('spaces.xs')};
     width: ${theme('spaces.xs')};
@@ -78,34 +76,32 @@ class Conversation extends Component {
 
   render() {
     const { activeConversation, reply, locale, redirectTo } = this.props
-    const isLastQuestion = index => (
-      activeConversation.length - 1 === index
-    )
+    const isLastQuestion = index => activeConversation.length - 1 === index
 
     return (
-      <Wrapper innerRef={(ref) => { this.history = ref }} className="conversation">
-        {
-          activeConversation.map(({ message: { text, attachment, quick_replies }, answer }, index) => (
-            <div key={index}>
-              <ProjectElaborationQuestion>{text != null ? text : null}</ProjectElaborationQuestion>
-              {
-                isLastQuestion(index) ?
-                  <div>
-                    <Attachment
-                      attachment={attachment != null ? attachment : null}
-                      {...{ reply, answer, locale, redirectTo }}
-                    />
-                    <QuickReplies
-                      // eslint-disable-next-line camelcase
-                      {...{ quick_replies, reply, answer }}
-                    />
-                  </div>
-                  : null
-              }
-              <Answer answer={answer != null ? answer.text : null} />
-            </div>
-          ))
-        }
+      <Wrapper
+        innerRef={ref => {
+          this.history = ref
+        }}
+        className="conversation"
+      >
+        {activeConversation.map(({ message: { text, attachment, quick_replies }, answer }, index) =>
+          <div key={index}>
+            <ProjectElaborationQuestion>
+              {text != null ? text : null}
+            </ProjectElaborationQuestion>
+            {isLastQuestion(index)
+              ? <div>
+                  <Attachment attachment={attachment != null ? attachment : null} {...{ reply, answer, locale, redirectTo }} />
+                  <QuickReplies
+                    // eslint-disable-next-line camelcase
+                    {...{ quick_replies, reply, answer }}
+                  />
+                </div>
+              : null}
+            <Answer answer={answer != null ? answer.text : null} />
+          </div>,
+        )}
       </Wrapper>
     )
   }

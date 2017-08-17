@@ -5,16 +5,14 @@ import { connect } from 'react-redux'
 import { authLogout } from 'store/actions'
 import { AccountMenu } from 'components'
 
-const AccountMenuContainer = props => (
-  <AccountMenu {...props} />
-)
+const AccountMenuContainer = props => <AccountMenu {...props} />
 
 AccountMenuContainer.propTypes = {
   logout: PropTypes.func,
 }
 
 const mapDispatchToProps = dispatch => ({
-  logout: (e) => {
+  logout: e => {
     e.preventDefault()
 
     dispatch(authLogout())

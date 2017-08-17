@@ -23,13 +23,15 @@ const Wrapper = styled.div`
   background-color: #eee;
 `
 
-const Header = styled.div`${({ loaded }) => css`
+const Header = styled.div`
+  ${({ loaded }) => css`
   ${ifThen(loaded, 'position: fixed', 'position: absolute')};
   left: 0;
   top: 0;
   width: 100%;
   z-index: 20;
-`}`
+`};
+`
 
 const Content = styled.div`
   width: 100%;
@@ -93,16 +95,20 @@ class PageTemplate extends Component {
       <ThemeProvider theme={defaultTheme}>
         <Wrapper {...props}>
           {notificationsSystem}
-          {
-            /*
+          {/*
               Motion menu disabled for V1
               !ssr && <MotionMenu />
-            */
-          }
+            */}
           <CookiesBanner />
-          <Header {...{ ...props, loaded }}>{header}</Header>
-          <Content>{children}</Content>
-          <Footer>{footer}</Footer>
+          <Header {...{ ...props, loaded }}>
+            {header}
+          </Header>
+          <Content>
+            {children}
+          </Content>
+          <Footer>
+            {footer}
+          </Footer>
         </Wrapper>
       </ThemeProvider>
     )

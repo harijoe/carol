@@ -9,8 +9,6 @@ const StyledIcon = styled(Icon)`
   height: 2em;
 `
 
-const Marker = () => (
-  <StyledIcon icon="marker-window" />
-)
+const Marker = () => <StyledIcon icon="marker-window" />
 
 export default Marker

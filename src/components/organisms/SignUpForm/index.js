@@ -38,10 +38,8 @@ const Form = styled.form`
 
   ${breakpointMax('m')`
     padding: 0;
-  `}
-
-  div[type="checkbox"] label {
-    width: calc( 100% - 18px );
+  `} div[type="checkbox"] label {
+    width: calc(100% - 18px);
   }
 `
 
@@ -62,25 +60,21 @@ const Footer = styled.footer`
   padding: ${theme('spaces.l')};
   border-top: 1px solid ${theme('colors.grayscale.light')};
   background-color: ${theme('colors.grayscale.lightest')};
-  
+
   ${breakpointMax('m')`
     width: 100vw;
     margin-left: -${theme('spaces.m')};
     margin-right: -${theme('spaces.m')};
     margin-bottom: -${theme('spaces.m')};
-  `}
-
-  ${breakpoint('m')`
+  `} ${breakpoint('m')`
     margin-left: -${theme('spaces.l')};
     margin-right: -${theme('spaces.l')};
     margin-bottom: -${theme('spaces.l')};
-  `}
-
-  ${breakpoint('xl')`
+  `} ${breakpoint('xl')`
     margin-left: -${theme('spaces.xxl')};
     margin-right: -${theme('spaces.xxl')};
     margin-bottom: -${theme('spaces.xxl')};
-  `}
+  `};
 `
 
 const StyledParagraph = styled(Paragraph)`
@@ -114,7 +108,7 @@ const StyledLinkPopIn = styled(Link)`
 const Wrapper = styled.div`
   ${breakpointMax('xl')`
     margin-top: ${theme('spaces.xl')};
-  `}
+  `};
 `
 
 const RadioBlock = styled.div`
@@ -167,27 +161,22 @@ class SignUpForm extends Component {
 
     return (
       <div>
-        {
-          carousel &&
-          <CarouselPageTemplate
-            heading={translate('user.sign_up.heading')}
-            description={translate('user.sign_up.description')}
-          >
+        {carousel &&
+          <CarouselPageTemplate heading={translate('user.sign_up.heading')} description={translate('user.sign_up.description')}>
             <StyledRow>
               <FacebookLogin />
               <GoogleLogin />
               <StyledDivider or />
               <Form onSubmit={handleSubmit}>
                 <RadioBlock>
-                  <strong><FormattedMessage id="user.gender" tagName="div" /></strong>
+                  <strong>
+                    <FormattedMessage id="user.gender" tagName="div" />
+                  </strong>
                   <Field
                     component={RadioGroup}
                     name="gender"
                     required
-                    options={[
-                      { value: 'Mr', id: 'mr', translation: 'user.mr' },
-                      { value: 'Mrs', id: 'mrs', translation: 'user.mrs' },
-                    ]}
+                    options={[{ value: 'Mr', id: 'mr', translation: 'user.mr' }, { value: 'Mrs', id: 'mrs', translation: 'user.mrs' }]}
                   />
                 </RadioBlock>
                 <AnimatedLabelField
@@ -204,12 +193,7 @@ class SignUpForm extends Component {
                   placeholder={translate('user.last_name')}
                   icon="login"
                 />
-                <AnimatedLabelField
-                  name="email"
-                  type="email"
-                  icon="mail-login"
-                  label={translate('user.email')}
-                />
+                <AnimatedLabelField name="email" type="email" icon="mail-login" label={translate('user.email')} />
                 <AnimatedLabelField
                   name="password"
                   type={this.state.passwordInputType}
@@ -238,16 +222,14 @@ class SignUpForm extends Component {
                   <FormattedMessage id="user.account_question" />
                 </div>
                 <div>
-                  <StyledLink highlight kind="black" onClick={() => onSwitch ? onSwitch() : redirectTo('/login')}>
+                  <StyledLink highlight kind="black" onClick={() => (onSwitch ? onSwitch() : redirectTo('/login'))}>
                     <FormattedMessage id="user.sign_in" />
                   </StyledLink>
                 </div>
               </div>
             </StyledRow>
-          </CarouselPageTemplate>
-        }
-        {
-          !carousel &&
+          </CarouselPageTemplate>}
+        {!carousel &&
           <Wrapper className={className}>
             <Heading level={2}>
               <FormattedMessage id="user.sign_up.heading" />
@@ -260,15 +242,14 @@ class SignUpForm extends Component {
             <StyledDivider or />
             <Form onSubmit={handleSubmit}>
               <RadioBlock>
-                <strong><FormattedMessage id="user.gender" tagName="div" /></strong>
+                <strong>
+                  <FormattedMessage id="user.gender" tagName="div" />
+                </strong>
                 <Field
                   component={RadioGroup}
                   name="gender"
                   required
-                  options={[
-                    { value: 'Mr', id: 'mr', translation: 'user.mr' },
-                    { value: 'Mrs', id: 'mrs', translation: 'user.mrs' },
-                  ]}
+                  options={[{ value: 'Mr', id: 'mr', translation: 'user.mr' }, { value: 'Mrs', id: 'mrs', translation: 'user.mrs' }]}
                 />
               </RadioBlock>
               <AnimatedLabelField
@@ -285,12 +266,7 @@ class SignUpForm extends Component {
                 placeholder={translate('user.last_name')}
                 icon="login"
               />
-              <AnimatedLabelField
-                name="email"
-                type="email"
-                icon="mail-login"
-                label={translate('user.email')}
-              />
+              <AnimatedLabelField name="email" type="email" icon="mail-login" label={translate('user.email')} />
               <AnimatedLabelField
                 name="password"
                 type={this.state.passwordInputType}
@@ -316,16 +292,15 @@ class SignUpForm extends Component {
             </Form>
             <Footer>
               <FormattedMessage id="user.account_question" />
-              <StyledLinkPopIn highlight kind="black" onClick={() => onSwitch ? onSwitch() : redirectTo('/login')}>
+              <StyledLinkPopIn highlight kind="black" onClick={() => (onSwitch ? onSwitch() : redirectTo('/login'))}>
                 <FormattedMessage id="user.sign_in" />
               </StyledLinkPopIn>
             </Footer>
-          </Wrapper>
-        }
+          </Wrapper>}
       </div>
     )
-    }
   }
+}
 
 SignUpForm.propTypes = {
   handleSubmit: PropTypes.func,

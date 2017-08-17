@@ -10,11 +10,10 @@ const StyledButton = styled.button`
   color: ${theme('colors.grayscale.darker')};
 `
 
-const PopinMenuButton = ({ children, onClick }) => (
+const PopinMenuButton = ({ children, onClick }) =>
   <StyledButton type="button" onClick={onClick}>
     {children}
   </StyledButton>
-)
 
 PopinMenuButton.propTypes = {
   children: PropTypes.any.isRequired,

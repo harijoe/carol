@@ -8,8 +8,6 @@ function* handlePostListRequest({ scope, tags, limit }) {
   yield* fetch(postList, 'get', `/posts?tag[]=${tags.join('&tag[]=')}&itemsPerPage=${limit}&order[project_date]=DESC`, {}, null, { scope })
 }
 
-export default function* () {
-  yield [
-    takeEvery(POST_LIST.REQUEST, ssr(handlePostListRequest)),
-  ]
+export default function*() {
+  yield [takeEvery(POST_LIST.REQUEST, ssr(handlePostListRequest))]
 }

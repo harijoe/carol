@@ -10,7 +10,7 @@ const styles = css`
   color: ${theme('colors.grayscale.darker')};
 `
 
-const li = styled.li`${styles}`
+const li = styled.li`${styles};`
 
 const ListItem = ({ children, ...props }) => React.createElement(li, props, children)
 

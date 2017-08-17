@@ -12,11 +12,13 @@ const Wrapper = styled(MainWrapper)`
   width: 100%;
   height: 5.6rem;
 
-  ${mapBreakpoints(bp => css`
+  ${mapBreakpoints(
+    bp => css`
     padding-left: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
     padding-right: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
     padding-top: 0;
-  `)}
+  `,
+  )}
 `
 
 const StyledHeading = styled(Heading)`
@@ -50,7 +52,7 @@ const LogoWrapper = styled.div`
 
   ${breakpoint('m')`
     display: block;
-  `}
+  `};
 `
 
 const StyledPartnerLogo = styled(Image)`
@@ -66,10 +68,14 @@ const HeaderConversational = ({ partnerHeaderLink, partnerHeaderText, ...props }
       <LogoWrapper>
         <QuotatisLogo />
       </LogoWrapper>
-      <StyledHeading level={3}>{heading}</StyledHeading>
+      <StyledHeading level={3}>
+        {heading}
+      </StyledHeading>
       {partnerHeaderLink && <StyledPartnerLogo src={partnerHeaderLink} />}
       <Block>
-        <Link to="/"><CloseIcon icon="close" /></Link>
+        <Link to="/">
+          <CloseIcon icon="close" />
+        </Link>
       </Block>
     </Wrapper>
   )

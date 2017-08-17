@@ -10,7 +10,9 @@ const styles = ({ or }) => css`
   background-color: ${theme('colors.grayscale.lighter')};
   color: ${theme('colors.grayscale.medium')};
 
-  ${ifThen(or, `
+  ${ifThen(
+    or,
+    `
     justify-content: center;
     text-align: center;
 
@@ -23,10 +25,11 @@ const styles = ({ or }) => css`
       background-color: white;
       font-weight: bold;
     }
-  `)}
+  `,
+  )}
 `
 
-const Divider = styled.div`${styles}`
+const Divider = styled.div`${styles};`
 
 Divider.PropTypes = {
   or: PropTypes.bool,

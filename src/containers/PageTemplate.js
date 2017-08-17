@@ -5,9 +5,10 @@ import { fromContext } from 'store/selectors'
 
 import { PageTemplate } from 'components'
 
-const PageTemplateContainer = props => (
-  <PageTemplate {...props}>{props.children}</PageTemplate>
-)
+const PageTemplateContainer = props =>
+  <PageTemplate {...props}>
+    {props.children}
+  </PageTemplate>
 
 PageTemplateContainer.propTypes = {
   children: PropTypes.any,

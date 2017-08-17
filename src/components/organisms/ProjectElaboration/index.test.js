@@ -7,12 +7,16 @@ import mockIntl from '../../../../test/intlMock'
 const wrap = (props = {}) => shallow(mockIntl(<ProjectElaboration {...props} />))
 
 it('renders ProjectElaboration', () => {
-  expect(wrap({
-    activeConversation: [{
-      message: {
-        text: 'message',
-        quick_replies: [],
-      },
-    }],
-  })).toMatchSnapshot()
+  expect(
+    wrap({
+      activeConversation: [
+        {
+          message: {
+            text: 'message',
+            quick_replies: [],
+          },
+        },
+      ],
+    }),
+  ).toMatchSnapshot()
 })

@@ -9,10 +9,7 @@ import ssr from 'sagas/ssr'
 import notify from 'sagas/notify'
 import { saveProjectElaborationIdInCookies } from 'store/utils'
 import generateSessionId from 'utils/generateSessionId'
-import {
-  projectUpdate,
-  removeInitialQueryParam,
-} from 'store/actions'
+import { projectUpdate, removeInitialQueryParam } from 'store/actions'
 
 import {
   PROJECT_ELABORATION_CONVERSATION_REPLY,
@@ -129,13 +126,19 @@ function* requestHero() {
     return
   }
 
-  yield* fetch(projectElaborationHeroDetails, 'post', '/chatbot', {}, {
-    message: {
-      text: 'new_project.first_question',
+  yield* fetch(
+    projectElaborationHeroDetails,
+    'post',
+    '/chatbot',
+    {},
+    {
+      message: {
+        text: 'new_project.first_question',
+      },
+      user,
+      channel: 'project',
     },
-    user,
-    channel: 'project',
-  })
+  )
 }
 
 function* preValidate({ chatbotStorageId }) {
@@ -186,7 +189,7 @@ function* handleClickOnFindAPro() {
   yield put(push('/project-elaboration'))
 }
 
-export default function* () {
+export default function*() {
   yield [
     takeLatest(PROJECT_ELABORATION_CONVERSATION_REPLY.REQUEST, replyConversation),
     takeLatest(PROJECT_ELABORATION_HERO_DETAILS.REQUEST, getConversations),

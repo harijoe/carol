@@ -6,5 +6,11 @@ import theme from 'components/themes/default'
 import Dots from './'
 
 it('renders the Dots component', () => {
-  expect(shallow(<ThemeProvider theme={theme}><Dots /></ThemeProvider>)).toMatchSnapshot()
+  expect(
+    shallow(
+      <ThemeProvider theme={theme}>
+        <Dots />
+      </ThemeProvider>,
+    ),
+  ).toMatchSnapshot()
 })

@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   ${breakpoint('m')`
     margin-bottom: ${theme('spaces.l')};
     padding: 0 ${theme('spaces.l')};
-  `}
+  `};
 `
 
 const Header = styled.div`
@@ -23,7 +23,7 @@ const Header = styled.div`
 
   ${breakpoint('m')`
     font-size: ${theme('fonts.size.l')};
-  `}
+  `};
 `
 
 const Title = styled(Heading)`
@@ -60,25 +60,28 @@ const ImageWrapper = styled.div`
     margin-right: -${theme('spaces.l')};
     margin-bottom: ${theme('spaces.l')};
     width: calc(100% + ${raw('spaces.l')}rem * 2);
-  `}
+  `};
 `
 
 const StyledLink = styled(Link)`
   display: block;
 `
 
-const TipsAndTricksBlock = ({ header, tags, image, title, link }) => (
+const TipsAndTricksBlock = ({ header, tags, image, title, link }) =>
   <Wrapper>
-    <Header>{header}</Header>
+    <Header>
+      {header}
+    </Header>
     <StyledLink to={link}>
       <ImageWrapper>
         {image != null ? <StyledImage {...image} /> : null}
       </ImageWrapper>
-      <Title level={2} html>{title}</Title>
+      <Title level={2} html>
+        {title}
+      </Title>
     </StyledLink>
-    {tags.map((tag, i) => (<Tag key={i} {...tag} />))}
+    {tags.map((tag, i) => <Tag key={i} {...tag} />)}
   </Wrapper>
-)
 
 TipsAndTricksBlock.propTypes = {
   header: PropTypes.string,

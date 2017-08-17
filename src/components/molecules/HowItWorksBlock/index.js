@@ -9,13 +9,14 @@ const StyledImage = styled(Image)`
   margin-bottom: 5rem;
 `
 
-const HowItWorksBlock = ({ imageLink, title, content }) => (
+const HowItWorksBlock = ({ imageLink, title, content }) =>
   <div>
     <StyledImage src={imageLink} />
-    <Heading level={2}>{title}</Heading>
+    <Heading level={2}>
+      {title}
+    </Heading>
     {content}
   </div>
-)
 
 HowItWorksBlock.propTypes = {
   imageLink: PropTypes.string,

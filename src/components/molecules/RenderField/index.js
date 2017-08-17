@@ -3,9 +3,8 @@ import PropTypes from 'prop-types'
 
 import Field from './atoms/Field'
 
-const RenderField = ({ meta, input, ...props }) => (
+const RenderField = ({ meta, input, ...props }) =>
   <Field {...{ ...props, ...input, invalid: meta.touched && !!meta.error, error: meta.error }} />
-)
 
 RenderField.propTypes = {
   meta: PropTypes.shape({

@@ -28,9 +28,6 @@ export function* handleReadFirmDetailsRequest({ id }) {
   yield* fetch(firmDetails, 'get', `/firms/${id}`)
 }
 
-export default function* () {
-  yield [
-    takeLatest(FIRM_LIST.REQUEST, handleReadFirmListRequest),
-    takeLatest(FIRM_DETAILS.REQUEST, handleReadFirmDetailsRequest),
-  ]
+export default function*() {
+  yield [takeLatest(FIRM_LIST.REQUEST, handleReadFirmListRequest), takeLatest(FIRM_DETAILS.REQUEST, handleReadFirmDetailsRequest)]
 }

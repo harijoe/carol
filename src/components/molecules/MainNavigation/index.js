@@ -9,10 +9,11 @@ const Wrapper = styled.div`
   ${breakpoint('l')`
     margin-left: auto;
     padding-left: 7.8rem;
-  `}
+  `};
 `
 
-const StyledNav = styled.nav`${({ show }) => css`
+const StyledNav = styled.nav`
+  ${({ show }) => css`
   ${breakpointMax('l')`
     position: fixed;
     left: 0;
@@ -28,9 +29,12 @@ const StyledNav = styled.nav`${({ show }) => css`
     transform: translateY(-100%);
     transition: transform 0.3s ease-in;
 
-    ${ifThen(show, css`
+    ${ifThen(
+      show,
+      css`
       transform: translateY(0);
-    `)}
+    `,
+    )}
   `}
 
   @media screen and (max-width: 991px) and (min-width: 768px) {
@@ -53,7 +57,9 @@ const StyledNav = styled.nav`${({ show }) => css`
       transition: transform 0.2s 0.2s ease-in;
     }
 
-    ${ifThen(show, css`
+    ${ifThen(
+      show,
+      css`
       pointer-events: auto;
 
       &::before {
@@ -63,9 +69,11 @@ const StyledNav = styled.nav`${({ show }) => css`
       > ul {
         transform: translateX(0);
       }
-    `)}
+    `,
+    )}
   }
-`}`
+`};
+`
 
 const HitBox = styled.div`
   position: fixed;
@@ -75,14 +83,13 @@ const HitBox = styled.div`
   left: 0;
 `
 
-const MainNavigation = ({ show, toggleMainNavigation }) => (
+const MainNavigation = ({ show, toggleMainNavigation }) =>
   <Wrapper>
     {show && <HitBox onClick={toggleMainNavigation} />}
     <StyledNav {...{ show }}>
       <MainMenu />
     </StyledNav>
   </Wrapper>
-)
 
 MainNavigation.propTypes = {
   show: PropTypes.bool,

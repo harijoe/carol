@@ -6,7 +6,7 @@ import reduce from 'lodash/reduce'
   Helper to be used in components to avoid the verbosity of `props => props.theme.property`
   Throws if key is not found
  */
-export const theme = (key, extension = '') => (props) => {
+export const theme = (key, extension = '') => props => {
   const result = get(props.theme, key)
 
   if (typeof result === 'undefined') {
@@ -43,9 +43,9 @@ export const injectGlobals = globalArrays => globalArrays.map(e => injectGlobal(
  */
 export const breakpoint = (bp, invert = false) => (...argsMain) => {
   // Builds a media query for a given breakpoint width
-  const media = (breakpointWidth) => {
+  const media = breakpointWidth => {
     const query = ` and (${invert ? 'max' : 'min'}-width: ${invert ? breakpointWidth - 1 : breakpointWidth}px)`
-    const mediaString = `only screen ${(breakpointWidth === 0 ? '' : query)}`
+    const mediaString = `only screen ${breakpointWidth === 0 ? '' : query}`
 
     return (...args) => css`
       @media ${mediaString} {
@@ -55,7 +55,7 @@ export const breakpoint = (bp, invert = false) => (...argsMain) => {
   }
 
   // Safely extracts breakpoint width from config
-  const getBreakpointWidth = breakpointKey => (props) => {
+  const getBreakpointWidth = breakpointKey => props => {
     const result = get(props, `theme.grid.breakpoints.${breakpointKey}`)
 
     if (typeof result === 'undefined') {
@@ -80,18 +80,28 @@ export const breakpointMax = bp => breakpoint(bp, true)
   Equivalent to a map on breakpoints
   Input: Callback to call on each breakpoint (key, value)
  */
-export const mapBreakpoints = callback => (props) => {
+export const mapBreakpoints = callback => props => {
   const breakpoints = get(props, 'theme.grid.breakpoints')
 
-  const res = reduce(breakpoints, (result, value, key) => merge(result, breakpoint(key)(...css`
+  const res = reduce(
+    breakpoints,
+    (result, value, key) =>
+      merge(
+        result,
+        breakpoint(key)(
+          ...css`
     ${''
-      /*
+    /*
         This is necessary due to a very nasty bug. If you remove it, the first line rendered by callback will
         be ignored for some reason. Either understand what's going on and fix it, or let it be along with this comment
       */
-    }
+          }
     ${callback(key, value)}
-  `)), [])
+  `,
+        ),
+      ),
+    [],
+  )
 
   return res
 }

@@ -5,7 +5,7 @@ import injectTranslate from 'i18n/hoc/injectTranslate'
 import { google } from 'config'
 import { SocialLogin } from 'containers'
 
-const GoogleLogin = ({ translate, buttonStyle }) => (
+const GoogleLogin = ({ translate, buttonStyle }) =>
   <SocialLogin
     platform="google"
     clientId={google.clientId}
@@ -15,7 +15,6 @@ const GoogleLogin = ({ translate, buttonStyle }) => (
     onFailure={() => {}}
     scope={google.scope}
   />
-)
 
 GoogleLogin.propTypes = {
   translate: PropTypes.func.isRequired,

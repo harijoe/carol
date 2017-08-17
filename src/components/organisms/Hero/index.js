@@ -5,17 +5,7 @@ import styled, { css } from 'styled-components'
 import { theme, breakpoint, breakpointMax, mapBreakpoints } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
 
-import {
-  Section,
-  ThumbnailCard,
-  Paragraph,
-  Grid,
-  Row,
-  Link,
-  MainWrapper,
-  Heading,
-  SearchEngine,
-} from 'components'
+import { Section, ThumbnailCard, Paragraph, Grid, Row, Link, MainWrapper, Heading, SearchEngine } from 'components'
 import { Carousel } from 'containers'
 
 const HeroWrapper = styled.div`
@@ -49,7 +39,7 @@ const HeroWrapper = styled.div`
 
   ${breakpoint('l')`
     min-height: 90vh;
-  `}
+  `};
 `
 
 const StyledSection = styled(Section)`
@@ -61,9 +51,11 @@ const StyledSection = styled(Section)`
 `
 
 const StyledRow = styled(Row)`
-  ${mapBreakpoints(() => css`
+  ${mapBreakpoints(
+    () => css`
     margin: 0;
-  `)}
+  `,
+  )}
 `
 
 const StyledHeading = styled(Heading)`
@@ -90,13 +82,13 @@ const SubHeading = styled(Paragraph)`
 const CarouselWrapper = styled.div`
   position: relative;
 
-  ${mapBreakpoints(bp => css`
+  ${mapBreakpoints(
+    bp => css`
     margin-right: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} * -1);
     margin-left: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} * -1);
     padding: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
-  `)}
-
-  &::before {
+  `,
+  )} &::before {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -121,25 +113,25 @@ const CarouselWrapper = styled.div`
 
     ${breakpoint('xl')`
       max-width: ${theme('grid.container')}rem;
-    `}
+    `};
   }
 `
 
-const generateChild = (items, reply) => items.map(({ title, image_url, buttons, subtitle }, i) => (
-  <ThumbnailCard
-    key={i}
-    // eslint-disable-next-line camelcase
-    image={image_url}
-    title={title}
-    items={subtitle.split('\n')}
-    onClick={() => reply(title, buttons[0].payload)}
-  />
-))
+const generateChild = (items, reply) =>
+  items.map(({ title, image_url, buttons, subtitle }, i) =>
+    <ThumbnailCard
+      key={i}
+      // eslint-disable-next-line camelcase
+      image={image_url}
+      title={title}
+      items={subtitle.split('\n')}
+      onClick={() => reply(title, buttons[0].payload)}
+    />,
+  )
 
-const FirstChoices = (choices, reply) => (
+const FirstChoices = (choices, reply) =>
   <CarouselWrapper>
-    {
-      choices.length > 0 &&
+    {choices.length > 0 &&
       <Carousel
         variableWidth
         infinite={false}
@@ -170,24 +162,20 @@ const FirstChoices = (choices, reply) => (
           },
         ]}
       >
-        { generateChild(choices, reply) }
-      </Carousel>
-    }
+        {generateChild(choices, reply)}
+      </Carousel>}
   </CarouselWrapper>
-)
 
-const Hero = ({ hasActiveConversation, firstChoices, reply, featureSearchEngineEnabled }) => (
+const Hero = ({ hasActiveConversation, firstChoices, reply, featureSearchEngineEnabled }) =>
   <HeroWrapper className="hero">
     <MainWrapper resetState>
       <StyledSection>
-        { featureSearchEngineEnabled &&
+        {featureSearchEngineEnabled &&
           <StyledRow>
             <SearchEngine />
-          </StyledRow>
-        }
-        {
-          hasActiveConversation ?
-            <StyledRow>
+          </StyledRow>}
+        {hasActiveConversation
+          ? <StyledRow>
               <header>
                 <StyledHeading level={1}>
                   <FormattedMessage id="hero.conversation_in_progress" />
@@ -201,8 +189,7 @@ const Hero = ({ hasActiveConversation, firstChoices, reply, featureSearchEngineE
                 {FirstChoices(firstChoices, reply)}
               </header>
             </StyledRow>
-            :
-            <Grid>
+          : <Grid>
               <StyledRow column>
                 <header>
                   <StyledHeading level={1}>
@@ -214,12 +201,10 @@ const Hero = ({ hasActiveConversation, firstChoices, reply, featureSearchEngineE
                   {FirstChoices(firstChoices, reply)}
                 </header>
               </StyledRow>
-            </Grid>
-        }
+            </Grid>}
       </StyledSection>
     </MainWrapper>
   </HeroWrapper>
-)
 
 Hero.propTypes = {
   hasActiveConversation: PropTypes.bool,
@@ -231,10 +216,10 @@ Hero.propTypes = {
       buttons: PropTypes.arrayOf(
         PropTypes.shape({
           payload: PropTypes.string,
-        })
+        }),
       ),
       subtitle: PropTypes.string,
-    })
+    }),
   ),
   reply: PropTypes.func,
 }

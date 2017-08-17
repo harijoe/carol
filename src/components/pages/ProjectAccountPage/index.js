@@ -12,7 +12,7 @@ const StyledSection = styled(Section)`
   margin-top: ${theme('spaces.xxl')};
 `
 
-const ProjectAccountPage = ({ params: { projectId }, translate }) => (
+const ProjectAccountPage = ({ params: { projectId }, translate }) =>
   <MainLayout>
     <MainWrapper>
       <StyledSection>
@@ -26,7 +26,6 @@ const ProjectAccountPage = ({ params: { projectId }, translate }) => (
       </StyledSection>
     </MainWrapper>
   </MainLayout>
-)
 
 ProjectAccountPage.propTypes = {
   translate: PropTypes.func.isRequired,

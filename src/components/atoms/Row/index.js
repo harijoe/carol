@@ -8,52 +8,84 @@ const styles = ({ reverse, column, start, center, end, top, middle, bottom, arou
   flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
-  ${mapBreakpoints(bp => css`
+  ${mapBreakpoints(
+    bp => css`
     margin-right: calc(${theme(`grid.gutterGrid.${bp}`, 'rem')} / 2 * -1);
     margin-left: calc(${theme(`grid.gutterGrid.${bp}`, 'rem')} / 2 * -1);
-  `)}
+  `,
+  )}
   ${ifThen(reverse, 'flex-direction: row-reverse;')}
   ${ifThen(column, 'flex-direction: column;')}
-  ${ifThen(start, breakpoint(start)`
+  ${ifThen(
+    start,
+    breakpoint(start)`
     justify-content: flex-start;
     text-align: start;
-  `)}
-  ${ifThen(center, breakpoint(center)`
+  `,
+  )}
+  ${ifThen(
+    center,
+    breakpoint(center)`
     justify-content: center;
     text-align: center;
-  `)}
-  ${ifThen(end, breakpoint(end)`
+  `,
+  )}
+  ${ifThen(
+    end,
+    breakpoint(end)`
     justify-content: flex-end;
     text-align: end;
-  `)}
-  ${ifThen(top, breakpoint(top)`
+  `,
+  )}
+  ${ifThen(
+    top,
+    breakpoint(top)`
     align-items: flex-start;
-  `)}
-  ${ifThen(middle, breakpoint(middle)`
+  `,
+  )}
+  ${ifThen(
+    middle,
+    breakpoint(middle)`
     align-items: center;
-  `)}
-  ${ifThen(bottom, breakpoint(bottom)`
+  `,
+  )}
+  ${ifThen(
+    bottom,
+    breakpoint(bottom)`
     align-items: flex-end;
-  `)}
-  ${ifThen(around, breakpoint(around)`
+  `,
+  )}
+  ${ifThen(
+    around,
+    breakpoint(around)`
     justify-content: space-around;
-  `)}
-  ${ifThen(between, breakpoint(between)`
+  `,
+  )}
+  ${ifThen(
+    between,
+    breakpoint(between)`
     justify-content: space-between;
-  `)}
-  ${ifThen(first, breakpoint(first)`
+  `,
+  )}
+  ${ifThen(
+    first,
+    breakpoint(first)`
     order: -1;
-  `)}
-  ${ifThen(last, breakpoint(last)`
+  `,
+  )}
+  ${ifThen(
+    last,
+    breakpoint(last)`
     order: 1;
-  `)}
+  `,
+  )}
   ${breakpointMax('m')`
     margin: 0;
     padding: 0;
   `}
 `
 
-const Row = styled.div`${styles}`
+const Row = styled.div`${styles};`
 
 Row.displayName = 'Row'
 

@@ -13,8 +13,8 @@ const configureStore = (initialState, history) => {
     initialState,
     compose(
       applyMiddleware(thunk, sagaMiddleware, routerMiddleware(history)),
-      hasWindow && window.devToolsExtension ? window.devToolsExtension() : f => f
-    )
+      hasWindow && window.devToolsExtension ? window.devToolsExtension() : f => f,
+    ),
   )
 
   return {

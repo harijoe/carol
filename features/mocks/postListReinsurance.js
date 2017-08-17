@@ -9,7 +9,8 @@ export default {
       id: 726,
       type: 'reinsurance',
       title: 'Notre réseau de professionnels qualifiés à votre service',
-      body: '<p>Quotatis s’engage à transmettre votre demande en temps réel aux professionnels pouvant y répondre rapidement.</p>\n<p>Nous vérifions que les professionnels avec lesquels nous vous mettons en relation sont qualifiés et assurés.</p>\n<p>Choisissez le professionnel qu’il vous faut grâce aux avis de ses précédents clients sur notre site.</p>\n',
+      body:
+        '<p>Quotatis s’engage à transmettre votre demande en temps réel aux professionnels pouvant y répondre rapidement.</p>\n<p>Nous vérifions que les professionnels avec lesquels nous vous mettons en relation sont qualifiés et assurés.</p>\n<p>Choisissez le professionnel qu’il vous faut grâce aux avis de ses précédents clients sur notre site.</p>\n',
       slug: 'reseau-de-professionnels-qualifies-a-service',
       featuredMedia: {
         alt: '',
@@ -33,7 +34,8 @@ export default {
       id: 727,
       type: 'reinsurance',
       title: 'Quotatis simplifie les travaux pour tous',
-      body: '<p>Les travaux, ça vous connait ? Nous, oui !</p>\n<p>En quelle saison faire poser une alarme, quel est le prix moyen d’une fenêtre en PVC ?…</p>\n<p>Afin de vous aider au mieux dans l’élaboration de votre projet, nous enrichissons chaque jour <a href="https://www.quotatis.fr/conseils-travaux/" target="_blank">nos guides et conseils personnalisés</a>, en collaboration avec <a href="https://www.quotatis.fr/annuaire-artisan" target="_blank">les professionnels et partenaires de notre réseau</a>.</p>\n',
+      body:
+        '<p>Les travaux, ça vous connait ? Nous, oui !</p>\n<p>En quelle saison faire poser une alarme, quel est le prix moyen d’une fenêtre en PVC ?…</p>\n<p>Afin de vous aider au mieux dans l’élaboration de votre projet, nous enrichissons chaque jour <a href="https://www.quotatis.fr/conseils-travaux/" target="_blank">nos guides et conseils personnalisés</a>, en collaboration avec <a href="https://www.quotatis.fr/annuaire-artisan" target="_blank">les professionnels et partenaires de notre réseau</a>.</p>\n',
       slug: 'quotatis-simplifie-travaux-2',
       featuredMedia: {
         alt: '',
@@ -57,7 +59,8 @@ export default {
       id: 728,
       type: 'reinsurance',
       title: 'Quotatis vous aide à concrétiser vos projets de travaux',
-      body: '<p>Quotatis est un service facile à utiliser et 100% gratuit pour les particuliers qui veulent faire des travaux.</p>\n<p>En quelques minutes, nous établissons ensemble une première expression de votre besoin, qui nous permet de sélectionner les artisans susceptibles de faire voir le jour à votre projet.</p>\n',
+      body:
+        '<p>Quotatis est un service facile à utiliser et 100% gratuit pour les particuliers qui veulent faire des travaux.</p>\n<p>En quelques minutes, nous établissons ensemble une première expression de votre besoin, qui nous permet de sélectionner les artisans susceptibles de faire voir le jour à votre projet.</p>\n',
       slug: 'quotatis-aide-a-concretiser-vos-projets-de-travaux-2',
       featuredMedia: {
         alt: '',

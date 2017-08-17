@@ -1,4 +1,4 @@
-const indicator = (language) => {
+const indicator = language => {
   switch (language) {
     case 'fr':
       return '33'
@@ -11,7 +11,7 @@ const indicator = (language) => {
   }
 }
 
-export const normalize = language => (value) => {
+export const normalize = language => value => {
   if (!value) return value
   const onlyNums = value.replace(/[^\d]/g, '')
 
@@ -20,7 +20,7 @@ export const normalize = language => (value) => {
   throw new Error(`Unknown language: ${language}`)
 }
 
-export const format = language => (storeValue) => {
+export const format = language => storeValue => {
   if (!storeValue) return storeValue
   if (['fr', 'en'].includes(language)) return storeValue.replace(`+${indicator(language)}`, '0')
   if (['es'].includes(language)) return storeValue.replace(`+${indicator(language)}`, '')

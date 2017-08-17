@@ -23,5 +23,4 @@ const mapDispatchToProps = dispatch => ({
   request: () => dispatch(validateEmail.request()),
 })
 
-
 export default connect(null, mapDispatchToProps)(EmailValidationPageContainer)

@@ -5,9 +5,7 @@ import { fromContext, fromRouting } from 'store/selectors'
 
 import { Footer } from 'components'
 
-const FooterContainer = props => (
-  <Footer {...props} />
-)
+const FooterContainer = props => <Footer {...props} />
 
 FooterContainer.propTypes = {
   locale: PropTypes.string,

@@ -4,16 +4,21 @@ import styled, { css } from 'styled-components'
 import { CloseAllButton } from 'containers'
 import { theme, ifThen, breakpoint, mapBreakpoints } from 'utils/style'
 
-const OuterWrapper = styled.div`${({ show }) => css`
-  ${ifThen(show, `
+const OuterWrapper = styled.div`
+  ${({ show }) => css`
+  ${ifThen(
+    show,
+    `
     height: 100vh;
     opacity: 1;
     z-index: 50;
-  `, `
+  `,
+    `
     height: 0;
     opacity: 0;
     z-index: -50;
-  `)}
+  `,
+  )}
   position: fixed;
   left: 0;
   top: 0;
@@ -22,7 +27,10 @@ const OuterWrapper = styled.div`${({ show }) => css`
   align-items: flex-start;
   width: 100%;
   background: white;
-  transition: height 0.3s linear, padding-top 0.3s linear, padding-bottom 0.3s linear, border-top-width 0.3s linear, border-top-width 0.3s linear${ifThen(!show, ', opacity 0.1s linear 1s')};
+  transition: height 0.3s linear, padding-top 0.3s linear, padding-bottom 0.3s linear, border-top-width 0.3s linear, border-top-width 0.3s linear${ifThen(
+    !show,
+    ', opacity 0.1s linear 1s',
+  )};
   ${breakpoint('m')`
     height: 100vh;
     align-items: center;
@@ -32,18 +40,22 @@ const OuterWrapper = styled.div`${({ show }) => css`
     transition: opacity 0.2s linear;
     ${ifThen(!show, 'pointer-events: none;', '')}
   `}
-`}`
+`};
+`
 
-const InnerWrapper = styled.div`${({ show }) => css`
+const InnerWrapper = styled.div`
+  ${({ show }) => css`
   position: relative;
   width: 100%;
   height: 100%;
   background-color: ${theme('colors.white')};
   ${ifThen(show, '', 'display: none')};
   pointer-events: auto;
-  ${mapBreakpoints(bp => css`
+  ${mapBreakpoints(
+    bp => css`
     padding: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
-  `)}
+  `,
+  )}
   ${breakpoint('m')`
     ${ifThen(show, 'top: 0;', 'top: -50px;')}
     margin: 5rem auto;
@@ -53,15 +65,18 @@ const InnerWrapper = styled.div`${({ show }) => css`
     transition: top 0.2s linear;
     height: auto;
   `}
-`}`
+`};
+`
 
-const ScrollWrapper = styled.div`${({ show }) => css`
+const ScrollWrapper = styled.div`
+  ${({ show }) => css`
   position: fixed;
   width: 100%;
   height: 100%;
   overflow-y: scroll;
   ${ifThen(show, '', 'pointer-events: none;')};
-`}`
+`};
+`
 
 const Background = styled.div`
   ${breakpoint('m')`
@@ -71,10 +86,10 @@ const Background = styled.div`
     height: 100vh;
     width: 100%;
     background: rgba(0, 0, 0, 0.8);
-  `}
+  `};
 `
 
-const Popin = ({ children, show, closeAll }) => (
+const Popin = ({ children, show, closeAll }) =>
   <OuterWrapper show={show}>
     <Background onClick={closeAll} />
     <ScrollWrapper>
@@ -84,8 +99,6 @@ const Popin = ({ children, show, closeAll }) => (
       </InnerWrapper>
     </ScrollWrapper>
   </OuterWrapper>
-)
-
 
 Popin.propTypes = {
   closeAll: PropTypes.func,

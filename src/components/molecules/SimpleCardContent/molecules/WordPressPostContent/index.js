@@ -24,8 +24,7 @@ const StyledParagraph = styled(Paragraph)`
   }
 `
 
-const WordPressPostContent = ({ content }) =>
-  <StyledParagraph dangerouslySetInnerHTML={{ __html: content }} />
+const WordPressPostContent = ({ content }) => <StyledParagraph dangerouslySetInnerHTML={{ __html: content }} />
 
 WordPressPostContent.propTypes = {
   content: PropTypes.string.isRequired,

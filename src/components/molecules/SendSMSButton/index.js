@@ -18,7 +18,11 @@ class SendSMSButton extends Component {
       return <FormattedMessage id="user.new_sms_sent" />
     }
 
-    return <Link onClick={this.handleClick} highlight><FormattedMessage id="user.send_sms_again" /></Link>
+    return (
+      <Link onClick={this.handleClick} highlight>
+        <FormattedMessage id="user.send_sms_again" />
+      </Link>
+    )
   }
 }
 

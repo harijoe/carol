@@ -20,12 +20,12 @@ const StyledLink = styled.a`
   transition: all 0.3s ease;
 
   :hover {
-    background-color: ${theme('colors.grayscale.light')}
+    background-color: ${theme('colors.grayscale.light')};
   }
 
   em {
-      background-color: ${theme('colors.secondary')};
-      font-style: normal;
+    background-color: ${theme('colors.secondary')};
+    font-style: normal;
   }
 `
 
@@ -33,18 +33,19 @@ const StyledIcon = styled(Icon)`
   width: 20%;
 `
 
-const StyledLabel = styled.span`
-  width: 80%;
-`
+const StyledLabel = styled.span`width: 80%;`
 
-const SearchResultItem = ({ name, slug, _highlightResult: { name: { value } } }) => (
+const SearchResultItem = ({ name, slug, _highlightResult: { name: { value } } }) =>
   <li>
     <StyledLink href={`/project-elaboration/?slug=${slug}`}>
       <StyledIcon size={70} icon="quotatis" />
-      { value != null ? <StyledLabel dangerouslySetInnerHTML={{ __html: value }} /> : <StyledLabel>{name}</StyledLabel> }
+      {value != null
+        ? <StyledLabel dangerouslySetInnerHTML={{ __html: value }} />
+        : <StyledLabel>
+            {name}
+          </StyledLabel>}
     </StyledLink>
   </li>
-)
 
 SearchResultItem.propTypes = {
   name: PropTypes.string.isRequired,

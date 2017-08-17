@@ -10,7 +10,7 @@ const store = mockStore()
 const wrapper = shallow(
   <Provider store={store}>
     <ProjectElaborationTemplate header="header">test</ProjectElaborationTemplate>
-  </Provider>
+  </Provider>,
 )
 
 window.location.hostname = 'carol-co-uk.dev.quotatis.net'

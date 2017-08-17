@@ -51,7 +51,7 @@ const TextWrapper = styled.div`
   ${breakpoint('l')`
     flex: 1 1 0;
     padding-left: ${theme('spaces.l')};
-  `}
+  `};
 `
 
 const PreviewWrapper = styled.figure`
@@ -63,7 +63,7 @@ const PreviewWrapper = styled.figure`
   width: 12.5rem;
   overflow: hidden;
   border-radius: 0.5rem;
-  
+
   &::after {
     position: absolute;
     left: 0;
@@ -141,10 +141,12 @@ class RenderDropzone extends React.Component {
     }
 
     return this.setState({
-      files: [{
-        preview: props.preview.initialValue,
-        name: '',
-      }],
+      files: [
+        {
+          preview: props.preview.initialValue,
+          name: '',
+        },
+      ],
     })
   }
 
@@ -165,11 +167,11 @@ class RenderDropzone extends React.Component {
   previewFile(e) {
     const reader = new window.FileReader()
 
-    reader.onloadend = (() => {
+    reader.onloadend = () => {
       const base64data = reader.result
 
       this.props.input.onChange(base64data)
-    })
+    }
     reader.readAsDataURL(e[0])
   }
 
@@ -185,21 +187,19 @@ class RenderDropzone extends React.Component {
 
   render() {
     const { input: { name }, preview, accept, meta: { touched, error }, ...field } = this.props
-    const previewImg = (files) => {
+    const previewImg = files => {
       if (!files) {
         return null
       }
 
       return (
         <PreviewWrapper>
-          {this.state.files.map((file, i) =>
-            <Image key={i} alt="preview" width={preview.width || 200} src={file.preview} />
-          )}
+          {this.state.files.map((file, i) => <Image key={i} alt="preview" width={preview.width || 200} src={file.preview} />)}
         </PreviewWrapper>
       )
     }
 
-    const fileNames = (files) => {
+    const fileNames = files => {
       if (!(files.length > 0 && files[0].name)) {
         return null
       }
@@ -207,7 +207,9 @@ class RenderDropzone extends React.Component {
       return (
         <List>
           {this.state.files.map((file, i) =>
-            <li key={i}>{file.name}</li>
+            <li key={i}>
+              {file.name}
+            </li>,
           )}
         </List>
       )
@@ -217,27 +219,34 @@ class RenderDropzone extends React.Component {
       <Wrapper>
         <StyledDropzone
           {...field}
-          ref={(node) => { this.dropzone = node }}
+          ref={node => {
+            this.dropzone = node
+          }}
           onDrop={(filesToUpload, e) => this.handleChange(filesToUpload, e)}
           name={name}
           accept={accept}
         >
-          <span><FormattedMessage id="user.drop_img" /></span>
+          <span>
+            <FormattedMessage id="user.drop_img" />
+          </span>
           {preview ? previewImg(this.state.files) : null}
         </StyledDropzone>
         <TextWrapper>
-          <p><FormattedMessage id="user.drop_text" /></p>
+          <p>
+            <FormattedMessage id="user.drop_text" />
+          </p>
           <StyledButton type="button" onClick={this.onOpenClick} highlight>
-            <Icon icon="camera" /><FormattedMessage id="user.choose_img" />
+            <Icon icon="camera" />
+            <FormattedMessage id="user.choose_img" />
           </StyledButton>
         </TextWrapper>
 
         {fileNames(this.state.files)}
-        {touched && error &&
+        {touched &&
+          error &&
           <Error id={`${name}Error`} role="alert" color="danger" transparent>
             <FormattedMessage id={error.id} values={error.values} />
-          </Error>
-        }
+          </Error>}
       </Wrapper>
     )
   }

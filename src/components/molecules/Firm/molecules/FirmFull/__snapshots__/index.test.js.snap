@@ -14,7 +14,8 @@ ShallowWrapper {
             id="firm.details.logo"
             values={Object {}}
         />
-        : 
+        :
+         
         <FormattedMessage
             id="firm.details.logo_missing"
             values={Object {}}
@@ -69,7 +70,8 @@ ShallowWrapper {
             id="firm.details.website"
             values={Object {}}
         />
-        : 
+        :
+         
         <FormattedMessage
             id="firm.details.website_missing"
             values={Object {}}
@@ -122,7 +124,8 @@ ShallowWrapper {
             id="firm.details.notation"
             values={Object {}}
         />
-        : 
+        :
+         
         0.05113636363636364
     </li>
     <li>
@@ -140,7 +143,8 @@ ShallowWrapper {
                   id="firm.details.logo"
                   values={Object {}}
             />
-            : 
+            :
+             
             <FormattedMessage
                   id="firm.details.logo_missing"
                   values={Object {}}
@@ -195,7 +199,8 @@ ShallowWrapper {
                   id="firm.details.website"
                   values={Object {}}
             />
-            : 
+            :
+             
             <FormattedMessage
                   id="firm.details.website_missing"
                   values={Object {}}
@@ -248,7 +253,8 @@ ShallowWrapper {
                   id="firm.details.notation"
                   values={Object {}}
             />
-            : 
+            :
+             
             0.05113636363636364
       </li>
       <li>
@@ -312,7 +318,8 @@ ShallowWrapper {
                               id="firm.details.logo"
                               values={Object {}}
                     />
-                    : 
+                    :
+                     
                     <FormattedMessage
                               id="firm.details.logo_missing"
                               values={Object {}}
@@ -367,7 +374,8 @@ ShallowWrapper {
                               id="firm.details.website"
                               values={Object {}}
                     />
-                    : 
+                    :
+                     
                     <FormattedMessage
                               id="firm.details.website_missing"
                               values={Object {}}
@@ -420,7 +428,8 @@ ShallowWrapper {
                               id="firm.details.notation"
                               values={Object {}}
                     />
-                    : 
+                    :
+                     
                     0.05113636363636364
           </li>
           <li>
@@ -438,7 +447,8 @@ ShallowWrapper {
                               id="firm.details.logo"
                               values={Object {}}
                     />
-                    : 
+                    :
+                     
                     <FormattedMessage
                               id="firm.details.logo_missing"
                               values={Object {}}
@@ -493,7 +503,8 @@ ShallowWrapper {
                               id="firm.details.website"
                               values={Object {}}
                     />
-                    : 
+                    :
+                     
                     <FormattedMessage
                               id="firm.details.website_missing"
                               values={Object {}}
@@ -546,7 +557,8 @@ ShallowWrapper {
                               id="firm.details.notation"
                               values={Object {}}
                     />
-                    : 
+                    :
+                     
                     0.05113636363636364
           </li>
           <li>

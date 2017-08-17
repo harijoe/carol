@@ -3,7 +3,7 @@ import * as selectors from './selectors'
 test('initialState', () => {
   expect(selectors.initialState).toEqual({
     accountNavigation: false,
-    chatbotPopin: {enabled: false, mode: 'signup'},
+    chatbotPopin: { enabled: false, mode: 'signup' },
     country: 'GB',
     dryRun: false,
     features: {},
@@ -16,7 +16,7 @@ test('initialState', () => {
 })
 
 test('getLang', () => {
-  expect(selectors.getLang({lang: 'myLang'})).toEqual('myLang')
-  expect(selectors.getCountry({country: 'myCountry'})).toEqual('myCountry')
-  expect(selectors.getLocale({lang: 'myLang', country: 'myCountry'})).toEqual('myLang-myCountry')
+  expect(selectors.getLang({ lang: 'myLang' })).toEqual('myLang')
+  expect(selectors.getCountry({ country: 'myCountry' })).toEqual('myCountry')
+  expect(selectors.getLocale({ lang: 'myLang', country: 'myCountry' })).toEqual('myLang-myCountry')
 })

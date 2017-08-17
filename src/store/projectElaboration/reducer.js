@@ -14,9 +14,7 @@ import {
 const addQuestions = (activeConversation, questions) => {
   const updatedConversation = activeConversation.slice()
 
-  questions.map(question => (
-    updatedConversation.push({ message: question.message })
-  ))
+  questions.map(question => updatedConversation.push({ message: question.message }))
 
   return updatedConversation
 }
@@ -44,7 +42,7 @@ const setHeroAnswer = (hero, { text, payload }) => {
   return updatedHero
 }
 
-const removeHeroAnswer = (hero) => {
+const removeHeroAnswer = hero => {
   const updatedHero = hero.slice()
 
   updatedHero[hero.length - 1].answer = {
@@ -58,9 +56,7 @@ const removeHeroAnswer = (hero) => {
 const setHero = (hero, questions) => {
   let updatedHero = hero.slice()
 
-  questions.map((question, i) => (
-    updatedHero[i] = { message: question.message }
-  ))
+  questions.map((question, i) => (updatedHero[i] = { message: question.message }))
 
   updatedHero = removeHeroAnswer(updatedHero)
 

@@ -60,7 +60,7 @@ const StyledItem = styled.div`
     width: 20rem;
     margin-left: ${theme('spaces.s')};
     margin-right: ${theme('spaces.s')};
-  `}
+  `};
 `
 
 const StyledButton = styled.button`
@@ -70,22 +70,20 @@ const StyledButton = styled.button`
 
   ${breakpoint('m')`
     width: 20rem;
-  `}
-
-  > div:first-child {
+  `} > div:first-child {
     width: 14rem;
 
     ${breakpoint('m')`
       width: 20rem;
-    `}
-
-    ${mapBreakpoints(() => css`
+    `} ${mapBreakpoints(
+        () => css`
       margin: 0;
-    `)}
+    `,
+      )};
   }
 `
 
-const AttachmentGeneric = ({ attachment, reply }) => (
+const AttachmentGeneric = ({ attachment, reply }) =>
   <StyledCarousel
     slidesToShow={1}
     slidesToScroll={3}
@@ -116,22 +114,23 @@ const AttachmentGeneric = ({ attachment, reply }) => (
       },
     ]}
   >
-    {
-      attachment.payload.elements.map(({ title, image_url, buttons, subtitle }, i) => (
-        <StyledItem key={i}>
-          <StyledButton onClick={() => { reply(title, buttons[0].payload) }}>
-            <ThumbnailCard
-              // eslint-disable-next-line camelcase
-              image={image_url}
-              title={title}
-              items={subtitle.split('\n')}
-            />
-          </StyledButton>
-        </StyledItem>
-      ))
-    }
+    {attachment.payload.elements.map(({ title, image_url, buttons, subtitle }, i) =>
+      <StyledItem key={i}>
+        <StyledButton
+          onClick={() => {
+            reply(title, buttons[0].payload)
+          }}
+        >
+          <ThumbnailCard
+            // eslint-disable-next-line camelcase
+            image={image_url}
+            title={title}
+            items={subtitle.split('\n')}
+          />
+        </StyledButton>
+      </StyledItem>,
+    )}
   </StyledCarousel>
-)
 
 AttachmentGeneric.propTypes = {
   attachment: PropTypes.shape({

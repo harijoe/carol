@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { fromAuth, fromRouting } from 'store/selectors'
 
-const requiresAuth = (AuthenticatedComponent) => {
+const requiresAuth = AuthenticatedComponent => {
   class Authentication extends Component {
     static propTypes = {
       dispatch: PropTypes.func.isRequired,
@@ -25,19 +25,19 @@ const requiresAuth = (AuthenticatedComponent) => {
 
       // Not authenticated? Redirect to login
       if (!isAuthenticated) {
-        dispatch(push({
-          pathname: '/login',
-          state: { redirectPathname },
-        }))
+        dispatch(
+          push({
+            pathname: '/login',
+            state: { redirectPathname },
+          }),
+        )
       }
     }
 
     render() {
       const { isAuthenticated } = this.props
 
-      return (
-        isAuthenticated ? <AuthenticatedComponent {...this.props} /> : null
-      )
+      return isAuthenticated ? <AuthenticatedComponent {...this.props} /> : null
     }
   }
 

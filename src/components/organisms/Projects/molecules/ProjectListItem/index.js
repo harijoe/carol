@@ -6,16 +6,7 @@ import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
 
-import {
-  Heading,
-  DateTime,
-  Paragraph,
-  Link,
-  Card,
-  Image,
-  ProjectStatus,
-  Divider,
-} from 'components'
+import { Heading, DateTime, Paragraph, Link, Card, Image, ProjectStatus, Divider } from 'components'
 
 const Article = styled(Card)`
   display: flex;
@@ -43,7 +34,7 @@ const HeaderCard = styled.header`
   ${breakpoint('m')`
     padding: ${theme('spaces.l')};
     padding-bottom: calc(${theme('spaces.l')} + 1.4rem);
-  `}
+  `};
 `
 
 const StyledHeading = styled(Heading)`
@@ -60,13 +51,14 @@ const DateCreation = styled.span`
 
   ${breakpoint('m')`
     font-size: ${theme('fonts.size.s')};
-  `}
+  `};
 `
 
 const ImageWrapper = styled.figure`
   overflow: hidden;
 
-  &::after , & {
+  &::after,
+  & {
     position: absolute;
     top: 0;
     left: 0;
@@ -97,7 +89,7 @@ const FooterCard = styled.footer`
   ${breakpoint('m')`
     padding: ${theme('spaces.l')};
     padding-top: calc(${theme('spaces.l')} + 1.4rem);
-  `}
+  `};
 `
 
 const StyledParagraph = styled(Paragraph)`
@@ -224,10 +216,10 @@ const FirmWrapper = styled.div`
     width: 100%;
     height: ${theme('spaces.xxl')};
     background-color: ${theme('colors.grey')};
-    
+
     ${breakpoint('m')`
       margin-left: -${theme('spaces.l')};
-    `}
+    `};
   }
 `
 
@@ -249,47 +241,55 @@ const PartnerImageWrapper = styled.div`
   box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, 0.15);
 `
 
-const Project = ({ name, createdAt, status, partner, leadSales, translate, ...items }) => (
+const Project = ({ name, createdAt, status, partner, leadSales, translate, ...items }) =>
   <Article>
     <HeaderCard>
       <ImageWrapper>
         <BackgroundImage src={cloudinary('/placeholder-project_image.jpg')} />
       </ImageWrapper>
       <ProjectStatus {...{ status, leadSales }} />
-      {partner && (
+      {partner &&
         <PartnerImageWrapper>
           <PartnerImage src={partner.headerLink} />
-        </PartnerImageWrapper>
-      )}
+        </PartnerImageWrapper>}
     </HeaderCard>
     <FooterCard>
-      <StyledHeading level={3}>{name}</StyledHeading>
+      <StyledHeading level={3}>
+        {name}
+      </StyledHeading>
       <DateCreation>
         <FormattedMessage id="project.created_at" /> <DateTime value={createdAt} />
       </DateCreation>
       <Divider />
       <StyledParagraph>
-        {status === 'found' ? translate(`project.describe.${status}`, {firmsNumber: leadSales.length}) : translate(`project.describe.${status}`)}
+        {status === 'found'
+          ? translate(`project.describe.${status}`, { firmsNumber: leadSales.length })
+          : translate(`project.describe.${status}`)}
       </StyledParagraph>
-      { status === 'found' &&
-      <FirmWrapper>
-        {leadSales.map(({ firm }) => <FirmImage key={firm.name} alt={'alt'} src={firm.logoUrl ? firm.logoUrl : cloudinary('/icons/placeholder-logo.png')} width="50" height="50" />)}
-        {/* disabled for release v1.5 */}
-        {/* <ButtonArrow to={items['@id']} /> */}
-      </FirmWrapper>}
-      {status === 'completion_in_progress' && (
+      {status === 'found' &&
+        <FirmWrapper>
+          {leadSales.map(({ firm }) =>
+            <FirmImage
+              key={firm.name}
+              alt={'alt'}
+              src={firm.logoUrl ? firm.logoUrl : cloudinary('/icons/placeholder-logo.png')}
+              width="50"
+              height="50"
+            />,
+          )}
+          {/* disabled for release v1.5 */}
+          {/* <ButtonArrow to={items['@id']} /> */}
+        </FirmWrapper>}
+      {status === 'completion_in_progress' &&
         <ButtonLink button to="/project-elaboration">
           <FormattedMessage id="project.continue" />
-        </ButtonLink>
-      )}
-      {status === 'to_validate' && (
+        </ButtonLink>}
+      {status === 'to_validate' &&
         <ButtonLink button to={`${items['@id']}/account`}>
           <FormattedMessage id="project.button.to_validate" />
-        </ButtonLink>
-      )}
+        </ButtonLink>}
     </FooterCard>
   </Article>
-)
 
 Project.propTypes = {
   translate: PropTypes.func.isRequired,

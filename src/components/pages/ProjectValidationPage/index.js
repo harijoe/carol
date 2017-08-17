@@ -16,7 +16,7 @@ const StyledLink = styled(Link)`
   `}
 `
 
-const ProjectValidationPage = ({ translate }) => (
+const ProjectValidationPage = ({ translate }) =>
   <MainLayout>
     <MainWrapper>
       <InnerWrapper>
@@ -34,7 +34,6 @@ const ProjectValidationPage = ({ translate }) => (
       </InnerWrapper>
     </MainWrapper>
   </MainLayout>
-)
 
 ProjectValidationPage.propTypes = {
   translate: PropTypes.func.isRequired,

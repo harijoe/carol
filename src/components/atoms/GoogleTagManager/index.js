@@ -37,7 +37,9 @@ class GoogleTagManager extends Component {
 
     return (
       <div>
-        <div>{gtm.noScriptAsReact()}</div>
+        <div>
+          {gtm.noScriptAsReact()}
+        </div>
         <div id={scriptId}>
           {gtm.scriptAsReact()}
         </div>

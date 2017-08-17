@@ -5,9 +5,7 @@ import { BurgerButton } from 'components'
 import { fromContext } from 'store/selectors'
 import { toggleMainNavigation, closeAll } from 'store/actions'
 
-const BurgerButtonContainer = props => (
-  <BurgerButton {...props} />
-)
+const BurgerButtonContainer = props => <BurgerButton {...props} />
 
 const mapStateToProps = state => ({
   isPopin: fromContext.isPopin(state),

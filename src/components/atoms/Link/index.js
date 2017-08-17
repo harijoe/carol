@@ -16,7 +16,9 @@ const styles = ({ kind, highlight, button, large }) => css`
     text-decoration: none;
   }
 
-  ${ifThen(highlight, css`
+  ${ifThen(
+    highlight,
+    css`
     position: relative;
     padding-left: ${theme('spaces.xs')};
     padding-right: ${theme('spaces.xs')};
@@ -28,9 +30,12 @@ const styles = ({ kind, highlight, button, large }) => css`
       color: ${theme('colors.white')};
       box-shadow: inset 0 -6rem 0 rgba(51, 51, 254, 1);
     }
-  `)};
+  `,
+  )};
 
-  ${ifThen(button, css`
+  ${ifThen(
+    button,
+    css`
     display: block;
     margin: ${theme('spaces.m')} 0 0 0;
     padding: ${theme('spaces.m')};
@@ -50,18 +55,22 @@ const styles = ({ kind, highlight, button, large }) => css`
       max-width: 32rem;
     `}
 
-    ${ifThen(large, css`
+    ${ifThen(
+      large,
+      css`
       ${breakpoint('m')`
         padding: ${theme('spaces.l')};
       `}
-    `)}
-  `)};
+    `,
+    )}
+  `,
+  )};
 `
 
 const removeStyledProps = Component => props => <Component {...omit(props, ...styleProps)} />
 
 const StyledLink = styled(removeStyledProps(RouterLink))`${styles}`
-const Anchor = styled.a`${styles}`
+const Anchor = styled.a`${styles};`
 
 const Link = ({ to, forceRedirect, ...props }) => {
   if (!to) {
@@ -79,13 +88,13 @@ const Link = ({ to, forceRedirect, ...props }) => {
    */
   const normalizedTo = to.indexOf('/') !== 0 ? `/${to}` : to
 
-  return <StyledLink {... { ...props, to: normalizedTo }} />
+  return <StyledLink {...{ ...props, to: normalizedTo }} />
 }
 
 Link.propTypes = {
   kind: PropTypes.string,
   light: PropTypes.bool,
-  to: PropTypes.oneOfType([ PropTypes.string, PropTypes.bool ]),
+  to: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   highlight: PropTypes.bool,
   button: PropTypes.bool,
   large: PropTypes.bool,

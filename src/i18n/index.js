@@ -8,9 +8,4 @@ const i18n = {
   es,
 }
 
-export {
-  i18n as default,
-  fr,
-  en,
-  es,
-}
+export { i18n as default, fr, en, es }

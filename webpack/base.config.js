@@ -3,10 +3,13 @@ const webpack = require('webpack')
 
 module.exports = options => ({
   entry: options.entry,
-  output: Object.assign({
-    path: path.resolve(process.cwd(), 'dist'),
-    publicPath: '/',
-  }, options.output),
+  output: Object.assign(
+    {
+      path: path.resolve(process.cwd(), 'dist'),
+      publicPath: '/',
+    },
+    options.output,
+  ),
   module: {
     rules: [
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },

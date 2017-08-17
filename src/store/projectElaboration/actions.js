@@ -17,9 +17,9 @@ export const PROJECT_ELABORATION_CLICK_FIND_A_PRO = 'PROJECT_ELABORATION_CLICK_F
 export const PROJECT_ELABORATION_PARTNER = createRequestTypes('PROJECT_ELABORATION_PARTNER')
 
 export const projectElaborationHeroDetails = {
-  request: () => (actionTypes(PROJECT_ELABORATION_HERO_DETAILS.REQUEST)),
-  success: payload => (actionTypes(PROJECT_ELABORATION_HERO_DETAILS.SUCCESS, { payload })),
-  failure: error => (actionTypes(PROJECT_ELABORATION_HERO_DETAILS.FAILURE, { error })),
+  request: () => actionTypes(PROJECT_ELABORATION_HERO_DETAILS.REQUEST),
+  success: payload => actionTypes(PROJECT_ELABORATION_HERO_DETAILS.SUCCESS, { payload }),
+  failure: error => actionTypes(PROJECT_ELABORATION_HERO_DETAILS.FAILURE, { error }),
 }
 
 export const setProjectElaborationHeroAnswer = (text, payload) => ({
@@ -31,15 +31,15 @@ export const setProjectElaborationHeroAnswer = (text, payload) => ({
 })
 
 export const projectElaborationReply = {
-  request: (text, payload) => (actionTypes(PROJECT_ELABORATION_CONVERSATION_REPLY.REQUEST, { text, payload })),
-  success: payload => (actionTypes(PROJECT_ELABORATION_CONVERSATION_REPLY.SUCCESS, { payload })),
-  failure: error => (actionTypes(PROJECT_ELABORATION_CONVERSATION_REPLY.FAILURE, { error })),
+  request: (text, payload) => actionTypes(PROJECT_ELABORATION_CONVERSATION_REPLY.REQUEST, { text, payload }),
+  success: payload => actionTypes(PROJECT_ELABORATION_CONVERSATION_REPLY.SUCCESS, { payload }),
+  failure: error => actionTypes(PROJECT_ELABORATION_CONVERSATION_REPLY.FAILURE, { error }),
 }
 
 export const projectElaborationConversationsDetails = {
-  request: () => (actionTypes(PROJECT_ELABORATION_CONVERSATIONS_DETAILS.REQUEST)),
-  success: payload => (actionTypes(PROJECT_ELABORATION_CONVERSATIONS_DETAILS.SUCCESS, { payload })),
-  failure: error => (actionTypes(PROJECT_ELABORATION_CONVERSATIONS_DETAILS.FAILURE, { error })),
+  request: () => actionTypes(PROJECT_ELABORATION_CONVERSATIONS_DETAILS.REQUEST),
+  success: payload => actionTypes(PROJECT_ELABORATION_CONVERSATIONS_DETAILS.SUCCESS, { payload }),
+  failure: error => actionTypes(PROJECT_ELABORATION_CONVERSATIONS_DETAILS.FAILURE, { error }),
 }
 
 export const setProjectElaborationSessionId = sessionId => ({
@@ -57,21 +57,21 @@ export const clickOnFindAPro = () => ({
 })
 
 export const projectElaborationConversationsSelect = {
-  request: authType => (actionTypes(PROJECT_ELABORATION_CONVERSATIONS_SELECT.REQUEST, { authType })),
-  success: payload => (actionTypes(PROJECT_ELABORATION_CONVERSATIONS_SELECT.SUCCESS, { payload })),
-  failure: error => (actionTypes(PROJECT_ELABORATION_CONVERSATIONS_SELECT.FAILURE, { error })),
+  request: authType => actionTypes(PROJECT_ELABORATION_CONVERSATIONS_SELECT.REQUEST, { authType }),
+  success: payload => actionTypes(PROJECT_ELABORATION_CONVERSATIONS_SELECT.SUCCESS, { payload }),
+  failure: error => actionTypes(PROJECT_ELABORATION_CONVERSATIONS_SELECT.FAILURE, { error }),
 }
 
 export const projectElaborationConversationCurrent = {
-  request: () => (actionTypes(PROJECT_ELABORATION_CONVERSATION_CURRENT.REQUEST)),
-  success: payload => (actionTypes(PROJECT_ELABORATION_CONVERSATION_CURRENT.SUCCESS, { payload })),
-  failure: error => (actionTypes(PROJECT_ELABORATION_CONVERSATION_CURRENT.FAILURE, { error })),
+  request: () => actionTypes(PROJECT_ELABORATION_CONVERSATION_CURRENT.REQUEST),
+  success: payload => actionTypes(PROJECT_ELABORATION_CONVERSATION_CURRENT.SUCCESS, { payload }),
+  failure: error => actionTypes(PROJECT_ELABORATION_CONVERSATION_CURRENT.FAILURE, { error }),
 }
 
 export const projectElaborationPartner = {
-  request: () => (actionTypes(PROJECT_ELABORATION_PARTNER.REQUEST)),
-  success: payload => (actionTypes(PROJECT_ELABORATION_PARTNER.SUCCESS, { payload })),
-  failure: error => (actionTypes(PROJECT_ELABORATION_PARTNER.FAILURE, { error })),
+  request: () => actionTypes(PROJECT_ELABORATION_PARTNER.REQUEST),
+  success: payload => actionTypes(PROJECT_ELABORATION_PARTNER.SUCCESS, { payload }),
+  failure: error => actionTypes(PROJECT_ELABORATION_PARTNER.FAILURE, { error }),
 }
 
 export const projectElaborationReset = {
@@ -83,7 +83,7 @@ export const projectElaborationResetConversation = {
 }
 
 export const projectElaborationPreValidate = {
-  request: chatbotStorageId => (actionTypes(PROJECT_ELABORATION_PRE_VALIDATE.REQUEST, { chatbotStorageId })),
-  success: payload => (actionTypes(PROJECT_ELABORATION_PRE_VALIDATE.SUCCESS, { payload })),
-  failure: error => (actionTypes(PROJECT_ELABORATION_PRE_VALIDATE.FAILURE, { error })),
+  request: chatbotStorageId => actionTypes(PROJECT_ELABORATION_PRE_VALIDATE.REQUEST, { chatbotStorageId }),
+  success: payload => actionTypes(PROJECT_ELABORATION_PRE_VALIDATE.SUCCESS, { payload }),
+  failure: error => actionTypes(PROJECT_ELABORATION_PRE_VALIDATE.FAILURE, { error }),
 }

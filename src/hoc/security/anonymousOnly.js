@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { fromAuth } from 'store/selectors'
 
-const anonymousOnly = (AnonymousComponent) => {
+const anonymousOnly = AnonymousComponent => {
   class Anonymous extends Component {
     static propTypes = {
       dispatch: PropTypes.func.isRequired,
@@ -26,8 +26,7 @@ const anonymousOnly = (AnonymousComponent) => {
 
     // eslint-disable-next-line class-methods-use-this
     getRedirectPathname(location) {
-      return location && location.state && location.state.redirectPathname
-        ? location.state.redirectPathname : null
+      return location && location.state && location.state.redirectPathname ? location.state.redirectPathname : null
     }
 
     checkAndRedirect() {
@@ -44,9 +43,7 @@ const anonymousOnly = (AnonymousComponent) => {
       const redirectPathname = this.getRedirectPathname(location)
       const props = Object.assign({}, this.props, { redirectPathname })
 
-      return (
-        !isAuthenticated ? <AnonymousComponent {...props} /> : null
-      )
+      return !isAuthenticated ? <AnonymousComponent {...props} /> : null
     }
   }
 

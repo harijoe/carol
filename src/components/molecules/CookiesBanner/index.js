@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: auto;
   background-color: rgba(0, 0, 0, 0.9);
-  
+
   .hidden {
     display: none;
   }
@@ -50,7 +50,7 @@ class CookiesBanner extends Component {
     cookie.set('cookies_banner_hidden', true)
   }
 
-  handleClose = (e) => {
+  handleClose = e => {
     e.preventDefault()
     this.setState({ hidden: true })
   }
@@ -72,11 +72,15 @@ class CookiesBanner extends Component {
           <Col xs={10} m={11}>
             <StyledParagraph>
               <FormattedMessage id="cookies.message" /> {' '}
-              <Link to={cookiesUrl} onClick={this.handleClickMore}><FormattedMessage id="cookies.more" /></Link>
+              <Link to={cookiesUrl} onClick={this.handleClickMore}>
+                <FormattedMessage id="cookies.more" />
+              </Link>
             </StyledParagraph>
           </Col>
           <Col xs={2} m={1}>
-            <Link onClick={this.handleClose}><CloseIcon icon="close" /></Link>
+            <Link onClick={this.handleClose}>
+              <CloseIcon icon="close" />
+            </Link>
           </Col>
         </Container>
       </Wrapper>

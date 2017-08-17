@@ -6,7 +6,7 @@ import cloudinary from 'utils/cloudinary'
 import { MainLayout, AutoValidationBlock, Section, MainWrapper, InnerWrapper } from 'components'
 import { PhoneAlreadyVerified, PhoneForm } from 'containers'
 
-const PhoneValidationPage = ({ translate }) => (
+const PhoneValidationPage = ({ translate }) =>
   <MainLayout>
     <MainWrapper>
       <InnerWrapper>
@@ -25,7 +25,6 @@ const PhoneValidationPage = ({ translate }) => (
       </InnerWrapper>
     </MainWrapper>
   </MainLayout>
-)
 
 PhoneValidationPage.propTypes = {
   translate: PropTypes.func.isRequired,

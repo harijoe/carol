@@ -5,14 +5,11 @@ import mockIntl from '../../../../test/intlMock'
 import TestimonialCardContent from './'
 
 it('renders TestimonialCardContent', () => {
-  expect(shallow(mockIntl(
-    <TestimonialCardContent
-      image="image.jpg"
-      firstName="John"
-      age="30"
-      location="Paris"
-      quote="Hi"
-      link="http://www.google.fr"
-    />
-  ))).toMatchSnapshot()
+  expect(
+    shallow(
+      mockIntl(
+        <TestimonialCardContent image="image.jpg" firstName="John" age="30" location="Paris" quote="Hi" link="http://www.google.fr" />,
+      ),
+    ),
+  ).toMatchSnapshot()
 })
