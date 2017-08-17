@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpointMax, breakpoint } from 'utils/style'
 
-import { CarouselPageTemplate, AnimatedLabelField, Heading, Button, Link, FacebookLogin, GoogleLogin, Row, Divider } from 'components'
+import { CarouselPageTemplate, AnimatedLabelField, AnimatedPasswordField, Heading, Button, Link, FacebookLogin, GoogleLogin, Row, Divider } from 'components'
 
 const StyledRow = styled(Row)`
   flex-direction: column;
@@ -103,7 +103,7 @@ const SignInForm = ({ error, handleSubmit, loading, translate, className, carous
           <StyledDivider or />
           <Form onSubmit={handleSubmit}>
             <AnimatedLabelField name="email" type="email" icon="mail-login" label={translate('user.email')} />
-            <AnimatedLabelField name="password" type="password" icon="pwd-login" label={translate('user.password')} />
+            <AnimatedPasswordField name="password" label={translate('user.password')} />
             {error && <FormattedMessage id={error} tagName="strong" />}
             <Link kind="black" to="/forgot-password" highlight>
               <FormattedMessage id="user.forget_password" />
@@ -134,7 +134,7 @@ const SignInForm = ({ error, handleSubmit, loading, translate, className, carous
         <br />
         <Form onSubmit={handleSubmit}>
           <AnimatedLabelField name="email" type="email" icon="mail-login" label={translate('user.email')} />
-          <AnimatedLabelField name="password" type="password" icon="pwd-login" label={translate('user.password')} />
+          <AnimatedPasswordField name="password" label={translate('user.password')} />
           {error && <FormattedMessage id={error} tagName="strong" />}
           <Link kind="black" to="/forgot-password" highlight>
             <FormattedMessage id="user.forgot_password.heading" />

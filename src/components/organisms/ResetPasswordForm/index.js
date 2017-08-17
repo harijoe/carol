@@ -6,7 +6,7 @@ import { FormattedMessage } from 'react-intl'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint } from 'utils/style'
 
-import { Button, CarouselPageTemplate, AnimatedLabelField } from 'components'
+import { Button, CarouselPageTemplate, AnimatedPasswordField } from 'components'
 
 const Form = styled.form`
   width: 100%;
@@ -32,8 +32,8 @@ const ResetPasswordForm = ({ error, handleSubmit, loading, translate }) =>
     <Form onSubmit={handleSubmit}>
       <Field name="token" type="hidden" component="input" />
       {error && <FormattedMessage id={error} tagName="strong" />}
-      <AnimatedLabelField name="password" type="password" icon="pwd-login" label={translate('user.password')} />
-      <AnimatedLabelField name="passwordValidation" type="password" icon="pwd-login" label={translate('user.confirm_password')} />
+      <AnimatedPasswordField name="password" label={translate('user.password')} />
+      <AnimatedPasswordField name="passwordValidation" label={translate('user.confirm_password')} />
       <StyledButton type="submit" loading={loading}>
         <FormattedMessage id="user.send" />
       </StyledButton>

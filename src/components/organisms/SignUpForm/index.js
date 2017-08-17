@@ -13,6 +13,7 @@ import {
   GoogleLogin,
   CarouselPageTemplate,
   AnimatedLabelField,
+  AnimatedPasswordField,
   Row,
   Paragraph,
   Link,
@@ -194,12 +195,9 @@ class SignUpForm extends Component {
                   icon="login"
                 />
                 <AnimatedLabelField name="email" type="email" icon="mail-login" label={translate('user.email')} />
-                <AnimatedLabelField
+                <AnimatedPasswordField
                   name="password"
-                  type={this.state.passwordInputType}
-                  icon={this.state.passwordIcon}
                   label={translate('user.password')}
-                  onIconClick={this.togglePassword}
                 />
                 <Field
                   name="newsletterSubscription"
