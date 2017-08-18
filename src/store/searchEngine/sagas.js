@@ -26,5 +26,7 @@ function* search({ query }) {
 }
 
 export default function*() {
-  yield [takeLatest(SEARCH_ENGINE_SEARCH, search)]
+  yield [
+    takeLatest(SEARCH_ENGINE_SEARCH, search),
+  ]
 }

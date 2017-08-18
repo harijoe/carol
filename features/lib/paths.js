@@ -4,4 +4,5 @@ export default {
   'auto-validation step 2': '/validation/phone?projectId=/projects/MOCK_PROJECT_ID',
   chatbot: '/project-elaboration',
   profile: '/profile',
+  'search-result': '/search-result',
 }

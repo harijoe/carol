@@ -1,14 +1,31 @@
-import React from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
-import { MainLayout, MainWrapper, InnerWrapper, SearchResults } from 'components'
+import { MainLayout, MainWrapper, InnerWrapper } from 'components'
+import { SearchResults } from 'containers'
 
-const SearchResultPage = () =>
-  <MainLayout>
-    <MainWrapper>
-      <InnerWrapper>
-        <SearchResults />
-      </InnerWrapper>
-    </MainWrapper>
-  </MainLayout>
+class SearchResultPage extends Component {
+
+  static propTypes = {
+    search: PropTypes.func.isRequired,
+    query: PropTypes.object.isRequired,
+  }
+
+  componentDidMount() {
+    const { search, query } = this.props
+
+    search(query.q)
+  }
+
+  render() {
+    return <MainLayout>
+        <MainWrapper>
+          <InnerWrapper>
+            <SearchResults minimal />
+          </InnerWrapper>
+        </MainWrapper>
+      </MainLayout>
+  }
+}
 
 export default SearchResultPage

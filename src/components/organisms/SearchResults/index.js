@@ -103,7 +103,7 @@ const SubHeading = styled(Paragraph)`
   font-size:  ${theme('fonts.size.xl')};
 `
 
-const SearchResults = ({ translate, results, query, nbHits }) =>
+const SearchResults = ({ translate, results, query, nbHits, minimal }) =>
   <WrapperResults>
     {query &&
       <Header>
@@ -136,8 +136,9 @@ const SearchResults = ({ translate, results, query, nbHits }) =>
       </Section>}
     {results &&
       nbHits > 4 &&
+        !minimal &&
       <Section>
-        <Link to="search-result">
+        <Link to={`search-result?q=${query}`}>
           {translate('search_page.see_all_results')} ({nbHits})
         </Link>
       </Section>}
@@ -162,6 +163,7 @@ SearchResults.propTypes = {
   results: PropTypes.array,
   query: PropTypes.string.isRequired,
   nbHits: PropTypes.number,
+  minimal: PropTypes.bool,
 }
 
 export default injectTranslate(SearchResults)

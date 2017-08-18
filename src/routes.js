@@ -21,11 +21,9 @@ import {
   ProjectPage,
   ProjectAccountPage,
   ResetPasswordPage,
-  SearchPage,
-  SearchResultPage,
   SignupPage,
 } from 'components'
-import { ProjectPreValidatePage, VerifyEmailPage, EmailValidationPage, HomePage } from 'containers'
+import { ProjectPreValidatePage, VerifyEmailPage, EmailValidationPage, HomePage, SearchResultPage } from 'containers'
 
 const routes = (
   <Route path="/" component={App}>
@@ -48,7 +46,6 @@ const routes = (
     <Route path="validation/phone/code" component={requiresAuth(PhoneCodeValidationPage)} />
     <Route path="verify-email" component={requiresAuth(VerifyEmailPage)} />
     <Route path="reset-password" component={ResetPasswordPage} />
-    <Route path="search" component={requiresAuth(SearchPage)} />
     <Route path="search-result" component={SearchResultPage} />
     <Route path="signup" component={anonymousOnly(SignupPage)} />
     <Route path="*" component={NotFoundPage} />
