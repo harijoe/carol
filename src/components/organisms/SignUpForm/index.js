@@ -195,10 +195,7 @@ class SignUpForm extends Component {
                   icon="login"
                 />
                 <AnimatedLabelField name="email" type="email" icon="mail-login" label={translate('user.email')} />
-                <AnimatedPasswordField
-                  name="password"
-                  label={translate('user.password')}
-                />
+                <AnimatedPasswordField name="password" label={translate('user.password')} />
                 <Field
                   name="newsletterSubscription"
                   type="checkbox"

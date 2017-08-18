@@ -125,8 +125,11 @@ export default [
     response: user.basic,
   },
   {
-    path: '/email-verified',
+    path: '/email-verified?token=',
     method: 'PUT',
+    conditionalRequestBody: {
+      token: 'VALID_TOKEN',
+    },
     response: emailVerified.verify,
   },
 ]

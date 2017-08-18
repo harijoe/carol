@@ -18,12 +18,9 @@ const Wrapper = styled.div`
   }
 
   > div {
-
     ${breakpointMax('m')`
       width: 100%;
-    `}
-
-    ${breakpoint('m')`
+    `} ${breakpoint('m')`
       padding-left: ${theme('spaces.l')};
 
       &:nth-child(2) {
@@ -46,7 +43,7 @@ const Wrapper = styled.div`
           padding-right: 0;
         }
       }
-    `}
+    `};
   }
 `
 

@@ -136,7 +136,7 @@ const SearchResults = ({ translate, results, query, nbHits, minimal }) =>
       </Section>}
     {results &&
       nbHits > 4 &&
-        !minimal &&
+      !minimal &&
       <Section>
         <Link to={`search-result?q=${query}`}>
           {translate('search_page.see_all_results')} ({nbHits})

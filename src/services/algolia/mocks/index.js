@@ -16,7 +16,7 @@ const mocks = [
 
 const match = params => {
   let result = null
-  mocks.map(({request, response}) => {
+  mocks.map(({ request, response }) => {
     if (isEqual(params, request)) {
       result = response
     }

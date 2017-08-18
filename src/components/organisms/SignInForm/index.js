@@ -5,7 +5,18 @@ import { FormattedMessage } from 'react-intl'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpointMax, breakpoint } from 'utils/style'
 
-import { CarouselPageTemplate, AnimatedLabelField, AnimatedPasswordField, Heading, Button, Link, FacebookLogin, GoogleLogin, Row, Divider } from 'components'
+import {
+  CarouselPageTemplate,
+  AnimatedLabelField,
+  AnimatedPasswordField,
+  Heading,
+  Button,
+  Link,
+  FacebookLogin,
+  GoogleLogin,
+  Row,
+  Divider,
+} from 'components'
 
 const StyledRow = styled(Row)`
   flex-direction: column;

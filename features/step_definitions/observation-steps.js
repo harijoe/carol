@@ -124,7 +124,6 @@ defineSupportCode(({ When }) => {
     expect(selectedValue).toEqual(value)
   })
 
-
   When(/I should see a notification with title '(.*)'/, async expectedText => {
     const check = async d => {
       const elements = await d.findElements({ css: '.notifications h4' })

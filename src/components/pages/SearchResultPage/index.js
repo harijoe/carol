@@ -5,7 +5,6 @@ import { MainLayout, MainWrapper, InnerWrapper } from 'components'
 import { SearchResults } from 'containers'
 
 class SearchResultPage extends Component {
-
   static propTypes = {
     search: PropTypes.func.isRequired,
     query: PropTypes.object.isRequired,
@@ -18,13 +17,15 @@ class SearchResultPage extends Component {
   }
 
   render() {
-    return <MainLayout>
+    return (
+      <MainLayout>
         <MainWrapper>
           <InnerWrapper>
             <SearchResults minimal />
           </InnerWrapper>
         </MainWrapper>
       </MainLayout>
+    )
   }
 }
 
