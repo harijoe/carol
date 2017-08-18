@@ -88,7 +88,7 @@ class PageTemplate extends Component {
       const theme = require('reapop-theme-wybo')
       const NotificationsSystem = require('reapop').default
 
-      notificationsSystem = <NotificationsSystem theme={theme} />
+      notificationsSystem = <div className="notifications"><NotificationsSystem theme={theme} /></div>
     }
 
     return (

@@ -53,7 +53,7 @@ const writeToFiles = (messages, outputPath) =>
     const file = `${path.normalize(outputPath)}/${language}.js`
     const translations = `{\n${serialize(messages[language])},\n}`
 
-    fs.writeFileSync(file, `/* eslint-disable quote-props */\nexport default ${translations}\n`)
+    fs.writeFileSync(file, `/* eslint-disable quote-props */\n/* eslint-disable prettier/prettier */\nexport default ${translations}\n`)
 
     console.info(colors.green('➜'), ` ${language}.js generated`)
   })

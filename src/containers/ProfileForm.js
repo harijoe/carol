@@ -3,10 +3,11 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 import pick from 'lodash/pick'
+import omit from 'lodash/omit'
 import { userDetails, userUpdate } from 'store/actions'
 import { fromUser, fromContext, fromStatus } from 'store/selectors'
 import transformDate from 'utils/transformDate'
-import { createValidator, required } from 'services/validation'
+import { createValidator, required, exactLength } from 'services/validation'
 
 import { ProfileForm } from 'components'
 
@@ -26,6 +27,7 @@ class ProfileFormContainer extends Component {
 
 const mapStateToProps = state => {
   const details = fromUser.getDetails(state)
+  const [birthdateDay, birthdateMonth, birthdateYear] = details.birthdate ? transformDate(details.birthdate).split('/') : []
 
   return {
     language: fromContext.getLang(state),
@@ -52,7 +54,9 @@ const mapStateToProps = state => {
         'mobilePhoneVerified',
       ]),
       imageBase64: details.imageUrl,
-      birthday: transformDate(details.birthday),
+      birthdateDay,
+      birthdateMonth,
+      birthdateYear,
       country: fromContext.getCountry(state),
     },
     loading: fromStatus.getLoading(state).USER_DETAILS,
@@ -61,12 +65,12 @@ const mapStateToProps = state => {
 }
 
 const onSubmit = (values, dispatch, formInfo) => {
-  const data = JSON.parse(JSON.stringify(values))
+  const data = JSON.parse(JSON.stringify(omit(values, ['birthdateDay', 'birthdateMonth', 'birthdateYear'])))
 
-  if (values.birthday != null) {
-    const splitDate = values.birthday.split('/')
+  const { birthdateDay, birthdateMonth, birthdateYear } = values
 
-    data.birthday = `${splitDate[2]}/${splitDate[1]}/${splitDate[0]}`
+  if (birthdateDay && birthdateMonth && birthdateYear) {
+    data.birthdate = `${birthdateYear}-${birthdateMonth}-${birthdateDay}`
   }
 
   if (formInfo.initialValues.imageBase64 === data.imageBase64) {
@@ -80,6 +84,9 @@ const validate = createValidator({
   lastName: [required],
   firstName: [required],
   gender: [required],
+  birthdateDay: [required, exactLength(2)],
+  birthdateMonth: [required],
+  birthdateYear: [required, exactLength(4)],
   contactPreference: [required],
 })
 

@@ -8,7 +8,20 @@ import { theme, breakpoint, breakpointMax } from 'utils/style'
 import { normalize, format } from 'utils/transformPhone'
 import cloudinary from 'utils/cloudinary'
 
-import { RenderField, Heading, Button, RadioGroup, HeroSection, Section, Grid, ProfileImage, BorderBox, Icon, Loading } from 'components'
+import {
+  RenderField,
+  Heading,
+  Button,
+  RadioGroup,
+  HeroSection,
+  Section,
+  Grid,
+  ProfileImage,
+  BorderBox,
+  Icon,
+  Loading,
+  BirthdateInput,
+} from 'components'
 import ValidatedInfo from './atoms/ValidatedInfo'
 
 const Form = styled.form`width: 100%;`
@@ -233,17 +246,13 @@ class ProfileForm extends Component {
     })
   }
 
-  handleChange(e) {
-    const target = e.target.name
-    const value = e.target.value
-    const inputs = ['birthday']
+  handleChange({ target }) {
+    const { name, value } = target
 
-    if (inputs.indexOf(target) !== -1) {
-      this.setState({ [target]: value })
-    }
+    this.setState({ [name]: value })
 
     if (target === 'imageBase64') {
-      this.setState({ imageBase64: e.target.src })
+      this.setState({ imageBase64: target.src })
     }
   }
 
@@ -307,6 +316,7 @@ class ProfileForm extends Component {
                       placeholder={translate('user.last_name')}
                       icon="login"
                     />
+                    <BirthdateInput />
                   </div>
                   <BorderBox grey mediumBorder title={translate('user.contact_info')}>
                     <VerifiedFieldWrapper>
@@ -395,6 +405,7 @@ class ProfileForm extends Component {
                     hideBorder
                     lightFont
                     inline
+                    normalize={v => !!v} // https://goo.gl/9vmQJm
                   />
                   <Button type="submit" loading={updating} center maxWidth onClick={this.handleSubmitClick}>
                     <FormattedMessage id="user.update" />

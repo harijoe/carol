@@ -123,4 +123,25 @@ defineSupportCode(({ When }) => {
 
     expect(selectedValue).toEqual(value)
   })
+
+
+  When(/I should see a notification with title '(.*)'/, async expectedText => {
+    const check = async d => {
+      const elements = await d.findElements({ css: '.notifications h4' })
+
+      if (elements.length === 0 || !elements[0]) {
+        return false
+      }
+
+      const text = await elements[0].getText()
+
+      return text.indexOf(expectedText) !== -1
+    }
+
+    await driver.wait(check)
+
+    const body = await driver.findElement({ css: '.notifications h4' }).getText()
+
+    expect(body).toInclude(expectedText)
+  })
 })
