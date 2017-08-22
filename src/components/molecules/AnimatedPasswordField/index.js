@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Field } from 'redux-form'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 
 import { RenderField } from 'components'
 
 class AnimatedPasswordField extends Component {
   static propTypes = {
+    translate: PropTypes.func,
     name: PropTypes.string.isRequired,
     type: PropTypes.string,
     icon: PropTypes.string,
     label: PropTypes.string,
+    toggleDisabled: PropTypes.bool,
   }
 
   state = {
@@ -18,17 +21,29 @@ class AnimatedPasswordField extends Component {
     passwordIcon: 'eye',
   }
 
+  componentWillMount() {
+
+    const { toggleDisabled } = this.props
+    if (toggleDisabled) this.setState({passwordIcon: 'pwd-login'})
+
+  }
+
   togglePassword = () => {
+
+    const { toggleDisabled } = this.props
+    if (toggleDisabled) return
+
     this.setState({
       passwordInputType: this.state.passwordInputType === 'password' ? 'text' : 'password',
       passwordIcon: this.state.passwordIcon === 'eye' ? 'opened-eye' : 'eye',
     })
+
   }
 
   handleChange = e => this.setState({ hideLabel: e.currentTarget.value === '' })
 
   render() {
-    const { label, ...props } = this.props
+    const { label, toggleDisabled, translate, ...props } = this.props
     const { passwordInputType, passwordIcon, hideLabel } = this.state
 
     return (
@@ -42,9 +57,10 @@ class AnimatedPasswordField extends Component {
         onIconClick={this.togglePassword}
         type={passwordInputType}
         icon={passwordIcon}
+        alt={toggleDisabled ? translate('password.eye.disable.tooltip') : ''}
       />
     )
   }
 }
 
-export default AnimatedPasswordField
+export default injectTranslate(AnimatedPasswordField)

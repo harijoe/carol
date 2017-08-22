@@ -33,7 +33,7 @@ const ResetPasswordForm = ({ error, handleSubmit, loading, translate }) =>
       <Field name="token" type="hidden" component="input" />
       {error && <FormattedMessage id={error} tagName="strong" />}
       <AnimatedPasswordField name="password" label={translate('user.password')} />
-      <AnimatedPasswordField name="passwordValidation" label={translate('user.confirm_password')} />
+      <AnimatedPasswordField name="passwordValidation" label={translate('user.confirm_password')} toggleDisabled />
       <StyledButton type="submit" loading={loading}>
         <FormattedMessage id="user.send" />
       </StyledButton>

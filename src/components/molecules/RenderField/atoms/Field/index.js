@@ -158,6 +158,7 @@ const Field = ({
   icon,
   smallSize,
   mediumSize,
+  alt,
   ...props
 }) => {
   const inputProps = { id: name, name, type, invalid, 'aria-describedby': `${name}Error`, ...props }
@@ -172,7 +173,7 @@ const Field = ({
         </StyledLabel>}
       <fieldset>
         {renderInputFirst || <StyledInput {...inputProps} />}
-        {icon && <StyledIconLink onClick={onIconClick} {...{ icon }} />}
+        {icon && <StyledIconLink title={alt} onClick={onIconClick} {...{ icon }} />}
       </fieldset>
       {invalid &&
         error &&
@@ -200,6 +201,7 @@ Field.propTypes = {
   mediumSize: PropTypes.bool,
   hideBorder: PropTypes.bool,
   onIconClick: PropTypes.func,
+  alt: PropTypes.string,
 }
 
 Field.defaultProps = {
