@@ -13,7 +13,7 @@ const Form = styled.form`
   box-sizing: border-box;
 
   ${breakpoint('m')`
-    width: 50%;
+    width: 100%;
   `} strong {
     color: ${theme('colors.danger')};
   }
