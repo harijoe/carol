@@ -22,6 +22,13 @@ class AnimatedLabelField extends Component {
     hideLabel: true,
   }
 
+  componentDidMount() {
+    if (this.field.value) {
+      // eslint-disable-next-line react/no-did-mount-set-state
+      this.setState({ hideLabel: false })
+    }
+  }
+
   handleChange = e => this.setState({ hideLabel: e.currentTarget.value === '' })
 
   render() {
@@ -30,6 +37,7 @@ class AnimatedLabelField extends Component {
     return (
       <Field
         label={label}
+        ref={input => (this.field = input)}
         hideLabel={this.state.hideLabel}
         placeholder={label}
         onChange={this.handleChange}

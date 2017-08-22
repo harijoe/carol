@@ -7,7 +7,7 @@ import omit from 'lodash/omit'
 import { userDetails, userUpdate } from 'store/actions'
 import { fromUser, fromContext, fromStatus } from 'store/selectors'
 import transformDate from 'utils/transformDate'
-import { createValidator, required, exactLength } from 'services/validation'
+import { createValidator, required, exactLength, maxLength } from 'services/validation'
 
 import { ProfileForm } from 'components'
 
@@ -84,7 +84,7 @@ const validate = createValidator({
   lastName: [required],
   firstName: [required],
   gender: [required],
-  birthdateDay: [required, exactLength(2)],
+  birthdateDay: [required, maxLength(2)],
   birthdateMonth: [required],
   birthdateYear: [required, exactLength(4)],
   contactPreference: [required],

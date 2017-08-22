@@ -17,7 +17,21 @@ const Wrapper = styled.div`
     margin-bottom: ${theme('spaces.s')};
   }
 
+  label {
+    display: none;
+  }
+
   > div {
+    # https://goo.gl/o7tU78
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none !important;
+        margin: 0 !important;
+    }
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+
     ${breakpointMax('m')`
       width: 100%;
     `} ${breakpoint('m')`
@@ -47,7 +61,7 @@ const Wrapper = styled.div`
   }
 `
 
-const BirthdateInput = ({ translate }) =>
+const BirthdateInput = ({ translate }) => (
   <Wrapper>
     <legend>
       <strong>
@@ -60,6 +74,7 @@ const BirthdateInput = ({ translate }) =>
       label={translate('form.birthdate-day')}
       placeholder={translate('form.birthdate-day')}
       type="number"
+      pattern="[0-9]*"
     />
     <Field
       name="birthdateMonth"
@@ -136,8 +151,9 @@ const BirthdateInput = ({ translate }) =>
       label={translate('form.birthdate-year')}
       placeholder={translate('form.birthdate-year')}
       type="number"
+      pattern="[0-9]*"
     />
-  </Wrapper>
+  </Wrapper>)
 
 BirthdateInput.propTypes = {
   translate: PropTypes.func,

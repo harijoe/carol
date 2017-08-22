@@ -10,6 +10,7 @@ import cloudinary from 'utils/cloudinary'
 
 import {
   RenderField,
+  AnimatedLabelField,
   Heading,
   Button,
   RadioGroup,
@@ -172,6 +173,12 @@ const RadioBlock = styled.div`
   }
 `
 
+const StyledError = styled.strong`
+  display: block;
+  font-weight: normal;
+  color: ${theme('colors.danger')};
+`
+
 const VerifiedFieldWrapper = styled.div`
   display: flex;
 
@@ -209,6 +216,7 @@ class ProfileForm extends Component {
     handleSubmit: PropTypes.func,
     loading: PropTypes.bool,
     updating: PropTypes.bool,
+    error: PropTypes.object,
     translate: PropTypes.func.isRequired,
     details: PropTypes.shape({
       email: PropTypes.string,
@@ -263,7 +271,7 @@ class ProfileForm extends Component {
   }
 
   render() {
-    const { initialValues, handleSubmit, loading, updating, translate, details, language } = this.props
+    const { initialValues, handleSubmit, loading, updating, translate, details, language, error } = this.props
     const { imageBase64, firstName, emailVerified, mobilePhoneVerified } = initialValues
 
     return (
@@ -302,20 +310,21 @@ class ProfileForm extends Component {
                         options={[{ value: 'Mr', id: 'mr', translation: 'user.mr' }, { value: 'Mrs', id: 'mrs', translation: 'user.mrs' }]}
                       />
                     </RadioBlock>
-                    <Field
+                    <AnimatedLabelField
                       name="firstName"
                       component={RenderField}
                       label={translate('user.first_name')}
                       placeholder={translate('user.first_name')}
                       icon="login"
                     />
-                    <Field
+                    <AnimatedLabelField
                       name="lastName"
                       component={RenderField}
                       label={translate('user.last_name')}
                       placeholder={translate('user.last_name')}
                       icon="login"
                     />
+                    {error && error.birthdate && <StyledError>{translate(error.birthdate.id)}</StyledError>}
                     <BirthdateInput />
                   </div>
                   <BorderBox grey mediumBorder title={translate('user.contact_info')}>

@@ -54,7 +54,7 @@ function* handleUpdateUserRequest({ data, id }) {
     yield notify('user.thank_you', 'user.account_updated')
   } catch (error) {
     if (error instanceof HTTPError) {
-      yield put(stopSubmit('ProfileForm', getFormErrors(error.message)))
+      yield put(stopSubmit('ProfileForm', { ...getFormErrors(error.message), _error: getFormErrors(error.message) }))
     }
   }
 }
