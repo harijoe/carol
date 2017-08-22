@@ -127,6 +127,43 @@ const scaffolding = theme => css`
     outline: 0;
   }
 
+  /* Notifications */
+  .qs-notifications {
+    .notification, 
+    .styles__notifications-system__24nxh {
+      font-family: ${theme.fonts.family.montserrat};
+    }
+
+    .notification--success {
+      border-color: ${theme.colors.success};
+
+      .notification-icon::before {
+        color: ${theme.colors.success};
+      }
+    }
+
+    .notification--error {
+      border-color: ${theme.colors.danger};
+
+      .notification-icon::before {
+        color: ${theme.colors.danger};
+      }
+    }
+
+    .notification--info {
+      border-color: ${theme.colors.alert};
+
+      .notification-icon::before {
+        color: ${theme.colors.alert};
+      }
+    }
+
+    .notification--success, .notification--error, .notification--info {
+      color: ${theme.colors.grayscale.darker};
+    }
+
+  }
+
   /* Animations */
   @keyframes bounceIn {
     from, 20%, 40%, 60%, 80%, to {
