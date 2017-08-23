@@ -75,6 +75,8 @@ const BirthdateInput = ({ translate }) => (
       placeholder={translate('form.birthdate-day')}
       type="number"
       pattern="[0-9]*"
+      min="1"
+      max="31"
     />
     <Field
       name="birthdateMonth"
@@ -152,6 +154,8 @@ const BirthdateInput = ({ translate }) => (
       placeholder={translate('form.birthdate-year')}
       type="number"
       pattern="[0-9]*"
+      min={(new Date()).getFullYear() - 120} // Maximum age : 120 years old
+      max={(new Date()).getFullYear() - 18} // Minimum age : 18 years old
     />
   </Wrapper>)
 
