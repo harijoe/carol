@@ -314,6 +314,7 @@ export default {
   'user.social_network': 'Redes Sociales',
   'user.thank_you': 'Gracias !',
   'user.update': 'Actualizar mi perfil',
+  'validators.exact_length': 'Debe contener {exact} caracteres',
   'validators.forgot_password.unexpired_token': 'Acabamos de mandarte un correo electrónico para reinicializar tu contraseña. Por favor consulta tus correos.',
   'validators.forgot_password.user_not_found': 'No existe una cuenta relacionada con esta dirección de correo electrónico. Intenta con otra.',
   'validators.integer': 'Tiene que ser un número',

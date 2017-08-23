@@ -6810,10 +6810,6 @@ readline2@^1.0.1:
     is-fullwidth-code-point "^1.0.0"
     mute-stream "0.0.5"
 
-reapop-theme-wybo@^0.4.0:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/reapop-theme-wybo/-/reapop-theme-wybo-0.4.1.tgz#70356acd67f016c5f5411e32d2ec53f6ea492e2d"
-
 reapop@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/reapop/-/reapop-1.1.1.tgz#befc83e0e67c97417f18fadbef5e926b19e784db"
