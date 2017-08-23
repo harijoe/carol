@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 import pick from 'lodash/pick'
-import omit from 'lodash/omit'
 import { userDetails, userUpdate } from 'store/actions'
 import { fromUser, fromContext, fromStatus } from 'store/selectors'
 import transformDate from 'utils/transformDate'
@@ -65,9 +64,7 @@ const mapStateToProps = state => {
 }
 
 const onSubmit = (values, dispatch, formInfo) => {
-  const data = JSON.parse(JSON.stringify(omit(values, ['birthdateDay', 'birthdateMonth', 'birthdateYear'])))
-
-  const { birthdateDay, birthdateMonth, birthdateYear } = values
+  const { birthdateDay, birthdateMonth, birthdateYear, ...data } = values
 
   if (birthdateDay && birthdateMonth && birthdateYear) {
     data.birthdate = `${birthdateYear}-${birthdateMonth}-${birthdateDay}`
