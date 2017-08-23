@@ -21,7 +21,36 @@ const StyledList = styled(List)`
 
 StyledList.displayName = 'List'
 
-const Item = styled.li`margin: ${theme('spaces.xs')};`
+const animationDelay = props => `${props.order * 0.125}s`
+
+const Item = styled.li`
+  margin: ${theme('spaces.xs')};
+  animation: ${animationDelay} hide linear, 0.3s answer linear ${animationDelay};
+
+  @keyframes hide {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes answer {
+    0% {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+
+    80% {
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+`
 
 const StyledButton = styled.button`
   min-width: 7rem;
@@ -44,14 +73,13 @@ const QuickReplies = ({ quick_replies, answer, reply }) => {
     return null
   }
 
-  const quickRepliesList = () =>
-    quick_replies.map(({ title, payload }, i) =>
-      <Item key={i} className="quick-reply">
-        <StyledButton onClick={() => reply(title, payload)}>
-          {title}
-        </StyledButton>
-      </Item>,
-    )
+  const quickRepliesList = () => (
+    quick_replies.map(({ title, payload }, i) => (
+      <Item key={i} order={i} className="quick-reply">
+        <StyledButton onClick={() => reply(title, payload)}>{title}</StyledButton>
+      </Item>
+    ))
+  )
 
   return (
     <StyledList>

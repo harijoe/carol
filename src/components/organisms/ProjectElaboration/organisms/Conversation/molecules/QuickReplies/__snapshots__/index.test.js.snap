@@ -11,6 +11,7 @@ ShallowWrapper {
   "node": <List>
     <Item
         className="quick-reply"
+        order={0}
     >
         <StyledButton
             onClick={[Function]}
@@ -23,6 +24,7 @@ ShallowWrapper {
     <List>
       <Item
             className="quick-reply"
+            order={0}
       >
             <StyledButton
                   onClick={[Function]}
@@ -83,6 +85,7 @@ ShallowWrapper {
         "_currentElement": <List>
           <Item
                     className="quick-reply"
+                    order={0}
           >
                     <StyledButton
                               onClick={[Function]}
@@ -95,6 +98,7 @@ ShallowWrapper {
         "_renderedOutput": <List>
           <Item
                     className="quick-reply"
+                    order={0}
           >
                     <StyledButton
                               onClick={[Function]}

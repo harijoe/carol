@@ -22,6 +22,32 @@ const BubbleAnswer = styled.p`
   background: ${theme('colors.primary')};
   border-radius: 1rem 0 1rem 1rem;
   color: ${theme('colors.white')};
+  animation: 0.1s hide linear, 0.4s bubble linear 0.1s;
+
+  @keyframes hide {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes bubble {
+    0% {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+
+    80% {
+      opacity: 1;
+      transform: translateY(-10%);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
 
   &::before,
   &::after {

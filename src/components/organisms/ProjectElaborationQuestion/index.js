@@ -31,6 +31,23 @@ const BubbleQuestion = styled.div`
   border-radius: 0 1rem 1rem 1rem;
   color: ${theme('colors.black')};
   white-space: pre-wrap;
+  animation: 0.3s bubble ease-in 0s;
+
+  @keyframes bubble {
+    0% {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+
+    80% {
+      opacity: 1;
+      transform: translateY(-10%);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
 
   &::before,
   &::after {
