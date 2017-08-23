@@ -8,31 +8,31 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <styled.figure
+  "node": <Wrapper
     height="s"
 >
-    <Styled(Mock)
+    <StyledImage
         src="test.jpg"
     />
-    <Styled(Mock)
+    <StyledHeading
         level={3}
     >
         Test
-    </Styled(Mock)>
-</styled.figure>,
+    </StyledHeading>
+</Wrapper>,
   "nodes": Array [
-    <styled.figure
+    <Wrapper
       height="s"
 >
-      <Styled(Mock)
+      <StyledImage
             src="test.jpg"
       />
-      <Styled(Mock)
+      <StyledHeading
             level={3}
       >
             Test
-      </Styled(Mock)>
-</styled.figure>,
+      </StyledHeading>
+</Wrapper>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -82,31 +82,31 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <styled.figure
+        "_currentElement": <Wrapper
           height="s"
 >
-          <Styled(Mock)
+          <StyledImage
                     src="test.jpg"
           />
-          <Styled(Mock)
+          <StyledHeading
                     level={3}
           >
                     Test
-          </Styled(Mock)>
-</styled.figure>,
+          </StyledHeading>
+</Wrapper>,
         "_debugID": 2,
-        "_renderedOutput": <styled.figure
+        "_renderedOutput": <Wrapper
           height="s"
 >
-          <Styled(Mock)
+          <StyledImage
                     src="test.jpg"
           />
-          <Styled(Mock)
+          <StyledHeading
                     level={3}
           >
                     Test
-          </Styled(Mock)>
-</styled.figure>,
+          </StyledHeading>
+</Wrapper>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,

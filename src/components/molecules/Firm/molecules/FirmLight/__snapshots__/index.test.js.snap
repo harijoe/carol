@@ -8,15 +8,15 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <styled.div>
-    <styled.header
+  "node": <Wrapper>
+    <HeaderWrapper
         imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
     >
-        <styled.div>
-            <Styled(Mock)
+        <TopHeaderWrapper>
+            <StyledProfileImage
                 imageLink=""
             />
-            <styled.div>
+            <NoteFirm>
                 <p>
                     <strong>
                         4.5
@@ -32,33 +32,33 @@ ShallowWrapper {
                         values={Object {}}
                     />
                 </span>
-            </styled.div>
-        </styled.div>
-    </styled.header>
-    <styled.footer>
-        <Styled(Mock)
+            </NoteFirm>
+        </TopHeaderWrapper>
+    </HeaderWrapper>
+    <FooterWrapper>
+        <StyledHeading
             level={3}
         >
             test
-        </Styled(Mock)>
-        <Styled(Mock)>
-            <Styled(Mock)
+        </StyledHeading>
+        <StyledParagraph>
+            <StyledIcon
                 icon="location-pin"
             />
             96352
-        </Styled(Mock)>
-    </styled.footer>
-</styled.div>,
+        </StyledParagraph>
+    </FooterWrapper>
+</Wrapper>,
   "nodes": Array [
-    <styled.div>
-      <styled.header
+    <Wrapper>
+      <HeaderWrapper
             imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
       >
-            <styled.div>
-                  <Styled(Mock)
+            <TopHeaderWrapper>
+                  <StyledProfileImage
                         imageLink=""
                   />
-                  <styled.div>
+                  <NoteFirm>
                         <p>
                               <strong>
                                     4.5
@@ -74,23 +74,23 @@ ShallowWrapper {
                                     values={Object {}}
                               />
                         </span>
-                  </styled.div>
-            </styled.div>
-      </styled.header>
-      <styled.footer>
-            <Styled(Mock)
+                  </NoteFirm>
+            </TopHeaderWrapper>
+      </HeaderWrapper>
+      <FooterWrapper>
+            <StyledHeading
                   level={3}
             >
                   test
-            </Styled(Mock)>
-            <Styled(Mock)>
-                  <Styled(Mock)
+            </StyledHeading>
+            <StyledParagraph>
+                  <StyledIcon
                         icon="location-pin"
                   />
                   96352
-            </Styled(Mock)>
-      </styled.footer>
-</styled.div>,
+            </StyledParagraph>
+      </FooterWrapper>
+</Wrapper>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -140,15 +140,15 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <styled.div>
-          <styled.header
+        "_currentElement": <Wrapper>
+          <HeaderWrapper
                     imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
           >
-                    <styled.div>
-                              <Styled(Mock)
+                    <TopHeaderWrapper>
+                              <StyledProfileImage
                                         imageLink=""
                               />
-                              <styled.div>
+                              <NoteFirm>
                                         <p>
                                                   <strong>
                                                             4.5
@@ -164,33 +164,33 @@ ShallowWrapper {
                                                             values={Object {}}
                                                   />
                                         </span>
-                              </styled.div>
-                    </styled.div>
-          </styled.header>
-          <styled.footer>
-                    <Styled(Mock)
+                              </NoteFirm>
+                    </TopHeaderWrapper>
+          </HeaderWrapper>
+          <FooterWrapper>
+                    <StyledHeading
                               level={3}
                     >
                               test
-                    </Styled(Mock)>
-                    <Styled(Mock)>
-                              <Styled(Mock)
+                    </StyledHeading>
+                    <StyledParagraph>
+                              <StyledIcon
                                         icon="location-pin"
                               />
                               96352
-                    </Styled(Mock)>
-          </styled.footer>
-</styled.div>,
+                    </StyledParagraph>
+          </FooterWrapper>
+</Wrapper>,
         "_debugID": 2,
-        "_renderedOutput": <styled.div>
-          <styled.header
+        "_renderedOutput": <Wrapper>
+          <HeaderWrapper
                     imageUrl="https://res.cloudinary.com/quotatis/image/upload/v1495120789/GB/ChatbotImages/Q1/experts-and-advices-before-work.jpg"
           >
-                    <styled.div>
-                              <Styled(Mock)
+                    <TopHeaderWrapper>
+                              <StyledProfileImage
                                         imageLink=""
                               />
-                              <styled.div>
+                              <NoteFirm>
                                         <p>
                                                   <strong>
                                                             4.5
@@ -206,23 +206,23 @@ ShallowWrapper {
                                                             values={Object {}}
                                                   />
                                         </span>
-                              </styled.div>
-                    </styled.div>
-          </styled.header>
-          <styled.footer>
-                    <Styled(Mock)
+                              </NoteFirm>
+                    </TopHeaderWrapper>
+          </HeaderWrapper>
+          <FooterWrapper>
+                    <StyledHeading
                               level={3}
                     >
                               test
-                    </Styled(Mock)>
-                    <Styled(Mock)>
-                              <Styled(Mock)
+                    </StyledHeading>
+                    <StyledParagraph>
+                              <StyledIcon
                                         icon="location-pin"
                               />
                               96352
-                    </Styled(Mock)>
-          </styled.footer>
-</styled.div>,
+                    </StyledParagraph>
+          </FooterWrapper>
+</Wrapper>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,

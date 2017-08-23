@@ -8,17 +8,17 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <styled.div>
+  "node": <Wrapper>
     <BubbleAnswer>
         response
     </BubbleAnswer>
-</styled.div>,
+</Wrapper>,
   "nodes": Array [
-    <styled.div>
+    <Wrapper>
       <BubbleAnswer>
             response
       </BubbleAnswer>
-</styled.div>,
+</Wrapper>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -58,17 +58,17 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <styled.div>
+        "_currentElement": <Wrapper>
           <BubbleAnswer>
                     response
           </BubbleAnswer>
-</styled.div>,
+</Wrapper>,
         "_debugID": 2,
-        "_renderedOutput": <styled.div>
+        "_renderedOutput": <Wrapper>
           <BubbleAnswer>
                     response
           </BubbleAnswer>
-</styled.div>,
+</Wrapper>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,

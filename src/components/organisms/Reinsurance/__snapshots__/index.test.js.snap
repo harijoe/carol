@@ -8,7 +8,7 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <Styled(Mock)
+  "node": <StyledSection
     light={true}
 >
     <Mock
@@ -44,9 +44,9 @@ ShallowWrapper {
               ]
         }
     />
-</Styled(Mock)>,
+</StyledSection>,
   "nodes": Array [
-    <Styled(Mock)
+    <StyledSection
       light={true}
 >
       <Mock
@@ -82,7 +82,7 @@ ShallowWrapper {
                       ]
             }
       />
-</Styled(Mock)>,
+</StyledSection>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -122,7 +122,7 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <Styled(Mock)
+        "_currentElement": <StyledSection
           light={true}
 >
           <Mock
@@ -158,9 +158,9 @@ ShallowWrapper {
                                       ]
                     }
           />
-</Styled(Mock)>,
+</StyledSection>,
         "_debugID": 2,
-        "_renderedOutput": <Styled(Mock)
+        "_renderedOutput": <StyledSection
           light={true}
 >
           <Mock
@@ -196,7 +196,7 @@ ShallowWrapper {
                                       ]
                     }
           />
-</Styled(Mock)>,
+</StyledSection>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,

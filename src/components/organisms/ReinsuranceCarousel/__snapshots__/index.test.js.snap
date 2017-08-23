@@ -8,7 +8,7 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <styled.aside>
+  "node": <StyledAside>
     <Mock
         carousel={
             Object {
@@ -31,9 +31,9 @@ ShallowWrapper {
               ]
         }
     />
-</styled.aside>,
+</StyledAside>,
   "nodes": Array [
-    <styled.aside>
+    <StyledAside>
       <Mock
             carousel={
                   Object {
@@ -56,7 +56,7 @@ ShallowWrapper {
                       ]
             }
       />
-</styled.aside>,
+</StyledAside>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -96,7 +96,7 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <styled.aside>
+        "_currentElement": <StyledAside>
           <Mock
                     carousel={
                               Object {
@@ -119,9 +119,9 @@ ShallowWrapper {
                                       ]
                     }
           />
-</styled.aside>,
+</StyledAside>,
         "_debugID": 2,
-        "_renderedOutput": <styled.aside>
+        "_renderedOutput": <StyledAside>
           <Mock
                     carousel={
                               Object {
@@ -144,7 +144,7 @@ ShallowWrapper {
                                       ]
                     }
           />
-</styled.aside>,
+</StyledAside>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,

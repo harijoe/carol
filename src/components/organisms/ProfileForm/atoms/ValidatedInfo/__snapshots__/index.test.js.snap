@@ -8,10 +8,10 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <styled.div
+  "node": <Wrapper
     className="qs-Field--toValidate"
 >
-    <Styled(Mock)
+    <StyledIcon
         icon="not-validated"
         size={21}
     />
@@ -19,12 +19,12 @@ ShallowWrapper {
         id="user.profile.field.not-validated"
         values={Object {}}
     />
-</styled.div>,
+</Wrapper>,
   "nodes": Array [
-    <styled.div
+    <Wrapper
       className="qs-Field--toValidate"
 >
-      <Styled(Mock)
+      <StyledIcon
             icon="not-validated"
             size={21}
       />
@@ -32,7 +32,7 @@ ShallowWrapper {
             id="user.profile.field.not-validated"
             values={Object {}}
       />
-</styled.div>,
+</Wrapper>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -74,10 +74,10 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <styled.div
+        "_currentElement": <Wrapper
           className="qs-Field--toValidate"
 >
-          <Styled(Mock)
+          <StyledIcon
                     icon="not-validated"
                     size={21}
           />
@@ -85,12 +85,12 @@ ShallowWrapper {
                     id="user.profile.field.not-validated"
                     values={Object {}}
           />
-</styled.div>,
+</Wrapper>,
         "_debugID": 4,
-        "_renderedOutput": <styled.div
+        "_renderedOutput": <Wrapper
           className="qs-Field--toValidate"
 >
-          <Styled(Mock)
+          <StyledIcon
                     icon="not-validated"
                     size={21}
           />
@@ -98,7 +98,7 @@ ShallowWrapper {
                     id="user.profile.field.not-validated"
                     values={Object {}}
           />
-</styled.div>,
+</Wrapper>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
@@ -125,10 +125,10 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <styled.div
+  "node": <Wrapper
     className="qs-Field--validated"
 >
-    <Styled(Mock)
+    <StyledIcon
         icon="validated"
         size={21}
     />
@@ -136,12 +136,12 @@ ShallowWrapper {
         id="user.profile.field.validated"
         values={Object {}}
     />
-</styled.div>,
+</Wrapper>,
   "nodes": Array [
-    <styled.div
+    <Wrapper
       className="qs-Field--validated"
 >
-      <Styled(Mock)
+      <StyledIcon
             icon="validated"
             size={21}
       />
@@ -149,7 +149,7 @@ ShallowWrapper {
             id="user.profile.field.validated"
             values={Object {}}
       />
-</styled.div>,
+</Wrapper>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -191,10 +191,10 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <styled.div
+        "_currentElement": <Wrapper
           className="qs-Field--validated"
 >
-          <Styled(Mock)
+          <StyledIcon
                     icon="validated"
                     size={21}
           />
@@ -202,12 +202,12 @@ ShallowWrapper {
                     id="user.profile.field.validated"
                     values={Object {}}
           />
-</styled.div>,
+</Wrapper>,
         "_debugID": 2,
-        "_renderedOutput": <styled.div
+        "_renderedOutput": <Wrapper
           className="qs-Field--validated"
 >
-          <Styled(Mock)
+          <StyledIcon
                     icon="validated"
                     size={21}
           />
@@ -215,7 +215,7 @@ ShallowWrapper {
                     id="user.profile.field.validated"
                     values={Object {}}
           />
-</styled.div>,
+</Wrapper>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,

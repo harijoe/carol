@@ -8,25 +8,25 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <styled.div>
-    <Styled(Mock)
+  "node": <Wrapper>
+    <StyledIcon
         alt="quotatis"
         icon="logo"
     />
     <BubbleQuestion>
         my question
     </BubbleQuestion>
-</styled.div>,
+</Wrapper>,
   "nodes": Array [
-    <styled.div>
-      <Styled(Mock)
+    <Wrapper>
+      <StyledIcon
             alt="quotatis"
             icon="logo"
       />
       <BubbleQuestion>
             my question
       </BubbleQuestion>
-</styled.div>,
+</Wrapper>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -66,25 +66,25 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <styled.div>
-          <Styled(Mock)
+        "_currentElement": <Wrapper>
+          <StyledIcon
                     alt="quotatis"
                     icon="logo"
           />
           <BubbleQuestion>
                     my question
           </BubbleQuestion>
-</styled.div>,
+</Wrapper>,
         "_debugID": 2,
-        "_renderedOutput": <styled.div>
-          <Styled(Mock)
+        "_renderedOutput": <Wrapper>
+          <StyledIcon
                     alt="quotatis"
                     icon="logo"
           />
           <BubbleQuestion>
                     my question
           </BubbleQuestion>
-</styled.div>,
+</Wrapper>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,

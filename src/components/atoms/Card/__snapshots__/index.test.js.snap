@@ -8,7 +8,7 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <styled.div
+  "node": <Wrapper
     strongShadow={undefined}
     theme={
         Object {
@@ -120,7 +120,7 @@ ShallowWrapper {
     }
 />,
   "nodes": Array [
-    <styled.div
+    <Wrapper
       strongShadow={undefined}
       theme={
             Object {
@@ -482,7 +482,7 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <styled.div
+        "_currentElement": <Wrapper
           strongShadow={undefined}
           theme={
                     Object {
@@ -594,7 +594,7 @@ ShallowWrapper {
           }
 />,
         "_debugID": 2,
-        "_renderedOutput": <styled.div
+        "_renderedOutput": <Wrapper
           strongShadow={undefined}
           theme={
                     Object {

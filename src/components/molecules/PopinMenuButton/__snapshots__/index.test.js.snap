@@ -8,19 +8,19 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <styled.button
+  "node": <StyledButton
     onClick={[Function]}
     type="button"
 >
     Test
-</styled.button>,
+</StyledButton>,
   "nodes": Array [
-    <styled.button
+    <StyledButton
       onClick={[Function]}
       type="button"
 >
       Test
-</styled.button>,
+</StyledButton>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -63,19 +63,19 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <styled.button
+        "_currentElement": <StyledButton
           onClick={[Function]}
           type="button"
 >
           Test
-</styled.button>,
+</StyledButton>,
         "_debugID": 2,
-        "_renderedOutput": <styled.button
+        "_renderedOutput": <StyledButton
           onClick={[Function]}
           type="button"
 >
           Test
-</styled.button>,
+</StyledButton>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,

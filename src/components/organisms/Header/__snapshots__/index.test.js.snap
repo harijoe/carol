@@ -8,39 +8,39 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <styled.div
+  "node": <Background
     atTop={true}
 >
-    <Styled(Mock)
+    <StyledMainWrapper
         homepage={undefined}
     >
         <Mock />
         <Mock />
-        <styled.div>
+        <SecondNavigation>
             <Mock />
             <Mock />
-        </styled.div>
+        </SecondNavigation>
         <Mock />
         <Mock />
-    </Styled(Mock)>
-</styled.div>,
+    </StyledMainWrapper>
+</Background>,
   "nodes": Array [
-    <styled.div
+    <Background
       atTop={true}
 >
-      <Styled(Mock)
+      <StyledMainWrapper
             homepage={undefined}
       >
             <Mock />
             <Mock />
-            <styled.div>
+            <SecondNavigation>
                   <Mock />
                   <Mock />
-            </styled.div>
+            </SecondNavigation>
             <Mock />
             <Mock />
-      </Styled(Mock)>
-</styled.div>,
+      </StyledMainWrapper>
+</Background>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -298,39 +298,39 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <styled.div
+        "_currentElement": <Background
           atTop={true}
 >
-          <Styled(Mock)
+          <StyledMainWrapper
                     homepage={undefined}
           >
                     <Mock />
                     <Mock />
-                    <styled.div>
+                    <SecondNavigation>
                               <Mock />
                               <Mock />
-                    </styled.div>
+                    </SecondNavigation>
                     <Mock />
                     <Mock />
-          </Styled(Mock)>
-</styled.div>,
+          </StyledMainWrapper>
+</Background>,
         "_debugID": 4,
-        "_renderedOutput": <styled.div
+        "_renderedOutput": <Background
           atTop={true}
 >
-          <Styled(Mock)
+          <StyledMainWrapper
                     homepage={undefined}
           >
                     <Mock />
                     <Mock />
-                    <styled.div>
+                    <SecondNavigation>
                               <Mock />
                               <Mock />
-                    </styled.div>
+                    </SecondNavigation>
                     <Mock />
                     <Mock />
-          </Styled(Mock)>
-</styled.div>,
+          </StyledMainWrapper>
+</Background>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,

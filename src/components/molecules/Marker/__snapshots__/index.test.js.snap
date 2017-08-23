@@ -8,11 +8,11 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <Styled(Mock)
+  "node": <StyledIcon
     icon="marker-window"
 />,
   "nodes": Array [
-    <Styled(Mock)
+    <StyledIcon
       icon="marker-window"
 />,
   ],
@@ -56,11 +56,11 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <Styled(Mock)
+        "_currentElement": <StyledIcon
           icon="marker-window"
 />,
         "_debugID": 2,
-        "_renderedOutput": <Styled(Mock)
+        "_renderedOutput": <StyledIcon
           icon="marker-window"
 />,
       },

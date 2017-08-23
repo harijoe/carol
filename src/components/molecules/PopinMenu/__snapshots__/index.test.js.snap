@@ -9,55 +9,55 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <div>
-    <styled.div
+    <Background
         display={false}
         onClick={[Function]}
     />
-    <styled.div
+    <Menu
         display={false}
     >
-        <Styled(Mock)
+        <StyledList
             active={false}
         >
-            <Styled(Mock)
+            <StyledItem
                 onClick={[Function]}
             >
                 hello
-            </Styled(Mock)>
-        </Styled(Mock)>
-    </styled.div>
-    <styled.button
+            </StyledItem>
+        </StyledList>
+    </Menu>
+    <StyledButton
         onClick={[Function]}
         type="button"
     >
         Test
-    </styled.button>
+    </StyledButton>
 </div>,
   "nodes": Array [
     <div>
-      <styled.div
+      <Background
             display={false}
             onClick={[Function]}
       />
-      <styled.div
+      <Menu
             display={false}
       >
-            <Styled(Mock)
+            <StyledList
                   active={false}
             >
-                  <Styled(Mock)
+                  <StyledItem
                         onClick={[Function]}
                   >
                         hello
-                  </Styled(Mock)>
-            </Styled(Mock)>
-      </styled.div>
-      <styled.button
+                  </StyledItem>
+            </StyledList>
+      </Menu>
+      <StyledButton
             onClick={[Function]}
             type="button"
       >
             Test
-      </styled.button>
+      </StyledButton>
 </div>,
   ],
   "options": Object {},
@@ -114,55 +114,55 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <div>
-          <styled.div
+          <Background
                     display={false}
                     onClick={[Function]}
           />
-          <styled.div
+          <Menu
                     display={false}
           >
-                    <Styled(Mock)
+                    <StyledList
                               active={false}
                     >
-                              <Styled(Mock)
+                              <StyledItem
                                         onClick={[Function]}
                               >
                                         hello
-                              </Styled(Mock)>
-                    </Styled(Mock)>
-          </styled.div>
-          <styled.button
+                              </StyledItem>
+                    </StyledList>
+          </Menu>
+          <StyledButton
                     onClick={[Function]}
                     type="button"
           >
                     Test
-          </styled.button>
+          </StyledButton>
 </div>,
         "_debugID": 2,
         "_renderedOutput": <div>
-          <styled.div
+          <Background
                     display={false}
                     onClick={[Function]}
           />
-          <styled.div
+          <Menu
                     display={false}
           >
-                    <Styled(Mock)
+                    <StyledList
                               active={false}
                     >
-                              <Styled(Mock)
+                              <StyledItem
                                         onClick={[Function]}
                               >
                                         hello
-                              </Styled(Mock)>
-                    </Styled(Mock)>
-          </styled.div>
-          <styled.button
+                              </StyledItem>
+                    </StyledList>
+          </Menu>
+          <StyledButton
                     onClick={[Function]}
                     type="button"
           >
                     Test
-          </styled.button>
+          </StyledButton>
 </div>,
       },
       "_renderedNodeType": 0,

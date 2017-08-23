@@ -9,27 +9,27 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <List>
-    <styled.li
+    <Item
         className="quick-reply"
     >
-        <styled.button
+        <StyledButton
             onClick={[Function]}
         >
             quick reply
-        </styled.button>
-    </styled.li>
+        </StyledButton>
+    </Item>
 </List>,
   "nodes": Array [
     <List>
-      <styled.li
+      <Item
             className="quick-reply"
       >
-            <styled.button
+            <StyledButton
                   onClick={[Function]}
             >
                   quick reply
-            </styled.button>
-      </styled.li>
+            </StyledButton>
+      </Item>
 </List>,
   ],
   "options": Object {},
@@ -81,27 +81,27 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <List>
-          <styled.li
+          <Item
                     className="quick-reply"
           >
-                    <styled.button
+                    <StyledButton
                               onClick={[Function]}
                     >
                               quick reply
-                    </styled.button>
-          </styled.li>
+                    </StyledButton>
+          </Item>
 </List>,
         "_debugID": 2,
         "_renderedOutput": <List>
-          <styled.li
+          <Item
                     className="quick-reply"
           >
-                    <styled.button
+                    <StyledButton
                               onClick={[Function]}
                     >
                               quick reply
-                    </styled.button>
-          </styled.li>
+                    </StyledButton>
+          </Item>
 </List>,
       },
       "_renderedNodeType": 1,

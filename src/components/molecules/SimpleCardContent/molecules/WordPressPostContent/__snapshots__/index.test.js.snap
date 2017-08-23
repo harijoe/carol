@@ -8,7 +8,7 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <Styled(Mock)
+  "node": <StyledParagraph
     dangerouslySetInnerHTML={
         Object {
             "__html": "Some text with a <a href=\\"https://google.com\\">link</a>.",
@@ -16,7 +16,7 @@ ShallowWrapper {
     }
 />,
   "nodes": Array [
-    <Styled(Mock)
+    <StyledParagraph
       dangerouslySetInnerHTML={
             Object {
                   "__html": "Some text with a <a href=\\"https://google.com\\">link</a>.",
@@ -62,7 +62,7 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <Styled(Mock)
+        "_currentElement": <StyledParagraph
           dangerouslySetInnerHTML={
                     Object {
                               "__html": "Some text with a <a href=\\"https://google.com\\">link</a>.",
@@ -70,7 +70,7 @@ ShallowWrapper {
           }
 />,
         "_debugID": 2,
-        "_renderedOutput": <Styled(Mock)
+        "_renderedOutput": <StyledParagraph
           dangerouslySetInnerHTML={
                     Object {
                               "__html": "Some text with a <a href=\\"https://google.com\\">link</a>.",

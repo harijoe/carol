@@ -8,7 +8,7 @@ ShallowWrapper {
     "findWhereUnwrapped": [Function],
   },
   "length": 1,
-  "node": <Styled(Mock)
+  "node": <Wrapper
     theme={
         Object {
             "colors": Object {
@@ -118,29 +118,29 @@ ShallowWrapper {
           }
     }
 >
-    <styled.div>
+    <LogoWrapper>
         <Mock />
-    </styled.div>
-    <Styled(Mock)
+    </LogoWrapper>
+    <StyledHeading
         level={3}
     >
         <FormattedMessage
             id="project.elaboration.title"
             values={Object {}}
         />
-    </Styled(Mock)>
-    <styled.div>
+    </StyledHeading>
+    <Block>
         <Mock
             to="/"
         >
-            <Styled(Mock)
+            <CloseIcon
                 icon="close"
             />
         </Mock>
-    </styled.div>
-</Styled(Mock)>,
+    </Block>
+</Wrapper>,
   "nodes": Array [
-    <Styled(Mock)
+    <Wrapper
       theme={
             Object {
                   "colors": Object {
@@ -250,27 +250,27 @@ ShallowWrapper {
                 }
       }
 >
-      <styled.div>
+      <LogoWrapper>
             <Mock />
-      </styled.div>
-      <Styled(Mock)
+      </LogoWrapper>
+      <StyledHeading
             level={3}
       >
             <FormattedMessage
                   id="project.elaboration.title"
                   values={Object {}}
             />
-      </Styled(Mock)>
-      <styled.div>
+      </StyledHeading>
+      <Block>
             <Mock
                   to="/"
             >
-                  <Styled(Mock)
+                  <CloseIcon
                         icon="close"
                   />
             </Mock>
-      </styled.div>
-</Styled(Mock)>,
+      </Block>
+</Wrapper>,
   ],
   "options": Object {},
   "renderer": ReactShallowRenderer {
@@ -522,7 +522,7 @@ ShallowWrapper {
       "_pendingReplaceState": false,
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <Styled(Mock)
+        "_currentElement": <Wrapper
           theme={
                     Object {
                               "colors": Object {
@@ -632,29 +632,29 @@ ShallowWrapper {
                             }
           }
 >
-          <styled.div>
+          <LogoWrapper>
                     <Mock />
-          </styled.div>
-          <Styled(Mock)
+          </LogoWrapper>
+          <StyledHeading
                     level={3}
           >
                     <FormattedMessage
                               id="project.elaboration.title"
                               values={Object {}}
                     />
-          </Styled(Mock)>
-          <styled.div>
+          </StyledHeading>
+          <Block>
                     <Mock
                               to="/"
                     >
-                              <Styled(Mock)
+                              <CloseIcon
                                         icon="close"
                               />
                     </Mock>
-          </styled.div>
-</Styled(Mock)>,
+          </Block>
+</Wrapper>,
         "_debugID": 2,
-        "_renderedOutput": <Styled(Mock)
+        "_renderedOutput": <Wrapper
           theme={
                     Object {
                               "colors": Object {
@@ -764,27 +764,27 @@ ShallowWrapper {
                             }
           }
 >
-          <styled.div>
+          <LogoWrapper>
                     <Mock />
-          </styled.div>
-          <Styled(Mock)
+          </LogoWrapper>
+          <StyledHeading
                     level={3}
           >
                     <FormattedMessage
                               id="project.elaboration.title"
                               values={Object {}}
                     />
-          </Styled(Mock)>
-          <styled.div>
+          </StyledHeading>
+          <Block>
                     <Mock
                               to="/"
                     >
-                              <Styled(Mock)
+                              <CloseIcon
                                         icon="close"
                               />
                     </Mock>
-          </styled.div>
-</Styled(Mock)>,
+          </Block>
+</Wrapper>,
       },
       "_renderedNodeType": 1,
       "_rootNodeID": 0,
