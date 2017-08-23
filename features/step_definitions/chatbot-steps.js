@@ -1,7 +1,8 @@
 import { defineSupportCode } from 'cucumber'
 import simulado from 'simulado'
+import { client } from 'nightwatch-cucumber'
+
 import * as chatbot from '../mocks/chatbot'
-import driver from '../lib/driver'
 import getAppUrl from '../lib/app'
 import paths from '../lib/paths'
 
@@ -24,18 +25,18 @@ const reachedProjectSummary = async () => {
 
 defineSupportCode(({ Given }) => {
   Given(/I start a conversation with the first key-one slide/, async () => {
-    const elements = await driver.findElements({ css: '.hero .slick-slide' })
-    await elements[0].click()
+    await client.click('.hero .slick-slide:nth-child(1)')
     await simulado.mock({
       path: '/chatbot_storages/conversation/MOCK_SESSION_ID',
       response: chatbot.conversations,
     })
   })
+
   Given(/I reached the project summary in my conversation/, reachedProjectSummary)
+
   Given(/I opened the chatbot popin/, async () => {
     await reachedProjectSummary()
-    await driver.get(getAppUrl(paths.chatbot))
-    const element = await driver.findElement({ xpath: `//*[contains(text(), "Valider mon projet")]` })
-    await element.click()
+    await client.url(getAppUrl(paths.chatbot))
+    await client.click('link text', 'Valider mon projet')
   })
 })

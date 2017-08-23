@@ -4,7 +4,7 @@ set -xe
 
 docker rm -f standalone-chrome 2>/dev/null || true
 
-export HOST_IP=$(ifconfig docker0 | grep inet | awk '{ print $2}' | sed 's/.*://')
+export HOST_IP=$( ( ifconfig docker0 || ifconfig en0 ) | grep 'inet ' | awk '{ print $2}' | sed 's/.*://' )
 
 docker run -d -P \
   -p 4444:4444 \

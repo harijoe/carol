@@ -1,10 +1,10 @@
 node_modules/
 coverage/
 .nyc_output/
-npm-debug.log
+*.log
 jest/
 dist/
 webpack/webpack-assets.json
-yarn-error.log
 .storybook/public/*
 !.storybook/public/favicon.ico
+reports/

@@ -7,7 +7,7 @@ Feature: As a logged in user going to the auto validation tunnel, I can go throu
       | Mr     | John      | Doe      |
     When I go to the 'auto-validation step 1' page
     And I select the option 'Maintenant' for field 'Début de votre projet'
-    And I select the option 'Avoir un ordre de prix' for field 'Jours et Horaires de contact'
+    And I select the option 'Avoir un ordre de prix' for field 'Votre besoin'
     And I click on 'Par téléphone'
     And I select the option 'Pendant les heures de bureau' for field 'Jours et Horaires de contact'
     And I click on 'Envoyer'

@@ -1,3 +1,3 @@
-import driver from './driver'
+import { client } from 'nightwatch-cucumber'
 
-export const goToCookiesPage = () => driver.get('http://carol-fr-dev.qarx.io:7001/cookies')
+export const goToCookiesPage = () => client.url('http://carol-fr-dev.qarx.io:7001/cookies')

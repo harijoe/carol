@@ -47,7 +47,8 @@
           "stories/**",
           "storybook/**",
           "test/**",
-          "webpack/**"
+          "webpack/**",
+          "nightwatch.conf.js"
         ]
       }
     ]

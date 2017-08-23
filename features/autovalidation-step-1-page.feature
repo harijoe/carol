@@ -30,7 +30,9 @@ Feature: As a logged in user going to the auto validation tunnel, I see step one
       | Mr     | John      | Doe      |
     When I go to the 'auto-validation step 1' page
     And I click on 'Envoyer'
-    Then I should see 'Champ requis' 2 times
+    Then I should see:
+      | Début de votre projet | Champ requis |
+      | Votre besoin          | Champ requis |
 
   # https://quotatis.atlassian.net/browse/HIANDU-1274
   Scenario: Project validation form is cleared after submit
@@ -40,7 +42,7 @@ Feature: As a logged in user going to the auto validation tunnel, I see step one
       | Mr     | John      | Doe      |
     And I go to the 'auto-validation step 1' page
     And I select the option 'Maintenant' for field 'Début de votre projet'
-    And I select the option 'Avoir un ordre de prix' for field 'Jours et Horaires de contact'
+    And I select the option 'Avoir un ordre de prix' for field 'Votre besoin'
     And I click on 'Par téléphone'
     And I click on 'Envoyer'
     When I go to the 'auto-validation step 1' page

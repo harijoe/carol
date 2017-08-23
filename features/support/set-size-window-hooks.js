@@ -1,6 +1,6 @@
 import { defineSupportCode } from 'cucumber'
-import driver from '../lib/driver'
+import { client } from 'nightwatch-cucumber'
 
 defineSupportCode(({ Before }) => {
-  Before(async () => driver.manage().window().setSize(1400, 1000))
+  Before(async () => client.resizeWindow(1400, 1000))
 })
