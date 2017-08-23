@@ -4,10 +4,9 @@ set -xe
 
 echo "/!\ BRANCH == ${BRANCH} /!\ "
 
-if [ $BRANCH == "develop" ]; then
+if [ $BRANCH == "master" ]; then
   echo "Start deploy for develop"
-  if [ "${BRANCH}" = "" ]; then BRANCH=develop; fi;
-  echo ${BRANCH}
+  export BRANCH=develop # this is not here for long
   curl https://sdk.cloud.google.com | bash
   source /home/travis/.bashrc
   export PATH=$HOME/google-cloud-sdk/bin:$PATH
@@ -15,8 +14,6 @@ if [ $BRANCH == "develop" ]; then
   gcloud auth activate-service-account "travis@quotatis-152617.iam.gserviceaccount.com" --key-file=quotatis-01d6e02592a9.json
   gcloud container clusters get-credentials cluster-1 --zone europe-west1-b --project quotatis-152617
   export GOOGLE_APPLICATION_CREDENTIALS=quotatis-01d6e02592a9.json
-
-
   gcloud docker -- push eu.gcr.io/quotatis-152617/carol:${BRANCH}
   kubectl create ns ${BRANCH} || true
   kubectl get svc --namespace=develop dora-develop -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
@@ -38,11 +35,11 @@ if [ $BRANCH == "develop" ]; then
   echo ${JSON_PATCH}
   kubectl patch deployment carol-${BRANCH} --namespace=${BRANCH} -p $JSON_PATCH
   kubectl delete pods `kubectl get pod -l "run=carol-${BRANCH}" -o=template --template="{{ with index .items 0}}{{ .metadata.name }}{{ end }}" --namespace=${BRANCH}` --namespace=${BRANCH}
-elif [ $BRANCH == "master"  ]; then
+elif [ $BRANCH == "deploy"  ]; then
   echo "Start deploy for master"
   git clone https://92a99f360dcd7f681bae671b05db76404e2fd9b6@github.com/Quotatis/gaston.git
   cd gaston
   ./bench_img.sh carol
 else
-  echo "Nothing to deploy, BRANCH != develop"
+  echo "Nothing to deploy, BRANCH != master"
 fi
