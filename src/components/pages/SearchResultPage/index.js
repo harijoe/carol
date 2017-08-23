@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import { MainLayout, MainWrapper, InnerWrapper } from 'components'
+import { MainLayout, MainWrapper } from 'components'
 import { SearchResults } from 'containers'
 
 class SearchResultPage extends Component {
@@ -19,10 +19,8 @@ class SearchResultPage extends Component {
   render() {
     return (
       <MainLayout>
-        <MainWrapper>
-          <InnerWrapper>
-            <SearchResults minimal />
-          </InnerWrapper>
+        <MainWrapper paddingTop="m">
+          <SearchResults minimal />
         </MainWrapper>
       </MainLayout>
     )

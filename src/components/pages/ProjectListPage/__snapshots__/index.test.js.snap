@@ -9,18 +9,18 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <Mock>
-    <Mock>
-        <Mock>
-            <Mock />
-        </Mock>
+    <Mock
+        paddingTop="m"
+    >
+        <Mock />
     </Mock>
 </Mock>,
   "nodes": Array [
     <Mock>
-      <Mock>
-            <Mock>
-                  <Mock />
-            </Mock>
+      <Mock
+            paddingTop="m"
+      >
+            <Mock />
       </Mock>
 </Mock>,
   ],
@@ -59,18 +59,18 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Mock>
-          <Mock>
-                    <Mock>
-                              <Mock />
-                    </Mock>
+          <Mock
+                    paddingTop="m"
+          >
+                    <Mock />
           </Mock>
 </Mock>,
         "_debugID": 2,
         "_renderedOutput": <Mock>
-          <Mock>
-                    <Mock>
-                              <Mock />
-                    </Mock>
+          <Mock
+                    paddingTop="m"
+          >
+                    <Mock />
           </Mock>
 </Mock>,
       },
