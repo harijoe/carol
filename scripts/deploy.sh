@@ -4,9 +4,8 @@ set -xe
 
 echo "/!\ BRANCH == ${BRANCH} /!\ "
 
-if [ $BRANCH == "master" ]; then
+if [ $BRANCH == "develop" ]; then
   echo "Start deploy for develop"
-  export BRANCH=develop # this is not here for long
   curl https://sdk.cloud.google.com | bash
   source /home/travis/.bashrc
   export PATH=$HOME/google-cloud-sdk/bin:$PATH
