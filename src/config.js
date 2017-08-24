@@ -30,7 +30,7 @@ const configs = {
       tagManagerId: {
         FR: 'GTM-N58NQW',
         GB: 'GTM-TT49Z3S',
-        ES: 'GTM-N58NQW',
+        ES: 'GTM-K9GWBNM',
       },
     },
     facebook: {
