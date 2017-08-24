@@ -276,6 +276,7 @@ export default {
   'user.new_sms_sent': 'Un nuevo mensaje de texto fue enviado',
   'user.newsletter_subscription': 'Quiero suscribir a las newsletter de Quotatis',
   'user.no_account_question': '¿No tienes una cuenta?',
+  'user.or': 'o',
   'user.password': 'Contraseña',
   'user.password.show': 'Mostrar / ocultar la contraseña',
   'user.password_match_err': 'Las contraseñas deben coincidir',

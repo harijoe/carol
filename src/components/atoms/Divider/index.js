@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, ifThen } from 'utils/style'
 
-const styles = ({ or }) => css`
+const styles = ({ or, translate }) => css`
   position: relative;
   display: flex;
   width: 100%;
@@ -17,7 +18,7 @@ const styles = ({ or }) => css`
     text-align: center;
 
     &::before {
-      content: 'ou';
+      content: '${translate('user.or')}';
       position: absolute;
       top: -9px;
       width: 40px;
@@ -35,4 +36,4 @@ Divider.PropTypes = {
   or: PropTypes.bool,
 }
 
-export default Divider
+export default injectTranslate(Divider)

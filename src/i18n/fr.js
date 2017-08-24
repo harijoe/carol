@@ -277,6 +277,7 @@ export default {
   'user.new_sms_sent': 'Un nouveau SMS a été envoyé',
   'user.newsletter_subscription': 'Je souhaite être tenu informé(e) des actualités sur Quotatis et ses partenaires.',
   'user.no_account_question': 'Vous n\'avez pas de compte ?',
+  'user.or': 'ou',
   'user.password': 'Mot de passe',
   'user.password.show': 'Afficher / cacher le mot de passe',
   'user.password_match_err': 'Vos mots de passe doivent être identiques',
