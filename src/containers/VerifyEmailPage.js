@@ -1,7 +1,20 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { verifyEmail } from 'store/actions'
+
+import styled from 'styled-components'
+
+import { Loading } from 'components'
+
+const LoadingWrapper = styled.div`
+  position: fixed;
+  z-index: 19;
+  left: 50%;
+  top: 50%;
+  margin-left: -30px;
+  margin-top: -30px;
+`
 
 class VerifyEmailPageContainer extends Component {
   static propTypes = {
@@ -13,7 +26,11 @@ class VerifyEmailPageContainer extends Component {
   }
 
   render() {
-    return null
+    return (
+      <LoadingWrapper>
+        <Loading loading />
+      </LoadingWrapper>
+    )
   }
 }
 
