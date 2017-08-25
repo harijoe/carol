@@ -43,6 +43,10 @@ const StyledAside = styled.aside`
   .slick-slide {
     float: left;
   }
+
+  .slick-arrow {
+    top: 45rem;
+  }
 `
 
 const StyledItem = styled.div`
@@ -142,6 +146,9 @@ class ReinsuranceCarousel extends Component {
             autoplay: true,
             pauseOnHover: true,
             arrows: false,
+            responsive: [
+              { breakpoint: 10000, settings: { arrows: true } },
+            ],
           }}
         />
       </StyledAside>
