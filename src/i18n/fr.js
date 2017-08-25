@@ -269,6 +269,7 @@ export default {
   'user.log_out': 'Déconnexion ➔',
   'user.message_page': 'Ma page de messages',
   'user.messaging': 'Messagerie',
+  'user.miss': 'Melle',
   'user.mobile_phone': 'Téléphone mobile',
   'user.mr': 'Mr',
   'user.mrs': 'Mme',

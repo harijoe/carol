@@ -18,9 +18,9 @@ import {
   Paragraph,
   Link,
   Divider,
-  RadioGroup,
   Heading,
 } from 'components'
+import { GenderBlock } from 'containers'
 
 const StyledRow = styled(Row)`
   flex-wrap: nowrap;
@@ -112,30 +112,6 @@ const Wrapper = styled.div`
   `};
 `
 
-const RadioBlock = styled.div`
-  margin-bottom: ${theme('spaces.xs')};
-  padding-bottom: ${theme('spaces.m')};
-  font-weight: normal;
-
-  strong {
-    display: block;
-    margin-bottom: ${theme('spaces.m')};
-    font-weight: bold;
-    font-size: ${theme('fonts.size.base')};
-    line-height: 1rem;
-    color: ${theme('colors.black')};
-  }
-
-  fieldset {
-    display: inline-block;
-    margin: 0;
-    margin-right: ${theme('spaces.xl')};
-    padding: 0;
-    border: none;
-    outline: none;
-  }
-`
-
 class SignUpForm extends Component {
   static propTypes = {
     handleSubmit: PropTypes.func.isRequired,
@@ -169,17 +145,7 @@ class SignUpForm extends Component {
               <GoogleLogin />
               <StyledDivider or />
               <Form onSubmit={handleSubmit}>
-                <RadioBlock>
-                  <strong>
-                    <FormattedMessage id="user.gender" tagName="div" />
-                  </strong>
-                  <Field
-                    component={RadioGroup}
-                    name="gender"
-                    required
-                    options={[{ value: 'Mr', id: 'mr', translation: 'user.mr' }, { value: 'Mrs', id: 'mrs', translation: 'user.mrs' }]}
-                  />
-                </RadioBlock>
+                <GenderBlock />
                 <AnimatedLabelField
                   name="firstName"
                   component={RenderField}
@@ -236,17 +202,7 @@ class SignUpForm extends Component {
             <GoogleLogin />
             <StyledDivider or />
             <Form onSubmit={handleSubmit}>
-              <RadioBlock>
-                <strong>
-                  <FormattedMessage id="user.gender" tagName="div" />
-                </strong>
-                <Field
-                  component={RadioGroup}
-                  name="gender"
-                  required
-                  options={[{ value: 'Mr', id: 'mr', translation: 'user.mr' }, { value: 'Mrs', id: 'mrs', translation: 'user.mrs' }]}
-                />
-              </RadioBlock>
+              <GenderBlock />
               <AnimatedLabelField
                 name="firstName"
                 component={RenderField}

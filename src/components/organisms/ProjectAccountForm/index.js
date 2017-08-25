@@ -7,6 +7,7 @@ import { theme, breakpoint } from 'utils/style'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 
 import { RenderField, Button, Section, RadioGroup } from 'components'
+import { GenderBlock } from 'containers'
 
 const Form = styled.form`
   position: relative;
@@ -184,17 +185,7 @@ class ProjectAccountForm extends Component {
           </StyledSection>
           {askPersonalInfo &&
             <StyledSection title={translate('auto-validation.title.informations')}>
-              <RadioBlock>
-                <strong>
-                  <FormattedMessage id="user.gender" tagName="div" />
-                </strong>
-                <Field
-                  component={RadioGroup}
-                  name="gender"
-                  required
-                  options={[{ value: 'Mr', id: 'mr', translation: 'user.mr' }, { value: 'Mrs', id: 'mrs', translation: 'user.mrs' }]}
-                />
-              </RadioBlock>
+              <GenderBlock />
               <Field
                 name="firstName"
                 component={RenderField}

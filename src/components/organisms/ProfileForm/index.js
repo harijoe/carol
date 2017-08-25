@@ -23,6 +23,7 @@ import {
   Loading,
   BirthdateInput,
 } from 'components'
+import { GenderBlock } from 'containers'
 import ValidatedInfo from './atoms/ValidatedInfo'
 
 const Form = styled.form`width: 100%;`
@@ -300,16 +301,7 @@ class ProfileForm extends Component {
               <StyledSection title={translate('user.profile_info')}>
                 <StyledGrid>
                   <div className="qs-Infos-wrapper">
-                    <RadioBlock>
-                      <strong>
-                        <FormattedMessage id="user.gender" tagName="div" />
-                      </strong>
-                      <Field
-                        component={RadioGroup}
-                        name="gender"
-                        options={[{ value: 'Mr', id: 'mr', translation: 'user.mr' }, { value: 'Mrs', id: 'mrs', translation: 'user.mrs' }]}
-                      />
-                    </RadioBlock>
+                    <GenderBlock />
                     <AnimatedLabelField
                       name="firstName"
                       component={RenderField}

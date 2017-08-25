@@ -266,6 +266,7 @@ export default {
   'user.log_out': 'Logout ➔',
   'user.message_page': 'My Message page',
   'user.messaging': 'Messaging',
+  'user.miss': 'Miss',
   'user.mobile_phone': 'Mobile number',
   'user.mr': 'Mr',
   'user.mrs': 'Mrs',
