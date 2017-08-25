@@ -25,8 +25,8 @@ module.exports = {
         },
       },
       globals: {
-        retryAssertionTimeout: 2000,
-        waitForConditionTimeout: 2000,
+        retryAssertionTimeout: 5000,
+        waitForConditionTimeout: 5000,
       },
       desiredCapabilities: {
         browserName: 'chrome',
