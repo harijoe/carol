@@ -120,6 +120,7 @@ const FirmImage = styled.div`
     height: ${theme('spaces.xxl')};
     box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.10);
     background-color: ${theme('colors.white')};
+    background-repeat: no-repeat;
     background-image: url(${image});
     background-size: contain;
     transition: all 0.3s ease;
