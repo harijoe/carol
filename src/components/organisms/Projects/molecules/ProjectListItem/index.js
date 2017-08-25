@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
@@ -110,60 +110,65 @@ const ButtonLink = styled(Link)`
   `}
 `
 
-const FirmImage = styled(Image)`
-  position: absolute;
-  display: block;
-  bottom: ${theme('spaces.l')};
-  border-radius: ${theme('spaces.l')};
-  width: ${theme('spaces.xxl')};
-  height: ${theme('spaces.xxl')};
-  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.10);
-  transition: all 0.3s ease;
+const FirmImage = styled.div`
+  ${({ image }) => css`
+    position: absolute;
+    display: block;
+    bottom: ${theme('spaces.l')};
+    border-radius: ${theme('spaces.l')};
+    width: ${theme('spaces.xxl')};
+    height: ${theme('spaces.xxl')};
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.10);
+    background-color: ${theme('colors.white')};
+    background-image: url(${image});
+    background-size: contain;
+    transition: all 0.3s ease;
 
-  &:first-child {
-    margin-left: ${theme('spaces.l')};
-    left: 0;
+    &:first-child {
+      margin-left: ${theme('spaces.l')};
+      left: 0;
 
-    ${breakpointMax('m')`
-      margin-left: ${theme('spaces.m')};
-    `}
-  }
-  &:nth-child(2) {
-    margin-left: ${theme('spaces.l')};
-    left: ${theme('spaces.xl')};
+      ${breakpointMax('m')`
+        margin-left: ${theme('spaces.m')};
+      `}
+    }
+    &:nth-child(2) {
+      margin-left: ${theme('spaces.l')};
+      left: ${theme('spaces.xl')};
 
-    ${breakpointMax('m')`
-      margin-left: ${theme('spaces.m')};
-    `}
-  }
-  &:nth-child(3) {
-    margin-left: ${theme('spaces.l')};
-    left: calc(${theme('spaces.xl')} * 2);
+      ${breakpointMax('m')`
+        margin-left: ${theme('spaces.m')};
+      `}
+    }
+    &:nth-child(3) {
+      margin-left: ${theme('spaces.l')};
+      left: calc(${theme('spaces.xl')} * 2);
 
-    ${breakpointMax('m')`
-      margin-left: ${theme('spaces.m')};
-    `}
-  }
-  &:nth-child(4) {
-    margin-left: ${theme('spaces.l')};
-    left: calc(${theme('spaces.xl')} * 3);
+      ${breakpointMax('m')`
+        margin-left: ${theme('spaces.m')};
+      `}
+    }
+    &:nth-child(4) {
+      margin-left: ${theme('spaces.l')};
+      left: calc(${theme('spaces.xl')} * 3);
 
-    ${breakpointMax('m')`
-      margin-left: ${theme('spaces.m')};
-    `}
-  }
-  &:nth-child(5) {
-    margin-left: ${theme('spaces.l')};
-    left: calc(${theme('spaces.xl')} * 4);
+      ${breakpointMax('m')`
+        margin-left: ${theme('spaces.m')};
+      `}
+    }
+    &:nth-child(5) {
+      margin-left: ${theme('spaces.l')};
+      left: calc(${theme('spaces.xl')} * 4);
 
-    ${breakpointMax('m')`
-      margin-left: ${theme('spaces.m')};
-    `}
-  }
+      ${breakpointMax('m')`
+        margin-left: ${theme('spaces.m')};
+      `}
+    }
 
-  &:hover {
-    bottom: calc(${theme('spaces.l')} + 0.8rem);
-  }
+    &:hover {
+      bottom: calc(${theme('spaces.l')} + 0.8rem);
+    }
+  `};
 `
 
 /*
@@ -271,10 +276,8 @@ const Project = ({ name, createdAt, status, partner, leadSales, translate, ...it
           {leadSales.map(({ firm }) =>
             <FirmImage
               key={firm.name}
-              alt={'alt'}
-              src={firm.logoUrl ? firm.logoUrl : cloudinary('/icons/placeholder-logo.png')}
-              width="50"
-              height="50"
+              image={firm.logoUrl ? firm.logoUrl : cloudinary('/icons/placeholder-logo.png')}
+              alt={firm.name}
             />,
           )}
           {/* disabled for release v1.5 */}
