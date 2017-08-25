@@ -348,6 +348,8 @@ class ProfileForm extends Component {
                       component={RenderField}
                       label={translate('user.fixed_phone')}
                       placeholder={translate('user.fixed_phone')}
+                      format={format(language)}
+                      normalize={normalize(language)}
                     />
                   </BorderBox>
                 </StyledGrid>

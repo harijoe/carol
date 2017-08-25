@@ -51,7 +51,7 @@ const ValidatedInfo = ({ validated, field, ...props }) => {
 }
 
 ValidatedInfo.propTypes = {
-  validated: PropTypes.bool.isRequired,
+  validated: PropTypes.bool,
   field: PropTypes.string.isRequired,
 }
 
