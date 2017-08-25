@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components'
 import { theme, breakpoint, breakpointMax, mapBreakpoints } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
 
-import { Section, ThumbnailCard, Paragraph, Grid, Row, Link, MainWrapper, Heading, SearchEngine } from 'components'
+import { Section, ThumbnailCard, Paragraph, Grid, Row, Link, MainWrapper, Heading } from 'components'
 import { Carousel } from 'containers'
 
 const HeroWrapper = styled.div`
@@ -166,14 +166,10 @@ const FirstChoices = (choices, reply) =>
       </Carousel>}
   </CarouselWrapper>
 
-const Hero = ({ hasActiveConversation, firstChoices, reply, featureSearchEngineEnabled }) =>
+const Hero = ({ hasActiveConversation, firstChoices, reply }) =>
   <HeroWrapper className="hero">
     <MainWrapper resetState>
       <StyledSection>
-        {featureSearchEngineEnabled &&
-          <StyledRow>
-            <SearchEngine />
-          </StyledRow>}
         {hasActiveConversation
           ? <StyledRow>
               <header>
@@ -208,7 +204,6 @@ const Hero = ({ hasActiveConversation, firstChoices, reply, featureSearchEngineE
 
 Hero.propTypes = {
   hasActiveConversation: PropTypes.bool,
-  featureSearchEngineEnabled: PropTypes.bool,
   firstChoices: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
