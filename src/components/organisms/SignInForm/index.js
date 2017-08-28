@@ -142,7 +142,7 @@ const SignInForm = ({ error, handleSubmit, loading, translate, className, carous
         </Heading>
         <FacebookLogin />
         <GoogleLogin />
-        <br />
+        <StyledDivider or />
         <Form onSubmit={handleSubmit}>
           <AnimatedLabelField name="email" type="email" icon="mail-login" label={translate('user.email')} />
           <AnimatedPasswordField name="password" label={translate('user.password')} />
