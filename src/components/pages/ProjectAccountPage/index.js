@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { FormattedHTMLMessage } from 'react-intl'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import styled from 'styled-components'
 import { theme } from 'utils/style'
@@ -19,7 +20,7 @@ const ProjectAccountPage = ({ params: { projectId }, translate }) =>
         <AutoValidationBlock
           imageLink={cloudinary('/autovalidation-enrichingform.svg')}
           title={translate('project.validation_page')}
-          paragraph={translate('project.validation.describe')}
+          paragraph={<FormattedHTMLMessage id="project.validation.describe" />}
         >
           <ProjectAccountForm {...{ projectId }} />
         </AutoValidationBlock>

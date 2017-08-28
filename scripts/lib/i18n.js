@@ -3,6 +3,7 @@ import path from 'path'
 import fs from 'fs'
 import { promisify } from 'util'
 import colors from 'colors'
+import markdownIt from 'markdown-it'
 
 process.on('unhandledRejection', err => {
   throw err
@@ -45,8 +46,24 @@ const getAllMessages = async (spreadsheet, languagesToInclude) => {
 
 const caseInsensitiveSort = keys => keys.slice().sort((a, b) => (a.toLowerCase() < b.toLowerCase() ? -1 : 1))
 
+const isLdJson = text => text.match(/^\\{/)
+
+const fixMarked = markedRendered =>
+  markedRendered
+    .trim()
+    .replace(/^<br>|<br>$/g, '')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+
+const marked = text => isLdJson(text) ? text : fixMarked(markdownIt(({ breaks: true })).renderInline(text))
+
+const beautify = text => isLdJson(text) ? text : marked(text)
+
 const serialize = translations =>
-  caseInsensitiveSort(Object.keys(translations)).map(key => `  '${key}': '${escapeValue(translations[key]).trim()}'`).join(',\n')
+  caseInsensitiveSort(Object.keys(translations)).map(key => {
+    const translation = beautify(translations[key])
+    return `  '${key}': '${escapeValue(translation).trim()}'`
+  }).join(',\n')
 
 const writeToFiles = (messages, outputPath) =>
   Object.keys(messages).forEach(language => {
