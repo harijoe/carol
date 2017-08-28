@@ -5,7 +5,7 @@ require('nightwatch-cucumber')()
 
 module.exports = {
   output_folder: 'features/reports',
-  screenshots : {
+  screenshots: {
     enabled: true,
     on_failure: true,
     path: 'features/screenshots',
@@ -25,8 +25,8 @@ module.exports = {
         },
       },
       globals: {
-        retryAssertionTimeout: 5000,
-        waitForConditionTimeout: 5000,
+        retryAssertionTimeout: 10000,
+        waitForConditionTimeout: 10000,
       },
       desiredCapabilities: {
         browserName: 'chrome',
@@ -49,5 +49,3 @@ module.exports = {
     },
   },
 }
-
-

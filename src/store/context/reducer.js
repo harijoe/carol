@@ -6,6 +6,9 @@ import {
   CONTEXT_TOGGLE_SIGN_IN_POPIN,
   CONTEXT_TOGGLE_CHATBOT_POPIN_MODE,
   CONTEXT_TOGGLE_CHATBOT_POPIN,
+  CONTEXT_TOGGLE_EMAIL_VALIDATION_POPIN,
+  CONTEXT_SET_PHONE_VALIDATION_POPIN_MODE,
+  CONTEXT_TOGGLE_PHONE_VALIDATION_POPIN,
   CONTEXT_CLOSE_ALL,
   CONTEXT_SET_SSR,
   CONTEXT_SET_DRY_RUN,
@@ -65,6 +68,30 @@ export default (state = initialState, action) => {
         },
       }
     }
+    case CONTEXT_TOGGLE_PHONE_VALIDATION_POPIN: {
+      return {
+        ...state,
+        phoneValidationPopin: {
+          ...state.phoneValidationPopin,
+          enabled: action.payload != null ? action.payload : !state.phoneValidationPopin.enabled,
+        },
+      }
+    }
+    case CONTEXT_SET_PHONE_VALIDATION_POPIN_MODE: {
+      return {
+        ...state,
+        phoneValidationPopin: {
+          ...state.phoneValidationPopin,
+          mode: action.payload,
+        },
+      }
+    }
+    case CONTEXT_TOGGLE_EMAIL_VALIDATION_POPIN: {
+      return {
+        ...state,
+        emailValidationPopin: action.payload != null ? action.payload : !state.emailValidationPopin,
+      }
+    }
     case CONTEXT_CLOSE_ALL: {
       return {
         ...state,
@@ -75,6 +102,11 @@ export default (state = initialState, action) => {
           ...state.chatbotPopin,
           enabled: false,
         },
+        phoneValidationPopin: {
+          ...state.phoneValidationPopin,
+          enabled: false,
+        },
+        emailValidationPopin: false,
       }
     }
     case CONTEXT_SET_SSR: {

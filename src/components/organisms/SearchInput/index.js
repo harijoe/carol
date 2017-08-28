@@ -6,7 +6,7 @@ import { theme, ifThen } from 'utils/style'
 import { Input } from 'components'
 
 const StyledInput = styled(Input)`
-  ${({isCollapse}) => css`
+  ${({ isCollapse }) => css`
     width: 400px;
     height: 40px;
     background-color: transparent;
@@ -48,7 +48,8 @@ const StyledInput = styled(Input)`
   `};
 `
 
-const SearchInput = ({ search, isCollapse }) => <StyledInput onChange={e => search(e.target.value)} isCollapse={isCollapse} placeholder="What is your project?" />
+const SearchInput = ({ search, isCollapse }) =>
+  <StyledInput onChange={e => search(e.target.value)} isCollapse={isCollapse} placeholder="What is your project?" />
 
 SearchInput.propTypes = {
   search: PropTypes.func,

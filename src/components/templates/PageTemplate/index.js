@@ -85,7 +85,7 @@ class PageTemplate extends Component {
     let notificationsSystem
 
     if (!ssr) {
-      const theme =require('../../themes/reapop/quotatis')
+      const theme = require('../../themes/reapop/quotatis')
       const NotificationsSystem = require('reapop').default
 
       notificationsSystem = (

@@ -22,14 +22,11 @@ class AnimatedPasswordField extends Component {
   }
 
   componentWillMount() {
-
     const { toggleDisabled } = this.props
-    if (toggleDisabled) this.setState({passwordIcon: 'pwd-login'})
-
+    if (toggleDisabled) this.setState({ passwordIcon: 'pwd-login' })
   }
 
   togglePassword = () => {
-
     const { toggleDisabled } = this.props
     if (toggleDisabled) return
 
@@ -37,7 +34,6 @@ class AnimatedPasswordField extends Component {
       passwordInputType: this.state.passwordInputType === 'password' ? 'text' : 'password',
       passwordIcon: this.state.passwordIcon === 'eye' ? 'opened-eye' : 'eye',
     })
-
   }
 
   handleChange = e => this.setState({ hideLabel: e.currentTarget.value === '' })

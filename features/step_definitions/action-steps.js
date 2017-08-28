@@ -3,9 +3,9 @@ import { client } from 'nightwatch-cucumber'
 
 defineSupportCode(({ When }) => {
   When(/I click on '(.*)'/, async target => {
-    // https://goo.gl/VHmvXp
-    // Style tags are removed from the query because they create false positives (probably selenium bug)
-    await client.click('xpath', `//*[not(self::style)][contains(text(), "${target}")]`)
+    const xpath = `//*[not(self::style)][contains(text(), "${target}")][1]`
+    await new Promise(resolve => setTimeout(resolve, 500)) // Necessary, waiting for element visible is not enough
+    await client.click('xpath', xpath)
   })
 
   When(/I fill '(.*)' with '(.*)'/, async (target, value) => {

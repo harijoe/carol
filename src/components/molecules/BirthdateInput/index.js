@@ -25,11 +25,11 @@ const Wrapper = styled.div`
     # https://goo.gl/o7tU78
     input[type="number"]::-webkit-outer-spin-button,
     input[type="number"]::-webkit-inner-spin-button {
-        -webkit-appearance: none !important;
-        margin: 0 !important;
+      -webkit-appearance: none !important;
+      margin: 0 !important;
     }
     input[type="number"] {
-        -moz-appearance: textfield;
+      -moz-appearance: textfield;
     }
 
     ${breakpointMax('m')`
@@ -61,7 +61,7 @@ const Wrapper = styled.div`
   }
 `
 
-const BirthdateInput = ({ translate }) => (
+const BirthdateInput = ({ translate }) =>
   <Wrapper>
     <legend>
       <strong>
@@ -154,10 +154,10 @@ const BirthdateInput = ({ translate }) => (
       placeholder={translate('form.birthdate-year')}
       type="number"
       pattern="[0-9]*"
-      min={(new Date()).getFullYear() - 120} // Maximum age : 120 years old
-      max={(new Date()).getFullYear() - 18} // Minimum age : 18 years old
+      min={new Date().getFullYear() - 120} // Maximum age : 120 years old
+      max={new Date().getFullYear() - 18} // Minimum age : 18 years old
     />
-  </Wrapper>)
+  </Wrapper>
 
 BirthdateInput.propTypes = {
   translate: PropTypes.func,

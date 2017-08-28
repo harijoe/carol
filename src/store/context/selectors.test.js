@@ -4,6 +4,8 @@ test('initialState', () => {
   expect(selectors.initialState).toEqual({
     accountNavigation: false,
     chatbotPopin: { enabled: false, mode: 'signup' },
+    phoneValidationPopin: { enabled: false, mode: 'phone' },
+    emailValidationPopin: false,
     country: 'GB',
     dryRun: false,
     features: {},

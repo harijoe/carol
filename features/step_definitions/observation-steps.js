@@ -23,7 +23,7 @@ defineSupportCode(({ When }) => {
     assertTextContainedInOrder(bodyText, expectedText.raw())
   })
 
-  When(/I should see '(.*)'$/, async (expectedText) => {
+  When(/I should see '(.*)'$/, async expectedText => {
     await client.assert.containsText('body', expectedText)
   })
 
@@ -86,10 +86,13 @@ defineSupportCode(({ When }) => {
     const label = await promisify(client.element)('xpath', `//label[contains(text(), "${target}")]`)
     const forAttr = await promisify(client.elementIdAttribute)(label.ELEMENT, 'for')
 
-    const selectedValue = await promisify(client.execute)(forParam => {
-      const select = document.querySelector(`select[name=${forParam}]`)
-      return select.options[select.selectedIndex].text
-    }, [forAttr])
+    const selectedValue = await promisify(client.execute)(
+      forParam => {
+        const select = document.querySelector(`select[name=${forParam}]`)
+        return select.options[select.selectedIndex].text
+      },
+      [forAttr],
+    )
 
     expect(selectedValue).toEqual(value)
   })
@@ -97,5 +100,4 @@ defineSupportCode(({ When }) => {
   When(/I should see a notification with title '(.*)'/, async expectedText => {
     await client.expect.element('.notifications h4').text.to.contain(expectedText).before(2000)
   })
-
 })

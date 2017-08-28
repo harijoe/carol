@@ -73,13 +73,14 @@ const QuickReplies = ({ quick_replies, answer, reply }) => {
     return null
   }
 
-  const quickRepliesList = () => (
-    quick_replies.map(({ title, payload }, i) => (
+  const quickRepliesList = () =>
+    quick_replies.map(({ title, payload }, i) =>
       <Item key={i} order={i} className="quick-reply">
-        <StyledButton onClick={() => reply(title, payload)}>{title}</StyledButton>
-      </Item>
-    ))
-  )
+        <StyledButton onClick={() => reply(title, payload)}>
+          {title}
+        </StyledButton>
+      </Item>,
+    )
 
   return (
     <StyledList>

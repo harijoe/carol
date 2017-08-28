@@ -11,6 +11,11 @@ export const initialState = {
     enabled: false,
     mode: 'signup',
   },
+  phoneValidationPopin: {
+    enabled: false,
+    mode: 'phone',
+  },
+  emailValidationPopin: false,
   ssr: true,
   dryRun: false,
   features: {},
@@ -25,6 +30,9 @@ export const getAccountNavigation = (state = initialState) => state.accountNavig
 export const getSignInPopin = (state = initialState) => state.signInPopin
 export const getChatbotPopin = (state = initialState) => state.chatbotPopin.enabled
 export const getChatbotPopinMode = (state = initialState) => state.chatbotPopin.mode
+export const getPhoneValidationPopin = (state = initialState) => state.phoneValidationPopin.enabled
+export const getPhoneValidationPopinMode = (state = initialState) => state.phoneValidationPopin.mode
+export const getEmailValidationPopin = (state = initialState) => state.emailValidationPopin
 export const isPopin = (state = initialState) => state.accountNavigation || state.mainNavigation
 export const getCountry = (state = initialState) => state.country
 export const getLocale = (state = initialState) => `${state.lang}-${state.country}`

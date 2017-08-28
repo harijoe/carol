@@ -95,7 +95,7 @@ const Popin = ({ children, show, closeAll }) =>
     <ScrollWrapper>
       <InnerWrapper className={`popin ${show ? 'visible' : ''}`} show={show}>
         <CloseAllButton />
-        {children}
+        {show && children}
       </InnerWrapper>
     </ScrollWrapper>
   </OuterWrapper>

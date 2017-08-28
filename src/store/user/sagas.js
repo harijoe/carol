@@ -1,8 +1,8 @@
 import { put, select } from 'redux-saga/effects'
 import { stopSubmit, reset } from 'redux-form'
 import { push } from 'react-router-redux'
-import { fromUser, fromRouting } from 'store/selectors'
-import { authLogin } from 'store/actions'
+import { fromUser, fromRouting, fromContext } from 'store/selectors'
+import { authLogin, setPhoneValidationPopinMode, closeAll } from 'store/actions'
 import { HTTPError } from 'utils/errors'
 import { requireUser } from 'sagas/require'
 import fetch from 'sagas/fetch'
@@ -94,9 +94,14 @@ function* handlePhoneValidation({ data, notification = notify('user.sms', 'user.
     yield* fetch(validatePhone, 'put', `${id}/mobile_phone`, {}, data, data)
     yield* notification
 
-    const queryString = yield select(fromRouting.getSearch)
+    const phoneValidationPopinEnabled = yield select(fromContext.getPhoneValidationPopin)
 
-    yield* softPush(`/validation/phone/code${queryString}`)
+    if (phoneValidationPopinEnabled) {
+      yield put(setPhoneValidationPopinMode('phoneCode'))
+    } else {
+      const queryString = yield select(fromRouting.getSearch)
+      yield* softPush(`/validation/phone/code${queryString}`)
+    }
   } catch (error) {
     if (error instanceof HTTPError) {
       yield put(stopSubmit('PhoneForm', { _error: error.message }))
@@ -114,7 +119,14 @@ function* handlePhoneCodeValidation({ data }) {
     yield* notify('user.thank_you', 'user.phone_validated')
     const query = yield select(fromRouting.getQuery)
 
-    yield* redirectToNextValidationStep(query.projectId)
+    const phoneValidationPopinEnabled = yield select(fromContext.getPhoneValidationPopin)
+
+    if (phoneValidationPopinEnabled) {
+      yield* fetch(userDetails, 'get', '/users/me')
+      yield put(closeAll())
+    } else {
+      yield* redirectToNextValidationStep(query.projectId)
+    }
   } catch (error) {
     if (error instanceof HTTPError) {
       yield put(reset('PhoneCodeForm'))

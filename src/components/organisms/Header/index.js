@@ -5,7 +5,7 @@ import { theme, ifThen, mapBreakpoints, breakpoint } from 'utils/style'
 import injectScroll from 'hoc/component/injectScroll'
 
 import { MainWrapper } from 'components'
-import { AccountButton, MainNavigation, AccountNavigation, BurgerButton, SignInPopin, QuotatisLogo } from 'containers'
+import { AccountButton, MainNavigation, AccountNavigation, BurgerButton, SignInPopin, QuotatisLogo, PhoneValidationPopin, EmailValidationPopin } from 'containers'
 
 const Background = styled.div`
   ${({ atTop }) => css`
@@ -82,6 +82,8 @@ const Header = ({ atTop, homepage }) =>
       </SecondNavigation>
       <AccountNavigation />
       <SignInPopin />
+      <PhoneValidationPopin />
+      <EmailValidationPopin />
     </StyledMainWrapper>
   </Background>
 

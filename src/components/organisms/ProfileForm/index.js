@@ -218,7 +218,11 @@ class ProfileForm extends Component {
     loading: PropTypes.bool,
     updating: PropTypes.bool,
     error: PropTypes.object,
+    togglePhoneValidationPopin: PropTypes.func,
+    toggleEmailValidationPopin: PropTypes.func,
     translate: PropTypes.func.isRequired,
+    emailVerified: PropTypes.bool,
+    mobilePhoneVerified: PropTypes.bool,
     details: PropTypes.shape({
       email: PropTypes.string,
       facebookId: PropTypes.string,
@@ -272,8 +276,21 @@ class ProfileForm extends Component {
   }
 
   render() {
-    const { initialValues, handleSubmit, loading, updating, translate, details, language, error } = this.props
-    const { imageBase64, firstName, emailVerified, mobilePhoneVerified } = initialValues
+    const {
+      initialValues,
+      handleSubmit,
+      loading,
+      updating,
+      translate,
+      details,
+      language,
+      error,
+      togglePhoneValidationPopin,
+      toggleEmailValidationPopin,
+      emailVerified,
+      mobilePhoneVerified,
+    } = this.props
+    const { imageBase64, firstName } = initialValues
 
     return (
       <div
@@ -316,7 +333,11 @@ class ProfileForm extends Component {
                       placeholder={translate('user.last_name')}
                       icon="login"
                     />
-                    {error && error.birthdate && <StyledError>{translate(error.birthdate.id)}</StyledError>}
+                    {error &&
+                      error.birthdate &&
+                      <StyledError>
+                        {translate(error.birthdate.id)}
+                      </StyledError>}
                     <BirthdateInput />
                   </div>
                   <BorderBox grey mediumBorder title={translate('user.contact_info')}>
@@ -330,7 +351,15 @@ class ProfileForm extends Component {
                         placeholder={translate('user.email')}
                         disabled
                       />
-                      <ValidatedInfo validated={emailVerified} field="email" />
+                      <ValidatedInfo
+                        validated={emailVerified}
+                        field="email"
+                        onClick={() => {
+                          if (!emailVerified) {
+                            toggleEmailValidationPopin()
+                          }
+                        }}
+                      />
                     </VerifiedFieldWrapper>
                     <VerifiedFieldWrapper>
                       <Field
@@ -341,7 +370,15 @@ class ProfileForm extends Component {
                         format={format(language)}
                         normalize={normalize(language)}
                       />
-                      <ValidatedInfo validated={mobilePhoneVerified} field="mobile" />
+                      <ValidatedInfo
+                        validated={mobilePhoneVerified}
+                        field="mobile"
+                        onClick={() => {
+                          if (!mobilePhoneVerified) {
+                            togglePhoneValidationPopin()
+                          }
+                        }}
+                      />
                     </VerifiedFieldWrapper>
                     <Field
                       name="fixedPhone"

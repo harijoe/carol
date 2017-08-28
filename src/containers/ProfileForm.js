@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
 import pick from 'lodash/pick'
-import { userDetails, userUpdate } from 'store/actions'
+import { userDetails, userUpdate, togglePhoneValidationPopin, toggleEmailValidationPopin } from 'store/actions'
 import { fromUser, fromContext, fromStatus } from 'store/selectors'
 import transformDate from 'utils/transformDate'
 import { createValidator, required, exactLength, maxLength } from 'services/validation'
@@ -49,8 +49,6 @@ const mapStateToProps = state => {
         'newsletterSubscription',
         'contactPreference',
         'contactComment',
-        'emailVerified',
-        'mobilePhoneVerified',
       ]),
       imageBase64: details.imageUrl,
       birthdateDay,
@@ -60,6 +58,8 @@ const mapStateToProps = state => {
     },
     loading: fromStatus.getLoading(state).USER_DETAILS,
     updating: fromStatus.getLoading(state).USER_UPDATE,
+    emailVerified: fromUser.getEmailVerified(state),
+    mobilePhoneVerified: fromUser.getMobilePhoneVerified(state),
   }
 }
 
@@ -97,6 +97,8 @@ export const config = {
 
 const mapDispatchToProps = dispatch => ({
   request: () => dispatch(userDetails.request()),
+  togglePhoneValidationPopin: () => dispatch(togglePhoneValidationPopin()),
+  toggleEmailValidationPopin: () => dispatch(toggleEmailValidationPopin()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(reduxForm(config)(ProfileFormContainer))

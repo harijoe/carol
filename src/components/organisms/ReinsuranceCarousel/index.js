@@ -146,9 +146,7 @@ class ReinsuranceCarousel extends Component {
             autoplay: true,
             pauseOnHover: true,
             arrows: false,
-            responsive: [
-              { breakpoint: 10000, settings: { arrows: true } },
-            ],
+            responsive: [{ breakpoint: 10000, settings: { arrows: true } }],
           }}
         />
       </StyledAside>

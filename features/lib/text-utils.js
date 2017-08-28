@@ -7,7 +7,7 @@ function normalizeSpaces(text) {
 export function assertTextContainedInOrder(actualText, expectedTexts) {
   let textToSearch = normalizeSpaces(actualText)
   const textsToFind = flattenDeep(expectedTexts)
-  textsToFind.forEach( textToFind => {
+  textsToFind.forEach(textToFind => {
     const expected = normalizeSpaces(textToFind)
     const index = textToSearch.indexOf(expected)
     if (index < 0) {

@@ -37,6 +37,7 @@ defineSupportCode(({ Given }) => {
   Given(/I opened the chatbot popin/, async () => {
     await reachedProjectSummary()
     await client.url(getAppUrl(paths.chatbot))
-    await client.click('link text', 'Valider mon projet')
+    await new Promise(resolve => setTimeout(resolve, 500)) // Necessary, probably to wait the project summary animation finishes
+    await client.useXpath().click("//*[contains(text(), 'Valider mon projet')]").useCss()
   })
 })

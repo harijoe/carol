@@ -10,7 +10,7 @@ const notificationsSystemClassName = css['notifications-system']
 const notificationsContainerClassName = {
   main: css['notifications-container'],
   position: function position(_position) {
-    return css[`notifications-container--${  _position}`]
+    return css[`notifications-container--${_position}`]
   },
 }
 
@@ -32,11 +32,11 @@ const notificationClassName = {
   title: css['notification-title'],
   message: css['notification-message'],
   // `fa` corresponds to font-awesome's class name
-  icon: `fa ${  css['notification-icon']}`,
+  icon: `fa ${css['notification-icon']}`,
   imageContainer: css['notification-image-container'],
   image: css['notification-image'],
   status: function status(_status) {
-    return css[`notification--${  _status}`]
+    return css[`notification--${_status}`]
   },
   dismissible: css['notification--dismissible'],
   buttons: function buttons(count) {
@@ -50,7 +50,7 @@ const notificationClassName = {
     return css['notification-buttons']
   },
   closeButtonContainer: css['notification-close-button-container'],
-  closeButton: `fa ${  css['notification-close-button']}`,
+  closeButton: `fa ${css['notification-close-button']}`,
   button: css['notification-button'],
   buttonText: css['notification-button-text'],
 }

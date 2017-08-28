@@ -22,6 +22,8 @@ ShallowWrapper {
         </SecondNavigation>
         <Mock />
         <Mock />
+        <Mock />
+        <Mock />
     </StyledMainWrapper>
 </Background>,
   "nodes": Array [
@@ -37,6 +39,8 @@ ShallowWrapper {
                   <Mock />
                   <Mock />
             </SecondNavigation>
+            <Mock />
+            <Mock />
             <Mock />
             <Mock />
       </StyledMainWrapper>
@@ -312,6 +316,8 @@ ShallowWrapper {
                     </SecondNavigation>
                     <Mock />
                     <Mock />
+                    <Mock />
+                    <Mock />
           </StyledMainWrapper>
 </Background>,
         "_debugID": 4,
@@ -327,6 +333,8 @@ ShallowWrapper {
                               <Mock />
                               <Mock />
                     </SecondNavigation>
+                    <Mock />
+                    <Mock />
                     <Mock />
                     <Mock />
           </StyledMainWrapper>

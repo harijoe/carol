@@ -6,6 +6,9 @@ export const CONTEXT_TOGGLE_ACCOUNT_NAVIGATION = 'CONTEXT_TOGGLE_ACCOUNT_NAVIGAT
 export const CONTEXT_TOGGLE_SIGN_IN_POPIN = 'CONTEXT_TOGGLE_SIGN_IN_POPIN'
 export const CONTEXT_TOGGLE_CHATBOT_POPIN = 'CONTEXT_TOGGLE_CHATBOT_POPIN'
 export const CONTEXT_TOGGLE_CHATBOT_POPIN_MODE = 'CONTEXT_TOGGLE_CHATBOT_POPIN_MODE'
+export const CONTEXT_TOGGLE_PHONE_VALIDATION_POPIN = 'CONTEXT_TOGGLE_PHONE_VALIDATION_POPIN'
+export const CONTEXT_TOGGLE_EMAIL_VALIDATION_POPIN = 'CONTEXT_TOGGLE_EMAIL_VALIDATION_POPIN'
+export const CONTEXT_SET_PHONE_VALIDATION_POPIN_MODE = 'CONTEXT_SET_PHONE_VALIDATION_POPIN_MODE'
 export const CONTEXT_CLOSE_ALL = 'CONTEXT_CLOSE_ALL'
 export const CONTEXT_SET_SSR = 'CONTEXT_SET_SSR'
 export const CONTEXT_SET_DRY_RUN = 'CONTEXT_SET_DRY_RUN'
@@ -69,6 +72,19 @@ export const toggleChatbotPopin = (state = null) => ({
 
 export const toggleChatbotPopinMode = () => ({
   type: CONTEXT_TOGGLE_CHATBOT_POPIN_MODE,
+})
+
+export const togglePhoneValidationPopin = () => ({
+  type: CONTEXT_TOGGLE_PHONE_VALIDATION_POPIN,
+})
+
+export const setPhoneValidationPopinMode = state => ({
+  type: CONTEXT_SET_PHONE_VALIDATION_POPIN_MODE,
+  payload: state,
+})
+
+export const toggleEmailValidationPopin = () => ({
+  type: CONTEXT_TOGGLE_EMAIL_VALIDATION_POPIN,
 })
 
 export const closeAll = () => ({

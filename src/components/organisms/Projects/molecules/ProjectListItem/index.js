@@ -275,11 +275,7 @@ const Project = ({ name, createdAt, status, partner, leadSales, translate, ...it
       {status === 'found' &&
         <FirmWrapper>
           {leadSales.map(({ firm }) =>
-            <FirmImage
-              key={firm.name}
-              image={firm.logoUrl ? firm.logoUrl : cloudinary('/icons/placeholder-logo.png')}
-              alt={firm.name}
-            />,
+            <FirmImage key={firm.name} image={firm.logoUrl ? firm.logoUrl : cloudinary('/icons/placeholder-logo.png')} alt={firm.name} />,
           )}
           {/* disabled for release v1.5 */}
           {/* <ButtonArrow to={items['@id']} /> */}
