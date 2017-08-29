@@ -14,6 +14,10 @@ injectGlobals([resets, scaffolding])
 
 addLocaleData([...es, ...en, ...fr])
 
+// Polyfill
+// https://www.npmjs.com/package/intl
+if (!global.Intl) require('intl')
+
 const Wrapper = styled.div`
   display: flex;
   align-items: center;

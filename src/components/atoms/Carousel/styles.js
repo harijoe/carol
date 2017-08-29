@@ -1,10 +1,14 @@
 export default `
+
 .slick-list, .slick-slider, .slick-track {
   position: relative;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: nowrap;  
 }
-
+@supports (-webkit-text-size-adjust:none) 
+   and (not (-ms-ime-align:auto)) {
+     .slick-list, .slick-slider, .slick-track { display:block; } 
+}
 .slick-slider {
   box-sizing: border-box;
   -webkit-user-select: none;
@@ -61,6 +65,10 @@ export default `
 }
 .slick-initialized .slick-slide {
   display: block;
+}
+@supports (-webkit-text-size-adjust:none) 
+   and (not (-ms-ime-align:auto)) {
+     .slick-initialized .slick-slide { display:inline-block; vertical-align:top } 
 }
 .slick-vertical .slick-slide {
   display: block;
