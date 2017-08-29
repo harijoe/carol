@@ -73,7 +73,6 @@ const ImageWrapper = styled.figure`
 `
 
 const BackgroundImage = styled(Image)`
-  max-height: 100%;
   height: auto;
   width: 100%;
 `
@@ -248,11 +247,11 @@ const PartnerImageWrapper = styled.div`
   box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, 0.15);
 `
 
-const Project = ({ name, createdAt, status, partner, leadSales, translate, ...items }) =>
+const Project = ({ name, createdAt, status, partner, leadSales, imageUrl, translate, ...items }) =>
   <Article>
     <HeaderCard>
       <ImageWrapper>
-        <BackgroundImage src={cloudinary('/placeholder-project_image.jpg')} />
+        <BackgroundImage src={imageUrl || cloudinary('/placeholder-project_image.jpg')} />
       </ImageWrapper>
       <ProjectStatus {...{ status, leadSales }} />
       {partner &&
@@ -299,6 +298,7 @@ Project.propTypes = {
   createdAt: PropTypes.string,
   status: PropTypes.string,
   leadSales: PropTypes.array,
+  imageUrl: PropTypes.string,
   partner: PropTypes.shape({
     headerLink: PropTypes.string,
   }),
