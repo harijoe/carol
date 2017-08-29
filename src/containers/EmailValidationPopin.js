@@ -23,7 +23,7 @@ class EmailValidationPopinContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-    show: fromContext.getEmailValidationPopin(state),
+  show: fromContext.getEmailValidationPopin(state),
 })
 
 const mapDispatchToProps = dispatch => ({

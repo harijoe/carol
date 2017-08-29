@@ -45,6 +45,12 @@ defineSupportCode(({ When }) => {
     expect(keyOneSlides.length).toEqual(parseInt(expectedCount, 10))
   })
 
+  When(/I should see (\d*) search results/, async expectedCount => {
+    const searchResults = await promisify(client.elements)('css selector', '.result')
+
+    expect(searchResults.length).toEqual(parseInt(expectedCount, 10))
+  })
+
   When(/I should see (\d*) quick replies/, async expectedCount => {
     const possibleAnswers = await promisify(client.elements)('css selector', '.conversation .quick-reply')
 

@@ -5,7 +5,7 @@ import { AutoValidationBlock } from 'components'
 import { Popin, EmailForm } from 'containers'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 
-const EmailValidationPopin = ({ translate, show }) => (
+const EmailValidationPopin = ({ translate, show }) =>
   <Popin show={show}>
     <AutoValidationBlock
       secondDot
@@ -16,7 +16,6 @@ const EmailValidationPopin = ({ translate, show }) => (
       <EmailForm />
     </AutoValidationBlock>
   </Popin>
-)
 
 EmailValidationPopin.propTypes = {
   translate: PropTypes.func.isRequired,

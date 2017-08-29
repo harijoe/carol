@@ -48,22 +48,19 @@ const caseInsensitiveSort = keys => keys.slice().sort((a, b) => (a.toLowerCase()
 
 const isLdJson = text => text.match(/^\\{/)
 
-const fixMarked = markedRendered =>
-  markedRendered
-    .trim()
-    .replace(/^<br>|<br>$/g, '')
-    .replace(/&amp;/g, '&')
-    .replace(/&quot;/g, '"')
+const fixMarked = markedRendered => markedRendered.trim().replace(/^<br>|<br>$/g, '').replace(/&amp;/g, '&').replace(/&quot;/g, '"')
 
-const marked = text => isLdJson(text) ? text : fixMarked(markdownIt(({ breaks: true })).renderInline(text))
+const marked = text => (isLdJson(text) ? text : fixMarked(markdownIt({ breaks: true }).renderInline(text)))
 
-const beautify = text => isLdJson(text) ? text : marked(text)
+const beautify = text => (isLdJson(text) ? text : marked(text))
 
 const serialize = translations =>
-  caseInsensitiveSort(Object.keys(translations)).map(key => {
-    const translation = beautify(translations[key])
-    return `  '${key}': '${escapeValue(translation).trim()}'`
-  }).join(',\n')
+  caseInsensitiveSort(Object.keys(translations))
+    .map(key => {
+      const translation = beautify(translations[key])
+      return `  '${key}': '${escapeValue(translation).trim()}'`
+    })
+    .join(',\n')
 
 const writeToFiles = (messages, outputPath) =>
   Object.keys(messages).forEach(language => {

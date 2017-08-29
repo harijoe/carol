@@ -1,4 +1,5 @@
 import isEqual from 'lodash/isEqual'
+import get from 'lodash/get'
 
 import search from './search'
 
@@ -7,23 +8,14 @@ const mocks = [
     request: {
       query: 'a',
       page: 0,
-      hitsPerPage: 4,
-      filters: `countryCode:fr-FR`,
+      hitsPerPage: 1000,
+      filters: `countryCode:FR`,
     },
     response: search,
   },
 ]
 
-const match = params => {
-  let result = null
-  mocks.map(({ request, response }) => {
-    if (isEqual(params, request)) {
-      result = response
-    }
-
-    return result
-  })
-}
+const match = params => get(mocks.find(({ request }) => isEqual(params, request)), 'response') || null
 
 const mockedIndex = {
   search: params => match(params),

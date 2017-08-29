@@ -40,6 +40,7 @@ const configs = {
     },
     algolia: {
       apiKey: '833cbf062e3b7c3979155c0d07e3f058',
+      projectFlowIndex: 'staging_ProjectFlow_dev',
     },
     cloudinary: {
       url: 'https://res.cloudinary.com/quotatis/image/upload',
@@ -71,6 +72,9 @@ const configs = {
         url: 'https://carol-co-uk.qarx.io',
       },
     },
+    algolia: {
+      projectFlowIndex: 'staging_ProjectFlow_test',
+    },
   },
   preprod: {
     port: 443,
@@ -85,6 +89,9 @@ const configs = {
       'en-GB': {
         url: 'https://preprod-co-uk.qarx.io',
       },
+    },
+    algolia: {
+      projectFlowIndex: 'staging_ProjectFlow_prod',
     },
   },
   production: {
@@ -117,6 +124,9 @@ const configs = {
       enabled: false,
     },
     assetPath: 'https://assets.quotatis.com',
+    algolia: {
+      projectFlowIndex: 'staging_ProjectFlow_prod',
+    },
   },
   development: {
     port: 4433,

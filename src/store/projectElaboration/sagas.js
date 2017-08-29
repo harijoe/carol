@@ -84,12 +84,12 @@ function* getConversations() {
 }
 
 function* getConversationCurrent() {
-  const initialQueryParams = yield select(fromContext.getInitialQueryParams)
-
   yield put(projectElaborationResetConversation)
 
-  if (initialQueryParams.slug != null) {
-    yield* replyConversation({ text: `new_project.first_question:${initialQueryParams.slug}` })
+  const query = yield select(fromRouting.getQuery)
+
+  if (query.slug != null) {
+    yield* replyConversation({ text: `new_project.first_question:${query.slug}` })
 
     return
   }

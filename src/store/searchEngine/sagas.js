@@ -17,7 +17,7 @@ function* search({ query }) {
     projectFlowIndex.search({
       query,
       page: 0,
-      hitsPerPage: 4,
+      hitsPerPage: 1000, // Arbitrary, understand all the results
       filters: `countryCode:${country}`,
     }),
   )

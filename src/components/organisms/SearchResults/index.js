@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
+import cloudinary from 'utils/cloudinary'
 
 import { Grid, Row, Col, Section, ThumbnailPoster, Heading, Paragraph, Link, Icon } from 'components'
 
@@ -103,7 +104,7 @@ const SubHeading = styled(Paragraph)`
   font-size:  ${theme('fonts.size.xl')};
 `
 
-const SearchResults = ({ translate, results, query, nbHits, minimal }) =>
+const SearchResults = ({ translate, results, query, nbHits, onPage }) =>
   <WrapperResults>
     {query &&
       <Header>
@@ -122,10 +123,15 @@ const SearchResults = ({ translate, results, query, nbHits, minimal }) =>
       <Section light title={translate('search_page.result_section_title.projects')}>
         <StyledGrid narrow>
           <Row>
-            {results.map(({ name, slug, id }) =>
+            {results.filter((el, index) => onPage || index < 4).map(({ name, slug, id }) =>
               <ColGrid xs={6} m={4} l={3} key={id} x>
-                <StyledThumbnailPoster image="" title={name} height="m">
-                  <Link to={`/project-elaboration/?slug=${slug}`}>
+                <StyledThumbnailPoster
+                  image={{ src: cloudinary('/icons/placeholder-logo.png'), alt: name }}
+                  title={name}
+                  height="m"
+                  className="result"
+                >
+                  <Link to={`/project-elaboration?slug=${slug}`}>
                     <StyledIcon icon="circle-arrow" className="qs-icon" />
                   </Link>
                 </StyledThumbnailPoster>
@@ -136,7 +142,7 @@ const SearchResults = ({ translate, results, query, nbHits, minimal }) =>
       </Section>}
     {results &&
       nbHits > 4 &&
-      !minimal &&
+      !onPage &&
       <Section>
         <Link to={`search-result?q=${query}`}>
           {translate('search_page.see_all_results')} ({nbHits})
@@ -163,7 +169,7 @@ SearchResults.propTypes = {
   results: PropTypes.array,
   query: PropTypes.string.isRequired,
   nbHits: PropTypes.number,
-  minimal: PropTypes.bool,
+  onPage: PropTypes.bool,
 }
 
 export default injectTranslate(SearchResults)
