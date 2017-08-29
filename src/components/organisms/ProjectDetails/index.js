@@ -204,7 +204,7 @@ const googleMapsParams = ({ lat, lng }) => {
 }
 
 const ProjectDetails = ({
-  project: { name, status, createdAt, questionsAnswers, comment, postalCode, startTimeframe, purpose, leadSales },
+  project: { name, status, createdAt, questionsAnswers, comment, postalCode, startTimeframe, purpose, leadSales, imageUrl },
   placeCoords,
   translate,
   ...props
@@ -243,7 +243,7 @@ const ProjectDetails = ({
           <LeftCol xs={12} m={8}>
             <Paragraph dangerouslySetInnerHTML={{ __html: translate('project.resume_intro', { name: `<strong>${name}</strong>` }) }} />
             <ProjectImage>
-              <StyledImage src={cloudinary('/placeholder-project_image.jpg')} />
+              <StyledImage src={imageUrl || cloudinary('/placeholder-project_image.jpg')} />
             </ProjectImage>
 
             <StyledList>
@@ -300,6 +300,7 @@ ProjectDetails.propTypes = {
     createdAt: PropTypes.string.isRequired,
     questionsAnswers: PropTypes.object.isRequired,
     comment: PropTypes.string,
+    imageUrl: PropTypes.string,
     postalCode: PropTypes.object.isRequired,
     startTimeframe: PropTypes.string.isRequired,
     purpose: PropTypes.string.isRequired,
