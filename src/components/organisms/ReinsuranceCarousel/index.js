@@ -45,7 +45,7 @@ const StyledAside = styled.aside`
   }
 
   .slick-arrow {
-    top: 45rem;
+    top: 40rem;
   }
 `
 
