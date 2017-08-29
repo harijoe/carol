@@ -3,10 +3,11 @@ import { push } from 'react-router-redux'
 import { fromUser, fromProject } from 'store/selectors'
 import fetch from 'sagas/fetch'
 import notify from 'sagas/notify'
-import { projectUpdate, projectList } from 'store/actions'
+import { projectUpdate } from 'store/actions'
 import pushGtmEvent from 'utils/gtm'
 import { requireUser, requireProjectDetails } from '../require'
 import softPush from '../softPush'
+import { handleReadProjectListRequest } from '../../store/project/sagas'
 
 export default function* redirectToNextValidationStep(projectIdFromParams = null) {
   // Retrieves necessary data
@@ -56,13 +57,13 @@ function* handleProjectValidated(id) {
 }
 
 function* getProjectToValidate() {
-  yield* fetch(projectList, 'get', '/projects')
+  yield* handleReadProjectListRequest()
+
   const projectsToValidate = yield select(fromProject.getProjectsToValidate)
 
   if (projectsToValidate.length === 0) {
     return null
   }
 
-  // We suppose the first project is the one to be validated
   return projectsToValidate[0]['@id']
 }
