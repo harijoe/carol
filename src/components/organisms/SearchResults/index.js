@@ -34,6 +34,12 @@ const StyledThumbnailPoster = styled(ThumbnailPoster)`
     transition: all 0.6s 0.1s ease;
   }
 
+  em {
+    color: ${theme('colors.white')};
+    background-color: ${theme('colors.primary')};
+    font-style: normal;
+  }
+
   &:hover {
     box-shadow: 4px 10px 40px 0 rgba(19, 19, 19, 0.4);
 
@@ -123,19 +129,22 @@ const SearchResults = ({ translate, results, query, nbHits, onPage }) =>
       <Section light title={translate('search_page.result_section_title.projects')}>
         <StyledGrid narrow>
           <Row>
-            {results.filter((el, index) => onPage || index < 4).map(({ name, slug, id }) =>
-              <ColGrid xs={6} m={4} l={3} key={id} x>
-                <StyledThumbnailPoster
-                  image={{ src: cloudinary('/icons/placeholder-logo.png'), alt: name }}
-                  title={name}
-                  height="m"
-                  className="result"
-                >
-                  <Link to={`/project-elaboration?slug=${slug}`}>
-                    <StyledIcon icon="circle-arrow" className="qs-icon" />
-                  </Link>
-                </StyledThumbnailPoster>
-              </ColGrid>,
+            {results
+              .filter((el, index) => onPage || index < 4)
+              .map(({ name, slug, id, _highlightResult }) =>
+                <ColGrid xs={6} m={4} l={3} key={id} x>
+                  <StyledThumbnailPoster
+                    isHtml
+                    image={{ src: cloudinary('/icons/placeholder-logo.png'), alt: name }}
+                    title={_highlightResult.name.value}
+                    height="m"
+                    className="result"
+                  >
+                    <Link to={`/project-elaboration?slug=${slug}`}>
+                      <StyledIcon icon="circle-arrow" className="qs-icon" />
+                    </Link>
+                  </StyledThumbnailPoster>
+                </ColGrid>
             )}
           </Row>
         </StyledGrid>
