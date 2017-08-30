@@ -125,7 +125,7 @@ const AttachmentGeneric = ({ attachment, reply }) =>
             // eslint-disable-next-line camelcase
             image={image_url}
             title={title}
-            items={subtitle.split('\n')}
+            items={subtitle ? subtitle.split('\n') : []}
           />
         </StyledButton>
       </StyledItem>,

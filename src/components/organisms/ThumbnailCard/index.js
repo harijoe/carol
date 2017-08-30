@@ -90,18 +90,22 @@ const ThumbnailCard = ({ image, title, items, onClick }) =>
   <Wrapper onClick={onClick}>
     <StyledCard>
       <ThumbnailPoster className="quick-reply" image={{ src: image, alt: title }} title={title} />
-      <CardContent>
-        <StyledList>
-          {items.map((item, i) =>
-            <li key={i}>
-              {item}
-            </li>,
-          )}
-        </StyledList>
-      </CardContent>
-      <CardFooter>
-        <FormattedMessage id="thumbnailcard.link" />
-      </CardFooter>
+      {items.length > 0 && (
+        <div>
+          <CardContent>
+            <StyledList>
+              {items.map((item, i) =>
+                <li key={i}>
+                  {item}
+                </li>,
+              )}
+            </StyledList>
+          </CardContent>
+          <CardFooter>
+            <FormattedMessage id="thumbnailcard.link" />
+          </CardFooter>
+        </div>
+      )}
     </StyledCard>
   </Wrapper>
 
