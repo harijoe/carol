@@ -128,7 +128,7 @@ const SearchResultsModal = ({ translate, results, query, nbHits }) =>
         {results &&
           results.length === 0 &&
           <ResultsHeading level={3}>
-            {translate('search_page.no_result')}
+            {translate('search_page.no_result_title')}
           </ResultsHeading>}
         <ResultsHeading level={3}>
           {translate('search_page.result_section_title.projects_default')}

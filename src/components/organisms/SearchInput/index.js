@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { theme, ifThen } from 'utils/style'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 
 import { Input } from 'components'
 
@@ -48,12 +49,13 @@ const StyledInput = styled(Input)`
   `};
 `
 
-const SearchInput = ({ search, isCollapse }) =>
-  <StyledInput onChange={e => search(e.target.value)} isCollapse={isCollapse} placeholder="What is your project?" />
+const SearchInput = ({ translate, search, isCollapse }) =>
+  <StyledInput onChange={e => search(e.target.value)} isCollapse={isCollapse} placeholder={translate('search_page.field_placeholder')} />
 
 SearchInput.propTypes = {
+  translate: PropTypes.func.isRequired,
   search: PropTypes.func,
   isCollapse: PropTypes.bool,
 }
 
-export default SearchInput
+export default injectTranslate(SearchInput)
