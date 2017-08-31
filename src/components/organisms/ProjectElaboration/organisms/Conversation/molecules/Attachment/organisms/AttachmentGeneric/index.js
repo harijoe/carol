@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { theme, breakpoint, breakpointMax, mapBreakpoints } from 'utils/style'
 
-import { ThumbnailCard } from 'components'
 import { Carousel } from 'containers'
+import Key2Thumbnail from './molecules/Key2Thumbnail'
 
 const StyledCarousel = styled(Carousel)`
   margin: 0;
@@ -121,11 +121,11 @@ const AttachmentGeneric = ({ attachment, reply }) =>
             reply(title, buttons[0].payload)
           }}
         >
-          <ThumbnailCard
-            // eslint-disable-next-line camelcase
-            image={image_url}
+          <Key2Thumbnail
             title={title}
-            items={subtitle ? subtitle.split('\n') : []}
+            // eslint-disable-next-line camelcase
+            imageUrl={image_url}
+            subtitle={subtitle}
           />
         </StyledButton>
       </StyledItem>,
