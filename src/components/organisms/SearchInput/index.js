@@ -7,14 +7,14 @@ import { Input } from 'components'
 
 const StyledInput = styled(Input)`
   ${({ isCollapse }) => css`
-    width: 400px;
-    height: 40px;
+    width: 600px;
+    height: 56px;
     background-color: transparent;
     border:0;
     border-bottom:1px solid transparent;
     outline: 0;
     margin-top:0;
-    font-size:1em;
+    font-size: ${theme('fonts.size.base')};
     font-weight: normal;
     padding:0 1em;  
   
@@ -25,8 +25,7 @@ const StyledInput = styled(Input)`
     &::placeholder {
       text-align: left;
       color: ${theme('colors.grayscale.light')};
-      font-style: italic;
-    }
+    }   
     
     transition-property: min-height, height, width, top, left, margin, font-size, padding, border-bottom;
     transition-duration: 0.5s;
@@ -35,14 +34,15 @@ const StyledInput = styled(Input)`
     ${ifThen(
       isCollapse,
       css`
-      margin-left:10%;
-      width:80%;
-      margin:${theme('spaces.xxl')} 10%;
-      padding:0; 
-      height:80px;
-      font-size:4em;
-      font-weight:bold;
-      border-bottom:1px solid ${theme('colors.primary')};;
+      margin-left: 10%;
+      width: 100%;
+      max-width: 110rem;
+      margin: ${theme('spaces.xxxl')} auto 0 auto;
+      padding: 0 0 2rem 0; 
+      height: ${theme('spaces.xxxl')};
+      font-size: ${theme('fonts.size.xxxl')};
+      font-weight: bold;
+      border-bottom: 1px solid ${theme('colors.primary')};
     `,
     )};  
   `};

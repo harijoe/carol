@@ -110,7 +110,7 @@ const SubHeading = styled(Paragraph)`
   font-size:  ${theme('fonts.size.xl')};
 `
 
-const SearchResults = ({ translate, results, query, nbHits, onPage }) =>
+const SearchResults = ({ translate, results, query }) =>
   <WrapperResults>
     {query &&
       <Header>
@@ -129,33 +129,23 @@ const SearchResults = ({ translate, results, query, nbHits, onPage }) =>
       <Section light title={translate('search_page.result_section_title.projects')}>
         <StyledGrid narrow>
           <Row>
-            {results
-              .filter((el, index) => onPage || index < 4)
-              .map(({ name, slug, id, _highlightResult }) =>
-                <ColGrid xs={6} m={4} l={3} key={id} x>
-                  <StyledThumbnailPoster
-                    isHtml
-                    image={{ src: cloudinary('/icons/placeholder-logo.png'), alt: name }}
-                    title={_highlightResult.name.value}
-                    height="m"
-                    className="result"
-                  >
-                    <Link to={`/project-elaboration?slug=${slug}`}>
-                      <StyledIcon icon="circle-arrow" className="qs-icon" />
-                    </Link>
-                  </StyledThumbnailPoster>
-                </ColGrid>
+            {results.map(({ name, slug, id, _highlightResult }) =>
+              <ColGrid xs={6} m={4} l={3} key={id} x>
+                <StyledThumbnailPoster
+                  isHtml
+                  image={{ src: cloudinary('/icons/placeholder-logo.png'), alt: name }}
+                  title={_highlightResult.name.value}
+                  height="m"
+                  className="result"
+                >
+                  <Link to={`/project-elaboration?slug=${slug}`}>
+                    <StyledIcon icon="circle-arrow" className="qs-icon" />
+                  </Link>
+                </StyledThumbnailPoster>
+              </ColGrid>,
             )}
           </Row>
         </StyledGrid>
-      </Section>}
-    {results &&
-      nbHits > 4 &&
-      !onPage &&
-      <Section>
-        <Link to={`search-result?q=${query}`}>
-          {translate('search_page.see_all_results')} ({nbHits})
-        </Link>
       </Section>}
     {!results &&
       query !== '' &&
@@ -177,8 +167,6 @@ SearchResults.propTypes = {
   translate: PropTypes.func.isRequired,
   results: PropTypes.array,
   query: PropTypes.string.isRequired,
-  nbHits: PropTypes.number,
-  onPage: PropTypes.bool,
 }
 
 export default injectTranslate(SearchResults)

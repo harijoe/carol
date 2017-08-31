@@ -20,7 +20,7 @@ class SearchResultPage extends Component {
     return (
       <MainLayout>
         <MainWrapper paddingTop="m">
-          <SearchResults onPage />
+          <SearchResults />
         </MainWrapper>
       </MainLayout>
     )
