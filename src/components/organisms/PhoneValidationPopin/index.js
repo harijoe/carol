@@ -1,10 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { theme } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
 import { FormattedMessage } from 'react-intl'
 import { AutoValidationBlock, Link } from 'components'
 import { Popin, PhoneForm, PhoneCodeForm } from 'containers'
 import injectTranslate from 'i18n/hoc/injectTranslate'
+
+const StyledLink = styled(Link)`
+  align-self: flex-start;
+  height: 1.8rem;
+  margin-top: ${theme('spaces.s')};
+`
 
 const PhoneValidationPopin = ({ translate, show, mode, setMode }) =>
   <Popin show={show}>
@@ -25,9 +33,9 @@ const PhoneValidationPopin = ({ translate, show, mode, setMode }) =>
         paragraph={translate('auto-validation.phone_code.message')}
       >
         <PhoneCodeForm />
-        <Link onClick={() => setMode('phone')} highlight>
+        <StyledLink onClick={() => setMode('phone')} highlight>
           <FormattedMessage id="user.change_phone_number" />
-        </Link>
+        </StyledLink>
       </AutoValidationBlock>}
   </Popin>
 
