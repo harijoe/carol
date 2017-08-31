@@ -13,16 +13,6 @@ test('required', () => {
   expect(v.required('valid')).toBeFalsy()
 })
 
-test('minLength', () => {
-  expect(v.minLength(5)('1234')).toBeTruthy()
-  expect(v.minLength(5)('12345')).toBeFalsy()
-})
-
-test('maxLength', () => {
-  expect(v.maxLength(5)('123456')).toBeTruthy()
-  expect(v.maxLength(5)('12345')).toBeFalsy()
-})
-
 test('integer', () => {
   expect(v.integer('invalid')).toBeTruthy()
   expect(v.integer('2.3')).toBeTruthy()
@@ -50,7 +40,7 @@ test('password', () => {
 test('createValidator', () => {
   const validator = v.createValidator({
     email: [v.required, v.email],
-    password: [v.required, v.minLength(6)],
+    password: [v.required],
     passwordRepeat: [v.match('password'), v.required],
   })
 
@@ -75,21 +65,21 @@ test('createValidator', () => {
     Object.keys(
       validator({
         email: 'invalid',
-        password: '12345',
+        password: '123456',
         passwordRepeat: '',
       }),
     ),
-  ).toEqual(['email', 'password', 'passwordRepeat'])
+  ).toEqual(['email', 'passwordRepeat'])
 
   expect(
     Object.keys(
       validator({
         email: 'test@example.com',
-        password: '12345',
+        password: '123456',
         passwordRepeat: '',
       }),
     ),
-  ).toEqual(['password', 'passwordRepeat'])
+  ).toEqual(['passwordRepeat'])
 
   expect(
     Object.keys(

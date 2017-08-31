@@ -8,15 +8,13 @@ const postalCodePattern = /^\d{5}$/
 
 export const email = value => !isEmpty(value) && !isEmail(value) && { id: 'validators.user.invalid_email', values: {} }
 export const required = value => isEmpty(value) && { id: 'validators.required_field', values: {} }
-export const minLength = min => value => !isEmpty(value) && value.length < min && { id: 'validators.min_length', values: { min } }
-export const maxLength = max => value => !isEmpty(value) && value.length > max && { id: 'validators.max_length', values: { max } }
-export const exactLength = size => value => !isEmpty(value) && value.length !== size && { id: 'validators.exact_length', values: { size } }
 export const integer = value => !isInt(value) && { id: 'validators.integer', values: {} }
 export const match = field => (value, data) => data && value !== data[field] && { id: 'validators.must_match', values: {} }
 export const password = value =>
   !isEmpty(value) && !passwordPattern.test(value) && { id: 'validators.user.password.must_match_required', values: {} }
 export const postalCode = value =>
   !isEmpty(value) && !postalCodePattern.test(value) && { id: 'validators.user.postalcode.must_match_required', values: {} }
+export { default as date } from './date'
 
 export const createValidator = rules => (data = {}) => {
   const errors = {}

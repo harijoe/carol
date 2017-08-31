@@ -1,14 +1,16 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { reduxForm } from 'redux-form'
+import { reduxForm, getFormSyncErrors } from 'redux-form'
 import pick from 'lodash/pick'
 import { userDetails, userUpdate, togglePhoneValidationPopin, toggleEmailValidationPopin } from 'store/actions'
 import { fromUser, fromContext, fromStatus } from 'store/selectors'
 import transformDate from 'utils/transformDate'
-import { createValidator, required, exactLength, maxLength } from 'services/validation'
+import { createValidator, required, date } from 'services/validation'
 
 import { ProfileForm } from 'components'
+
+const form = 'ProfileForm'
 
 class ProfileFormContainer extends Component {
   static propTypes = {
@@ -63,6 +65,8 @@ const mapStateToProps = state => {
   }
 }
 
+const getSyncErrors = state => ({ syncErrors: getFormSyncErrors(form)(state) })
+
 const onSubmit = (values, dispatch, formInfo) => {
   const { birthdateDay, birthdateMonth, birthdateYear, ...data } = values
 
@@ -81,14 +85,12 @@ const validate = createValidator({
   lastName: [required],
   firstName: [required],
   gender: [required],
-  birthdateDay: [required, maxLength(2)],
-  birthdateMonth: [required],
-  birthdateYear: [required, exactLength(4)],
   contactPreference: [required],
+  birthdate: [date],
 })
 
 export const config = {
-  form: 'ProfileForm',
+  form,
   enableReinitialize: true,
   destroyOnUnmount: false,
   onSubmit,
@@ -101,4 +103,4 @@ const mapDispatchToProps = dispatch => ({
   toggleEmailValidationPopin: () => dispatch(toggleEmailValidationPopin()),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(reduxForm(config)(ProfileFormContainer))
+export default connect(mapStateToProps, mapDispatchToProps)(reduxForm(config)(connect(getSyncErrors)(ProfileFormContainer)))

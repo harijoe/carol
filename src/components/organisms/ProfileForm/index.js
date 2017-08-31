@@ -174,12 +174,6 @@ const RadioBlock = styled.div`
   }
 `
 
-const StyledError = styled.strong`
-  display: block;
-  font-weight: normal;
-  color: ${theme('colors.danger')};
-`
-
 const VerifiedFieldWrapper = styled.div`
   display: flex;
 
@@ -220,6 +214,7 @@ class ProfileForm extends Component {
     error: PropTypes.object,
     togglePhoneValidationPopin: PropTypes.func,
     toggleEmailValidationPopin: PropTypes.func,
+    syncErrors: PropTypes.object,
     translate: PropTypes.func.isRequired,
     emailVerified: PropTypes.bool,
     mobilePhoneVerified: PropTypes.bool,
@@ -285,11 +280,14 @@ class ProfileForm extends Component {
       details,
       language,
       error,
+      syncErrors,
       togglePhoneValidationPopin,
       toggleEmailValidationPopin,
       emailVerified,
       mobilePhoneVerified,
     } = this.props
+    const birthdateError =
+      (error && error.birthdate && error.birthdate.id) || (syncErrors && syncErrors.birthdate && syncErrors.birthdate.id)
     const { imageBase64, firstName } = initialValues
 
     return (
@@ -333,12 +331,7 @@ class ProfileForm extends Component {
                       placeholder={translate('user.last_name')}
                       icon="login"
                     />
-                    {error &&
-                      error.birthdate &&
-                      <StyledError>
-                        {translate(error.birthdate.id)}
-                      </StyledError>}
-                    <BirthdateInput />
+                    <BirthdateInput error={birthdateError} />
                   </div>
                   <BorderBox grey mediumBorder title={translate('user.contact_info')}>
                     <VerifiedFieldWrapper>

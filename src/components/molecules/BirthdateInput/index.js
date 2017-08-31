@@ -61,7 +61,15 @@ const Wrapper = styled.div`
   }
 `
 
-const BirthdateInput = ({ translate }) =>
+const StyledError = styled.footer`
+  width: 100%;
+  color: ${theme('colors.danger')};
+  font-size: ${theme('fonts.size.s')};
+  margin-top: -${theme('spaces.m')};
+  margin-bottom: ${theme('spaces.s')};
+`
+
+const BirthdateInput = ({ translate, error }) =>
   <Wrapper>
     <legend>
       <strong>
@@ -157,10 +165,15 @@ const BirthdateInput = ({ translate }) =>
       min={new Date().getFullYear() - 120} // Maximum age : 120 years old
       max={new Date().getFullYear() - 18} // Minimum age : 18 years old
     />
+    {error &&
+      <StyledError>
+        {translate(error)}
+      </StyledError>}
   </Wrapper>
 
 BirthdateInput.propTypes = {
   translate: PropTypes.func,
+  error: PropTypes.string,
 }
 
 export default injectTranslate(BirthdateInput)
