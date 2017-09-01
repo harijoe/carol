@@ -60,7 +60,7 @@ const AutoValidationBlock = ({ imageLink, title, paragraph, children, firstDot, 
 AutoValidationBlock.propTypes = {
   imageLink: PropTypes.string,
   title: PropTypes.string,
-  paragraph: PropTypes.string,
+  paragraph: PropTypes.node,
   children: PropTypes.any,
   firstDot: PropTypes.bool,
   secondDot: PropTypes.bool,
