@@ -121,7 +121,7 @@ const MoreResultsIcon = styled(Icon)`
 
 const Wrapper = styled.div``
 
-const SearchResultsModal = ({ translate, results, query, nbHits }) =>
+const SearchResultsModal = ({ translate, results, query, nbHits, featureSearchSuggestionsEnabled }) =>
   <WrapperResults>
     {(!results || results.length === 0) &&
       <Wrapper>
@@ -130,12 +130,15 @@ const SearchResultsModal = ({ translate, results, query, nbHits }) =>
           <ResultsHeading level={3}>
             {translate('search_page.no_result_title')}
           </ResultsHeading>}
-        <ResultsHeading level={3}>
-          {translate('search_page.result_section_title.projects_default')}
-        </ResultsHeading>
-        <SearchSuggestions />
+        {featureSearchSuggestionsEnabled && <div>
+          <ResultsHeading level={3}>
+            {translate('search_page.result_section_title.projects_default')}
+          </ResultsHeading>
+          <SearchSuggestions />
+        </div>}
       </Wrapper>}
     {!results &&
+      featureSearchSuggestionsEnabled &&
       <Wrapper>
         {translate('search_page.see_more_projects')}
         <Link>cross project 1</Link>
@@ -185,6 +188,7 @@ SearchResultsModal.propTypes = {
   results: PropTypes.array,
   query: PropTypes.string.isRequired,
   nbHits: PropTypes.number,
+  featureSearchSuggestionsEnabled: PropTypes.bool,
 }
 
 export default injectTranslate(SearchResultsModal)
