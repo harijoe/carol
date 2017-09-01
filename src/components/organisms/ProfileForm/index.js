@@ -285,6 +285,7 @@ class ProfileForm extends Component {
       toggleEmailValidationPopin,
       emailVerified,
       mobilePhoneVerified,
+      invalid,
     } = this.props
     const birthdateError =
       (error && error.birthdate && error.birthdate.id) || (syncErrors && syncErrors.birthdate && syncErrors.birthdate.id)
@@ -441,7 +442,7 @@ class ProfileForm extends Component {
                     inline
                     normalize={v => !!v} // https://goo.gl/9vmQJm
                   />
-                  <Button type="submit" loading={updating} center maxWidth onClick={this.handleSubmitClick}>
+                  <Button type="submit" loading={updating} center maxWidth onClick={this.handleSubmitClick} disabled={invalid || birthdateError}>
                     <FormattedMessage id="user.update" />
                   </Button>
                 </StyledGrid>
