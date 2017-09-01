@@ -73,7 +73,7 @@ const configs = {
       },
     },
     algolia: {
-      projectFlowIndex: 'staging_ProjectFlow_test',
+      projectFlowIndex: 'qa_ProjectFlow_dev',
     },
   },
   preprod: {
