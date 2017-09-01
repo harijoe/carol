@@ -32,19 +32,11 @@ const StyledIcon = styled(Icon)`
 `
 
 const SearchInnerWrapper = styled.div`
-  ${({ isCollapse }) => css`
-    position: relative;
-    margin: 0 auto;
-    transition-duration: 0.5s;
-    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
-
-    ${ifThen(
-      isCollapse,
-      css`
-      max-width: 110rem;
-    `,
-    )};  
-  `};
+  position: relative;
+  margin: 0 auto;
+  max-width: 110rem;
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(0.7,0,0.3,1);
 `
 
 const SearchEngineWrapper = styled.div`
@@ -96,7 +88,7 @@ class SearchEngine extends Component {
     return (
       <SearchEngineWrapper isCollapse={isCollapse} onClick={!isCollapse && this.toggleSearch}>
         {isCollapse && <CloseAllButton closeAll={this.toggleSearch} />}
-        <SearchInnerWrapper isCollapse={isCollapse}>
+        <SearchInnerWrapper>
           <StyledIcon icon="search" isCollapse={isCollapse} />
           <SearchInput isCollapse={isCollapse} />
         </SearchInnerWrapper>
