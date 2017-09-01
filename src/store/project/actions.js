@@ -30,6 +30,6 @@ export const projectUpdate = {
   failure: error => actionTypes(PROJECT_UPDATE.FAILURE, { error }),
 }
 
-export const checkValidationFlow = () => actionTypes(PROJECT_CHECK_VALIDATION_FLOW)
+export const checkValidationFlow = projectId => actionTypes(PROJECT_CHECK_VALIDATION_FLOW, { projectId })
 
 export const googlePlaceCoordsResults = payload => actionTypes(GOOGLE_PLACE_COORDS_RESULTS, { payload })

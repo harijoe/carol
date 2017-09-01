@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
-import { userDetails, projectDetails, projectUpdate, checkValidationFlow } from 'store/actions'
+import { projectUpdate, checkValidationFlow } from 'store/actions'
 import { fromUser, fromProject, fromStatus } from 'store/selectors'
 import { createValidator, required } from 'services/validation'
 
@@ -11,14 +11,10 @@ import { ProjectAccountForm } from 'components'
 class ProjectAccountFormContainer extends Component {
   static propTypes = {
     requestCheckValidationFlow: PropTypes.func,
-    requestUserDetails: PropTypes.func,
-    requestProjectDetails: PropTypes.func,
   }
 
   componentWillMount() {
     this.props.requestCheckValidationFlow()
-    this.props.requestUserDetails()
-    this.props.requestProjectDetails()
   }
 
   render() {
@@ -85,9 +81,7 @@ export const config = {
 }
 
 const mapDispatchToProps = (dispatch, { projectId }) => ({
-  requestUserDetails: () => dispatch(userDetails.request()),
-  requestProjectDetails: () => dispatch(projectDetails.request(projectId)),
-  requestCheckValidationFlow: () => dispatch(checkValidationFlow()),
+  requestCheckValidationFlow: () => dispatch(checkValidationFlow(`/projects/${projectId}`)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(reduxForm(config)(ProjectAccountFormContainer))

@@ -50,10 +50,10 @@ function* handleUpdateProjectSuccess({ payload: { postalCode: { city, postalCode
   yield put(googlePlaceCoordsResults(location))
 }
 
-function* handleCheckValidationFlow() {
+function* handleCheckValidationFlow({ projectId }) {
   const query = yield select(fromRouting.getQuery)
 
-  yield* redirectToNextValidationStep(query.projectId)
+  yield* redirectToNextValidationStep(projectId || query.projectId)
 }
 
 export default function*() {
