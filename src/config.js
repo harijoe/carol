@@ -40,7 +40,7 @@ const configs = {
     },
     algolia: {
       apiKey: '833cbf062e3b7c3979155c0d07e3f058',
-      projectFlowIndex: 'staging_ProjectFlow_dev',
+      projectFlowIndex: 'qa_ProjectFlow_dev',
     },
     cloudinary: {
       url: 'https://res.cloudinary.com/quotatis/image/upload',
@@ -91,7 +91,7 @@ const configs = {
       },
     },
     algolia: {
-      projectFlowIndex: 'staging_ProjectFlow_prod',
+      projectFlowIndex: 'prod_ProjectFlow_prod',
     },
   },
   production: {
@@ -125,7 +125,7 @@ const configs = {
     },
     assetPath: 'https://assets.quotatis.com',
     algolia: {
-      projectFlowIndex: 'staging_ProjectFlow_prod',
+      projectFlowIndex: 'prod_ProjectFlow_prod',
     },
   },
   development: {
