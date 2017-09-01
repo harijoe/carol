@@ -347,6 +347,7 @@ class ProfileForm extends Component {
                       <ValidatedInfo
                         validated={emailVerified}
                         field="email"
+                        disabled
                         onClick={() => {
                           if (!emailVerified) {
                             toggleEmailValidationPopin()

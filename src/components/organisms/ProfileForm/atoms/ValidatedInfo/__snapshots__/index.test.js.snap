@@ -9,7 +9,8 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <Wrapper
-    className="qs-Field--toValidate"
+    className="qs-Field--toValidate "
+    onClick={undefined}
 >
     <StyledIcon
         icon="not-validated"
@@ -22,7 +23,8 @@ ShallowWrapper {
 </Wrapper>,
   "nodes": Array [
     <Wrapper
-      className="qs-Field--toValidate"
+      className="qs-Field--toValidate "
+      onClick={undefined}
 >
       <StyledIcon
             icon="not-validated"
@@ -75,7 +77,8 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Wrapper
-          className="qs-Field--toValidate"
+          className="qs-Field--toValidate "
+          onClick={undefined}
 >
           <StyledIcon
                     icon="not-validated"
@@ -88,7 +91,8 @@ ShallowWrapper {
 </Wrapper>,
         "_debugID": 4,
         "_renderedOutput": <Wrapper
-          className="qs-Field--toValidate"
+          className="qs-Field--toValidate "
+          onClick={undefined}
 >
           <StyledIcon
                     icon="not-validated"
@@ -126,7 +130,8 @@ ShallowWrapper {
   },
   "length": 1,
   "node": <Wrapper
-    className="qs-Field--validated"
+    className="qs-Field--validated "
+    onClick={undefined}
 >
     <StyledIcon
         icon="validated"
@@ -139,7 +144,8 @@ ShallowWrapper {
 </Wrapper>,
   "nodes": Array [
     <Wrapper
-      className="qs-Field--validated"
+      className="qs-Field--validated "
+      onClick={undefined}
 >
       <StyledIcon
             icon="validated"
@@ -192,7 +198,8 @@ ShallowWrapper {
       "_pendingStateQueue": null,
       "_renderedComponent": NoopInternalComponent {
         "_currentElement": <Wrapper
-          className="qs-Field--validated"
+          className="qs-Field--validated "
+          onClick={undefined}
 >
           <StyledIcon
                     icon="validated"
@@ -205,7 +212,8 @@ ShallowWrapper {
 </Wrapper>,
         "_debugID": 2,
         "_renderedOutput": <Wrapper
-          className="qs-Field--validated"
+          className="qs-Field--validated "
+          onClick={undefined}
 >
           <StyledIcon
                     icon="validated"

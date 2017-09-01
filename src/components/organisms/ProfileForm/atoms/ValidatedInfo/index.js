@@ -26,24 +26,27 @@ const Wrapper = styled.div`
 
   &.qs-Field--toValidate {
     color: ${theme('colors.danger')};
-    cursor: pointer;
+    cursor: auto;
 
     > span:nth-child(2) {
       box-shadow: inset 0 -0.1rem 0 rgba(211, 47, 47, 1);
       transition: all 0.3s ease;
       padding: 0.2rem;
-
-      &:hover {
-        color: ${theme('colors.white')};
-        box-shadow: inset 0 -6rem 0 rgba(211, 47, 47, 1);
-      }
     }
 
     .error-icon {
       fill: currentColor;
     }
+  }
 
-
+  &.qs-Field--toValidate:not(.disabled) {
+    cursor: pointer;
+    > span:nth-child(2) {
+      :hover {
+        color: ${theme('colors.white')};
+        box-shadow: inset 0 -6rem 0 rgba(211, 47, 47, 1);
+      }
+    }
   }
 `
 
@@ -53,12 +56,14 @@ const StyledIcon = styled(Icon)`
   width: ${theme('icons.size.s')};
 `
 
-const ValidatedInfo = ({ validated, field, ...props }) => {
+const ValidatedInfo = ({ validated, disabled, field, onClick, ...props }) => {
   const validateState = validated ? 'validated' : 'not-validated'
   const validateClass = validated ? 'qs-Field--validated' : 'qs-Field--toValidate'
+  const disabledClass = disabled ? 'disabled' : ''
+  const actualOnClick = disabled ? () => null : onClick
 
   return (
-    <Wrapper className={validateClass} {...props}>
+    <Wrapper className={`${validateClass} ${disabledClass}`} onClick={actualOnClick} {...props}>
       <StyledIcon icon={validateState} size={21} />
       <FormattedMessage id={`user.profile.${field}.${validateState}`} />
     </Wrapper>
@@ -67,6 +72,8 @@ const ValidatedInfo = ({ validated, field, ...props }) => {
 
 ValidatedInfo.propTypes = {
   validated: PropTypes.bool,
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
   field: PropTypes.string.isRequired,
 }
 
