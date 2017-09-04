@@ -16,7 +16,7 @@ defineSupportCode(({ When }) => {
     let currentUrl
     let i = 0
 
-    while(currentUrl !== targetUrl && i < 10) {
+    while (currentUrl !== targetUrl && i < 10) {
       // eslint-disable-next-line no-await-in-loop
       currentUrl = await promisify(client.url)()
       // eslint-disable-next-line no-await-in-loop
@@ -115,5 +115,11 @@ defineSupportCode(({ When }) => {
 
   When(/I should see a notification with title '(.*)'/, async expectedText => {
     await client.expect.element('.notifications h4').text.to.contain(expectedText).before(2000)
+  })
+
+  When(/I should see (\d*) projects/, async expectedCount => {
+    const projectItems = await promisify(client.elements)('css selector', '.project-item')
+
+    expect(projectItems.length).toEqual(parseInt(expectedCount, 10))
   })
 })

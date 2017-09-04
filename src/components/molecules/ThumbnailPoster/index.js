@@ -106,7 +106,7 @@ const ThumbnailPoster = ({ image, title, isHtml, children, ...props }) =>
   <Wrapper {...props}>
     <StyledImage {...image} />
     <StyledHeading level={3}>
-      {isHtml ? <div dangerouslySetInnerHTML={{ __html: title}} /> : title}
+      {isHtml ? <div dangerouslySetInnerHTML={{ __html: title }} /> : title}
     </StyledHeading>
     {children}
   </Wrapper>

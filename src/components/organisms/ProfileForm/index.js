@@ -442,7 +442,14 @@ class ProfileForm extends Component {
                     inline
                     normalize={v => !!v} // https://goo.gl/9vmQJm
                   />
-                  <Button type="submit" loading={updating} center maxWidth onClick={this.handleSubmitClick} disabled={invalid || birthdateError}>
+                  <Button
+                    type="submit"
+                    loading={updating}
+                    center
+                    maxWidth
+                    onClick={this.handleSubmitClick}
+                    disabled={invalid || birthdateError}
+                  >
                     <FormattedMessage id="user.update" />
                   </Button>
                 </StyledGrid>

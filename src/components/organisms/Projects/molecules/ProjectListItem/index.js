@@ -248,7 +248,7 @@ const PartnerImageWrapper = styled.div`
 `
 
 const Project = ({ name, createdAt, status, partner, leadSales, imageUrl, translate, ...items }) =>
-  <Article>
+  <Article className="project-item">
     <HeaderCard>
       <ImageWrapper>
         <BackgroundImage src={imageUrl || cloudinary('/placeholder-project_image.jpg')} />

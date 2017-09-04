@@ -6,7 +6,6 @@ import { ThumbnailCard, ThumbnailPoster } from 'components'
 import Key2Thumbnail from '.'
 
 describe('Key2Thumbnail', () => {
-
   it('renders ThumbnailCard when subtitle is present', () => {
     const wrapper = shallow(<Key2Thumbnail subtitle="subtitle" />)
     expect(wrapper.find(ThumbnailCard).exists()).toBe(true)
@@ -18,5 +17,4 @@ describe('Key2Thumbnail', () => {
     expect(wrapper.find(ThumbnailPoster).exists()).toBe(true)
     expect(wrapper.find(ThumbnailCard).exists()).toBe(true)
   })
-
 })

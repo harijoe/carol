@@ -7,4 +7,5 @@ export default {
   profile: '/profile',
   'search-result': '/search-result',
   'email validation': '/verify-email',
+  'my projects': '/projects',
 }

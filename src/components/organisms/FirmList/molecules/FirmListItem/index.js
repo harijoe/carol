@@ -165,7 +165,7 @@ const StyledCertificateList = styled(List)`${() => css`
 `}`
 
 const FirmListItem = ({ firm: { name, logoUrl, globalRating, globalRatingCount, firmCertificates }, proPostCode, proPhone, proEmail }) =>
-  <StyledCard>
+  <StyledCard className="firm-item">
     <HeaderCard>
       <ImageWrapper>
         <BackgroundImage src={cloudinary('/placeholder-firm_image.jpg')} />

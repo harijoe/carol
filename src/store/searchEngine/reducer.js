@@ -9,7 +9,6 @@ export default (state = initialState, action) => {
         query: action.query,
       }
     case SEARCH_ENGINE_SET_RESULTS: {
-
       if (!action.payload) {
         return {
           ...state,

@@ -90,7 +90,7 @@ const ThumbnailCard = ({ image, title, items, onClick }) =>
   <Wrapper onClick={onClick}>
     <StyledCard>
       <ThumbnailPoster className="quick-reply" image={{ src: image, alt: title }} title={title} />
-      {items.length > 0 && (
+      {items.length > 0 &&
         <div>
           <CardContent>
             <StyledList>
@@ -104,8 +104,7 @@ const ThumbnailCard = ({ image, title, items, onClick }) =>
           <CardFooter>
             <FormattedMessage id="thumbnailcard.link" />
           </CardFooter>
-        </div>
-      )}
+        </div>}
     </StyledCard>
   </Wrapper>
 
