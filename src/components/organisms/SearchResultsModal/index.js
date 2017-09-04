@@ -40,7 +40,6 @@ const StyledThumbnailPoster = styled(ThumbnailPoster)`
   }
 
   &:hover {
-    box-shadow: 4px 10px 40px 0 rgba(19, 19, 19, 0.4);
 
     &, h3 {
       margin-bottom: 0;
@@ -227,12 +226,16 @@ const MoreResultsIcon = styled(Icon)`
   `}
 `
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  a {
+    margin-left: ${theme('spaces.s')};
+  }
+`
 
 const SearchResultsModal = ({ translate, results, query, nbHits, featureSearchSuggestionsEnabled }) =>
   <WrapperResults>
     {(!results || results.length === 0) &&
-      <Wrapper>
+      <div>
         {results &&
           results.length === 0 &&
           <ResultsHeading level={3}>
@@ -244,16 +247,18 @@ const SearchResultsModal = ({ translate, results, query, nbHits, featureSearchSu
           </ResultsHeading>
           <SearchSuggestions />
         </div>}
-      </Wrapper>}
+      </div>}
     {!results &&
       featureSearchSuggestionsEnabled &&
       <Wrapper>
         {translate('search_page.see_more_projects')}
-        <Link>cross project 1</Link>
+        <Link to={'/project-elaboration?slug=renovation-de-maison-appartement-commerce'}>Rénovation de maison, appartement, commerce</Link>
+        <Link to={'/project-elaboration?slug=carrelage-et-parquet'}> Carrelage et parquet</Link>
+        <Link to={'/project-elaboration?slug=pompe-a-chaleur'}> Pompe à chaleur</Link>
       </Wrapper>}
     {results &&
       results.length > 0 &&
-      <Wrapper>
+      <div>
         <ResultsHeading level={3}>
           {translate('search_page.your_search')}
         </ResultsHeading>
@@ -276,11 +281,11 @@ const SearchResultsModal = ({ translate, results, query, nbHits, featureSearchSu
             )}
           </Row>
         </StyledGrid>
-      </Wrapper>}
+      </div>}
     {results &&
       results.length > 0 &&
       nbHits > 5 &&
-      <Wrapper>
+      <div>
         <MoreResultsBlock>
           <StyledDivider />
           <LinkBlock to={`search-result?q=${query}`}>
@@ -290,7 +295,7 @@ const SearchResultsModal = ({ translate, results, query, nbHits, featureSearchSu
             <MoreResultsIcon icon="circle-arrow" />
           </LinkBlock>
         </MoreResultsBlock>
-      </Wrapper>}
+      </div>}
   </WrapperResults>
 
 SearchResultsModal.propTypes = {
