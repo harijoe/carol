@@ -1,0 +1,164 @@
+import React, { Component } from 'react'
+import styled, { css } from 'styled-components'
+import { ifThen, theme, breakpoint } from 'utils/style'
+
+import { CloseAllButton, Icon } from 'components'
+import { SearchInput, SearchResultsModal } from 'containers'
+
+const StyledIcon = styled(Icon)`
+  ${({ isCollapse }) => css`
+    display: block;
+    position: absolute;
+    right: ${theme('spaces.m')};
+    top: 50%;
+    height: ${theme('icons.size.m')};
+    width: ${theme('icons.size.m')};
+    margin: 0;
+    margin-top: calc(${theme('icons.size.m')} / -2);
+    fill: ${theme('colors.grayscale.dark')};
+    transition-duration: inherit;
+    transition-timing-function: inherit;
+
+    ${breakpoint('l')`
+      right: ${theme('spaces.l')};
+    `};
+
+    ${ifThen(
+      isCollapse,
+      css`
+      margin-top: calc( ${theme('icons.size.l')} / -2 );
+      height: ${theme('icons.size.l')};
+      width: ${theme('icons.size.l')};
+      fill: ${theme('colors.primary')};
+
+      ${breakpoint('l')`
+        margin-top: calc( ${theme('icons.size.xxl')} / -2 );
+        height: ${theme('icons.size.xxl')};
+        width: ${theme('icons.size.xxl')};
+      `};
+    `,
+    )};  
+  `};
+`
+
+const SearchInnerWrapper = styled.div`
+  position: relative;
+  margin: 0 auto;
+  max-width: 110rem;
+  transition-duration: inherit;
+  transition-timing-function: inherit;
+`
+
+const SearchEngineWrapper = styled.div`
+  ${({ isCollapse }) => css`
+    position: absolute;
+    z-index: 10;
+    top: 36.5rem;
+    left: ${theme('spaces.m')};
+    width: calc(100% - ${theme('spaces.xl')});
+    height: 5.7rem;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 20px 0 rgba(19, 19, 19, 0.15);
+    overflow-x: hidden;
+    transform-origin: 100% 0;
+    transition-property: min-height, height, width, top, left, background-color, overflow;
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+
+    @media screen and (max-height: 600px) {
+      top: 40rem;
+    }
+
+    ${breakpoint('l')`
+      left: calc(50% - 40rem);
+      top: 42.5rem;
+      height: 7.5rem;
+      width: 80rem;
+    `};
+  
+    
+    ${ifThen(
+      isCollapse,
+      css`
+        position: fixed;
+        z-index: 1000;
+        top:0;
+        left:0;
+        width:100vw;
+        height:100vh;
+        overflow-y: scroll;
+        background-color: rgba(255, 255, 255, 0.98);
+
+        @media screen and (max-height: 600px) {
+          top: 0;
+        }
+
+        ${breakpoint('l')`
+          left:0;
+          top: 0;
+          width:100vw;
+          height:100vh;
+          overflow-y: hidden;
+        `};
+    `,
+    )};  
+  `};
+`
+
+const StyledCloseAllButton = styled(CloseAllButton)`
+  animation: 1s hide linear, 0.5s fade ease-in 1s;
+
+  @keyframes hide {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fade {
+    0% {
+      opacity: 0;
+      transform: translateY(-50%);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`
+
+class SearchEngine extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      isCollapse: false,
+    }
+  }
+
+  toggleSearch = () => {
+    this.setState({ isCollapse: !this.state.isCollapse })
+  }
+
+  render() {
+    const { isCollapse } = this.state
+
+    return (
+      <SearchEngineWrapper isCollapse={isCollapse} onClick={!isCollapse && this.toggleSearch}>
+        {isCollapse && <StyledCloseAllButton closeAll={this.toggleSearch} />}
+        <SearchInnerWrapper>
+          <StyledIcon icon="search" isCollapse={isCollapse} />
+          <SearchInput isCollapse={isCollapse} />
+        </SearchInnerWrapper>
+        {isCollapse && <SearchResultsModal />}
+      </SearchEngineWrapper>
+    )
+  }
+}
+
+SearchEngine.propTypes = {}
+
+export default SearchEngine

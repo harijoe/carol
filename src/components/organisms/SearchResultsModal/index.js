@@ -10,10 +10,16 @@ import { Grid, Row, Col, ThumbnailPoster, Heading, Link, Icon, Divider, SearchSu
 const WrapperResults = styled.div`
   max-width: 110rem;
   margin: ${theme('spaces.xxl')} auto 0 auto;
+  padding-left: ${theme('spaces.m')};
+  padding-right: ${theme('spaces.m')};
+
+  ${breakpoint('xl')`
+    padding-left: 0;
+    padding-right: 0;
+  `}
 `
 
 const StyledThumbnailPoster = styled(ThumbnailPoster)`
-  box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, 0.15);
   transform: translateY(0);
   transition: all 0.3s ease;
 
@@ -22,6 +28,7 @@ const StyledThumbnailPoster = styled(ThumbnailPoster)`
   }
 
   h3 {
+    margin-bottom: -6.4rem;
     transform: translateY(0);
     transition: all 0.6s 0.1s ease;
   }
@@ -36,6 +43,7 @@ const StyledThumbnailPoster = styled(ThumbnailPoster)`
     box-shadow: 4px 10px 40px 0 rgba(19, 19, 19, 0.4);
 
     &, h3 {
+      margin-bottom: 0;
       transform: translateY(-${theme('spaces.l')});
     }
 
@@ -60,7 +68,7 @@ const StyledIcon = styled(Icon)`
   margin-top: ${theme('spaces.m')};
   margin-bottom: -6.4rem;
   opacity: 0;
-  transform: translateY(${theme('spaces.m')});
+  transform: translateY(150%);
   transition: all 0.6s 0.1s ease;
 `
 
@@ -69,11 +77,24 @@ const StyledGrid = styled(Grid)`
 `
 
 const ColGrid = styled(Col)`
+  max-width: 20rem;
+  padding: ${theme('spaces.xs')};
 
-  max-width: 22.5rem;
+  ${breakpoint('l')`
+    padding-left: calc(${theme('spaces.l')} / 2);
+    padding-right: calc(${theme('spaces.l')} / 2);
 
-  ${breakpointMax('m')`
-    padding: ${theme('spaces.xs')};
+    &:first-child {
+      padding-left: ${theme('spaces.l')};
+    }
+
+    &:last-child {
+      padding-right: ${theme('spaces.l')};
+    }
+  `}
+
+  ${breakpoint('xl')`
+    max-width: 22.5rem;
   `}
 
   ${breakpoint('m')`
@@ -85,38 +106,125 @@ const ColGrid = styled(Col)`
 const ResultsHeading = styled(Heading)`
   font-family: ${theme('fonts.family.montserrat')};
   font-weight: bold;
+
+  ${breakpoint('l')`
+    padding-left: calc(${theme('spaces.l')} / 2);
+    padding-right: calc(${theme('spaces.l')} / 2);
+  `}
 `
 
 const MoreResultsBlock = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin-top: ${theme('spaces.l')};
-  .circle-arrow {
-    fill: ${theme('colors.primary')};
-  }
+  flex-direction: column;
+
+  ${breakpointMax('m')`
+    position: relative;
+    margin-left: calc(50% + ${theme('spaces.xs')});
+    margin-top: -25.4rem;
+    height: 25rem;
+    width: calc(50% - ${theme('spaces.s')});
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    padding: ${theme('spaces.s')};
+    background-color: ${theme('colors.primary')};
+
+    .circle-arrow {
+      fill: ${theme('colors.white')};
+    }
+  `}
+
+  ${breakpoint('m')`
+    padding-top: ${theme('spaces.l')};
+    animation: 1s hide linear, 0.3s fade ease-in 1s;
+
+    @keyframes hide {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+
+    @keyframes fade {
+      0% {
+        opacity: 0;
+        transform: translateY(50%);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .circle-arrow {
+      fill: ${theme('colors.primary')};
+    }
+  `}
+
+  ${breakpoint('xl')`
+    padding-top: ${theme('spaces.xxl')};
+  `}
+`
+
+const StyledDivider = styled(Divider)`
+  ${breakpointMax('m')`
+    display: none;
+  `}
 `
 
 const LinkBlock = styled(Link)`
-  position: relative;
-  width: 100%;
-  text-align: right;
+  display: flex;
+  font-size: ${theme('fonts.size.base')};
   font-weight: bold;
-  font-size: ${theme('fonts.size.l')};
-  color: ${theme('colors.primary')};
-  > span {
-    margin-top: 20px;
-    color: ${theme('colors.grayscale.medium')};
+
+  p{
+    margin: 0;
+
+    span {
+      display: block;
+      color: ${theme('colors.grayscale.medium')};
+    }
   }
+
+  ${breakpointMax('m')`
+    flex-direction: column;
+    align-items: center;
+    color: ${theme('colors.white')};
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.38);
+    text-align: center;
+  `}
+  
+  ${breakpoint('m')`
+    position: relative;
+    margin: ${theme('spaces.l')} 0;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    font-size: ${theme('fonts.size.l')};
+    text-align: right;
+    color: ${theme('colors.primary')};
+  `}
 `
 
 const MoreResultsIcon = styled(Icon)`
   z-index: 2;
-  height: ${theme('icons.size.xxl')};
-  width: ${theme('icons.size.xxl')};
-  margin-top: ${theme('spaces.m')};
-  margin-bottom: calc(${theme('spaces.xl')} * 2);
-  margin-left: ${theme('spaces.m')};
-  transform: translateY(${theme('icons.size.m')});
+  height: ${theme('icons.size.xl')};
+  width: ${theme('icons.size.xl')};
+
+  ${breakpointMax('m')`
+    margin-top: ${theme('spaces.m')};
+  `}
+  
+  ${breakpoint('m')`
+    margin-left: ${theme('spaces.m')};
+    height: ${theme('icons.size.xxl')};
+    width: ${theme('icons.size.xxl')};
+  `}
 `
 
 const Wrapper = styled.div``
@@ -173,10 +281,12 @@ const SearchResultsModal = ({ translate, results, query, nbHits, featureSearchSu
       results.length > 0 &&
       nbHits > 5 &&
       <Wrapper>
-        <Divider />
         <MoreResultsBlock>
+          <StyledDivider />
           <LinkBlock to={`search-result?q=${query}`}>
-            {translate('search_page.see_all_results')} <span>({nbHits})</span>
+            <p>
+              {translate('search_page.see_all_results')} <span>({nbHits})</span>
+            </p>
             <MoreResultsIcon icon="circle-arrow" />
           </LinkBlock>
         </MoreResultsBlock>

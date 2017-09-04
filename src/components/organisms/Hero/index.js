@@ -59,8 +59,12 @@ const StyledRow = styled(Row)`
 `
 
 const StyledHeading = styled(Heading)`
-  margin-bottom: 0;
+  margin-bottom: ${theme('spaces.m')};
   color: ${theme('colors.white')};
+
+  ${breakpointMax('m')`
+    font-size: ${theme('fonts.size.xxl')};
+  `}
 `
 
 const SubHeading = styled(Paragraph)`
@@ -77,6 +81,15 @@ const SubHeading = styled(Paragraph)`
   ${breakpointMax('m')`
     font-size: ${theme('fonts.size.xl')};
   `}
+`
+
+const StyledGrid = styled(Grid)`
+  margin-bottom: ${theme('spaces.xxxl')};
+
+  ${breakpoint('l')`
+    max-width: 84rem;
+     margin-bottom: 25.5rem;
+  `};
 `
 
 const CarouselWrapper = styled.div`
@@ -173,27 +186,31 @@ const Hero = ({ hasActiveConversation, firstChoices, reply }) =>
         {hasActiveConversation
           ? <StyledRow>
               <header>
-                <StyledHeading level={1}>
-                  <FormattedMessage id="hero.conversation_in_progress" />
-                </StyledHeading>
-                <Link to="project-elaboration" button large>
-                  <FormattedMessage id="hero.button_message" />
-                </Link>
-                <SubHeading>
-                  <FormattedMessage id="hero.subheading_in_progress" />
-                </SubHeading>
+                <StyledGrid narrow>
+                  <StyledHeading level={1}>
+                    <FormattedMessage id="hero.conversation_in_progress" />
+                  </StyledHeading>
+                  <Link to="project-elaboration" button large>
+                    <FormattedMessage id="hero.button_message" />
+                  </Link>
+                  <SubHeading>
+                    <FormattedMessage id="hero.subheading_in_progress" />
+                  </SubHeading>
+                </StyledGrid>
                 {FirstChoices(firstChoices, reply)}
               </header>
             </StyledRow>
           : <Grid>
               <StyledRow column>
                 <header>
-                  <StyledHeading level={1}>
-                    <FormattedMessage id="hero.title_message" />
-                  </StyledHeading>
-                  <SubHeading>
-                    <FormattedMessage id="hero.welcome_message" />
-                  </SubHeading>
+                  <StyledGrid narrow>
+                    <StyledHeading level={1}>
+                      <FormattedMessage id="hero.title_message" />
+                    </StyledHeading>
+                    <SubHeading>
+                      <FormattedMessage id="hero.welcome_message" />
+                    </SubHeading>
+                  </StyledGrid>
                   {FirstChoices(firstChoices, reply)}
                 </header>
               </StyledRow>

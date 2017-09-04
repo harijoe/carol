@@ -20,7 +20,7 @@ const styles = ({ height }) => {
       break
     case 'm':
       baseStyle = css`
-        height: 22rem;
+        height: 25rem;
 
         ${breakpoint('m')`
           height: 30rem;
@@ -42,7 +42,9 @@ const styles = ({ height }) => {
     position: relative;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
+    align-content: center;
     justify-content: center;
     padding: ${theme('spaces.s')};
     
