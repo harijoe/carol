@@ -25,14 +25,14 @@ module.exports = {
         },
       },
       globals: {
-        retryAssertionTimeout: 10000,
-        waitForConditionTimeout: 10000,
+        waitForConditionTimeout: 1000,
       },
       desiredCapabilities: {
         browserName: 'chrome',
         javascriptEnabled: true,
         acceptSslCerts: true,
       },
+      end_session_on_fail: true,
     },
     travis: {
       selenium: {

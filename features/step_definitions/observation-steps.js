@@ -13,6 +13,16 @@ defineSupportCode(({ When }) => {
 
   When(/I should be redirected to '(.*)'/, async target => {
     const targetUrl = getApiUrl(target)
+    let currentUrl
+    let i = 0
+
+    while(currentUrl !== targetUrl && i < 10) {
+      // eslint-disable-next-line no-await-in-loop
+      currentUrl = await promisify(client.url)()
+      // eslint-disable-next-line no-await-in-loop
+      await new Promise(resolve => setTimeout(resolve, 200))
+      i += 1
+    }
 
     await client.assert.urlEquals(targetUrl)
   })
@@ -58,7 +68,7 @@ defineSupportCode(({ When }) => {
   })
 
   When(/I should see the search input field/, async () => {
-    await client.assert.visible('input[placeholder="What is your project?"]')
+    await client.assert.visible('input[placeholder="Quel est votre projet ?"]')
   })
 
   When(/I should see the back button/, async () => {
