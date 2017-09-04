@@ -10,8 +10,6 @@ import Attachment from './molecules/Attachment'
 
 const Wrapper = styled.div`
   bottom: 0;
-  display: flex;
-  flex-direction: column;
   margin: 0 auto;
   margin-bottom: 5.6rem;
   max-height: calc(100vh - 12.1rem);
