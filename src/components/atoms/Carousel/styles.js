@@ -4,9 +4,9 @@ export default `
   position: relative;
   display: flex;
   flex-wrap: nowrap;  
-  flex-grow: 1; 
+}
+.slick-track {
   flex-shrink: 0; 
-  flex-basis: auto;
 }
 .slick-slider {
   box-sizing: border-box;
