@@ -22,6 +22,7 @@ export default `
 }
 .slick-list {
   overflow: hidden;
+  max-width: 100%;
   margin: 0;
 }
 .slick-list:focus {

@@ -37,6 +37,10 @@ const LeftCol = styled(Col)`
     padding: 0;
   `,
   )}
+  
+  .slick-list {
+    max-width: 700px;
+  }
 `
 
 const RightCol = styled(Col)`
