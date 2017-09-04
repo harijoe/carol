@@ -7,7 +7,6 @@ import en from 'react-intl/locale-data/en'
 import es from 'react-intl/locale-data/es'
 import { injectGlobals, theme, breakpoint } from 'utils/style'
 
-import { Divider } from 'components'
 import { ChatbotPopin } from 'containers'
 import defaultTheme, { resets, scaffolding } from '../../themes/default'
 
@@ -45,13 +44,6 @@ const Background = styled.div`
   `};
 `
 
-const StyledDivider = styled(Divider)`
-  position: absolute;
-  bottom: 6.5rem;
-  max-width: 120rem;
-  background-color: ${theme('colors.grayscale.light')};
-`
-
 const ProjectElaborationTemplate = ({ header, children, ...props }) =>
   <ThemeProvider theme={defaultTheme}>
     <Wrapper {...props}>
@@ -61,7 +53,6 @@ const ProjectElaborationTemplate = ({ header, children, ...props }) =>
       </Header>
       <Background>
         {children}
-        <StyledDivider />
       </Background>
     </Wrapper>
   </ThemeProvider>

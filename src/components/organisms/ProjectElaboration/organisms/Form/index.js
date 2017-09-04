@@ -9,9 +9,17 @@ import { theme, ifThen, breakpoint } from 'utils/style'
 
 import { RenderField, Icon, PopinMenu, PopinMenuButton } from 'components'
 
+const Wrapper = styled.div`
+  border-top: 1px solid ${theme('colors.grayscale.light')};
+`
+
 const StyledForm = styled.form`
+  position: relative;
   display: flex;
   flex-direction: column;
+  margin: 0 auto;
+  max-width: 80rem;
+  width: 100%;
 
   ${breakpoint('l')`
     padding-left: ${theme('spaces.l')};
@@ -25,9 +33,8 @@ const StyledForm = styled.form`
 const BottomBar = styled.div`
   display: flex;
   flex-wrap: nowrap;
-  align-content: center;
-  align-items: center;
   padding: ${theme('spaces.m')};
+  width: 100%;
   background-color: ${theme('colors.white')};
 
   div:nth-child(2) {
@@ -63,9 +70,12 @@ const BackButton = styled.button`
 
   ${breakpoint('m')`
     right: ${theme('spaces.m')};
-  `} ${breakpoint('xl')`
+  `}
+
+  ${breakpoint('xl')`
     right: 4.2rem;
-  `};
+  `}
+
 `
 
 const SubmitButton = styled.button`
@@ -195,34 +205,36 @@ class Form extends Component {
     }
 
     return (
-      <StyledForm onSubmit={this.onSubmit(handleSubmit(submit))}>
-        <BackButton type="button" onClick={submitBack} className="back-button" style={{ visibility: enableBack ? 'visible' : 'hidden' }}>
-          <BackIcon icon="back" />
-          <FormattedMessage id="project.elaboration.back" />
-        </BackButton>
-        <BottomBar>
-          <PopinMenu menu={[<SubMenuReset />]}>
-            <VerticalDotsButton>
-              <VerticalDotsIcon icon="vertical-dots" />
-            </VerticalDotsButton>
-          </PopinMenu>
-          <StyledField
-            disabled={disabled}
-            name="answer"
-            component={RenderField}
-            placeholder={translate('project.elaboration.answer')}
-            autoFocus
-            onFocus={scrollToBottom}
-            innerRef={field => {
-              this.field = field
-            }}
-          />
-          <SubmitButton disabled={pristine || submitting} type="submit">
-            <SubmitIcon icon="send" />
-            <FormattedMessage id="project.elaboration.submit" />
-          </SubmitButton>
-        </BottomBar>
-      </StyledForm>
+      <Wrapper>
+        <StyledForm onSubmit={this.onSubmit(handleSubmit(submit))}>
+          <BackButton type="button" onClick={submitBack} className="back-button" style={{ visibility: enableBack ? 'visible' : 'hidden' }}>
+            <BackIcon icon="back" />
+            <FormattedMessage id="project.elaboration.back" />
+          </BackButton>
+          <BottomBar>
+            <PopinMenu menu={[<SubMenuReset />]}>
+              <VerticalDotsButton>
+                <VerticalDotsIcon icon="vertical-dots" />
+              </VerticalDotsButton>
+            </PopinMenu>
+            <StyledField
+              disabled={disabled}
+              name="answer"
+              component={RenderField}
+              placeholder={translate('project.elaboration.answer')}
+              autoFocus
+              onFocus={scrollToBottom}
+              innerRef={field => {
+                this.field = field
+              }}
+            />
+            <SubmitButton disabled={pristine || submitting} type="submit">
+              <SubmitIcon icon="send" />
+              <FormattedMessage id="project.elaboration.submit" />
+            </SubmitButton>
+          </BottomBar>
+        </StyledForm>
+      </Wrapper>
     )
   }
 }

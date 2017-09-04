@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import isFirstChatbotStep from 'utils/isFirstChatbotStep'
+import { breakpoint } from 'utils/style'
 
 import { Grid } from 'components'
 import Conversation from './organisms/Conversation'
@@ -16,6 +17,10 @@ const StyledGrid = styled(Grid)`
   padding-bottom: 0;
   padding-top: 5.6rem;
   background: white;
+
+  ${breakpoint('l')`
+    max-width: none;
+  `};
 `
 
 const ProjectElaboration = ({ activeConversation, reply, locale, redirectTo }) => {
