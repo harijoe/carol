@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { fromProjectElaboration } from 'store/selectors'
+import { fromContext, fromProjectElaboration } from 'store/selectors'
 import { projectElaborationHeroDetails, setProjectElaborationHeroAnswer } from 'store/actions'
 
 import { Hero } from 'components'
@@ -25,6 +25,7 @@ const mapStateToProps = state => ({
   hasActiveConversation: fromProjectElaboration.hasActiveConversation(state),
   conversations: fromProjectElaboration.getConversations(state),
   firstChoices: fromProjectElaboration.getFirstChoices(state),
+  featureSearchEngineEnabled: fromContext.isFeatureEnabled(state, 'search_engine'),
 })
 
 const mapDispatchToProps = dispatch =>

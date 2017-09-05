@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
 import styled, { css } from 'styled-components'
-import { theme, breakpoint, breakpointMax, mapBreakpoints } from 'utils/style'
+import { ifThen, theme, breakpoint, breakpointMax, mapBreakpoints } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
 
 import { Section, ThumbnailCard, Paragraph, Grid, Row, Link, MainWrapper, Heading } from 'components'
@@ -84,11 +84,20 @@ const SubHeading = styled(Paragraph)`
 `
 
 const StyledGrid = styled(Grid)`
-  margin-bottom: ${theme('spaces.xxxl')};
-
-  ${breakpoint('l')`
-    max-width: 84rem;
-     margin-bottom: 25.5rem;
+  ${({ featureSearchEngineEnabled }) => css`
+    max-width: 84rem;  
+    ${ifThen(
+      featureSearchEngineEnabled,
+      css`
+      margin-bottom: ${theme('spaces.xxxl')};
+      ${breakpoint('l')`
+        margin-bottom: 15rem;
+      `};
+    `,
+      css`
+      margin-bottom: 0;
+    `,
+    )};
   `};
 `
 
@@ -179,14 +188,15 @@ const FirstChoices = (choices, reply) =>
       </Carousel>}
   </CarouselWrapper>
 
-const Hero = ({ hasActiveConversation, firstChoices, reply }) =>
+const Hero = ({ hasActiveConversation, firstChoices, reply, featureSearchEngineEnabled }) =>
   <HeroWrapper className="hero">
     <MainWrapper resetState>
+      `
       <StyledSection>
         {hasActiveConversation
           ? <StyledRow>
               <header>
-                <StyledGrid narrow>
+                <StyledGrid featureSearchEngineEnabled={featureSearchEngineEnabled} narrow>
                   <StyledHeading level={1}>
                     <FormattedMessage id="hero.conversation_in_progress" />
                   </StyledHeading>
@@ -203,7 +213,7 @@ const Hero = ({ hasActiveConversation, firstChoices, reply }) =>
           : <Grid>
               <StyledRow column>
                 <header>
-                  <StyledGrid narrow>
+                  <StyledGrid featureSearchEngineEnabled={featureSearchEngineEnabled} narrow>
                     <StyledHeading level={1}>
                       <FormattedMessage id="hero.title_message" />
                     </StyledHeading>
@@ -221,6 +231,7 @@ const Hero = ({ hasActiveConversation, firstChoices, reply }) =>
 
 Hero.propTypes = {
   hasActiveConversation: PropTypes.bool,
+  featureSearchEngineEnabled: PropTypes.bool,
   firstChoices: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
