@@ -7,10 +7,32 @@ import { Row, Col, Grid, ThumbnailPoster, Link, Icon, Tag } from 'components'
 const StyledGrid = styled(Grid)`
   max-width: 110rem;
 `
+const animationDelay = props => `${props.order * 0.125}s`
 
 const ColGrid = styled(Col)`
-
   max-width: 22.5rem;
+  animation: ${animationDelay} hide ease, 0.3s suggestions ease ${animationDelay};
+
+  @keyframes hide {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes suggestions {
+    0% {
+      opacity: 0;
+      transform: translateY(15%);
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 
   ${breakpointMax('m')`
     padding: ${theme('spaces.xs')};
@@ -31,6 +53,7 @@ const StyledThumbnailPoster = styled(ThumbnailPoster)`
   }
 
   h3 {
+    margin-bottom: -6.4rem;
     transform: translateY(0);
     transition: all 0.6s 0.1s ease;
   }
@@ -44,6 +67,7 @@ const StyledThumbnailPoster = styled(ThumbnailPoster)`
   &:hover {
 
     &, h3 {
+      margin-bottom: 0;
       transform: translateY(-${theme('spaces.l')});
     }
 
@@ -68,14 +92,15 @@ const StyledIcon = styled(Icon)`
   margin-top: ${theme('spaces.m')};
   margin-bottom: -6.4rem;
   opacity: 0;
-  transform: translateY(${theme('spaces.m')});
+  transform: translateY(150%);
   transition: all 0.6s 0.1s ease;
 `
 
 const WrapperTag = styled.div`
   position: absolute;
-  left: 1rem;
-  bottom: 1rem;
+  z-index: 10;
+  left: ${theme('spaces.s')};
+  bottom: ${theme('spaces.s')};
 `
 
 const StyledTag = styled(Tag)`
@@ -87,7 +112,7 @@ const StyledTag = styled(Tag)`
 const SearchSuggestions = () =>
   <StyledGrid narrow>
     <Row>
-      <ColGrid xs={6} m={4} l={3} x>
+      <ColGrid xs={6} m={4} l={3} order={1} x>
         <StyledThumbnailPoster
           image={{ src: 'http://res.cloudinary.com/quotatis/image/upload/v1502376733/FR/ChatbotImages/Q2/fenetres-et-ouvertures-exterieures/fenetre.jpg', alt: name }}
           height="m"
@@ -102,7 +127,7 @@ const SearchSuggestions = () =>
           </WrapperTag>
         </StyledThumbnailPoster>
       </ColGrid>
-      <ColGrid xs={6} m={4} l={3} x>
+      <ColGrid xs={6} m={4} l={3} order={2} x>
         <StyledThumbnailPoster
           image={{ src: 'http://res.cloudinary.com/quotatis/image/upload/v1500642631/FR/ChatbotImages/Q2/peinture-sols-et-eclairage/peinture-et-papier-peint.jpg', alt: name }}
           height="m"
@@ -117,7 +142,7 @@ const SearchSuggestions = () =>
           </WrapperTag>
         </StyledThumbnailPoster>
       </ColGrid>
-      <ColGrid xs={6} m={4} l={3} x>
+      <ColGrid xs={6} m={4} l={3} order={3} x>
         <StyledThumbnailPoster
           image={{ src: 'http://res.cloudinary.com/quotatis/image/upload/v1502976701/FR/ChatbotImages/Q2/isolation-chauffage-climatisation/climatiseur-reversible-et-climatisation.jpg', alt: name }}
           height="m"
@@ -132,7 +157,7 @@ const SearchSuggestions = () =>
           </WrapperTag>
         </StyledThumbnailPoster>
       </ColGrid>
-      <ColGrid xs={6} m={4} l={3} x>
+      <ColGrid xs={6} m={4} l={3} order={4} x>
         <StyledThumbnailPoster
           image={{ src: 'http://res.cloudinary.com/quotatis/image/upload/v1500642398/FR/ChatbotImages/Q2/isolation-chauffage-climatisation/isolation-par-l-interieur-de-plancher-mur-cloison-combles.jpg', alt: name }}
           height="m"
@@ -147,7 +172,7 @@ const SearchSuggestions = () =>
           </WrapperTag>
         </StyledThumbnailPoster>
       </ColGrid>
-      <ColGrid xs={6} m={4} l={3} x>
+      <ColGrid xs={6} m={4} l={3} order={5} x>
         <StyledThumbnailPoster
           image={{ src: 'http://res.cloudinary.com/quotatis/image/upload/v1500641381/FR/ChatbotImages/Q2/amenagement-de-pieces/amenagement-complet-de-salle-de-bains.jpg', alt: name }}
           height="m"
