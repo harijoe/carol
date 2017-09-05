@@ -36,12 +36,11 @@ const BubbleAnswer = styled.p`
   @keyframes bubble {
     0% {
       opacity: 0;
-      transform: translateY(50%);
+      transform: translateY(-50%);
     }
 
     80% {
       opacity: 1;
-      transform: translateY(-10%);
     }
 
     100% {
