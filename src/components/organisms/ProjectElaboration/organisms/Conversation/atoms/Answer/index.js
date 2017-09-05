@@ -53,18 +53,23 @@ const BubbleAnswer = styled.p`
     position: absolute;
     top: 0;
     right: -1.2rem;
-    height: 1.7rem;
     width: 1.2rem;
     content: '';
+    border: none; 
+    outline: none;
   }
 
   &::before {
+    height: 1.7rem;
     background: ${theme('colors.primary')};
+    border: 1rem solid ${theme('colors.primary')};
   }
 
   &::after {
+    height: 2rem;
     background: ${theme('colors.white')};
     border-top-left-radius: 6rem;
+    border: 0.1rem solid ${theme('colors.white')};
   }
 `
 
