@@ -114,7 +114,7 @@ const SearchSuggestions = () =>
     <Row>
       <ColGrid xs={6} m={4} l={3} order={1} x>
         <StyledThumbnailPoster
-          image={{ src: 'http://res.cloudinary.com/quotatis/image/upload/v1502376733/FR/ChatbotImages/Q2/fenetres-et-ouvertures-exterieures/fenetre.jpg', alt: name }}
+          image={{ src: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1502376733/FR/ChatbotImages/Q2/fenetres-et-ouvertures-exterieures/fenetre.jpg', alt: name }}
           height="m"
           title={'Fenêtre'}
           className="result"
@@ -129,7 +129,7 @@ const SearchSuggestions = () =>
       </ColGrid>
       <ColGrid xs={6} m={4} l={3} order={2} x>
         <StyledThumbnailPoster
-          image={{ src: 'http://res.cloudinary.com/quotatis/image/upload/v1500642631/FR/ChatbotImages/Q2/peinture-sols-et-eclairage/peinture-et-papier-peint.jpg', alt: name }}
+          image={{ src: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500642631/FR/ChatbotImages/Q2/peinture-sols-et-eclairage/peinture-et-papier-peint.jpg', alt: name }}
           height="m"
           title={'Peinture et papier peint'}
           className="result"
@@ -144,7 +144,7 @@ const SearchSuggestions = () =>
       </ColGrid>
       <ColGrid xs={6} m={4} l={3} order={3} x>
         <StyledThumbnailPoster
-          image={{ src: 'http://res.cloudinary.com/quotatis/image/upload/v1502976701/FR/ChatbotImages/Q2/isolation-chauffage-climatisation/climatiseur-reversible-et-climatisation.jpg', alt: name }}
+          image={{ src: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1502976701/FR/ChatbotImages/Q2/isolation-chauffage-climatisation/climatiseur-reversible-et-climatisation.jpg', alt: name }}
           height="m"
           title={'Climatiseur réversible et climatisation'}
           className="result"
@@ -159,7 +159,7 @@ const SearchSuggestions = () =>
       </ColGrid>
       <ColGrid xs={6} m={4} l={3} order={4} x>
         <StyledThumbnailPoster
-          image={{ src: 'http://res.cloudinary.com/quotatis/image/upload/v1500642398/FR/ChatbotImages/Q2/isolation-chauffage-climatisation/isolation-par-l-interieur-de-plancher-mur-cloison-combles.jpg', alt: name }}
+          image={{ src: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500642398/FR/ChatbotImages/Q2/isolation-chauffage-climatisation/isolation-par-l-interieur-de-plancher-mur-cloison-combles.jpg', alt: name }}
           height="m"
           title={'Isolation par l\'intérieur de plancher, mur, cloison, combles'}
           className="result"
@@ -174,7 +174,7 @@ const SearchSuggestions = () =>
       </ColGrid>
       <ColGrid xs={6} m={4} l={3} order={5} x>
         <StyledThumbnailPoster
-          image={{ src: 'http://res.cloudinary.com/quotatis/image/upload/v1500641381/FR/ChatbotImages/Q2/amenagement-de-pieces/amenagement-complet-de-salle-de-bains.jpg', alt: name }}
+          image={{ src: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500641381/FR/ChatbotImages/Q2/amenagement-de-pieces/amenagement-complet-de-salle-de-bains.jpg', alt: name }}
           height="m"
           title={'Aménagement complet de salle de bains'}
           className="result"
