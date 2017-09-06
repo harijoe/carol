@@ -47,6 +47,7 @@ const ColGrid = styled(Col)`
 const StyledThumbnailPoster = styled(ThumbnailPoster)`
   transform: translateY(0);
   transition: all 0.3s ease;
+  box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, 0.15);
 
   &::before {
     transition: all 0.3s ease;
@@ -65,6 +66,7 @@ const StyledThumbnailPoster = styled(ThumbnailPoster)`
   }
 
   &:hover {
+    box-shadow: 4px 10px 40px 0 rgba(19, 19, 19, 0.4);
 
     &, h3 {
       margin-bottom: 0;

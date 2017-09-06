@@ -48,7 +48,6 @@ const styles = ({ height }) => {
     justify-content: center;
     padding: ${theme('spaces.s')};
     overflow: hidden;
-    box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, 0.15);
 
     &::before {
       position: absolute;
@@ -60,10 +59,6 @@ const styles = ({ height }) => {
       opacity: 0.3;
       content: '';
       z-index: 1;
-    }
-
-    &:hover {
-      box-shadow: 4px 10px 40px 0 rgba(19, 19, 19, 0.4);
     }
   `
 
