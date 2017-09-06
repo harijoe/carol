@@ -378,3 +378,17 @@ export const current = [
     },
   },
 ]
+
+export const withSlug = [
+  { message: { text: 'Bonjour,\nD\u00e9marrons votre projet \u0022Carrelage et parquet\u0022', quick_replies: [] } },
+  {
+    message: {
+      text: 'Plus pr\u00e9cis\u00e9ment, quel rev\u00eatement de sol int\u00e9rieur est concern\u00e9 ?',
+      quick_replies: [
+        { content_type: 'text', title: 'Carrelage', payload: 'aa55b991-a9cc-42f6-a1c1-407966542958', image_url: null },
+        { content_type: 'text', title: 'Parquet', payload: 'f13f4b53-6bad-43de-95b4-05871bf3d073', image_url: null },
+      ],
+      is_first_step: true,
+    },
+  },
+]

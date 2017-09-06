@@ -55,7 +55,7 @@ const BubbleAnswer = styled.p`
     right: -1.2rem;
     width: 1.2rem;
     content: '';
-    border: none; 
+    border: none;
     outline: none;
   }
 

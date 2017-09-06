@@ -8,6 +8,7 @@ import * as project from './project'
 import * as emailVerified from './emailVerified'
 import projects from './projects'
 import * as user from './user'
+import partner from './partner'
 
 export default [
   {
@@ -56,6 +57,17 @@ export default [
     conditionalRequestBody: {
       channel: 'project',
       message: { text: 'new_project.current' },
+      user: 'MOCK_SESSION_ID',
+    },
+  },
+  {
+    method: 'POST',
+    path: '/chatbot',
+    response: chatbot.withSlug,
+    conditionalRequestBody: {
+      channel: 'project',
+      message: { text: 'new_project.first_question:carrelage-et-parquet' },
+      tracking: { acqSource: 'LM', acqActivity: 'sol' },
       user: 'MOCK_SESSION_ID',
     },
   },
@@ -131,5 +143,9 @@ export default [
       token: 'VALID_TOKEN',
     },
     response: emailVerified.verify,
+  },
+  {
+    path: '/partners?acqSource=LM&countryCode=FR',
+    response: partner,
   },
 ]

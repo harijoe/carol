@@ -39,7 +39,7 @@ const Wrapper = styled.div`
 
   &.qs-Field--toValidate:not(.disabled) {
     cursor: pointer;
-    
+
     > span:nth-child(2) {
       box-shadow: inset 0 -0.1rem 0 rgba(211, 47, 47, 1);
       transition: all 0.3s ease;
@@ -50,7 +50,6 @@ const Wrapper = styled.div`
         box-shadow: inset 0 -6rem 0 rgba(211, 47, 47, 1);
       }
     }
-    
   }
 `
 

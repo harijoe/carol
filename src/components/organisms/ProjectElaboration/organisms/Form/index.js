@@ -9,9 +9,7 @@ import { theme, ifThen, breakpoint } from 'utils/style'
 
 import { RenderField, Icon, PopinMenu, PopinMenuButton } from 'components'
 
-const Wrapper = styled.div`
-  border-top: 1px solid ${theme('colors.grayscale.light')};
-`
+const Wrapper = styled.div`border-top: 1px solid ${theme('colors.grayscale.light')};`
 
 const StyledForm = styled.form`
   position: relative;
@@ -70,12 +68,9 @@ const BackButton = styled.button`
 
   ${breakpoint('m')`
     right: ${theme('spaces.m')};
-  `}
-
-  ${breakpoint('xl')`
+  `} ${breakpoint('xl')`
     right: 4.2rem;
-  `}
-
+  `};
 `
 
 const SubmitButton = styled.button`

@@ -8,4 +8,5 @@ export default {
   'search-result': '/search-result',
   'email validation': '/verify-email',
   'my projects': '/projects',
+  'chatbot via partner link': '/project-elaboration?slug=carrelage-et-parquet&utm_source=LM&acq_activity=sol&sqn=77051',
 }

@@ -16,7 +16,7 @@ const WrapperResults = styled.div`
   ${breakpoint('xl')`
     padding-left: 0;
     padding-right: 0;
-  `}
+  `};
 `
 
 const StyledThumbnailPoster = styled(ThumbnailPoster)`
@@ -134,9 +134,7 @@ const MoreResultsBlock = styled.div`
     .circle-arrow {
       fill: ${theme('colors.white')};
     }
-  `}
-
-  ${breakpoint('m')`
+  `} ${breakpoint('m')`
     padding-top: ${theme('spaces.l')};
     animation: 1s hide linear, 0.3s fade ease-in 1s;
 
@@ -164,11 +162,9 @@ const MoreResultsBlock = styled.div`
     .circle-arrow {
       fill: ${theme('colors.primary')};
     }
-  `}
-
-  ${breakpoint('xl')`
+  `} ${breakpoint('xl')`
     padding-top: ${theme('spaces.xxl')};
-  `}
+  `};
 `
 
 const StyledDivider = styled(Divider)`
@@ -243,12 +239,13 @@ const SearchResultsModal = ({ translate, results, query, nbHits, featureSearchSu
           <ResultsHeading level={3}>
             {translate('search_page.no_result_title')}
           </ResultsHeading>}
-        {featureSearchSuggestionsEnabled && <div>
-          <ResultsHeading level={3}>
-            {translate('search_page.result_section_title.projects_default')}
-          </ResultsHeading>
-          <SearchSuggestions />
-        </div>}
+        {featureSearchSuggestionsEnabled &&
+          <div>
+            <ResultsHeading level={3}>
+              {translate('search_page.result_section_title.projects_default')}
+            </ResultsHeading>
+            <SearchSuggestions />
+          </div>}
       </div>}
     {!results &&
       featureSearchSuggestionsEnabled &&

@@ -55,3 +55,9 @@ Feature: As a user, I can interact with the chatbot
     And I click on 'S'inscrire'
     Then I should be redirected to '/projects/MOCK_PROJECT_ID/account'
     And I should not see 'Se connecter'
+
+  Scenario: Partner link to chatbot
+    Given I go to the 'chatbot via partner link' page
+    Then I should see 'Votre projet en partenariat avec'
+    And I should see 'Démarrons votre projet "Carrelage et parquet"'
+    And I should see 'Plus précisément, quel revêtement de sol intérieur est concerné ?'
