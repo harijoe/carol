@@ -45,7 +45,19 @@ const styles = ({ status }) => css`
   )}
 
   ${ifThen(
-    ['validated', 'pending_search', 'found'].includes(status),
+    status === 'found',
+    css`
+    background-color: ${theme('colors.primary')};
+    color: ${theme('colors.white')};
+
+    svg .check-color1 {
+      fill: ${theme('colors.white')};
+    }
+  `,
+  )}
+
+  ${ifThen(
+    ['validated', 'pending_search'].includes(status),
     css`
     background-color: ${theme('colors.success')};
     color: ${theme('colors.white')};
