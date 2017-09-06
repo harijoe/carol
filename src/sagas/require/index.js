@@ -1,4 +1,4 @@
-import { fromUser, fromProject, fromProjectElaboration } from 'store/selectors'
+import { fromUser, fromProject, fromProjectElaboration, fromContext } from 'store/selectors'
 import { select } from 'redux-saga/effects'
 import { projectDetails as projectDetailsAction, userDetails, projectElaborationPartner } from 'store/actions'
 import fetch from 'sagas/fetch'
@@ -24,6 +24,8 @@ export const requirePartner = function*(partnerCode) {
   const partnerHeaderLink = yield select(fromProjectElaboration.getPartnerHeaderLink)
 
   if (partnerHeaderText == null || partnerHeaderLink == null) {
-    yield* fetch(projectElaborationPartner, 'get', `/partners?acqSource=${partnerCode}`)
+    const countryCode = yield select(fromContext.getCountry)
+
+    yield* fetch(projectElaborationPartner, 'get', `/partners?acqSource=${partnerCode}&countryCode=${countryCode}`)
   }
 }
