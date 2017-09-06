@@ -91,7 +91,7 @@ const configs = {
       },
     },
     algolia: {
-      projectFlowIndex: 'prod_ProjectFlow_prod',
+      projectFlowIndex: 'preprod_ProjectFlow_prod',
     },
   },
   production: {
