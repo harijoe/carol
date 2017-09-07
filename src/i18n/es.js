@@ -284,7 +284,6 @@ export default {
   'user.error': 'Vaya',
   'user.error.email_not_verified': 'El correo no pudo ser verificada',
   'user.facebook_id': 'Facebook ID',
-  'user.favorite_page': 'página favorita',
   'user.first_name': 'Nombre',
   'user.fixed_phone': 'Teléfono fijo',
   'user.forget_password': 'Contraseña olvidada ?',

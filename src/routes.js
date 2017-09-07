@@ -5,7 +5,6 @@ import anonymousOnly from 'hoc/security/anonymousOnly'
 import requiresAuth from 'hoc/security/requiresAuth'
 import {
   App,
-  FavoritePage,
   FirmPage,
   ForgotPasswordPage,
   HelpPage,
@@ -28,7 +27,6 @@ import { ProjectPreValidatePage, VerifyEmailPage, EmailValidationPage, HomePage,
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
-    <Route path="favorite" component={requiresAuth(FavoritePage)} />
     <Route path="firms/:firmId" component={requiresAuth(FirmPage)} />
     <Route path="forgot-password" component={anonymousOnly(ForgotPasswordPage)} />
     <Route path="help" component={HelpPage} />

@@ -277,7 +277,6 @@ export default {
   'user.error': 'Oops',
   'user.error.email_not_verified': 'Your email could not be verified',
   'user.facebook_id': 'Facebook ID',
-  'user.favorite_page': 'Favorite page',
   'user.first_name': 'First Name',
   'user.fixed_phone': 'Landline',
   'user.forget_password': 'Forget password ?',
