@@ -5,6 +5,7 @@ import { ifThen, theme, breakpoint } from 'utils/style'
 
 import { CloseAllButton, Icon } from 'components'
 import { SearchInput, SearchResultsModal } from 'containers'
+import isIOS from 'utils/isIOS'
 
 const StyledIcon = styled(Icon)`
   ${({ isCollapse }) => css`
@@ -106,8 +107,10 @@ const SearchEngineWrapper = styled.div`
   `};
 `
 
+const ANIMATION_DURATION = 0.5
+
 const StyledCloseAllButton = styled(CloseAllButton)`
-  animation: 1s hide linear, 0.5s fade ease-in 1s;
+  animation: 1s hide linear, ${ANIMATION_DURATION}s fade ease-in 1s;
 
   @keyframes hide {
     from {
@@ -141,7 +144,12 @@ class SearchEngine extends Component {
   }
 
   toggleSearch = () => {
-    this.setState({ isCollapse: !this.state.isCollapse })
+    const isCollapse = !this.state.isCollapse
+    this.setState({ isCollapse }, () => {
+      if (isIOS() && isCollapse) {
+        setTimeout(() => window.scrollTo(0, 0), ANIMATION_DURATION * 1000)
+      }
+    })
     this.props.resetResults()
   }
 
