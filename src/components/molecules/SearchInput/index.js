@@ -7,7 +7,7 @@ import injectTranslate from 'i18n/hoc/injectTranslate'
 import { Input } from 'components'
 
 const StyledInput = styled(Input)`
-  ${({ isCollapse }) => css`
+  ${({ isExpanded }) => css`
     width: 100%;
     height: 5.7rem;
     padding-left: ${theme('spaces.m')};
@@ -42,7 +42,7 @@ const StyledInput = styled(Input)`
     transition-timing-function: cubic-bezier(0.7,0,0.3,1);
     
     ${ifThen(
-      isCollapse,
+      isExpanded,
       css`
         height: 7.5rem;
         width: calc(100% - ${theme('spaces.xl')});
@@ -72,16 +72,16 @@ const StyledInput = styled(Input)`
   `};
 `
 
-const SearchInput = ({ translate, search, query, isCollapse }) => {
+const SearchInput = ({ translate, search, query, isExpanded }) => {
   // When not deployed, the input should always show the placeholder instead of the last query
-  const value = isCollapse ? query : ''
-  return <StyledInput onChange={e => search(e.target.value)} isCollapse={isCollapse} placeholder={translate('search_page.field_placeholder')} value={value} />
+  const value = isExpanded ? query : ''
+  return <StyledInput onChange={e => search(e.target.value)} isExpanded={isExpanded} placeholder={translate('search_page.field_placeholder')} value={value} />
 }
 
 SearchInput.propTypes = {
   translate: PropTypes.func.isRequired,
   search: PropTypes.func,
-  isCollapse: PropTypes.bool,
+  isExpanded: PropTypes.bool,
   query: PropTypes.string,
 }
 

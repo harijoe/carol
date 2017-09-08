@@ -8,7 +8,7 @@ import { SearchInput, SearchResultsModal } from 'containers'
 import isIOS from 'utils/isIOS'
 
 const StyledIcon = styled(Icon)`
-  ${({ isCollapse }) => css`
+  ${({ isExpanded }) => css`
     display: block;
     position: absolute;
     right: ${theme('spaces.m')};
@@ -26,7 +26,7 @@ const StyledIcon = styled(Icon)`
     `};
 
     ${ifThen(
-      isCollapse,
+      isExpanded,
       css`
       margin-top: calc( ${theme('icons.size.l')} / -2 );
       height: ${theme('icons.size.l')};
@@ -52,7 +52,7 @@ const SearchInnerWrapper = styled.div`
 `
 
 const SearchEngineWrapper = styled.div`
-  ${({ isCollapse }) => css`
+  ${({ isExpanded }) => css`
     position: absolute;
     z-index: 10;
     top: 40rem;
@@ -80,7 +80,7 @@ const SearchEngineWrapper = styled.div`
   
     
     ${ifThen(
-      isCollapse,
+      isExpanded,
       css`
         position: fixed;
         z-index: 1000;
@@ -139,14 +139,14 @@ class SearchEngine extends Component {
     super(props)
 
     this.state = {
-      isCollapse: false,
+      isExpanded: false,
     }
   }
 
   toggleSearch = () => {
-    const isCollapse = !this.state.isCollapse
-    this.setState({ isCollapse }, () => {
-      if (isIOS() && isCollapse) {
+    const isExpanded = !this.state.isExpanded
+    this.setState({ isExpanded }, () => {
+      if (isIOS() && isExpanded) {
         setTimeout(() => window.scrollTo(0, 0), ANIMATION_DURATION * 1000)
       }
     })
@@ -154,16 +154,16 @@ class SearchEngine extends Component {
   }
 
   render() {
-    const { isCollapse } = this.state
+    const { isExpanded } = this.state
 
     return (
-      <SearchEngineWrapper isCollapse={isCollapse} onClick={!isCollapse && this.toggleSearch}>
-        {isCollapse && <StyledCloseAllButton closeAll={this.toggleSearch} />}
+      <SearchEngineWrapper isExpanded={isExpanded} onClick={!isExpanded && this.toggleSearch}>
+        {isExpanded && <StyledCloseAllButton closeAll={this.toggleSearch} />}
         <SearchInnerWrapper>
-          <StyledIcon icon="search" isCollapse={isCollapse} />
-          <SearchInput isCollapse={isCollapse} />
+          <StyledIcon icon="search" isExpanded={isExpanded} />
+          <SearchInput isExpanded={isExpanded} />
         </SearchInnerWrapper>
-        {isCollapse && <SearchResultsModal />}
+        {isExpanded && <SearchResultsModal />}
       </SearchEngineWrapper>
     )
   }
