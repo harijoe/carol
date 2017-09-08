@@ -110,6 +110,11 @@ const StyledSection = styled(Section)`
   &:not(:first-of-type) {
     padding-top: 0;
   }
+
+  &:last-child > div div {
+    display: flex;
+    align-items: flex-start;
+  }
 `
 
 const StyledGrid = styled(Grid)`
