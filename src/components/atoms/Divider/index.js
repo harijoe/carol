@@ -6,6 +6,8 @@ import { theme, ifThen } from 'utils/style'
 const styles = ({ or, translate }) => css`
   position: relative;
   display: flex;
+  justify-content: center;
+  text-align: center;
   width: 100%;
   height: 1px;
   background-color: ${theme('colors.grayscale.lighter')};
@@ -14,9 +16,6 @@ const styles = ({ or, translate }) => css`
   ${ifThen(
     or,
     `
-    justify-content: center;
-    text-align: center;
-
     &::before {
       content: '${translate('user.or')}';
       position: absolute;
