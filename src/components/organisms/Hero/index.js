@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components'
 import { ifThen, theme, breakpoint, breakpointMax, mapBreakpoints } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
 
-import { Section, ThumbnailCard, Paragraph, Grid, Row, Link, MainWrapper, Heading } from 'components'
+import { Section, ThumbnailCard, Paragraph, Grid, Row, MainWrapper, Heading } from 'components'
 import { Carousel } from 'containers'
 
 const HeroWrapper = styled.div`
@@ -188,49 +188,31 @@ const FirstChoices = (choices, reply) =>
       </Carousel>}
   </CarouselWrapper>
 
-const Hero = ({ hasActiveConversation, firstChoices, reply, featureSearchEngineEnabled }) =>
+const Hero = ({ firstChoices, reply, featureSearchEngineEnabled }) =>
   <HeroWrapper className="hero">
     <MainWrapper resetState>
       `
       <StyledSection>
-        {hasActiveConversation
-          ? <StyledRow>
-              <header>
-                <StyledGrid featureSearchEngineEnabled={featureSearchEngineEnabled} narrow>
-                  <StyledHeading level={1}>
-                    <FormattedMessage id="hero.conversation_in_progress" />
-                  </StyledHeading>
-                  <Link to="project-elaboration" button large>
-                    <FormattedMessage id="hero.button_message" />
-                  </Link>
-                  <SubHeading>
-                    <FormattedMessage id="hero.subheading_in_progress" />
-                  </SubHeading>
-                </StyledGrid>
-                {FirstChoices(firstChoices, reply)}
-              </header>
-            </StyledRow>
-          : <Grid>
-              <StyledRow column>
-                <header>
-                  <StyledGrid featureSearchEngineEnabled={featureSearchEngineEnabled} narrow>
-                    <StyledHeading level={1}>
-                      <FormattedMessage id="hero.title_message" />
-                    </StyledHeading>
-                    <SubHeading>
-                      <FormattedMessage id="hero.welcome_message" />
-                    </SubHeading>
-                  </StyledGrid>
-                  {FirstChoices(firstChoices, reply)}
-                </header>
-              </StyledRow>
-            </Grid>}
+        <Grid>
+          <StyledRow column>
+            <header>
+              <StyledGrid featureSearchEngineEnabled={featureSearchEngineEnabled} narrow>
+                <StyledHeading level={1}>
+                  <FormattedMessage id="hero.title_message" />
+                </StyledHeading>
+                <SubHeading>
+                  <FormattedMessage id="hero.welcome_message" />
+                </SubHeading>
+              </StyledGrid>
+              {FirstChoices(firstChoices, reply)}
+            </header>
+          </StyledRow>
+        </Grid>
       </StyledSection>
     </MainWrapper>
   </HeroWrapper>
 
 Hero.propTypes = {
-  hasActiveConversation: PropTypes.bool,
   featureSearchEngineEnabled: PropTypes.bool,
   firstChoices: PropTypes.arrayOf(
     PropTypes.shape({
