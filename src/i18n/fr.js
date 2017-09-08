@@ -79,6 +79,7 @@ export default {
   'footer.corporate.about': 'Qui sommes-nous ?',
   'footer.corporate.adeo': 'Groupe ADEO',
   'footer.corporate.contact': 'Contact',
+  'footer.corporate.create_a_job': 'Démarrer un projet',
   'footer.corporate.directory': 'Annuaire Artisan',
   'footer.corporate.folder_projects': 'Dossiers travaux',
   'footer.corporate.guides': 'Guides Pratiques',

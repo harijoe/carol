@@ -13,4 +13,4 @@ Feature: As a user going to the home page, I see home page contents
     Then I should be on a page titled 'Quote Works'
     And I should see 'What's your project?'
     And I should see 11 Key-one slides
-    And I should see 8 items in the footer advices section
+    And I should see 12 items in the footer advices section

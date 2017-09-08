@@ -24,29 +24,45 @@ export default {
         key: 'windows',
         src: 'guide/windows-doors/windows/',
       },
-      column_2_1: {
+      column_1_3: {
         key: 'conservatories',
         src: 'guide/conservatories-roofing-extensions/conservatories/',
       },
-      column_2_2: {
+      column_2_1: {
         key: 'gas_boiler',
         src: 'guide/heating-air-con/gas-boilers/',
+      },
+      column_2_2: {
+        key: 'pitched_roofing',
+        src: 'guide/conservatories-roofing-extensions/pitched-roofing/',
+      },
+      column_2_3: {
+        key: 'fascias',
+        src: 'guide/conservatories-roofing-extensions/soffits-fascias/',
       },
       column_3_1: {
         key: 'driveways',
         src: 'guide/paving-driveways/driveways/',
       },
       column_3_2: {
-        key: 'patios',
-        src: 'guide/paving-driveways/patios/',
+        key: 'asbestos',
+        src: 'guide/asbestos/asbestos-removal/',
+      },
+      column_3_3: {
+        key: 'guttering',
+        src: 'guide/conservatories-roofing-extensions/guttering/',
       },
       column_4_1: {
-        key: 'pitched_roofing',
-        src: '?s=pitched+roofing',
+        key: 'tree_surgery',
+        src: 'guide/garden-maintenance/tree-surgery/',
       },
       column_4_2: {
-        key: 'flat_roofing',
-        src: 'guide/conservatories-roofing-extensions/flat-roofing/',
+        key: 'air-con',
+        src: 'guide/heating-air-con-insulation/air-con/',
+      },
+      column_4_3: {
+        key: 'satellite',
+        src: 'guide/electrical-cctv/aerials-satellite/',
       },
     },
     corporate: {
