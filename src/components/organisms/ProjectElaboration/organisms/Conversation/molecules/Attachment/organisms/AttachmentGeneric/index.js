@@ -110,6 +110,8 @@ const AttachmentGeneric = ({ attachment, reply }) =>
         settings: {
           arrows: true,
           swipe: false,
+          slidesToScroll: 3,
+          slidesToShow: 3,
         },
       },
     ]}
