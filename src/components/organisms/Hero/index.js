@@ -178,7 +178,7 @@ const FirstChoices = (choices, reply) =>
             settings: {
               arrows: true,
               swipe: false,
-              slidesToScroll: 4,
+              slidesToScroll: 5,
               slidesToShow: 4,
             },
           },
