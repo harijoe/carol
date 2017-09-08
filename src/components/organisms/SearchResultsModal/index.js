@@ -76,10 +76,32 @@ const StyledIcon = styled(Icon)`
 const StyledGrid = styled(Grid)`
   max-width: 110rem;
 `
-
+const animationDelay = props => `${props.order * 0.125}s`
 const ColGrid = styled(Col)`
   max-width: 20rem;
   padding: ${theme('spaces.xs')};
+  animation: ${animationDelay} hide ease, 0.3s suggestions ease ${animationDelay};
+
+  @keyframes hide {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes suggestions {
+    0% {
+      opacity: 0;
+      transform: translateY(15%);
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 
   ${breakpoint('l')`
     padding-left: calc(${theme('spaces.l')} / 2);
@@ -134,9 +156,54 @@ const MoreResultsBlock = styled.div`
     .circle-arrow {
       fill: ${theme('colors.white')};
     }
-  `} ${breakpoint('m')`
+  `} 
+
+  ${breakpoint('m')`
     padding-top: ${theme('spaces.l')};
-    animation: 1s hide linear, 0.3s fade ease-in 1s;
+
+    > a{
+      animation: 0.25s hide linear, 0.5s fade ease-in 0.25s;
+
+      @keyframes hide {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+
+      @keyframes fade {
+        0% {
+          opacity: 0;
+          transform: translateY(50%);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+
+    .circle-arrow {
+      fill: ${theme('colors.primary')};
+    }
+  `} 
+
+  ${breakpoint('xl')`
+    padding-top: ${theme('spaces.xxl')};
+  `};
+`
+
+const StyledDivider = styled(Divider)`
+  ${breakpointMax('m')`
+    display: none;
+  `}
+
+  ${breakpoint('m')`
+    transform-origin: 100% 50%;
+    animation: 0.25s hide linear, 0.3s scale ease-in 0.25s;
 
     @keyframes hide {
       from {
@@ -147,29 +214,15 @@ const MoreResultsBlock = styled.div`
       }
     }
 
-    @keyframes fade {
+    @keyframes scale {
       0% {
-        opacity: 0;
-        transform: translateY(50%);
+        transform: scale(0);
       }
 
       100% {
-        opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
       }
     }
-
-    .circle-arrow {
-      fill: ${theme('colors.primary')};
-    }
-  `} ${breakpoint('xl')`
-    padding-top: ${theme('spaces.xxl')};
-  `};
-`
-
-const StyledDivider = styled(Divider)`
-  ${breakpointMax('m')`
-    display: none;
   `}
 `
 
@@ -263,8 +316,8 @@ const SearchResultsModal = ({ translate, results, query, nbHits, featureSearchSu
         </ResultsHeading>
         <StyledGrid narrow>
           <Row>
-            {results.filter((el, index) => index < 5).map(({ name, slug, id, _highlightResult }) =>
-              <ColGrid xs={6} m={4} l={3} key={id} x>
+            {results.filter((el, index) => index < 5).map(({ name, slug, id, _highlightResult }, i) =>
+              <ColGrid xs={6} m={4} l={3} order={i} key={id} x>
                 <StyledThumbnailPoster
                   isHtml
                   image={{ src: cloudinary('/icons/placeholder-logo.png'), alt: name }}

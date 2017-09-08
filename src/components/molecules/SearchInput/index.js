@@ -10,6 +10,8 @@ const StyledInput = styled(Input)`
   ${({ isCollapse }) => css`
     width: 100%;
     height: 5.7rem;
+    padding-left: ${theme('spaces.m')};
+ +    padding-right: calc(${theme('spaces.l')} + ${theme('spaces.m')});
     background-color: transparent;
     border:0;
     border-bottom:1px solid transparent;
@@ -17,8 +19,7 @@ const StyledInput = styled(Input)`
     margin-top:0;
     font-size: ${theme('fonts.size.base')};
     font-weight: normal;
-    padding-left: ${theme('spaces.m')};
-    padding-right: calc(${theme('spaces.l')} + ${theme('spaces.m')});
+    line-height: 0;
  
     ${breakpoint('l')`
       width: 80rem;
@@ -52,6 +53,7 @@ const StyledInput = styled(Input)`
         font-size: ${theme('fonts.size.l')};
         font-weight: bold;
         border-bottom: 1px solid ${theme('colors.primary')};
+        line-height: 1;
 
         ${breakpoint('l')`
           height: 15rem;

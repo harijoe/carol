@@ -37,6 +37,10 @@ const HeroWrapper = styled.div`
     opacity: 0.85;
   }
 
+  @media screen and (max-height: 600px) {
+    padding-top: 10rem;
+  }
+
   ${breakpoint('l')`
     min-height: 90vh;
   `};
@@ -85,12 +89,18 @@ const SubHeading = styled(Paragraph)`
 
 const StyledGrid = styled(Grid)`
   ${({ featureSearchEngineEnabled }) => css`
-    max-width: 84rem;  
+    max-width: 85rem;  
     ${ifThen(
       featureSearchEngineEnabled,
       css`
-      margin-bottom: ${theme('spaces.xxxl')};
+      margin-bottom: 12.5rem;
+
+      @media screen and (max-height: 600px) {
+        min-height: 20rem;
+      }
+      
       ${breakpoint('l')`
+        min-height: 25rem;
         margin-bottom: 15rem;
       `};
     `,

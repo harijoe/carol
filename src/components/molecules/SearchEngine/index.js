@@ -53,7 +53,7 @@ const SearchEngineWrapper = styled.div`
   ${({ isCollapse }) => css`
     position: absolute;
     z-index: 10;
-    top: 36.5rem;
+    top: 40rem;
     left: ${theme('spaces.m')};
     width: calc(100% - ${theme('spaces.xl')});
     height: 5.7rem;
@@ -66,12 +66,12 @@ const SearchEngineWrapper = styled.div`
     transition-timing-function: cubic-bezier(0.7,0,0.3,1);
 
     @media screen and (max-height: 600px) {
-      top: 40rem;
+      top: 37rem;
     }
 
     ${breakpoint('l')`
-      left: calc(50% - 40rem);
-      top: 42.5rem;
+      left: calc(50% - 40rem - ${theme('spaces.l')});
+      top: 50.5rem;
       height: 7.5rem;
       width: 80rem;
     `};
