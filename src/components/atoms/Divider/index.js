@@ -20,6 +20,8 @@ const styles = ({ or, translate }) => css`
       content: '${translate('user.or')}';
       position: absolute;
       top: -9px;
+      left: 50%;
+      margin-left: -20px;
       width: 40px;
       height: 20px;
       background-color: white;
