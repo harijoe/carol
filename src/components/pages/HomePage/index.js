@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 
-import { MainLayout, HowItWorks, Testimonials, TipsAndTricks, Reinsurance, MainWrapper, SearchEngine } from 'components'
-import { Hero, MotionMenu } from 'containers'
+import { MainLayout, HowItWorks, Testimonials, TipsAndTricks, Reinsurance, MainWrapper } from 'components'
+import { Hero, MotionMenu, SearchEngine } from 'containers'
 
 const HomePage = ({ locale, translate, featureSearchEngineEnabled, featureMotionMenuEnabled, ...props }) =>
   <MainLayout {...props}>

@@ -72,13 +72,17 @@ const StyledInput = styled(Input)`
   `};
 `
 
-const SearchInput = ({ translate, search, isCollapse }) =>
-  <StyledInput onChange={e => search(e.target.value)} isCollapse={isCollapse} placeholder={translate('search_page.field_placeholder')} />
+const SearchInput = ({ translate, search, query, isCollapse }) => {
+  // When not deployed, the input should always show the placeholder instead of the last query
+  const value = isCollapse ? query : ''
+  return <StyledInput onChange={e => search(e.target.value)} isCollapse={isCollapse} placeholder={translate('search_page.field_placeholder')} value={value} />
+}
 
 SearchInput.propTypes = {
   translate: PropTypes.func.isRequired,
   search: PropTypes.func,
   isCollapse: PropTypes.bool,
+  query: PropTypes.string,
 }
 
 export default injectTranslate(SearchInput)

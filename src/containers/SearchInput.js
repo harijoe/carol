@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { projectElaborationSearch } from 'store/actions'
+import { fromSearchEngine } from 'store/selectors'
 
 import { SearchInput } from 'components'
 
@@ -10,4 +11,8 @@ const mapDispatchToProps = dispatch => ({
   search: query => dispatch(projectElaborationSearch(query)),
 })
 
-export default connect(null, mapDispatchToProps)(SearchInputContainer)
+const mapStateToProps = state => ({
+  query: fromSearchEngine.getQuery(state),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchInputContainer)

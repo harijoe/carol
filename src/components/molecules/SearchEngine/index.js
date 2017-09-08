@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { ifThen, theme, breakpoint } from 'utils/style'
 
@@ -141,6 +142,7 @@ class SearchEngine extends Component {
 
   toggleSearch = () => {
     this.setState({ isCollapse: !this.state.isCollapse })
+    this.props.resetResults()
   }
 
   render() {
@@ -159,6 +161,8 @@ class SearchEngine extends Component {
   }
 }
 
-SearchEngine.propTypes = {}
+SearchEngine.propTypes = {
+  resetResults: PropTypes.func,
+}
 
 export default SearchEngine
