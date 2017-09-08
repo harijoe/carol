@@ -1,6 +1,7 @@
-export default nightWatchApi => (...args) =>
-  new Promise(async resolve => {
-    await nightWatchApi(...args, res => {
-      resolve(res.value)
+export default api => (...args) =>
+  new Promise(async (resolve, reject) => {
+    await api(...args, (error, result) => {
+      if (error) reject(error)
+      else resolve(result)
     })
   })

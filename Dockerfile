@@ -10,7 +10,7 @@ ENV GIT_SHA1="not-set"
 RUN apk add --no-cache curl && \
   mkdir -p /opt && \
   curl -sL https://yarnpkg.com/latest.tar.gz | tar xz -C /opt && \
-  mv /opt/dist /opt/yarn && \
+  mv /opt/yarn* /opt/yarn && \
   ln -s /opt/yarn/bin/yarn /usr/local/bin && \
   apk del --purge curl
 

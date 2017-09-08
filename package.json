@@ -64,6 +64,7 @@
     "babel-preset-stage-1": "^6.16.0",
     "chromedriver": "^2.31.0",
     "clean-webpack-plugin": "^0.1.15",
+    "cloudinary": "^1.9.0",
     "colors": "^1.1.2",
     "concurrently": "^3.5.0",
     "css-loader": "^0.28.4",

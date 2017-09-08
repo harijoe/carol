@@ -8,3 +8,4 @@ webpack/webpack-assets.json
 .storybook/public/*
 !.storybook/public/favicon.ico
 reports/
+build/

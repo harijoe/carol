@@ -1,7 +1,7 @@
 import { defineSupportCode } from 'cucumber'
 import simulado from 'simulado'
-import { client } from 'nightwatch-cucumber'
 
+import client from '../lib/promisified-nightwatch-client'
 import * as chatbot from '../mocks/chatbot'
 import getAppUrl from '../lib/app'
 import paths from '../lib/paths'
@@ -38,6 +38,6 @@ defineSupportCode(({ Given }) => {
     await reachedProjectSummary()
     await client.url(getAppUrl(paths.chatbot))
     await new Promise(resolve => setTimeout(resolve, 500)) // Necessary, probably to wait the project summary animation finishes
-    await client.useXpath().click("//*[contains(text(), 'Valider mon projet')]").useCss()
+    await client.click('xpath', "//*[contains(text(), 'Valider mon projet')]")
   })
 })

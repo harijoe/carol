@@ -1,5 +1,5 @@
 import { defineSupportCode } from 'cucumber'
-import { client } from 'nightwatch-cucumber'
+import client from '../lib/promisified-nightwatch-client'
 
 defineSupportCode(({ When }) => {
   When(/I click on '(.*)'/, async target => {

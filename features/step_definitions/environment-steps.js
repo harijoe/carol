@@ -1,6 +1,6 @@
 import { defineSupportCode } from 'cucumber'
-import { client } from 'nightwatch-cucumber'
 
+import client from '../lib/promisified-nightwatch-client'
 import environment from '../lib/environment'
 import { goToCookiesPage } from '../lib/cookies'
 

@@ -1,5 +1,6 @@
 import { defineSupportCode } from 'cucumber'
-import { client } from 'nightwatch-cucumber'
+
+import client from '../lib/promisified-nightwatch-client'
 import getAppUrl from '../lib/app'
 import paths from '../lib/paths'
 
