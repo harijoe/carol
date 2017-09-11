@@ -66,23 +66,25 @@ const StyledThumbnailPoster = styled(ThumbnailPoster)`
   }
 
   &:hover {
-    box-shadow: 4px 10px 40px 0 rgba(19, 19, 19, 0.4);
+    ${breakpoint('xl')`
+      box-shadow: 4px 10px 40px 0 rgba(19, 19, 19, 0.4);
 
-    &, h3 {
-      margin-bottom: 0;
-      transform: translateY(-${theme('spaces.l')});
-    }
+      &, h3 {
+        margin-bottom: 0;
+        transform: translateY(-${theme('spaces.l')});
+      }
 
-    &::before {
-      background: ${theme('colors.primary')};
-      opacity: 0.85;
-    }
+      &::before {
+        background: ${theme('colors.primary')};
+        opacity: 0.85;
+      }
 
-    .qs-icon {
-      margin-bottom: 0;
-      opacity: 1;
-      transform: translateY(-${theme('spaces.m')});
-    }
+      .qs-icon {
+        margin-bottom: 0;
+        opacity: 1;
+        transform: translateY(-${theme('spaces.m')});
+      }
+    `};
   }
 `
 
