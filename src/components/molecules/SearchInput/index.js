@@ -11,7 +11,7 @@ const StyledInput = styled(Input)`
     width: 100%;
     height: 5.7rem;
     padding-left: ${theme('spaces.m')};
- +    padding-right: calc(${theme('spaces.l')} + ${theme('spaces.m')});
+    padding-right: calc(${theme('spaces.l')} + ${theme('spaces.m')});
     background-color: transparent;
     border:0;
     border-bottom:1px solid transparent;
@@ -19,7 +19,7 @@ const StyledInput = styled(Input)`
     margin-top:0;
     font-size: ${theme('fonts.size.base')};
     font-weight: normal;
-    line-height: 0;
+    line-height: 1;
  
     ${breakpoint('l')`
       width: 80rem;
@@ -37,7 +37,7 @@ const StyledInput = styled(Input)`
       color: ${theme('colors.grayscale.dark')};
     } 
     
-    transition-property: min-height, height, width, top, left, margin, font-size, padding, border-bottom;
+    transition-property: min-height, height, width, margin, font-size, padding, border-bottom;
     transition-duration: 0.5s;
     transition-timing-function: cubic-bezier(0.7,0,0.3,1);
     
@@ -53,7 +53,6 @@ const StyledInput = styled(Input)`
         font-size: ${theme('fonts.size.l')};
         font-weight: bold;
         border-bottom: 1px solid ${theme('colors.primary')};
-        line-height: 1;
 
         ${breakpoint('l')`
           height: 15rem;
