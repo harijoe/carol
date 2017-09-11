@@ -80,13 +80,14 @@ class AttachmentSummary extends Component {
           <StyledParagraph>
             <FormattedMessage id="project.elaboration.summary.subtitle" />
           </StyledParagraph>
-          <StyledThumbnailPosterWrapper>
+          { // eslint-disable-next-line camelcase
+            image_url && <StyledThumbnailPosterWrapper>
             <ThumbnailPoster
               // eslint-disable-next-line camelcase
               image={{ src: image_url }}
               title={title}
             />
-          </StyledThumbnailPosterWrapper>
+          </StyledThumbnailPosterWrapper>}
           {summary}
           {validateProjectLink}
         </ProjectElaborationQuestion>
