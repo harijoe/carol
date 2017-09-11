@@ -1,11 +1,8 @@
 # Quotatis Single Page Application
 Master: [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Quotatis/carol/badges/quality-score.png?b=master&s=222575eb53a871d4c978a53173ea8ea59d97fc38)](https://scrutinizer-ci.com/g/Quotatis/carol/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/Quotatis/carol/badges/coverage.png?b=master&s=2566a0a0516e5557828471b90a9d9d0fc82b109e)](https://scrutinizer-ci.com/g/Quotatis/carol/?branch=master) [![Build Status](https://travis-ci.com/Quotatis/carol.svg?token=n1DpETbfhCpoPtcwMaSP&branch=master)](https://travis-ci.com/Quotatis/carol/)
-
-Develop: [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Quotatis/carol/badges/quality-score.png?b=develop&s=222575eb53a871d4c978a53173ea8ea59d97fc38)](https://scrutinizer-ci.com/g/Quotatis/carol/?branch=develop) [![Code Coverage](https://scrutinizer-ci.com/g/Quotatis/carol/badges/coverage.png?b=develop&s=2566a0a0516e5557828471b90a9d9d0fc82b109e)](https://scrutinizer-ci.com/g/Quotatis/carol/?branch=develop) [![Build Status](https://travis-ci.com/Quotatis/carol.svg?token=n1DpETbfhCpoPtcwMaSP&branch=develop)](https://travis-ci.com/Quotatis/carol/)
-
 Dependencies:
 
-Version: 1.4
+Version: 1.7.0
 
 ## 1. Requirements
 [Node.js](https://nodejs.org/), [Docker](https://docker.io)
