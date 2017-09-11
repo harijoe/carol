@@ -60,8 +60,10 @@ const StyledPartnerLogo = styled(Image)`
   margin-left: 10px;
 `
 
-const HeaderConversational = ({ partnerHeaderLink, partnerHeaderText, ...props }) => {
+const HeaderConversational = ({ partnerHeaderLink, partnerHeaderText, partnerWebsite, ...props }) => {
   const heading = partnerHeaderText || <FormattedMessage id="project.elaboration.title" />
+  const partnerLogo = <StyledPartnerLogo src={partnerHeaderLink} />
+  const partnerWidget = partnerWebsite ? <Link to={partnerWebsite}>{partnerLogo}</Link> : partnerLogo
 
   return (
     <Wrapper {...props}>
@@ -71,7 +73,7 @@ const HeaderConversational = ({ partnerHeaderLink, partnerHeaderText, ...props }
       <StyledHeading level={3}>
         {heading}
       </StyledHeading>
-      {partnerHeaderLink && <StyledPartnerLogo src={partnerHeaderLink} />}
+      {partnerHeaderLink && partnerWidget}
       <Block>
         <Link to="/">
           <CloseIcon icon="close" />
@@ -84,6 +86,7 @@ const HeaderConversational = ({ partnerHeaderLink, partnerHeaderText, ...props }
 HeaderConversational.propTypes = {
   partnerHeaderLink: PropTypes.string,
   partnerHeaderText: PropTypes.string,
+  partnerWebsite: PropTypes.string,
 }
 
 export default HeaderConversational

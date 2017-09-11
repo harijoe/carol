@@ -9,6 +9,7 @@ const HeaderConversationalContainer = props => <HeaderConversational {...props} 
 const mapStateToProps = state => ({
   partnerHeaderText: fromProjectElaboration.getPartnerHeaderText(state),
   partnerHeaderLink: fromProjectElaboration.getPartnerHeaderLink(state),
+  partnerWebsite: fromProjectElaboration.getPartnerHeaderWebsite(state),
 })
 
 export default connect(mapStateToProps)(HeaderConversationalContainer)

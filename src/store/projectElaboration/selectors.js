@@ -38,6 +38,7 @@ export const initialState = {
 export const getConversation = (state = initialState) => state.activeConversation
 export const getPartnerHeaderText = (state = initialState) => get(state, ['partner', 'headerText'])
 export const getPartnerHeaderLink = (state = initialState) => get(state, ['partner', 'headerLink'])
+export const getPartnerHeaderWebsite = (state = initialState) => get(state, ['partner', 'website'])
 export const hasActiveConversation = (state = initialState) => {
   const activeConversation = getConversation(state)
   return !!(activeConversation.length > 0 && activeConversation[0].answer && activeConversation[0].answer.text)
