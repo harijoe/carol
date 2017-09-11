@@ -50,13 +50,13 @@ describe('date validator', () => {
     expectValid('first day of year', '1', '1', '1967')
     expectValid('last day in Feb', '28', '02', '1967')
     expectValid('last day in Feb on leap year', '29', '2', '1968')
-    expectValid('empty', '', '', '')
+    expectValid('empty', undefined, undefined, undefined)
   })
 
   describe('invalid dates', () => {
     expectInvalid('32 of January', '32', '01', '1967')
-    expectInvalid('0 of January', '32', '01', '1967')
+    expectInvalid('0 of January', '0', '01', '1967')
     expectInvalid('last day in february + 1', '29', '02', '1967')
-    expectInvalid('partially filled', '1', '2', '')
+    expectInvalid('partially filled', '1', undefined, undefined)
   })
 })

@@ -16,7 +16,7 @@ export const daysInMonth = (month, year) => {
 
 export default (_, { birthdateDay, birthdateMonth, birthdateYear }) => {
   const error = { id: 'validators.user.birthdate.invalid_date', values: {} }
-  const empty = field => field === ''
+  const empty = field => field === undefined
 
   if ([birthdateDay, birthdateMonth, birthdateYear].every(empty)) return false
   if ([birthdateDay, birthdateMonth, birthdateYear].some(empty)) return error
