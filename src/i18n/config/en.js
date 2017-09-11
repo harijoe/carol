@@ -14,6 +14,54 @@ export default {
   homepage: {
     verifiedProsLink: '/tradesmen-directory',
   },
+  searchSuggestions: {
+    primary: [
+      {
+        title: 'Conservatories and orangeries',
+        slug: 'conservatories-and-orangeries',
+        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1498836491/GB/ChatbotImages/Q1/conservatories-roofing-and-extensions.jpg',
+        tag: 'Project',
+      },
+      {
+        title: 'Boilers',
+        slug: 'boilers',
+        imageUrl: '//res.cloudinary.com/quotatis/image/upload/v1500998227/FrontApp/icons/placeholder-logo.png',
+        tag: 'Project',
+      },
+      {
+        title: 'Windows',
+        slug: 'windows',
+        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1498837780/GB/ChatbotImages/Q1/windows-and-doors.jpg',
+        tag: 'Project',
+      },
+      {
+        title: 'Solar panels',
+        slug: 'solar-panels',
+        imageUrl: '//res.cloudinary.com/quotatis/image/upload/v1500998227/FrontApp/icons/placeholder-logo.png',
+        tag: 'Project',
+      },
+      {
+        title: 'Guttering soffits and fascias',
+        slug: 'guttering-soffits-and-fascias',
+        imageUrl: '//res.cloudinary.com/quotatis/image/upload/v1500998227/FrontApp/icons/placeholder-logo.png',
+        tag: 'Project',
+      },
+    ],
+    secondary: [
+      {
+        title: 'Roofing',
+        slug: 'roffing',
+      },
+      {
+        title: 'Paving and Driveways',
+        slug: 'paving-and-driveways',
+      },
+      {
+        title: 'Asbestos',
+        slug: 'asbestos',
+      },
+    ],
+  },
   footer: {
     advices: {
       column_1_1: {

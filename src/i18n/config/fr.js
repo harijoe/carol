@@ -15,6 +15,54 @@ export default {
   homepage: {
     verifiedProsLink: '/annuaire-artisan',
   },
+  searchSuggestions: {
+    primary: [
+      {
+        title: 'Fenêtre',
+        slug: 'fenetre',
+        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1502376733/FR/ChatbotImages/Q2/fenetres-et-ouvertures-exterieures/fenetre.jpg',
+        tag: 'Projet',
+      },
+      {
+        title: 'Peinture et papier peint',
+        slug: 'peinture-et-papier-peint',
+        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500642631/FR/ChatbotImages/Q2/peinture-sols-et-eclairage/peinture-et-papier-peint.jpg',
+        tag: 'Projet',
+      },
+      {
+        title: 'Climatiseur réversible et climatisation',
+        slug: 'climatiseur-reversible-et-climatisation',
+        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1502976701/FR/ChatbotImages/Q2/isolation-chauffage-climatisation/climatiseur-reversible-et-climatisation.jpg',
+        tag: 'Projet',
+      },
+      {
+        title: 'Isolation par l\'intérieur de plancher, mur, cloison, combles',
+        slug: 'isolation-par-linterieur-de-plancher-mur-cloison-combles',
+        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500642398/FR/ChatbotImages/Q2/isolation-chauffage-climatisation/isolation-par-l-interieur-de-plancher-mur-cloison-combles.jpg',
+        tag: 'Projet',
+      },
+      {
+        title: 'Aménagement complet de salle de bains',
+        slug: 'amenagement-complet-de-salle-de-bains',
+        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500641381/FR/ChatbotImages/Q2/amenagement-de-pieces/amenagement-complet-de-salle-de-bains.jpg',
+        tag: 'Projet',
+      },
+    ],
+    secondary: [
+      {
+        title: 'Rénovation de maison, appartement, commerce',
+        slug: 'renovation-de-maison-appartement-commerce',
+      },
+      {
+        title: 'Carrelage et parquet',
+        slug: 'carrelage-et-parquet',
+      },
+      {
+        title: 'Pompe à chaleur',
+        slug: 'pompe-a-chaleur',
+      },
+    ],
+  },
   footer: {
     advices: {
       column_1_1: {

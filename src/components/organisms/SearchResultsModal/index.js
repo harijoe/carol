@@ -5,7 +5,7 @@ import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
 
-import { Grid, Row, Col, ThumbnailPoster, Heading, Link, Icon, Divider, SearchSuggestions } from 'components'
+import { Grid, Row, Col, ThumbnailPoster, Heading, Link, Icon, Divider, SearchSuggestions, SearchSuggestionsText } from 'components'
 
 const WrapperResults = styled.div`
   max-width: 110rem;
@@ -279,13 +279,7 @@ const MoreResultsIcon = styled(Icon)`
   `}
 `
 
-const Wrapper = styled.div`
-  a {
-    margin-left: ${theme('spaces.s')};
-  }
-`
-
-const SearchResultsModal = ({ translate, results, query, nbHits, featureSearchSuggestionsEnabled }) =>
+const SearchResultsModal = ({ locale, translate, results, query, nbHits, featureSearchSuggestionsEnabled }) =>
   <WrapperResults>
     {(!results || results.length === 0) &&
       <div>
@@ -299,17 +293,12 @@ const SearchResultsModal = ({ translate, results, query, nbHits, featureSearchSu
             <ResultsHeading level={3}>
               {translate('search_page.result_section_title.projects_default')}
             </ResultsHeading>
-            <SearchSuggestions />
+            <SearchSuggestions locale={locale} />
           </div>}
       </div>}
     {!results &&
       featureSearchSuggestionsEnabled &&
-      <Wrapper>
-        {translate('search_page.see_more_projects')}
-        <Link to={'/project-elaboration?slug=renovation-de-maison-appartement-commerce'}>Rénovation de maison, appartement, commerce</Link>
-        <Link to={'/project-elaboration?slug=carrelage-et-parquet'}> Carrelage et parquet</Link>
-        <Link to={'/project-elaboration?slug=pompe-a-chaleur'}> Pompe à chaleur</Link>
-      </Wrapper>}
+      <SearchSuggestionsText locale={locale} />}
     {results &&
       results.length > 0 &&
       <div>
@@ -353,6 +342,7 @@ const SearchResultsModal = ({ translate, results, query, nbHits, featureSearchSu
   </WrapperResults>
 
 SearchResultsModal.propTypes = {
+  locale: PropTypes.string,
   translate: PropTypes.func.isRequired,
   results: PropTypes.array,
   query: PropTypes.string.isRequired,

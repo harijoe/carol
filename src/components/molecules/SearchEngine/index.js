@@ -155,6 +155,7 @@ class SearchEngine extends Component {
 
   render() {
     const { isExpanded } = this.state
+    const { locale } = this.props
 
     return (
       <SearchEngineWrapper isExpanded={isExpanded} onClick={!isExpanded && this.toggleSearch}>
@@ -163,13 +164,14 @@ class SearchEngine extends Component {
           <StyledIcon icon="search" isExpanded={isExpanded} />
           <SearchInput isExpanded={isExpanded} />
         </SearchInnerWrapper>
-        {isExpanded && <SearchResultsModal />}
+        {isExpanded && <SearchResultsModal locale={locale} />}
       </SearchEngineWrapper>
     )
   }
 }
 
 SearchEngine.propTypes = {
+  locale: PropTypes.string,
   resetResults: PropTypes.func,
 }
 
