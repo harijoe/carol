@@ -6,7 +6,7 @@ import { ThumbnailCard, ThumbnailPoster } from 'components'
 const Key2Thumbnail = ({ title, imageUrl, subtitle }) =>
   subtitle
     ? <ThumbnailCard image={imageUrl} title={title} items={subtitle.split('\n')} />
-    : <ThumbnailPoster image={{ src: imageUrl, alt: title }} title={title} />
+    : <ThumbnailPoster image={{ src: imageUrl, alt: title }} title={title} height="m" />
 
 Key2Thumbnail.propTypes = {
   title: PropTypes.string.isRequired,
