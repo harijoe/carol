@@ -172,7 +172,6 @@ const FirmImage = styled.div`
   `};
 `
 
-/*
 const ButtonArrow = styled(Link)`
   position: absolute;
   display: block;
@@ -208,7 +207,6 @@ const ButtonArrow = styled(Link)`
     background-color: ${theme('colors.white')};
   }
 `
-*/
 
 const FirmWrapper = styled.div`
   display: block;
@@ -277,8 +275,7 @@ const Project = ({ name, createdAt, status, partner, leadSales, imageUrl, transl
           {leadSales.map(({ firm }) =>
             <FirmImage key={firm.name} image={firm.logoUrl ? firm.logoUrl : cloudinary('/icons/placeholder-logo.png')} alt={firm.name} />,
           )}
-          {/* disabled for release v1.5 */}
-          {/* <ButtonArrow to={items['@id']} /> */}
+          {<ButtonArrow to={items['@id']} />}
         </FirmWrapper>}
       {status === 'completion_in_progress' &&
         <ButtonLink button to="/project-elaboration">
