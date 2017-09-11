@@ -7,8 +7,7 @@ import cloudinary from 'utils/cloudinary'
 
 import { Grid, Row, Col, Section, ThumbnailPoster, Heading, Paragraph, Link, Icon } from 'components'
 
-import NewSearch from './molecules/NewSearch'
-import SearchTerm from './molecules/SearchTerm'
+import { SearchTerm } from 'containers'
 
 const WrapperResults = styled.div``
 
@@ -80,16 +79,6 @@ const StyledRow = styled(Row)`
   align-items: flex-end;
 `
 
-const NewSearchWrapper = styled(Col)`
-  padding: ${theme('spaces.m')} 0;
-  text-align: right;
-
-  ${breakpointMax('l')`
-    margin-bottom: -${theme('spaces.xl')};
-    border-top: 0.1rem solid ${theme('colors.grey')};
-  `}
-`
-
 const ColGrid = styled(Col)`
   ${breakpointMax('m')`
     padding: ${theme('spaces.xs')};
@@ -110,58 +99,58 @@ const SubHeading = styled(Paragraph)`
   font-size:  ${theme('fonts.size.xl')};
 `
 
-const SearchResults = ({ translate, results, query }) =>
-  <WrapperResults>
-    {query &&
-      <Header>
-        <StyledGrid narrow>
-          <StyledRow>
-            <Col xs={12} l={8}>
-              <SearchTerm term={query} />
-            </Col>
-            <NewSearchWrapper xs={12} l={4}>
-              <NewSearch />
-            </NewSearchWrapper>
-          </StyledRow>
-        </StyledGrid>
-      </Header>}
+const SearchResults = ({ translate, results, query }) => {
+  const hasResults = !results || results.length === 0
+  return <WrapperResults>
+    <Header>
+      <StyledGrid narrow>
+        <StyledRow>
+          <Col xs={12} l={8}>
+            <SearchTerm term={query} />
+          </Col>
+        </StyledRow>
+      </StyledGrid>
+    </Header>
     {results &&
-      <Section light title={translate('search_page.result_section_title.projects')}>
-        <StyledGrid narrow>
-          <Row>
-            {results.map(({ name, slug, id, _highlightResult }) =>
-              <ColGrid xs={6} m={4} l={3} key={id} x>
-                <StyledThumbnailPoster
-                  isHtml
-                  image={{ src: cloudinary('/icons/placeholder-logo.png'), alt: name }}
-                  title={_highlightResult.name.value}
-                  height="m"
-                  className="result"
-                >
-                  <Link to={`/project-elaboration?slug=${slug}`}>
-                    <StyledIcon icon="circle-arrow" className="qs-icon" />
-                  </Link>
-                </StyledThumbnailPoster>
-              </ColGrid>,
-            )}
-          </Row>
-        </StyledGrid>
-      </Section>}
-    {!results &&
-      query !== '' &&
-      <Section light>
-        <StyledGrid narrow>
-          <Row column>
-            <StyledHeading level={3}>
-              {translate('search_page.no_result_title')}
-            </StyledHeading>
-            <SubHeading>
-              {translate('search_page.no_result_subtitle')}
-            </SubHeading>
-          </Row>
-        </StyledGrid>
-      </Section>}
+    <Section
+      light
+      title={`${translate('search_page.result_section_title.projects')}${!hasResults ? ` (${translate('search_page.result_section_title.results', {resultsCount: results.length})})` : ''}`}
+    >
+      <StyledGrid narrow>
+        <Row>
+          {results.map(({name, slug, id, _highlightResult}) =>
+            <ColGrid xs={6} m={4} l={3} key={id} x>
+              <StyledThumbnailPoster
+                isHtml
+                image={{src: cloudinary('/icons/placeholder-logo.png'), alt: name}}
+                title={_highlightResult.name.value}
+                height="m"
+                className="result"
+              >
+                <Link to={`/project-elaboration?slug=${slug}`}>
+                  <StyledIcon icon="circle-arrow" className="qs-icon" />
+                </Link>
+              </StyledThumbnailPoster>
+            </ColGrid>,
+          )}
+        </Row>
+      </StyledGrid>
+    </Section>}
+    {hasResults &&
+    <Section light>
+      <StyledGrid narrow>
+        <Row column>
+          <StyledHeading level={3}>
+            {translate('search_page.no_result_title')}
+          </StyledHeading>
+          <SubHeading>
+            {translate('search_page.no_result_subtitle')}
+          </SubHeading>
+        </Row>
+      </StyledGrid>
+    </Section>}
   </WrapperResults>
+}
 
 SearchResults.propTypes = {
   translate: PropTypes.func.isRequired,

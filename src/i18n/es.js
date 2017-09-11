@@ -215,6 +215,7 @@ export default {
   'search_page.no_result_title': 'Sorry, we don\'t have any results',
   'search_page.result_section_title.projects': 'Projects',
   'search_page.result_section_title.projects_default': 'Puede interesarle!',
+  'search_page.result_section_title.results': '{resultsCount, plural, =1 {# resultado} other {# resultados}}',
   'search_page.result_title': 'Your search results for',
   'search_page.see_all_results': 'See all results',
   'search_page.see_more_projects': 'y también',

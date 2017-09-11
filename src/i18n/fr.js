@@ -220,6 +220,7 @@ export default {
   'search_page.no_result_title': 'Désolé, nous n\'avons aucun résultat pour votre recherche...',
   'search_page.result_section_title.projects': 'Projets',
   'search_page.result_section_title.projects_default': 'Ca peut vous interesser !',
+  'search_page.result_section_title.results': '{resultsCount, plural, =1 {# résultat} other {# résultats}}',
   'search_page.result_title': 'Vos résultats de recherche pour',
   'search_page.see_all_results': 'Voir tous les résultats',
   'search_page.see_more_projects': 'Et aussi',
