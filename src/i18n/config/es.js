@@ -53,11 +53,40 @@ export default {
       },
     },
     corporate: {
-      contact: 'contactanos.html',
-      about: 'quien-somos',
-      use_conditions: 'menciones-legales',
-      guides: '',
-      qpro: 'https://www.quotatispro.es/',
+      column_1_1: {
+        key: 'contact',
+        src: '/contactanos.html',
+        target: '_blank',
+      },
+      column_1_2: {
+        key: 'about',
+        src: 'quien-somos ',
+        contentSite: true,
+        forceRedirect: true,
+      },
+      column_1_3: {
+        key: 'use_conditions',
+        src: 'menciones-legales',
+        contentSite: true,
+        forceRedirect: true,
+      },
+      column_2_1: {
+        key: 'guides',
+        src: '',
+        contentSite: true,
+        forceRedirect: true,
+        target: '_blank',
+      },
+      column_2_2: {
+        key: 'qpro',
+        src: 'https://www.quotatispro.es/',
+        target: '_blank',
+      },
+      column_2_3: {
+        key: 'reforming',
+        src: 'https://www.quotatispro.es/presupuestos-reformas',
+        target: '_blank',
+      },
     },
     social: {
       facebook: 'https://www.facebook.com/Quotatis.Es',

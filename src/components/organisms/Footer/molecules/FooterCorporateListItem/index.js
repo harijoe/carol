@@ -14,6 +14,7 @@ const StyledListItem = styled(ListItem)`
   &:first-child {
     padding-top: 0;
   }
+  
 `
 
 const StyledLink = styled(Link)`
@@ -21,19 +22,24 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `
 
-const FooterCorporateListItem = ({ id, locale, forceRedirect, target, contentSite }) => {
-  if (locales[locale].footer.corporate[id] == null) {
+const FooterCorporateListItem = ({ id, locale }) => {
+
+  const itemConfig = locales[locale].footer.corporate[id]
+
+  if (itemConfig == null) {
     return null
   }
 
+  const { src, key, forceRedirect, target, contentSite } = itemConfig
+
   const url = contentSite
-    ? `${locales[locale].contentSiteUrl}${locales[locale].footer.corporate[id]}`
-    : locales[locale].footer.corporate[id]
+    ? `${locales[locale].contentSiteUrl}${src}`
+    : src
 
   return (
-    <StyledListItem id="window">
-      <StyledLink to={url} forceRedirect={forceRedirect} target={target}>
-        <FormattedMessage id={`footer.corporate.${id}`} />
+    <StyledListItem>
+      <StyledLink to={`${url}`} forceRedirect={forceRedirect} target={target}>
+        <FormattedMessage id={`footer.corporate.${key}`} />
       </StyledLink>
     </StyledListItem>
   )
@@ -42,9 +48,6 @@ const FooterCorporateListItem = ({ id, locale, forceRedirect, target, contentSit
 FooterCorporateListItem.propTypes = {
   id: PropTypes.string,
   locale: PropTypes.string,
-  forceRedirect: PropTypes.bool,
-  target: PropTypes.string,
-  contentSite: PropTypes.bool,
 }
 
 export default FooterCorporateListItem

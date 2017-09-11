@@ -195,24 +195,28 @@ const FooterCorporate = ({ locale, translate }) =>
                     <StyledCountryMenu />
                   </SelectWrap>
                 </StyledListItem>
-                <FooterCorporateListItem id="contact" forceRedirect locale={locale} />
-                <FooterCorporateListItem id="about" contentSite locale={locale} />
-                <FooterCorporateListItem id="job" forceRedirect locale={locale} />
-                <FooterCorporateListItem id="use_conditions" contentSite locale={locale} />
+                <FooterCorporateListItem id="column_1_1" locale={locale} />
+                <FooterCorporateListItem id="column_1_2" locale={locale} />
+                <FooterCorporateListItem id="column_1_3" locale={locale} />
+                <FooterCorporateListItem id="column_1_4" locale={locale} />
+                <FooterCorporateListItem id="column_1_5" locale={locale} />
+                <FooterCorporateListItem id="column_1_6" locale={locale} />
+                <FooterCorporateListItem id="column_1_7" locale={locale} />
+                <FooterCorporateListItem id="column_1_8" locale={locale} />
               </StyledList>
             </Col>
           </Row>
         </FirstCol>
         <SecondCol xs={6} l={3}>
           <StyledList>
-            <FooterCorporateListItem id="guides" contentSite target="_blank" locale={locale} />
-            <FooterCorporateListItem id="directory" target="_blank" locale={locale} />
-            <FooterCorporateListItem id="qpro" target="_blank" locale={locale} />
-            <FooterCorporateListItem id="adeo" target="_blank" locale={locale} />
-            <FooterCorporateListItem id="quote" target="_blank" locale={locale} />
-            <FooterCorporateListItem id="folder_projects" target="_blank" locale={locale} />
-            <FooterCorporateListItem id="trades" target="_blank" locale={locale} />
-            <FooterCorporateListItem id="tools" target="_blank" locale={locale} />
+            <FooterCorporateListItem id="column_2_1" locale={locale} />
+            <FooterCorporateListItem id="column_2_2" locale={locale} />
+            <FooterCorporateListItem id="column_2_3" locale={locale} />
+            <FooterCorporateListItem id="column_2_4" locale={locale} />
+            <FooterCorporateListItem id="column_2_5" locale={locale} />
+            <FooterCorporateListItem id="column_2_6" locale={locale} />
+            <FooterCorporateListItem id="column_2_7" locale={locale} />
+            <FooterCorporateListItem id="column_2_8" locale={locale} />
           </StyledList>
         </SecondCol>
         <ThirdCol xs={6} l={3}>
