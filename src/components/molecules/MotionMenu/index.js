@@ -4,6 +4,7 @@ import { Motion, spring } from 'react-motion'
 import range from 'lodash/range'
 import styled, { css } from 'styled-components'
 import { theme, ifThen } from 'utils/style'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 
 import { Icon, Link } from 'components'
 
@@ -114,25 +115,6 @@ const childButtonFinalRotation = 0
 const childButtonInitialScale = 0
 const childButtonFinalScale = 1
 
-const newChatButton = {
-  type: 'link',
-  element: {
-    icon: 'bubble',
-    dot: false,
-    label: 'Débuter une nouvelle conversation',
-  },
-}
-
-const resumeChatButton = {
-  type: 'link',
-  element: {
-    icon: 'bubble',
-    dot: true,
-    url: '/project-elaboration',
-    label: 'Reprendre la conversation',
-  },
-}
-
 let childButtonIcons = []
 let numChildren
 const childButtonSpringConfig = { stiffness: 300, damping: 20, precision: 50 }
@@ -168,6 +150,7 @@ class MotionMenu extends Component {
   }
 
   componentDidMount() {
+
     this.buildButtons(this.props)
 
     window.addEventListener('resize', this.refreshPosition)
@@ -181,7 +164,28 @@ class MotionMenu extends Component {
     window.removeEventListener('resize', this.refreshPosition)
   }
 
-  buildButtons({ hasActiveConversation }) {
+  buildButtons({ hasActiveConversation, translate }) {
+
+    const newChatButton = {
+      type: 'link',
+      element: {
+        icon: 'bubble',
+        dot: false,
+        label: translate('motion_menu.start_new'),
+      },
+    }
+
+    const resumeChatButton = {
+      type: 'link',
+      element: {
+        icon: 'bubble',
+        dot: true,
+        url: '/project-elaboration',
+        label: translate('motion_menu.resume'),
+      },
+    }
+
+
     childButtonIcons = []
     childButtonIcons.push(newChatButton)
     if (hasActiveConversation) childButtonIcons.push(resumeChatButton)
@@ -364,4 +368,4 @@ MotionMenu.propTypes = {
   redirectToConversation: PropTypes.func,
 }
 
-export default MotionMenu
+export default injectTranslate(MotionMenu)

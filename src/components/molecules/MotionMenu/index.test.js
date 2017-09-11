@@ -2,18 +2,23 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import theme from 'components/themes/default'
 import { ThemeProvider } from 'styled-components'
+import mockIntl from '../../../../test/intlMock'
 
 import MotionMenu from './'
 
 const wrapper = shallow(
+  mockIntl(
   <ThemeProvider theme={theme}>
     <MotionMenu />
   </ThemeProvider>,
+  )
 )
 const wrapperMounted = mount(
+  mockIntl(
   <ThemeProvider theme={theme}>
     <MotionMenu />
   </ThemeProvider>,
+  )
 )
 
 const clickMainButton = () => {
