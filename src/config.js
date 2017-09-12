@@ -55,6 +55,10 @@ const configs = {
     purgeCacheToken: '41Xdkf2c7lflo2o065BTV21y6V6xhg9t',
     termsUrl: 'https://www.quotatis.fr/conseils-travaux/cgu',
     cookiesUrl: 'https://www.quotatis.fr/conseils-travaux/cgu#cookies',
+    sentry: {
+      enabled: false,
+      url: 'https://3ccd80466e1946569044c33368ed7885@sentry.io/192401',
+    },
   },
   qa: {
     devServer: false,
@@ -75,6 +79,9 @@ const configs = {
     algolia: {
       projectFlowIndex: 'qa_ProjectFlow_dev',
     },
+    sentry: {
+      enabled: true,
+    },
   },
   preprod: {
     port: 443,
@@ -92,6 +99,9 @@ const configs = {
     },
     algolia: {
       projectFlowIndex: 'preprod_ProjectFlow_prod',
+    },
+    sentry: {
+      enabled: true,
     },
   },
   production: {
@@ -126,6 +136,9 @@ const configs = {
     assetPath: 'https://assets.quotatis.com',
     algolia: {
       projectFlowIndex: 'prod_ProjectFlow_prod',
+    },
+    sentry: {
+      enabled: true,
     },
   },
   development: {

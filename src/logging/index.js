@@ -1,25 +1,27 @@
-import { browser } from 'config'
+import { browser, sentry } from 'config'
 
-const RavenStub = {
+export const EmptyRavenStub = {
   captureException: () => {},
   captureMessage: () => {},
 }
 
-const requireRaven = () => {
-  if (!browser) {
-    return RavenStub
+let cachedRavenJS = null
+
+const RavenJS = () => {
+  if (cachedRavenJS === null) {
+    cachedRavenJS = require('raven-js')
+
+    cachedRavenJS.config(sentry.url, {
+      environment: process.env.NODE_ENV,
+      release: process.env.GIT_SHA1,
+    }).install()
+
+    window.addEventListener('unhandledrejection', rejection => cachedRavenJS.captureException(rejection.reason))
   }
 
-  const RavenJS = require('raven-js')
-
-  RavenJS.config('https://3ccd80466e1946569044c33368ed7885@sentry.io/192401', {
-    environment: process.env.NODE_ENV,
-    release: process.env.GIT_SHA1,
-  }).install()
-
-  window.addEventListener('unhandledrejection', rejection => RavenJS.captureException(rejection.reason))
-
-  return RavenJS
+  return cachedRavenJS
 }
 
-export default requireRaven()
+const requireRaven = browser && sentry.enabled ? RavenJS() : EmptyRavenStub
+
+export default requireRaven
