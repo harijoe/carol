@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
-import cloudinary from 'utils/cloudinary'
+import { locales } from 'config'
+import shuffle from 'lodash/shuffle'
 
 import { Grid, Row, Col, ThumbnailPoster, Heading, Link, Icon, Divider, SearchSuggestions, SearchSuggestionsText } from 'components'
 
@@ -281,8 +282,12 @@ const MoreResultsIcon = styled(Icon)`
   `}
 `
 
-const SearchResultsModal = ({ locale, translate, results, query, nbHits }) =>
-  <WrapperResults>
+const SearchResultsModal = ({ locale, translate, results, query, nbHits }) => {
+
+  const shuffleImages = shuffle(locales[locale].genericProjectImages)
+
+  return(
+    <WrapperResults>
     {(!results || results.length === 0) &&
       <div>
         {results &&
@@ -307,11 +312,12 @@ const SearchResultsModal = ({ locale, translate, results, query, nbHits }) =>
         </ResultsHeading>
         <StyledGrid narrow>
           <Row>
-            {results.filter((el, index) => index < 5).map(({ name, slug, id, _highlightResult }, i) =>
+            {results.filter((el, index) => index < 5).map(({ name, slug, id, image, _highlightResult }, i) =>
               <ColGrid xs={6} m={4} l={3} order={i} key={id} x>
+                {console.info(image)}
                 <StyledThumbnailPoster
                   isHtml
-                  image={{ src: cloudinary('/icons/placeholder-icon-key2.png'), alt: name }}
+                  image={{ src: image || shuffleImages[i%shuffleImages.length], alt: name }}
                   title={_highlightResult.name.value}
                   height="m"
                   className="result"
@@ -340,6 +346,8 @@ const SearchResultsModal = ({ locale, translate, results, query, nbHits }) =>
         </MoreResultsBlock>
       </div>}
   </WrapperResults>
+  )
+}
 
 SearchResultsModal.propTypes = {
   locale: PropTypes.string,

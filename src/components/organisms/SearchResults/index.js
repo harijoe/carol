@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
-import cloudinary from 'utils/cloudinary'
+import { locales } from 'config'
+import shuffle from 'lodash/shuffle'
 
 import { Grid, Row, Col, Section, ThumbnailPoster, Heading, Paragraph, Link, Icon, SearchSuggestions } from 'components'
 
@@ -141,6 +142,9 @@ const ResultsHeading = styled(Heading)`
 
 const SearchResults = ({ translate, results, query, locale }) => {
   const hasResults = !results || results.length === 0
+
+  const shuffledImages = shuffle(locales[locale].genericProjectImages)
+
   return <WrapperResults>
     <Header>
       <StyledGrid narrow>
@@ -159,11 +163,11 @@ const SearchResults = ({ translate, results, query, locale }) => {
     >
       <StyledGrid narrow>
         <Row>
-          {results.map(({name, slug, id, _highlightResult}, i) =>
-            <ColGrid xs={6} m={4} l={3} order={i} key={id} x>
+          {results.map(({name, slug, id, image, _highlightResult}, index) =>
+            <ColGrid xs={6} m={4} l={3} key={id} x>
               <StyledThumbnailPoster
                 isHtml
-                image={{src: cloudinary('/icons/placeholder-icon-key2.png'), alt: name}}
+                image={{src: image || shuffledImages[index%shuffledImages.length], alt: name}}
                 title={_highlightResult.name.value}
                 height="m"
                 className="result"
