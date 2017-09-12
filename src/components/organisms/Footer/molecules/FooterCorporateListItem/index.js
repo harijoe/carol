@@ -22,7 +22,7 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `
 
-const FooterCorporateListItem = ({ id, locale }) => {
+const FooterCorporateListItem = ({ id, locale, redirectToConversation }) => {
 
   const itemConfig = locales[locale].footer.corporate[id]
 
@@ -30,7 +30,7 @@ const FooterCorporateListItem = ({ id, locale }) => {
     return null
   }
 
-  const { src, key, forceRedirect, target, contentSite } = itemConfig
+  const { src, key, forceRedirect, target, contentSite, clickOnFindAPro } = itemConfig
 
   const url = contentSite
     ? `${locales[locale].contentSiteUrl}${src}`
@@ -38,9 +38,12 @@ const FooterCorporateListItem = ({ id, locale }) => {
 
   return (
     <StyledListItem>
-      <StyledLink to={`${url}`} forceRedirect={forceRedirect} target={target}>
+      {url && <StyledLink to={url} forceRedirect={forceRedirect} target={target}>
         <FormattedMessage id={`footer.corporate.${key}`} />
-      </StyledLink>
+      </StyledLink>}
+      {clickOnFindAPro && <StyledLink onClick={redirectToConversation}>
+        <FormattedMessage id={`footer.corporate.${key}`} />
+      </StyledLink>}
     </StyledListItem>
   )
 }
@@ -48,6 +51,7 @@ const FooterCorporateListItem = ({ id, locale }) => {
 FooterCorporateListItem.propTypes = {
   id: PropTypes.string,
   locale: PropTypes.string,
+  redirectToConversation: PropTypes.func,
 }
 
 export default FooterCorporateListItem

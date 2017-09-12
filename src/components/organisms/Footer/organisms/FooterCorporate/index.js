@@ -5,8 +5,8 @@ import styled from 'styled-components'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 
 import injectTranslate from 'i18n/hoc/injectTranslate'
-import { List, ListItem, Link, Icon, Grid, Col, Row, Paragraph, Section, FooterCorporateListItem } from 'components'
-import { CountryMenu } from 'containers'
+import { List, ListItem, Link, Icon, Grid, Col, Row, Paragraph, Section } from 'components'
+import { CountryMenu, FooterCorporateListItem } from 'containers'
 
 const StyledSection = styled(Section)`
   background-color: ${theme('colors.grayscale.darkest')};

@@ -116,7 +116,7 @@ export default {
     corporate: {
       column_1_1: {
         key: 'create_a_job',
-        src: '/project-elaboration',
+        clickOnFindAPro: true,
       },
       column_1_2: {
         key: 'trades',
