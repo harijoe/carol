@@ -29,7 +29,6 @@ import {
 
 function* replyConversation({ text, payload = null }) {
   const user = yield select(fromProjectElaboration.getSessionId)
-  const isSSR = yield select(fromContext.isSSR)
   const requestPayload = {
     message: {
       text,
@@ -48,7 +47,8 @@ function* replyConversation({ text, payload = null }) {
     yield put(setProjectElaborationConversationAnswer(text))
   }
 
-  const { utm_source, acq_activity, slug } = yield select(fromContext.getInitialQueryParams)
+  const { utm_source, acq_activity } = yield select(fromContext.getInitialQueryParams)
+  const { slug } = yield select(fromRouting.getQuery)
 
   // eslint-disable-next-line camelcase
   if (utm_source != null && acq_activity != null) {
@@ -59,7 +59,7 @@ function* replyConversation({ text, payload = null }) {
     yield* requirePartner(requestPayload.tracking.acqSource)
   }
 
-  if (!isSSR && slug != null) {
+  if (text.indexOf('new_project.first_question') !== 0 && slug != null) {
     requestPayload.start_flow = slug
     const pathname = yield select(fromRouting.getPathname)
     const query = yield select(fromRouting.getQuery)
