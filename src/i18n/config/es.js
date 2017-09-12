@@ -20,6 +20,54 @@ export default {
     '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500641788/FR/ChatbotImages/Q2/construction-extension-renovation/amenagement-de-combles.jpg',
     '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1504280598/FR/ChatbotImages/Q2/construction-extension-renovation/demolition-acheminement-de-gravats.jpg',
   ],
+  searchSuggestions: {
+    primary: [
+      {
+        title: 'Reforma Integral',
+        slug: 'reforma-integral',
+        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500641857/FR/ChatbotImages/Q2/electricite-domotique-alarmes/installation-electrique-de-l-habitat.jpg',
+        tag: 'Project',
+      },
+      {
+        title: 'Reforma de bano',
+        slug: 'reforma-de-bano',
+        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500641791/FR/ChatbotImages/Q2/construction-extension-renovation/renovation-de-maison-appartement-commerce.jpg',
+        tag: 'Project',
+      },
+      {
+        title: 'Reforma de cocina',
+        slug: 'reforma-de-cocina',
+        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500641950/FR/ChatbotImages/Q2/experts-et-conseils-avant-travaux/architectev2.jpg',
+        tag: 'Project',
+      },
+      {
+        title: 'Reforma Parcial',
+        slug: 'reforma-parcial',
+        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500641788/FR/ChatbotImages/Q2/construction-extension-renovation/amenagement-de-combles.jpg',
+        tag: 'Project',
+      },
+      {
+        title: 'Reforma Integral',
+        slug: 'reforma-integral',
+        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1504280598/FR/ChatbotImages/Q2/construction-extension-renovation/demolition-acheminement-de-gravats.jpg',
+        tag: 'Project',
+      },
+    ],
+    secondary: [
+      {
+        title: 'Reforma de bano',
+        slug: 'reforma-de-bano',
+      },
+      {
+        title: 'Reforma de cocina',
+        slug: 'reforma-de-cocina',
+      },
+      {
+        title: 'Reforma Parcial',
+        slug: 'reforma-integral',
+      },
+    ],
+  },
   footer: {
     advices: {
       column_1_1: {

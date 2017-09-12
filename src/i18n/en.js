@@ -216,7 +216,6 @@ export default {
   'search': 'Search',
   'search_page.field_placeholder': 'What is your project?',
   'search_page.new_search': 'New search',
-  'search_page.no_result': 'Sorry, we do not have results for your search',
   'search_page.no_result_subtitle': 'Try a new search',
   'search_page.no_result_title': 'Sorry, no results match your request',
   'search_page.result_section_title.projects': 'Projects',
