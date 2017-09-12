@@ -16,11 +16,13 @@ cloudinary.config({
 const CI_BUILD_NUMBER = TRAVIS_BUILD_NUMBER || CIRCLE_BUILD_NUM
 
 defineSupportCode(({ After }) => {
-  After(async scenarioResult => {
-    const { scenario, status } = scenarioResult
+  After(async scenario => {
+    const { sourceLocation, result } = scenario
+    const { status } = result
+    const { uri, line } = sourceLocation
     if (status === Status.FAILED) {
-      const name = scenario.uri.replace(path.resolve('.', 'test/features'), '').replace(/^\//, '')
-      const filename = path.resolve('build', `${path.basename(name)}:${scenario.line}.png`)
+      const name = uri.replace(path.resolve('.', 'test/features'), '').replace(/^\//, '')
+      const filename = path.resolve('build', `${path.basename(name)}:${line}.png`)
       console.info(`screenshot of current page stored at '${filename}'`)
       await client.saveScreenshot(filename)
       if (CI_BUILD_NUMBER) {
