@@ -14,7 +14,7 @@ const HomePage = ({ locale, translate, ...props }) =>
         {translate('pages.home.ld+json')}
       </script>
     </Helmet>
-    <SearchEngine locale={locale} />
+    <SearchEngine />
     <Hero />
     <MainWrapper resetState>
       <HowItWorks locale={locale} />

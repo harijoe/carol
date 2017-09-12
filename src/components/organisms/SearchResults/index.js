@@ -5,7 +5,7 @@ import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
 
-import { Grid, Row, Col, Section, ThumbnailPoster, Heading, Paragraph, Link, Icon } from 'components'
+import { Grid, Row, Col, Section, ThumbnailPoster, Heading, Paragraph, Link, Icon, SearchSuggestions } from 'components'
 
 import { SearchTerm } from 'containers'
 
@@ -129,7 +129,17 @@ const SubHeading = styled(Paragraph)`
   font-size:  ${theme('fonts.size.xl')};
 `
 
-const SearchResults = ({ translate, results, query }) => {
+const ResultsHeading = styled(Heading)`
+  font-family: ${theme('fonts.family.montserrat')};
+  font-weight: bold;
+
+  ${breakpoint('l')`
+    padding-left: calc(${theme('spaces.l')} / 2);
+    padding-right: calc(${theme('spaces.l')} / 2);
+  `}
+`
+
+const SearchResults = ({ translate, results, query, locale }) => {
   const hasResults = !results || results.length === 0
   return <WrapperResults>
     <Header>
@@ -167,7 +177,7 @@ const SearchResults = ({ translate, results, query }) => {
         </Row>
       </StyledGrid>
     </Section>}
-    {hasResults &&
+    {results && results.length === 0 &&
     <Section light>
       <StyledGrid narrow>
         <Row column>
@@ -180,13 +190,26 @@ const SearchResults = ({ translate, results, query }) => {
         </Row>
       </StyledGrid>
     </Section>}
+      { !results &&
+        <Section light>
+          <StyledGrid narrow>
+            <Row column>
+              <ResultsHeading level={3}>
+                {translate('search_page.result_section_title.projects_default')}
+              </ResultsHeading>
+              <SearchSuggestions locale={locale} />
+            </Row>
+          </StyledGrid>
+        </Section>
+      }
   </WrapperResults>
 }
 
 SearchResults.propTypes = {
   translate: PropTypes.func.isRequired,
   results: PropTypes.array,
-  query: PropTypes.string.isRequired,
+  query: PropTypes.string,
+  locale: PropTypes.string,
 }
 
 export default injectTranslate(SearchResults)

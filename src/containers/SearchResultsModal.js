@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fromSearchEngine } from 'store/selectors'
+import { fromSearchEngine, fromContext } from 'store/selectors'
 
 import { SearchResultsModal } from 'components'
 
@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
   results: fromSearchEngine.getResults(state),
   query: fromSearchEngine.getQuery(state),
   nbHits: fromSearchEngine.getNbHits(state),
+  locale: fromContext.getLocale(state),
 })
 
 export default connect(mapStateToProps)(SearchResultsModalContainer)

@@ -5,7 +5,7 @@ import { fromContext } from 'store/selectors'
 import { SEARCH_ENGINE_SEARCH, projectElaborationSetResults } from './actions'
 
 function* search({ query }) {
-  if (query === '') {
+  if (!query) {
     yield put(projectElaborationSetResults(null))
 
     return
