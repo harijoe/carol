@@ -275,8 +275,8 @@ const Project = ({ name, createdAt, status, partner, leadSales, imageUrl, transl
           {leadSales.map(({ firm }) =>
             <FirmImage key={firm.name} image={firm.logoUrl ? firm.logoUrl : cloudinary('/icons/placeholder-logo.png')} alt={firm.name} />,
           )}
-          {<ButtonArrow to={items['@id']} />}
         </FirmWrapper>}
+      {['pending_search','validated'].includes(status) && <ButtonArrow to={items['@id']} />}
       {status === 'completion_in_progress' &&
         <ButtonLink button to="/project-elaboration">
           <FormattedMessage id="project.continue" />
