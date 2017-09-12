@@ -104,30 +104,6 @@ const FirmImage = styled(Image)`
   }
 `
 
-const FirmNotationWrapper = styled.div`
-  position: absolute;
-  display: block;
-  bottom: ${theme('spaces.m')};
-  width: 80%;
-  left: 10%;
-  transition: all 0.3s ease;
-  text-align: right;
-`
-
-const StyledGlobalRating = styled.div`
-  color: ${theme('colors.white')};
-  text-align: right;
-  span {
-    font-size: ${theme('fonts.size.xl')};
-    font-weight: bold;
-  }
-`
-
-const StyledRating = styled.div`
-  color: ${theme('colors.white')};
-  text-align: right;
-`
-
 const StyledList = styled(List)`${() => css`
   position: relative;
   display: flex;
@@ -164,21 +140,13 @@ const StyledCertificateList = styled(List)`${() => css`
   }
 `}`
 
-const FirmListItem = ({ firm: { name, logoUrl, globalRating, globalRatingCount, firmCertificates }, proPostCode, proPhone, proEmail }) =>
+const FirmListItem = ({ firm: { name, logoUrl, firmCertificates }, proPostCode, proPhone, proEmail }) =>
   <StyledCard className="firm-item">
     <HeaderCard>
       <ImageWrapper>
         <BackgroundImage src={cloudinary('/placeholder-firm_image.jpg')} />
       </ImageWrapper>
       <FirmImage alt={'alt'} src={logoUrl || cloudinary('/icons/placeholder-logo.png')} width="50" height="50" />
-      <FirmNotationWrapper>
-        <StyledGlobalRating>
-          <span>{globalRating}</span> / 5
-        </StyledGlobalRating>
-        <StyledRating>
-          {globalRatingCount} avis
-        </StyledRating>
-      </FirmNotationWrapper>
     </HeaderCard>
     <FooterCard>
       <StyledHeading level={3}>
@@ -211,8 +179,6 @@ FirmListItem.propTypes = {
   firm: PropTypes.shape({
     name: PropTypes.string,
     logoUrl: PropTypes.string,
-    globalRating: PropTypes.number,
-    globalRatingCount: PropTypes.number,
     firmCertificates: PropTypes.array,
   }),
   proPostCode: PropTypes.string,
