@@ -41,6 +41,8 @@ const StyledThumbnailPoster = styled(ThumbnailPoster)`
   }
 
   &:hover {
+    cursor: pointer;
+    
     ${breakpoint('xl')`
       box-shadow: 4px 10px 40px 0 rgba(19, 19, 19, 0.4);
 
@@ -309,7 +311,7 @@ const SearchResultsModal = ({ locale, translate, results, query, nbHits }) =>
               <ColGrid xs={6} m={4} l={3} order={i} key={id} x>
                 <StyledThumbnailPoster
                   isHtml
-                  image={{ src: cloudinary('/icons/placeholder-logo.png'), alt: name }}
+                  image={{ src: cloudinary('/icons/placeholder-icon-key2.png'), alt: name }}
                   title={_highlightResult.name.value}
                   height="m"
                   className="result"

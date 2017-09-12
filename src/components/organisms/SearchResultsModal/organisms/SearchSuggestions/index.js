@@ -68,6 +68,8 @@ const StyledThumbnailPoster = styled(ThumbnailPoster)`
   }
 
   &:hover {
+    cursor: pointer;
+
     ${breakpoint('xl')`
       box-shadow: 4px 10px 40px 0 rgba(19, 19, 19, 0.4);
 
