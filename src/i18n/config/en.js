@@ -50,7 +50,7 @@ export default {
     secondary: [
       {
         title: 'Roofing',
-        slug: 'roffing',
+        slug: 'roofing',
       },
       {
         title: 'Paving and Driveways',
