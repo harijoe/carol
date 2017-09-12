@@ -32,7 +32,7 @@ export default {
       {
         title: 'Boilers',
         slug: 'boilers',
-        imageUrl: '//res.cloudinary.com/quotatis/image/upload/v1500998227/FrontApp/icons/placeholder-logo.png',
+        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,g_west,h_300,w_200/v1498836890/GB/ChatbotImages/Q1/heating-and-air-conditioning.jpg',
         tag: 'Project',
       },
       {
@@ -44,13 +44,13 @@ export default {
       {
         title: 'Solar panels',
         slug: 'solar-panels',
-        imageUrl: '//res.cloudinary.com/quotatis/image/upload/v1500998227/FrontApp/icons/placeholder-logo.png',
+        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1498836105/GB/ChatbotImages/Q1/electrical-cctv-and-solar.jpg',
         tag: 'Project',
       },
       {
         title: 'Guttering soffits and fascias',
         slug: 'guttering-soffits-and-fascias',
-        imageUrl: '//res.cloudinary.com/quotatis/image/upload/v1500998227/FrontApp/icons/placeholder-logo.png',
+        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1495120786/GB/ChatbotImages/Q1/exterior-renovation.jpg',
         tag: 'Project',
       },
     ],
