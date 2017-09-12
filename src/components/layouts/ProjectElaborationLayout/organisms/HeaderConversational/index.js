@@ -63,7 +63,7 @@ const StyledPartnerLogo = styled(Image)`
 const HeaderConversational = ({ partnerHeaderLink, partnerHeaderText, partnerWebsite, ...props }) => {
   const heading = partnerHeaderText || <FormattedMessage id="project.elaboration.title" />
   const partnerLogo = <StyledPartnerLogo src={partnerHeaderLink} />
-  const partnerWidget = partnerWebsite ? <Link to={partnerWebsite}>{partnerLogo}</Link> : partnerLogo
+  const partnerWidget = partnerWebsite ? <Link to={partnerWebsite} target="_blank">{partnerLogo}</Link> : partnerLogo
 
   return (
     <Wrapper {...props}>
