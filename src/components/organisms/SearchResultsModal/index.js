@@ -279,7 +279,7 @@ const MoreResultsIcon = styled(Icon)`
   `}
 `
 
-const SearchResultsModal = ({ locale, translate, results, query, nbHits, featureSearchSuggestionsEnabled }) =>
+const SearchResultsModal = ({ locale, translate, results, query, nbHits }) =>
   <WrapperResults>
     {(!results || results.length === 0) &&
       <div>
@@ -288,16 +288,14 @@ const SearchResultsModal = ({ locale, translate, results, query, nbHits, feature
           <ResultsHeading level={3}>
             {translate('search_page.no_result_title')}
           </ResultsHeading>}
-        {featureSearchSuggestionsEnabled &&
           <div>
             <ResultsHeading level={3}>
               {translate('search_page.result_section_title.projects_default')}
             </ResultsHeading>
             <SearchSuggestions locale={locale} />
-          </div>}
+          </div>
       </div>}
     {!results &&
-      featureSearchSuggestionsEnabled &&
       <SearchSuggestionsText locale={locale} />}
     {results &&
       results.length > 0 &&
@@ -347,7 +345,6 @@ SearchResultsModal.propTypes = {
   results: PropTypes.array,
   query: PropTypes.string.isRequired,
   nbHits: PropTypes.number,
-  featureSearchSuggestionsEnabled: PropTypes.bool,
 }
 
 export default injectTranslate(SearchResultsModal)

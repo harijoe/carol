@@ -7,7 +7,6 @@ const HomePageContainer = props => <HomePage {...props} />
 
 const mapStateToProps = state => ({
   locale: fromContext.getLocale(state),
-  featureSearchEngineEnabled: fromContext.isFeatureEnabled(state, 'search_engine'),
 })
 
 export default connect(mapStateToProps)(HomePageContainer)

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
 import styled, { css } from 'styled-components'
-import { ifThen, theme, breakpoint, breakpointMax, mapBreakpoints } from 'utils/style'
+import { theme, breakpoint, breakpointMax, mapBreakpoints } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
 
 import { Section, ThumbnailCard, Paragraph, Grid, Row, MainWrapper, Heading } from 'components'
@@ -88,27 +88,17 @@ const SubHeading = styled(Paragraph)`
 `
 
 const StyledGrid = styled(Grid)`
-  ${({ featureSearchEngineEnabled }) => css`
-    max-width: 85rem;  
-    ${ifThen(
-      featureSearchEngineEnabled,
-      css`
-      margin-bottom: 12.5rem;
+  max-width: 85rem;  
+  margin-bottom: 12.5rem;
 
-      @media screen and (max-height: 600px) {
-        min-height: 20rem;
-      }
-      
-      ${breakpoint('l')`
-        min-height: 25rem;
-        margin-bottom: 15rem;
-      `};
-    `,
-      css`
-      margin-bottom: 0;
-    `,
-    )};
-  `};
+  @media screen and (max-height: 600px) {
+    min-height: 20rem;
+  }
+  
+  ${breakpoint('l')`
+    min-height: 25rem;
+    margin-bottom: 15rem;
+  `}
 `
 
 const CarouselWrapper = styled.div`
@@ -198,7 +188,7 @@ const FirstChoices = (choices, reply) =>
       </Carousel>}
   </CarouselWrapper>
 
-const Hero = ({ firstChoices, reply, featureSearchEngineEnabled }) =>
+const Hero = ({ firstChoices, reply }) =>
   <HeroWrapper className="hero">
     <MainWrapper resetState>
       `
@@ -206,7 +196,7 @@ const Hero = ({ firstChoices, reply, featureSearchEngineEnabled }) =>
         <Grid>
           <StyledRow column>
             <header>
-              <StyledGrid featureSearchEngineEnabled={featureSearchEngineEnabled} narrow>
+              <StyledGrid narrow>
                 <StyledHeading level={1}>
                   <FormattedMessage id="hero.title_message" />
                 </StyledHeading>
@@ -223,7 +213,6 @@ const Hero = ({ firstChoices, reply, featureSearchEngineEnabled }) =>
   </HeroWrapper>
 
 Hero.propTypes = {
-  featureSearchEngineEnabled: PropTypes.bool,
   firstChoices: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
