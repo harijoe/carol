@@ -71,39 +71,39 @@ export default {
   footer: {
     advices: {
       column_1_1: {
-        key: 'solar_pv',
+        key: 'reforma.bano',
         src: 'guia/reformas/reforma-de-bano/',
       },
       column_1_2: {
-        key: 'windows',
+        key: 'reforma.coccina',
         src: 'guia/reformas/cocina/',
       },
       column_1_3: {
-        key: 'conservatories',
+        key: 'pintura.integral',
         src: 'guia/pintura-suelos-y-paredes/pintura/',
       },
       column_2_1: {
-        key: 'gas_boiler',
+        key: 'albanileria',
         src: 'guia/albanileria-carpinteria-y-puertas/albanileria/',
       },
       column_2_2: {
-        key: 'driveways',
+        key: 'carpintería',
         src: 'guia/albanileria-carpinteria-y-puertas/carpinteria/',
       },
       column_3_1: {
-        key: 'pitched_roofing',
+        key: 'suelos',
         src: 'guia/pintura-suelos-y-paredes/suelos/',
       },
       column_3_2: {
-        key: 'flat_roofing',
+        key: 'aire.acondicionado',
         src: 'guia/aislamiento-calefaccion-aire-acondicionado/aire-acondicionado/',
       },
       column_4_1: {
-        key: 'domestic_hot_water_production',
+        key: 'ventanas',
         src: 'guia/ventanas-y-aperturas-exteriores/ventanas/',
       },
       column_4_2: {
-        key: 'patios',
+        key: 'puertas',
         src: 'guia/albanileria-carpinteria-y-puertas/puertas/',
       },
     },
