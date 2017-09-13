@@ -97,20 +97,19 @@ const StyledHeading = styled(Heading)`
   `}
 `
 
-const ThumbnailPoster = ({ image, title, isHtml, children, ...props }) =>
+const ThumbnailPoster = ({ image, title, children, ...props }) =>
   <Wrapper {...props}>
     <StyledImage {...image} />
     <StyledHeading level={3}>
-      {isHtml ? <div dangerouslySetInnerHTML={{ __html: title }} /> : title}
+      {title}
     </StyledHeading>
     {children}
   </Wrapper>
 
 ThumbnailPoster.propTypes = {
   height: PropTypes.string,
-  isHtml: PropTypes.bool,
   image: PropTypes.object,
-  title: PropTypes.string,
+  title: PropTypes.node,
   children: PropTypes.any,
 }
 

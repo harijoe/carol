@@ -23,7 +23,7 @@ const Tag = ({ link, label }) =>
   </StyledLink>
 
 Tag.propTypes = {
-  label: PropTypes.string,
+  label: PropTypes.string.isRequired,
   link: PropTypes.string,
 }
 

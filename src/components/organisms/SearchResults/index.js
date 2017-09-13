@@ -6,7 +6,7 @@ import { theme, breakpoint, breakpointMax } from 'utils/style'
 import { locales } from 'config'
 import shuffle from 'lodash/shuffle'
 
-import { Grid, Row, Col, Section, ThumbnailPoster, Heading, Paragraph, Link, Icon, SearchSuggestions } from 'components'
+import { Grid, Row, Col, Section, Heading, Paragraph, SearchSuggestions, SearchResultItem } from 'components'
 
 import { SearchTerm } from 'containers'
 
@@ -18,64 +18,6 @@ const Header = styled(Section)`
   ${breakpoint('l')`
     padding-bottom: ${theme('spaces.xxl')};
   `}
-`
-
-const StyledThumbnailPoster = styled(ThumbnailPoster)`
-  box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, 0.15);
-  transform: translateY(0);
-  transition: all 0.3s ease;
-
-  &::before {
-    transition: all 0.3s ease;
-  }
-
-  h3 {
-    margin-bottom: -6.4rem;
-    transform: translateY(0);
-    transition: all 0.6s 0.1s ease;
-  }
-
-  em {
-    color: ${theme('colors.white')};
-    background-color: ${theme('colors.primary')};
-    font-style: normal;
-  }
-
-  &:hover {
-    cursor: pointer;
-
-    ${breakpoint('xl')`
-      box-shadow: 4px 10px 40px 0 rgba(19, 19, 19, 0.4);
-
-      &, h3 {
-        margin-bottom: 0;
-        transform: translateY(-${theme('spaces.l')});
-      }
-
-      &::before {
-        background: ${theme('colors.primary')};
-        opacity: 0.85;
-      }
-
-      .qs-icon {
-        margin-bottom: 0;
-        opacity: 1;
-        transform: translateY(-${theme('spaces.m')});
-      }
-    `};
-  }
-`
-
-const StyledIcon = styled(Icon)`
-  position: relative;
-  z-index: 2;
-  height: ${theme('icons.size.xxl')};
-  width: ${theme('icons.size.xxl')};
-  margin-top: ${theme('spaces.m')};
-  margin-bottom: -6.4rem;
-  opacity: 0;
-  transform: translateY(150%);
-  transition: all 0.6s 0.1s ease;
 `
 
 const StyledGrid = styled(Grid)`
@@ -163,19 +105,14 @@ const SearchResults = ({ translate, results, query, locale }) => {
     >
       <StyledGrid narrow>
         <Row>
-          {results.map(({name, slug, id, image, _highlightResult}, index) =>
+          {results.map(({name, slug, id, image, _highlightResult}, i) =>
             <ColGrid xs={6} m={4} l={3} key={id} x>
-              <StyledThumbnailPoster
-                isHtml
-                image={{src: image || shuffledImages[index%shuffledImages.length], alt: name}}
-                title={_highlightResult.name.value}
-                height="m"
-                className="result"
-              >
-                <Link to={`/project-elaboration?slug=${slug}`}>
-                  <StyledIcon icon="circle-arrow" className="qs-icon" />
-                </Link>
-              </StyledThumbnailPoster>
+              <SearchResultItem
+                slug={slug}
+                image={image || shuffledImages[i % shuffledImages.length]}
+                alt={name}
+                title={<div dangerouslySetInnerHTML={{ __html: _highlightResult.name.value }} />}
+              />
             </ColGrid>,
           )}
         </Row>

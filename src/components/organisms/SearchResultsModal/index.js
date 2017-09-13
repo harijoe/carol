@@ -6,7 +6,7 @@ import { theme, breakpoint, breakpointMax } from 'utils/style'
 import { locales } from 'config'
 import shuffle from 'lodash/shuffle'
 
-import { Grid, Row, Col, ThumbnailPoster, Heading, Link, Icon, Divider, SearchSuggestions, SearchSuggestionsText } from 'components'
+import { Grid, Row, Col, Heading, Link, Icon, Divider, SearchSuggestions, SearchSuggestionsText, SearchResultItem } from 'components'
 
 const WrapperResults = styled.div`
   max-width: 110rem;
@@ -18,64 +18,6 @@ const WrapperResults = styled.div`
     padding-left: 0;
     padding-right: 0;
   `};
-`
-
-const StyledThumbnailPoster = styled(ThumbnailPoster)`
-  transform: translateY(0);
-  transition: all 0.3s ease;
-  box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, 0.15);
-
-  &::before {
-    transition: all 0.3s ease;
-  }
-
-  h3 {
-    margin-bottom: -6.4rem;
-    transform: translateY(0);
-    transition: all 0.6s 0.1s ease;
-  }
-
-  em {
-    color: ${theme('colors.white')};
-    background-color: ${theme('colors.primary')};
-    font-style: normal;
-  }
-
-  &:hover {
-    cursor: pointer;
-    
-    ${breakpoint('xl')`
-      box-shadow: 4px 10px 40px 0 rgba(19, 19, 19, 0.4);
-
-      &, h3 {
-        margin-bottom: 0;
-        transform: translateY(-${theme('spaces.l')});
-      }
-
-      &::before {
-        background: ${theme('colors.primary')};
-        opacity: 0.85;
-      }
-
-      .qs-icon {
-        margin-bottom: 0;
-        opacity: 1;
-        transform: translateY(-${theme('spaces.m')});
-      }
-    `};
-  }
-`
-
-const StyledIcon = styled(Icon)`
-  position: relative;
-  z-index: 2;
-  height: ${theme('icons.size.xxl')};
-  width: ${theme('icons.size.xxl')};
-  margin-top: ${theme('spaces.m')};
-  margin-bottom: -6.4rem;
-  opacity: 0;
-  transform: translateY(150%);
-  transition: all 0.6s 0.1s ease;
 `
 
 const StyledGrid = styled(Grid)`
@@ -284,7 +226,7 @@ const MoreResultsIcon = styled(Icon)`
 
 const SearchResultsModal = ({ locale, translate, results, query, nbHits }) => {
 
-  const shuffleImages = shuffle(locales[locale].genericProjectImages)
+  const shuffledImages = shuffle(locales[locale].genericProjectImages)
 
   return(
     <WrapperResults>
@@ -314,18 +256,12 @@ const SearchResultsModal = ({ locale, translate, results, query, nbHits }) => {
           <Row>
             {results.filter((el, index) => index < 5).map(({ name, slug, id, image, _highlightResult }, i) =>
               <ColGrid xs={6} m={4} l={3} order={i} key={id} x>
-                {console.info(image)}
-                <StyledThumbnailPoster
-                  isHtml
-                  image={{ src: image || shuffleImages[i%shuffleImages.length], alt: name }}
-                  title={_highlightResult.name.value}
-                  height="m"
-                  className="result"
-                >
-                  <Link to={`/project-elaboration?slug=${slug}`}>
-                    <StyledIcon icon="circle-arrow" className="qs-icon" />
-                  </Link>
-                </StyledThumbnailPoster>
+                <SearchResultItem
+                  slug={slug}
+                  image={image || shuffledImages[i % shuffledImages.length]}
+                  alt={name}
+                  title={<div dangerouslySetInnerHTML={{ __html: _highlightResult.name.value }} />}
+                />
               </ColGrid>,
             )}
           </Row>
