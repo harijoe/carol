@@ -91,7 +91,7 @@ const SearchResults = ({ translate, results, query, locale }) => {
     <Header>
       <StyledGrid narrow>
         <StyledRow>
-          <Col xs={12} l={10}>
+          <Col xs={12} l={9}>
             <SearchTerm term={query} />
           </Col>
         </StyledRow>
