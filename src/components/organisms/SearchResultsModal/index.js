@@ -13,6 +13,7 @@ const WrapperResults = styled.div`
   margin: ${theme('spaces.xxl')} auto 0 auto;
   padding-left: ${theme('spaces.m')};
   padding-right: ${theme('spaces.m')};
+  padding-bottom: ${theme('spaces.m')}; 
 
   ${breakpoint('xl')`
     padding-left: 0;

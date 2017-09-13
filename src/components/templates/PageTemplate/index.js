@@ -24,7 +24,7 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #eee;
+  background-color: #eee; 
 `
 
 const Header = styled.div`
@@ -53,6 +53,7 @@ class PageTemplate extends Component {
     children: PropTypes.any.isRequired,
     footer: PropTypes.any.isRequired,
     ssr: PropTypes.bool,
+    searchModalIsOpen: PropTypes.bool,
   }
 
   state = {
@@ -72,9 +73,18 @@ class PageTemplate extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+
     if (nextProps.ssr === false) {
       this.setState({ loaded: true })
     }
+
+    if (nextProps.searchModalIsOpen !== this.props.searchModalIsOpen) {
+      let type = null
+      if (nextProps.searchModalIsOpen) type = 'hidden'
+      else type = 'visible'
+      document.body.style.overflow = type
+    }
+
   }
 
   render() {

@@ -15,6 +15,7 @@ import {
   CONTEXT_SET_INITIAL_QUERY_PARAMS,
   CONTEXT_REMOVE_INITIAL_QUERY_PARAM,
   CONTEXT_ENABLE_FEATURE,
+  CONTEXT_TOGGLE_SEARCH_MODAL,
 } from './actions'
 import { initialState } from './selectors'
 
@@ -137,6 +138,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         features: { ...state.features, [action.payload]: true },
+      }
+    }
+    case CONTEXT_TOGGLE_SEARCH_MODAL: {
+      return {
+        ...state,
+        searchModalIsOpen: action.payload,
       }
     }
     default: {

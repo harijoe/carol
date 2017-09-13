@@ -20,6 +20,7 @@ export const initialState = {
   dryRun: false,
   features: {},
   initialQueryParams: {},
+  searchModalIsOpen: false,
 }
 
 export const isSSR = (state = initialState) => state.ssr
@@ -38,3 +39,4 @@ export const getCountry = (state = initialState) => state.country
 export const getLocale = (state = initialState) => `${state.lang}-${state.country}`
 export const isFeatureEnabled = (state = initialState, feature) => !!state.features[feature]
 export const getInitialQueryParams = (state = initialState) => state.initialQueryParams
+export const searchModalIsOpen = (state = initialState) => state.searchModalIsOpen

@@ -16,6 +16,7 @@ PageTemplateContainer.propTypes = {
 
 const mapStateToProps = state => ({
   ssr: fromContext.isSSR(state),
+  searchModalIsOpen: fromContext.searchModalIsOpen(state),
 })
 
 export default connect(mapStateToProps)(PageTemplateContainer)

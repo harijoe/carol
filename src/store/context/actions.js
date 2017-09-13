@@ -14,6 +14,7 @@ export const CONTEXT_SET_SSR = 'CONTEXT_SET_SSR'
 export const CONTEXT_SET_DRY_RUN = 'CONTEXT_SET_DRY_RUN'
 export const CONTEXT_SET_INITIAL_QUERY_PARAMS = 'CONTEXT_SET_INITIAL_QUERY_PARAMS'
 export const CONTEXT_REMOVE_INITIAL_QUERY_PARAM = 'CONTEXT_REMOVE_INITIAL_QUERY_PARAM'
+export const CONTEXT_TOGGLE_SEARCH_MODAL = 'CONTEXT_TOGGLE_SEARCH_MODAL'
 
 export const setCountry = country => ({
   type: CONTEXT_SET_COUNTRY,
@@ -89,4 +90,9 @@ export const toggleEmailValidationPopin = () => ({
 
 export const closeAll = () => ({
   type: CONTEXT_CLOSE_ALL,
+})
+
+export const toggleSearchModal = (state = null) => ({
+  type: CONTEXT_TOGGLE_SEARCH_MODAL,
+  payload: state,
 })

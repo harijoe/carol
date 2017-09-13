@@ -100,7 +100,7 @@ const SearchEngineWrapper = styled.div`
           top: 0;
           width:100vw;
           height:100vh;
-          overflow-y: hidden;
+          overflow-y: scroll;
         `};
     `,
     )};  
@@ -146,6 +146,7 @@ class SearchEngine extends Component {
   toggleSearch = () => {
     const isExpanded = !this.state.isExpanded
     this.setState({ isExpanded }, () => {
+      this.props.toggleSearchModal(isExpanded)
       if (isIOS() && isExpanded) {
         setTimeout(() => window.scrollTo(0, 0), ANIMATION_DURATION * 1000)
       }
@@ -171,6 +172,7 @@ class SearchEngine extends Component {
 
 SearchEngine.propTypes = {
   resetResults: PropTypes.func,
+  toggleSearchModal: PropTypes.func,
 }
 
 export default SearchEngine

@@ -14,6 +14,7 @@ test('initialState', () => {
     mainNavigation: false,
     signInPopin: false,
     ssr: true,
+    searchModalIsOpen: false,
   })
 })
 
