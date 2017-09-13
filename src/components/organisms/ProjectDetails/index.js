@@ -243,7 +243,7 @@ const ProjectDetails = ({
           <LeftCol xs={12} m={8}>
             <Paragraph dangerouslySetInnerHTML={{ __html: translate('project.resume_intro', { name: `<strong>${name}</strong>` }) }} />
             <ProjectImage>
-              <StyledImage src={imageUrl || cloudinary('/placeholder-project_image.jpg')} />
+              <StyledImage src={imageUrl ? cloudinary(imageUrl,'c_fill,h_225,w_525') : cloudinary('/placeholder-project_image.jpg')} />
             </ProjectImage>
 
             <StyledList>
