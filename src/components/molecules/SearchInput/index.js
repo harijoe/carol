@@ -11,7 +11,7 @@ const StyledInput = styled(Input)`
     width: 100%;
     height: 5.7rem;
     padding-left: ${theme('spaces.m')};
-    padding-right: calc(${theme('spaces.l')} + ${theme('spaces.m')});
+    padding-right: ${theme('spaces.xxl')};
     background-color: transparent;
     border:0;
     border-bottom:1px solid transparent;
@@ -20,12 +20,16 @@ const StyledInput = styled(Input)`
     font-size: ${theme('fonts.size.base')};
     font-weight: normal;
     line-height: 1;
+
+    &::-ms-clear {
+      display: none;
+    }
  
     ${breakpoint('l')`
       width: 80rem;
       height: 7.5rem;
       padding-left: ${theme('spaces.l')};
-      padding-right: calc(${theme('spaces.l')} + ${theme('spaces.l')});
+      padding-right: ${theme('spaces.xxxl')};
     `};
   
     &:focus{

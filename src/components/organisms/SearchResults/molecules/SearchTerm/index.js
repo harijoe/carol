@@ -29,6 +29,10 @@ const StyledInput = styled(Input)`
     font-size:  ${theme('fonts.size.xxxl')};
     padding-right: ${theme('spaces.xxxl')};
   `}
+
+  &::-ms-clear {
+    display: none;
+  }
 `
 
 const StyledIcon = styled(Icon)`

@@ -44,6 +44,10 @@ const ColGrid = styled(Col)`
     padding-bottom: calc(${theme('spaces.l')} / 2);
     padding-top: calc(${theme('spaces.l')} / 2);
   `}
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    max-width: 22.49rem;
+  }
 `
 
 const SearchSuggestions = ({ locale }) => {

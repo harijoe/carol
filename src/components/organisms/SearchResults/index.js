@@ -22,6 +22,10 @@ const Header = styled(Section)`
 
 const StyledGrid = styled(Grid)`
   max-width: 85rem;
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    max-width: 86rem;
+  }
 `
 
 const StyledRow = styled(Row)`
