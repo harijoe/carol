@@ -21,7 +21,7 @@ const Header = styled(Section)`
 `
 
 const StyledGrid = styled(Grid)`
-  max-width: 85rem;
+  max-width: 88rem;
 
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     max-width: 86rem;
@@ -65,6 +65,10 @@ const ColGrid = styled(Col)`
     padding-bottom: calc(${theme('spaces.l')} / 2);
     padding-top: calc(${theme('spaces.l')} / 2);
   `}
+
+  ${breakpoint('l')`
+    max-width: 22.5rem;
+  `}
 `
 
 const StyledHeading = styled(Heading)`
@@ -95,7 +99,7 @@ const SearchResults = ({ translate, results, query, locale }) => {
     <Header>
       <StyledGrid narrow>
         <StyledRow>
-          <Col xs={12} l={9}>
+          <Col xs={12}>
             <SearchTerm term={query} />
           </Col>
         </StyledRow>

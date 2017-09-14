@@ -15,7 +15,7 @@ const StyledThumbnailPoster = styled(ThumbnailPoster)`
   }
 
   h3 {
-    margin-bottom: -6.4rem;
+    margin-bottom: 0;
     transform: translateY(0);
     transition: all 0.6s 0.1s ease;
   }

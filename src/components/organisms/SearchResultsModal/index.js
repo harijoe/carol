@@ -54,14 +54,6 @@ const ColGrid = styled(Col)`
   ${breakpoint('l')`
     padding-left: calc(${theme('spaces.l')} / 2);
     padding-right: calc(${theme('spaces.l')} / 2);
-
-    &:first-child {
-      padding-left: ${theme('spaces.l')};
-    }
-
-    &:last-child {
-      padding-right: ${theme('spaces.l')};
-    }
   `}
 
   ${breakpoint('xl')`
