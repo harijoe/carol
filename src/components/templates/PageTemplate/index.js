@@ -81,10 +81,14 @@ class PageTemplate extends Component {
     if (nextProps.searchModalIsOpen !== this.props.searchModalIsOpen) {
       let type = null
       if (nextProps.searchModalIsOpen) type = 'hidden'
-      else type = 'visible'
+      else type = 'auto'
       document.body.style.overflow = type
     }
 
+  }
+
+  componentWillUnmount() {
+    if (document.body.style.overflow === 'hidden') document.body.style.overflow = 'auto'
   }
 
   render() {
