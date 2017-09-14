@@ -20,7 +20,8 @@ export default {
     '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500641791/FR/ChatbotImages/Q2/construction-extension-renovation/renovation-de-maison-appartement-commerce.jpg',
     '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500641950/FR/ChatbotImages/Q2/experts-et-conseils-avant-travaux/architectev2.jpg',
     '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500641788/FR/ChatbotImages/Q2/construction-extension-renovation/amenagement-de-combles.jpg',
-    '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1504280598/FR/ChatbotImages/Q2/construction-extension-renovation/demolition-acheminement-de-gravats.jpg',
+    '//res.cloudinary.com/quotatis/image/upload/c_fill,g_custom:adv_faces,h_300,w_200/v1505381549/FrontApp/ChatbotImages/shutterstock_408737758.jpg',
+    '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1505381593/FrontApp/ChatbotImages/shutterstock_536591941.jpg',
   ],
   searchSuggestions: {
     primary: [
