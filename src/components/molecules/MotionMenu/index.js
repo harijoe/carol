@@ -6,38 +6,32 @@ import styled, { css } from 'styled-components'
 import { theme, ifThen } from 'utils/style'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 
-import { Icon, Link } from 'components'
+import { Icon, Link, BouncingBall } from 'components'
 
-const Background = styled.div`
+export const Background = styled.div`${({ isOpen }) => css`
   position: fixed;
-  transition: background-color 0.3s ${props => (props.isOpen ? 'ease' : 'ease-out')};
-  ${props => (props.isOpen ? 'background-color: rgba(255, 255, 255, 0.9);' : '')} border-radius: 100%;
-`
+  transition: background-color 0.3s ${ifThen(isOpen, 'ease', 'ease-out')};
+  ${ifThen(isOpen, 'background-color: rgba(255, 255, 255, 0.98);')}
+  border-radius: 100%;
+`}`
 
 const Wrapper = styled.div`
   position: fixed;
   z-index: 19;
+
+  > a {
+    font-weight: bold;
+  }
 `
 
-const StyledMainIcon = styled(Icon)`${({ hasActiveConversation, isOpen }) => css`
+const StyledMainIcon = styled(Icon)`
   position: relative;
   margin: 0 auto;
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 8px;
-    height: 8px;
-    background-color: ${theme('colors.secondary')};
-    border-radius: 100%;
-    ${ifThen(!hasActiveConversation, 'display: none')};
-    ${ifThen(isOpen, 'display: none')};
-  }
+
   svg path {
     fill: #FFFFFF; 
   }
-`}`
+`
 
 const StyledChildIcon = styled(Icon)`${({ dot, size }) => css`
   position: relative;
@@ -47,19 +41,24 @@ const StyledChildIcon = styled(Icon)`${({ dot, size }) => css`
   &::after {
     content: '';
     position: absolute;
-    right: 0;
-    top: 0;
-    width: 8px;
-    height: 8px;
+    right: -1.4rem;
+    top: -1.4rem;
+    width: 14.4px;
+    height: 14.4px;
     background-color: ${theme('colors.secondary')};
     border-radius: 100%;
-    ${ifThen(!dot, 'display: none')};
+    ${ifThen(!dot, 'display: none;')}
   }  
 `}`
 
-const StyledMainButton = styled.button`
-  cursor: pointer;
+const MainButtonWrapper = styled.div`
   position: fixed;
+  right: 10px;
+  z-index: 2;
+`
+
+export const StyledMainButton = styled.button`
+  cursor: pointer;
   border-radius: 100%;
   background-color: ${theme('colors.primary')};
   display: flex;
@@ -68,8 +67,6 @@ const StyledMainButton = styled.button`
   color: ${theme('colors.white')};
   font-weight: lighter;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  right: 10px;
-  z-index: 2;
   width: 60px;
   height: 60px;
   box-shadow: 0 0 10px 0 rgba(19, 19, 19, 0.15);
@@ -84,6 +81,10 @@ const StyledLabelButton = styled.div`
   right: 70px;
   width: auto;
   white-space: nowrap;
+
+  > a {
+    color: ${theme('colors.black')};
+  }
 `
 
 const childButtonCss = css`
@@ -109,7 +110,7 @@ const mainButtonDiam = 60
 const mainButtonMargin = 20
 const mainButtonInitialRotation = 0
 const mainButtonFinalRotation = 135
-const childButtonDiam = 60
+const childButtonDiam = 48
 const childButtonInitialRotation = 0
 const childButtonFinalRotation = 0
 const childButtonInitialScale = 0
@@ -297,11 +298,11 @@ class MotionMenu extends Component {
           return (
             <StyledChildLink to={element.url} onClick={element.url ? undefined : this.props.redirectToConversation} style={elementStyle}>
               <StyledLabelButton>
-                <Link highlight>
+                <Link>
                   {element.label}
                 </Link>
               </StyledLabelButton>
-              <StyledChildIcon icon={element.icon} style={element.style} dot={element.dot} size={30} />
+              <StyledChildIcon icon={element.icon} style={element.style} dot={element.dot} size={35} />
             </StyledChildLink>
           )
         default:
@@ -325,6 +326,7 @@ class MotionMenu extends Component {
 
   render() {
     const { isOpen, childButtons, mainButtonPositionX, mainButtonPositionY } = this.state
+    const { hasActiveConversation } = this.props
     const mainButtonRotation = isOpen
       ? { rotate: spring(mainButtonFinalRotation, [500, 30]) }
       : { rotate: spring(mainButtonInitialRotation, [500, 30]) }
@@ -349,15 +351,20 @@ class MotionMenu extends Component {
         {childButtons.map((button, index) => childButtons[index])}
         <Motion style={mainButtonRotation}>
           {() =>
-            <StyledMainButton
+            <MainButtonWrapper
               style={{
                 top: mainButtonPositionY - mainButtonDiam / 2,
                 left: mainButtonPositionX - mainButtonDiam / 2,
               }}
-              onClick={this.toggleMenu}
             >
-              <StyledMainIcon icon={isOpen ? 'close' : 'bubble'} size={32} isOpen={isOpen} {...this.props} />
-            </StyledMainButton>}
+              {hasActiveConversation && !isOpen && <BouncingBall />}
+              <StyledMainButton
+                onClick={this.toggleMenu}
+              >
+                <StyledMainIcon icon={isOpen ? 'close' : 'bubble'} size={42} isOpen={isOpen} {...this.props} />
+              </StyledMainButton>
+            </MainButtonWrapper>
+          }
         </Motion>
       </Wrapper>
     )
@@ -366,6 +373,7 @@ class MotionMenu extends Component {
 
 MotionMenu.propTypes = {
   redirectToConversation: PropTypes.func,
+  hasActiveConversation: PropTypes.bool,
 }
 
 export default injectTranslate(MotionMenu)

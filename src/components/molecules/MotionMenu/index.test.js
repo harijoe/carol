@@ -4,7 +4,7 @@ import theme from 'components/themes/default'
 import { ThemeProvider } from 'styled-components'
 import mockIntl from '../../../../test/intlMock'
 
-import MotionMenu from './'
+import MotionMenu, { Background, StyledMainButton} from '.'
 
 const wrapper = shallow(
   mockIntl(
@@ -22,10 +22,10 @@ const wrapperMounted = mount(
 )
 
 const clickMainButton = () => {
-  wrapperMounted.find('Motion').last().simulate('click')
+  wrapperMounted.find(StyledMainButton).simulate('click')
 }
 const clickBackground = () => {
-  wrapperMounted.find('Motion').at(0).simulate('click')
+  wrapperMounted.find(Background).simulate('click')
 }
 
 it('renders MotionMenu', () => {
