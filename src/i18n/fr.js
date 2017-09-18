@@ -138,6 +138,7 @@ export default {
   'mobile_phone.invalid': 'Le numéro de téléphone n\'est pas valide',
   'motion_menu.resume': 'Reprendre la conversation en cours',
   'motion_menu.start_new': 'Débuter une nouvelle conversation',
+  'motion_menu.tooltip_message': 'Vous avez une conversation en cours !<br>\nSouhaitez-vous la reprendre ?',
   'pages.default.meta.description': 'Quotatis vous permet d\'obtenir 5 devis gratuits sous trois jours. Demandes de devis comparatifs au 01.77.86.80.97 : devis travaux, devis pompe a chaleur, devis chauffage, devis defiscalisation, devis fenêtres, devis assurances, devis piscine, devis fenetres, devis climatisation, devis panneaux solaire photovoltaiques....',
   'pages.default.meta.og.title': 'Devis Travaux - Comparer les prix avec 5 devis gratuits',
   'pages.default.title': 'Trouver le bon artisan avec Quotatis : comparez les devis et réalisez vos travaux',

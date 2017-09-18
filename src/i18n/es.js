@@ -270,7 +270,7 @@ export default {
   'user.first_name': 'Nombre',
   'user.fixed_phone': 'Teléfono fijo',
   'user.forget_password': 'Contraseña olvidada ?',
-  'user.forgot_password.description': 'Entra tu dirección de correo electrónico para reinicializar tu contraseña',
+  'user.forgot_password.description': 'Entra tu dirección de correo electrónico para cambiar tu contraseña',
   'user.forgot_password.heading': '¿Has olvidado tu contraseña?',
   'user.gender': 'Genero',
   'user.google_id': 'Google ID',

@@ -7,6 +7,7 @@ import { theme, ifThen } from 'utils/style'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 
 import { Icon, Link, BouncingBall } from 'components'
+import Tooltip from './molecules/Tooltip'
 
 export const Background = styled.div`${({ isOpen }) => css`
   position: fixed;
@@ -51,6 +52,10 @@ const StyledChildIcon = styled(Icon)`${({ dot, size }) => css`
   }  
 `}`
 
+const MainWrapper = styled.div`
+  position: relative;
+`
+
 const MainButtonWrapper = styled.div`
   position: fixed;
   right: 10px;
@@ -70,7 +75,6 @@ export const StyledMainButton = styled.button`
   width: 60px;
   height: 60px;
   box-shadow: 0 0 10px 0 rgba(19, 19, 19, 0.15);
-
   &:focus {
     outline: none;
   }
@@ -98,7 +102,6 @@ const childButtonCss = css`
   color: #8898a5;
   border: none;
   z-index: 1;
-
   &:focus {
     outline: none;
   }
@@ -351,19 +354,29 @@ class MotionMenu extends Component {
         {childButtons.map((button, index) => childButtons[index])}
         <Motion style={mainButtonRotation}>
           {() =>
-            <MainButtonWrapper
-              style={{
-                top: mainButtonPositionY - mainButtonDiam / 2,
-                left: mainButtonPositionX - mainButtonDiam / 2,
-              }}
-            >
-              {hasActiveConversation && !isOpen && <BouncingBall />}
-              <StyledMainButton
-                onClick={this.toggleMenu}
+            <MainWrapper>
+              {hasActiveConversation && (
+                <Tooltip
+                  id="motion_menu.tooltip_message"
+                  style={{
+                    visibility: isOpen ? 'hidden' : '',
+                  }}
+                />
+              )}
+              <MainButtonWrapper
+                style={{
+                  top: mainButtonPositionY - mainButtonDiam / 2,
+                  left: mainButtonPositionX - mainButtonDiam / 2,
+                }}
               >
-                <StyledMainIcon icon={isOpen ? 'close' : 'bubble'} size={42} isOpen={isOpen} {...this.props} />
-              </StyledMainButton>
-            </MainButtonWrapper>
+                {hasActiveConversation && !isOpen && <BouncingBall />}
+                <StyledMainButton
+                  onClick={this.toggleMenu}
+                >
+                  <StyledMainIcon icon={isOpen ? 'close' : 'bubble'} size={42} isOpen={isOpen} {...this.props} />
+                </StyledMainButton>
+              </MainButtonWrapper>
+            </MainWrapper>
           }
         </Motion>
       </Wrapper>

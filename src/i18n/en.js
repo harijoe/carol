@@ -139,6 +139,7 @@ export default {
   'mobile_phone.invalid': 'Phone number is not valid',
   'motion_menu.resume': 'Continue my project',
   'motion_menu.start_new': 'Start a new project',
+  'motion_menu.tooltip_message': 'You already have a project in progress.<br>\nWould you like to continue?',
   'pages.default.meta.description': 'Free Home Improvement Quotes for homeowners in the UK. Compare prices on your home improvements and save money.',
   'pages.default.meta.og.title': 'Compare prices with 4 free quotes',
   'pages.default.title': 'Find the right pro with Quotatis: Compare quotes and bring your ideas to life',
