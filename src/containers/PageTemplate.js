@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fromContext } from 'store/selectors'
+import { toggleSearchModal } from 'store/actions'
 
 import { PageTemplate } from 'components'
 
@@ -19,4 +20,8 @@ const mapStateToProps = state => ({
   searchModalIsOpen: fromContext.searchModalIsOpen(state),
 })
 
-export default connect(mapStateToProps)(PageTemplateContainer)
+const mapDispatchToProps = dispatch => ({
+  toggleSearchModal: (isExpanded) => dispatch(toggleSearchModal(isExpanded)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(PageTemplateContainer)

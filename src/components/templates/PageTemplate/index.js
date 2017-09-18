@@ -54,6 +54,7 @@ class PageTemplate extends Component {
     footer: PropTypes.any.isRequired,
     ssr: PropTypes.bool,
     searchModalIsOpen: PropTypes.bool,
+    toggleSearchModal: PropTypes.func,
   }
 
   state = {
@@ -79,16 +80,17 @@ class PageTemplate extends Component {
     }
 
     if (nextProps.searchModalIsOpen !== this.props.searchModalIsOpen) {
-      let type = null
-      if (nextProps.searchModalIsOpen) type = 'hidden'
-      else type = 'auto'
+      const type = nextProps.searchModalIsOpen ? 'hidden' : ''
       document.body.style.overflow = type
     }
 
   }
 
   componentWillUnmount() {
-    if (document.body.style.overflow === 'hidden') document.body.style.overflow = 'auto'
+    if (document.body.style.overflow === 'hidden') {
+      this.props.toggleSearchModal(false)
+      document.body.style.overflow = ''
+    }
   }
 
   render() {
