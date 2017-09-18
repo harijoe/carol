@@ -6,7 +6,7 @@ import { theme, breakpointMax } from 'utils/style'
 
 import { Icon } from 'components'
 
-const APPEAR_DELAY = 3
+const APPEAR_DELAY = 2
 const APPEAR_DURATION = 0.3
 const MOVEMENT_DURATION = 3
 const MOVEMENT_COUNT = 4
