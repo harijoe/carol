@@ -2,7 +2,7 @@
 /* eslint-disable prettier/prettier */
 export default {
   '404.call_to_action': 'Home',
-  '404.message': 'This page does not exist',
+  '404.message': 'This page does not exist.',
   '404.title': 'Oops!',
   'auto-validation.mail.message': 'We just sent you an email. Just click on the confirmation button in the email so our pros can contact you as soon as your project is confirmed.',
   'auto-validation.mail.title': 'Check your email',
@@ -134,7 +134,7 @@ export default {
   'last_projects.section_title': 'Featured Projects',
   'login': 'Log In',
   'login.coming_back': 'Welcome back',
-  'main.baseline': 'Simple. Reliable. Local Pros',
+  'main.baseline': 'Your Home Improved',
   'Missing parameters. "username" and "password" required': 'You must enter your email address and password',
   'mobile_phone.invalid': 'Phone number is not valid',
   'motion_menu.resume': 'Continue my project',

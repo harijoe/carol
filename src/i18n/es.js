@@ -140,6 +140,7 @@ export default {
   'mobile_phone.invalid': 'El número de teléfono no es válido',
   'motion_menu.resume': 'Seguir con mi proyecto',
   'motion_menu.start_new': 'Empezar un proyecto',
+  'motion_menu.tooltip_message': 'Ya tienes un proyecto en curso<br>\n¿Quieres seguir con el?',
   'pages.default.meta.description': 'Quotatis te permite obtener hasta 4 presupuestos gratis y sin compromiso en 3 días. Puedes pedir tus presupuestos llamando al 672050340 : presupuesto reforma integral, presupuesto reforma de baño, presupuesto reforma de cocina, presupuesto pintura, presupuesto albañilería, presupuesto construcción, presupuesto piscina, presupuesto aire acondicionado…',
   'pages.default.meta.og.title': 'Compara hasta 4 presupuestos gratis y sin compromiso',
   'pages.default.title': 'Encuentra tu profesional con Quotatis: Compara los presupuestos y empieza tu proyecto',
