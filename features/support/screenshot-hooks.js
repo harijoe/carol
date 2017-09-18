@@ -4,8 +4,11 @@ import { defineSupportCode, Status } from 'cucumber'
 
 import client from '../lib/promisified-nightwatch-client'
 import promisify from '../lib/promisify'
+import removeDir from '../lib/remove-dir'
 
 const { CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET, TRAVIS_BUILD_NUMBER, CIRCLE_BUILD_NUM } = process.env
+
+const SCREENSHOTS_DIR = 'screenshots'
 
 cloudinary.config({
   cloud_name: 'quotatis',
@@ -15,14 +18,16 @@ cloudinary.config({
 
 const CI_BUILD_NUMBER = TRAVIS_BUILD_NUMBER || CIRCLE_BUILD_NUM
 
-defineSupportCode(({ After }) => {
+defineSupportCode(({ BeforeAll, After }) => {
+  BeforeAll(() => removeDir(SCREENSHOTS_DIR))
+
   After(async scenario => {
     const { sourceLocation, result } = scenario
     const { status } = result
     const { uri, line } = sourceLocation
     if (status === Status.FAILED) {
       const name = uri.replace(path.resolve('.', 'test/features'), '').replace(/^\//, '')
-      const filename = path.resolve('build', `${path.basename(name)}:${line}.png`)
+      const filename = path.resolve(SCREENSHOTS_DIR, `${path.basename(name)}:${line}.png`)
       console.info(`screenshot of current page stored at '${filename}'`)
       await client.saveScreenshot(filename)
       if (CI_BUILD_NUMBER) {
