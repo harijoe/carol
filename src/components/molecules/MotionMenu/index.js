@@ -28,7 +28,6 @@ const Wrapper = styled.div`
 
 const StyledMainIcon = styled(Icon)`
   position: relative;
-  margin: 0 auto;
 
   svg path {
     fill: #FFFFFF; 
@@ -39,7 +38,7 @@ const StyledChildIcon = styled(Icon)`${({ dot, size }) => css`
   position: relative;
   width: ${size ? `${size / 16}rem` : '1em'};
   height: ${size ? `${size / 16}rem` : '1em'};
-  margin: 0 auto;
+
   &::after {
     content: '';
     position: absolute;
