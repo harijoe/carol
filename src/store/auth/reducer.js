@@ -19,6 +19,11 @@ export default (state = initialState, action) => {
         expiresIn: expiresIn / 2,
       }
     }
+    case AUTH_LOGIN.FAILURE: {
+      return {
+        ...initialState,
+      }
+    }
     case AUTH_SET_AUTHENTICATED: {
       return {
         ...state,

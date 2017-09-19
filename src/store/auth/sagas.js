@@ -108,6 +108,10 @@ function* handleAuthLoginSuccess() {
   }
 }
 
+function* handleAuthLoginFailed() {
+  yield* removeToken()
+}
+
 /*
  Channels are a feature of redux-saga — https://goo.gl/B0s6aG
 
@@ -134,6 +138,7 @@ export default function*() {
   yield [
     takeLatest(AUTH_LOGIN.REQUEST, handleAuthLoginRequest),
     takeLatest(AUTH_LOGIN.SUCCESS, handleAuthLoginSuccess),
+    takeLatest(AUTH_LOGIN.FAILURE, handleAuthLoginFailed),
     takeLatest(AUTH_LOGOUT, handleAuthLogout),
     fork(watchAuthChannelRequest),
   ]
