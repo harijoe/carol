@@ -9,7 +9,7 @@ import { Icon, Paragraph, Row, Col, Link } from 'components'
 
 const Wrapper = styled.div`
   position: fixed;
-  z-index: 20;
+  z-index: 30;
   bottom: 0;
   left: 0;
   width: 100%;
