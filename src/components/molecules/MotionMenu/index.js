@@ -18,7 +18,8 @@ export const Background = styled.div`${({ isOpen }) => css`
 
 const Wrapper = styled.div`
   position: fixed;
-  z-index: 19;
+  z-index: 21;
+  top: 0;
 
   > a {
     font-weight: bold;
@@ -85,7 +86,9 @@ const StyledLabelButton = styled.div`
   right: 70px;
   width: auto;
   white-space: nowrap;
-
+  top: 50%;
+  transform: translateY(-50%);
+  
   > a {
     color: ${theme('colors.black')};
   }
@@ -205,7 +208,7 @@ class MotionMenu extends Component {
   }
 
   recalculatePosition = () => ({
-    mainButtonPositionX: window.innerWidth - mainButtonDiam / 2 - mainButtonMargin,
+    mainButtonPositionX: document.documentElement.clientWidth - mainButtonDiam / 2 - mainButtonMargin,
     mainButtonPositionY: window.innerHeight - mainButtonDiam / 2 - mainButtonMargin,
     backgroundPositionX: window.innerWidth,
     backgroundPositionY: window.innerHeight,
