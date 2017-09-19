@@ -22,9 +22,9 @@ const DISAPPEAR_CSS = `
 
 const Bubble = styled.div`
   position: fixed;
-  right: 9rem;
-  bottom: 2rem;
-  border-radius: 1rem 1rem 0 1rem;
+  right: 90px;
+  bottom: 20px;
+  border-radius: 10px 10px 0 10px;
   padding: ${theme('spaces.l')};
   background-color: ${theme('colors.white')};
   transform: translateX(100%);
@@ -55,7 +55,7 @@ const Bubble = styled.div`
       opacity: 1;
     }
     25% {
-      transform: translateX(-1.6rem);
+      transform: translateX(-16px);
       opacity: 1;
     }
     50% {
@@ -80,8 +80,8 @@ const Bubble = styled.div`
 
 const WrapperImage = styled.div`
   position: absolute;
-  bottom: .1rem;
-  right: -1.5rem;
+  bottom: 1px;
+  right: -15px;
   width: ${theme('icons.size.s')};
   height: ${theme('icons.size.m')};
   border: none;
@@ -94,11 +94,34 @@ const StyledIcon = styled(Icon)`
   width: ${theme('icons.size.s')};
   height: ${theme('icons.size.m')};
 
-  > svg {
-    box-shadow: 0px 1px 0px 0px rgba(19, 19, 19, 0.1);
+  &::before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    width: 1px;
+    height: 20px;
+    background-color: #ffffff;
+  }
 
+  > svg {
     path {
       fill: #ffffff;
+    }
+  }
+`
+
+const StyledIconShadow = styled(Icon)`
+  position: absolute;
+  z-index: 19;
+  top: 1px;
+  left: 1px;
+  width: ${theme('icons.size.s')};
+  height: ${theme('icons.size.m')};
+
+  > svg {
+    path {
+      fill: #131313;
+      opacity: 0.1;
     }
   }
 `
@@ -107,6 +130,7 @@ const Tooltip = ({ translate, id, ...props }) =>
   <Bubble {...props}>
     <WrapperImage>
       <StyledIcon icon="pointer" size={20} />
+      <StyledIconShadow icon="pointer" size={20} />
     </WrapperImage>
     <div dangerouslySetInnerHTML={{ __html: translate(id) }} />
   </Bubble>
