@@ -21,10 +21,10 @@ const Header = styled(Section)`
 `
 
 const StyledGrid = styled(Grid)`
-  max-width: 88rem;
+  max-width: 86rem;
 
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    max-width: 86rem;
+    max-width: 88rem;
   }
 `
 
