@@ -5,7 +5,12 @@ import { theme } from 'utils/style'
 const Wrapper = styled.div`
   position: absolute;
   height: 5.6rem;
-  top: 0; right: 0; bottom: 0; left: 0;
+  top: 0; 
+  right: 0; 
+  bottom: 0; 
+  left: 0;
+  pointer-events: none;
+  z-index: 2;
 
   > div {
     position: absolute;
