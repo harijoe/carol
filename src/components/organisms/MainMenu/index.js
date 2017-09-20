@@ -168,11 +168,11 @@ const MainMenu = ({ locale, homepage, atTop }) =>
         <FirmResourceSubMenu key={submenu} locale={locale} submenu={submenu} />,
       )}
     </ListItemWithSubmenu>
-    <li key="directory">
+    {locale !== 'es-ES' && <li key="directory">
       <StyledLink to={locales[locale].mainMenu.directory} forceRedirect target="_blank">
         <FormattedMessage id="directory" />
       </StyledLink>
-    </li>
+    </li>}
     <li key="firm.i_am_pro.one">
       <StyledLink to={locales[locale].mainMenu.proUrl} className="qs-linkMenu-pro" target="_blank">
         <FormattedMessage id="firm.i_am_pro.one" /> <FormattedMessage id="firm.i_am_pro.two" />
