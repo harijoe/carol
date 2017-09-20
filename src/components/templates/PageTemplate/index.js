@@ -80,17 +80,24 @@ class PageTemplate extends Component {
     }
 
     if (nextProps.searchModalIsOpen !== this.props.searchModalIsOpen) {
-      const type = nextProps.searchModalIsOpen ? 'hidden' : ''
-      document.body.style.overflow = type
+
+      if (nextProps.searchModalIsOpen) {
+        document.body.classList.add("no-scroll")
+      } else {
+        document.body.classList.remove("no-scroll")
+      }
+
     }
 
   }
 
   componentWillUnmount() {
-    if (document.body.style.overflow === 'hidden') {
+
+    if (document.body.classList.contains('no-scroll')) {
       this.props.toggleSearchModal(false)
-      document.body.style.overflow = ''
+      document.body.classList.remove("no-scroll")
     }
+
   }
 
   render() {

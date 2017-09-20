@@ -126,6 +126,13 @@ const scaffolding = theme => css`
     border: 0;
     outline: 0;
   }
+  
+  .no-scroll {
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+  }
 
   /* Animations */
   @keyframes bounceIn {
