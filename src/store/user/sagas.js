@@ -142,7 +142,7 @@ function* handlePhoneValidationAgain() {
   yield* handlePhoneValidation({ data: { mobilePhone }, notification: notify('user.sms', 'user.sms_sent_again') })
 }
 
-function* handleEmailValidation() {
+function* handleEmailValidation({ data }) {
   try {
     yield* requireUser()
 
@@ -155,7 +155,7 @@ function* handleEmailValidation() {
       return
     }
 
-    yield* fetch(resendEmail, 'post', `${id}/actions/send-verification-email`, {}, {})
+    yield* fetch(resendEmail, 'post', `${id}/actions/send-verification-email?origin=${ data.origin }`, {}, {})
     yield* notify('user.thank_you', 'user.sign_up.confirmation')
   } catch (error) {
     yield put(stopSubmit('EmailForm', { _error: error.message }))
@@ -167,6 +167,7 @@ function* handleEmailVerification() {
 
   const query = yield select(fromRouting.getQuery)
   const token = query.token
+  const origin = query.origin
   const id = yield select(fromUser.getId)
   const emailVerified = yield select(fromUser.getEmailVerified)
 
@@ -179,7 +180,11 @@ function* handleEmailVerification() {
     }
   }
 
-  yield* redirectToNextValidationStep()
+  if (['validation-page', 'validation-page-form'].includes(origin)) {
+    yield* redirectToNextValidationStep()
+  } else {
+    yield put(push('/profile'))
+  }
 }
 
 export default function*() {

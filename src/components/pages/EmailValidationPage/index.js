@@ -16,7 +16,7 @@ const EmailValidationPage = ({ translate }) =>
           title={translate('auto-validation.mail.title')}
           paragraph={translate('auto-validation.mail.message')}
         >
-          <EmailForm />
+          <EmailForm origin="validation-page" />
         </AutoValidationBlock>
       </Section>
     </MainWrapper>

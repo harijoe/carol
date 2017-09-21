@@ -13,7 +13,7 @@ const EmailValidationPopin = ({ translate, show }) =>
       title={translate('auto-validation.mail.title')}
       paragraph={translate('auto-validation.mail.message')}
     >
-      <EmailForm />
+      <EmailForm origin="validation-popin" />
     </AutoValidationBlock>
   </Popin>
 

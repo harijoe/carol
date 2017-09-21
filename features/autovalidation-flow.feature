@@ -34,5 +34,5 @@ Feature: As a logged in user going to the auto validation tunnel, I can go throu
     Given I am logged in
     And My current project already has informations
     And My phone is validated
-    When I go to the 'email validation' page with query '?token=VALID_TOKEN'
+    When I go to the 'email validation' page with query '?token=VALID_TOKEN&origin=validation-page'
     Then I should be redirected to '/project-validation'

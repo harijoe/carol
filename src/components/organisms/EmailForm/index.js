@@ -28,8 +28,9 @@ class EmailForm extends Component {
   }
 
   handleSubmit = (values, dispatch) => {
+    values.preventDefault()
     this.setState({ clicked: true })
-    this.props.handleSubmit(values, dispatch)
+    this.props.handleSubmit(values, dispatch, this.props.origin)
   }
 
   render() {
@@ -60,6 +61,7 @@ EmailForm.propTypes = {
   disabled: PropTypes.bool,
   error: PropTypes.string,
   loading: PropTypes.bool,
+  origin: PropTypes.string.isRequired,
   translate: PropTypes.func.isRequired,
 }
 

@@ -20,9 +20,7 @@ const mapStateToProps = state => {
   }
 }
 
-const onSubmit = (values, dispatch) => {
-  dispatch(validateEmail.request(values))
-}
+const onSubmit = (values, dispatch, origin) => dispatch(validateEmail.request({ origin: `${origin}-form` }))
 
 const validate = createValidator({
   email: [required],

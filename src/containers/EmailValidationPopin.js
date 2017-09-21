@@ -13,7 +13,7 @@ class EmailValidationPopinContainer extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.show) {
-      this.props.request()
+      this.props.request({ origin: 'validation-popin' })
     }
   }
 
@@ -27,7 +27,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  request: () => dispatch(validateEmail.request()),
+  request: data => dispatch(validateEmail.request(data)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EmailValidationPopinContainer)

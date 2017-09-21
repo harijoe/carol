@@ -11,7 +11,7 @@ class EmailValidationPageContainer extends Component {
   }
 
   componentWillMount() {
-    this.props.request()
+    this.props.request({ origin: 'validation-page' })
   }
 
   render() {
@@ -20,7 +20,7 @@ class EmailValidationPageContainer extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  request: () => dispatch(validateEmail.request()),
+  request: data => dispatch(validateEmail.request(data)),
 })
 
 export default connect(null, mapDispatchToProps)(EmailValidationPageContainer)
