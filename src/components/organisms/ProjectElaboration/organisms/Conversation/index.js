@@ -17,6 +17,7 @@ const Wrapper = styled.div`
   max-width: 80rem;
   overflow-y: auto;
   overflow-x: hidden;
+  padding-top: 5.6rem;
 
   ${breakpoint('m')`
     min-height: 29rem;
