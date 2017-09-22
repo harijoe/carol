@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React  from 'react'
+import PropTypes  from 'prop-types'
 import { FormattedMessage } from 'react-intl'
-import cookie from 'services/cookies'
 import styled from 'styled-components'
 import { theme } from 'utils/style'
 import { cookiesUrl } from 'config'
@@ -41,44 +41,26 @@ const CloseIcon = styled(Icon)`
   }
 `
 
-class CookiesBanner extends Component {
-  state = {
-    hidden: cookie.get('cookies_banner_hidden') || false,
+const CookiesBanner = ({ showCookiesBanner, setCookiesBanner }) => {
+
+  const handleClose = () => {
+    setCookiesBanner(false)
   }
 
-  componentDidMount() {
-    cookie.set('cookies_banner_hidden', true)
-  }
-
-  handleClose = e => {
-    e.preventDefault()
-    this.setState({ hidden: true })
-  }
-
-  handleClickMore = () => {
-    cookie.delete('cookies_banner_hidden')
-  }
-
-  render() {
-    const { hidden } = this.state
-
-    if (hidden) {
-      return null
-    }
-
+  if (showCookiesBanner) {
     return (
-      <Wrapper className={hidden && 'hidden'}>
+      <Wrapper>
         <Container>
           <Col xs={10} m={11}>
             <StyledParagraph>
               <FormattedMessage id="cookies.message" /> {' '}
-              <Link to={cookiesUrl} onClick={this.handleClickMore}>
+              <Link to={cookiesUrl} onClick={handleClose}>
                 <FormattedMessage id="cookies.more" />
               </Link>
             </StyledParagraph>
           </Col>
           <Col xs={2} m={1}>
-            <Link onClick={this.handleClose}>
+            <Link onClick={handleClose}>
               <CloseIcon icon="close" />
             </Link>
           </Col>
@@ -86,6 +68,13 @@ class CookiesBanner extends Component {
       </Wrapper>
     )
   }
+
+  return null
+}
+
+CookiesBanner.propTypes = {
+  showCookiesBanner: PropTypes.bool.isRequired,
+  setCookiesBanner: PropTypes.func.isRequired,
 }
 
 export default CookiesBanner

@@ -15,6 +15,7 @@ test('initialState', () => {
     signInPopin: false,
     ssr: true,
     searchModalIsOpen: false,
+    showCookieBanner: false,
   })
 })
 
