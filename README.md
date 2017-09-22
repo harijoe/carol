@@ -138,3 +138,13 @@ yarn storybook
 ```
 
 Open your http://localhost:9001
+
+## 10. Changelog
+
+To produce the changelog for a sprint, run the following:
+```
+Usage: yarn run -s changelog <sprint number>
+``` 
+
+You will be asked for your JIRA email and password first and it will then produce the contents of the changelog.
+
