@@ -16,3 +16,16 @@ storiesOf('Link', module)
       Link Sample
     </Link>,
   )
+
+  .add('Button with mail link', () =>
+    <Link to={'mailto:john.smith@company.com'} button>
+      Mail sample
+    </Link>,
+  )
+
+  .add('Button with tel link', () =>
+    <Link to={'tel:0641696969'} button>
+      Tel sample
+    </Link>,
+  )
+

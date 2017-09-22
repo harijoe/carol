@@ -69,8 +69,8 @@ const styles = ({ kind, highlight, button, large }) => css`
 
 const removeStyledProps = Component => props => <Component {...omit(props, ...styleProps)} />
 
-const StyledLink = styled(removeStyledProps(RouterLink))`${styles}`
-const Anchor = styled.a`${styles};`
+export const StyledLink = styled(removeStyledProps(RouterLink))`${styles}`
+export const Anchor = styled.a`${styles};`
 
 const Link = ({ to, forceRedirect, ...props }) => {
   if (!to) {
@@ -78,7 +78,7 @@ const Link = ({ to, forceRedirect, ...props }) => {
   }
 
   // Checks if URL is absolute
-  if (to.indexOf('http') === 0 || forceRedirect) {
+  if (to.match(/^(https?|mailto|tel):/) || forceRedirect) {
     return <Anchor {...props} href={to || ''} />
   }
 

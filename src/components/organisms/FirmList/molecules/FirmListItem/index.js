@@ -5,7 +5,7 @@ import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
 
-import { Heading, Card, Image, Divider, Icon, List } from 'components'
+import { Heading, Card, Image, Divider, Icon, List, Link } from 'components'
 
 const StyledCard = styled(Card)`
   ${breakpoint('xs')`
@@ -112,7 +112,23 @@ const StyledList = styled(List)`${() => css`
   height: 100%;
   width: 100%;
   list-style-type: none;
-  li { padding: ${theme('spaces.xs')} 0 }
+
+  li { 
+    padding: ${theme('spaces.xs')} 0;
+  }
+
+  a {
+    display: inline-block;
+    vertical-align: middle;
+    color: ${theme('colors.grayscale.darker')};
+    text-decoration: underline;
+    transition: all 0.3s ease-in;
+
+    &:hover {
+      color: ${theme('colors.secondary')};
+      text-decoration: underline;
+    }
+  }
 `}`
 
 const StyledCertificateList = styled(List)`${() => css`
@@ -140,6 +156,11 @@ const StyledCertificateList = styled(List)`${() => css`
   }
 `}`
 
+const StyledIcon = styled(Icon)`
+  vertical-align: middle;
+  fill: ${theme('colors.grayscale.dark')};
+`
+
 const FirmListItem = ({ firm: { name, logoUrl, firmCertificates }, proPostCode, proPhone, proEmail }) =>
   <StyledCard className="firm-item">
     <HeaderCard>
@@ -154,13 +175,13 @@ const FirmListItem = ({ firm: { name, logoUrl, firmCertificates }, proPostCode, 
       </StyledHeading>
       <StyledList>
         <li>
-          <Icon icon="location-pin" /> {proPostCode}
+          <StyledIcon icon="location-pin" /> {proPostCode}
         </li>
         <li>
-          <Icon icon="phone" /> {proPhone}
+          <StyledIcon icon="phone" /> <Link to={`tel:${proPhone}`}>{proPhone}</Link>
         </li>
         <li>
-          <Icon icon="mail" /> {proEmail}
+          <StyledIcon icon="mail" /> <Link to={`mailto:${proEmail}`}>{proEmail}</Link>
         </li>
       </StyledList>
       <Divider />
