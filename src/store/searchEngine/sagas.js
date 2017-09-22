@@ -14,7 +14,7 @@ function* search({ query }) {
   const country = yield select(fromContext.getCountry)
 
   const response = yield call(() =>
-    projectFlowIndex.search({
+    projectFlowIndex(country).search({
       query,
       page: 0,
       hitsPerPage: 1000, // Arbitrary, understand all the results

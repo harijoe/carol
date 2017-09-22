@@ -4,6 +4,6 @@ import mockedIndex from './mocks'
 
 const client = algoliaSearch('TIM81UW1UV', algolia.apiKey)
 
-export const projectFlowIndex = mocking ? mockedIndex : client.initIndex(algolia.projectFlowIndex)
+export const projectFlowIndex = country => mocking ? mockedIndex : client.initIndex(algolia.projectFlowIndex[country])
 
 export default client

@@ -40,7 +40,11 @@ const configs = {
     },
     algolia: {
       apiKey: '833cbf062e3b7c3979155c0d07e3f058',
-      projectFlowIndex: 'qa_ProjectFlow_dev',
+      projectFlowIndex: {
+        FR: 'qa_ProjectFlow_dev_fr',
+        GB: 'qa_ProjectFlow_dev_gb',
+        ES: 'qa_ProjectFlow_dev_es',
+      },
     },
     cloudinary: {
       url: 'https://res.cloudinary.com/quotatis/image/upload',
@@ -77,7 +81,11 @@ const configs = {
       },
     },
     algolia: {
-      projectFlowIndex: 'qa_ProjectFlow_dev',
+      projectFlowIndex: {
+        FR: 'qa_ProjectFlow_dev_fr',
+        GB: 'qa_ProjectFlow_dev_gb',
+        ES: 'qa_ProjectFlow_dev_es',
+      },
     },
     sentry: {
       enabled: true,
@@ -98,7 +106,11 @@ const configs = {
       },
     },
     algolia: {
-      projectFlowIndex: 'preprod_ProjectFlow_prod',
+      projectFlowIndex: {
+        FR: 'preprod_ProjectFlow_prod_fr',
+        GB: 'preprod_ProjectFlow_prod_gb',
+        ES: 'preprod_ProjectFlow_prod_es',
+      },
     },
     sentry: {
       enabled: true,
@@ -135,7 +147,11 @@ const configs = {
     },
     assetPath: 'https://assets.quotatis.com',
     algolia: {
-      projectFlowIndex: 'prod_ProjectFlow_prod',
+      projectFlowIndex: {
+        FR: 'prod_ProjectFlow_prod_fr',
+        GB: 'prod_ProjectFlow_prod_gb',
+        ES: 'prod_ProjectFlow_prod_es',
+      },
     },
     sentry: {
       enabled: true,
