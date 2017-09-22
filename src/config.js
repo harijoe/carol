@@ -222,7 +222,13 @@ const configs = {
 
 const config = merge(configs.all, configs[configs.all.env])
 
-config.port = (process.env.PORT && parseInt(process.env.PORT, 10)) || config.port
+if (process.env.PORT) {
+  config.port = parseInt(process.env.PORT, 10)
+}
+
+if (process.env.SSL_ENABLED) {
+  config.ssl.enabled = process.env.SSL_ENABLED !== 'false'
+}
 
 module.exports = config
 

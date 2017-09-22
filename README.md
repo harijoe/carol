@@ -148,3 +148,18 @@ Usage: yarn run -s changelog <sprint number>
 
 You will be asked for your JIRA email and password first and it will then produce the contents of the changelog.
 
+
+## 11. To run the app on your mobile
+
+Start CAROL on http on a separate port
+
+```
+SSL_ENABLED=false PORT=4444 yarn start
+```
+Then install ngrok and create an external url by running:
+
+```
+ngrok http --host-header=carol-fr-dev.qarx.io 4444
+```
+On your mobile, go to the forwarding URL that is printed in the console
+(e.g. https://97ee6e5c.ngrok.io)
