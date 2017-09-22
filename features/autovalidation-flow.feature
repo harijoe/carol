@@ -15,7 +15,7 @@ Feature: As a logged in user going to the auto validation tunnel, I can go throu
 
   Scenario: Validating step 2 redirects to step 3 (email)
     Given I am logged in
-    And My current project already has informations
+    And my current project already has informations
     When I go to the 'auto-validation step 2' page
     And I fill 'Téléphone mobile' with '0606060606'
     And I click on 'Envoyer'
@@ -25,14 +25,14 @@ Feature: As a logged in user going to the auto validation tunnel, I can go throu
 
   Scenario: Going to Step 2 with not validated email resend an email
     Given I am logged in
-    And My current project already has informations
-    And My phone is validated
+    And my current project already has informations
+    And my phone is validated
     When I go to the 'auto-validation step 3' page
     Then I should see a notification with title 'Merci !'
 
   Scenario: Validating email redirects to project validated page
     Given I am logged in
-    And My current project already has informations
-    And My phone is validated
+    And my current project already has informations
+    And my phone is validated
     When I go to the 'email validation' page with query '?token=VALID_TOKEN&origin=validation-page'
     Then I should be redirected to '/project-validation'

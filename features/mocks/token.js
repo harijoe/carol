@@ -4,6 +4,7 @@ export const login = {
   expires_in: 3600,
   token_type: 'bearer',
   scope: null,
+  user_id: '/users/me',
 }
 
 export const anonymous = {
