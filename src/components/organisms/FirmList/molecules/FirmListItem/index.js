@@ -76,9 +76,6 @@ const BackgroundImage = styled(Image)`
 
 const FooterCard = styled.footer`
   position: relative;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
   padding: ${theme('spaces.m')};
   padding-top: calc(${theme('spaces.m')} + 1.4rem);
 
