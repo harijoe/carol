@@ -108,8 +108,11 @@ const childButtonCss = css`
     outline: none;
   }
 `
-const backgroundInitialScale = 0.5
-const backgroundFinalScale = 80
+
+const backgroundFinalScaleDesktop = 20
+const backgroundFinalScaleMobile = 80
+const backgroundFinalScaleBreakpoint = 992
+
 const StyledChildLink = styled(Link)(childButtonCss)
 const mainButtonDiam = 60
 const mainButtonMarginX = 20
@@ -153,7 +156,9 @@ class MotionMenu extends Component {
       childButtons: [],
       mainButtonPositionX: 0,
       mainButtonPositionY: 0,
+      backgroundInitialScale: 0.5,
     }
+
   }
 
   componentDidMount() {
@@ -244,7 +249,7 @@ class MotionMenu extends Component {
   }
 
   initialBackgroundStyles() {
-    const { mainButtonPositionX, mainButtonPositionY } = this.state
+    const { mainButtonPositionX, mainButtonPositionY, backgroundInitialScale } = this.state
 
     return {
       width: mainButtonDiam,
@@ -257,6 +262,7 @@ class MotionMenu extends Component {
 
   finalBackgroundStyles() {
     const { mainButtonPositionX, mainButtonPositionY } = this.state
+    const backgroundFinalScale = window.innerWidth > backgroundFinalScaleBreakpoint ? backgroundFinalScaleDesktop : backgroundFinalScaleMobile
 
     return {
       width: mainButtonDiam,
@@ -331,11 +337,12 @@ class MotionMenu extends Component {
   }
 
   render() {
-    const { isOpen, childButtons, mainButtonPositionX, mainButtonPositionY } = this.state
     const { hasActiveConversation, showCookieBanner, isSSR } = this.props
-    const cookiesBannerMargin = showCookieBanner ? 60 : 0
 
     if (isSSR) return null
+
+    const { isOpen, childButtons, mainButtonPositionX, mainButtonPositionY } = this.state
+    const cookiesBannerMargin = showCookieBanner ? 60 : 0
 
     const mainButtonRotation = isOpen
       ? { rotate: spring(mainButtonFinalRotation, [500, 30]) }

@@ -42,7 +42,7 @@ it('toggles menu', () => {
 
   // opened
   expect(wrapperMounted.find('MotionMenu').node.state.isOpen).toEqual(true)
-  expect(wrapperMounted.find('Motion').at(0).prop('style').scale.val).toEqual(80)
+  expect(wrapperMounted.find('Motion').at(0).prop('style').scale.val).toEqual(20)
   expect(wrapperMounted.find('Motion').last().prop('style').rotate.val).toEqual(135)
 
   clickMainButton()
