@@ -4,8 +4,8 @@ export default {
   contentSiteUrl: 'https://www.quotatis.es/consejos-reformas/',
   mainMenu: {
     resource: {
-      guide: { path: 'https://www.quotatis.es/consejos-reformas/guia/', target: '_blank' },
-      faq: { path: 'https://www.quotatis.es/consejos-reformas/preguntas-frecuentes/', target: '_blank' },
+      guide: { path: 'guia', target: '_blank' },
+      faq: { path: 'preguntas-frecuentes', target: '_blank' },
     },
     directory: '/directorio-empresas',
     proUrl: 'https://www.quotatispro.es',
