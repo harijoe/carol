@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import SlickCarousel from 'react-slick'
 import styled, { css } from 'styled-components'
 import { theme, mapBreakpoints, breakpointMax, breakpoint } from 'utils/style'
+import isTouchDevice from 'utils/isTouchDevice'
 
 import styles from './styles'
 
@@ -118,6 +119,10 @@ const Carousel = class extends React.Component {
     const { children, itemProps, responsive, ssr, ...otherProps } = this.props
     const props = { ...this.handlePropsOnSSR({ responsive, ssr }), ...otherProps }
     const { removeCarousel } = this.state
+
+    if (ssr || !isTouchDevice()) {
+      props.swipe = false
+    }
 
     return (
       <Wrapper>

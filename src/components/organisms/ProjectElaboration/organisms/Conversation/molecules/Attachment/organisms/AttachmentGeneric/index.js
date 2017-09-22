@@ -102,14 +102,12 @@ const AttachmentGeneric = ({ attachment, reply }) =>
       {
         breakpoint: 991,
         settings: {
-          swipe: true,
         },
       },
       {
         breakpoint: 10000,
         settings: {
           arrows: true,
-          swipe: false,
           slidesToScroll: 3,
           slidesToShow: 3,
         },

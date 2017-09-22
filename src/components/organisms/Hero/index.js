@@ -168,7 +168,6 @@ const FirstChoices = (choices, reply) =>
           {
             breakpoint: 991,
             settings: {
-              swipe: false,
               slidesToScroll: 3,
               slidesToShow: 3,
             },
@@ -177,7 +176,6 @@ const FirstChoices = (choices, reply) =>
             breakpoint: 10000,
             settings: {
               arrows: true,
-              swipe: false,
               slidesToScroll: 5,
               slidesToShow: 4,
             },
@@ -191,7 +189,6 @@ const FirstChoices = (choices, reply) =>
 const Hero = ({ firstChoices, reply }) =>
   <HeroWrapper className="hero">
     <MainWrapper resetState>
-      `
       <StyledSection>
         <Grid>
           <StyledRow column>
