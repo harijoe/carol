@@ -12,12 +12,11 @@ const Wrapper = styled.div`
   bottom: 0;
   margin: 0 auto;
   margin-bottom: 5.6rem;
-  max-height: calc(100vh - 12.1rem);
+  max-height: calc(100vh - 18.5rem);
   width: 100%;
   max-width: 80rem;
   overflow-y: auto;
   overflow-x: hidden;
-  padding-top: 5.6rem;
 
   ${breakpoint('m')`
     min-height: 29rem;
