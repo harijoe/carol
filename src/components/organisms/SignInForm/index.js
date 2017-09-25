@@ -21,6 +21,7 @@ import {
 const StyledRow = styled(Row)`
   flex-direction: column;
   margin: 0;
+  margin-bottom: ${theme('spaces.m')};
 `
 
 const StyledDivider = styled(Divider)`
@@ -66,7 +67,19 @@ const StyledLinkPopIn = styled(Link)`
   }
 `
 
+const Container = styled.div`
+  ${breakpointMax('m')`
+    height: calc(100% - ${theme('spaces.m')});
+  `};
+`
+
 const Wrapper = styled.div`
+  ${breakpointMax('m')`
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  `};
+
   ${breakpointMax('xl')`
     margin-top: ${theme('spaces.xl')};
   `};
@@ -88,9 +101,8 @@ const Footer = styled.footer`
   background-color: ${theme('colors.grayscale.lightest')};
 
   ${breakpointMax('m')`
-    position: absolute;
-    bottom: 0;
     width: 100vw;
+    margin-top: auto;
     margin-left: -${theme('spaces.m')};
     margin-right: -${theme('spaces.m')};
   `} ${breakpoint('m')`
@@ -105,7 +117,7 @@ const Footer = styled.footer`
 `
 
 const SignInForm = ({ error, handleSubmit, loading, translate, className, carousel, redirectTo, onSwitch }) =>
-  <div>
+  <Container>
     {carousel &&
       <CarouselPageTemplate heading={translate('login.coming_back')} description={translate('user.sign_in.introduction')}>
         <StyledRow>
@@ -161,7 +173,7 @@ const SignInForm = ({ error, handleSubmit, loading, translate, className, carous
           </StyledLinkPopIn>
         </Footer>
       </Wrapper>}
-  </div>
+  </Container>
 
 SignInForm.propTypes = {
   handleSubmit: PropTypes.func,
