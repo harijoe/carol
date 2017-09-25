@@ -21,7 +21,6 @@ export const initialState = {
   features: {},
   initialQueryParams: {},
   searchModalIsOpen: false,
-  showCookieBanner: false,
 }
 
 export const isSSR = (state = initialState) => state.ssr
@@ -41,4 +40,3 @@ export const getLocale = (state = initialState) => `${state.lang}-${state.countr
 export const isFeatureEnabled = (state = initialState, feature) => !!state.features[feature]
 export const getInitialQueryParams = (state = initialState) => state.initialQueryParams
 export const searchModalIsOpen = (state = initialState) => state.searchModalIsOpen
-export const showCookiesBanner = (state = initialState) => state.showCookiesBanner

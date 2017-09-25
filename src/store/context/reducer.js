@@ -16,7 +16,6 @@ import {
   CONTEXT_REMOVE_INITIAL_QUERY_PARAM,
   CONTEXT_ENABLE_FEATURE,
   CONTEXT_TOGGLE_SEARCH_MODAL,
-  CONTEXT_SHOW_COOKIES_BANNER,
 } from './actions'
 import { initialState } from './selectors'
 
@@ -145,12 +144,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         searchModalIsOpen: action.payload,
-      }
-    }
-    case CONTEXT_SHOW_COOKIES_BANNER: {
-      return {
-        ...state,
-        showCookiesBanner: action.payload,
       }
     }
     default: {

@@ -115,8 +115,7 @@ const backgroundFinalScaleBreakpoint = 992
 
 const StyledChildLink = styled(Link)(childButtonCss)
 const mainButtonDiam = 60
-const mainButtonMarginX = 20
-const mainButtonMarginY = 20
+const mainButtonMargin = 20
 const mainButtonInitialRotation = 0
 const mainButtonFinalRotation = 135
 const childButtonDiam = 48
@@ -213,8 +212,8 @@ class MotionMenu extends Component {
   }
 
   recalculatePosition = () => ({
-    mainButtonPositionX: document.documentElement.clientWidth - mainButtonDiam / 2 - mainButtonMarginX,
-    mainButtonPositionY: window.innerHeight - mainButtonDiam / 2 - mainButtonMarginY,
+    mainButtonPositionX: document.documentElement.clientWidth - mainButtonDiam / 2 - mainButtonMargin,
+    mainButtonPositionY: window.innerHeight - mainButtonDiam / 2 - mainButtonMargin,
     backgroundPositionX: window.innerWidth,
     backgroundPositionY: window.innerHeight,
   })
@@ -337,13 +336,11 @@ class MotionMenu extends Component {
   }
 
   render() {
-    const { hasActiveConversation, showCookieBanner, isSSR } = this.props
+    const { hasActiveConversation, isSSR } = this.props
 
     if (isSSR) return null
 
     const { isOpen, childButtons, mainButtonPositionX, mainButtonPositionY } = this.state
-    const cookiesBannerMargin = showCookieBanner ? 60 : 0
-
     const mainButtonRotation = isOpen
       ? { rotate: spring(mainButtonFinalRotation, [500, 30]) }
       : { rotate: spring(mainButtonInitialRotation, [500, 30]) }
@@ -378,9 +375,8 @@ class MotionMenu extends Component {
                 />
               )}
               <MainButtonWrapper
-                className="motion-menu-wrapper"
                 style={{
-                  top: mainButtonPositionY - cookiesBannerMargin - mainButtonDiam / 2,
+                  top: mainButtonPositionY - mainButtonDiam / 2,
                   left: mainButtonPositionX - mainButtonDiam / 2,
                 }}
               >
@@ -402,7 +398,6 @@ class MotionMenu extends Component {
 MotionMenu.propTypes = {
   redirectToConversation: PropTypes.func,
   hasActiveConversation: PropTypes.bool,
-  showCookieBanner: PropTypes.bool,
   isSSR: PropTypes.bool,
 }
 

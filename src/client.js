@@ -72,7 +72,6 @@ function* initSaga(forks) {
 
 render(renderApp(), root, () => {
   store.dispatch(setSSR(false))
-  store.dispatch({ type: 'INITIATED' })
   store.runSaga(initSaga, sagaList())
 })
 
