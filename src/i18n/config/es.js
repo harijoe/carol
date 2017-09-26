@@ -5,6 +5,7 @@ export default {
   mainMenu: {
     resource: {
       guide: { path: 'guia', target: '_blank' },
+      inspiring: { path: 'Inspiracion', target: '_blank' },
       faq: { path: 'preguntas-frecuentes', target: '_blank' },
     },
     directory: '/directorio-empresas',
