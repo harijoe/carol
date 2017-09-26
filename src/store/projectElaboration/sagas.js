@@ -102,7 +102,7 @@ function* getConversationCurrent() {
 
   const heroAnswer = yield select(fromProjectElaboration.getHeroAnswer)
 
-  yield pushGtmEvent({ event: 'OpenForm', chatbotKey1: heroAnswer.text })
+  yield pushGtmEvent({ event: 'OpenForm', chatbotKey1: heroAnswer.text, chatbotKey2: '' })
 
   const hasActiveConversation = yield select(fromProjectElaboration.hasActiveConversation)
 
