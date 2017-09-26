@@ -5,7 +5,7 @@ Feature: As an UK customer I can use the quotatis website
 
   Scenario: Home page
     When I go to the 'home' page
-    Then I should be on a page titled 'Quote Works'
+    Then I should be on a page titled 'Quotatis | Find the right pro with Quotatis: Compare quotes and bring your ideas to life'
     And I should see 'What's your project?'
     And I should see 11 Key-one slides
     And I should see 12 items in the footer advices section

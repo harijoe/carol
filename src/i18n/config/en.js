@@ -11,9 +11,6 @@ export default {
     directory: '/tradesmen-directory',
     proUrl: 'https://www.quotatispro.co.uk',
   },
-  homepage: {
-    verifiedProsLink: '/tradesmen-directory',
-  },
   genericProjectImages: [
     '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500641857/FR/ChatbotImages/Q2/electricite-domotique-alarmes/installation-electrique-de-l-habitat.jpg',
     '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500641791/FR/ChatbotImages/Q2/construction-extension-renovation/renovation-de-maison-appartement-commerce.jpg',

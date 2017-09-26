@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders the WordPressPostContent component 1`] = `
+exports[`renders the RichTextContent component 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -30,7 +30,7 @@ ShallowWrapper {
       "_calledComponentWillUnmount": false,
       "_compositeType": 2,
       "_context": Object {},
-      "_currentElement": <WordPressPostContent
+      "_currentElement": <RichTextContent
         content="Some text with a <a href=\\"https://google.com\\">link</a>."
 />,
       "_debugID": 1,
@@ -88,7 +88,7 @@ ShallowWrapper {
     "render": [Function],
   },
   "root": [Circular],
-  "unrendered": <WordPressPostContent
+  "unrendered": <RichTextContent
     content="Some text with a <a href=\\"https://google.com\\">link</a>."
 />,
 }

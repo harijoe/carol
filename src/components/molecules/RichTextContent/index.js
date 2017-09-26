@@ -24,10 +24,11 @@ const StyledParagraph = styled(Paragraph)`
   }
 `
 
-const WordPressPostContent = ({ content }) => <StyledParagraph dangerouslySetInnerHTML={{ __html: content }} />
+const RichTextContent = ({ content }) =>
+  <StyledParagraph dangerouslySetInnerHTML={{ __html: content }} />
 
-WordPressPostContent.propTypes = {
+RichTextContent.propTypes = {
   content: PropTypes.string.isRequired,
 }
 
-export default WordPressPostContent
+export default RichTextContent

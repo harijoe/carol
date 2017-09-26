@@ -12,9 +12,6 @@ export default {
     directory: '/annuaire-artisan',
     proUrl: 'https://www.quotatispro.fr',
   },
-  homepage: {
-    verifiedProsLink: '/annuaire-artisan',
-  },
   genericProjectImages: [
     '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500641857/FR/ChatbotImages/Q2/electricite-domotique-alarmes/installation-electrique-de-l-habitat.jpg',
     '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500641791/FR/ChatbotImages/Q2/construction-extension-renovation/renovation-de-maison-appartement-commerce.jpg',
