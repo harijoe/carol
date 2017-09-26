@@ -74,6 +74,7 @@ function* replyConversation({ text, payload = null }) {
 }
 
 function* getConversations() {
+
   const sessionId = yield select(fromProjectElaboration.getSessionId)
 
   try {
@@ -84,13 +85,16 @@ function* getConversations() {
 }
 
 function* getConversationCurrent() {
+
   yield put(projectElaborationResetConversation)
 
   const query = yield select(fromRouting.getQuery)
 
   if (query.slug != null) {
     yield* replyConversation({ text: `new_project.first_question:${query.slug}` })
-
+    const label = query.slug.split('-').join(' ')
+    const formatedLabel = `${label.charAt(0).toUpperCase()}${label.substring(1).toLowerCase()}`
+    yield pushGtmEvent({ event: 'OpenForm', chatbotKey1: '', chatbotKey2: formatedLabel })
     return
   }
 
@@ -146,6 +150,7 @@ function* preValidate({ chatbotStorageId }) {
   const state = yield select(fromRouting.getState)
   const redirectPathname = yield select(fromRouting.getPathname)
   const heroAnswer = yield select(fromProjectElaboration.getHeroAnswer)
+  const key2label = yield select(fromProjectElaboration.getKey2Label)
 
   if (!authenticated) {
     yield put(push({ pathname: '/signup', state: { ...state, redirectPathname } }))
@@ -174,6 +179,7 @@ function* preValidate({ chatbotStorageId }) {
     event: 'ProjectCreated',
     postalCode,
     chatbotKey1: heroAnswer.text,
+    chatbotKey2: key2label,
     proFormLabel,
   })
   yield put(push(`${projectId}/account`))
