@@ -121,7 +121,7 @@ export default {
   'how_it_works.section_title': 'Comment ça marche ?',
   'how_it_works.step1.description': 'En quelques questions, nous déterminons ensemble les informations nécessaires pour démarrer votre projet de rénovation, construction ou amélioration de votre habitat.',
   'how_it_works.step1.title': 'Décrivez votre projet',
-  'how_it_works.step2.description': 'Nous recherchons autour de vous les pros disponibles dans <a href="https://www.quotatis.fr/annuaire-artisan">notre réseau de professionnels vérifiés</a>. Les artisans établissent un devis complet, et vous pouvez lancer les travaux avec celui que vous avez choisi !',
+  'how_it_works.step2.description': 'Nous recherchons autour de vous les pros disponibles dans <a href="https://www.quotatis.fr/annuaire-artisan" target="_blank">notre réseau de professionnels vérifiés</a>. Les artisans établissent un devis complet, et vous pouvez lancer les travaux avec celui que vous avez choisi !',
   'how_it_works.step2.title': 'Quotatis sélectionne pour vous de 3 à 5 pros de confiance',
   'how_it_works.step3.description': 'Nous vous accompagnons tout au long de votre projet de travaux avec des <a href="https://www.quotatis.fr/conseils-travaux/" target="_blank">conseils personnalisés</a> et des guides dédiés.',
   'how_it_works.step3.title': 'On vous guide',
