@@ -136,11 +136,6 @@ export default {
         src: 'https://www.quotatispro.es/',
         target: '_blank',
       },
-      column_2_3: {
-        key: 'reforming',
-        src: 'https://www.quotatispro.es/presupuestos-reformas',
-        target: '_blank',
-      },
     },
     social: {
       facebook: 'https://www.facebook.com/Quotatis.Es',
