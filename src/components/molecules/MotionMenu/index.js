@@ -115,7 +115,8 @@ const backgroundFinalScaleBreakpoint = 992
 
 const StyledChildLink = styled(Link)(childButtonCss)
 const mainButtonDiam = 60
-const mainButtonMargin = 20
+const mainButtonMarginX = 20
+const mainButtonMarginY = 20
 const mainButtonInitialRotation = 0
 const mainButtonFinalRotation = 135
 const childButtonDiam = 48
@@ -175,6 +176,8 @@ class MotionMenu extends Component {
     window.removeEventListener('resize', this.refreshPosition)
   }
 
+  getCookieBannerMargin = () => this.props.showCookieBanner ? 60 : 0
+
   buildButtons({ hasActiveConversation, translate }) {
 
     const newChatButton = {
@@ -212,8 +215,8 @@ class MotionMenu extends Component {
   }
 
   recalculatePosition = () => ({
-    mainButtonPositionX: document.documentElement.clientWidth - mainButtonDiam / 2 - mainButtonMargin,
-    mainButtonPositionY: window.innerHeight - mainButtonDiam / 2 - mainButtonMargin,
+    mainButtonPositionX: document.documentElement.clientWidth - mainButtonDiam / 2 - mainButtonMarginX,
+    mainButtonPositionY: window.innerHeight - mainButtonDiam / 2 - mainButtonMarginY,
     backgroundPositionX: window.innerWidth,
     backgroundPositionY: window.innerHeight,
   })
@@ -226,7 +229,7 @@ class MotionMenu extends Component {
     return {
       width: childButtonDiam,
       height: childButtonDiam,
-      top: spring(mainButtonPositionY - childButtonDiam / 2, childButtonSpringConfig),
+      top: spring(mainButtonPositionY  - this.getCookieBannerMargin() - childButtonDiam / 2, childButtonSpringConfig),
       left: spring(mainButtonPositionX - childButtonDiam / 2, childButtonSpringConfig),
       rotate: spring(childButtonInitialRotation, childButtonSpringConfig),
       scale: spring(childButtonInitialScale, childButtonSpringConfig),
@@ -240,7 +243,7 @@ class MotionMenu extends Component {
     return {
       width: childButtonDiam,
       height: childButtonDiam,
-      top: spring(mainButtonPositionY - deltaY, childButtonSpringConfig),
+      top: spring(mainButtonPositionY - this.getCookieBannerMargin() - deltaY, childButtonSpringConfig),
       left: spring(mainButtonPositionX + deltaX, childButtonSpringConfig),
       rotate: spring(childButtonFinalRotation, childButtonSpringConfig),
       scale: spring(childButtonFinalScale, childButtonSpringConfig),
@@ -253,7 +256,7 @@ class MotionMenu extends Component {
     return {
       width: mainButtonDiam,
       height: mainButtonDiam,
-      top: spring(mainButtonPositionY - childButtonDiam / 2, childButtonSpringConfig),
+      top: spring(mainButtonPositionY - this.getCookieBannerMargin() - childButtonDiam / 2, childButtonSpringConfig),
       left: spring(mainButtonPositionX - childButtonDiam / 2, childButtonSpringConfig),
       scale: spring(backgroundInitialScale, backgroundSpringConfig),
     }
@@ -266,7 +269,7 @@ class MotionMenu extends Component {
     return {
       width: mainButtonDiam,
       height: mainButtonDiam,
-      top: spring(mainButtonPositionY - mainButtonDiam / 2, childButtonSpringConfig),
+      top: spring(mainButtonPositionY - this.getCookieBannerMargin() - mainButtonDiam / 2, childButtonSpringConfig),
       left: spring(mainButtonPositionX - mainButtonDiam / 2, childButtonSpringConfig),
       scale: spring(backgroundFinalScale, backgroundSpringConfig),
     }
@@ -336,11 +339,11 @@ class MotionMenu extends Component {
   }
 
   render() {
+    const { isOpen, childButtons, mainButtonPositionX, mainButtonPositionY } = this.state
     const { hasActiveConversation, isSSR } = this.props
 
     if (isSSR) return null
 
-    const { isOpen, childButtons, mainButtonPositionX, mainButtonPositionY } = this.state
     const mainButtonRotation = isOpen
       ? { rotate: spring(mainButtonFinalRotation, [500, 30]) }
       : { rotate: spring(mainButtonInitialRotation, [500, 30]) }
@@ -371,12 +374,14 @@ class MotionMenu extends Component {
                   id="motion_menu.tooltip_message"
                   style={{
                     visibility: isOpen ? 'hidden' : '',
+                    'margin-bottom': this.getCookieBannerMargin(),
                   }}
                 />
               )}
               <MainButtonWrapper
+                className="motion-menu-wrapper"
                 style={{
-                  top: mainButtonPositionY - mainButtonDiam / 2,
+                  top: mainButtonPositionY - this.getCookieBannerMargin() - mainButtonDiam / 2,
                   left: mainButtonPositionX - mainButtonDiam / 2,
                 }}
               >
@@ -399,6 +404,7 @@ MotionMenu.propTypes = {
   redirectToConversation: PropTypes.func,
   hasActiveConversation: PropTypes.bool,
   isSSR: PropTypes.bool,
+  showCookieBanner: PropTypes.bool,
 }
 
 export default injectTranslate(MotionMenu)

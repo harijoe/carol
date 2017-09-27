@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { fromContext, fromProjectElaboration } from 'store/selectors'
+
 import { projectElaborationHeroDetails, setProjectElaborationHeroAnswer, clickOnFindAPro } from 'store/actions'
 
 import { MotionMenu } from 'components'
@@ -10,7 +11,7 @@ import { MotionMenu } from 'components'
 class MotionMenuContainer extends Component {
   static propTypes = {
     request: PropTypes.func,
-    ssr: PropTypes.bool.isRequired,
+    ssr: PropTypes.bool,
   }
 
   componentWillMount() {
@@ -30,7 +31,8 @@ const mapStateToProps = state => ({
   hasActiveConversation: fromProjectElaboration.hasActiveConversation(state),
   conversations: fromProjectElaboration.getConversations(state),
   firstChoices: fromProjectElaboration.getFirstChoices(state),
-  ssr: fromContext.isSSR(state),
+  showCookieBanner: fromContext.showCookiesBanner(state),
+  isSSR: fromContext.isSSR(state),
 })
 
 const mapDispatchToProps = dispatch =>

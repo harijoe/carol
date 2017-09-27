@@ -2,9 +2,17 @@ import { put, select } from 'redux-saga/effects'
 import { LOCATION_CHANGE } from 'react-router-redux'
 import { takeLatest } from 'utils/effects'
 import { fromContext } from 'store/selectors'
-import { closeAll, CONTEXT_TOGGLE_MAIN_NAVIGATION, CONTEXT_TOGGLE_ACCOUNT_NAVIGATION, CONTEXT_CLOSE_ALL } from './actions'
+import cookie from 'services/cookies'
+import { closeAll, showCookiesBanner, CONTEXT_TOGGLE_MAIN_NAVIGATION, CONTEXT_TOGGLE_ACCOUNT_NAVIGATION, CONTEXT_CLOSE_ALL, CONTEXT_SHOW_COOKIES_BANNER } from './actions'
 
 export function* handleLocationChange() {
+  const showCookieBanner = yield select(fromContext.showCookiesBanner)
+
+  if (showCookieBanner) {
+    yield put(showCookiesBanner(false))
+    cookie.set('cookies_banner_hidden', true)
+  }
+
   yield put(closeAll())
 }
 
@@ -28,10 +36,28 @@ export function* handlePopinChange() {
   document.body.className = classes.join(' ')
 }
 
+const handleShowCookiesBanner = (show) => {
+  if (show) {
+    cookie.set('cookies_banner_hidden', true)
+  } else {
+    cookie.delete('cookies_banner_hidden')
+  }
+}
+
+function* initiateCookiesBanner() {
+  if (!cookie.get('cookies_banner_hidden')) {
+    yield put(showCookiesBanner(true))
+  }
+
+  cookie.set('cookies_banner_hidden', true)
+}
+
 export default function*() {
   yield [
     takeLatest(LOCATION_CHANGE, handleLocationChange),
     takeLatest(CONTEXT_TOGGLE_MAIN_NAVIGATION, handlePopinChange),
+    takeLatest(CONTEXT_SHOW_COOKIES_BANNER, handleShowCookiesBanner),
+    takeLatest('INITIATED', initiateCookiesBanner),
     takeLatest(CONTEXT_TOGGLE_ACCOUNT_NAVIGATION, handlePopinChange),
     takeLatest(CONTEXT_CLOSE_ALL, handlePopinChange),
   ]
