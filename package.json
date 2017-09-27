@@ -105,7 +105,7 @@
     "style-loader": "^0.18.2",
     "stylelint": "^7.7.1",
     "stylelint-config-standard": "^16.0.0",
-    "stylelint-processor-styled-components": "^0.1.0",
+    "stylelint-processor-styled-components": "^1.0.0",
     "url-loader": "^0.5.8",
     "webpack-bundle-analyzer": "^2.8.2"
   },
