@@ -5,7 +5,7 @@ import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
 
-import { Heading, Card, Image, Divider, Icon, List, Link } from 'components'
+import { Heading, Card, Image, Icon, List, Link } from 'components'
 
 const StyledCard = styled(Card)`
   ${breakpoint('xs')`
@@ -15,11 +15,13 @@ const StyledCard = styled(Card)`
   `}
 
   ${breakpoint('m')`
-    width: 30rem;
+    width: 32.5rem;
     margin-left: calc(${theme('spaces.l')} / 2);
     margin-right: calc(${theme('spaces.l')} / 2)
   `}
 
+  display: flex;
+  flex-direction: column;
   width: calc(100vw - 4.8rem);
   height: 100%;
 `
@@ -111,7 +113,8 @@ const StyledList = styled(List)`${() => css`
   list-style-type: none;
 
   li { 
-    padding: ${theme('spaces.xs')} 0;
+    position: relative;
+    padding: 0 0 ${theme('spaces.m')} ${theme('spaces.l')};
   }
 
   a {
@@ -130,23 +133,28 @@ const StyledList = styled(List)`${() => css`
 
 const StyledCertificateList = styled(List)`${() => css`
   position: relative;
-  display: flex;
-  flex-direction: row;
-  margin-top: ${theme('spaces.m')};
-  margin-bottom: 0;
   height: 100%;
   width: 100%;
+  margin-top: ${theme('spaces.m')};
+  margin-bottom: 0;
+  padding-top: ${theme('spaces.m')};
   list-style-type: none;
+  border-top: 1px solid ${theme('colors.grayscale.lighter')};
+
   li {
+    display: inline-block;
+    margin: ${theme('spaces.xs')};
     padding: ${theme('spaces.s')};
     background-color: ${theme('colors.grey')};
     border-radius: ${theme('spaces.m')};
     font-size: ${theme('fonts.size.xs')};
     text-transform: uppercase;
     margin-right: ${theme('spaces.xs')};
+
     &:first-child {
       padding: ${theme('spaces.s')};
     }
+
     &:last-child {
       margin-right: 0;
     }
@@ -154,6 +162,9 @@ const StyledCertificateList = styled(List)`${() => css`
 `}`
 
 const StyledIcon = styled(Icon)`
+  position: absolute;
+  left: 0;
+  top: 0;
   vertical-align: middle;
   fill: ${theme('colors.grayscale.dark')};
 `
@@ -181,7 +192,6 @@ const FirmListItem = ({ firm: { name, logoUrl, firmCertificates }, proPostCode, 
           <StyledIcon icon="mail" /> <Link to={`mailto:${proEmail}`}>{proEmail}</Link>
         </li>
       </StyledList>
-      <Divider />
       {firmCertificates.length > 0 &&
         <StyledCertificateList>
           {firmCertificates.map(item =>

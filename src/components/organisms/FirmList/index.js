@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { theme, breakpoint } from 'utils/style'
+import { theme, breakpoint, breakpointMax } from 'utils/style'
 
 import { Row, FirmListItem } from 'components'
 import { Carousel } from 'containers'
@@ -26,12 +26,18 @@ const StyledCarousel = styled(Carousel)`
     overflow: hidden;
   }
 
+  ${breakpointMax('m')`
+    .slick-track {
+      height: 44rem;
+    }
+  `}
+
   ${breakpoint('xl')`
     margin: 0;
     max-width: 120rem;
 
     .slick-list {
-      padding-left: calc( ${theme('spaces.xxxl')} + calc( ${theme('spaces.l')} - 1.3rem ) );
+      padding-left: calc( 6.5rem + calc( ${theme('spaces.l')} - 1.3rem ) );
     }
   `}
 `
