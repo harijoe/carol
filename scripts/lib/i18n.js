@@ -3,7 +3,7 @@ import path from 'path'
 import fs from 'fs'
 import { promisify } from 'util'
 import colors from 'colors'
-import markdownIt from 'markdown-it'
+import render from './render'
 
 process.on('unhandledRejection', err => {
   throw err
@@ -50,9 +50,7 @@ const isLdJson = text => text.match(/^\\{/)
 
 const fixMarked = markedRendered => markedRendered.trim().replace(/^<br>|<br>$/g, '').replace(/&amp;/g, '&').replace(/&quot;/g, '"')
 
-const renderer = markdownIt({ breaks: true, html: true })
-
-const marked = text => (isLdJson(text) ? text : fixMarked(renderer.renderInline(text)))
+const marked = text => (isLdJson(text) ? text : fixMarked(render(text)))
 
 const beautify = text => (isLdJson(text) ? text : marked(text))
 

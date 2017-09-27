@@ -88,6 +88,7 @@
     "html-loader": "^0.4.4",
     "jest-cli": "^20.0.4",
     "json-loader": "^0.5.4",
+    "markdown-it-attrs": "^1.2.0",
     "nightwatch": "^0.9.16",
     "nightwatch-cucumber": "^8.0.10",
     "opn-cli": "^3.1.0",
