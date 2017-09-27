@@ -50,7 +50,9 @@ const isLdJson = text => text.match(/^\\{/)
 
 const fixMarked = markedRendered => markedRendered.trim().replace(/^<br>|<br>$/g, '').replace(/&amp;/g, '&').replace(/&quot;/g, '"')
 
-const marked = text => (isLdJson(text) ? text : fixMarked(markdownIt({ breaks: true }).renderInline(text)))
+const renderer = markdownIt({ breaks: true, html: true })
+
+const marked = text => (isLdJson(text) ? text : fixMarked(renderer.renderInline(text)))
 
 const beautify = text => (isLdJson(text) ? text : marked(text))
 

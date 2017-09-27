@@ -124,7 +124,7 @@ export default {
   'how_it_works.step1.title': 'Describe your project',
   'how_it_works.step2.description': 'We search <a href="https://www.quotatis.co.uk/tradesmen-directory">our network of trusted pros</a> in your area to find the best one to help you start your project.',
   'how_it_works.step2.title': 'Quotatis selects up to 4 reliable pros for you',
-  'how_it_works.step3.description': 'We\'ll give you support and guidance throughout your project, thanks to <a href="https://www.quotatis.co.uk/advice/">our expert advice</a> and guides.',
+  'how_it_works.step3.description': 'We\'ll give you support and guidance throughout your project, thanks to <a href="https://www.quotatis.co.uk/advice/" target="_blank">our expert advice</a> and guides.',
   'how_it_works.step3.title': 'We\'ll guide you through your project',
   'Invalid username and password combination': 'Email address and password combination invalid',
   'last_projects.section_title': 'Featured Projects',
