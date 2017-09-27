@@ -114,7 +114,7 @@ export default {
       },
       column_1_2: {
         key: 'about',
-        src: 'quien-somos ',
+        src: 'quienes-somos ',
         contentSite: true,
         forceRedirect: true,
       },
