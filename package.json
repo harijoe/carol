@@ -145,6 +145,8 @@
     "react-router-redux": "^4.0.8",
     "react-router-scroll": "^0.4.2",
     "react-slick": "^0.15.4",
+    "react-tap-event-plugin": "^2.0.1",
+    "react-tooltip": "^3.3.0",
     "reapop": "^1.1.1",
     "redux": "^3.7.2",
     "redux-form": "^7.0.4",

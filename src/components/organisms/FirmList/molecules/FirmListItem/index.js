@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
+import ReactTooltip from 'react-tooltip'
+import isTouchDevice from 'utils/isTouchDevice'
 
-import { Heading, Card, Image, Icon, List, Link } from 'components'
+import { Heading, Card, Image, Divider, Icon, List, Link, CloseAllButton } from 'components'
 
 const StyledCard = styled(Card)`
   ${breakpoint('xs')`
@@ -20,6 +22,7 @@ const StyledCard = styled(Card)`
     margin-right: calc(${theme('spaces.l')} / 2)
   `}
 
+  position: relative;
   display: flex;
   flex-direction: column;
   width: calc(100vw - 4.8rem);
@@ -169,49 +172,123 @@ const StyledIcon = styled(Icon)`
   fill: ${theme('colors.grayscale.dark')};
 `
 
-const FirmListItem = ({ firm: { name, logoUrl, firmCertificates }, proPostCode, proPhone, proEmail }) =>
-  <StyledCard className="firm-item">
-    <HeaderCard>
-      <ImageWrapper>
-        <BackgroundImage src={cloudinary('/placeholder-firm_image.jpg')} />
-      </ImageWrapper>
-      <FirmImage alt={'alt'} src={logoUrl || cloudinary('/icons/placeholder-logo.png')} width="50" height="50" />
-    </HeaderCard>
-    <FooterCard>
-      <StyledHeading level={3}>
-        {name}
-      </StyledHeading>
-      <StyledList>
-        <li>
-          <StyledIcon icon="location-pin" /> {proPostCode}
-        </li>
-        <li>
-          <StyledIcon icon="phone" /> <Link to={`tel:${proPhone}`}>{proPhone}</Link>
-        </li>
-        <li>
-          <StyledIcon icon="mail" /> <Link to={`mailto:${proEmail}`}>{proEmail}</Link>
-        </li>
-      </StyledList>
-      {firmCertificates.length > 0 &&
-        <StyledCertificateList>
-          {firmCertificates.map(item =>
-            <li key={item['@id']}>
-              {item.certificate.name}
-            </li>,
-          )}
-        </StyledCertificateList>}
-    </FooterCard>
-  </StyledCard>
+const StyledOverlayModal = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.38);
+  z-index: 99;
+  pointer-events: auto;
+`
 
-FirmListItem.propTypes = {
-  firm: PropTypes.shape({
-    name: PropTypes.string,
-    logoUrl: PropTypes.string,
-    firmCertificates: PropTypes.array,
-  }),
-  proPostCode: PropTypes.string,
-  proPhone: PropTypes.string,
-  proEmail: PropTypes.string,
+const StyledModal = styled.div`
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  max-height: calc(100% - 40px);
+  background-color: #fff;
+  z-index: 101;
+  overflow: scroll;
+`
+
+const StyledContentModal = styled.div`padding: ${theme('spaces.xxl')} ${theme('spaces.m')} 0 ${theme('spaces.m')};`
+
+const StyledReactTooltip = styled(ReactTooltip)`
+  max-width: 30rem;
+  box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.1);
+`
+
+class FirmListItem extends Component {
+  static propTypes = {
+    firm: PropTypes.shape({
+      name: PropTypes.string,
+      logoUrl: PropTypes.string,
+      firmCertificates: PropTypes.array,
+    }),
+    proPostCode: PropTypes.string,
+    proPhone: PropTypes.string,
+    proEmail: PropTypes.string,
+  }
+
+  constructor() {
+    super()
+    this.state = { showModal: false, contentModal: null }
+  }
+
+  showModal(description) {
+    if (!isTouchDevice()) return
+    this.setState({ contentModal: description, showModal: true })
+  }
+
+  hideModal = () => {
+    this.setState({ showModal: false })
+  }
+
+  render() {
+    const { firm: { name, logoUrl, firmCertificates }, proPostCode, proPhone, proEmail } = this.props
+
+    const { showModal, contentModal } = this.state
+
+    return (
+      <StyledCard className="firm-item">
+        <HeaderCard>
+          <ImageWrapper>
+            <BackgroundImage src={cloudinary('/placeholder-firm_image.jpg')} />
+          </ImageWrapper>
+          <FirmImage alt={'alt'} src={logoUrl || cloudinary('/icons/placeholder-logo.png')} width="50" height="50" />
+        </HeaderCard>
+        <FooterCard>
+          <StyledHeading level={3}>
+            {name}
+          </StyledHeading>
+          <StyledList>
+            <li>
+              <StyledIcon icon="location-pin" /> {proPostCode}
+            </li>
+            <li>
+              <StyledIcon icon="phone" /> <Link to={`tel:${proPhone}`}>{proPhone}</Link>
+            </li>
+            <li>
+              <StyledIcon icon="mail" /> <Link to={`mailto:${proEmail}`}>{proEmail}</Link>
+            </li>
+          </StyledList>
+          <Divider />
+          {firmCertificates.length > 0 &&
+            <StyledCertificateList>
+              {firmCertificates.map(item =>
+                /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+                <li
+                  key={item['@id']}
+                  data-tip={!isTouchDevice() ? item.certificate.description : null}
+                  onClick={() => this.showModal(item.certificate.description)}
+                >
+                  {item.certificate.name}
+                </li>,
+              )}
+              {!isTouchDevice() && <StyledReactTooltip type={'light'} effect={'solid'} />}
+            </StyledCertificateList>}
+        </FooterCard>
+        {isTouchDevice() &&
+          showModal &&
+          <StyledOverlayModal onClick={this.hideModal}>
+            <StyledModal>
+              <CloseAllButton closeAll={this.hideModal} />
+              <StyledContentModal>
+                {contentModal}
+              </StyledContentModal>
+            </StyledModal>
+          </StyledOverlayModal>}
+      </StyledCard>
+    )
+  }
 }
 
 export default injectTranslate(FirmListItem)
