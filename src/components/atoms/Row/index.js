@@ -6,8 +6,7 @@ import { theme, breakpoint, ifThen, mapBreakpoints, breakpointMax } from 'utils/
 const styles = ({ reverse, column, start, center, end, top, middle, bottom, around, between, first, last }) => css`
   display: flex;
   flex: 0 1 auto;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   ${mapBreakpoints(
     bp => css`
     margin-right: calc(${theme(`grid.gutterGrid.${bp}`, 'rem')} / 2 * -1);

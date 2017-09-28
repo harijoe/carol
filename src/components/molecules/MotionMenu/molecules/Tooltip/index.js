@@ -24,13 +24,13 @@ const Bubble = styled.div`
   position: fixed;
   right: 90px;
   bottom: 20px;
-  border-radius: 10px 10px 0 10px;
+  border-radius: 10px 10px 0;
   padding: ${theme('spaces.l')};
   background-color: ${theme('colors.white')};
   transform: translateX(100%);
   opacity: 0;
   box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, 0.15);
-  animation: 
+  animation:
     ${APPEAR_DURATION}s ease-in-out ${APPEAR_DELAY}s 1 appear,
     ${MOVEMENT_DURATION}s cubic-bezier(0.83, 0.24, 0.28, 0.84) ${APPEAR_DELAY + APPEAR_DURATION}s ${MOVEMENT_COUNT} movement,
     ${APPEAR_DURATION}s ease-in-out ${APPEAR_DELAY + APPEAR_DURATION + MOVEMENT_COUNT * MOVEMENT_DURATION}s 1 disappear;
@@ -71,7 +71,7 @@ const Bubble = styled.div`
   @keyframes disappear {
     from {
       ${APPEAR_CSS}
-  }
+    }
     to {
       ${DISAPPEAR_CSS}
     }
@@ -100,12 +100,12 @@ const StyledIcon = styled(Icon)`
     left: -1px;
     width: 1px;
     height: 20px;
-    background-color: #ffffff;
+    background-color: #fff;
   }
 
   > svg {
     path {
-      fill: #ffffff;
+      fill: #fff;
     }
   }
 `

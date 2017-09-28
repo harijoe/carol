@@ -24,7 +24,7 @@ const Wrapper = styled.header`
     height: 100%;
     width: 100%;
     content: '';
-    background-color: #3333FE;
+    background-color: #3333fe;
     opacity: 0.85;
   }
 

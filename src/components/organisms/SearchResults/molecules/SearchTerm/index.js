@@ -9,7 +9,7 @@ import { Heading, Input, Icon } from 'components'
 const StyledHeading = styled(Heading)`
   position: relative;
   line-height: 1.1;
-  font-family:  ${theme('fonts.family.andesLight')};
+  font-family: ${theme('fonts.family.andesLight')};
 
   ${breakpoint('l')`
     font-size:  ${theme('fonts.size.xxl')};
@@ -18,15 +18,15 @@ const StyledHeading = styled(Heading)`
 
 const StyledInput = styled(Input)`
   display: block;
-  font-family:  ${theme('fonts.family.andesBlack')};
-  font-size:  ${theme('fonts.size.xxl')};
+  font-family: ${theme('fonts.family.andesBlack')};
+  font-size: ${theme('fonts.size.xxl')};
   padding-right: ${theme('spaces.xxl')};
   outline: 0;
   border-bottom: 1px solid ${theme('colors.primary')};
   color: ${theme('colors.primary')};
 
   ${breakpoint('l')`
-    font-size:  ${theme('fonts.size.xxxl')};
+    font-size: ${theme('fonts.size.xxxl')};
     padding-right: ${theme('spaces.xxxl')};
   `}
 

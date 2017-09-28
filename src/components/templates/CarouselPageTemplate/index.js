@@ -51,9 +51,9 @@ const RightCol = styled(Col)`
 
   ${mapBreakpoints(
     bp => css`
-    padding-right: calc( ${theme(`grid.gutterWidth.${bp}`, 'rem')} + ${theme('spaces.l')} );
-    padding-left: calc( ${theme(`grid.gutterWidth.${bp}`, 'rem')} + ${theme('spaces.l')} );
-    padding-bottom: calc( ${theme(`grid.gutterWidth.${bp}`, 'rem')} + ${theme('spaces.l')} );
+    padding-right: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} + ${theme('spaces.l')});
+    padding-left: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} + ${theme('spaces.l')});
+    padding-bottom: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} + ${theme('spaces.l')});
   `,
   )}
 `

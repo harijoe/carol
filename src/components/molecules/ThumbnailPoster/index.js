@@ -41,8 +41,7 @@ const styles = ({ height }) => {
   const commonStyle = css`
     position: relative;
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    flex-flow: column wrap;
     align-items: center;
     align-content: center;
     justify-content: center;

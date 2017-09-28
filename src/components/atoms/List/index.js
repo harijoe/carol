@@ -18,7 +18,8 @@ const styles = css`
     }
   }
 
-  ul, ol {
+  ul,
+  ol {
     padding-left: ${theme('spaces.m')};
   }
 `

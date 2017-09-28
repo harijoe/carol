@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   }
 
   > div {
-    # https://goo.gl/o7tU78
+    /* https://goo.gl/o7tU78 */
     input[type="number"]::-webkit-outer-spin-button,
     input[type="number"]::-webkit-inner-spin-button {
       -webkit-appearance: none !important;

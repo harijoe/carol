@@ -94,7 +94,7 @@ const FirmImage = styled(Image)`
   border-radius: 4rem;
   width: 8rem;
   height: 8rem;
-  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 
   &:first-child {
@@ -112,7 +112,7 @@ const StyledList = styled(List)`${() => css`
   width: 100%;
   list-style-type: none;
 
-  li { 
+  li {
     position: relative;
     padding: 0 0 ${theme('spaces.m')} ${theme('spaces.l')};
   }

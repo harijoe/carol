@@ -25,34 +25,34 @@ const Wrapper = styled.div`
   }
 
   @keyframes bouncing {
-  0% {
-    transform: translateY(0);
+    0% {
+      transform: translateY(0);
+    }
+  
+    20% {
+      transform: translateY(-3.8rem);
+    }
+  
+    24% {
+      transform: translateY(-3.2rem);
+    }
+  
+    28% {
+      transform: translateY(-3.8rem);
+    }
+  
+    48% {
+      transform: translateY(0.8rem);
+    }
+  
+    52% {
+      transform: translateY(0);
+    }
+  
+    100% {
+      transform: translateY(0);
+    }
   }
-
-  20% {
-    transform: translateY(-3.8rem);
-  }
-
-  24% {
-    transform: translateY(-3.2rem);
-  }
-
-  28% {
-    transform: translateY(-3.8rem);
-  }
-
-  48% {
-    transform: translateY(0.8rem);
-  }
-
-  52% {
-    transform: translateY(0);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-}
 `
 
 const BouncingBall = () =>

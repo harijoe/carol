@@ -44,6 +44,7 @@ const ColGrid = styled(Col)`
       opacity: 0;
     }
   }
+
   @keyframes suggestions {
     0% {
       opacity: 0;
@@ -72,12 +73,12 @@ const ColGrid = styled(Col)`
 `
 
 const StyledHeading = styled(Heading)`
-  font-size:  ${theme('fonts.size.xxl')};
+  font-size: ${theme('fonts.size.xxl')};
 `
 
 const SubHeading = styled(Paragraph)`
-  font-family:  ${theme('fonts.family.andesLight')};
-  font-size:  ${theme('fonts.size.xl')};
+  font-family: ${theme('fonts.family.andesLight')};
+  font-size: ${theme('fonts.size.xl')};
 `
 
 const ResultsHeading = styled(Heading)`

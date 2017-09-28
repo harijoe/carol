@@ -30,7 +30,7 @@ const StyledMainIcon = styled(Icon)`
   position: relative;
 
   svg path {
-    fill: #FFFFFF; 
+    fill: #fff;
   }
 `
 
@@ -99,7 +99,7 @@ const childButtonCss = css`
   justify-content: center;
   align-items: center;
   border-radius: 100%;
-  background-color: #3333FE;
+  background-color: #3333fe;
   box-shadow: rgba(0, 0, 0, 0.2) 0 1px 3px;
   color: #8898a5;
   border: none;

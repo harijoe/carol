@@ -23,8 +23,7 @@ import {
 import { GenderBlock } from 'containers'
 
 const StyledRow = styled(Row)`
-  flex-wrap: nowrap;
-  flex-direction: column;
+  flex-flow: column nowrap;
   margin: auto;
   width: 100%;
 `

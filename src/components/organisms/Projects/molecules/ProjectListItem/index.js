@@ -117,7 +117,7 @@ const FirmImage = styled.div`
     border-radius: ${theme('spaces.l')};
     width: ${theme('spaces.xxl')};
     height: ${theme('spaces.xxl')};
-    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.10);
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
     background-color: ${theme('colors.white')};
     background-position: center;
     background-repeat: no-repeat;
@@ -183,7 +183,7 @@ const ButtonArrow = styled(Link)`
   height: ${theme('spaces.xxl')};
   background-color: ${theme('colors.primary')};
   color: ${theme('colors.white')};
-  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 
   ${breakpointMax('m')`

@@ -118,12 +118,12 @@ const linkStyle = css`
   `}
 
   &.qs-linkMenu--toggle {
-     position: relative;
-     padding-right: calc(${theme('spaces.m')} + 1.4rem);
+    position: relative;
+    padding-right: calc(${theme('spaces.m')} + 1.4rem);
 
-     ${breakpoint('xl')`
-        padding-right: calc(${theme('spaces.l')} + 1.4rem);
-     `}
+    ${breakpoint('xl')`
+      padding-right: calc(${theme('spaces.l')} + 1.4rem);
+    `}
 
     &::after {
       position: absolute;

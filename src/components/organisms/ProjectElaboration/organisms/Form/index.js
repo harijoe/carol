@@ -118,7 +118,7 @@ const BackIcon = styled(Icon)`
   vertical-align: text-bottom;
 
   .cls-1 {
-     fill: ${theme('colors.grayscale.dark')};
+    fill: ${theme('colors.grayscale.dark')};
   }
 `
 
@@ -152,7 +152,8 @@ const StyledField = styled(Field)`${({ disabled }) => css`
     opacity: 0.4;
   }
 
-  &:focus, &:-webkit-autofill {
+  &:focus,
+  &:-webkit-autofill {
     outline: 0;
     border-bottom: ${theme('colors.primary')} 1px solid;
   }

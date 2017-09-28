@@ -38,6 +38,7 @@ const ColGrid = styled(Col)`
       opacity: 0;
     }
   }
+
   @keyframes suggestions {
     0% {
       opacity: 0;

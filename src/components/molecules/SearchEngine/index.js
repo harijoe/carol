@@ -28,13 +28,13 @@ const StyledIcon = styled(Icon)`
     ${ifThen(
       isExpanded,
       css`
-      margin-top: calc( ${theme('icons.size.l')} / -2 );
+      margin-top: calc(${theme('icons.size.l')} / -2);
       height: ${theme('icons.size.l')};
       width: ${theme('icons.size.l')};
       fill: ${theme('colors.primary')};
 
       ${breakpoint('l')`
-        margin-top: calc( ${theme('icons.size.xxl')} / -2 );
+        margin-top: calc(${theme('icons.size.xxl')} / -2);
         height: ${theme('icons.size.xxl')};
         width: ${theme('icons.size.xxl')};
       `};
@@ -65,7 +65,7 @@ const SearchEngineWrapper = styled.div`
     transform-origin: 100% 0;
     transition-property: min-height, height, width, top, left, background-color, overflow;
     transition-duration: 0.5s;
-    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
 
     @media screen and (max-height: 600px) {
       top: 37rem;
@@ -82,26 +82,26 @@ const SearchEngineWrapper = styled.div`
     ${ifThen(
       isExpanded,
       css`
-        position: fixed;
-        z-index: 1000;
-        top:0;
-        left:0;
-        width:100vw;
-        height:100vh;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow-y: scroll;
+      background-color: rgba(255, 255, 255, 0.98);
+
+      @media screen and (max-height: 600px) {
+        top: 0;
+      }
+
+      ${breakpoint('l')`
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
         overflow-y: scroll;
-        background-color: rgba(255, 255, 255, 0.98);
-
-        @media screen and (max-height: 600px) {
-          top: 0;
-        }
-
-        ${breakpoint('l')`
-          left:0;
-          top: 0;
-          width:100vw;
-          height:100vh;
-          overflow-y: scroll;
-        `};
+      `};
     `,
     )};  
   `};
