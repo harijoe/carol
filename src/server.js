@@ -1,13 +1,11 @@
 import { createMemoryHistory, match } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { Router } from 'express'
-import reactCookie from 'services/cookies'
 import express from 'services/express'
 import routes from 'routes'
 import configureStore from 'store/configure'
-import { port, ip, locales, purgeCacheToken, devServer } from 'config'
+import { port, ip, devServer } from 'config'
 import renderResponse from './server/index'
-import hostNameFromUrl from './utils/hostNameFromUrl'
 
 global.navigator = { userAgent: 'all' }
 
@@ -21,8 +19,6 @@ router.use((req, res, next) => {
   const memoryHistory = createMemoryHistory(req.url)
   let store = configureStore({}, memoryHistory)
   const history = syncHistoryWithStore(memoryHistory, store)
-
-  reactCookie.plugToRequest(req, res)
 
   match({ history, routes, location: req.url }, (error, redirectLocation, renderProps) => {
     if (redirectLocation) {
@@ -48,25 +44,5 @@ app.listen(port, error => {
     console.info(`Server listening on ${ip}:${port}`)
   }
 })
-
-const purgeSSRCache = locale =>
-  new Promise(resolve =>
-    router.handle(
-      {
-        url: '/',
-        method: 'PURGE',
-        hostname: hostNameFromUrl(locales[locale].url),
-        headers: { authorization: `Bearer ${purgeCacheToken}` },
-      },
-      { send: resolve },
-    ),
-  )
-
-const purgeAllCaches = async () => {
-  await Promise.all(Object.keys(locales).map(purgeSSRCache))
-  console.info('Cache regeneration attempt finished')
-}
-
-purgeAllCaches()
 
 export default app

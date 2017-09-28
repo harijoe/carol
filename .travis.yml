@@ -48,7 +48,7 @@ script:
   - yarn build
   - yarn start &> server.log &
   - |
-    while ! grep "Cache regeneration attempt finished" server.log; do
+    while ! grep "Server listening" server.log; do
       echo "waiting for server to be listening…"
       sleep 1
     done

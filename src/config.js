@@ -56,7 +56,6 @@ const configs = {
       'en-GB': en,
       'es-ES': es,
     },
-    purgeCacheToken: '41Xdkf2c7lflo2o065BTV21y6V6xhg9t',
     termsUrl: 'https://www.quotatis.fr/conseils-travaux/cgu',
     cookiesUrl: 'https://www.quotatis.fr/conseils-travaux/cgu#cookies',
     sentry: {

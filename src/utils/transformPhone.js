@@ -12,7 +12,7 @@ const indicator = language => {
 }
 
 export const normalize = language => value => {
-  if (!value) return value
+  if (!value) return null
   const onlyNums = value.replace(/[^\d]/g, '')
 
   if (['fr', 'en'].includes(language)) return `+${indicator(language)}${onlyNums.replace(/[^\d]/g, '').substr(1)}`
@@ -21,7 +21,7 @@ export const normalize = language => value => {
 }
 
 export const format = language => storeValue => {
-  if (!storeValue) return storeValue
+  if (!storeValue) return ''
   if (['fr', 'en'].includes(language)) return storeValue.replace(`+${indicator(language)}`, '0')
   if (['es'].includes(language)) return storeValue.replace(`+${indicator(language)}`, '')
   throw new Error(`Unknown language: ${language}`)

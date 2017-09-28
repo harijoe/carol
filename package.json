@@ -8,7 +8,6 @@
     "start:mocks": "concurrently \"yarn simulado:start\" \"yarn simulado:prime\" \"NODE_ENV=mocks yarn start\" ",
     "test": "jest",
     "coverage": "yarn test -- --coverage && opn coverage/lcov-report/index.html",
-    "purge": "babel-node scripts/purge.js",
     "lint": "eslint .",
     "lint:css": "stylelint 'src/components/**/*.js'",
     "clean": "rm -rf dist/ webpack/webpack-assets.json",

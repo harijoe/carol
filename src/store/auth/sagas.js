@@ -57,7 +57,7 @@ export function* handleAuthLoginRequest({ grantType = 'client_credentials', form
     const url = `/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api
       .clientSecret}&grant_type=${actualGrantType}${actualCredentials}`
 
-    yield* fetchWithoutRefreshingToken(authLogin(actualGrantType), 'get', url, {}, null, null, false)
+    yield* fetchWithoutRefreshingToken(authLogin(actualGrantType), 'get', url)
 
     yield* saveToken(actualGrantType)
 
@@ -103,8 +103,10 @@ function* handleAuthLoginSuccess() {
     yield* handleGetUserRequest()
 
     const redirectPathname = yield select(fromRouting.getRedirectPathname)
-    yield put(push(redirectPathname))
-    yield put(setRedirectPathname(null))
+    if (redirectPathname) {
+      yield put(push(redirectPathname))
+      yield put(setRedirectPathname(null))
+    }
   }
 }
 
