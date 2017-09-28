@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { theme } from 'utils/style'
+import { theme, breakpoint } from 'utils/style'
 
 import { Icon } from 'components'
 
@@ -26,9 +26,10 @@ const BubbleQuestion = styled.div`
   margin: 0 0 0 ${theme('spaces.s')};
   padding: ${theme('spaces.s')} ${theme('spaces.m')};
   overflow-wrap: break-word;
+  width: ${props => props.image ? '70%' : 'initial'};
   max-width: 70%;
   background: ${theme('colors.grayscale.lighter')};
-  border-radius: 0 1rem 1rem 1rem;
+  border-radius: 0 1rem 1rem;
   color: ${theme('colors.black')};
   white-space: pre-wrap;
   animation: 0.3s bubble ease-in 0s;
@@ -68,9 +69,20 @@ const BubbleQuestion = styled.div`
   }
 `
 
+const QuestionBottomImage = styled.div`
+  margin: ${theme('spaces.s')} -${theme('spaces.m')} -${theme('spaces.s')};
+  background: url("${props => props.image}") center;
+  background-size: cover;
+  border-radius: 0 0 1rem 1rem;
+  height: 14rem;
+  ${breakpoint('m')`
+    height: 18rem;
+  `};
+`
+
 BubbleQuestion.displayName = 'BubbleQuestion'
 
-const ProjectElaborationQuestion = ({ children, ...props }) => {
+const ProjectElaborationQuestion = ({ children, imageUrl, ...props }) => {
   if (children == null) {
     return null
   }
@@ -78,8 +90,9 @@ const ProjectElaborationQuestion = ({ children, ...props }) => {
   return (
     <Wrapper {...{ ...props }}>
       <StyledIcon alt="quotatis" icon="logo" />
-      <BubbleQuestion>
+      <BubbleQuestion image={imageUrl}>
         {children}
+        { imageUrl && <QuestionBottomImage image={imageUrl} />}
       </BubbleQuestion>
     </Wrapper>
   )
@@ -87,6 +100,7 @@ const ProjectElaborationQuestion = ({ children, ...props }) => {
 
 ProjectElaborationQuestion.propTypes = {
   children: PropTypes.any,
+  imageUrl: PropTypes.string,
 }
 
 export default ProjectElaborationQuestion

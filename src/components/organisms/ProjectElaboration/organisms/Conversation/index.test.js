@@ -13,6 +13,7 @@ it('renders Conversation', () => {
           message: {
             text: 'message',
             quick_replies: [],
+            image_url: 'url',
           },
           answer: {
             text: 'response',

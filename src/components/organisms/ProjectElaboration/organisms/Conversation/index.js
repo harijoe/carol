@@ -84,11 +84,12 @@ class Conversation extends Component {
         }}
         className="conversation"
       >
-        {activeConversation.map(({ message: { text, attachment, quick_replies }, answer }, index) =>
+        {activeConversation.map(({ message: { text, attachment, quick_replies, image_url }, answer }, index) =>
           <div key={index}>
-            <ProjectElaborationQuestion>
-              {text != null ? text : null}
-            </ProjectElaborationQuestion>
+            { // eslint-disable-next-line camelcase
+              <ProjectElaborationQuestion imageUrl={image_url}>
+                {text != null ? text : null}
+              </ProjectElaborationQuestion>}
             {isLastQuestion(index)
               ? <div>
                   <Attachment attachment={attachment != null ? attachment : null} {...{ reply, answer, locale, redirectTo }} />

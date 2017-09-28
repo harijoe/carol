@@ -6,7 +6,7 @@ import ProjectElaborationQuestion from './'
 const wrap = (props = {}) => shallow(<ProjectElaborationQuestion {...props} />)
 
 it('renders Question', () => {
-  const wrapper = wrap({ children: 'my question' })
+  const wrapper = wrap({ children: 'my question', imageUrl: 'url' })
 
   expect(wrapper.find('BubbleQuestion')).toHaveLength(1)
   expect(wrapper).toMatchSnapshot()

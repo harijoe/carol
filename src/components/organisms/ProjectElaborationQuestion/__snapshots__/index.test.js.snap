@@ -4,7 +4,9 @@ exports[`renders Question 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <ProjectElaborationQuestion>
+  Symbol(enzyme.__unrendered__): <ProjectElaborationQuestion
+    imageUrl="url"
+  >
     my question
   </ProjectElaborationQuestion>,
   Symbol(enzyme.__renderer__): Object {
@@ -24,8 +26,13 @@ ShallowWrapper {
           alt="quotatis"
           icon="logo"
         />,
-        <BubbleQuestion>
+        <BubbleQuestion
+          image="url"
+        >
           my question
+          <QuestionBottomImage
+            image="url"
+          />
         </BubbleQuestion>,
       ],
     },
@@ -48,10 +55,29 @@ ShallowWrapper {
         "key": null,
         "nodeType": "class",
         "props": Object {
-          "children": "my question",
+          "children": Array [
+            "my question",
+            <QuestionBottomImage
+              image="url"
+            />,
+          ],
+          "image": "url",
         },
         "ref": null,
-        "rendered": "my question",
+        "rendered": Array [
+          "my question",
+          Object {
+            "instance": null,
+            "key": null,
+            "nodeType": "class",
+            "props": Object {
+              "image": "url",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
         "type": [Function],
       },
     ],
@@ -68,8 +94,13 @@ ShallowWrapper {
             alt="quotatis"
             icon="logo"
           />,
-          <BubbleQuestion>
+          <BubbleQuestion
+            image="url"
+          >
             my question
+            <QuestionBottomImage
+              image="url"
+            />
           </BubbleQuestion>,
         ],
       },
@@ -92,10 +123,29 @@ ShallowWrapper {
           "key": null,
           "nodeType": "class",
           "props": Object {
-            "children": "my question",
+            "children": Array [
+              "my question",
+              <QuestionBottomImage
+                image="url"
+              />,
+            ],
+            "image": "url",
           },
           "ref": null,
-          "rendered": "my question",
+          "rendered": Array [
+            "my question",
+            Object {
+              "instance": null,
+              "key": null,
+              "nodeType": "class",
+              "props": Object {
+                "image": "url",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
           "type": [Function],
         },
       ],
