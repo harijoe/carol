@@ -16,62 +16,62 @@ const renderList = items =>
       </List>
     : null
 
-const FirmFull = items =>
+const FirmFull = ({ logoUrl, name, postalCode, city, countryCode, registrationNumber, description, websiteUrl, employeesNumber, clientSince, certificates, budget, delay, conviviality, globalRating, globalRatingCount, servedAreaCities }) =>
   <List>
     <li>
       <FormattedMessage id="firm.details.logo" />:{' '}
-      {items.logoUrl ? <Image src={items.logoUrl} /> : <FormattedMessage id="firm.details.logo_missing" />}
+      {logoUrl ? <Image src={logoUrl} /> : <FormattedMessage id="firm.details.logo_missing" />}
     </li>
     <li>
-      <FormattedMessage id="firm.details.name" />: {items.name}
+      <FormattedMessage id="firm.details.name" />: {name}
     </li>
     <li>
-      <FormattedMessage id="firm.details.postal_code" />: {items.postalCode}
+      <FormattedMessage id="firm.details.postal_code" />: {postalCode}
     </li>
     <li>
-      <FormattedMessage id="firm.details.city" />: {items.city}
+      <FormattedMessage id="firm.details.city" />: {city}
     </li>
     <li>
-      <FormattedMessage id="firm.details.country" />: {items.countryCode}
+      <FormattedMessage id="firm.details.country" />: {countryCode}
     </li>
     <li>
-      <FormattedMessage id="firm.details.registration_number" />: {items.registrationNumber}
+      <FormattedMessage id="firm.details.registration_number" />: {registrationNumber}
     </li>
     <li>
-      <FormattedMessage id="firm.details.description" />: {items.description}
+      <FormattedMessage id="firm.details.description" />: {description}
     </li>
     <li>
       <FormattedMessage id="firm.details.website" />:{' '}
-      {items.websiteUrl
-        ? <a href={items.websiteUrl} rel="nofollow">
-            {items.websiteUrl}
+      {websiteUrl
+        ? <a href={websiteUrl} rel="nofollow">
+            {websiteUrl}
           </a>
         : <FormattedMessage id="firm.details.website_missing" />}
     </li>
     <li>
-      <FormattedMessage id="firm.details.employees_number" />: {items.employeesNumber}
+      <FormattedMessage id="firm.details.employees_number" />: {employeesNumber}
     </li>
     <li>
-      <FormattedMessage id="firm.details.client_since" />: {items.clientSince}
+      <FormattedMessage id="firm.details.client_since" />: {clientSince}
     </li>
     <li>
-      <FormattedMessage id="firm.details.certificate" />: {renderList(items.certificates)}
+      <FormattedMessage id="firm.details.certificate" />: {renderList(certificates)}
     </li>
     <li>
-      <FormattedMessage id="firm.details.budget" />: {items.budget}
+      <FormattedMessage id="firm.details.budget" />: {budget}
     </li>
     <li>
-      <FormattedMessage id="firm.details.delay" />: {items.delay}
+      <FormattedMessage id="firm.details.delay" />: {delay}
     </li>
     <li>
-      <FormattedMessage id="firm.details.conviviality" />: {items.conviviality}
+      <FormattedMessage id="firm.details.conviviality" />: {conviviality}
     </li>
     <li>
       <FormattedMessage id="firm.details.notation" />:{' '}
-      {items.globalRating && items.globalRatingCount ? items.globalRating / items.globalRatingCount : ''}
+      {globalRating && globalRatingCount ? globalRating / globalRatingCount : ''}
     </li>
     <li>
-      <FormattedMessage id="firm.details.served_area_cities" />: {renderList(items.servedAreaCities)}
+      <FormattedMessage id="firm.details.served_area_cities" />: {renderList(servedAreaCities)}
     </li>
   </List>
 
@@ -93,8 +93,6 @@ FirmFull.propTypes = {
   globalRating: PropTypes.number,
   globalRatingCount: PropTypes.number,
   servedAreaCities: PropTypes.array,
-  firmCertificates: PropTypes.array,
-  imageUrl: PropTypes.string,
 }
 
 export default FirmFull

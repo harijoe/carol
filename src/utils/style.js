@@ -125,7 +125,7 @@ export const generatePropTypes = (props, propTypes) => {
 
   Object.keys(props)
     .filter(key => key === 'children' || (propTypes[key] == null && (props.theme == null || props.theme.grid.breakpoints[key] == null)))
-    .forEach(key => (newProps[key] = props[key]))
+    .forEach(key => { newProps[key] = props[key] })
 
   return newProps
 }

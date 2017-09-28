@@ -37,7 +37,7 @@ class AnimatedLabelField extends Component {
     return (
       <Field
         label={label}
-        ref={input => (this.field = input)}
+        ref={input => { this.field = input }}
         hideLabel={this.state.hideLabel}
         placeholder={label}
         onChange={this.handleChange}

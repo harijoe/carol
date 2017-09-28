@@ -32,29 +32,23 @@ it('renders MotionMenu', () => {
   expect(wrapper).toMatchSnapshot()
 })
 
-it('toggles menu', () => {
+it('toggles menu', async () => {
   // closed
-  expect(wrapperMounted.find('MotionMenu').node.state.isOpen).toEqual(false)
-  expect(wrapperMounted.find('Motion').at(0).prop('style').scale.val).toEqual(0.5)
-  expect(wrapperMounted.find('Motion').last().prop('style').rotate.val).toEqual(0)
+  expect(wrapperMounted.find('MotionMenu').instance().state.isOpen).toEqual(false)
 
   clickMainButton()
 
   // opened
-  expect(wrapperMounted.find('MotionMenu').node.state.isOpen).toEqual(true)
-  expect(wrapperMounted.find('Motion').at(0).prop('style').scale.val).toEqual(20)
-  expect(wrapperMounted.find('Motion').last().prop('style').rotate.val).toEqual(135)
+  expect(wrapperMounted.find('MotionMenu').instance().state.isOpen).toEqual(true)
 
   clickMainButton()
 
   // closed
-  expect(wrapperMounted.find('MotionMenu').node.state.isOpen).toEqual(false)
-  expect(wrapperMounted.find('Motion').at(0).prop('style').scale.val).toEqual(0.5)
-  expect(wrapperMounted.find('Motion').last().prop('style').rotate.val).toEqual(0)
+  expect(wrapperMounted.find('MotionMenu').instance().state.isOpen).toEqual(false)
 
   clickMainButton()
   clickBackground()
 
   // opened
-  expect(wrapperMounted.find('MotionMenu').node.state.isOpen).toEqual(false)
+  expect(wrapperMounted.find('MotionMenu').instance().state.isOpen).toEqual(false)
 })

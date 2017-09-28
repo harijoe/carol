@@ -19,11 +19,11 @@ it('renders children when passed in', () => {
 it('renders props when passed in', () => {
   const wrapper = wrapMounted({ type: 'submit' })
 
-  expect(wrapper.find({ type: 'submit' })).toHaveLength(1)
+  expect(wrapper.find({ type: 'submit' }).exists()).toEqual(true)
 })
 
 it('renders button by default', () => {
   const wrapper = wrapMounted()
 
-  expect(wrapper.find('button')).toHaveLength(1)
+  expect(wrapper.find('button').exists()).toEqual(true)
 })

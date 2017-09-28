@@ -56,7 +56,7 @@ const removeHeroAnswer = hero => {
 const setHero = (hero, questions) => {
   let updatedHero = hero.slice()
 
-  questions.map((question, i) => (updatedHero[i] = { message: question.message }))
+  questions.forEach((question, i) => { updatedHero[i] = { message: question.message } })
 
   updatedHero = removeHeroAnswer(updatedHero)
 

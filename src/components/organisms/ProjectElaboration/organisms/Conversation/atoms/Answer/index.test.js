@@ -12,5 +12,5 @@ it('renders Answer', () => {
 })
 
 it('renders null', () => {
-  expect(wrap().node).toBeNull()
+  expect(wrap().getElement()).toBeNull()
 })

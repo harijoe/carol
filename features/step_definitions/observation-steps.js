@@ -89,12 +89,12 @@ defineSupportCode(({ When }) => {
 
   When(/I should have emitted (\d*) analytics tags named '(.*)'/, async (nbOfEvents, rawEvents) => {
     const expectedEvents = rawEvents.split(', ')
-    expect(expectedEvents.length).toEqual(nbOfEvents)
+    expect(expectedEvents.length).toEqual(parseInt(nbOfEvents, 10))
 
     const dataLayer = await client.execute(() => window.dataLayer)
     const dataLayerCopy = [...dataLayer]
     const events = dataLayerCopy.slice(-1 * nbOfEvents)
-    events.map(({ event }, index) => expect(event).toEqual(expectedEvents[index]))
+    events.forEach(({ event }, index) => expect(event).toEqual(expectedEvents[index]))
   })
 
   When(/I should see option '(.*)' populated with '(.*)'/, async (target, value) => {

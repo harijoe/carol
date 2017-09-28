@@ -15,7 +15,7 @@ import translations from '../../i18n'
  *    }
  *
  *    replace(str, replacer) will return "My name is Joe Dalton"
- **/
+ */
 const replace = (str, replacer = {}) => {
   let strTransformed = str
 

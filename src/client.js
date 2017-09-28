@@ -5,7 +5,6 @@ import { AppContainer } from 'react-hot-loader'
 import { applyRouterMiddleware, browserHistory, Router } from 'react-router'
 import { useScroll } from 'react-router-scroll'
 import { syncHistoryWithStore } from 'react-router-redux'
-import injectTapEventPlugin from 'react-tap-event-plugin'
 import { anchorate } from 'anchorate'
 import 'logging'
 import reactCookie from 'services/cookies'
@@ -38,8 +37,6 @@ const renderApp = () =>
       <Router key={Math.random()} history={browserHistory} routes={routes} render={applyRouterMiddleware(useScroll())} />
     </Provider>
   </AppContainer>
-
-injectTapEventPlugin()
 
 /*
   SSR explanation

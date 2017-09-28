@@ -4,6 +4,6 @@ const defaultValues = {
 
 const environment = { ...defaultValues }
 
-export const reset = () => Object.keys(defaultValues).map(key => (environment[key] = defaultValues[key]))
+export const reset = () => Object.keys(defaultValues).forEach(key => { environment[key] = defaultValues[key] })
 
 export default environment

@@ -32,7 +32,7 @@ const IconLink = ({ color, size, icon, right, responsive, children, ...props }) 
 
   return (
     <Link {...props}>
-      {right || iconElement}
+      {!right && iconElement}
       <Text responsive={responsive}>
         {children}
       </Text>

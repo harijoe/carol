@@ -15,6 +15,6 @@ it('renders QuickReplies', () => {
 it('renders null', () => {
   const wrapper = wrap({ quick_replies: [{ title: 'quick reply' }], answer: { text: 'response' } })
 
-  expect(wrap().node).toBeNull()
-  expect(wrapper.node).toBeNull()
+  expect(wrap().getElement()).toBeNull()
+  expect(wrapper.getElement()).toBeNull()
 })

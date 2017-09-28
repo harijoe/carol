@@ -2,91 +2,53 @@
 
 exports[`renders PopinMenuLink 1`] = `
 ShallowWrapper {
-  "complexSelector": ComplexSelector {
-    "buildPredicate": [Function],
-    "childrenOfNode": [Function],
-    "findWhereUnwrapped": [Function],
-  },
   "length": 1,
-  "node": <StyledLink
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <PopinMenuLink
     to="test"
->
+  >
     Test
-</StyledLink>,
-  "nodes": Array [
-    <StyledLink
-      to="test"
->
-      Test
-</StyledLink>,
-  ],
-  "options": Object {},
-  "renderer": ReactShallowRenderer {
-    "_instance": ShallowComponentWrapper {
-      "_calledComponentWillUnmount": false,
-      "_compositeType": 2,
-      "_context": Object {},
-      "_currentElement": <PopinMenuLink
-        to="test"
->
-        Test
-</PopinMenuLink>,
-      "_debugID": 1,
-      "_hostContainerInfo": null,
-      "_hostParent": null,
-      "_instance": StatelessComponent {
-        "_reactInternalInstance": [Circular],
-        "context": Object {},
-        "props": Object {
-          "children": "Test",
-          "to": "test",
-        },
-        "refs": Object {},
-        "state": null,
-        "updater": Object {
-          "enqueueCallback": [Function],
-          "enqueueCallbackInternal": [Function],
-          "enqueueElementInternal": [Function],
-          "enqueueForceUpdate": [Function],
-          "enqueueReplaceState": [Function],
-          "enqueueSetState": [Function],
-          "isMounted": [Function],
-          "validateCallback": [Function],
-        },
-      },
-      "_mountOrder": 1,
-      "_pendingCallbacks": null,
-      "_pendingElement": null,
-      "_pendingForceUpdate": false,
-      "_pendingReplaceState": false,
-      "_pendingStateQueue": null,
-      "_renderedComponent": NoopInternalComponent {
-        "_currentElement": <StyledLink
-          to="test"
->
-          Test
-</StyledLink>,
-        "_debugID": 2,
-        "_renderedOutput": <StyledLink
-          to="test"
->
-          Test
-</StyledLink>,
-      },
-      "_renderedNodeType": 1,
-      "_rootNodeID": 0,
-      "_topLevelWrapper": null,
-      "_updateBatchNumber": null,
-      "_warnedAboutRefsInRender": false,
-    },
-    "getRenderOutput": [Function],
+  </PopinMenuLink>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
     "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
   },
-  "root": [Circular],
-  "unrendered": <PopinMenuLink
-    to="test"
->
-    Test
-</PopinMenuLink>,
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": null,
+    "nodeType": "class",
+    "props": Object {
+      "children": "Test",
+      "to": "test",
+    },
+    "ref": null,
+    "rendered": "Test",
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": null,
+      "nodeType": "class",
+      "props": Object {
+        "children": "Test",
+        "to": "test",
+      },
+      "ref": null,
+      "rendered": "Test",
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+    "disableLifecycleMethods": true,
+  },
 }
 `;

@@ -24,4 +24,4 @@ export const add = (saga, values) => collector.push(spawn(args => protectSaga(sa
 
 export const list = () => collector
 
-export const clear = () => (collector.length = 0)
+export const clear = () => { collector.length = 0 }
