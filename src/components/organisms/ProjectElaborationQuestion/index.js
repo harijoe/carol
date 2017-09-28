@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { theme, breakpoint } from 'utils/style'
+import cloudinary from 'utils/cloudinary'
 
 import { Icon } from 'components'
 
@@ -71,7 +72,7 @@ const BubbleQuestion = styled.div`
 
 const QuestionBottomImage = styled.div`
   margin: ${theme('spaces.s')} -${theme('spaces.m')} -${theme('spaces.s')};
-  background: url("${props => props.image}") center;
+  background: url("${props => cloudinary(props.image, 'c_fill,h_225,w_525')}") center;
   background-size: cover;
   border-radius: 0 0 1rem 1rem;
   height: 14rem;
@@ -92,7 +93,7 @@ const ProjectElaborationQuestion = ({ children, imageUrl, ...props }) => {
       <StyledIcon alt="quotatis" icon="logo" />
       <BubbleQuestion image={imageUrl}>
         {children}
-        { imageUrl && <QuestionBottomImage image={imageUrl} />}
+        {imageUrl && <QuestionBottomImage image={imageUrl} />}
       </BubbleQuestion>
     </Wrapper>
   )
