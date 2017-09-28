@@ -25,6 +25,7 @@ import {
   projectElaborationHeroDetails,
   projectElaborationResetConversation,
   projectElaborationPreValidate,
+  setProjectElaborationSessionId,
 } from './actions'
 
 function* replyConversation({ text, payload = null }) {
@@ -162,6 +163,8 @@ function* preValidate({ chatbotStorageId }) {
 
   const sessionId = generateSessionId()
   saveProjectElaborationIdInCookies(sessionId)
+  yield put(setProjectElaborationSessionId(sessionId))
+
 
   const projectId = yield select(fromProjectElaboration.getProjectId)
   const { sqn } = yield select(fromContext.getInitialQueryParams)

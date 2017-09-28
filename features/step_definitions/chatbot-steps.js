@@ -32,6 +32,14 @@ defineSupportCode(({ Given }) => {
     })
   })
 
+
+  Given(/I finished my conversation/, async () => {
+    await simulado.mock({
+      path: '/chatbot_storages/conversation/MOCK_SESSION_ID',
+      status: 404,
+    })
+  })
+
   Given(/I reached the project summary in my conversation/, reachedProjectSummary)
 
   Given(/I opened the chatbot popin/, async () => {

@@ -378,6 +378,7 @@ class MotionMenu extends Component {
             <MainWrapper>
               {hasActiveConversation && (
                 <Tooltip
+                  className="motion-menu-tooltip"
                   id="motion_menu.tooltip_message"
                   style={{
                     visibility: isOpen ? 'hidden' : '',

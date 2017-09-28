@@ -170,6 +170,7 @@ it('handles PROJECT_ELABORATION_SET_SESSION_ID', () => {
   const expected = {
     ...initialState,
     sessionId: '321534546545',
+    activeConversation: [],
   }
 
   expect(reducer(initialState, action)).toEqual(expected)

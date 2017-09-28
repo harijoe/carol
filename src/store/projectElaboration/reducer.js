@@ -81,6 +81,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         sessionId: payload,
+        activeConversation: [],
       }
     case PROJECT_ELABORATION_HERO_SET_RESPONSE:
       return {

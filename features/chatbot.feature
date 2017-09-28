@@ -56,6 +56,14 @@ Feature: As a user, I can interact with the chatbot
     Then I should be redirected to '/projects/MOCK_PROJECT_ID/account'
     And I should not see 'Se connecter'
 
+  Scenario: No more conversation after validating
+    Given I am logged in
+    And I opened the chatbot popin
+    And I click on 'Valider mon projet'
+    And I finished my conversation
+    And I go to the 'home' page
+    Then I should not have any active conversation
+
   Scenario: Partner link to chatbot
     Given I go to the 'chatbot via partner link' page
     Then I should see 'Votre projet en partenariat avec'

@@ -121,4 +121,8 @@ defineSupportCode(({ When }) => {
 
     expect(projectItems.length).toEqual(parseInt(expectedCount, 10))
   })
+
+  When(/I should not have any active conversation/, async () => {
+    await client.expect.element('.motion-menu-tooltip').to.be.not.present
+  })
 })
