@@ -21,10 +21,7 @@ const CI_BUILD_NUMBER = TRAVIS_BUILD_NUMBER || CIRCLE_BUILD_NUM
 defineSupportCode(({ BeforeAll, After }) => {
   BeforeAll(() => removeDir(SCREENSHOTS_DIR))
 
-  After(async scenario => {
-    const { sourceLocation, result } = scenario
-    const { status } = result
-    const { uri, line } = sourceLocation
+  After(async ({ sourceLocation: { uri, line }, result: { status } }) => {
     if (status === Status.FAILED) {
       const name = uri.replace(path.resolve('.', 'test/features'), '').replace(/^\//, '')
       const filename = path.resolve(SCREENSHOTS_DIR, `${path.basename(name)}:${line}.png`)
