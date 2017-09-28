@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { theme, breakpoint, mapBreakpoints } from 'utils/style'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 
-import { ProjectElaborationQuestion } from 'components'
+import { ProjectElaborationQuestion, RichTextContent } from 'components'
 import Answer from './atoms/Answer'
 import QuickReplies from './molecules/QuickReplies'
 import Attachment from './molecules/Attachment'
@@ -45,6 +46,7 @@ const Wrapper = styled.div`
 class Conversation extends Component {
   static propTypes = {
     locale: PropTypes.string,
+    translate: PropTypes.func,
     activeConversation: PropTypes.arrayOf(
       PropTypes.shape({
         message: PropTypes.shape({
@@ -74,8 +76,9 @@ class Conversation extends Component {
   }
 
   render() {
-    const { activeConversation, reply, locale, redirectTo } = this.props
+    const { activeConversation, reply, locale, redirectTo, translate } = this.props
     const isLastQuestion = index => activeConversation.length - 1 === index
+    const introBubbles = translate('chatbot.intro').split(/(?:<br>\n){2,}/)
 
     return (
       <Wrapper
@@ -84,6 +87,11 @@ class Conversation extends Component {
         }}
         className="conversation"
       >
+        {introBubbles.map(content => <div>
+          <ProjectElaborationQuestion>
+            <RichTextContent content={content} />
+          </ProjectElaborationQuestion>
+        </div>)}
         {activeConversation.map(({ message: { text, attachment, quick_replies, image_url }, answer }, index) =>
           <div key={index}>
             { // eslint-disable-next-line camelcase
@@ -107,4 +115,4 @@ class Conversation extends Component {
   }
 }
 
-export default Conversation
+export default injectTranslate(Conversation)

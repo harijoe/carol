@@ -4,7 +4,7 @@ exports[`renders Conversation 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Conversation
+  Symbol(enzyme.__unrendered__): <InjectTranslate(Conversation)
     activeConversation={
       Array [
         Object {
@@ -33,185 +33,23 @@ ShallowWrapper {
     "key": null,
     "nodeType": "class",
     "props": Object {
-      "children": Array [
-        <div>
-          <Mock
-            imageUrl="url"
-          >
-            message
-          </Mock>
-          <div>
-            <Attachment
-              answer={
-                Object {
-                  "payload": "6843531-515-56465",
-                  "text": "response",
-                }
-              }
-              attachment={null}
-              locale={undefined}
-              redirectTo={undefined}
-              reply={undefined}
-            />
-            <QuickReplies
-              answer={
-                Object {
-                  "payload": "6843531-515-56465",
-                  "text": "response",
-                }
-              }
-              quick_replies={Array []}
-              reply={undefined}
-            />
-          </div>
-          <Answer
-            answer="response"
-          />
-        </div>,
+      "activeConversation": Array [
+        Object {
+          "answer": Object {
+            "payload": "6843531-515-56465",
+            "text": "response",
+          },
+          "message": Object {
+            "image_url": "url",
+            "quick_replies": Array [],
+            "text": "message",
+          },
+        },
       ],
-      "className": "conversation",
-      "innerRef": [Function],
+      "translate": [Function],
     },
     "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": "0",
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <Mock
-              imageUrl="url"
-            >
-              message
-            </Mock>,
-            <div>
-              <Attachment
-                answer={
-                  Object {
-                    "payload": "6843531-515-56465",
-                    "text": "response",
-                  }
-                }
-                attachment={null}
-                locale={undefined}
-                redirectTo={undefined}
-                reply={undefined}
-              />
-              <QuickReplies
-                answer={
-                  Object {
-                    "payload": "6843531-515-56465",
-                    "text": "response",
-                  }
-                }
-                quick_replies={Array []}
-                reply={undefined}
-              />
-            </div>,
-            <Answer
-              answer="response"
-            />,
-          ],
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": null,
-            "nodeType": "function",
-            "props": Object {
-              "children": "message",
-              "imageUrl": "url",
-            },
-            "ref": null,
-            "rendered": "message",
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": null,
-            "nodeType": "host",
-            "props": Object {
-              "children": Array [
-                <Attachment
-                  answer={
-                    Object {
-                      "payload": "6843531-515-56465",
-                      "text": "response",
-                    }
-                  }
-                  attachment={null}
-                  locale={undefined}
-                  redirectTo={undefined}
-                  reply={undefined}
-                />,
-                <QuickReplies
-                  answer={
-                    Object {
-                      "payload": "6843531-515-56465",
-                      "text": "response",
-                    }
-                  }
-                  quick_replies={Array []}
-                  reply={undefined}
-                />,
-              ],
-            },
-            "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": null,
-                "nodeType": "function",
-                "props": Object {
-                  "answer": Object {
-                    "payload": "6843531-515-56465",
-                    "text": "response",
-                  },
-                  "attachment": null,
-                  "locale": undefined,
-                  "redirectTo": undefined,
-                  "reply": undefined,
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-              Object {
-                "instance": null,
-                "key": null,
-                "nodeType": "function",
-                "props": Object {
-                  "answer": Object {
-                    "payload": "6843531-515-56465",
-                    "text": "response",
-                  },
-                  "quick_replies": Array [],
-                  "reply": undefined,
-                },
-                "ref": null,
-                "rendered": null,
-                "type": [Function],
-              },
-            ],
-            "type": "div",
-          },
-          Object {
-            "instance": null,
-            "key": null,
-            "nodeType": "function",
-            "props": Object {
-              "answer": "response",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-        ],
-        "type": "div",
-      },
-    ],
+    "rendered": null,
     "type": [Function],
   },
   Symbol(enzyme.__nodes__): Array [
@@ -220,185 +58,23 @@ ShallowWrapper {
       "key": null,
       "nodeType": "class",
       "props": Object {
-        "children": Array [
-          <div>
-            <Mock
-              imageUrl="url"
-            >
-              message
-            </Mock>
-            <div>
-              <Attachment
-                answer={
-                  Object {
-                    "payload": "6843531-515-56465",
-                    "text": "response",
-                  }
-                }
-                attachment={null}
-                locale={undefined}
-                redirectTo={undefined}
-                reply={undefined}
-              />
-              <QuickReplies
-                answer={
-                  Object {
-                    "payload": "6843531-515-56465",
-                    "text": "response",
-                  }
-                }
-                quick_replies={Array []}
-                reply={undefined}
-              />
-            </div>
-            <Answer
-              answer="response"
-            />
-          </div>,
+        "activeConversation": Array [
+          Object {
+            "answer": Object {
+              "payload": "6843531-515-56465",
+              "text": "response",
+            },
+            "message": Object {
+              "image_url": "url",
+              "quick_replies": Array [],
+              "text": "message",
+            },
+          },
         ],
-        "className": "conversation",
-        "innerRef": [Function],
+        "translate": [Function],
       },
       "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": "0",
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <Mock
-                imageUrl="url"
-              >
-                message
-              </Mock>,
-              <div>
-                <Attachment
-                  answer={
-                    Object {
-                      "payload": "6843531-515-56465",
-                      "text": "response",
-                    }
-                  }
-                  attachment={null}
-                  locale={undefined}
-                  redirectTo={undefined}
-                  reply={undefined}
-                />
-                <QuickReplies
-                  answer={
-                    Object {
-                      "payload": "6843531-515-56465",
-                      "text": "response",
-                    }
-                  }
-                  quick_replies={Array []}
-                  reply={undefined}
-                />
-              </div>,
-              <Answer
-                answer="response"
-              />,
-            ],
-          },
-          "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": null,
-              "nodeType": "function",
-              "props": Object {
-                "children": "message",
-                "imageUrl": "url",
-              },
-              "ref": null,
-              "rendered": "message",
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": null,
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
-                  <Attachment
-                    answer={
-                      Object {
-                        "payload": "6843531-515-56465",
-                        "text": "response",
-                      }
-                    }
-                    attachment={null}
-                    locale={undefined}
-                    redirectTo={undefined}
-                    reply={undefined}
-                  />,
-                  <QuickReplies
-                    answer={
-                      Object {
-                        "payload": "6843531-515-56465",
-                        "text": "response",
-                      }
-                    }
-                    quick_replies={Array []}
-                    reply={undefined}
-                  />,
-                ],
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": null,
-                  "nodeType": "function",
-                  "props": Object {
-                    "answer": Object {
-                      "payload": "6843531-515-56465",
-                      "text": "response",
-                    },
-                    "attachment": null,
-                    "locale": undefined,
-                    "redirectTo": undefined,
-                    "reply": undefined,
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-                Object {
-                  "instance": null,
-                  "key": null,
-                  "nodeType": "function",
-                  "props": Object {
-                    "answer": Object {
-                      "payload": "6843531-515-56465",
-                      "text": "response",
-                    },
-                    "quick_replies": Array [],
-                    "reply": undefined,
-                  },
-                  "ref": null,
-                  "rendered": null,
-                  "type": [Function],
-                },
-              ],
-              "type": "div",
-            },
-            Object {
-              "instance": null,
-              "key": null,
-              "nodeType": "function",
-              "props": Object {
-                "answer": "response",
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-          ],
-          "type": "div",
-        },
-      ],
+      "rendered": null,
       "type": [Function],
     },
   ],
