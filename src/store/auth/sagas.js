@@ -4,10 +4,9 @@ import cookie from 'services/cookies'
 import { push } from 'react-router-redux'
 import notify from 'sagas/notify'
 import { saveToken, removeToken } from 'sagas/token'
-import generateSessionId from 'utils/generateSessionId'
-import { saveProjectElaborationIdInCookies } from 'store/utils'
 import { takeLatest } from 'utils/effects'
 import config from 'config'
+import isAuthenticated from 'utils/auth'
 
 import {
   resetUser,
@@ -19,7 +18,9 @@ import {
   setAccessToken,
   setRedirectPathname,
   projectElaborationResetConversation,
-  setProjectElaborationSessionId,
+  CLIENT_INITIATED,
+  setAuthenticated,
+  userDetails,
 } from 'store/actions'
 import { fromAuth, fromRouting } from 'store/selectors'
 import { fetchWithoutRefreshingToken } from 'sagas/fetch'
@@ -80,11 +81,6 @@ function* handleAuthLogout() {
   yield put(resetUser())
   yield put(projectElaborationResetConversation)
 
-  const sessionId = generateSessionId()
-  saveProjectElaborationIdInCookies(sessionId)
-
-  yield put(setProjectElaborationSessionId(sessionId))
-
   const pathName = yield select(fromRouting.getPathname)
 
   if (pathName === '/') {
@@ -136,8 +132,17 @@ function* watchAuthChannelRequest() {
   }
 }
 
+function* handleClientInitiated() {
+  const grantType = cookie.get('grant_type')
+  if (isAuthenticated(grantType)) {
+    yield put(setAuthenticated(true))
+    yield put(userDetails.request())
+  }
+}
+
 export default function*() {
   yield [
+    takeLatest(CLIENT_INITIATED, handleClientInitiated),
     takeLatest(AUTH_LOGIN.REQUEST, handleAuthLoginRequest),
     takeLatest(AUTH_LOGIN.SUCCESS, handleAuthLoginSuccess),
     takeLatest(AUTH_LOGIN.FAILURE, handleAuthLoginFailed),

@@ -8,8 +8,9 @@ import { requirePartner } from 'sagas/require'
 import ssr from 'sagas/ssr'
 import notify from 'sagas/notify'
 import { saveProjectElaborationIdInCookies } from 'store/utils'
+import reactCookie from 'services/cookies'
 import generateSessionId from 'utils/generateSessionId'
-import { projectUpdate, removeInitialQueryParam } from 'store/actions'
+import { projectUpdate, removeInitialQueryParam, CLIENT_INITIATED, AUTH_LOGOUT } from 'store/actions'
 
 import {
   PROJECT_ELABORATION_CONVERSATION_REPLY,
@@ -161,10 +162,7 @@ function* preValidate({ chatbotStorageId }) {
 
   yield* fetch(projectElaborationPreValidate, 'post', `/project-start/${chatbotStorageId}`)
 
-  const sessionId = generateSessionId()
-  saveProjectElaborationIdInCookies(sessionId)
-  yield put(setProjectElaborationSessionId(sessionId))
-
+  yield* regenerateChatbotSessionId()
 
   const projectId = yield select(fromProjectElaboration.getProjectId)
   const { sqn } = yield select(fromContext.getInitialQueryParams)
@@ -198,8 +196,24 @@ function* handleClickOnFindAPro() {
   yield put(push('/project-elaboration'))
 }
 
+function* regenerateChatbotSessionId() {
+  const sessionId = generateSessionId()
+  yield* saveAndDispatchChatbotSessionId(sessionId)
+}
+
+function* saveAndDispatchChatbotSessionId(sessionId) {
+  saveProjectElaborationIdInCookies(sessionId)
+  yield put(setProjectElaborationSessionId(sessionId))
+}
+
+function* generateSessionIdIfRequired() {
+  const sessionId = reactCookie.get('project_elaboration_session_id') || generateSessionId()
+  yield* saveAndDispatchChatbotSessionId(sessionId)
+}
+
 export default function*() {
   yield [
+    takeLatest(CLIENT_INITIATED, generateSessionIdIfRequired),
     takeLatest(PROJECT_ELABORATION_CONVERSATION_REPLY.REQUEST, replyConversation),
     takeLatest(PROJECT_ELABORATION_HERO_DETAILS.REQUEST, getConversations),
     takeLatest(PROJECT_ELABORATION_HERO_DETAILS.REQUEST, ssr(requestHero)),
@@ -208,5 +222,6 @@ export default function*() {
     takeLatest(PROJECT_ELABORATION_CONVERSATIONS_DETAILS.REQUEST, getConversations),
     takeLatest(PROJECT_ELABORATION_CONVERSATION_CURRENT.REQUEST, getConversationCurrent),
     takeLatest(PROJECT_ELABORATION_PRE_VALIDATE.REQUEST, preValidate),
+    takeLatest(AUTH_LOGOUT, regenerateChatbotSessionId),
   ]
 }

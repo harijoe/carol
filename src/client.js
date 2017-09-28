@@ -7,16 +7,11 @@ import { useScroll } from 'react-router-scroll'
 import { syncHistoryWithStore } from 'react-router-redux'
 import { anchorate } from 'anchorate'
 import 'logging'
-import reactCookie from 'services/cookies'
 import configureStore from 'store/configure'
 import sagas from 'store/sagas'
-import { setSSR, setProjectElaborationSessionId, enableFeature, setInitialQueryParams , setAuthenticated, userDetails } from 'store/actions'
+import { clientInitiated } from 'store/actions'
 import { list as sagaList } from 'sagas/ssr/collector'
-import isAuthenticated from 'utils/auth'
-import generateSessionId from 'utils/generateSessionId'
-import { saveProjectElaborationIdInCookies } from 'store/utils'
 import routes from 'routes'
-import parseLocationSearch from 'utils/parseLocationSearch'
 
 // eslint-disable-next-line no-underscore-dangle
 const initialState = window.__INITIAL_STATE__
@@ -71,37 +66,7 @@ function* initSaga(forks) {
   yield tasks
 }
 
-store.dispatch(setSSR(false))
-
-// Initialize feature flags from cookies
-const features = reactCookie.get('features')
-
-if (features != null) {
-  features.split(',').map(feature => store.dispatch(enableFeature(feature.trim())))
-}
-
-// Initialize query params
-const queryParams = parseLocationSearch(location.search)
-
-store.dispatch(setInitialQueryParams(queryParams))
-
-// Initialize auth from cookies
-const grantType = reactCookie.get('grant_type')
-
-// Handle authentication
-if (isAuthenticated(grantType)) {
-  store.dispatch(setAuthenticated(isAuthenticated(grantType)))
-  store.dispatch(userDetails.request())
-}
-
-// Initialize projectElaboration sessionId
-const sessionId = reactCookie.get('project_elaboration_session_id') || generateSessionId()
-
-saveProjectElaborationIdInCookies(sessionId)
-
-store.dispatch(setProjectElaborationSessionId(sessionId))
-
-store.dispatch({ type: 'INITIATED' })
+store.dispatch(clientInitiated())
 
 render(renderApp(), root, () => {
   store.runSaga(initSaga, sagaList())

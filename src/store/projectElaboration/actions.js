@@ -1,9 +1,6 @@
 import actionTypes, { createRequestTypes } from 'utils/createRequestTypes'
 
-export const PROJECT_ELABORATION_GO_TO_PRE_VALIDATE_PAGE = 'PROJECT_ELABORATION_GO_TO_PRE_VALIDATE_PAGE'
 export const PROJECT_ELABORATION_PRE_VALIDATE = createRequestTypes('PROJECT_ELABORATION_PRE_VALIDATE')
-export const PROJECT_ELABORATION_SET_PRE_VALIDATION_URL = 'PROJECT_ELABORATION_SET_PRE_VALIDATION_URL'
-export const PROJECT_ELABORATION_RESET = 'PROJECT_ELABORATION_RESET'
 export const PROJECT_ELABORATION_RESET_CONVERSATION = 'PROJECT_ELABORATION_RESET_CONVERSATION'
 export const PROJECT_ELABORATION_SET_SESSION_ID = 'PROJECT_ELABORATION_SET_SESSION_ID'
 export const PROJECT_ELABORATION_HERO_DETAILS = createRequestTypes('PROJECT_ELABORATION_HERO_DETAILS')
@@ -72,10 +69,6 @@ export const projectElaborationPartner = {
   request: () => actionTypes(PROJECT_ELABORATION_PARTNER.REQUEST),
   success: payload => actionTypes(PROJECT_ELABORATION_PARTNER.SUCCESS, { payload }),
   failure: error => actionTypes(PROJECT_ELABORATION_PARTNER.FAILURE, { error }),
-}
-
-export const projectElaborationReset = {
-  type: PROJECT_ELABORATION_RESET,
 }
 
 export const projectElaborationResetConversation = {
