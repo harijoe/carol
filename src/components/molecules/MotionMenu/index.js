@@ -162,10 +162,10 @@ class MotionMenu extends Component {
   }
 
   componentDidMount() {
-
     this.buildButtons(this.props)
 
     window.addEventListener('resize', this.refreshPosition)
+    document.addEventListener('click', this.handleOutsideClick, false)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -174,6 +174,7 @@ class MotionMenu extends Component {
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.refreshPosition)
+    document.removeEventListener('click', this.handleOutsideClick, false)
   }
 
   getCookieBannerMargin = () => this.props.showCookieBanner ? 60 : 0
@@ -222,6 +223,12 @@ class MotionMenu extends Component {
   })
 
   refreshPosition = () => this.setState(this.recalculatePosition(), this.animateChildButtonsWithDelay)
+
+  handleOutsideClick = e => {
+    if (!this.mainButtonNode.contains(e.target)) {
+      this.closeMenu()
+    }
+  }
 
   initialChildButtonStyles() {
     const { mainButtonPositionX, mainButtonPositionY } = this.state
@@ -388,8 +395,10 @@ class MotionMenu extends Component {
                 {hasActiveConversation && !isOpen && <BouncingBall />}
                 <StyledMainButton
                   onClick={this.toggleMenu}
+                  innerRef={node => {this.mainButtonNode = node}}
                 >
-                  <StyledMainIcon icon={isOpen ? 'close' : 'bubble'} size={42} isOpen={isOpen} {...this.props} />
+                  <StyledMainIcon icon="bubble" size={42} isOpen={isOpen} {...this.props} style={{display: isOpen ? 'none' : ''}} />
+                  <StyledMainIcon icon="close" size={42} isOpen={isOpen} {...this.props} style={{display: isOpen ? '' : 'none'}} />
                 </StyledMainButton>
               </MainButtonWrapper>
             </MainWrapper>
