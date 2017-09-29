@@ -28,6 +28,7 @@ const Wrapper = styled.div`
 
 const StyledMainIcon = styled(Icon)`
   position: relative;
+  margin: auto;
 
   svg path {
     fill: #fff;
