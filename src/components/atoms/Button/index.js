@@ -18,10 +18,10 @@ const StyledButton = styled.button`
   text-align: center;
   background-color: ${ifThen(
     loading,
-    css`${theme('colors.white')}`,
-    css`${ifThen(cssDisabled, css`${theme('colors.grayscale.light')}`, css`${theme('colors.secondary')}`)}`,
+    `${theme('colors.white')}`,
+    `${ifThen(cssDisabled, `${theme('colors.grayscale.light')}`, `${theme('colors.secondary')}`)}`,
   )};
-  border: ${ifThen(loading, css`1px solid ${theme('colors.secondary')}`, 0)};
+  border: ${ifThen(loading, `1px solid ${theme('colors.secondary')}`, '0')};
   color: ${theme('colors.black')};
   outline: 0;
   ${breakpoint('m')`
@@ -49,11 +49,11 @@ const StyledButton = styled.button`
     css`
     position: relative;
     margin: 0;
-    padding: 0 4px 0 4px;
+    padding: 0 4px;
     width: auto;
     text-decoration: none;
     font-weight: normal;
-    letter-spacing: 0rem;
+    letter-spacing: 0;
     line-height: 1;
     background-color: transparent;
     color: ${theme('colors.black')};
@@ -69,7 +69,7 @@ const StyledButton = styled.button`
 
     ${breakpoint('m')`
       margin: 0;
-      padding: 0 4px 0 4px;
+      padding: 0 4px;
     `}
   `,
   )};

@@ -42,7 +42,9 @@ before_install:
 script:
   - if [ "${BRANCH}" = "" ]; then BRANCH=develop; fi;
   - if [[ "$TRAVIS_BRANCH" = "master" && $TRAVIS_PULL_REQUEST_BRANCH = "" ]]; then BRANCH=develop; fi;
-  - yarn run lint && yarn test
+  - yarn lint
+  - yarn lint:css
+  - yarn test
   - yarn simulado:start &> simulado.log &
   - yarn simulado:prime &> simulado-prime.log &
   - yarn build
