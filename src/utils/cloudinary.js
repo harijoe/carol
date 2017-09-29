@@ -6,8 +6,12 @@ export default (path, params) => {
     const qualitySettings = isSvg ? 'q_auto' : 'q_auto,f_auto'
     return `${cloudinary.url}/${qualitySettings}/${cloudinary.app}${path}`
   }
-    const cloudinaryParams = path.split('/')[6] // params always here in cloudinary URL
-    const arr = path.split(cloudinaryParams)
-    const rebuildUrl = `${arr[0]}${params}${arr[1]}`
-    return rebuildUrl
+  const cloudinaryParts = path.split('/')
+  let cloudinaryParams = cloudinaryParts[6]
+  const isSignature = part => /^s--.*--$/.test(part)
+  if (isSignature(cloudinaryParams)) {
+    cloudinaryParams = cloudinaryParts[7]
+  }
+  const arr = path.split(cloudinaryParams)
+  return `${arr[0]}${params}${arr[1]}`
 }

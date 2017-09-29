@@ -29,4 +29,13 @@ describe('cloudinary Replace Params', () => {
     )
   })
 
+  it('replaces current params in a signed url with new ones', () => {
+    expect(cloudinary(
+      'https://res.cloudinary.com/quotatis/image/upload/s--LHitfKpb--/ar_10:11,c_crop,h_484,w_440/v1495120789/FR/ChatbotImages/Q1/electricite-domotique-alarmes.jpg',
+      'c_fill,h_225,w_525',
+    )).toEqual(
+      'https://res.cloudinary.com/quotatis/image/upload/s--LHitfKpb--/c_fill,h_225,w_525/v1495120789/FR/ChatbotImages/Q1/electricite-domotique-alarmes.jpg',
+    )
+  })
+
 })
