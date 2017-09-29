@@ -72,12 +72,12 @@ const BubbleQuestion = styled.div`
 
 const QuestionBottomImage = styled.div`
   margin: ${theme('spaces.s')} -${theme('spaces.m')} -${theme('spaces.s')};
-  background: url("${props => cloudinary(props.image, 'c_fill,h_225,w_525')}") center;
+  background: url("${props => cloudinary(props.image, 'c_fill,h_250,w_400,g_south')}") center;
   background-size: cover;
   border-radius: 0 0 1rem 1rem;
-  height: 14rem;
+  height: 18rem;
   ${breakpoint('m')`
-    height: 18rem;
+    height: 26rem;
   `};
 `
 
