@@ -4,7 +4,8 @@ Feature: As a user, I can interact with the chatbot
     When I go to the 'home' page
     And I start a conversation with the first key-one slide
     Then I should be redirected to '/project-elaboration'
-    And I should see 'Bonjour, quel type de travaux souhaitez-vous faire ?'
+    And I should see 'Bonjour et bienvenue sur Quotatis'
+    And I should see after a while 'Bonjour, quel type de travaux souhaitez-vous faire ?'
     And I should see 'Fenêtres et ouvertures extérieures'
     And I should see after a while 'C'est parti ! Quel est votre projet ?'
     And I should see 8 quick replies
@@ -14,7 +15,8 @@ Feature: As a user, I can interact with the chatbot
     When I go to the 'home' page
     And I click on 'Trouver un pro'
     Then I should be redirected to '/project-elaboration'
-    And I should see 'Bonjour, quel type de travaux souhaitez-vous faire ?'
+    And I should see after a while 'Bonjour, quel type de travaux souhaitez-vous faire ?'
+    And I should see after a while 'Commencer'
     And I should see 11 quick replies
 
   Scenario: Reach project summary
@@ -67,5 +69,5 @@ Feature: As a user, I can interact with the chatbot
   Scenario: Partner link to chatbot
     Given I go to the 'chatbot via partner link' page
     Then I should see 'Votre projet en partenariat avec'
-    And I should see 'Démarrons votre projet "Carrelage et parquet"'
-    And I should see 'Plus précisément, quel revêtement de sol intérieur est concerné ?'
+    And I should see after a while 'Démarrons votre projet "Carrelage et parquet"'
+    And I should see after a while 'Plus précisément, quel revêtement de sol intérieur est concerné ?'

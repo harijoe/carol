@@ -5,6 +5,7 @@ import { theme, breakpoint, mapBreakpoints } from 'utils/style'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 
 import { ProjectElaborationQuestion, RichTextContent } from 'components'
+import { RenderChildrenOneByOne } from 'containers'
 import Answer from './atoms/Answer'
 import QuickReplies from './molecules/QuickReplies'
 import Attachment from './molecules/Attachment'
@@ -87,12 +88,13 @@ class Conversation extends Component {
         }}
         className="conversation"
       >
-        {introBubbles.map(content => <div>
-          <ProjectElaborationQuestion>
-            <RichTextContent content={content} />
-          </ProjectElaborationQuestion>
-        </div>)}
-        {activeConversation.map(({ message: { text, attachment, quick_replies, image_url }, answer }, index) =>
+        <RenderChildrenOneByOne interval={1000}>
+          {activeConversation.length !== 0 && introBubbles.map(content =>
+            <ProjectElaborationQuestion>
+              <RichTextContent content={content} />
+            </ProjectElaborationQuestion>
+          )}
+          {activeConversation.map(({ message: { text, attachment, quick_replies, image_url }, answer }, index) =>
           <div key={index}>
             { // eslint-disable-next-line camelcase
               <ProjectElaborationQuestion imageUrl={image_url}>
@@ -110,6 +112,7 @@ class Conversation extends Component {
             <Answer answer={answer != null ? answer.text : null} />
           </div>,
         )}
+        </RenderChildrenOneByOne>
       </Wrapper>
     )
   }

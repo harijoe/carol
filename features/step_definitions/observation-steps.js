@@ -41,7 +41,7 @@ defineSupportCode(({ When }) => {
   })
 
   When(/I should see after a while '(.*)'/, async expectedText => {
-    await client.expect.element('body').text.to.contain(expectedText).before(2000)
+    await client.expect.element('body').text.to.contain(expectedText).before(5000)
   })
 
   When(/I should not see '(.*)'/, async notExpectedText => {

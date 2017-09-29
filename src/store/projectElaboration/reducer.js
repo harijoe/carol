@@ -7,6 +7,7 @@ import {
   PROJECT_ELABORATION_HERO_SET_RESPONSE,
   PROJECT_ELABORATION_CONVERSATIONS_DETAILS,
   PROJECT_ELABORATION_RESET_CONVERSATION,
+  PROJECT_ELABORATION_SET_IS_NEW_CONVERSATION,
   PROJECT_ELABORATION_PRE_VALIDATE,
   PROJECT_ELABORATION_PARTNER,
 } from './actions'
@@ -111,6 +112,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         activeConversation: [],
+      }
+    case PROJECT_ELABORATION_SET_IS_NEW_CONVERSATION:
+      return {
+        ...state,
+        isNewConversation: payload,
       }
     case PROJECT_ELABORATION_PARTNER.SUCCESS: {
       const partner = action.payload['hydra:member'][0]

@@ -12,6 +12,7 @@ export const PROJECT_ELABORATION_CONVERSATIONS_DETAILS = createRequestTypes('PRO
 export const PROJECT_ELABORATION_CONVERSATIONS_SELECT = createRequestTypes('PROJECT_ELABORATION_CONVERSATIONS_SELECT')
 export const PROJECT_ELABORATION_CLICK_FIND_A_PRO = 'PROJECT_ELABORATION_CLICK_FIND_A_PRO'
 export const PROJECT_ELABORATION_PARTNER = createRequestTypes('PROJECT_ELABORATION_PARTNER')
+export const PROJECT_ELABORATION_SET_IS_NEW_CONVERSATION = 'PROJECT_ELABORATION_SET_IS_NEW_CONVERSATION'
 
 export const projectElaborationHeroDetails = {
   request: () => actionTypes(PROJECT_ELABORATION_HERO_DETAILS.REQUEST),
@@ -74,6 +75,11 @@ export const projectElaborationPartner = {
 export const projectElaborationResetConversation = {
   type: PROJECT_ELABORATION_RESET_CONVERSATION,
 }
+
+export const projectElaborationSetIsNewConversation = (payload) => ({
+  type: PROJECT_ELABORATION_SET_IS_NEW_CONVERSATION,
+  payload,
+})
 
 export const projectElaborationPreValidate = {
   request: chatbotStorageId => actionTypes(PROJECT_ELABORATION_PRE_VALIDATE.REQUEST, { chatbotStorageId }),

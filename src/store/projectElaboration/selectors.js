@@ -26,6 +26,7 @@ export const initialState = {
     },
   ],
   activeConversation: [],
+  isNewConversation: null,
   conversations: {},
   projectName: null,
   projectId: null,
@@ -53,5 +54,6 @@ export const getProjectId = (state = initialState) => state.projectId
 export const getProjectName = (state = initialState) => state.projectName
 export const getProFormId = (state = initialState) => state.proFormId
 export const getProFormLabel = (state = initialState) => state.proFormLabel
+export const isNewConversation = (state = initialState) => state.isNewConversation
 
 export const getKey2Label = (state = initialState) => state.activeConversation[2].answer.text

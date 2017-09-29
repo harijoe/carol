@@ -1,6 +1,6 @@
 export default activeConversation => {
-  if (activeConversation.length < 1) {
-    return false
+  if (activeConversation.length === 0) {
+    return true
   }
 
   const lastMessage = activeConversation[activeConversation.length - 1].message

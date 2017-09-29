@@ -27,6 +27,7 @@ import {
   projectElaborationResetConversation,
   projectElaborationPreValidate,
   setProjectElaborationSessionId,
+  projectElaborationSetIsNewConversation,
 } from './actions'
 
 function* replyConversation({ text, payload = null }) {
@@ -87,12 +88,12 @@ function* getConversations() {
 }
 
 function* getConversationCurrent() {
-
   yield put(projectElaborationResetConversation)
 
   const query = yield select(fromRouting.getQuery)
 
   if (query.slug != null) {
+    yield put(projectElaborationSetIsNewConversation(true))
     yield* replyConversation({ text: `new_project.first_question:${query.slug}` })
     const label = query.slug.split('-').join(' ')
     const formatedLabel = `${label.charAt(0).toUpperCase()}${label.substring(1).toLowerCase()}`
@@ -118,6 +119,7 @@ function* getConversationCurrent() {
 function* replyHero() {
   const hero = yield select(fromProjectElaboration.getHero)
 
+  yield put(projectElaborationSetIsNewConversation(true))
   yield* replyConversation({ text: 'new_project.reset' })
 
   yield* replyConversation({ text: hero[1].answer.text, payload: hero[1].answer.payload })
@@ -192,6 +194,7 @@ function* preValidate({ chatbotStorageId }) {
 }
 
 function* handleClickOnFindAPro() {
+  yield put(projectElaborationSetIsNewConversation(true))
   yield* replyConversation({ text: 'new_project.reset' })
   yield put(push('/project-elaboration'))
 }
