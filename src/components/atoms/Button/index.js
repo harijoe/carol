@@ -18,10 +18,10 @@ const StyledButton = styled.button`
   text-align: center;
   background-color: ${ifThen(
     loading,
-    `${theme('colors.white')}`,
-    `${ifThen(cssDisabled, `${theme('colors.grayscale.light')}`, `${theme('colors.secondary')}`)}`,
+    css`${theme('colors.white')}`,
+    css`${ifThen(cssDisabled, css`${theme('colors.grayscale.light')}`, css`${theme('colors.secondary')}`)}`,
   )};
-  border: ${ifThen(loading, `1px solid ${theme('colors.secondary')}`, '0')};
+  ${ifThen(loading, css`border: 1px solid ${theme('colors.secondary')};`)}
   color: ${theme('colors.black')};
   outline: 0;
   ${breakpoint('m')`
