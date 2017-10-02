@@ -1,10 +1,12 @@
 import React from 'react'
 import { intlShape } from 'react-intl'
+import labelWithColon from './labelWithColon'
 
 export const translateForIntl = intl => (id, values) => intl.formatMessage({ id }, values)
 
 export const injectTranslateImpl = translateForIntlImpl => Component => {
-  const InjectTranslate = (props, { intl }) => <Component translate={translateForIntlImpl(intl)} {...props} />
+  const InjectTranslate = (props, { intl }) =>
+    <Component translate={translateForIntlImpl(intl)} {...props} labelWithColon={labelWithColon(intl)} />
 
   InjectTranslate.contextTypes = {
     intl: intlShape,

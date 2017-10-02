@@ -207,6 +207,7 @@ const ProjectDetails = ({
   project: { name, status, createdAt, questionsAnswers, comment, postalCode, startTimeframe, purpose, leadSales, imageUrl },
   placeCoords,
   translate,
+  labelWithColon,
   ...props
 }) =>
   <Wrapper {...props}>
@@ -243,7 +244,7 @@ const ProjectDetails = ({
           <LeftCol xs={12} m={8}>
             <Paragraph dangerouslySetInnerHTML={{ __html: translate('project.resume_intro', { name: `<strong>${name}</strong>` }) }} />
             <ProjectImage>
-              <StyledImage src={imageUrl ? cloudinary(imageUrl,'c_fill,h_225,w_525') : cloudinary('/placeholder-project_image.jpg')} />
+              <StyledImage src={imageUrl ? cloudinary(imageUrl, 'c_fill,h_225,w_525') : cloudinary('/placeholder-project_image.jpg')} />
             </ProjectImage>
 
             <StyledList>
@@ -273,18 +274,18 @@ const ProjectDetails = ({
             </StyledHeading>
             <ItemProject>
               <Icon icon="location-pin" />
-              {`Lieu : ${postalCode.postalCode} ${postalCode.city}`}
+              {labelWithColon(translate('project.place'))} {postalCode.postalCode} {postalCode.city}
             </ItemProject>
             <MapImage>
               {placeCoords && <StyledImage src={`https://maps.googleapis.com/maps/api/staticmap?${googleMapsParams(placeCoords)}`} />}
             </MapImage>
             <ItemProject>
               <Icon icon="project_start" />
-              {translate('project.startTimeframe')} : {translate(`project.startTimeframe.${startTimeframe}`)}
+              {labelWithColon(translate('project.startTimeframe'))} {translate(`project.startTimeframe.${startTimeframe}`)}
             </ItemProject>
             <ItemProject>
               <Icon icon="project_goal" />
-              {translate('project.purpose')} : {translate(`project.${purpose}`)}
+              {labelWithColon(translate('project.purpose'))} {translate(`project.${purpose}`)}
             </ItemProject>
           </RightCol>
         </Row>
@@ -294,6 +295,7 @@ const ProjectDetails = ({
 
 ProjectDetails.propTypes = {
   translate: PropTypes.func.isRequired,
+  labelWithColon: PropTypes.func.isRequired,
   project: PropTypes.shape({
     name: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
