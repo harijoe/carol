@@ -26,7 +26,7 @@ export const initialState = {
     },
   ],
   activeConversation: [],
-  isNewConversation: null,
+  isNewConversation: false,
   conversations: {},
   projectName: null,
   projectId: null,

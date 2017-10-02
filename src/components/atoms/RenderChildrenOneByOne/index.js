@@ -1,43 +1,42 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { flatten } from 'lodash'
 
 class RenderChildrenOneByOne extends Component {
   static propTypes = {
-    interval: PropTypes.number,
-    children: PropTypes.array,
+    interval: PropTypes.number.isRequired,
+    enabled: PropTypes.bool.isRequired,
+    onAllRendered: PropTypes.func.isRequired,
+    children: PropTypes.array.isRequired,
+    isFeatureDisabled: PropTypes.bool.isRequired,
   }
 
   state = {
     nbElementsToDisplay: 0,
     elements: [],
-    enabled: false,
     runningTimeouts: [],
   }
 
-  componentWillReceiveProps({ children, isNewConversation:enabled, setIsNewConversation, isFeatureDisabled }) {
+  componentWillReceiveProps({ children, enabled, isFeatureDisabled, onAllRendered }) {
     if (!enabled || isFeatureDisabled) {
       return
     }
 
     // Flattens children from array of arrays to a single array of components
-    const elements = flatten(children)
+    const elements = React.Children.toArray(children)
 
     // Because props are updated multiple times and we don't want to trigger the animation again
     if (elements.length === this.state.elements.length) {
-      this.setState({ elements })
       return
     }
 
-    this.setState({ elements, enabled, nbElementsToDisplay: 0 }, () => {
-      const runningTimeouts = elements.map((el, index) =>
+    this.setState({ elements, enabled, nbElementsToDisplay: 1 }, () => {
+      const elementsToAnimate = elements.slice(1)
+      const runningTimeouts = elementsToAnimate.map((el, index) =>
         window.setTimeout(() => {
-          if (index + 1 > this.state.nbElementsToDisplay) {
-            const animationStillGoing = index + 1 !== this.state.elements.length
-            this.setState({nbElementsToDisplay: index + 1, enabled: animationStillGoing})
-            if (!animationStillGoing) {
-              setIsNewConversation(false)
-            }
+          const animationStillGoing = index + 2 !== this.state.elements.length
+          this.setState({ nbElementsToDisplay: index + 2 })
+          if (!animationStillGoing) {
+            onAllRendered()
           }
         }, this.props.interval * (index + 1))
       )
@@ -46,11 +45,17 @@ class RenderChildrenOneByOne extends Component {
   }
 
   componentWillUnmount() {
-    this.state.runningTimeouts.map(id => window.clearTimeout(id))
+    this.state.runningTimeouts.forEach(id => window.clearTimeout(id))
   }
 
   render  () {
-    return <div>{this.state.enabled ? this.state.elements.slice(0, this.state.nbElementsToDisplay) : this.props.children}</div>
+    const { elements, nbElementsToDisplay } = this.state
+    const { enabled, children } = this.props
+    return (
+      <div>
+        {enabled ? elements.slice(0, nbElementsToDisplay) : React.Children.toArray(children)}
+      </div>
+    )
   }
 }
 

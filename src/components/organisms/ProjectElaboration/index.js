@@ -5,7 +5,7 @@ import isFirstChatbotStep from 'utils/isFirstChatbotStep'
 import { breakpoint } from 'utils/style'
 
 import { Grid } from 'components'
-import Conversation from './organisms/Conversation'
+import Conversation from './containers/Conversation'
 import Form from './organisms/Form'
 
 const StyledGrid = styled(Grid)`
@@ -23,14 +23,14 @@ const StyledGrid = styled(Grid)`
   `};
 `
 
-const ProjectElaboration = ({ activeConversation, reply, locale, redirectTo }) => {
+const ProjectElaboration = ({ activeConversation, reply }) => {
   const quickReplies = activeConversation.length > 0 ? activeConversation[activeConversation.length - 1].message.quick_replies : null
   const enableBack = !isFirstChatbotStep(activeConversation)
 
   return (
     <StyledGrid narrow>
       <div>
-        <Conversation {...{ activeConversation, reply, locale, redirectTo }} />
+        <Conversation {...{ activeConversation, reply }} />
         <Form reply={reply} disabled={quickReplies != null ? quickReplies.length !== 0 : true} enableBack={enableBack} />
       </div>
     </StyledGrid>
@@ -49,8 +49,6 @@ ProjectElaboration.propTypes = {
     }),
   ),
   reply: PropTypes.func,
-  redirectTo: PropTypes.func,
-  locale: PropTypes.string,
 }
 
 export default ProjectElaboration

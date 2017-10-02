@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { theme, breakpoint, mapBreakpoints } from 'utils/style'
+import { theme, mapBreakpoints } from 'utils/style'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 
 import { ProjectElaborationQuestion, RichTextContent } from 'components'
@@ -20,9 +20,7 @@ const Wrapper = styled.div`
   overflow-y: auto;
   overflow-x: hidden;
 
-  ${breakpoint('m')`
-    min-height: 29rem;
-  `} ${mapBreakpoints(
+  ${mapBreakpoints(
       bp => css`
     padding-left: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
     padding-right: ${theme(`grid.gutterWidth.${bp}`, 'rem')};
@@ -62,6 +60,8 @@ class Conversation extends Component {
     ),
     reply: PropTypes.func,
     redirectTo: PropTypes.func,
+    setIsNewConversation: PropTypes.func,
+    isNewConversation: PropTypes.bool.isRequired,
   }
 
   componentDidMount() {
@@ -72,12 +72,16 @@ class Conversation extends Component {
     this.scrollTop()
   }
 
-  scrollTop() {
+  onAllChildrenRendered = () => {
+    this.props.setIsNewConversation(false)
+  }
+
+  scrollTop = () => {
     this.history.scrollTop = this.history.scrollHeight
   }
 
   render() {
-    const { activeConversation, reply, locale, redirectTo, translate } = this.props
+    const { activeConversation, reply, locale, redirectTo, translate, isNewConversation } = this.props
     const isLastQuestion = index => activeConversation.length - 1 === index
     const introBubbles = translate('chatbot.intro').split(/(?:<br>\n){2,}/)
 
@@ -88,16 +92,16 @@ class Conversation extends Component {
         }}
         className="conversation"
       >
-        <RenderChildrenOneByOne interval={1000}>
+        <RenderChildrenOneByOne interval={1000} enabled={isNewConversation} onAllRendered={this.onAllChildrenRendered}>
           {activeConversation.length !== 0 && introBubbles.map(content =>
-            <ProjectElaborationQuestion>
+            <ProjectElaborationQuestion key={content} onAnimationEnd={this.scrollTop}>
               <RichTextContent content={content} />
             </ProjectElaborationQuestion>
           )}
           {activeConversation.map(({ message: { text, attachment, quick_replies, image_url }, answer }, index) =>
           <div key={index}>
             { // eslint-disable-next-line camelcase
-              <ProjectElaborationQuestion imageUrl={image_url}>
+              <ProjectElaborationQuestion imageUrl={image_url} onAnimationEnd={this.scrollTop}>
                 {text != null ? text : null}
               </ProjectElaborationQuestion>}
             {isLastQuestion(index)

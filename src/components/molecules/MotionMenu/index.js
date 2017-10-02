@@ -383,7 +383,7 @@ class MotionMenu extends Component {
                   id="motion_menu.tooltip_message"
                   style={{
                     visibility: isOpen ? 'hidden' : '',
-                    'margin-bottom': this.getCookieBannerMargin(),
+                    marginBottom: this.getCookieBannerMargin(),
                   }}
                 />
               )}
