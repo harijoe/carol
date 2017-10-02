@@ -15,7 +15,6 @@ const titleStyles = ({ dark, grey, primary }) => css`
   width: 100%;
   font-weight: bold;
   font-size: ${theme('fonts.size.s')};
-  font-weight: normal;
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 0.1rem;

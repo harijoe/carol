@@ -1,5 +1,4 @@
 import React from 'react'
-import { FormattedMessage } from 'react-intl'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { theme } from 'utils/style'
@@ -59,7 +58,7 @@ const StyledIcon = styled(Icon)`
   width: ${theme('icons.size.s')};
 `
 
-const ValidatedInfo = ({ validated, disabled, field, onClick, ...props }) => {
+const ValidatedInfo = ({ validated, disabled, onClick, ...props }) => {
   const validateState = validated ? 'validated' : 'not-validated'
   const validateClass = validated ? 'qs-Field--validated' : 'qs-Field--toValidate'
   const disabledClass = disabled ? 'disabled' : ''
@@ -68,7 +67,6 @@ const ValidatedInfo = ({ validated, disabled, field, onClick, ...props }) => {
   return (
     <Wrapper className={`${validateClass} ${disabledClass}`} onClick={actualOnClick} {...props}>
       <StyledIcon icon={validateState} size={21} />
-      <FormattedMessage id={`user.profile.${field}.${validateState}`} />
     </Wrapper>
   )
 }

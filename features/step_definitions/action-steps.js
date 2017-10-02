@@ -3,8 +3,8 @@ import client from '../lib/promisified-nightwatch-client'
 
 defineSupportCode(({ When }) => {
   When(/I click on '(.*)'/, async target => {
-    const xpath = `//*[not(self::style)][contains(text(), "${target}")][1]`
     await new Promise(resolve => setTimeout(resolve, 500)) // Necessary, waiting for element visible is not enough
+    const xpath = `//*[not(self::style) and contains(text(), "${target}")]`
     await client.click('xpath', xpath)
   })
 
@@ -18,5 +18,15 @@ defineSupportCode(({ When }) => {
 
   When(/I wait until I see '(.*)'/, async expectedText => {
     await client.expect.element('body').text.to.contain(expectedText).before(2000)
+  })
+
+  When(/I verify the field '(.*)'/, async fieldName => {
+    const findVerifyButton = label => {
+      const allFieldWrappers = Array.from(document.querySelectorAll('.verified-field-wrapper'))
+      const fieldWrapper = allFieldWrappers.find(field => field.querySelector('label').innerText === label)
+      return fieldWrapper.querySelector('button')
+    }
+    const verifyButton = await client.execute(findVerifyButton, [fieldName])
+    await client.elementIdClick(verifyButton.ELEMENT)
   })
 })

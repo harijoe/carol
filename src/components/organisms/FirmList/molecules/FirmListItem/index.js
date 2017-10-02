@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
@@ -106,7 +106,7 @@ const FirmImage = styled(Image)`
   }
 `
 
-const StyledList = styled(List)`${() => css`
+const StyledList = styled(List)`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -132,9 +132,9 @@ const StyledList = styled(List)`${() => css`
       text-decoration: underline;
     }
   }
-`}`
+`
 
-const StyledCertificateList = styled(List)`${() => css`
+const StyledCertificateList = styled(List)`
   position: relative;
   height: 100%;
   width: 100%;
@@ -176,7 +176,7 @@ const StyledCertificateList = styled(List)`${() => css`
       }
     `};
   }
-`}`
+`
 
 const IconCertificate = styled(Icon)`
   display: none;

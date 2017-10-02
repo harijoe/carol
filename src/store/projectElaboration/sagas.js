@@ -77,7 +77,6 @@ function* replyConversation({ text, payload = null }) {
 }
 
 function* getConversations() {
-
   const sessionId = yield select(fromProjectElaboration.getSessionId)
 
   try {
