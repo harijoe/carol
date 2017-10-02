@@ -27,7 +27,7 @@ const BubbleQuestion = styled.div`
   margin: 0 0 0 ${theme('spaces.s')};
   padding: ${theme('spaces.s')} ${theme('spaces.m')};
   overflow-wrap: break-word;
-  width: ${props => props.image ? '70%' : 'initial'};
+  width: ${props => (props.image ? '70%' : 'initial')};
   max-width: 70%;
   background: ${theme('colors.grayscale.lighter')};
   border-radius: 0 1rem 1rem;
@@ -72,7 +72,7 @@ const BubbleQuestion = styled.div`
 
 const QuestionBottomImage = styled.div`
   margin: ${theme('spaces.s')} -${theme('spaces.m')} -${theme('spaces.s')};
-  background: url("${props => cloudinary(props.image, 'c_fill,h_250,w_400,g_south')}") center;
+  background: url("${props => cloudinary(props.image, 'c_fill,h_286,w_539,g_south')}") center;
   background-size: cover;
   border-radius: 0 0 1rem 1rem;
   height: 18rem;
