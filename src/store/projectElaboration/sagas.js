@@ -105,7 +105,7 @@ function* getConversationCurrent() {
 
   const heroAnswer = yield select(fromProjectElaboration.getHeroAnswer)
 
-  yield pushGtmEvent({ event: 'OpenForm', chatbotKey1: heroAnswer.text, chatbotKey2: '' })
+  yield pushGtmEvent({ event: 'OpenForm', chatbotKey1: heroAnswer, chatbotKey2: '' })
 
   const hasActiveConversation = yield select(fromProjectElaboration.hasActiveConversation)
 
@@ -181,7 +181,7 @@ function* preValidate({ chatbotStorageId }) {
   yield pushGtmEvent({
     event: 'ProjectCreated',
     postalCode,
-    chatbotKey1: heroAnswer.text,
+    chatbotKey1: heroAnswer,
     chatbotKey2: key2label,
     proFormLabel,
   })

@@ -47,7 +47,7 @@ export const hasActiveConversation = (state = initialState) => {
 export const getConversations = (state = initialState) => state.conversations
 export const getSessionId = (state = initialState) => state.sessionId
 export const getFirstChoices = (state = initialState) => state.hero[1].message.attachment.payload.elements
-export const getHeroAnswer = (state = initialState) => state.hero[1].answer
+export const getHeroAnswer = (state = initialState) => state.hero[1].answer.text || (state.activeConversation[0] && state.activeConversation[0].answer.text)
 export const getPostalCode = (state = initialState) => state.postalCode
 export const getHero = (state = initialState) => state.hero
 export const getProjectId = (state = initialState) => state.projectId
