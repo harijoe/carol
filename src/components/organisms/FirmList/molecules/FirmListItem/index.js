@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import injectTranslate from 'i18n/hoc/injectTranslate'
-import { theme, breakpoint } from 'utils/style'
+import { theme, breakpoint, breakpointMax } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
 import ReactTooltip from 'react-tooltip'
 import isTouchDevice from 'utils/isTouchDevice'
 
-import { Heading, Card, Image, Divider, Icon, List, Link, CloseAllButton } from 'components'
+import { Heading, Card, Image, Icon, List, Link, CloseAllButton } from 'components'
 
 const StyledCard = styled(Card)`
   ${breakpoint('xs')`
@@ -161,8 +161,36 @@ const StyledCertificateList = styled(List)`${() => css`
     &:last-child {
       margin-right: 0;
     }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    ${breakpointMax('m')`
+      position: relative;
+      padding-right: 2rem;
+      vertical-align: middle;
+
+      &:first-child {
+        padding-right: 2rem;
+      }
+    `};
   }
 `}`
+
+const IconCertificate = styled(Icon)`
+  display: none;
+
+  ${breakpointMax('m')`
+    display: block;
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    margin-top: -0.55rem;
+    height: 1.1rem;
+    width: 1.1rem;
+  `};
+`
 
 const StyledIcon = styled(Icon)`
   position: absolute;
@@ -203,7 +231,7 @@ const StyledContentModal = styled.div`padding: ${theme('spaces.xxl')} ${theme('s
 
 const StyledReactTooltip = styled(ReactTooltip)`
   max-width: 30rem;
-  box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, 0.15);
 `
 
 class FirmListItem extends Component {
@@ -260,7 +288,6 @@ class FirmListItem extends Component {
               <StyledIcon icon="mail" /> <Link to={`mailto:${proEmail}`}>{proEmail}</Link>
             </li>
           </StyledList>
-          <Divider />
           {firmCertificates.length > 0 &&
             <StyledCertificateList>
               {firmCertificates.map(item =>
@@ -271,6 +298,7 @@ class FirmListItem extends Component {
                   onClick={() => this.showModal(item.certificate.description)}
                 >
                   {item.certificate.name}
+                  <IconCertificate icon="question-mark" />
                 </li>,
               )}
               {!isTouchDevice() && <StyledReactTooltip type={'light'} effect={'solid'} />}
