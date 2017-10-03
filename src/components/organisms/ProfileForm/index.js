@@ -224,9 +224,12 @@ const StyledNotificationBox = styled(NotificationBox)`
   
     h4 {
       padding: ${theme('spaces.s')} ${theme('spaces.l')} ${theme('spaces.s')} 3.7rem;
-      background: url(${cloudinary('/icons/default-primary-logo.svg')}) no-repeat 1rem 0.8rem;
+      background: url(${cloudinary('/icons/default-primary-logo.svg')}) no-repeat 1rem 0.6rem;
       background-size: ${theme('icons.size.m')};
-      padding-left: 0;
+
+      &:hover {
+        cursor: pointer;
+      }
          
       &::after {
         position: absolute;
@@ -250,6 +253,10 @@ const StyledNotificationBox = styled(NotificationBox)`
           `,
         )}
       }
+
+      ${breakpointMax('m')`
+        background-position: 0 0.6rem;
+      `};
   
       ${breakpoint('m')`
         margin-left: -${theme('spaces.xxl')};
@@ -265,8 +272,12 @@ const StyledNotificationBox = styled(NotificationBox)`
     ${ifThen(
       !notificationBoxIsOpen,
       css`
-        height: 7rem;
+        height: 8rem;
         overflow: hidden;
+
+        ${breakpoint('m')`
+          height: 7rem;
+        `};
       `,
     )};
   `};
@@ -304,16 +315,26 @@ const StyledList = styled(List)`
   }
 `
 
-const StyledButton = styled(Button)`
-  margin-bottom: ${theme('spaces.m')};
-  margin-top: 0;
-  
+const ButtonWrapper = styled.div`
+  width: 100%;
+
+  ${breakpointMax('m')`
+    margin-top: -2rem;
+    margin-bottom: ${theme('spaces.l')};
+  `};
+
   ${breakpoint('m')`
-    max-width: 10em;
-    margin-left: ${theme('spaces.s')};
-    margin-top: 0;
-    padding: 1.1rem;
-  `}; 
+    max-width: 19rem;
+    margin-bottom: 1.3rem;
+    padding-left: ${theme('spaces.m')};
+    border-bottom: 0.1rem solid ${theme('colors.grayscale.light')};
+  `};
+`
+
+const StyledButton = styled(Button)`
+  width: 100%;
+  margin: 0;
+  padding: ${theme('spaces.s')} ${theme('spaces.l')};
 `
 
 class ProfileForm extends Component {
@@ -495,13 +516,15 @@ class ProfileForm extends Component {
                         disabled
                       />
                       {!emailVerified &&
-                        <StyledButton
-                          onClick={() => {
-                            toggleEmailValidationPopin()
-                          }}
-                        >
-                          {translate('auto_validation.notification.verify')}
-                        </StyledButton>}
+                        <ButtonWrapper>
+                          <StyledButton
+                            onClick={() => {
+                              toggleEmailValidationPopin()
+                            }}
+                          >
+                            {translate('auto_validation.notification.verify')}
+                          </StyledButton>
+                        </ButtonWrapper>}
                     </VerifiedFieldWrapper>
                     <VerifiedFieldWrapper className="verified-field-wrapper">
                       <ValidatedInfo
@@ -523,13 +546,15 @@ class ProfileForm extends Component {
                         icon="phone"
                       />
                       {!mobilePhoneVerified &&
-                        <StyledButton
-                          onClick={() => {
-                            togglePhoneValidationPopin()
-                          }}
-                        >
-                          {translate('auto_validation.notification.verify')}
-                        </StyledButton>}
+                        <ButtonWrapper>
+                          <StyledButton
+                            onClick={() => {
+                              togglePhoneValidationPopin()
+                            }}
+                          >
+                            {translate('auto_validation.notification.verify')}
+                          </StyledButton>
+                        </ButtonWrapper>}
                     </VerifiedFieldWrapper>
                     <Field
                       name="fixedPhone"
