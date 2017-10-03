@@ -24,31 +24,36 @@ export default {
       {
         title: 'Reforma Integral',
         slug: 'reforma-integral',
-        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,g_custom:adv_faces,h_300,w_200/v1505398461/ES/ChatbotImages/Q2/reformas/reforma-integral.jpg',
+        imageUrl:
+          '//res.cloudinary.com/quotatis/image/upload/c_fill,g_custom:adv_faces,h_300,w_200/v1505398461/ES/ChatbotImages/Q2/reformas/reforma-integral.jpg',
         tag: 'Proyecto',
       },
       {
         title: 'Pintura',
         slug: 'pintura',
-        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,g_west,h_300,w_200/v1505398433/ES/ChatbotImages/Q2/pintura-suelos-y-paredes/pintura.jpg',
+        imageUrl:
+          '//res.cloudinary.com/quotatis/image/upload/c_fill,g_west,h_300,w_200/v1505398433/ES/ChatbotImages/Q2/pintura-suelos-y-paredes/pintura.jpg',
         tag: 'Proyecto',
       },
       {
         title: 'Reforma de Baño',
         slug: 'reforma-de-bano',
-        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,g_custom:adv_face,h_300,w_200/v1505398462/ES/ChatbotImages/Q2/reformas/reforma-de-bano.jpg',
+        imageUrl:
+          '//res.cloudinary.com/quotatis/image/upload/c_fill,g_custom:adv_face,h_300,w_200/v1505398462/ES/ChatbotImages/Q2/reformas/reforma-de-bano.jpg',
         tag: 'Proyecto',
       },
       {
         title: 'Reforma de Cocina',
         slug: 'reforma-de-cocina',
-        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,g_west,h_300,w_200/v1505398461/ES/ChatbotImages/Q2/reformas/reforma-de-cocina.jpg',
+        imageUrl:
+          '//res.cloudinary.com/quotatis/image/upload/c_fill,g_west,h_300,w_200/v1505398461/ES/ChatbotImages/Q2/reformas/reforma-de-cocina.jpg',
         tag: 'Proyecto',
       },
       {
         title: 'Albañilería',
         slug: 'albanileria',
-        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,g_east,h_300,w_200/v1505396926/ES/ChatbotImages/Q2/albanileria-carpinteria-y-puertas/albanileria.jpg',
+        imageUrl:
+          '//res.cloudinary.com/quotatis/image/upload/c_fill,g_east,h_300,w_200/v1505396926/ES/ChatbotImages/Q2/albanileria-carpinteria-y-puertas/albanileria.jpg',
         tag: 'Proyecto',
       },
     ],

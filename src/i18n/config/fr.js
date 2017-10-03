@@ -25,31 +25,36 @@ export default {
       {
         title: 'Fenêtre',
         slug: 'fenetre',
-        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1502376733/FR/ChatbotImages/Q2/fenetres-et-ouvertures-exterieures/fenetre.jpg',
+        imageUrl:
+          '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1502376733/FR/ChatbotImages/Q2/fenetres-et-ouvertures-exterieures/fenetre.jpg',
         tag: 'Projet',
       },
       {
         title: 'Chaudiere',
         slug: 'chaudiere',
-        imageUrl: '//res.cloudinary.com/quotatis/image/upload/s--IHZ6SHmu--/c_imagga_scale,g_north_west,h_400,w_300/v1500642397/FR/ChatbotImages/Q2/isolation-chauffage-climatisation/chaudiere.jpg',
+        imageUrl:
+          '//res.cloudinary.com/quotatis/image/upload/s--IHZ6SHmu--/c_imagga_scale,g_north_west,h_400,w_300/v1500642397/FR/ChatbotImages/Q2/isolation-chauffage-climatisation/chaudiere.jpg',
         tag: 'Projet',
       },
       {
-        title: 'Isolation par l\'intérieur de plancher, mur, cloison, combles',
+        title: "Isolation par l'intérieur de plancher, mur, cloison, combles",
         slug: 'isolation-par-linterieur-de-plancher-mur-cloison-combles',
-        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500642398/FR/ChatbotImages/Q2/isolation-chauffage-climatisation/isolation-par-l-interieur-de-plancher-mur-cloison-combles.jpg',
+        imageUrl:
+          '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500642398/FR/ChatbotImages/Q2/isolation-chauffage-climatisation/isolation-par-l-interieur-de-plancher-mur-cloison-combles.jpg',
         tag: 'Projet',
       },
       {
         title: 'Aménagement complet de salle de bains',
         slug: 'amenagement-complet-de-salle-de-bains',
-        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500641381/FR/ChatbotImages/Q2/amenagement-de-pieces/amenagement-complet-de-salle-de-bains.jpg',
+        imageUrl:
+          '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500641381/FR/ChatbotImages/Q2/amenagement-de-pieces/amenagement-complet-de-salle-de-bains.jpg',
         tag: 'Projet',
       },
       {
         title: 'Peinture et papier peint',
         slug: 'peinture-et-papier-peint',
-        imageUrl: '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500642631/FR/ChatbotImages/Q2/peinture-sols-et-eclairage/peinture-et-papier-peint.jpg',
+        imageUrl:
+          '//res.cloudinary.com/quotatis/image/upload/c_fill,h_300,w_200/v1500642631/FR/ChatbotImages/Q2/peinture-sols-et-eclairage/peinture-et-papier-peint.jpg',
         tag: 'Projet',
       },
     ],
