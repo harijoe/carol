@@ -21,7 +21,7 @@ export default {
   'auto_validation.notification.title': 'Pourquoi renseigner et verifier vos informations ?',
   'auto_validation.notification.verify': 'Vérifier',
   'burger_menu': 'Menu Burger',
-  'chatbot.intro': 'Bonjour et bienvenue sur Quotatis :-)<br>\n<br>\nNous allons vous aider à élaborer votre projet de construction, de rénovation ou d\'amélioration de l\'habitat en quelques questions<br>\n<br>\nCela nous permettra de sélectionner des pros de confiance autour de chez vous',
+  'chatbot.intro': 'Bonjour et bienvenue sur Quotatis 😃<br>\n<br>\nNous allons vous aider à élaborer votre projet de construction, de rénovation ou d\'amélioration de l\'habitat en quelques questions<br>\n<br>\nCela nous permettra de sélectionner des pros de confiance autour de chez vous',
   'choose': '-- Choisissez --',
   'construction': 'Construction',
   'cookies.message': 'En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour vous proposer des services et des offres adaptés à vos centres d’intérêts.',

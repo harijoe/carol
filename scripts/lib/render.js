@@ -1,9 +1,12 @@
 import markdownIt from 'markdown-it'
-import markdownItAttrs from 'markdown-it-attrs'
+import attributesPlugin from 'markdown-it-attrs'
+import emojisPlugin from 'markdown-it-emoji'
 
 const createRenderer = () => markdownIt({ breaks: true })
 
-const rendererWithAttributes = createRenderer().use(markdownItAttrs)
+const rendererWithAttributes = createRenderer()
+  .use(attributesPlugin)
+  .use(emojisPlugin)
 
 export const renderer = createRenderer()
 
