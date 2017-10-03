@@ -133,6 +133,10 @@ const scaffolding = theme => css`
     height: 100vh;
     position: fixed;
   }
+  
+  .__react_component_tooltip.show {
+    opacity: 1;
+  }
 `
 
 export default scaffolding
