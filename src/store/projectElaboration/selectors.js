@@ -36,6 +36,8 @@ export const initialState = {
   partner: {},
 }
 
+const getAnswersText = (state = initialState) => state.activeConversation.filter(data => data.answer).map(data => data.answer.text)
+
 export const getConversation = (state = initialState) => state.activeConversation
 export const getPartnerHeaderText = (state = initialState) => get(state, ['partner', 'headerText'])
 export const getPartnerHeaderLink = (state = initialState) => get(state, ['partner', 'headerLink'])
@@ -47,8 +49,7 @@ export const hasActiveConversation = (state = initialState) => {
 export const getConversations = (state = initialState) => state.conversations
 export const getSessionId = (state = initialState) => state.sessionId
 export const getFirstChoices = (state = initialState) => state.hero[1].message.attachment.payload.elements
-export const getHeroAnswer = (state = initialState) =>
-  state.hero[1].answer.text || (state.activeConversation[0] && state.activeConversation[0].answer.text)
+export const getHeroAnswer = (state = initialState) => getAnswersText(state)[0]
 export const getPostalCode = (state = initialState) => state.postalCode
 export const getHero = (state = initialState) => state.hero
 export const getProjectId = (state = initialState) => state.projectId
@@ -57,4 +58,4 @@ export const getProFormId = (state = initialState) => state.proFormId
 export const getProFormLabel = (state = initialState) => state.proFormLabel
 export const isNewConversation = (state = initialState) => state.isNewConversation
 
-export const getKey2Label = (state = initialState) => state.activeConversation[2].answer.text
+export const getKey2Label = (state = initialState) => getAnswersText(state)[1]
