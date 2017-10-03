@@ -191,7 +191,7 @@ export default {
     social: {
       facebook: 'https://www.facebook.com/Quotatis.FR/',
       twitter: 'https://twitter.com/quotatisfr',
-      linkedin: 'https://www.linkedin.com/company-beta/50071/',
+      linkedin: 'https://www.linkedin.com/company/quotatis',
       instagram: 'https://www.instagram.com/quotatis/',
     },
   },

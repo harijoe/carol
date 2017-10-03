@@ -140,7 +140,7 @@ export default {
     social: {
       facebook: 'https://www.facebook.com/Quotatis.Es',
       twitter: 'https://twitter.com/QuotatisEspana',
-      linkedin: 'https://www.linkedin.com/company-beta/10811205/',
+      linkedin: 'https://www.linkedin.com/company/quotatis-españa',
       instagram: 'https://www.instagram.com/quotatis_es/',
     },
   },
