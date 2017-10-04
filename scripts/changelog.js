@@ -35,10 +35,9 @@ const api = async (path) => {
 
 const formatIssue = issue => {
   const description = issue.fields.summary.replace(/\(.*?\)\s+/, '')
-  const points = issue.fields.customfield_10005
   const url = `https://quotatis.atlassian.net/browse/${issue.key}`
   const hiandu = `[${issue.key}](${url})`
-  return `- ${hiandu} ${description} (${points} point${points !== 1 ? 's' : ''})`
+  return `- ${hiandu} ${description}`
 }
 
 const formatIssues = issues => issues.map(formatIssue)
@@ -70,13 +69,7 @@ const changelog = async () => {
   const bugs = issues.filter(isBug)
   const storiesOrTasks = issues.filter(issue => !isBug(issue))
 
-  const formattedGoals = sprint.goal
-    .split(/[-+\n]+/)
-    .map(item => `- ${item.trim()}`)
-    .join('\n')
-
   console.info(`## Release for Sprint ${sprintNumber}\n`)
-  console.info(`### Goals\n${formattedGoals}\n`)
   console.info(`### Features\n${formatIssues(storiesOrTasks).join('\n')}\n`)
   console.info(`### Bug fixes\n${formatIssues(bugs).join('\n')}\n`)
 }
