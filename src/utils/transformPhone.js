@@ -12,7 +12,7 @@ const indicator = language => {
 }
 
 export const normalize = language => value => {
-  if (!value) return null
+  if (!value) return ''
   const onlyNums = value.replace(/[^\d]/g, '')
 
   if (['fr', 'en'].includes(language)) return `+${indicator(language)}${onlyNums.replace(/[^\d]/g, '').substr(1)}`
