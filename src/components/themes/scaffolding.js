@@ -134,7 +134,7 @@ const scaffolding = theme => css`
     position: fixed;
   }
   
-  .__react_component_tooltip.show {
+  div.__react_component_tooltip.show {
     opacity: 1;
   }
 `
