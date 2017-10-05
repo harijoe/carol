@@ -7,7 +7,7 @@ import cloudinary from 'utils/cloudinary'
 import ReactTooltip from 'react-tooltip'
 import isTouchDevice from 'utils/isTouchDevice'
 
-import { Heading, Card, Image, Icon, List, Link, CloseAllButton } from 'components'
+import { Heading, Card, Image, Icon, List, Link, CloseAllButton, ProfileImage } from 'components'
 
 const StyledCard = styled(Card)`
   ${breakpoint('xs')`
@@ -90,14 +90,9 @@ const FooterCard = styled.footer`
   `};
 `
 
-const FirmImage = styled(Image)`
+const FirmImage = styled(ProfileImage)`
   position: absolute;
-  display: block;
   bottom: -2rem;
-  border-radius: 4rem;
-  width: 8rem;
-  height: 8rem;
-  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 
   &:first-child {
@@ -271,7 +266,7 @@ class FirmListItem extends Component {
           <ImageWrapper>
             <BackgroundImage src={cloudinary('/placeholder-firm_image.jpg')} />
           </ImageWrapper>
-          <FirmImage alt={'alt'} src={logoUrl || cloudinary('/icons/placeholder-logo.png')} width="50" height="50" />
+          <FirmImage alt={'alt'} image={logoUrl} size="l" />
         </HeaderCard>
         <FooterCard>
           <StyledHeading level={3}>

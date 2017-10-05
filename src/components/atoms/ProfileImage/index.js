@@ -1,34 +1,38 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { theme } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
 
-const StyledFigure = styled.figure`
-  ${({ imageLink }) => css`
+const SIZES = {
+  s: theme('icons.size.xxl'),
+  m: theme('icons.size.xxxl'),
+  l: '8rem',
+}
+
+const styles = ({ size, image, defaultImage }) => css`
   position: relative;
   z-index: 5;
-  display: block;
-  min-height: ${theme('icons.size.xxxl')};
-  min-width: ${theme('icons.size.xxxl')};
+  height: ${SIZES[size]};
+  width: ${SIZES[size]};
   background-color: ${theme('colors.white')};
-  background-image: url(${imageLink}), url(${cloudinary('/icons/default-logo-profil.svg')});
+  background-image: url(${image || defaultImage});
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: cover, ${theme('icons.size.l')};
+  background-size: ${image ? 'contain' : '50%'};
   border-radius: 60rem;
-  box-shadow: 0 0 10px 0 rgba(19, 19, 19, 0.15);
-`};
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
 `
 
-const ProfileImage = ({ imageLink, children, ...props }) =>
-  <StyledFigure imageLink={imageLink} {...props}>
-    {children}
-  </StyledFigure>
+const ProfileImage = styled.figure`${styles};`
 
 ProfileImage.propTypes = {
-  imageLink: PropTypes.string,
-  children: PropTypes.any,
+  image: PropTypes.string,
+  defaultImage: PropTypes.string,
+  size: PropTypes.oneOf(Object.keys(SIZES)).isRequired,
+}
+
+ProfileImage.defaultProps = {
+  defaultImage: cloudinary('/icons/default-logo-profil.svg'),
 }
 
 export default ProfileImage
