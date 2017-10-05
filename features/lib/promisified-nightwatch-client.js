@@ -7,7 +7,7 @@ class NightwatchError extends Error {
   }
 }
 
-const nightwatchPromisify = (key, api) => (...args) =>
+const nightwatchPromisify = (api) => (...args) =>
   // use await on nightwatch command otherwise the command is not triggered as nightwatch command are not javascript promises
   new Promise(async (resolve, reject) => {
     await api(...args, result => {
@@ -23,21 +23,18 @@ const nightwatchPromisify = (key, api) => (...args) =>
     })
   })
 
-const promisifyNightwatchApis = () =>
-  [
-    'element',
-    'elementIdAttribute',
-    'elements',
-    'execute',
-    'getText',
-    'saveScreenshot',
-  ].reduce(
-    (apis, key) => {
-      const api = apis[key]
-      apis[key] = nightwatchPromisify(key, api) // eslint-disable-line no-param-reassign
-      return apis
-    },
-    { ...client },
-  )
+const APIS_TO_PROMISIFY = [
+  'element',
+  'elementIdAttribute',
+  'elements',
+  'execute',
+  'getText',
+  'saveScreenshot',
+]
 
-export default promisifyNightwatchApis()
+export default new Proxy(client, {
+  get(target, name) {
+    const api = target[name]
+    return APIS_TO_PROMISIFY.includes(name) ? nightwatchPromisify(api) : api
+  },
+})
