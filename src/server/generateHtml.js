@@ -21,7 +21,7 @@ export default (store, renderProps) => {
 
   store.dispatch(setDryRun(false))
 
-  const styles = sheet.getStyleTags()
+  const styles = sheet.getStyleElement()
   const initialState = store.getState()
   const assets = global.webpackIsomorphicTools.assets()
   const serializedState = `window.__INITIAL_STATE__ = ${serialize(initialState)}`

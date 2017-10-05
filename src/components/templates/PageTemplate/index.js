@@ -1,18 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css, ThemeProvider } from 'styled-components'
-import { addLocaleData } from 'react-intl'
-import fr from 'react-intl/locale-data/fr'
-import en from 'react-intl/locale-data/en'
-import es from 'react-intl/locale-data/es'
-import { injectGlobals, ifThen } from 'utils/style'
+import { ifThen } from 'utils/style'
 
 import { CookiesBanner } from 'containers'
-import defaultTheme, { resets, scaffolding } from '../../themes/default'
-
-injectGlobals([resets, scaffolding])
-
-addLocaleData([...es, ...en, ...fr])
+import defaultTheme from '../../themes/default'
 
 // Polyfill
 // https://www.npmjs.com/package/intl
@@ -24,7 +16,7 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #eee; 
+  background-color: #eee;
 `
 
 const Header = styled.div`
@@ -74,30 +66,24 @@ class PageTemplate extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-
     if (nextProps.ssr === false) {
       this.setState({ loaded: true })
     }
 
     if (nextProps.searchModalIsOpen !== this.props.searchModalIsOpen) {
-
       if (nextProps.searchModalIsOpen) {
-        document.body.classList.add("no-scroll")
+        document.body.classList.add('no-scroll')
       } else {
-        document.body.classList.remove("no-scroll")
+        document.body.classList.remove('no-scroll')
       }
-
     }
-
   }
 
   componentWillUnmount() {
-
     if (document.body.classList.contains('no-scroll')) {
       this.props.toggleSearchModal(false)
-      document.body.classList.remove("no-scroll")
+      document.body.classList.remove('no-scroll')
     }
-
   }
 
   render() {

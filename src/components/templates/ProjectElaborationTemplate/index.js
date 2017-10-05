@@ -1,18 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { ThemeProvider } from 'styled-components'
-import { addLocaleData } from 'react-intl'
-import fr from 'react-intl/locale-data/fr'
-import en from 'react-intl/locale-data/en'
-import es from 'react-intl/locale-data/es'
-import { injectGlobals, theme, breakpoint } from 'utils/style'
+import { theme, breakpoint } from 'utils/style'
 
 import { ChatbotPopin } from 'containers'
-import defaultTheme, { resets, scaffolding } from '../../themes/default'
-
-injectGlobals([resets, scaffolding])
-
-addLocaleData([...es, ...en, ...fr])
+import defaultTheme from '../../themes/default'
 
 const Wrapper = styled.div`
   display: flex;

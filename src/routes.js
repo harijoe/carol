@@ -1,6 +1,11 @@
 import React from 'react'
 import { Route, IndexRoute } from 'react-router'
+import { addLocaleData } from 'react-intl'
+import fr from 'react-intl/locale-data/fr'
+import en from 'react-intl/locale-data/en'
+import es from 'react-intl/locale-data/es'
 
+import { injectGlobals } from 'utils/style'
 import anonymousOnly from 'hoc/security/anonymousOnly'
 import requiresAuth from 'hoc/security/requiresAuth'
 import {
@@ -23,6 +28,10 @@ import {
   SignupPage,
 } from 'components'
 import { ProjectPreValidatePage, VerifyEmailPage, EmailValidationPage, HomePage, SearchResultPage } from 'containers'
+import { resets, scaffolding } from 'components/themes/default'
+
+injectGlobals([resets, scaffolding])
+addLocaleData([...es, ...en, ...fr])
 
 const routes = (
   <Route path="/" component={App}>
