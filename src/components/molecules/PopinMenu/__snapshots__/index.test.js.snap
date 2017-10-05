@@ -26,11 +26,11 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Background
+        <Styled(Component)
           display={false}
           onClick={[Function]}
         />,
-        <Menu
+        <Styled(Component)
           display={false}
         >
           <StyledList
@@ -42,7 +42,7 @@ ShallowWrapper {
               hello
             </StyledItem>
           </StyledList>
-        </Menu>,
+        </Styled(Component)>,
         <StyledButton
           onClick={[Function]}
           type="button"
@@ -138,11 +138,11 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Background
+          <Styled(Component)
             display={false}
             onClick={[Function]}
           />,
-          <Menu
+          <Styled(Component)
             display={false}
           >
             <StyledList
@@ -154,7 +154,7 @@ ShallowWrapper {
                 hello
               </StyledItem>
             </StyledList>
-          </Menu>,
+          </Styled(Component)>,
           <StyledButton
             onClick={[Function]}
             type="button"

@@ -9,12 +9,14 @@ import injectTranslate from 'i18n/hoc/injectTranslate'
 import { Icon, Link, BouncingBall } from 'components'
 import Tooltip from './molecules/Tooltip'
 
-export const Background = styled.div`${({ isOpen }) => css`
+export const Background = styled.div`
+  ${({ isOpen }) => css`
   position: fixed;
   transition: background-color 0.3s ${ifThen(isOpen, 'ease', 'ease-out')};
   ${ifThen(isOpen, 'background-color: rgba(255, 255, 255, 0.98);')}
   border-radius: 100%;
-`}`
+`};
+`
 
 const Wrapper = styled.div`
   position: fixed;
@@ -53,9 +55,7 @@ const StyledChildIcon = styled(Icon)`${({ dot, size }) => css`
   }  
 `}`
 
-const MainWrapper = styled.div`
-  position: relative;
-`
+const MainWrapper = styled.div`position: relative;`
 
 const MainButtonWrapper = styled.div`
   position: fixed;
@@ -88,10 +88,7 @@ const StyledLabelButton = styled.div`
   white-space: nowrap;
   top: 50%;
   transform: translateY(-50%);
-  
-  > a {
-    color: ${theme('colors.black')};
-  }
+  color: ${theme('colors.black')};
 `
 
 const childButtonCss = css`
@@ -159,7 +156,6 @@ class MotionMenu extends Component {
       mainButtonPositionY: 0,
       backgroundInitialScale: 0.5,
     }
-
   }
 
   componentDidMount() {
@@ -178,10 +174,9 @@ class MotionMenu extends Component {
     document.removeEventListener('click', this.handleOutsideClick, false)
   }
 
-  getCookieBannerMargin = () => this.props.showCookieBanner ? 60 : 0
+  getCookieBannerMargin = () => (this.props.showCookieBanner ? 60 : 0)
 
   buildButtons({ hasActiveConversation, translate }) {
-
     const newChatButton = {
       type: 'link',
       element: {
@@ -200,7 +195,6 @@ class MotionMenu extends Component {
         label: translate('motion_menu.resume'),
       },
     }
-
 
     childButtonIcons = []
     childButtonIcons.push(newChatButton)
@@ -237,7 +231,7 @@ class MotionMenu extends Component {
     return {
       width: childButtonDiam,
       height: childButtonDiam,
-      top: spring(mainButtonPositionY  - this.getCookieBannerMargin() - childButtonDiam / 2, childButtonSpringConfig),
+      top: spring(mainButtonPositionY - this.getCookieBannerMargin() - childButtonDiam / 2, childButtonSpringConfig),
       left: spring(mainButtonPositionX - childButtonDiam / 2, childButtonSpringConfig),
       rotate: spring(childButtonInitialRotation, childButtonSpringConfig),
       scale: spring(childButtonInitialScale, childButtonSpringConfig),
@@ -272,7 +266,8 @@ class MotionMenu extends Component {
 
   finalBackgroundStyles() {
     const { mainButtonPositionX, mainButtonPositionY } = this.state
-    const backgroundFinalScale = window.innerWidth > backgroundFinalScaleBreakpoint ? backgroundFinalScaleDesktop : backgroundFinalScaleMobile
+    const backgroundFinalScale =
+      window.innerWidth > backgroundFinalScaleBreakpoint ? backgroundFinalScaleDesktop : backgroundFinalScaleMobile
 
     return {
       width: mainButtonDiam,
@@ -320,9 +315,7 @@ class MotionMenu extends Component {
           return (
             <StyledChildLink to={element.url} onClick={element.url ? undefined : this.props.redirectToConversation} style={elementStyle}>
               <StyledLabelButton>
-                <Link>
-                  {element.label}
-                </Link>
+                {element.label}
               </StyledLabelButton>
               <StyledChildIcon icon={element.icon} style={element.style} dot={element.dot} size={35} />
             </StyledChildLink>
@@ -377,7 +370,7 @@ class MotionMenu extends Component {
         <Motion style={mainButtonRotation}>
           {() =>
             <MainWrapper>
-              {hasActiveConversation && (
+              {hasActiveConversation &&
                 <Tooltip
                   className="motion-menu-tooltip"
                   id="motion_menu.tooltip_message"
@@ -385,8 +378,7 @@ class MotionMenu extends Component {
                     visibility: isOpen ? 'hidden' : '',
                     marginBottom: this.getCookieBannerMargin(),
                   }}
-                />
-              )}
+                />}
               <MainButtonWrapper
                 className="motion-menu-wrapper"
                 style={{
@@ -397,14 +389,15 @@ class MotionMenu extends Component {
                 {hasActiveConversation && !isOpen && <BouncingBall />}
                 <StyledMainButton
                   onClick={this.toggleMenu}
-                  innerRef={node => {this.mainButtonNode = node}}
+                  innerRef={node => {
+                    this.mainButtonNode = node
+                  }}
                 >
-                  <StyledMainIcon icon="bubble" size={42} isOpen={isOpen} {...this.props} style={{display: isOpen ? 'none' : ''}} />
-                  <StyledMainIcon icon="close" size={42} isOpen={isOpen} {...this.props} style={{display: isOpen ? '' : 'none'}} />
+                  <StyledMainIcon icon="bubble" size={42} isOpen={isOpen} {...this.props} style={{ display: isOpen ? 'none' : '' }} />
+                  <StyledMainIcon icon="close" size={42} isOpen={isOpen} {...this.props} style={{ display: isOpen ? '' : 'none' }} />
                 </StyledMainButton>
               </MainButtonWrapper>
-            </MainWrapper>
-          }
+            </MainWrapper>}
         </Motion>
       </Wrapper>
     )

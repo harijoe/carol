@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Icon } from 'components'
 
 const StyledIcon = styled(Icon)`
-  position: 'absolute';
+  position: absolute;
   width: 2em;
   height: 2em;
 `
