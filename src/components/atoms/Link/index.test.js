@@ -38,10 +38,10 @@ it('renders props when passed in', () => {
   expect(wrapper.find({ id: 'foo' }).length).toBeGreaterThan(0)
 })
 
-it('renders anchor by default', () => {
+it('renders span when no link', () => {
   const wrapper = wrapAndDive()
 
-  expect(wrapper.find('a').length).toBeGreaterThan(0)
+  expect(wrapper.find('span').length).toBeGreaterThan(0)
 })
 
 it('renders Link when prop to is passed in', () => {

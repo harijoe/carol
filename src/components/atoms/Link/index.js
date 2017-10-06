@@ -70,11 +70,12 @@ const styles = ({ kind, highlight, button, large }) => css`
 const removeStyledProps = Component => props => <Component {...omit(props, ...styleProps)} />
 
 export const StyledLink = styled(removeStyledProps(RouterLink))`${styles}`
+export const NoAnchor = styled.span`${styles};`
 export const Anchor = styled.a`${styles};`
 
 const Link = ({ to, forceRedirect, ...props }) => {
   if (!to) {
-    return <Anchor {...props} />
+    return <NoAnchor {...props} />
   }
 
   // Checks if URL is absolute

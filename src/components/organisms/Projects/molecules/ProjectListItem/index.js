@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { Link as RouterLink } from 'react-router'
 import { FormattedMessage } from 'react-intl'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
@@ -160,7 +161,7 @@ const FirmImage = styled(ProfileImage)`
   }
 `
 
-const ButtonArrow = styled(Link)`
+const ButtonArrow = styled.div`
   position: absolute;
   display: block;
   right: 0;
@@ -176,9 +177,7 @@ const ButtonArrow = styled(Link)`
 
   ${breakpointMax('m')`
       margin-right: ${theme('spaces.m')};
-  `}
-
-  &::before {
+  `} &::before {
     position: absolute;
     content: '→';
     top: 50%;
@@ -233,46 +232,62 @@ const PartnerImageWrapper = styled.div`
   box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, 0.15);
 `
 
+const StyledRouterLink = styled(RouterLink)`
+  text-decoration: none;
+`
+
+const urlForProject = (status, id) => {
+  if (status === 'completion_in_progress') {
+    return '/project-elaboration'
+  }
+  if (status === 'to_validate') {
+    return `${id}/account`
+  }
+  return id
+}
+
 const Project = ({ name, createdAt, status, partner, leadSales, imageUrl, translate, ...items }) =>
-  <Article className="project-item">
-    <HeaderCard>
-      <ImageWrapper>
-        <BackgroundImage src={imageUrl || cloudinary('/placeholder-project_image.jpg')} />
-      </ImageWrapper>
-      <ProjectStatus {...{ status, leadSales }} />
-      {partner &&
-        <PartnerImageWrapper>
-          <PartnerImage src={partner.headerLink} />
-        </PartnerImageWrapper>}
-    </HeaderCard>
-    <FooterCard>
-      <StyledHeading level={3}>
-        {name}
-      </StyledHeading>
-      <DateCreation>
-        <FormattedMessage id="project.created_at" /> <DateTime value={createdAt} />
-      </DateCreation>
-      <Divider />
-      <StyledParagraph>
-        {status === 'found'
-          ? translate(`project.describe.${status}`, { firmsNumber: leadSales.length })
-          : translate(`project.describe.${status}`)}
-      </StyledParagraph>
-      {status === 'found' &&
-        <FirmWrapper>
-          {leadSales.map(({ firm }) => <FirmImage key={firm.name} image={firm.logoUrl} alt={firm.name} size="s" />)}
-        </FirmWrapper>}
-      {['pending_search', 'validated', 'found'].includes(status) && <ButtonArrow to={items['@id']} />}
-      {status === 'completion_in_progress' &&
-        <ButtonLink button to="/project-elaboration">
-          <FormattedMessage id="project.continue" />
-        </ButtonLink>}
-      {status === 'to_validate' &&
-        <ButtonLink button to={`${items['@id']}/account`}>
-          <FormattedMessage id="project.button.to_validate" />
-        </ButtonLink>}
-    </FooterCard>
-  </Article>
+  <StyledRouterLink to={urlForProject(status, items['@id'])}>
+    <Article className="project-item">
+      <HeaderCard>
+        <ImageWrapper>
+          <BackgroundImage src={imageUrl || cloudinary('/placeholder-project_image.jpg')} />
+        </ImageWrapper>
+        <ProjectStatus {...{ status, leadSales }} />
+        {partner &&
+          <PartnerImageWrapper>
+            <PartnerImage src={partner.headerLink} />
+          </PartnerImageWrapper>}
+      </HeaderCard>
+      <FooterCard>
+        <StyledHeading level={3}>
+          {name}
+        </StyledHeading>
+        <DateCreation>
+          <FormattedMessage id="project.created_at" /> <DateTime value={createdAt} />
+        </DateCreation>
+        <Divider />
+        <StyledParagraph>
+          {status === 'found'
+            ? translate(`project.describe.${status}`, { firmsNumber: leadSales.length })
+            : translate(`project.describe.${status}`)}
+        </StyledParagraph>
+        {status === 'found' &&
+          <FirmWrapper>
+            {leadSales.map(({ firm }) => <FirmImage key={firm.name} image={firm.logoUrl} alt={firm.name} size="s" />)}
+          </FirmWrapper>}
+        {['pending_search', 'validated', 'found'].includes(status) && <ButtonArrow />}
+        {status === 'completion_in_progress' &&
+          <ButtonLink button>
+            <FormattedMessage id="project.continue" />
+          </ButtonLink>}
+        {status === 'to_validate' &&
+          <ButtonLink button>
+            <FormattedMessage id="project.button.to_validate" />
+          </ButtonLink>}
+      </FooterCard>
+    </Article>
+  </StyledRouterLink>
 
 Project.propTypes = {
   translate: PropTypes.func.isRequired,
