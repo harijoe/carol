@@ -75,7 +75,7 @@ export const Anchor = styled.a`${styles};`
 
 const Link = ({ to, forceRedirect, ...props }) => {
   if (!to) {
-    return <NoAnchor {...props} />
+    return <NoAnchor {...props} role="link" />
   }
 
   // Checks if URL is absolute

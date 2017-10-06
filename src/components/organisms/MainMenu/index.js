@@ -26,7 +26,7 @@ const StyledList = styled(List)`${({ homepage, atTop }) => css`
         margin-bottom: ${theme('spaces.m')};
         border-bottom: 0.1rem solid ${theme('colors.grayscale.light')};
 
-        > a {
+        > a, > [role="link"] {
           display: flex;
           align-items: center;
           font-weight: bold;
@@ -38,7 +38,7 @@ const StyledList = styled(List)`${({ homepage, atTop }) => css`
       ${ifThen(
         atTop && homepage,
         css`
-        > a {
+        > a, > [role="link"] {
           color: ${theme('colors.white')};
 
           &.qs-linkMenu--toggle::after {
@@ -51,7 +51,7 @@ const StyledList = styled(List)`${({ homepage, atTop }) => css`
       ${ifThen(
         !atTop,
         css`
-        > a {
+        > a, > [role="link"] {
           color: ${theme('colors.black')};
         }
       `,

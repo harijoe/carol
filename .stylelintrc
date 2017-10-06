@@ -16,6 +16,7 @@
     "no-eol-whitespace": null,
     "no-empty-source": null,
     "block-no-empty": null,
-    "number-leading-zero": null
+    "number-leading-zero": null,
+    "selector-list-comma-newline-after": "always-multi-line",
   }
 }
