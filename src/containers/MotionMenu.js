@@ -33,6 +33,7 @@ const mapStateToProps = state => ({
   firstChoices: fromProjectElaboration.getFirstChoices(state),
   showCookieBanner: fromContext.showCookiesBanner(state),
   isSSR: fromContext.isSSR(state),
+  isPopInOpen: fromContext.getAccountNavigation(state) || fromContext.getMainNavigation(state) || fromContext.getSignInPopin(state),
 })
 
 const mapDispatchToProps = dispatch =>

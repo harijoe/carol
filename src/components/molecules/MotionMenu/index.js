@@ -22,6 +22,7 @@ const Wrapper = styled.div`
   position: fixed;
   z-index: 21;
   top: 0;
+  transition: opacity 0.3s ease;
 
   > a {
     font-weight: bold;
@@ -341,7 +342,7 @@ class MotionMenu extends Component {
 
   render() {
     const { isOpen, childButtons, mainButtonPositionX, mainButtonPositionY } = this.state
-    const { hasActiveConversation, isSSR } = this.props
+    const { hasActiveConversation, isSSR, isPopInOpen } = this.props
 
     if (isSSR) return null
 
@@ -351,7 +352,7 @@ class MotionMenu extends Component {
     const style = isOpen ? this.finalBackgroundStyles() : this.initialBackgroundStyles()
 
     return (
-      <Wrapper isOpen={this.state.isOpen}>
+      <Wrapper isOpen={this.state.isOpen} style={{ opacity: isPopInOpen ? 0 : 1 }}>
         <Motion style={style}>
           {({ width, height, scale }) =>
             <Background
@@ -409,6 +410,7 @@ MotionMenu.propTypes = {
   hasActiveConversation: PropTypes.bool,
   isSSR: PropTypes.bool,
   showCookieBanner: PropTypes.bool,
+  isPopInOpen: PropTypes.bool,
 }
 
 export default injectTranslate(MotionMenu)

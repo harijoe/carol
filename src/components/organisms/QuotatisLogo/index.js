@@ -11,7 +11,6 @@ import { IconLink } from 'components'
 const StyledIconLink = styled(({ ...props }) => <IconLink {...props} />)`${() => css`
   position: absolute;
   top: -0.1rem;
-  z-index: 20;
   display: inline-block;
   height: 9.6rem;
   width: 7.6rem;
