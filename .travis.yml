@@ -62,3 +62,11 @@ after_failure:
   - cat simulado.log
   - cat simulado-prime.log
   - cat server.log
+
+deploy:
+   # on new releases
+  - provider: script
+    script: ./scripts/deploy_carol_preprod.sh $TRAVIS_TAG
+    on:
+      tags: true
+      branch: master

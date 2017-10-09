@@ -34,11 +34,6 @@ if [ $BRANCH == "develop" ]; then
   echo ${JSON_PATCH}
   kubectl patch deployment carol-${BRANCH} --namespace=${BRANCH} -p $JSON_PATCH
   kubectl delete pods `kubectl get pod -l "run=carol-${BRANCH}" -o=template --template="{{ with index .items 0}}{{ .metadata.name }}{{ end }}" --namespace=${BRANCH}` --namespace=${BRANCH}
-elif [ $BRANCH == "deploy"  ]; then
-  echo "Start deploy for master"
-  git clone https://92a99f360dcd7f681bae671b05db76404e2fd9b6@github.com/Quotatis/gaston.git
-  cd gaston
-  ./bench_img.sh carol
 else
   echo "Nothing to deploy, BRANCH != master"
 fi
