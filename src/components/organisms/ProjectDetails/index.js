@@ -41,23 +41,19 @@ const StyledSection = styled(Section)`
     ${breakpoint('m')`
       margin-top: -${theme('spaces.xxl')};
       margin-left: -${theme('spaces.l')};
-    `}
-
-    ${breakpoint('xl')`
+    `} ${breakpoint('xl')`
       margin-top: -${theme('spaces.xxl')};
       margin-left: -${theme('spaces.xxl')};
-    `}
+    `};
   }
 `
 
-const DateCreation = styled.time`
+const StyledHeadingItem = styled.span`
   display: block;
   font-size: ${theme('fonts.size.s')};
   color: ${theme('colors.grayscale.medium')};
 
-  ${breakpointMax('m')`
-    margin-top: ${theme('spaces.m')};
-  `} ${breakpoint('m')`
+  ${breakpoint('m')`
     display: inline-block;
     margin-left: ${theme('spaces.m')};
     vertical-align: middle;
@@ -68,6 +64,10 @@ const DateCreation = styled.time`
 const StyledProjectStatus = styled(ProjectStatus)`
   position: static;
   left: 0;
+  margin-bottom: ${theme('spaces.m')};
+  ${breakpoint('m')`
+    margin-bottom: 0;
+  `};
 `
 
 const ProjectImage = styled.figure`
@@ -100,9 +100,7 @@ const StyledList = styled(List)`
 
   ${breakpoint('m')`
     margin-top: ${theme('spaces.l')};
-  `}
-
-  list-style-position: outside;
+  `} list-style-position: outside;
   margin-left: 1em;
 `
 
@@ -133,9 +131,7 @@ const StyledIconLink = styled(IconLink)`
 
   ${breakpoint('m')`
     margin-bottom: ${theme('spaces.l')};
-  `}
-
-  span {
+  `} span {
     vertical-align: top;
 
     &:first-child {
@@ -157,17 +153,15 @@ const StyledIconLink = styled(IconLink)`
 const LeftCol = styled(Col)`
   ${breakpoint('m')`
     padding-right: calc(${theme('spaces.l')} / 2);
-  `}
+  `};
 `
 
 const RightCol = styled(Col)`
   ${breakpointMax('m')`
     margin-top: ${theme('spaces.xxl')};
-  `}
-
-  ${breakpoint('m')`
+  `} ${breakpoint('m')`
     padding-left: calc(${theme('spaces.l')} / 2);
-  `}
+  `};
 `
 
 const ItemProject = styled.p`
@@ -200,33 +194,38 @@ const googleMapsParams = ({ lat, lng }) => {
     markers: `icon:${markerImageUrl}|shadow:true|${lat},${lng}`,
   }
 
-  return Object.keys(googleMapParams).map(key => `${key}=${encodeURIComponent(googleMapParams[key])}`).join('&')
+  return Object.keys(googleMapParams)
+    .map(key => `${key}=${encodeURIComponent(googleMapParams[key])}`)
+    .join('&')
 }
 
 const ProjectDetails = ({
-  project: { name, status, createdAt, questionsAnswers, comment, postalCode, startTimeframe, purpose, leadSales, imageUrl },
+  project: { name, status, createdAt, questionsAnswers, comment, postalCode, startTimeframe, purpose, leadSales, imageUrl, leadReference },
   placeCoords,
   translate,
   labelWithColon,
   ...props
-}) =>
+}) => (
   <Wrapper {...props}>
     <Section>
       <Grid narrow>
         <StyledIconLink to="/projects" icon="back_arrow">
           <FormattedMessage id="project.back_link_title" />
         </StyledIconLink>
-        <Heading level={1}>
-          {name}
-        </Heading>
+        <Heading level={1}>{name}</Heading>
         <StyledProjectStatus {...{ status, leadSales }} />
-        <DateCreation>
+        <StyledHeadingItem>
           <FormattedMessage id="project.created_at" /> {transformDate(createdAt)}
-        </DateCreation>
+        </StyledHeadingItem>
+        {leadReference && (
+          <StyledHeadingItem>
+            {labelWithColon(translate('project.project_reference'))} {leadReference}
+          </StyledHeadingItem>
+        )}
       </Grid>
     </Section>
 
-    {status === 'found' &&
+    {status === 'found' && (
       <StyledSection>
         <Grid narrow>
           <Paragraph
@@ -236,7 +235,8 @@ const ProjectDetails = ({
         <StyledGrid>
           <FirmList list={leadSales} />
         </StyledGrid>
-      </StyledSection>}
+      </StyledSection>
+    )}
 
     <Section title={translate('project.resume_title')}>
       <Grid narrow>
@@ -248,25 +248,22 @@ const ProjectDetails = ({
             </ProjectImage>
 
             <StyledList>
-              {Object.entries(questionsAnswers).map(key =>
+              {Object.entries(questionsAnswers).map(key => (
                 <li key={key[0]}>
                   {key[0]}
                   <br />
-                  <strong>
-                    {key[1]}
-                  </strong>
-                </li>,
-              )}
+                  <strong>{key[1]}</strong>
+                </li>
+              ))}
             </StyledList>
-            {comment &&
+            {comment && (
               <div>
                 <StyledHeading level={4}>
                   <FormattedMessage id="project.comment_title" />
                 </StyledHeading>
-                <NotificationBox dark>
-                  {comment}
-                </NotificationBox>
-              </div>}
+                <NotificationBox dark>{comment}</NotificationBox>
+              </div>
+            )}
           </LeftCol>
           <RightCol xs={12} m={4}>
             <StyledHeading level={4}>
@@ -292,6 +289,7 @@ const ProjectDetails = ({
       </Grid>
     </Section>
   </Wrapper>
+)
 
 ProjectDetails.propTypes = {
   translate: PropTypes.func.isRequired,

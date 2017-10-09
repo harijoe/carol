@@ -19,7 +19,7 @@ const Article = styled(Card)`
     width: calc(100vw - ${theme('spaces.xl')} - ${theme('spaces.m')});
     margin-left: ${theme('spaces.s')};
     margin-right: ${theme('spaces.s')};
-  `}
+  `};
 `
 
 const HeaderCard = styled.header`
@@ -44,15 +44,18 @@ const StyledHeading = styled(Heading)`
   font-size: ${theme('fonts.size.xl')};
 `
 
-const DateCreation = styled.span`
+const StyledHeadingItem = styled.span`
   position: relative;
-  padding-bottom: ${theme('spaces.m')};
   font-size: ${theme('fonts.size.s')};
   color: ${theme('colors.grayscale.medium')};
 
   ${breakpoint('m')`
     font-size: ${theme('fonts.size.s')};
   `};
+`
+
+const StyledDivider = styled(Divider)`
+  margin-top: ${theme('spaces.m')};
 `
 
 const ImageWrapper = styled.figure`
@@ -99,7 +102,7 @@ const StyledParagraph = styled(Paragraph)`
 
   ${breakpoint('m')`
     margin-bottom: ${theme('spaces.xl')};
-  `}
+  `};
 `
 
 const ButtonLink = styled(Link)`
@@ -107,7 +110,7 @@ const ButtonLink = styled(Link)`
 
   ${breakpoint('m')`
     margin-bottom: 0;
-  `}
+  `};
 `
 
 const FirmImage = styled(ProfileImage)`
@@ -121,7 +124,7 @@ const FirmImage = styled(ProfileImage)`
 
     ${breakpointMax('m')`
       margin-left: ${theme('spaces.m')};
-    `}
+    `};
   }
   &:nth-child(2) {
     margin-left: ${theme('spaces.l')};
@@ -129,7 +132,7 @@ const FirmImage = styled(ProfileImage)`
 
     ${breakpointMax('m')`
       margin-left: ${theme('spaces.m')};
-    `}
+    `};
   }
   &:nth-child(3) {
     margin-left: ${theme('spaces.l')};
@@ -137,7 +140,7 @@ const FirmImage = styled(ProfileImage)`
 
     ${breakpointMax('m')`
       margin-left: ${theme('spaces.m')};
-    `}
+    `};
   }
   &:nth-child(4) {
     margin-left: ${theme('spaces.l')};
@@ -145,7 +148,7 @@ const FirmImage = styled(ProfileImage)`
 
     ${breakpointMax('m')`
       margin-left: ${theme('spaces.m')};
-    `}
+    `};
   }
   &:nth-child(5) {
     margin-left: ${theme('spaces.l')};
@@ -153,7 +156,7 @@ const FirmImage = styled(ProfileImage)`
 
     ${breakpointMax('m')`
       margin-left: ${theme('spaces.m')};
-    `}
+    `};
   }
 
   &:hover {
@@ -246,7 +249,7 @@ const urlForProject = (status, id) => {
   return id
 }
 
-const Project = ({ name, createdAt, status, partner, leadSales, imageUrl, translate, ...items }) =>
+const Project = ({ name, createdAt, status, partner, leadSales, imageUrl, translate, leadReference, labelWithColon, ...items }) => (
   <StyledRouterLink to={urlForProject(status, items['@id'])}>
     <Article className="project-item">
       <HeaderCard>
@@ -254,43 +257,52 @@ const Project = ({ name, createdAt, status, partner, leadSales, imageUrl, transl
           <BackgroundImage src={imageUrl || cloudinary('/placeholder-project_image.jpg')} />
         </ImageWrapper>
         <ProjectStatus {...{ status, leadSales }} />
-        {partner &&
+        {partner && (
           <PartnerImageWrapper>
             <PartnerImage src={partner.headerLink} />
-          </PartnerImageWrapper>}
+          </PartnerImageWrapper>
+        )}
       </HeaderCard>
       <FooterCard>
-        <StyledHeading level={3}>
-          {name}
-        </StyledHeading>
-        <DateCreation>
+        <StyledHeading level={3}>{name}</StyledHeading>
+        <StyledHeadingItem>
           <FormattedMessage id="project.created_at" /> <DateTime value={createdAt} />
-        </DateCreation>
-        <Divider />
+        </StyledHeadingItem>
+        {leadReference && (
+          <StyledHeadingItem>
+            {labelWithColon(translate('project.project_reference'))} {leadReference}
+          </StyledHeadingItem>
+        )}
+        <StyledDivider />
         <StyledParagraph>
           {status === 'found'
             ? translate(`project.describe.${status}`, { firmsNumber: leadSales.length })
             : translate(`project.describe.${status}`)}
         </StyledParagraph>
-        {status === 'found' &&
+        {status === 'found' && (
           <FirmWrapper>
             {leadSales.map(({ firm }) => <FirmImage key={firm.name} image={firm.logoUrl} alt={firm.name} size="s" />)}
-          </FirmWrapper>}
+          </FirmWrapper>
+        )}
         {['pending_search', 'validated', 'found'].includes(status) && <ButtonArrow />}
-        {status === 'completion_in_progress' &&
+        {status === 'completion_in_progress' && (
           <ButtonLink button>
             <FormattedMessage id="project.continue" />
-          </ButtonLink>}
-        {status === 'to_validate' &&
+          </ButtonLink>
+        )}
+        {status === 'to_validate' && (
           <ButtonLink button>
             <FormattedMessage id="project.button.to_validate" />
-          </ButtonLink>}
+          </ButtonLink>
+        )}
       </FooterCard>
     </Article>
   </StyledRouterLink>
+)
 
 Project.propTypes = {
   translate: PropTypes.func.isRequired,
+  labelWithColon: PropTypes.func.isRequired,
   name: PropTypes.string,
   leadReference: PropTypes.string,
   createdAt: PropTypes.string,

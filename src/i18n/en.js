@@ -184,6 +184,7 @@ export default {
   'project.modify_my_project': 'Edit my project',
   'project.notify_project_validated': 'Your project enquiry is validated',
   'project.place': 'Location',
+  'project.project_reference': 'Project reference',
   'project.purpose': 'Your requirements',
   'project.question': 'Question & Answers',
   'project.quotation': 'Price range',
