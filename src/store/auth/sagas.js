@@ -7,6 +7,7 @@ import { saveToken, removeToken } from 'sagas/token'
 import { takeLatest } from 'utils/effects'
 import config from 'config'
 import isAuthenticated from 'utils/auth'
+import pushGtmEvent from 'utils/gtm'
 
 import {
   resetUser,
@@ -22,7 +23,7 @@ import {
   setAuthenticated,
   userDetails,
 } from 'store/actions'
-import { fromAuth, fromRouting } from 'store/selectors'
+import { fromAuth, fromRouting, fromUser } from 'store/selectors'
 import { fetchWithoutRefreshingToken } from 'sagas/fetch'
 import { requestChannel, responseChannel } from 'sagas/refreshToken'
 import { handleGetUserRequest } from '../user/sagas'
@@ -99,7 +100,10 @@ function* handleAuthLoginSuccess() {
     yield* handleGetUserRequest()
 
     const redirectPathname = yield select(fromRouting.getRedirectPathname)
+
     if (redirectPathname) {
+      const email = yield select(fromUser.getEmail)
+      yield pushGtmEvent({ event: 'LoginOK', email })
       yield put(push(redirectPathname))
       yield put(setRedirectPathname(null))
     }
