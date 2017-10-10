@@ -1,4 +1,5 @@
-import { fork, cancel, take } from 'redux-saga/effects'
+import { fork, cancel, take, put } from 'redux-saga/effects'
+import splitActionType from 'utils/actions'
 
 const takeFlow = ({ cancelLastTask = false } = {}) =>
   function* takeEvery(pattern, saga, ...args) {
@@ -13,7 +14,7 @@ const takeFlow = ({ cancelLastTask = false } = {}) =>
           try {
             yield* saga(action)
           } catch (e) {
-            console.error(`${e}${e.status ? ` - ${e.status}` : ''}`)
+            console.error(e.stack)
           }
         }
 
@@ -31,3 +32,17 @@ const takeFlow = ({ cancelLastTask = false } = {}) =>
 export const takeEvery = takeFlow()
 
 export const takeLatest = takeFlow({ cancelLastTask: true })
+
+export const putAndAwait = function*(request) {
+  const { type } = request
+  if (!type.endsWith('REQUEST')) {
+    throw new Error('Can only putAndAwait REQUEST actions!')
+  }
+  yield put(request)
+  const { prefix } = splitActionType(type)
+  const result = yield take([`${prefix}_SUCCESS`, `${prefix}_FAILURE`])
+  if (result.type.endsWith('FAILURE')) {
+    throw new Error(`${prefix} failed`)
+  }
+  return result
+}

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { reduxForm } from 'redux-form'
-import { projectUpdate, checkValidationFlow } from 'store/actions'
+import { projectValidate, checkValidationFlow } from 'store/actions'
 import { fromUser, fromProject, fromStatus } from 'store/selectors'
 import { createValidator, required } from 'services/validation'
 
@@ -37,7 +37,7 @@ const mapStateToProps = (state, { projectId }) => {
       contactComment: fromUser.getContactComment(state),
     },
     disabled: id == null || project == null,
-    loading: fromStatus.getLoading(state).PROJECT_UPDATE,
+    loading: fromStatus.getLoading(state).PROJECT_VALIDATE,
   }
 }
 
@@ -45,7 +45,7 @@ const onSubmit = (values, dispatch, { projectId }) => {
   const { gender, firstName, lastName, startTimeframe, purpose, contactPreference, contactComment } = values
 
   dispatch(
-    projectUpdate.request(
+    projectValidate.request(
       {
         startTimeframe,
         purpose,

@@ -1,8 +1,8 @@
 import { put, select } from 'redux-saga/effects'
 import { push } from 'react-router-redux'
 import { fromUser, fromProject } from 'store/selectors'
-import fetch from 'sagas/fetch'
 import notify from 'sagas/notify'
+import { putAndAwait } from 'utils/effects'
 import { projectUpdate } from 'store/actions'
 import pushGtmEvent from 'utils/gtm'
 import { requireUser, requireProjectDetails } from '../require'
@@ -43,7 +43,7 @@ function* handleProjectValidated(id) {
   const email = yield select(fromUser.getEmail)
 
   yield pushGtmEvent({ event: 'EndAutoValidation', email })
-  yield* fetch(projectUpdate, 'put', id, {}, { status: 'validated' })
+  yield* putAndAwait(projectUpdate.request({ status: 'validated' }, id))
   yield* notify('user.thank_you', 'project.notify_project_validated')
 
   const projectDetails = yield select(fromProject.getDetails, id)

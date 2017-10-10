@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`putAndAwait puts the REQUEST and throws if the call fails 1`] = `"THINGY failed"`;
+
+exports[`putAndAwait throws if action is not a request 1`] = `"Can only putAndAwait REQUEST actions!"`;
