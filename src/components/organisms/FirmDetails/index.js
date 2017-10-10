@@ -10,12 +10,13 @@ const Wrapper = styled.div`
   }
 `
 
-const FirmDetails = ({ details, loading }) =>
+const FirmDetails = ({ details, loading }) => (
   <Wrapper>
     <Loading loading={loading}>
-      <Firm items={details} full="true" />
+      <Firm {...details} />
     </Loading>
   </Wrapper>
+)
 
 FirmDetails.propTypes = {
   details: PropTypes.object.isRequired,

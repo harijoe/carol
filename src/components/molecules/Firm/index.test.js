@@ -16,9 +16,3 @@ it('renders the Firm component', () => {
 
   expect(wrapper).toMatchSnapshot()
 })
-
-it('renders the Firm component full', () => {
-  const wrapper = shallow(<Firm full {...props} />)
-
-  expect(wrapper).toMatchSnapshot()
-})

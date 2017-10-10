@@ -9,6 +9,7 @@ import * as emailVerified from './emailVerified'
 import projects from './projects'
 import * as user from './user'
 import partner from './partner'
+import firm from './firm'
 
 export default [
   {
@@ -78,6 +79,14 @@ export default [
   {
     path: '/projects/MOCK_PROJECT_ID',
     response: project.toValidate,
+  },
+  {
+    path: '/projects/MOCK_PROJECT_FOUND_ID',
+    response: project.withProsFound,
+  },
+  {
+    path: '/firms/MOCK_FIRM_ID',
+    response: firm,
   },
   {
     method: 'PUT',

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
+import { Link as RouterLink } from 'react-router'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
@@ -14,19 +15,23 @@ const StyledCard = styled(Card)`
     width: calc(100vw - 4.8rem);
     margin-left: calc(${theme('spaces.m')} / 2);
     margin-right: calc(${theme('spaces.m')} / 2);
-  `}
-
-  ${breakpoint('m')`
+  `} ${breakpoint('m')`
     width: 32.5rem;
     margin-left: calc(${theme('spaces.l')} / 2);
     margin-right: calc(${theme('spaces.l')} / 2)
-  `}
-
-  position: relative;
+  `} position: relative;
   display: flex;
   flex-direction: column;
   width: calc(100vw - 4.8rem);
   height: 100%;
+`
+
+const ClickableBackground = styled(Link)`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 `
 
 const HeaderCard = styled.header`
@@ -79,12 +84,18 @@ const BackgroundImage = styled(Image)`
   width: 100%;
 `
 
+const noPointerEvents = css`
+  pointer-events: none;
+  > * {
+    pointer-events: auto;
+  }
+`
+
 const FooterCard = styled.footer`
   position: relative;
   padding: ${theme('spaces.m')};
   padding-top: calc(${theme('spaces.m')} + 1.4rem);
-
-  ${breakpoint('m')`
+  ${noPointerEvents} ${breakpoint('m')`
     padding: ${theme('spaces.l')};
     padding-top: calc(${theme('spaces.l')} + 2rem);
   `};
@@ -109,10 +120,10 @@ const StyledList = styled(List)`
   height: 100%;
   width: 100%;
   list-style-type: none;
-
-  li {
+  ${noPointerEvents} li {
     position: relative;
     padding: 0 0 ${theme('spaces.m')} ${theme('spaces.l')};
+    ${noPointerEvents};
   }
 
   a {
@@ -222,11 +233,17 @@ const StyledModal = styled.div`
   overflow: scroll;
 `
 
-const StyledContentModal = styled.div`padding: ${theme('spaces.xxl')} ${theme('spaces.m')} 0 ${theme('spaces.m')};`
+const StyledContentModal = styled.div`
+  padding: ${theme('spaces.xxl')} ${theme('spaces.m')} 0 ${theme('spaces.m')};
+`
 
 const StyledReactTooltip = styled(ReactTooltip)`
   max-width: 30rem;
   box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, 0.15);
+`
+
+const StyledLink = styled(RouterLink)`
+  text-decoration: none;
 `
 
 class FirmListItem extends Component {
@@ -239,6 +256,7 @@ class FirmListItem extends Component {
     proPostCode: PropTypes.string,
     proPhone: PropTypes.string,
     proEmail: PropTypes.string,
+    proPageEnabled: PropTypes.bool.isRequired,
   }
 
   constructor() {
@@ -256,25 +274,30 @@ class FirmListItem extends Component {
   }
 
   render() {
-    const { firm: { name, logoUrl, firmCertificates }, proPostCode, proPhone, proEmail } = this.props
+    const { firm: { name, logoUrl, firmCertificates, '@id': firmId }, proPostCode, proPhone, proEmail, proPageEnabled } = this.props
 
     const { showModal, contentModal } = this.state
 
+    const LinkToPro = ({ children }) => (proPageEnabled ? <StyledLink to={firmId}>{children}</StyledLink> : children)
+
     return (
       <StyledCard className="firm-item">
-        <HeaderCard>
-          <ImageWrapper>
-            <BackgroundImage src={cloudinary('/placeholder-firm_image.jpg')} />
-          </ImageWrapper>
-          <FirmImage alt={'alt'} image={logoUrl} size="l" />
-        </HeaderCard>
+        {proPageEnabled && <ClickableBackground to={firmId} />}
+        <LinkToPro>
+          <HeaderCard>
+            <ImageWrapper>
+              <BackgroundImage src={cloudinary('/placeholder-firm_image.jpg')} />
+            </ImageWrapper>
+            <FirmImage alt={'alt'} image={logoUrl} size="l" />
+          </HeaderCard>
+        </LinkToPro>
         <FooterCard>
-          <StyledHeading level={3}>
-            {name}
-          </StyledHeading>
+          <LinkToPro>
+            <StyledHeading level={3}>{name}</StyledHeading>
+          </LinkToPro>
           <StyledList>
             <li>
-              <StyledIcon icon="location-pin" /> {proPostCode}
+              <StyledIcon icon="location-pin" /> <span>{proPostCode}</span>
             </li>
             <li>
               <StyledIcon icon="phone" /> <Link to={`tel:${proPhone}`}>{proPhone}</Link>
@@ -283,9 +306,9 @@ class FirmListItem extends Component {
               <StyledIcon icon="mail" /> <Link to={`mailto:${proEmail}`}>{proEmail}</Link>
             </li>
           </StyledList>
-          {firmCertificates.length > 0 &&
+          {firmCertificates.length > 0 && (
             <StyledCertificateList>
-              {firmCertificates.map(item =>
+              {firmCertificates.map(item => (
                 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
                 <li
                   key={item['@id']}
@@ -294,21 +317,21 @@ class FirmListItem extends Component {
                 >
                   {item.certificate.name}
                   <IconCertificate icon="question-mark" />
-                </li>,
-              )}
+                </li>
+              ))}
               {!isTouchDevice() && <StyledReactTooltip type={'light'} effect={'solid'} />}
-            </StyledCertificateList>}
+            </StyledCertificateList>
+          )}
         </FooterCard>
         {isTouchDevice() &&
-          showModal &&
-          <StyledOverlayModal onClick={this.hideModal}>
-            <StyledModal>
-              <CloseAllButton closeAll={this.hideModal} />
-              <StyledContentModal>
-                {contentModal}
-              </StyledContentModal>
-            </StyledModal>
-          </StyledOverlayModal>}
+          showModal && (
+            <StyledOverlayModal onClick={this.hideModal}>
+              <StyledModal>
+                <CloseAllButton closeAll={this.hideModal} />
+                <StyledContentModal>{contentModal}</StyledContentModal>
+              </StyledModal>
+            </StyledOverlayModal>
+          )}
       </StyledCard>
     )
   }

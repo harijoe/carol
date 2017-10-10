@@ -9,4 +9,6 @@ export default {
   'email validation': '/verify-email',
   'my projects': '/projects',
   'chatbot via partner link': '/project-elaboration?slug=carrelage-et-parquet&utm_source=LM&acq_activity=sol&sqn=77051',
+  'validated project': '/projects/MOCK_PROJECT_ID',
+  'found project': '/projects/MOCK_PROJECT_FOUND_ID',
 }

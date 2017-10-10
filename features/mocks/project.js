@@ -188,7 +188,7 @@ export const withPartner = {
 }
 
 export const withProsFound = {
-  '@id': '/projects/7259eacc-9791-4966-9275-52e7c3b0e371',
+  '@id': '/projects/MOCK_PROJECT_FOUND_ID',
   '@type': 'Project',
   name: 'Installation électrique de l\u0027habitat',
   leadReference: '3385720',
@@ -229,7 +229,7 @@ export const withProsFound = {
   user: '/users/ce839126-bb52-4bc4-8f1d-a38d947fff3b',
   leadSales: [
     {
-      '@id': '/lead_sales/project=7259eacc-9791-4966-9275-52e7c3b0e371;firm=e6a4f8de-d7b2-498e-b050-d0da607ba7fc',
+      '@id': '/lead_sales/project=MOCK_PROJECT_FOUND_ID;firm=MOCK_FIRM_ID',
       '@type': 'LeadSale',
       proPostCode: null,
       proPostCity: null,
@@ -237,7 +237,7 @@ export const withProsFound = {
       proPhone: null,
       proEmail: null,
       firm: {
-        '@id': '/firms/e6a4f8de-d7b2-498e-b050-d0da607ba7fc',
+        '@id': '/firms/MOCK_FIRM_ID',
         '@type': 'Firm',
         legacyId: 7213,
         countryCode: 'FR',
@@ -260,7 +260,7 @@ export const withProsFound = {
       },
     },
     {
-      '@id': '/lead_sales/project=7259eacc-9791-4966-9275-52e7c3b0e371;firm=9992744b-189f-4987-9990-e9fdd658da0f',
+      '@id': '/lead_sales/project=MOCK_PROJECT_FOUND_ID;firm=9992744b-189f-4987-9990-e9fdd658da0f',
       '@type': 'LeadSale',
       proPostCode: null,
       proPostCity: null,
@@ -305,7 +305,7 @@ export const withProsFound = {
       },
     },
     {
-      '@id': '/lead_sales/project=7259eacc-9791-4966-9275-52e7c3b0e371;firm=ce26db28-32a7-4fe6-8f4f-6fb4daa51bff',
+      '@id': '/lead_sales/project=MOCK_PROJECT_FOUND_ID;firm=ce26db28-32a7-4fe6-8f4f-6fb4daa51bff',
       '@type': 'LeadSale',
       proPostCode: null,
       proPostCity: null,
@@ -336,7 +336,7 @@ export const withProsFound = {
       },
     },
     {
-      '@id': '/lead_sales/project=7259eacc-9791-4966-9275-52e7c3b0e371;firm=e9b238eb-b738-44a7-9d84-0873833689d4',
+      '@id': '/lead_sales/project=MOCK_PROJECT_FOUND_ID;firm=e9b238eb-b738-44a7-9d84-0873833689d4',
       '@type': 'LeadSale',
       proPostCode: null,
       proPostCity: null,
@@ -368,7 +368,7 @@ export const withProsFound = {
       },
     },
     {
-      '@id': '/lead_sales/project=7259eacc-9791-4966-9275-52e7c3b0e371;firm=09ce452b-ad26-4a42-a483-d9d49a9b64ef',
+      '@id': '/lead_sales/project=MOCK_PROJECT_FOUND_ID;firm=09ce452b-ad26-4a42-a483-d9d49a9b64ef',
       '@type': 'LeadSale',
       proPostCode: null,
       proPostCity: null,

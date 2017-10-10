@@ -17,8 +17,8 @@
     "build:bench:gzipped": "cross-env NODE_ENV=production yarn build && tar -czf dist/gzipped.tar.gz dist/main.*.js && ls -l dist/gzipped.tar.gz",
     "changelog": "babel-node scripts/changelog.js",
     "postinstall": "yarn webpack-assets:create && yarn run husky:npm-to-yarn",
-    "prettier": "find . -name '*.js' | grep -v node_modules | grep -vE 'i18n/(en|es|fr).js' | xargs yarn prettier:single --",
-    "prettier:only-modified": "git diff --name-only master... | grep -E '.*\\.js$' | grep -vE 'i18n/(en|es|fr).js' | xargs yarn prettier:single --",
+    "prettier": "find . -name '*.js' | grep -v node_modules | grep -vE 'i18n/(en|es|fr).js' | xargs yarn prettier:single",
+    "prettier:only-modified": "git diff --name-only master... | grep -E '.*\\.js$' | grep -vE 'i18n/(en|es|fr).js' | xargs find 2>/dev/null | xargs yarn prettier:single || true",
     "prettier:single": "prettier --no-semi  --trailing-comma=all --single-quote --print-width 140 --list-different --write",
     "webpack-assets:create": "node scripts/ensure-webpack-assets.js",
     "webpack-assets:refresh": "yarn run clean && yarn webpack-assets:create",
@@ -29,7 +29,7 @@
     "cucumber": "cross-env NODE_ENV=mocks nightwatch",
     "i18n": "babel-node ./scripts/i18n.js",
     "husky:npm-to-yarn": "babel-node ./scripts/npm-to-yarn.js",
-    "precommit": "yarn run prettier:only-modified || true && git diff --name-only master... | grep -E '.*\\.js$' | xargs git add"
+    "precommit": "yarn prettier:only-modified && git diff --name-only master... | grep -E '.*\\.js$' | xargs find 2>/dev/null | xargs git add"
   },
   "repository": {
     "type": "git",

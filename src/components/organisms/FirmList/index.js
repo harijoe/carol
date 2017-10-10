@@ -3,19 +3,17 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 
-import { Row, FirmListItem } from 'components'
-import { Carousel } from 'containers'
+import { Row } from 'components'
+import { Carousel, FirmListItem } from 'containers'
 
 const StyledRow = styled(Row)`
   ${breakpoint('m')`
     margin-left: 0;
-  `}
-
-  ${breakpoint('xl')`
+  `} ${breakpoint('xl')`
     left: 0;
     margin-left: -${theme('spaces.xxl')};
     width: 120rem;
-  `}
+  `};
 `
 
 const StyledCarousel = styled(Carousel)`
@@ -30,19 +28,17 @@ const StyledCarousel = styled(Carousel)`
     .slick-track {
       height: 44rem;
     }
-  `}
-
-  ${breakpoint('xl')`
+  `} ${breakpoint('xl')`
     margin: 0;
     max-width: 120rem;
 
     .slick-list {
       padding-left: calc( 6.5rem + calc( ${theme('spaces.l')} - 1.3rem ) );
     }
-  `}
+  `};
 `
 
-const FirmList = ({ list }) =>
+const FirmList = ({ list }) => (
   <StyledRow className="qs-Carousel-Firms">
     <StyledCarousel
       variableWidth
@@ -57,6 +53,7 @@ const FirmList = ({ list }) =>
       {list.map(items => <FirmListItem key={items['@id']} {...items} />)}
     </StyledCarousel>
   </StyledRow>
+)
 
 FirmList.propTypes = {
   list: PropTypes.array.isRequired,
