@@ -10,6 +10,9 @@ import {
   PROJECT_ELABORATION_SET_IS_NEW_CONVERSATION,
   PROJECT_ELABORATION_PRE_VALIDATE,
   PROJECT_ELABORATION_PARTNER,
+  PROJECT_ELABORATION_SET_KEY1,
+  PROJECT_ELABORATION_SET_KEY2,
+  PROJECT_ELABORATION_SET_ENTER_KEY,
 } from './actions'
 
 const addQuestions = (activeConversation, questions) => {
@@ -57,7 +60,9 @@ const removeHeroAnswer = hero => {
 const setHero = (hero, questions) => {
   let updatedHero = hero.slice()
 
-  questions.forEach((question, i) => { updatedHero[i] = { message: question.message } })
+  questions.forEach((question, i) => {
+    updatedHero[i] = { message: question.message }
+  })
 
   updatedHero = removeHeroAnswer(updatedHero)
 
@@ -68,6 +73,21 @@ export default (state = initialState, action) => {
   const payload = action.payload
 
   switch (action.type) {
+    case PROJECT_ELABORATION_SET_KEY1:
+      return {
+        ...state,
+        key1: payload,
+      }
+    case PROJECT_ELABORATION_SET_KEY2:
+      return {
+        ...state,
+        key2: payload,
+      }
+    case PROJECT_ELABORATION_SET_ENTER_KEY:
+      return {
+        ...state,
+        enterKey: payload,
+      }
     case PROJECT_ELABORATION_CONVERSATION_SET_RESPONSE:
       return {
         ...state,

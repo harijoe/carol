@@ -34,6 +34,9 @@ export const initialState = {
   proFormId: null,
   proFormLabel: null,
   partner: {},
+  key1: null,
+  key2: null,
+  enterKey: null,
 }
 
 const getAnswersText = (state = initialState) => state.activeConversation.filter(data => data.answer).map(data => data.answer.text)
@@ -59,3 +62,6 @@ export const getProFormLabel = (state = initialState) => state.proFormLabel
 export const isNewConversation = (state = initialState) => state.isNewConversation
 
 export const getKey2Label = (state = initialState) => getAnswersText(state)[1]
+
+export const getKey1 = (state = initialState) => (!state.enterKey ? getAnswersText(state)[0] : state.key1)
+export const getKey2 = (state = initialState) => (!state.enterKey ? getAnswersText(state)[1] : state.key2)

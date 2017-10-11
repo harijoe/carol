@@ -9,8 +9,8 @@ const ValidateProjectButtonContainer = props => <ValidateProjectButton {...props
 
 const mapStateToProps = state => ({
   authenticated: fromAuth.isAuthenticated(state),
-  heroAnswer: fromProjectElaboration.getHeroAnswer(state),
-  key2label: fromProjectElaboration.getKey2Label(state),
+  key1: fromProjectElaboration.getKey1(state),
+  key2: fromProjectElaboration.getKey2(state),
 })
 
 const mapDispatchToProps = dispatch => ({

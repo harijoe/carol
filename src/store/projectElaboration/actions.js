@@ -13,6 +13,9 @@ export const PROJECT_ELABORATION_CONVERSATIONS_SELECT = createRequestTypes('PROJ
 export const PROJECT_ELABORATION_CLICK_FIND_A_PRO = 'PROJECT_ELABORATION_CLICK_FIND_A_PRO'
 export const PROJECT_ELABORATION_PARTNER = createRequestTypes('PROJECT_ELABORATION_PARTNER')
 export const PROJECT_ELABORATION_SET_IS_NEW_CONVERSATION = 'PROJECT_ELABORATION_SET_IS_NEW_CONVERSATION'
+export const PROJECT_ELABORATION_SET_KEY1 = 'PROJECT_ELABORATION_SET_KEY1'
+export const PROJECT_ELABORATION_SET_KEY2 = 'PROJECT_ELABORATION_SET_KEY2'
+export const PROJECT_ELABORATION_SET_ENTER_KEY = 'PROJECT_ELABORATION_SET_ENTER_KEY'
 
 export const projectElaborationHeroDetails = {
   request: () => actionTypes(PROJECT_ELABORATION_HERO_DETAILS.REQUEST),
@@ -76,7 +79,7 @@ export const projectElaborationResetConversation = {
   type: PROJECT_ELABORATION_RESET_CONVERSATION,
 }
 
-export const projectElaborationSetIsNewConversation = (payload) => ({
+export const projectElaborationSetIsNewConversation = payload => ({
   type: PROJECT_ELABORATION_SET_IS_NEW_CONVERSATION,
   payload,
 })
@@ -86,3 +89,18 @@ export const projectElaborationPreValidate = {
   success: payload => actionTypes(PROJECT_ELABORATION_PRE_VALIDATE.SUCCESS, { payload }),
   failure: error => actionTypes(PROJECT_ELABORATION_PRE_VALIDATE.FAILURE, { error }),
 }
+
+export const setProjectElaborationKey1 = value => ({
+  type: PROJECT_ELABORATION_SET_KEY1,
+  payload: value,
+})
+
+export const setProjectElaborationKey2 = value => ({
+  type: PROJECT_ELABORATION_SET_KEY2,
+  payload: value,
+})
+
+export const setProjectElaborationEnterKey = value => ({
+  type: PROJECT_ELABORATION_SET_ENTER_KEY,
+  payload: value,
+})

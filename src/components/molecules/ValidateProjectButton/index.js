@@ -17,8 +17,8 @@ class ValidateProjectButton extends Component {
     openPopin: PropTypes.func.isRequired,
     authenticated: PropTypes.bool.isRequired,
     setRedirectPathname: PropTypes.func.isRequired,
-    heroAnswer: PropTypes.string,
-    key2label: PropTypes.string,
+    key1: PropTypes.string,
+    key2: PropTypes.string,
   }
 
   state = {
@@ -26,14 +26,14 @@ class ValidateProjectButton extends Component {
   }
 
   render() {
-    const { url, authenticated, title, openPopin, setRedirectPathname, heroAnswer, key2label } = this.props
+    const { url, authenticated, title, openPopin, setRedirectPathname, key1, key2 } = this.props
 
     return (
       <StyledLink
         onClick={() => {
           setRedirectPathname(url)
           openPopin()
-          if (!this.state.clicked) pushGtmEvent({ event: 'FormCreated', chatbotKey1: heroAnswer, chatbotKey2: key2label })
+          if (!this.state.clicked) pushGtmEvent({ event: 'FormCreated', chatbotKey1: key1, chatbotKey2: key2 })
           this.setState({ clicked: true })
         }}
         to={authenticated && url}

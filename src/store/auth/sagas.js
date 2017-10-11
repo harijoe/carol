@@ -103,7 +103,7 @@ function* handleAuthLoginSuccess() {
 
     if (redirectPathname) {
       const email = yield select(fromUser.getEmail)
-      yield pushGtmEvent({ event: 'LoginOK', email })
+      yield pushGtmEvent({ event: 'LoginOk', email })
       yield put(push(redirectPathname))
       yield put(setRedirectPathname(null))
     }

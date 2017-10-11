@@ -28,6 +28,9 @@ import {
   projectElaborationPreValidate,
   setProjectElaborationSessionId,
   projectElaborationSetIsNewConversation,
+  setProjectElaborationKey1,
+  setProjectElaborationKey2,
+  setProjectElaborationEnterKey,
 } from './actions'
 
 function* replyConversation({ text, payload = null }) {
@@ -92,11 +95,16 @@ function* getConversationCurrent() {
   const query = yield select(fromRouting.getQuery)
 
   if (query.slug != null) {
+
+    yield put(setProjectElaborationEnterKey(2))
     yield put(projectElaborationSetIsNewConversation(true))
     yield* replyConversation({ text: `new_project.first_question:${query.slug}` })
     const label = query.slug.split('-').join(' ')
     const formatedLabel = `${label.charAt(0).toUpperCase()}${label.substring(1).toLowerCase()}`
-    yield pushGtmEvent({ event: 'OpenForm', chatbotKey1: '', chatbotKey2: formatedLabel })
+    yield put(setProjectElaborationKey1(null))
+    yield put(setProjectElaborationKey2(formatedLabel))
+    const key2 = yield select(fromProjectElaboration.getKey2)
+    yield pushGtmEvent({ event: 'OpenForm', chatbotKey1: '', chatbotKey2: key2 || '' })
     return
   }
 
@@ -104,7 +112,15 @@ function* getConversationCurrent() {
 
   const heroAnswer = yield select(fromProjectElaboration.getHeroAnswer)
 
-  yield pushGtmEvent({ event: 'OpenForm', chatbotKey1: heroAnswer, chatbotKey2: '' })
+  if (heroAnswer) yield put(setProjectElaborationEnterKey(1))
+  else yield put(setProjectElaborationEnterKey(null))
+
+  yield put(setProjectElaborationKey1(heroAnswer))
+  yield put(setProjectElaborationKey2(null))
+
+  const key1 = yield select(fromProjectElaboration.getKey1)
+
+  yield pushGtmEvent({ event: 'OpenForm', chatbotKey1: key1 || '', chatbotKey2: '' })
 
   const hasActiveConversation = yield select(fromProjectElaboration.hasActiveConversation)
 
@@ -152,8 +168,8 @@ function* preValidate({ chatbotStorageId }) {
   const authenticated = yield select(fromAuth.isAuthenticated)
   const state = yield select(fromRouting.getState)
   const redirectPathname = yield select(fromRouting.getPathname)
-  const heroAnswer = yield select(fromProjectElaboration.getHeroAnswer)
-  const key2label = yield select(fromProjectElaboration.getKey2Label)
+  const key1 = yield select(fromProjectElaboration.getKey1)
+  const key2 = yield select(fromProjectElaboration.getKey2)
 
   if (!authenticated) {
     yield put(push({ pathname: '/signup', state: { ...state, redirectPathname } }))
@@ -180,8 +196,8 @@ function* preValidate({ chatbotStorageId }) {
   yield pushGtmEvent({
     event: 'ProjectCreated',
     postalCode,
-    chatbotKey1: heroAnswer,
-    chatbotKey2: key2label,
+    chatbotKey1: key1,
+    chatbotKey2: key2,
     proFormLabel,
   })
   yield put(push(`${projectId}/account`))
