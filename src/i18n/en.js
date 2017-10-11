@@ -144,7 +144,7 @@ export default {
   'pages.default.meta.og.title': 'Compare prices with 4 free quotes',
   'pages.default.title': 'Find the right pro with Quotatis: Compare quotes and bring your ideas to life',
   'pages.default.titleTemplate': 'Quotatis | %s',
-  'pages.home.ld+json': '\\{ "@context": "http://schema.org", "@type": "Organization", "url": "https://www.quotatis.co.uk", "name": "Quotatis", "logo": "https://res.cloudinary.com/quotatis/image/upload/v1496149619/FrontApp/icons/quotatis-firm.svg", "sameAs": [ "https://www.facebook.com/Quotatis", "https://twitter.com/Quotatis", "https://www.youtube.com/user/quotatisuk", "https://plus.google.com/106376832204465138273", "https://www.pinterest.com/quotatis/" ] \\}',
+  'pages.home.ld+json': '{ "@context": "http://schema.org", "@type": "Organization", "url": "https://www.quotatis.co.uk", "name": "Quotatis", "logo": "https://res.cloudinary.com/quotatis/image/upload/v1496149619/FrontApp/icons/quotatis-firm.svg", "sameAs": [ "https://www.facebook.com/Quotatis", "https://twitter.com/Quotatis", "https://www.youtube.com/user/quotatisuk", "https://plus.google.com/106376832204465138273", "https://www.pinterest.com/quotatis/" ] }',
   'pages.home.meta.description': 'Free quotes from local tradespeople and service providers. Quotatis is No.1 quotation provider in Europe since 1999. Free home improvement quotes',
   'password.eye.disable.tooltip': 'For security reasons, you cannot display this password.',
   'Phone number is invalid': 'Invalid phone number. Please try again.',

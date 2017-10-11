@@ -6,13 +6,11 @@ import injectTranslate from 'i18n/hoc/injectTranslate'
 import { MainLayout, HowItWorks, Testimonials, TipsAndTricks, Reinsurance, MainWrapper } from 'components'
 import { Hero, MotionMenu, SearchEngine } from 'containers'
 
-const HomePage = ({ locale, translate, ...props }) =>
+const HomePage = ({ locale, translate, rawTranslate, ...props }) => (
   <MainLayout {...props}>
     <Helmet>
       <meta name="description" content={translate('pages.home.meta.description')} />
-      <script type="application/ld+json">
-        {translate('pages.home.ld+json')}
-      </script>
+      <script type="application/ld+json">{rawTranslate('pages.home.ld+json')}</script>
     </Helmet>
     <SearchEngine />
     <Hero />
@@ -24,10 +22,12 @@ const HomePage = ({ locale, translate, ...props }) =>
     </MainWrapper>
     <MotionMenu />
   </MainLayout>
+)
 
 HomePage.propTypes = {
-  locale: PropTypes.string,
-  translate: PropTypes.func,
+  locale: PropTypes.string.isRequired,
+  translate: PropTypes.func.isRequired,
+  rawTranslate: PropTypes.func.isRequired,
 }
 
 export default injectTranslate(HomePage)

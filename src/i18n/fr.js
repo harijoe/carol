@@ -143,7 +143,7 @@ export default {
   'pages.default.meta.og.title': 'Devis Travaux - Comparer les prix avec 5 devis gratuits',
   'pages.default.title': 'Trouver le bon artisan avec Quotatis : comparez les devis et réalisez vos travaux',
   'pages.default.titleTemplate': 'Devis Travaux - %s',
-  'pages.home.ld+json': '\\{ "@context": "http://schema.org", "@type": "Organization", "url": "https://www.quotatis.fr", "name": "Quotatis", "logo": "https://res.cloudinary.com/quotatis/image/upload/v1496149619/FrontApp/icons/quotatis-firm.svg", "sameAs": [ "https://www.facebook.com/Quotatis.FR", "https://twitter.com/QuotatisFr", "https://www.youtube.com/user/quotatis", "http://fr.viadeo.com/fr/company/quotatis", "https://www.linkedin.com/company/quotatis", "https://www.instagram.com/quotatis/" ] \\}',
+  'pages.home.ld+json': '{ "@context": "http://schema.org", "@type": "Organization", "url": "https://www.quotatis.fr", "name": "Quotatis", "logo": "https://res.cloudinary.com/quotatis/image/upload/v1496149619/FrontApp/icons/quotatis-firm.svg", "sameAs": [ "https://www.facebook.com/Quotatis.FR", "https://twitter.com/QuotatisFr", "https://www.youtube.com/user/quotatis", "http://fr.viadeo.com/fr/company/quotatis", "https://www.linkedin.com/company/quotatis", "https://www.instagram.com/quotatis/" ] }',
   'pages.home.meta.description': 'Vous souhaitez effectuer des travaux pour votre maison ou appartement ? Quotatis vous met en relation avec des artisans de confiance dans votre région.',
   'password.eye.disable.tooltip': 'Pour des raisons de sécurité, vous ne pouvez pas afficher ce mot de passe.',
   'Phone number is invalid': 'Le numéro de téléphone n\'est pas valide',

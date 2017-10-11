@@ -145,7 +145,7 @@ export default {
   'pages.default.meta.og.title': 'Compara hasta 4 presupuestos gratis y sin compromiso',
   'pages.default.title': 'Encuentra tu profesional con Quotatis: Compara los presupuestos y empieza tu proyecto',
   'pages.default.titleTemplate': 'Presupuestos de reforma',
-  'pages.home.ld+json': '\\{ "@context": "http://schema.org", "@type": "Organization", "url": "https://www.quotatis.es", "name": "Quotatis", "logo": "https://res.cloudinary.com/quotatis/image/upload/v1496149619/FrontApp/icons/quotatis-firm.svg", "sameAs": [ "https://www.facebook.com/Quotatis.Es/", "https://twitter.com/QuotatisEspana", "https://www.linkedin.com/company-beta/10811205/", "https://www.instagram.com/quotatis_es/" ] \\}',
+  'pages.home.ld+json': '{ "@context": "http://schema.org", "@type": "Organization", "url": "https://www.quotatis.es", "name": "Quotatis", "logo": "https://res.cloudinary.com/quotatis/image/upload/v1496149619/FrontApp/icons/quotatis-firm.svg", "sameAs": [ "https://www.facebook.com/Quotatis.Es/", "https://twitter.com/QuotatisEspana", "https://www.linkedin.com/company/quotatis-espa%C3%B1a/", "https://www.instagram.com/quotatis_es/" ] }',
   'pages.home.meta.description': '¿Necesitas una reforma o una instalación en tu hogar? Quotatis te pone en contacto con profesionales de confianza en tu zona',
   'password.eye.disable.tooltip': 'Por razones de seguridad no puedes ver esta contraseña',
   'Phone number is invalid': 'Tu número de teléfono no es válido, por favor inténtalo de nuevo',
