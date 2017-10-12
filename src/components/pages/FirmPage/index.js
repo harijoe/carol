@@ -1,13 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { MainLayout } from 'components'
+import { MainLayout, MainWrapper } from 'components'
 import { FirmDetails } from 'containers'
 
-const FirmPage = props =>
+const FirmPage = props => (
   <MainLayout>
-    <FirmDetails id={props.params.firmId} />
+    <MainWrapper paddingTop="m">
+      <FirmDetails id={props.params.firmId} />
+    </MainWrapper>
   </MainLayout>
+)
 
 FirmPage.propTypes = {
   params: PropTypes.shape({

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92.88 85.84">
+  <defs>
+    <style>.ExistSince-darkercolor{fill:#383838;}.ExistSince-primarycolor{fill:#3333fe;}</style>
+  </defs>
+  <g>
+    <g>
+      <path class="ExistSince-darkercolor" d="M3.28,85.84H89.6a3.24,3.24,0,0,0,3.28-3.28V9.36A3.24,3.24,0,0,0,89.6,6.08H73.36V3.28a3.28,3.28,0,1,0-6.56,0v2.8H26.64V3.28a3.28,3.28,0,0,0-6.56,0v2.8H3.28A3.25,3.25,0,0,0,0,9.36V82.64a3.28,3.28,0,0,0,3.28,3.2Zm3.28-73.2H20.08V14.4a3.28,3.28,0,1,0,6.56,0V12.64H66.8V14.4a3.28,3.28,0,1,0,6.56,0V12.64h13v8.48H6.56Zm0,15H86.32V79.36H6.56Zm0,0"/>
+      <path class="ExistSince-primarycolor" d="M70.08,42.72H22.88a3.28,3.28,0,0,0,0,6.56h47.2a3.28,3.28,0,0,0,0-6.56Zm0,0"/>
+      <path class="ExistSince-primarycolor" d="M46.48,58.56H22.88a3.28,3.28,0,0,0,0,6.56h23.6a3.28,3.28,0,1,0,0-6.56Zm0,0"/>
+    </g>
+  </g>
+</svg>

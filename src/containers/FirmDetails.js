@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { fromFirm, fromStatus } from 'store/selectors'
+import { fromFirm, fromStatus, fromContext } from 'store/selectors'
 import { firmDetails, FIRM_DETAILS } from 'store/actions'
 import { FirmDetails } from 'components'
 
@@ -11,6 +11,7 @@ class FirmDetailsContainer extends Component {
     details: PropTypes.object.isRequired,
     loading: PropTypes.bool,
     request: PropTypes.func.isRequired,
+    locale: PropTypes.string,
   }
 
   componentWillMount() {
@@ -18,15 +19,16 @@ class FirmDetailsContainer extends Component {
   }
 
   render() {
-    const { details, loading } = this.props
+    const { details, loading, locale } = this.props
 
-    return <FirmDetails {...{ details, loading }} />
+    return <FirmDetails {...{ details, loading, locale }} />
   }
 }
 
 const mapStateToProps = (state, { id }) => ({
   details: fromFirm.getDetails(state, id),
   loading: fromStatus.isLoading(state, FIRM_DETAILS.prefix),
+  locale: fromContext.getLocale(state),
 })
 
 const mapDispatchToProps = (dispatch, { id }) => ({

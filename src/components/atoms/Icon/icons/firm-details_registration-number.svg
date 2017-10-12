@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400.7 512">
+  <defs>
+    <style>.RegistrationNumber-darkercolor{fill:#383838;}.RegistrationNumber-primarycolor{fill:#3333fe;}</style>
+  </defs>
+  <g>
+    <g>
+      <path class="RegistrationNumber-darkercolor" d="M0,495.3A16.7,16.7,0,0,0,16.7,512H384a16.7,16.7,0,0,0,16.7-16.7v-345a16.82,16.82,0,0,0-4.89-11.8L262.24,4.89A16.75,16.75,0,0,0,250.43,0H16.7A16.7,16.7,0,0,0,0,16.7ZM343.69,133.57H267.13V57l38.28,38.28ZM33.39,33.39H233.74V150.26a16.7,16.7,0,0,0,16.7,16.7H367.3V478.61H33.39Z"/>
+      <path class="RegistrationNumber-primarycolor" d="M317.22,244.87H83.48a16.7,16.7,0,0,0,0,33.39H317.22a16.7,16.7,0,0,0,0-33.39Z"/>
+      <path class="RegistrationNumber-primarycolor" d="M317.22,311.65H83.48a16.7,16.7,0,1,0,0,33.39H317.22a16.7,16.7,0,0,0,0-33.39Z"/>
+      <path class="RegistrationNumber-primarycolor" d="M217,378.43H83.48a16.7,16.7,0,0,0,0,33.39H217a16.7,16.7,0,0,0,0-33.39Z"/>
+    </g>
+  </g>
+</svg>
