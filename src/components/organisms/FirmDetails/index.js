@@ -267,7 +267,7 @@ const StyledOverlayModal = styled.div`
 `
 
 const StyledModal = styled.div`
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 20px;
   right: 20px;
@@ -362,6 +362,7 @@ class FirmDetails extends Component {
       clientSince,
       creationDate,
       firmPictures,
+      firmCertificates,
       globalRating,
       globalRatingCount,
       servedAreaCities,
@@ -375,7 +376,7 @@ class FirmDetails extends Component {
 
     const genericFirmDetailImage = locales[locale].genericFirmDetailImage
 
-    console.info(this.props)
+    const certificatesAvailable = firmCertificates && firmCertificates.length > 0
 
     return (
       <Loading loading={loading}>
@@ -402,18 +403,22 @@ class FirmDetails extends Component {
                       <strong> {globalRating}</strong> - {globalRatingCount} <FormattedMessage id="firm.details.rating_reviews" />{' '}
                       <Link>Voir les avis</Link>
                     </Notation>
-                    <StyledCertificateList>
-                      {labelWithColon(translate('firm.details.certifications'))}
-                      <li
-                        key={1}
-                        data-tip={!isTouchDevice() ? 'lorem ipsum lorem ipsum lorem ipsum' : null}
-                        onClick={() => this.showModal('lorem ipsum lorem ipsum lorem ipsum')}
-                      >
-                        {'batimat'}
-                        <IconCertificate icon="question-mark" />
-                      </li>
-                      {!isTouchDevice() && <StyledReactTooltip type={'light'} effect={'solid'} />}
-                    </StyledCertificateList>
+                    {firmCertificates &&
+                      firmCertificates.length > 0 && (
+                        <StyledCertificateList>
+                          {labelWithColon(translate('firm.details.certifications'))}
+                          {firmCertificates.map(item => (
+                            <li
+                              key={item['@id']}
+                              data-tip={!isTouchDevice() ? item.certificate.description : null}
+                              onClick={() => this.showModal(item.certificate.description)}
+                            >
+                              {item.certificate.name}
+                              <IconCertificate icon="question-mark" />
+                            </li>
+                          ))}
+                        </StyledCertificateList>
+                      )}
                   </InfosPro>
                   {logoUrl && (
                     <LogoPro>
@@ -457,26 +462,34 @@ class FirmDetails extends Component {
           <Section title={translate('firm.details.more_information')} light>
             <Grid>
               <Row>
-                {registrationNumber && <InformationBlock>
-                  <StyledInformationIcon icon="firm-details_registration-number" />
-                  <span>{labelWithColon(translate('firm.details.registration_number'))}</span>
-                  {registrationNumber}
-                </InformationBlock>}
-                {employeesNumber && <InformationBlock>
-                  <StyledInformationIcon icon="firm-details_employees-number" />
-                  <span>{labelWithColon(translate('firm.details.employees_number'))}</span>
-                  {employeesNumber}
-                </InformationBlock>}
-                {clientSince && <InformationBlock>
-                  <StyledInformationIcon icon="firm-details_client-since" />
-                  <span>{labelWithColon(translate('firm.details.client_since'))}</span>
-                  {transformDate(clientSince)}
-                </InformationBlock>}
-                {creationDate && <InformationBlock>
-                  <StyledInformationIcon icon="firm-details_exist-since" />
-                  <span>{labelWithColon(translate('firm.details.exist_since'))}</span>
-                  {transformDate(creationDate)}
-                </InformationBlock>}
+                {registrationNumber && (
+                  <InformationBlock>
+                    <StyledInformationIcon icon="firm-details_registration-number" />
+                    <span>{labelWithColon(translate('firm.details.registration_number'))}</span>
+                    {registrationNumber}
+                  </InformationBlock>
+                )}
+                {employeesNumber && (
+                  <InformationBlock>
+                    <StyledInformationIcon icon="firm-details_employees-number" />
+                    <span>{labelWithColon(translate('firm.details.employees_number'))}</span>
+                    {employeesNumber}
+                  </InformationBlock>
+                )}
+                {clientSince && (
+                  <InformationBlock>
+                    <StyledInformationIcon icon="firm-details_client-since" />
+                    <span>{labelWithColon(translate('firm.details.client_since'))}</span>
+                    {transformDate(clientSince)}
+                  </InformationBlock>
+                )}
+                {creationDate && (
+                  <InformationBlock>
+                    <StyledInformationIcon icon="firm-details_exist-since" />
+                    <span>{labelWithColon(translate('firm.details.exist_since'))}</span>
+                    {transformDate(creationDate)}
+                  </InformationBlock>
+                )}
               </Row>
             </Grid>
             <StyledGrid>
@@ -526,21 +539,25 @@ class FirmDetails extends Component {
               </BorderBox>
             </Grid>
           </StyledTeamSection>
-          {firmPictures && firmPictures.length > 0 && <Section title={translate('firm.details.last_projects')} light>
-            <StyledGrid>
-              <Row>
-                {firmPictures.map(item => (
-                    <ColGrid key={item['@id']} xs={12} m={4} order={item['@id']} x>
-                      <li key={item['@id']}>
-                        <img src={transformThumbnailUrl(item.url)} alt={'alt'} />
-                      </li>
-                    </ColGrid>
-                  ))}
-                {!isTouchDevice() && <StyledReactTooltip type={'light'} effect={'solid'} />}
-              </Row>
-            </StyledGrid>
-          </Section>}
+          {firmPictures &&
+            firmPictures.length > 0 && (
+              <Section title={translate('firm.details.last_projects')} light>
+                <StyledGrid>
+                  <Row>
+                    {firmPictures.map(item => (
+                      <ColGrid key={item['@id']} xs={12} m={4} order={item['@id']} x>
+                        <li key={item['@id']}>
+                          <img src={transformThumbnailUrl(item.url)} alt={'alt'} />
+                        </li>
+                      </ColGrid>
+                    ))}
+                  </Row>
+                </StyledGrid>
+              </Section>
+            )}
+          {!isTouchDevice() && certificatesAvailable && <StyledReactTooltip type={'light'} effect={'solid'} place={'bottom'} />}
           {isTouchDevice() &&
+            certificatesAvailable &&
             showModal && (
               <StyledOverlayModal onClick={this.hideModal}>
                 <StyledModal>
