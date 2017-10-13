@@ -78,27 +78,13 @@ const Wrapper = styled.div`
 `};
 `
 
-const StyledInput = styled(Input)`${({ hideBorder }) => css`
+const StyledInput = styled(Input)`
   padding: 0 ${theme('spaces.l')} 0 0;
   height: 3.2rem;
   width: 100%;
   font-size: ${theme('fonts.size.base')};
   color: ${theme('colors.grayscale.darker')};
-
-  ${ifThen(
-    hideBorder,
-    '',
-    css`
-    border-bottom: 0.1rem solid ${theme('colors.grayscale.light')};
-    transition: all 0.3s ease;
-
-    &:focus{
-      border-color: ${theme('colors.primary')};
-      outline: none;
-    }
-  `,
-  )};
-`}`
+`
 
 const StyledIconLink = styled(IconLink)`
   position: absolute;
@@ -152,7 +138,6 @@ const Field = ({
   hideLabel,
   lightFont,
   inline,
-  hideBorder,
   onIconClick,
   type,
   icon,
@@ -165,14 +150,14 @@ const Field = ({
   const renderInputFirst = type === 'checkbox' || type === 'radio'
 
   return (
-    <Wrapper {...{ hideBorder, type, smallSize, mediumSize }}>
+    <Wrapper {...{ type, smallSize, mediumSize }}>
       {renderInputFirst && <Input {...inputProps} />}
       {label &&
         <StyledLabel {...{ hideLabel, lightFont, inline }} htmlFor={inputProps.id}>
           {label}
         </StyledLabel>}
       <fieldset>
-        {renderInputFirst || <StyledInput {...inputProps} />}
+        {!renderInputFirst && <StyledInput {...inputProps} />}
         {icon && <StyledIconLink title={alt} onClick={onIconClick} {...{ icon }} />}
       </fieldset>
       {invalid &&
@@ -199,7 +184,6 @@ Field.propTypes = {
   inline: PropTypes.bool,
   smallSize: PropTypes.bool,
   mediumSize: PropTypes.bool,
-  hideBorder: PropTypes.bool,
   onIconClick: PropTypes.func,
   alt: PropTypes.string,
 }

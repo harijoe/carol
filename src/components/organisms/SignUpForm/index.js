@@ -165,7 +165,6 @@ class SignUpForm extends Component {
                   name="newsletterSubscription"
                   type="checkbox"
                   label={translate('user.newsletter_subscription')}
-                  hideBorder
                   lightFont
                   inline
                   component={RenderField}
@@ -228,7 +227,6 @@ class SignUpForm extends Component {
                 name="newsletterSubscription"
                 type="checkbox"
                 label={translate('user.newsletter_subscription')}
-                hideBorder
                 lightFont
                 inline
                 component={RenderField}

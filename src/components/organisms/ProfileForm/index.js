@@ -618,7 +618,6 @@ class ProfileForm extends Component {
                     component={RenderField}
                     label={translate('user.newsletter_subscription')}
                     placeholder={translate('user.newsletter_subscription')}
-                    hideBorder
                     lightFont
                     inline
                     normalize={v => !!v} // https://goo.gl/9vmQJm
