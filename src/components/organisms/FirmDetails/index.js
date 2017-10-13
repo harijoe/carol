@@ -457,26 +457,26 @@ class FirmDetails extends Component {
           <Section title={translate('firm.details.more_information')} light>
             <Grid>
               <Row>
-                <InformationBlock>
+                {registrationNumber && <InformationBlock>
                   <StyledInformationIcon icon="firm-details_registration-number" />
                   <span>{labelWithColon(translate('firm.details.registration_number'))}</span>
                   {registrationNumber}
-                </InformationBlock>
-                <InformationBlock>
+                </InformationBlock>}
+                {employeesNumber && <InformationBlock>
                   <StyledInformationIcon icon="firm-details_employees-number" />
                   <span>{labelWithColon(translate('firm.details.employees_number'))}</span>
                   {employeesNumber}
-                </InformationBlock>
-                <InformationBlock>
+                </InformationBlock>}
+                {clientSince && <InformationBlock>
                   <StyledInformationIcon icon="firm-details_client-since" />
                   <span>{labelWithColon(translate('firm.details.client_since'))}</span>
                   {transformDate(clientSince)}
-                </InformationBlock>
-                <InformationBlock>
+                </InformationBlock>}
+                {creationDate && <InformationBlock>
                   <StyledInformationIcon icon="firm-details_exist-since" />
                   <span>{labelWithColon(translate('firm.details.exist_since'))}</span>
                   {transformDate(creationDate)}
-                </InformationBlock>
+                </InformationBlock>}
               </Row>
             </Grid>
             <StyledGrid>
@@ -526,11 +526,10 @@ class FirmDetails extends Component {
               </BorderBox>
             </Grid>
           </StyledTeamSection>
-          <Section title={translate('firm.details.last_projects')} light>
+          {firmPictures && firmPictures.length > 0 && <Section title={translate('firm.details.last_projects')} light>
             <StyledGrid>
               <Row>
-                {firmPictures &&
-                  firmPictures.map(item => (
+                {firmPictures.map(item => (
                     <ColGrid key={item['@id']} xs={12} m={4} order={item['@id']} x>
                       <li key={item['@id']}>
                         <img src={transformThumbnailUrl(item.url)} alt={'alt'} />
@@ -540,7 +539,7 @@ class FirmDetails extends Component {
                 {!isTouchDevice() && <StyledReactTooltip type={'light'} effect={'solid'} />}
               </Row>
             </StyledGrid>
-          </Section>
+          </Section>}
           {isTouchDevice() &&
             showModal && (
               <StyledOverlayModal onClick={this.hideModal}>
