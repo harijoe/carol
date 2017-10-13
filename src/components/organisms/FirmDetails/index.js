@@ -8,6 +8,7 @@ import { theme, breakpoint, breakpointMax } from 'utils/style'
 import transformDate from 'utils/transformDate'
 import transformThumbnailUrl from 'utils/transformThumbnailUrl'
 import isTouchDevice from 'utils/isTouchDevice'
+import normalizeUrl from 'utils/normalizeUrl'
 import ReactTooltip from 'react-tooltip'
 import { locales } from 'config'
 
@@ -442,14 +443,10 @@ class FirmDetails extends Component {
                     <StyledContactList>
                       <li>
                         {websiteUrl && (
-                          <WebsiteLink href={websiteUrl} rel="nofollow">
+                          <WebsiteLink href={normalizeUrl(websiteUrl)} rel="nofollow" target="_blank">
                             <FormattedMessage id="firm.details.website" />
                           </WebsiteLink>
                         )}
-                      </li>
-                      <li>
-                        <Icon icon="social-facebook" />
-                        <Icon icon="social-twitter" />
                       </li>
                     </StyledContactList>
                   </WrapperContactsPro>
