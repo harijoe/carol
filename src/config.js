@@ -245,6 +245,10 @@ if (process.env.SSL_ENABLED) {
   config.ssl.enabled = process.env.SSL_ENABLED !== 'false'
 }
 
+if (process.env.DEV_SERVER) {
+  config.devServer = process.env.DEV_SERVER !== 'false'
+}
+
 module.exports = config
 
 export default config
