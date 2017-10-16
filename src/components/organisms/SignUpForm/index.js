@@ -39,7 +39,7 @@ const Form = styled.form`
   ${breakpointMax('m')`
     padding: 0;
   `} div[type="checkbox"] label {
-    width: calc(100% - 18px);
+    width: calc(100% - 19px);
   }
 `
 
