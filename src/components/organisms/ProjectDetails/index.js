@@ -58,6 +58,15 @@ const StyledHeadingItem = styled.span`
     margin-left: ${theme('spaces.m')};
     vertical-align: middle;
     font-size: ${theme('fonts.size.base')};
+
+    &.qs-separator {
+      &::before {
+        display: inline-block;
+        margin-right: ${theme('spaces.m')};
+        content: '|';
+        color: inherit;
+      }
+    }
   `};
 `
 
@@ -219,7 +228,7 @@ const ProjectDetails = ({
             {labelWithColon(translate('project.project_reference'))} {leadReference}
           </StyledHeadingItem>
         )}
-        <StyledHeadingItem>
+        <StyledHeadingItem className="qs-separator">
           <FormattedMessage id="project.created_at" /> {transformDate(createdAt)}
         </StyledHeadingItem>
       </Grid>
