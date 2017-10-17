@@ -39,29 +39,58 @@ const StyledRow = styled(Row)`
     margin-right: 0;
   `};
 `
-const WrapperImagePro = styled.div`
-  margin-right: ${theme('spaces.l')};
-  height: 55rem;
-  width: 42.5rem;
+const WrapperImagePro = styled(Col)`
+  padding: 0;
+  height: 25rem;
   overflow: hidden;
+
+  ${breakpoint('s')`
+    height: 30rem;
+  `};
+  ${breakpoint('m')`
+    height: 55rem;
+  `};
 
   > a {
     position: absolute;
     top: -32px;
     color: ${theme('colors.grayscale.dark')};
+
+    ${breakpointMax('m')`
+      right: 0;
+    `};
+
   }
 `
 
 const ProCoverImage = styled(Image)`
   height: 100%;
+  width: auto;
+
+  ${breakpoint('s')`
+    height: 100%;
+  `};
+
+  ${breakpoint('m')`
+    width: 100%;
+    height: auto;
+  `};
 `
 
-const WrapperInfosPro = styled.div`
+const WrapperInfosPro = styled(Col)`
   display: flex;
   flex-wrap: wrap;
-  margin-left: ${theme('spaces.l')};
-  width: 62.5rem;
+  padding-right: 0;
+  padding-left: 0;
+  margin-top: ${theme('spaces.l')};
   height: fit-content;
+
+  ${breakpoint('m')`
+    padding-left: ${theme('spaces.l')};
+  `};
+  ${breakpoint('xl')`
+    padding-left: ${theme('spaces.xxl')};
+  `};
 
   > p {
     margin-top: ${theme('spaces.l')};
@@ -70,8 +99,19 @@ const WrapperInfosPro = styled.div`
 
 const InfosPro = styled.div`
   flex-direction: column;
-  padding-right: ${theme('spaces.xxl')};
-  width: 50rem;
+  padding-right: ${theme('spaces.l')};
+  margin-top: ${theme('spaces.m')};
+  width: 100%;
+
+  ${breakpoint('s')`
+    width: calc( 100% - 10rem );
+  `};
+  ${breakpoint('l')`
+    width: calc( 100% - 10rem );
+  `};
+  ${breakpoint('xl')`
+    width: 46.5rem;
+  `};
 
   > h1 {
     text-transform: lowercase;
@@ -79,6 +119,47 @@ const InfosPro = styled.div`
       text-transform: uppercase;
     }
   }
+`
+
+const LogoPro = styled.div`
+  position: absolute;
+  top: 18.5rem;
+  right: ${theme('spaces.m')};
+  width: 10rem;
+  height: 10rem;
+  border-radius: 6.25rem;
+  background-color: #f6f6f6;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+
+  ${breakpoint('s')`
+    position: absolute;
+    top: 25rem;
+    right: ${theme('spaces.m')};
+    width: 10rem;
+    height: 10rem;
+    border-radius: 6.25rem;
+    background-color: #f6f6f6;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+  `};
+  ${breakpoint('m')`
+    position: relative;
+    top: -${theme('spaces.m')};
+    width: 10rem;
+    height: 10rem;
+    border-radius: 6.25rem;
+    background-color: #f6f6f6;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+  `};
+  ${breakpoint('xl')`
+    width: 12.5rem;
+    height: 12.5rem;
+  `};
+`
+const LogoProImage = styled(Image)`
+  height: 100%;
 `
 
 const Notation = styled.div`
@@ -153,15 +234,25 @@ const WrapperContactsPro = styled.div`
 `
 const StyledContactList = styled(List)`
   display: inline-block;
-  padding: ${theme('spaces.s')} 0;
+  vertical-align: top;
+  padding: ${theme('spaces.l')} 0;
   list-style-type: none;
   color: ${theme('colors.grayscale.dark')};
 
   &:first-child {
     width: 60%;
+    ${breakpointMax('s')`
+      padding-bottom: 0;
+      width: 100%;
+    `};
   }
+
   &:last-child {
     width: 40%;
+    ${breakpointMax('s')`
+      padding-top: 0;
+      width: 100%;
+    `};
   }
 
   li {
@@ -173,28 +264,27 @@ const StyledContactList = styled(List)`
   }
 `
 
-const LogoPro = styled.div`
-  width: 12.5rem;
-  height: 12.5rem;
-  border-radius: 6.25rem;
-  background-color: #f6f6f6;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-`
-const LogoProImage = styled(Image)`
-  height: 12.5rem;
+const StyledInformationRow = styled(Row)`
+  ${breakpoint('m')`
+    justify-content: center;
+  `};
 `
 
-const InformationBlock = styled.div`
+const InformationBlock = styled(Col)`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 25%;
 
   span {
     font-weight: bold;
   }
+
+  ${breakpointMax('m')`
+    margin-top: ${theme('spaces.m')};
+    margin-right: auto;
+    margin-left: auto;
+  `};
 `
 
 const StyledInformationIcon = styled(Icon)`
@@ -216,10 +306,14 @@ const StyledGrid = styled(Grid)`
   justify-content: center;
   margin: ${theme('spaces.xxl')} auto ${theme('spaces.xxxl')} auto;
   width: 95rem;
+
+  ${breakpointMax('l')`
+    width: 100%;
+  `};
 `
 
 const StyledTeamSection = styled(Section)`
-  padding-bottom: 0;
+  padding-bottom: ${theme('spaces.xxl')};
   margin: 17rem auto 0;
 `
 const TeamWrapper = styled.div`
@@ -391,13 +485,13 @@ class FirmDetails extends Component {
           <Section>
             <Grid>
               <StyledRow>
-                <WrapperImagePro xs={12} m={4}>
+                <WrapperImagePro xs={12} m={5}>
                   <IconLink to="/projects" icon="back_arrow">
                     <FormattedMessage id="firm.details.back_link_title" />
                   </IconLink>
                   <ProCoverImage src={mainPicture || genericFirmDetailImage} alt={'Example Pro Image'} />
                 </WrapperImagePro>
-                <WrapperInfosPro xs={12} m={8}>
+                <WrapperInfosPro xs={12} m={7}>
                   <InfosPro>
                     <Heading level={1}>{name}</Heading>
                     <Paragraph>{trade}</Paragraph>
@@ -468,36 +562,36 @@ class FirmDetails extends Component {
           </Section>
           <Section title={translate('firm.details.more_information')} light>
             <Grid>
-              <Row>
+              <StyledInformationRow>
                 {registrationNumber && (
-                  <InformationBlock>
+                  <InformationBlock xs={12} s={4} m={3}>
                     <StyledInformationIcon icon="firm-details_registration-number" />
                     <span>{labelWithColon(translate('firm.details.registration_number'))}</span>
                     {registrationNumber}
                   </InformationBlock>
                 )}
                 {employeesNumber && (
-                  <InformationBlock>
+                  <InformationBlock xs={12} s={4} m={3}>
                     <StyledInformationIcon icon="firm-details_employees-number" />
                     <span>{labelWithColon(translate('firm.details.employees_number'))}</span>
                     {employeesNumber}
                   </InformationBlock>
                 )}
                 {clientSince && (
-                  <InformationBlock>
+                  <InformationBlock xs={12} s={4} m={3}>
                     <StyledInformationIcon icon="firm-details_client-since" />
                     <span>{labelWithColon(translate('firm.details.client_since'))}</span>
                     {transformDate(clientSince)}
                   </InformationBlock>
                 )}
                 {creationDate && (
-                  <InformationBlock>
+                  <InformationBlock xs={12} s={4} m={3}>
                     <StyledInformationIcon icon="firm-details_exist-since" />
                     <span>{labelWithColon(translate('firm.details.exist_since'))}</span>
                     {transformDate(creationDate)}
                   </InformationBlock>
                 )}
-              </Row>
+              </StyledInformationRow>
             </Grid>
             <StyledGrid>
               <MapWrapper>
