@@ -372,7 +372,8 @@ class FirmDetails extends Component {
 
     let mainPicture = null
     if (firmPictures) {
-      mainPicture = firmPictures.filter(data => data.main)[0]
+      const mainPictureObj = firmPictures.filter(data => data.main)[0]
+      if (mainPictureObj && mainPictureObj.url) mainPicture = mainPictureObj.url
     }
 
     const genericFirmDetailImage = locales[locale].genericFirmDetailImage
