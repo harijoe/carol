@@ -3,14 +3,14 @@ import splitActionType from 'utils/actions'
 
 const takeFlow = ({ cancelLastTask = false } = {}) =>
   function* takeEvery(pattern, saga, ...args) {
-    const task = yield fork(function*() {
+    const task = yield fork(function* () {
       let lastTask
 
       // eslint-disable-next-line no-constant-condition
       while (true) {
         const action = yield take(pattern)
 
-        const safeSaga = function*() {
+        const safeSaga = function* () {
           try {
             yield* saga(action)
           } catch (e) {
@@ -33,7 +33,7 @@ export const takeEvery = takeFlow()
 
 export const takeLatest = takeFlow({ cancelLastTask: true })
 
-export const putAndAwait = function*(request) {
+export const putAndAwait = function* (request) {
   const { type } = request
   if (!type.endsWith('REQUEST')) {
     throw new Error('Can only putAndAwait REQUEST actions!')

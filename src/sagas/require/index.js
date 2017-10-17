@@ -3,7 +3,7 @@ import { select } from 'redux-saga/effects'
 import { projectDetails as projectDetailsAction, userDetails, projectElaborationPartner } from 'store/actions'
 import fetch from 'sagas/fetch'
 
-export const requireUser = function*() {
+export const requireUser = function* () {
   const userId = yield select(fromUser.getId)
 
   if (userId == null) {
@@ -11,7 +11,7 @@ export const requireUser = function*() {
   }
 }
 
-export const requireProjectDetails = function*(projectId) {
+export const requireProjectDetails = function* (projectId) {
   const projectDetails = yield select(fromProject.getDetails, projectId)
 
   if (projectDetails == null) {
@@ -19,7 +19,7 @@ export const requireProjectDetails = function*(projectId) {
   }
 }
 
-export const requirePartner = function*(partnerCode) {
+export const requirePartner = function* (partnerCode) {
   const partnerHeaderText = yield select(fromProjectElaboration.getPartnerHeaderText)
   const partnerHeaderLink = yield select(fromProjectElaboration.getPartnerHeaderLink)
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fromProjectElaboration, fromContext } from 'store/selectors'
 
 import { RenderChildrenOneByOne } from 'components'
-import {projectElaborationSetIsNewConversation} from "../store/projectElaboration/actions"
+import { projectElaborationSetIsNewConversation } from '../store/projectElaboration/actions'
 
 const RenderChildrenOneByOneContainer = props => <RenderChildrenOneByOne {...props} />
 

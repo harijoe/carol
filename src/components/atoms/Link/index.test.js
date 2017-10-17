@@ -75,25 +75,25 @@ it('renders Router Link without button', () => {
 })
 
 it('renders an Anchor when URL is absolute', () => {
-  const wrapper = wrap({ to: 'http://company.com'})
+  const wrapper = wrap({ to: 'http://company.com' })
 
   expect(wrapper.find(Anchor)).toHaveProp('href', 'http://company.com')
 })
 
 it('renders an Anchor when passed a mailto link', () => {
-  const wrapper = wrap({ to: 'mailto:john.smith@company.com'})
+  const wrapper = wrap({ to: 'mailto:john.smith@company.com' })
 
   expect(wrapper.find(Anchor)).toHaveProp('href', 'mailto:john.smith@company.com')
 })
 
 it('renders an Anchor when passed a tel link', () => {
-  const wrapper = wrap({ to: 'tel:0641696969'})
+  const wrapper = wrap({ to: 'tel:0641696969' })
 
   expect(wrapper.find(Anchor)).toHaveProp('href', 'tel:0641696969')
 })
 
 it('renders a StyledLink when URL is relative', () => {
-  const wrapper = wrap({ to: '/blog'})
+  const wrapper = wrap({ to: '/blog' })
 
   expect(wrapper.find(StyledLink)).toHaveProp('to', '/blog')
 })

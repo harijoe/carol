@@ -24,7 +24,7 @@ const fetchOptions = {
   credentials: 'include',
 }
 
-const api = async (path) => {
+const api = async path => {
   const url = `https://quotatis.atlassian.net${path}`
   if (DEBUG) {
     console.info(`fetching ${url}`)

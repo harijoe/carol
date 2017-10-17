@@ -3,7 +3,7 @@ import { fromContext } from 'store/selectors'
 import { add as addSaga } from './collector'
 
 export default saga =>
-  function*({ ...params }) {
+  function* ({ ...params }) {
     const ssr = yield select(fromContext.isSSR)
 
     /*

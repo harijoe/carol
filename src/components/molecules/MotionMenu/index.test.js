@@ -4,7 +4,7 @@ import theme from 'components/themes/default'
 import { ThemeProvider } from 'styled-components'
 import mockIntl from '../../../../test/intlMock'
 
-import MotionMenu, { Background, StyledMainButton} from '.'
+import MotionMenu, { Background, StyledMainButton } from '.'
 
 const wrapper = shallow(
   mockIntl(

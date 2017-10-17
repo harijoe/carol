@@ -8,7 +8,7 @@ const SearchEngineContainer = props => <SearchEngine {...props} />
 
 const mapDispatchToProps = dispatch => ({
   resetResults: () => dispatch(projectElaborationSetResults(null)),
-  toggleSearchModal: (bool) => dispatch(toggleSearchModal(bool)),
+  toggleSearchModal: bool => dispatch(toggleSearchModal(bool)),
 })
 
 export default connect(null, mapDispatchToProps)(SearchEngineContainer)

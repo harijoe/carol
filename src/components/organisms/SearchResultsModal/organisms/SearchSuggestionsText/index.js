@@ -17,7 +17,7 @@ const SearchSuggestionsText = ({ locale, translate }) => {
 
   const suggestions = locales[locale].searchSuggestions.secondary
 
-  return(
+  return (
     <Wrapper>
       {translate('search_page.see_more_projects')}
       {suggestions.map(({ title, slug }, index) =>

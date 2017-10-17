@@ -155,7 +155,7 @@ function* handleEmailValidation({ data }) {
       return
     }
 
-    yield* fetch(resendEmail, 'post', `${id}/actions/send-verification-email?origin=${ data.origin }`, {}, {})
+    yield* fetch(resendEmail, 'post', `${id}/actions/send-verification-email?origin=${data.origin}`, {}, {})
     yield* notify('user.thank_you', 'user.sign_up.confirmation')
   } catch (error) {
     yield put(stopSubmit('EmailForm', { _error: error.message }))
@@ -187,7 +187,7 @@ function* handleEmailVerification() {
   }
 }
 
-export default function*() {
+export default function* () {
   yield [
     takeLatest(USER_CREATE.REQUEST, handleCreateUserRequest),
     takeLatest(USER_DETAILS.REQUEST, handleGetUserRequest),

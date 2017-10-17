@@ -55,23 +55,23 @@ const SearchSuggestions = ({ locale }) => {
 
   const suggestions = locales[locale].searchSuggestions.primary
 
-  return(
-  <StyledGrid narrow>
-    <Row>
-      {suggestions.map(({ title, imageUrl, tag, slug }, index) =>
-        <ColGrid key={index} xs={6} m={4} l={3} order={index} x>
-          <SearchResultItem
-            slug={slug}
-            image={imageUrl}
-            alt={title}
-            title={title}
-            tag={tag}
-            className="result"
-          />
-        </ColGrid>
-      )}
-    </Row>
-  </StyledGrid>
+  return (
+    <StyledGrid narrow>
+      <Row>
+        {suggestions.map(({ title, imageUrl, tag, slug }, index) =>
+          <ColGrid key={index} xs={6} m={4} l={3} order={index} x>
+            <SearchResultItem
+              slug={slug}
+              image={imageUrl}
+              alt={title}
+              title={title}
+              tag={tag}
+              className="result"
+            />
+          </ColGrid>
+        )}
+      </Row>
+    </StyledGrid>
   )
 }
 

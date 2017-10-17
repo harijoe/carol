@@ -9,7 +9,7 @@ const mocks = [
       query: 'a',
       page: 0,
       hitsPerPage: 1000,
-      filters: `countryCode:FR`,
+      filters: 'countryCode:FR',
     },
     response: search,
   },

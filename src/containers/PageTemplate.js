@@ -21,7 +21,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  toggleSearchModal: (isExpanded) => dispatch(toggleSearchModal(isExpanded)),
+  toggleSearchModal: isExpanded => dispatch(toggleSearchModal(isExpanded)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PageTemplateContainer)

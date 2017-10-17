@@ -229,7 +229,7 @@ function* generateSessionIdIfRequired() {
   yield* saveAndDispatchChatbotSessionId(sessionId)
 }
 
-export default function*() {
+export default function* () {
   yield [
     takeLatest(CLIENT_INITIATED, generateSessionIdIfRequired),
     takeLatest(PROJECT_ELABORATION_CONVERSATION_REPLY.REQUEST, replyConversation),

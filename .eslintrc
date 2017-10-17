@@ -1,8 +1,7 @@
 {
   "parser": "babel-eslint",
   "extends": [
-    "airbnb",
-    "prettier"
+    "airbnb"
   ],
   "env": {
     "browser": true,
@@ -16,6 +15,11 @@
     "__BASENAME__": true
   },
   "rules": {
+    "arrow-parens": [2, "as-needed"],
+    "padded-blocks": 0,
+    "indent": 0,
+    "no-mixed-operators": 0,
+    "space-before-function-paren": 0,
     "semi": [2, "never"],
     "max-len": 0,
     "global-require": 0,

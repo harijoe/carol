@@ -7,7 +7,7 @@ class NightwatchError extends Error {
   }
 }
 
-const nightwatchPromisify = (api) => (...args) =>
+const nightwatchPromisify = api => (...args) =>
   // use await on nightwatch command otherwise the command is not triggered as nightwatch command are not javascript promises
   new Promise(async (resolve, reject) => {
     await api(...args, result => {

@@ -48,7 +48,7 @@ class RenderChildrenOneByOne extends Component {
     this.state.runningTimeouts.forEach(id => window.clearTimeout(id))
   }
 
-  render  () {
+  render() {
     const { elements, nbElementsToDisplay } = this.state
     const { enabled, children } = this.props
     return (

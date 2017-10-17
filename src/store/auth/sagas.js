@@ -144,7 +144,7 @@ function* handleClientInitiated() {
   }
 }
 
-export default function*() {
+export default function* () {
   yield [
     takeLatest(CLIENT_INITIATED, handleClientInitiated),
     takeLatest(AUTH_LOGIN.REQUEST, handleAuthLoginRequest),

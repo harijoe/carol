@@ -25,6 +25,6 @@ function* search({ query }) {
   yield put(projectElaborationSetResults({ results: response.hits, nbHits: response.nbHits }))
 }
 
-export default function*() {
+export default function* () {
   yield [takeLatest(SEARCH_ENGINE_SEARCH, search)]
 }

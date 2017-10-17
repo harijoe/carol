@@ -226,7 +226,7 @@ const SearchResultsModal = ({ locale, translate, results, query, nbHits }) => {
 
   const shuffledImages = shuffle(locales[locale].genericProjectImages)
 
-  return(
+  return (
     <WrapperResults>
     {(!results || results.length === 0) &&
       <div>
@@ -279,7 +279,7 @@ const SearchResultsModal = ({ locale, translate, results, query, nbHits }) => {
           </LinkBlock>
         </MoreResultsBlock>
       </div>}
-  </WrapperResults>
+    </WrapperResults>
   )
 }
 

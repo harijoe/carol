@@ -66,7 +66,7 @@ function* handleCheckValidationFlow({ projectId }) {
   yield* redirectToNextValidationStep(projectId || query.projectId)
 }
 
-export default function*() {
+export default function* () {
   yield [
     takeLatest(PROJECT_LIST.REQUEST, handleReadProjectListRequest),
     takeLatest(PROJECT_DETAILS.REQUEST, handleReadProjectDetailsRequest),

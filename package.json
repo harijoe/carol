@@ -16,7 +16,7 @@
     "build:bench:sizemap": "yarn run clean && cross-env NODE_ENV=production webpack --config webpack/bench.config",
     "build:bench:gzipped": "cross-env NODE_ENV=production yarn build && tar -czf dist/gzipped.tar.gz dist/main.*.js && ls -l dist/gzipped.tar.gz",
     "changelog": "babel-node scripts/changelog.js",
-    "postinstall": "yarn webpack-assets:create && yarn run husky:npm-to-yarn",
+    "postinstall": "yarn webpack-assets:create",
     "prettier": "find . -name '*.js' | grep -v node_modules | grep -vE 'i18n/(en|es|fr).js' | xargs yarn prettier:single",
     "prettier:only-modified": "git diff --name-only master... | grep -E '.*\\.js$' | grep -vE 'i18n/(en|es|fr).js' | xargs find 2>/dev/null | xargs yarn prettier:single || true",
     "prettier:single": "prettier --no-semi  --trailing-comma=all --single-quote --print-width 140 --list-different --write",
@@ -27,9 +27,7 @@
     "simulado:start": "simulado",
     "simulado:prime": "node scripts/simulado-prime.js",
     "cucumber": "cross-env NODE_ENV=mocks nightwatch",
-    "i18n": "babel-node ./scripts/i18n.js",
-    "husky:npm-to-yarn": "babel-node ./scripts/npm-to-yarn.js",
-    "precommit": "yarn prettier:only-modified && git diff --name-only master... | grep -E '.*\\.js$' | xargs find 2>/dev/null | xargs git add"
+    "i18n": "babel-node ./scripts/i18n.js"
   },
   "repository": {
     "type": "git",
@@ -77,7 +75,6 @@
     "enzyme-adapter-react-16": "^1.0.1",
     "eslint": "^4.8.0",
     "eslint-config-airbnb": "^15.1.0",
-    "eslint-config-prettier": "^2.6.0",
     "eslint-import-resolver-webpack": "^0.8.3",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
@@ -88,7 +85,6 @@
     "file-loader": "^1.1.5",
     "google-spreadsheet": "^2.0.4",
     "html-loader": "^0.5.1",
-    "husky": "^0.14.3",
     "jest-cli": "^21.2.1",
     "json-loader": "^0.5.7",
     "markdown-it": "^8.4.0",

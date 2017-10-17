@@ -84,7 +84,7 @@ function* handleClientInitiated() {
   yield put(setInitialQueryParams(queryParams))
 }
 
-export default function*() {
+export default function* () {
   yield [
     takeLatest(CLIENT_INITIATED, handleClientInitiated),
     takeLatest(LOCATION_CHANGE, handleLocationChange),

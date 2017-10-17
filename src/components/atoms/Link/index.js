@@ -58,10 +58,10 @@ const styles = ({ kind, highlight, button, large }) => css`
     ${ifThen(
       large,
       css`
-      ${breakpoint('m')`
-        padding: ${theme('spaces.l')};
-      `}
-    `,
+        ${breakpoint('m')`
+          padding: ${theme('spaces.l')};
+        `}
+      `,
     )}
   `,
   )};

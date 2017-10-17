@@ -26,6 +26,6 @@ req.keys().forEach(key => {
   })
 })
 
-export default function*() {
+export default function* () {
   yield sagas.map(fork)
 }

@@ -488,11 +488,11 @@ class ProfileForm extends Component {
                       <StyledList>
                         <li className="qs-Data--verified">
                           <Icon icon="validated" />
-                          <FormattedMessage id={`user.profile.data.validated`} />
+                          <FormattedMessage id="user.profile.data.validated" />
                         </li>
                         <li className="qs-Data--notVerified">
                           <Icon icon="not-validated" />
-                          <FormattedMessage id={`user.profile.data.not-validated`} />
+                          <FormattedMessage id="user.profile.data.not-validated" />
                         </li>
                       </StyledList>
                     </StyledNotificationBox>

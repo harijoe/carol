@@ -110,11 +110,11 @@ const SearchResults = ({ translate, results, query, locale }) => {
     <Section
       light
       title={translate('search_page.result_section_title.projects')}
-      subtitle={`${!hasResults ? ` (${translate('search_page.result_section_title.results', {resultsCount: results.length})})` : ''}`}
+      subtitle={`${!hasResults ? ` (${translate('search_page.result_section_title.results', { resultsCount: results.length })})` : ''}`}
     >
       <StyledGrid narrow>
         <Row>
-          {results.map(({name, slug, id, image, _highlightResult}, i) =>
+          {results.map(({ name, slug, id, image, _highlightResult }, i) =>
             <ColGrid xs={6} m={4} l={3} key={id} x>
               <SearchResultItem
                 slug={slug}
