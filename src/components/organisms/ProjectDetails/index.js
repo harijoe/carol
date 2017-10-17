@@ -214,14 +214,14 @@ const ProjectDetails = ({
         </StyledIconLink>
         <Heading level={1}>{name}</Heading>
         <StyledProjectStatus {...{ status, leadSales }} />
-        <StyledHeadingItem>
-          <FormattedMessage id="project.created_at" /> {transformDate(createdAt)}
-        </StyledHeadingItem>
         {leadReference && (
           <StyledHeadingItem>
             {labelWithColon(translate('project.project_reference'))} {leadReference}
           </StyledHeadingItem>
         )}
+        <StyledHeadingItem>
+          <FormattedMessage id="project.created_at" /> {transformDate(createdAt)}
+        </StyledHeadingItem>
       </Grid>
     </Section>
 

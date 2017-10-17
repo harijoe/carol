@@ -265,14 +265,14 @@ const Project = ({ name, createdAt, status, partner, leadSales, imageUrl, transl
       </HeaderCard>
       <FooterCard>
         <StyledHeading level={3}>{name}</StyledHeading>
-        <StyledHeadingItem>
-          <FormattedMessage id="project.created_at" /> <DateTime value={createdAt} />
-        </StyledHeadingItem>
         {leadReference && (
           <StyledHeadingItem>
             {labelWithColon(translate('project.project_reference'))} {leadReference}
           </StyledHeadingItem>
         )}
+        <StyledHeadingItem>
+          <FormattedMessage id="project.created_at" /> <DateTime value={createdAt} />
+        </StyledHeadingItem>
         <StyledDivider />
         <StyledParagraph>
           {status === 'found'
