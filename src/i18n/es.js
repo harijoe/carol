@@ -57,6 +57,8 @@ export default {
   'firm.details.rating_reviews': 'vista',
   'firm.details.registration_number': 'Siret',
   'firm.details.reviews': 'vista',
+  'firm.details.see_less': 'Mostrar menos',
+  'firm.details.see_more': 'Ver más',
   'firm.details.served_area_cities': 'Los códigos de área postales servido',
   'firm.details.team': 'Equipo',
   'firm.details.website': 'Ir al sitio web del artesano',

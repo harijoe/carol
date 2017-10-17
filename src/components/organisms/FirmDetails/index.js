@@ -28,6 +28,7 @@ import {
   Loading,
   CloseAllButton,
   Col,
+  ReadMore,
 } from 'components'
 
 const Wrapper = styled.div``
@@ -299,6 +300,10 @@ const ColGrid = styled(Col)`
   }
 `
 
+const StyledDescription = styled.div`
+  margin: ${theme('spaces.m')} 0 0 0;
+`
+
 const renderList = items => (items ? <List>{items.map((item, i) => <li key={item['@id'] || i}>{item.name || item}</li>)}</List> : null)
 
 class FirmDetails extends Component {
@@ -452,7 +457,11 @@ class FirmDetails extends Component {
                     </StyledContactList>
                   </WrapperContactsPro>
                   <Divider />
-                  <Paragraph>{description}</Paragraph>
+                  <StyledDescription>
+                    <ReadMore line={3} more={translate('firm.details.see_more')} less={translate('firm.details.see_less')}>
+                      {description}
+                    </ReadMore>
+                  </StyledDescription>
                 </WrapperInfosPro>
               </StyledRow>
             </Grid>
