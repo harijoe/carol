@@ -570,7 +570,7 @@ class FirmDetails extends Component {
                     {registrationNumber}
                   </InformationBlock>
                 )}
-                {employeesNumber && (
+                {employeesNumber && parseFloat(employeesNumber) !== 0 && (
                   <InformationBlock xs={12} s={4} m={3}>
                     <StyledInformationIcon icon="firm-details_employees-number" />
                     <span>{labelWithColon(translate('firm.details.employees_number'))}</span>
