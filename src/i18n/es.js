@@ -244,7 +244,7 @@ export default {
   'special_question_postal_code.invalid_message': 'El código postal no es válido. Por favor vuelve a intentarlo.',
   'testimonials.read_it': 'Descubrir el proyecto',
   'testimonials.section_title': 'Nos cuentan sus reformas',
-  'thumbnailcard.link': 'Empezar un proyecto ➔',
+  'thumbnailcard.link': 'Empezar ➔',
   'tips_and_tricks.call_to_action': 'Todos nuestros trucos & consejos de reforma',
   'tips_and_tricks.section_title': 'Consejos & Trucos',
   'Un email vous a été envoyé pour réinitialiser votre mot de passe.': 'Tu contraseña ha sido reiniciada con éxito',
