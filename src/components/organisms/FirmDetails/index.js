@@ -552,7 +552,7 @@ class FirmDetails extends Component {
                   </WrapperContactsPro>
                   <Divider />
                   <StyledDescription>
-                    <ReadMore line={3} more={translate('firm.details.see_more')} less={translate('firm.details.see_less')}>
+                    <ReadMore lines={7} more={translate('firm.details.see_more')} less={translate('firm.details.see_less')}>
                       {description}
                     </ReadMore>
                   </StyledDescription>
