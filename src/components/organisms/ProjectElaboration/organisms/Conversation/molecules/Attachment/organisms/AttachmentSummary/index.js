@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { FormattedMessage } from 'react-intl'
 import styled from 'styled-components'
 import { theme, breakpoint } from 'utils/style'
+import pushGtmEvent from 'utils/gtm'
 
 import { ThumbnailPoster, ProjectElaborationQuestion, Paragraph } from 'components'
 import { ValidateProjectButton } from 'containers'
@@ -45,8 +46,8 @@ const Wrapper = styled.div`
 
 class AttachmentSummary extends Component {
   componentDidMount() {
-    const { redirectTo } = this.props
-
+    const { redirectTo, key2 } = this.props
+    pushGtmEvent({ event: 'ChatbotKey2Created', chatbotKey2: key2 })
     redirectTo('/project-elaboration#summary')
   }
 
@@ -98,6 +99,7 @@ class AttachmentSummary extends Component {
 
 AttachmentSummary.propTypes = {
   redirectTo: PropTypes.func,
+  key2: PropTypes.string,
   element: PropTypes.shape({
     title: PropTypes.string.isRequired,
     image_url: PropTypes.string.isRequired,

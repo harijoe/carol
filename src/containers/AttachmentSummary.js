@@ -8,6 +8,7 @@ const AttachmentSummaryContainer = props => <AttachmentSummary {...props} />
 
 const mapStateToProps = state => ({
   heroAnswer: fromProjectElaboration.getHeroAnswer(state),
+  key2: fromProjectElaboration.getKey2(state),
 })
 
 export default connect(mapStateToProps)(AttachmentSummaryContainer)
