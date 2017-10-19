@@ -60,9 +60,9 @@ const StyledHeadingItem = styled.span`
     font-size: ${theme('fonts.size.base')};
 
     &.qs-separator {
-      &::before {
+      &::after {
         display: inline-block;
-        margin-right: ${theme('spaces.m')};
+        margin-left: ${theme('spaces.m')};
         content: '|';
         color: inherit;
       }
@@ -224,11 +224,11 @@ const ProjectDetails = ({
         <Heading level={1}>{name}</Heading>
         <StyledProjectStatus {...{ status, leadSales }} />
         {leadReference && (
-          <StyledHeadingItem>
+          <StyledHeadingItem className="qs-separator">
             {labelWithColon(translate('project.project_reference'))} {leadReference}
           </StyledHeadingItem>
         )}
-        <StyledHeadingItem className="qs-separator">
+        <StyledHeadingItem>
           <FormattedMessage id="project.created_at" /> {transformDate(createdAt)}
         </StyledHeadingItem>
       </Grid>
@@ -280,7 +280,7 @@ const ProjectDetails = ({
             </StyledHeading>
             <ItemProject>
               <Icon icon="location-pin" />
-              {labelWithColon(translate('project.place'))} {postalCode.postalCode} {postalCode.city}
+              {labelWithColon(translate('project.place'))} {postalCode.postalCode}&nbsp;{postalCode.city}
             </ItemProject>
             <MapImage>
               {placeCoords && <StyledImage src={`https://maps.googleapis.com/maps/api/staticmap?${googleMapsParams(placeCoords)}`} />}
