@@ -53,13 +53,14 @@ const UseConditions = styled(Paragraph)`
 `
 
 const Footer = styled.footer`
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   padding: ${theme('spaces.l')};
   border-top: 1px solid ${theme('colors.grayscale.light')};
   background-color: ${theme('colors.grayscale.lightest')};
+
+  > span:first-child {
+    display: block;
+  }
 
   ${breakpointMax('m')`
     width: 100vw;
@@ -94,8 +95,7 @@ const StyledLink = styled(Link)`
 `
 
 const StyledLinkPopIn = styled(Link)`
-  display: block;
-  width: 105px;
+  display: inline-block;
   margin: 10px auto;
   font-weight: bold;
   line-height: 1;
