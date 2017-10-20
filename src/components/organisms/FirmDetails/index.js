@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
@@ -60,20 +60,6 @@ const WrapperImagePro = styled(Col)`
     `};
 
   }
-`
-
-const ProCoverImage = styled(Image)`
-  height: 100%;
-  width: auto;
-
-  ${breakpoint('s')`
-    height: 100%;
-  `};
-
-  ${breakpoint('m')`
-    width: 100%;
-    height: auto;
-  `};
 `
 
 const WrapperInfosPro = styled(Col)`
@@ -397,6 +383,26 @@ const StyledDescription = styled.div`
   margin: ${theme('spaces.m')} 0 0 0;
 `
 
+const StyledCoverPro = styled.div`${({ imageUrl }) => css`
+
+  width: 100%; 
+  height: 100%; 
+  background-image: url(${imageUrl});
+  background-size: cover;
+  
+  ${breakpoint('s')`
+    height: 100%;
+    background-size: 100%;
+    background-position: center center;
+  `};
+
+  ${breakpoint('m')`
+    height: 54rem; 
+    background-size: cover;
+  `};
+  
+`}`
+
 const renderList = items => (items ? <List>{items.map((item, i) => <li key={item['@id'] || i}>{item.name || item}</li>)}</List> : null)
 
 class FirmDetails extends Component {
@@ -488,7 +494,7 @@ class FirmDetails extends Component {
                   <IconLink to="/projects" icon="back_arrow">
                     <FormattedMessage id="firm.details.back_link_title" />
                   </IconLink>
-                  <ProCoverImage src={mainPicture || genericFirmDetailImage} alt={'Example Pro Image'} />
+                  <StyledCoverPro imageUrl={mainPicture || genericFirmDetailImage} />
                 </WrapperImagePro>
                 <WrapperInfosPro xs={12} m={7}>
                   <InfosPro>
