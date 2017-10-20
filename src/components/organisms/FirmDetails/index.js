@@ -371,6 +371,7 @@ const ColGrid = styled(Col)`
 `
 
 const StyledDescription = styled.div`
+  width: 100%;
   margin: ${theme('spaces.m')} 0 0 0;
 `
 
