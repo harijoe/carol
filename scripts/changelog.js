@@ -1,78 +1,24 @@
-import fetch from 'isomorphic-fetch'
-import btoa from 'btoa'
-import util from 'util'
-import readlineSync from 'readline-sync'
+import changelog from './lib/changelog'
+import cliBuilder from './lib/cli-builder'
 
-const DEBUG = process.env.DEBUG
+// eslint-disable-next-line no-console
+const { usage, fail } = cliBuilder('Usage: yarn run -s changelog <sprint-number> [description]')
 
-const usage = () => console.info('Usage: yarn run -s changelog <sprint-number>')
-
-const sprintNumber = process.argv[2]
-
-if (['-h', '--help'].includes(process.argv[2]) || !sprintNumber) {
-  usage()
+if (['-h', '--help'].includes(process.argv[2])) {
+  usage('info')
   process.exit(0)
 }
 
-const username = readlineSync.question('JIRA email? ')
-const password = readlineSync.question('JIRA password? ', { hideEchoBack: true })
-
-const fetchOptions = {
-  headers: {
-    Authorization: `Basic ${btoa(`${username}:${password}`)}`,
-  },
-  credentials: 'include',
+const sprintNumber = process.argv[2]
+if (!sprintNumber) {
+  fail('please specify sprint number.')
 }
 
-const api = async path => {
-  const url = `https://quotatis.atlassian.net${path}`
-  if (DEBUG) {
-    console.info(`fetching ${url}`)
-  }
-  const response = await fetch(url, fetchOptions)
-  return response.json()
+const description = process.argv[3]
+
+const run = async () => {
+  const text = await changelog(sprintNumber, description)
+  console.info(text)
 }
 
-const formatIssue = issue => {
-  const description = issue.fields.summary.replace(/\(.*?\)\s+/, '')
-  const url = `https://quotatis.atlassian.net/browse/${issue.key}`
-  const hiandu = `[${issue.key}](${url})`
-  return `- ${hiandu} ${description}`
-}
-
-const formatIssues = issues => issues.map(formatIssue)
-
-const changelog = async () => {
-  const sprints = await api('/rest/agile/1.0/board/11/sprint?maxResults=100')
-    .then(result => result.values)
-
-  const sprint = sprints.find(s => s.name.includes(`Sprint ${sprintNumber}`))
-
-  if (DEBUG) {
-    console.info(util.inspect(sprint, { depth: null, colors: true }))
-  }
-
-  const allIssues = await api(`/rest/api/2/search?jql=Sprint=${sprint.id}&maxResults=100`)
-    .then(result => result.issues)
-
-  const issues = allIssues
-    .filter(issue => issue.fields.status.name.match(/Done|Tests/))
-    .filter(issue => issue.fields.summary.match(/Integration|CAROL/))
-
-  issues.sort((a, b) => b.fields.customfield_10005 - a.fields.customfield_10005)
-
-  if (DEBUG) {
-    console.info(util.inspect(issues, { depth: null, colors: true }))
-  }
-
-  const isBug = issue => issue.fields.issuetype.name === 'Bug'
-  const bugs = issues.filter(isBug)
-  const storiesOrTasks = issues.filter(issue => !isBug(issue))
-
-  console.info(`## Release for Sprint ${sprintNumber}\n`)
-  console.info(`### Features\n${formatIssues(storiesOrTasks).join('\n')}\n`)
-  console.info(`### Bug fixes\n${formatIssues(bugs).join('\n')}\n`)
-}
-
-
-changelog()
+run()
