@@ -29,6 +29,7 @@ import {
   Col,
   ReadMore,
   ProfileImage,
+  StarRating,
 } from 'components'
 
 const Wrapper = styled.div``
@@ -149,14 +150,6 @@ const Notation = styled.div`
   margin-top: ${theme('spaces.s')};
   color: ${theme('colors.grayscale.dark')};
 `
-const Star = styled(Icon)`
-  margin-right: ${theme('spaces.xs')};
-
-  .empty_star {
-    display: none;
-  }
-`
-
 const IconCertificate = styled(Icon)`
   display: none;
 
@@ -499,11 +492,7 @@ class FirmDetails extends Component {
                     <Heading level={1}>{name}</Heading>
                     <Paragraph>{trade}</Paragraph>
                     <Notation>
-                      <Star icon="star" />
-                      <Star icon="star" />
-                      <Star icon="star" />
-                      <Star icon="star" />
-                      <Icon icon="star" />
+                      <StarRating value={globalRating} />
                       <strong> {globalRating}</strong> - {globalRatingCount} <FormattedMessage id="firm.details.rating_reviews" />
                     </Notation>
                     {firmCertificates &&

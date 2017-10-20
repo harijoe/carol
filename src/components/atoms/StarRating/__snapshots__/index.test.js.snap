@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StarRating displays 0 stars 1`] = `
+<span>
+  <Star
+    icon="star"
+    value={0}
+  />
+  <Star
+    icon="star"
+    value={0}
+  />
+  <Star
+    icon="star"
+    value={0}
+  />
+  <Star
+    icon="star"
+    value={0}
+  />
+  <Star
+    icon="star"
+    value={0}
+  />
+</span>
+`;
+
+exports[`StarRating displays 2.5 stars 1`] = `
+<span>
+  <Star
+    icon="star"
+    value={1}
+  />
+  <Star
+    icon="star"
+    value={1}
+  />
+  <Star
+    icon="star"
+    value={0.5}
+  />
+  <Star
+    icon="star"
+    value={0}
+  />
+  <Star
+    icon="star"
+    value={0}
+  />
+</span>
+`;
+
+exports[`StarRating displays 5 stars 1`] = `
+<span>
+  <Star
+    icon="star"
+    value={1}
+  />
+  <Star
+    icon="star"
+    value={1}
+  />
+  <Star
+    icon="star"
+    value={1}
+  />
+  <Star
+    icon="star"
+    value={1}
+  />
+  <Star
+    icon="star"
+    value={1}
+  />
+</span>
+`;
