@@ -205,6 +205,7 @@ export default {
     },
     social: {
       facebook: 'https://www.facebook.com/Quotatis',
+      linkedin: 'https://www.linkedin.com/company/quotatisuk',
       twitter: 'https://twitter.com/Quotatis',
       google: 'https://plus.google.com/106376832204465138273',
       youtube: 'https://www.youtube.com/user/quotatisuk',
