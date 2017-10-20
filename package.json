@@ -49,6 +49,9 @@
       "raf/polyfill",
       "<rootDir>/test/matchMediaMock.js",
       "<rootDir>/test/testSetup.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
     ]
   },
   "devDependencies": {

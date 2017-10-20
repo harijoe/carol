@@ -1,66 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders MinimalPageTemplate 1`] = `
-ShallowWrapper {
-  "length": 1,
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Provider
-    store={
-      Object {
-        "dispatch": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-        Symbol(observable): [Function],
-      }
-    }
-  >
-    <MinimalPageTemplate
-      header="header"
-    >
-      test
-    </MinimalPageTemplate>
-  </Provider>,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": null,
-    "nodeType": "function",
-    "props": Object {
-      "children": "test",
-      "header": "header",
-    },
-    "ref": null,
-    "rendered": "test",
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": null,
-      "nodeType": "function",
-      "props": Object {
-        "children": "test",
-        "header": "header",
-      },
-      "ref": null,
-      "rendered": "test",
-      "type": [Function],
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-      },
-    },
-    "disableLifecycleMethods": true,
-  },
-}
+<MinimalPageTemplate
+  header="header"
+>
+  test
+</MinimalPageTemplate>
 `;

@@ -1,55 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders MenuBurger 1`] = `
-ShallowWrapper {
-  "length": 1,
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <IntlProvider
-    locale="en"
-    messages={Object {}}
-  >
-    <injectScrollWrapper
-      linkPro="https://www.quotatispro.fr/"
-    />
-  </IntlProvider>,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": null,
-    "nodeType": "class",
-    "props": Object {
-      "linkPro": "https://www.quotatispro.fr/",
-    },
-    "ref": null,
-    "rendered": null,
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": null,
-      "nodeType": "class",
-      "props": Object {
-        "linkPro": "https://www.quotatispro.fr/",
-      },
-      "ref": null,
-      "rendered": null,
-      "type": [Function],
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-      },
-    },
-    "disableLifecycleMethods": true,
-  },
-}
+<injectScrollWrapper
+  linkPro="https://www.quotatispro.fr/"
+/>
 `;

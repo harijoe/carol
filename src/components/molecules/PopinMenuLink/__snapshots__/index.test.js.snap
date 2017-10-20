@@ -1,54 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders PopinMenuLink 1`] = `
-ShallowWrapper {
-  "length": 1,
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <PopinMenuLink
-    to="test"
-  >
-    Test
-  </PopinMenuLink>,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": null,
-    "nodeType": "class",
-    "props": Object {
-      "children": "Test",
-      "to": "test",
-    },
-    "ref": null,
-    "rendered": "Test",
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": null,
-      "nodeType": "class",
-      "props": Object {
-        "children": "Test",
-        "to": "test",
-      },
-      "ref": null,
-      "rendered": "Test",
-      "type": [Function],
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-      },
-    },
-    "disableLifecycleMethods": true,
-  },
-}
+<StyledLink
+  to="test"
+>
+  Test
+</StyledLink>
 `;

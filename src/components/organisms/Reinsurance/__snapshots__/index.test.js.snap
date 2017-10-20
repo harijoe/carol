@@ -1,186 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders Reinsurance 1`] = `
-ShallowWrapper {
-  "length": 1,
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Reinsurance />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": null,
-    "nodeType": "class",
-    "props": Object {
-      "children": <Mock
-        carousel={
+<StyledSection
+  light={true}
+>
+  <Mock
+    carousel={
+      Object {
+        "afterChange": [Function],
+        "autoplay": true,
+        "dots": false,
+        "infinite": true,
+        "pauseOnHover": true,
+        "responsive": Array [
           Object {
-            "afterChange": [Function],
-            "autoplay": true,
-            "dots": false,
-            "infinite": true,
-            "pauseOnHover": true,
-            "responsive": Array [
-              Object {
-                "breakpoint": 1200,
-              },
-              Object {
-                "breakpoint": 10000,
-                "settings": Object {
-                  "arrows": true,
-                },
-              },
-            ],
-            "slidesToScroll": 1,
-            "slidesToShow": 1,
-          }
-        }
-        generateBackground={[Function]}
-        generateChild={[Function]}
-        limit={3}
-        scope="reinsuranceArticles"
-        tags={
-          Array [
-            "api-quotatis-reinsurance",
-          ]
-        }
-      />,
-      "light": true,
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": null,
-      "nodeType": "function",
-      "props": Object {
-        "carousel": Object {
-          "afterChange": [Function],
-          "autoplay": true,
-          "dots": false,
-          "infinite": true,
-          "pauseOnHover": true,
-          "responsive": Array [
-            Object {
-              "breakpoint": 1200,
-            },
-            Object {
-              "breakpoint": 10000,
-              "settings": Object {
-                "arrows": true,
-              },
-            },
-          ],
-          "slidesToScroll": 1,
-          "slidesToShow": 1,
-        },
-        "generateBackground": [Function],
-        "generateChild": [Function],
-        "limit": 3,
-        "scope": "reinsuranceArticles",
-        "tags": Array [
-          "api-quotatis-reinsurance",
-        ],
-      },
-      "ref": null,
-      "rendered": null,
-      "type": [Function],
-    },
-    "type": [Function],
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": null,
-      "nodeType": "class",
-      "props": Object {
-        "children": <Mock
-          carousel={
-            Object {
-              "afterChange": [Function],
-              "autoplay": true,
-              "dots": false,
-              "infinite": true,
-              "pauseOnHover": true,
-              "responsive": Array [
-                Object {
-                  "breakpoint": 1200,
-                },
-                Object {
-                  "breakpoint": 10000,
-                  "settings": Object {
-                    "arrows": true,
-                  },
-                },
-              ],
-              "slidesToScroll": 1,
-              "slidesToShow": 1,
-            }
-          }
-          generateBackground={[Function]}
-          generateChild={[Function]}
-          limit={3}
-          scope="reinsuranceArticles"
-          tags={
-            Array [
-              "api-quotatis-reinsurance",
-            ]
-          }
-        />,
-        "light": true,
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": null,
-        "nodeType": "function",
-        "props": Object {
-          "carousel": Object {
-            "afterChange": [Function],
-            "autoplay": true,
-            "dots": false,
-            "infinite": true,
-            "pauseOnHover": true,
-            "responsive": Array [
-              Object {
-                "breakpoint": 1200,
-              },
-              Object {
-                "breakpoint": 10000,
-                "settings": Object {
-                  "arrows": true,
-                },
-              },
-            ],
-            "slidesToScroll": 1,
-            "slidesToShow": 1,
+            "breakpoint": 1200,
           },
-          "generateBackground": [Function],
-          "generateChild": [Function],
-          "limit": 3,
-          "scope": "reinsuranceArticles",
-          "tags": Array [
-            "api-quotatis-reinsurance",
-          ],
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      "type": [Function],
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-      },
-    },
-    "disableLifecycleMethods": true,
-  },
-}
+          Object {
+            "breakpoint": 10000,
+            "settings": Object {
+              "arrows": true,
+            },
+          },
+        ],
+        "slidesToScroll": 1,
+        "slidesToShow": 1,
+      }
+    }
+    generateBackground={[Function]}
+    generateChild={[Function]}
+    limit={3}
+    scope="reinsuranceArticles"
+    tags={
+      Array [
+        "api-quotatis-reinsurance",
+      ]
+    }
+  />
+</StyledSection>
 `;

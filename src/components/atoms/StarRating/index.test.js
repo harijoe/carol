@@ -1,6 +1,5 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
 import { ThemeProvider } from 'styled-components'
 import theme from '../../themes/default'
 import StarRating, { starValue } from '.'
@@ -38,15 +37,15 @@ describe('StarRating', () => {
   const render = component => shallow(<ThemeProvider theme={theme}>{component}</ThemeProvider>).dive()
 
   it('displays 5 stars', () => {
-    expect(toJson(render(<StarRating value={5} />))).toMatchSnapshot()
+    expect(render(<StarRating value={5} />)).toMatchSnapshot()
   })
 
   it('displays 0 stars', () => {
-    expect(toJson(render(<StarRating value={0} />))).toMatchSnapshot()
+    expect(render(<StarRating value={0} />)).toMatchSnapshot()
   })
 
   it('displays 2.5 stars', () => {
-    expect(toJson(render(<StarRating value={2.5} />))).toMatchSnapshot()
+    expect(render(<StarRating value={2.5} />)).toMatchSnapshot()
   })
 
 })
