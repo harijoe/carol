@@ -13,7 +13,6 @@ import ReactTooltip from 'react-tooltip'
 import { locales } from 'config'
 
 import {
-  Image,
   List,
   Section,
   Grid,
@@ -289,7 +288,6 @@ const StyledGrid = styled(Grid)`
 
 const StyledTeamSection = styled(Section)`
   padding-bottom: ${theme('spaces.xxl')};
-  margin: 17rem auto 0;
 `
 const TeamWrapper = styled.div`
   display: flex;
@@ -394,6 +392,10 @@ const StyledCoverPro = styled.div`
   `};
 `
 
+const StyledMoreInfoSection = styled(Section)`
+  margin-bottom: 17rem;
+`
+
 const renderList = items => (items ? <List>{items.map((item, i) => <li key={item['@id'] || i}>{item.name || item}</li>)}</List> : null)
 
 class FirmDetails extends Component {
@@ -466,9 +468,14 @@ class FirmDetails extends Component {
     } = this.props.details
 
     let mainPicture = null
+    let teamPictures = null
+    let pictures = null
+
     if (firmPictures) {
-      const mainPictureObj = firmPictures.filter(data => data.main)[0]
+      const mainPictureObj = firmPictures.filter(picture => picture.main)[0]
       if (mainPictureObj && mainPictureObj.url) mainPicture = mainPictureObj.url
+      teamPictures = firmPictures.filter(picture => picture.tag === 'team')
+      pictures = firmPictures.filter(picture => picture.tag !== 'team' && !picture.main)
     }
 
     const genericFirmDetailImage = locales[locale].genericFirmDetailImage
@@ -549,7 +556,7 @@ class FirmDetails extends Component {
               </StyledRow>
             </Grid>
           </Section>
-          <Section title={translate('firm.details.more_information')} light>
+          <StyledMoreInfoSection title={translate('firm.details.more_information')} light>
             <Grid>
               <StyledInformationRow>
                 {registrationNumber && (
@@ -588,54 +595,27 @@ class FirmDetails extends Component {
                 <FormattedMessage id="firm.details.served_area_cities" />: {renderList(servedAreaCities)}
               </MapWrapper>
             </StyledGrid>
-          </Section>
-          <StyledTeamSection>
+          </StyledMoreInfoSection>
+          {teamPictures && teamPictures.length > 0 && <StyledTeamSection>
             <Grid narrow>
               <BorderBox grey mediumBorder title={translate('firm.details.team')}>
                 <TeamWrapper>
+                  {teamPictures.map(item => (
                   <TeamMemberWrapper>
-                    <div>
-                      <Image
-                        src={
-                          'http://res.cloudinary.com/quotatis/image/upload/v1505393997/ES/ChatbotImages/Q1/electricidad-domotica-alarmas.jpg'
-                        }
-                        alt={'Membre équipe 1'}
-                      />
-                    </div>
-                    <strong>Bilal</strong>
+                      <ProfileImage image={item.url} size={'l'} />
+                    {item.description && <strong>{item.description}</strong>}
                   </TeamMemberWrapper>
-                  <TeamMemberWrapper>
-                    <div>
-                      <Image
-                        src={
-                          'http://res.cloudinary.com/quotatis/image/upload/v1505383041/GB/ChatbotImages/Q2/electrical-cctv-and-solar/emergency-electrician.jpg'
-                        }
-                        alt={'Membre équipe 2'}
-                      />
-                    </div>
-                    <strong>Corentin</strong>
-                  </TeamMemberWrapper>
-                  <TeamMemberWrapper>
-                    <div>
-                      <Image
-                        src={
-                          'http://res.cloudinary.com/quotatis/image/upload/v1505382692/GB/ChatbotImages/Q2/architects-and-surveyors/planning-permission.jpg'
-                        }
-                        alt={'Membre équipe 3'}
-                      />
-                    </div>
-                    <strong>Paul & Sandrine</strong>
-                  </TeamMemberWrapper>
+                  ))}
                 </TeamWrapper>
               </BorderBox>
             </Grid>
-          </StyledTeamSection>
-          {firmPictures &&
-            firmPictures.length > 0 && (
+          </StyledTeamSection>}
+          {pictures &&
+          pictures.length > 0 && (
               <Section title={translate('firm.details.last_projects')} light>
                 <StyledGrid>
                   <Row>
-                    {firmPictures.map(item => (
+                    {pictures.map(item => (
                       <ColGrid key={item['@id']} xs={12} m={4} order={item['@id']} x>
                         <li key={item['@id']}>
                           <img src={transformThumbnailUrl(item.url)} alt={'alt'} />
