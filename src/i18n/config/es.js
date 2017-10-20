@@ -95,6 +95,10 @@ export default {
         key: 'carpintería',
         src: 'guia/albanileria-carpinteria-y-puertas/carpinteria/',
       },
+      column_2_3: {
+        key: 'cubiertas_y_tejados',
+        src: 'guia/tratamiento-y-renovacion-de-exteriores/cubiertas-y-tejados/',
+      },
       column_3_1: {
         key: 'suelos',
         src: 'guia/pintura-suelos-y-paredes/suelos/',
@@ -103,6 +107,10 @@ export default {
         key: 'aire.acondicionado',
         src: 'guia/aislamiento-calefaccion-aire-acondicionado/aire-acondicionado/',
       },
+      column_3_3: {
+        key: 'fontanería',
+        src: 'guia/fontaneria-y-gas/fontaneria/',
+      },
       column_4_1: {
         key: 'ventanas',
         src: 'guia/ventanas-y-aperturas-exteriores/ventanas/',
@@ -110,6 +118,10 @@ export default {
       column_4_2: {
         key: 'puertas',
         src: 'guia/albanileria-carpinteria-y-puertas/puertas/',
+      },
+      column_4_3: {
+        key: 'trabajos_verticales',
+        src: 'guia/tratamiento-y-renovacion-de-exteriores/trabajos-verticales/',
       },
     },
     corporate: {
@@ -140,6 +152,11 @@ export default {
       column_2_2: {
         key: 'qpro',
         src: 'https://www.quotatispro.es/',
+        target: '_blank',
+      },
+      column_2_3: {
+        key: 'reforming',
+        src: 'https://www.quotatis.es/categorias.html',
         target: '_blank',
       },
     },

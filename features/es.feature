@@ -8,7 +8,7 @@ Feature: As a spanish customer I can use the quotatis website
     Then I should be on a page titled 'Presupuestos de reforma'
     And I should see '¿Cuál es tu proyecto?'
     And I should see 11 Key-one slides
-    And I should see 9 items in the footer advices section
+    And I should see 12 items in the footer advices section
 
   Scenario: Not logged in
     When I go to the 'home' page
