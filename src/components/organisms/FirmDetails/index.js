@@ -60,7 +60,6 @@ const WrapperImagePro = styled(Col)`
     ${breakpointMax('m')`
       right: 0;
     `};
-
   }
 `
 
@@ -375,25 +374,25 @@ const StyledDescription = styled.div`
   margin: ${theme('spaces.m')} 0 0 0;
 `
 
-const StyledCoverPro = styled.div`${({ imageUrl }) => css`
+const StyledCoverPro = styled.div`
+  ${({ imageUrl }) => css`
+    width: 100%;
+    height: 100%;
+    background-image: url(${imageUrl});
+    background-size: cover;
 
-  width: 100%; 
-  height: 100%; 
-  background-image: url(${imageUrl});
-  background-size: cover;
-  
-  ${breakpoint('s')`
+    ${breakpoint('s')`
     height: 100%;
     background-size: 100%;
     background-position: center center;
   `};
 
-  ${breakpoint('m')`
+    ${breakpoint('m')`
     height: 54rem; 
     background-size: cover;
   `};
-  
-`}`
+  `};
+`
 
 const renderList = items => (items ? <List>{items.map((item, i) => <li key={item['@id'] || i}>{item.name || item}</li>)}</List> : null)
 
@@ -513,9 +512,7 @@ class FirmDetails extends Component {
                         </StyledCertificateList>
                       )}
                   </InfosPro>
-                  {logoUrl && (
-                    <LogoProImage image={logoUrl} size={'l'} />
-                  )}
+                  {logoUrl && <LogoProImage image={logoUrl} size={'l'} />}
                   <Divider />
                   <WrapperContactsPro>
                     <StyledContactList>
@@ -541,11 +538,13 @@ class FirmDetails extends Component {
                     </StyledContactList>
                   </WrapperContactsPro>
                   <Divider />
-                  <StyledDescription>
-                    <ReadMore lines={7} more={translate('firm.details.see_more')} less={translate('firm.details.see_less')}>
-                      {description}
-                    </ReadMore>
-                  </StyledDescription>
+                  {description && (
+                    <StyledDescription>
+                      <ReadMore lines={7} more={translate('firm.details.see_more')} less={translate('firm.details.see_less')}>
+                        {description}
+                      </ReadMore>
+                    </StyledDescription>
+                  )}
                 </WrapperInfosPro>
               </StyledRow>
             </Grid>
@@ -560,13 +559,14 @@ class FirmDetails extends Component {
                     {registrationNumber}
                   </InformationBlock>
                 )}
-                {employeesNumber && parseFloat(employeesNumber) !== 0 && (
-                  <InformationBlock xs={12} s={4} m={3}>
-                    <StyledInformationIcon icon="firm-details_employees-number" />
-                    <span>{labelWithColon(translate('firm.details.employees_number'))}</span>
-                    {employeesNumber}
-                  </InformationBlock>
-                )}
+                {employeesNumber &&
+                  parseFloat(employeesNumber) !== 0 && (
+                    <InformationBlock xs={12} s={4} m={3}>
+                      <StyledInformationIcon icon="firm-details_employees-number" />
+                      <span>{labelWithColon(translate('firm.details.employees_number'))}</span>
+                      {employeesNumber}
+                    </InformationBlock>
+                  )}
                 {clientSince && (
                   <InformationBlock xs={12} s={4} m={3}>
                     <StyledInformationIcon icon="firm-details_client-since" />
