@@ -22,7 +22,6 @@ import {
   Divider,
   Paragraph,
   Icon,
-  Link,
   IconLink,
   BorderBox,
   Loading,
@@ -501,8 +500,7 @@ class FirmDetails extends Component {
                       <Star icon="star" />
                       <Star icon="star" />
                       <Icon icon="star" />
-                      <strong> {globalRating}</strong> - {globalRatingCount} <FormattedMessage id="firm.details.rating_reviews" />{' '}
-                      <Link>Voir les avis</Link>
+                      <strong> {globalRating}</strong> - {globalRatingCount} <FormattedMessage id="firm.details.rating_reviews" />
                     </Notation>
                     {firmCertificates &&
                       firmCertificates.length > 0 && (
