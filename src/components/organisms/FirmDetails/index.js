@@ -28,6 +28,7 @@ import {
   CloseAllButton,
   Col,
   ReadMore,
+  ProfileImage,
 } from 'components'
 
 const Wrapper = styled.div``
@@ -106,7 +107,7 @@ const InfosPro = styled.div`
   }
 `
 
-const LogoPro = styled.div`
+const LogoProImage = styled(ProfileImage)`
   position: absolute;
   top: 18.5rem;
   right: ${theme('spaces.m')};
@@ -142,9 +143,6 @@ const LogoPro = styled.div`
     width: 12.5rem;
     height: 12.5rem;
   `};
-`
-const LogoProImage = styled(Image)`
-  height: 100%;
 `
 
 const Notation = styled.div`
@@ -526,9 +524,7 @@ class FirmDetails extends Component {
                       )}
                   </InfosPro>
                   {logoUrl && (
-                    <LogoPro>
-                      <LogoProImage src={logoUrl} />
-                    </LogoPro>
+                    <LogoProImage image={logoUrl} size={'l'} />
                   )}
                   <Divider />
                   <WrapperContactsPro>
