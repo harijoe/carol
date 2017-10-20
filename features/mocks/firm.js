@@ -19,4 +19,7 @@ export default {
   globalRating: 3.67,
   globalRatingCount: 86,
   contracts: [],
+  contractZone: {
+    postalCodes: [],
+  },
 }

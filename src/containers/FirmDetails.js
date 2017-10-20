@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 
 import { fromFirm, fromStatus, fromContext } from 'store/selectors'
 import { firmDetails, FIRM_DETAILS } from 'store/actions'
-import { FirmDetails } from 'components'
+import { Loading, FirmDetails } from 'components'
 
 class FirmDetailsContainer extends Component {
   static propTypes = {
-    details: PropTypes.object.isRequired,
+    details: PropTypes.object,
     loading: PropTypes.bool,
     request: PropTypes.func.isRequired,
     locale: PropTypes.string,
@@ -19,9 +19,12 @@ class FirmDetailsContainer extends Component {
   }
 
   render() {
-    const { details, loading, locale } = this.props
-
-    return <FirmDetails {...{ details, loading, locale }} />
+    const { loading, ...props } = this.props
+    return (
+      <Loading loading={loading || !props.details}>
+        <FirmDetails {...props} />
+      </Loading>
+    )
   }
 }
 
@@ -29,6 +32,7 @@ const mapStateToProps = (state, { id }) => ({
   details: fromFirm.getDetails(state, id),
   loading: fromStatus.isLoading(state, FIRM_DETAILS.prefix),
   locale: fromContext.getLocale(state),
+  mapEnabled: fromContext.getLang(state) === 'fr' && fromContext.isFeatureEnabled(state, 'pro-page-map'),
 })
 
 const mapDispatchToProps = (dispatch, { id }) => ({

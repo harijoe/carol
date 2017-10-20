@@ -11,7 +11,6 @@ import isTouchDevice from 'utils/isTouchDevice'
 import normalizeUrl from 'utils/normalizeUrl'
 import ReactTooltip from 'react-tooltip'
 import { locales } from 'config'
-
 import {
   List,
   Section,
@@ -23,13 +22,13 @@ import {
   Icon,
   IconLink,
   BorderBox,
-  Loading,
   CloseAllButton,
   Col,
   ReadMore,
   ProfileImage,
   StarRating,
 } from 'components'
+import GoogleMapsInterventionArea from './atoms/GoogleMapsInterventionArea'
 
 const Wrapper = styled.div``
 
@@ -279,7 +278,7 @@ const StyledGrid = styled(Grid)`
   align-content: center;
   justify-content: center;
   margin: ${theme('spaces.xxl')} auto ${theme('spaces.xxxl')} auto;
-  width: 95rem;
+  max-width: 95rem;
 
   ${breakpointMax('l')`
     width: 100%;
@@ -393,17 +392,15 @@ const StyledCoverPro = styled.div`
 `
 
 const StyledMoreInfoSection = styled(Section)`
-  margin-bottom: 17rem;
+  margin-bottom: ${({ mapEnabled }) => mapEnabled ? '17rem' : '0'};
 `
-
-const renderList = items => (items ? <List>{items.map((item, i) => <li key={item['@id'] || i}>{item.name || item}</li>)}</List> : null)
 
 class FirmDetails extends Component {
   static propTypes = {
     translate: PropTypes.func.isRequired,
     labelWithColon: PropTypes.func.isRequired,
-    loading: PropTypes.bool,
-    locale: PropTypes.string,
+    locale: PropTypes.string.isRequired,
+    mapEnabled: PropTypes.bool.isRequired,
     details: PropTypes.shape({
       name: PropTypes.string,
       logoUrl: PropTypes.string,
@@ -419,7 +416,9 @@ class FirmDetails extends Component {
       certificates: PropTypes.array,
       globalRating: PropTypes.number,
       globalRatingCount: PropTypes.number,
-      servedAreaCities: PropTypes.array,
+      contractZone: PropTypes.shape({
+        postalCodes: PropTypes.arrayOf(PropTypes.string).isRequired,
+      }).isRequired,
       firmCertificates: PropTypes.array,
       firmPictures: PropTypes.array,
       trade: PropTypes.string,
@@ -443,9 +442,7 @@ class FirmDetails extends Component {
   render() {
     const { showModal, contentModal } = this.state
 
-    const { locale, translate, labelWithColon } = this.props
-
-    const loading = this.props.loading
+    const { locale, translate, labelWithColon, mapEnabled } = this.props
 
     const {
       logoUrl,
@@ -463,7 +460,7 @@ class FirmDetails extends Component {
       firmCertificates,
       globalRating,
       globalRatingCount,
-      servedAreaCities,
+      contractZone: { postalCodes },
       trade,
     } = this.props.details
 
@@ -483,8 +480,7 @@ class FirmDetails extends Component {
     const certificatesAvailable = firmCertificates && firmCertificates.length > 0
 
     return (
-      <Loading loading={loading}>
-        <Wrapper>
+      <Wrapper>
           <Section>
             <Grid>
               <StyledRow>
@@ -501,7 +497,7 @@ class FirmDetails extends Component {
                     <Notation>
                       <StarRating value={globalRating} />
                       <strong> {globalRating}</strong> - {globalRatingCount} <FormattedMessage id="firm.details.rating_reviews" />
-                    </Notation>
+                      </Notation>
                     {firmCertificates &&
                       firmCertificates.length > 0 && (
                         <StyledCertificateList>
@@ -519,7 +515,8 @@ class FirmDetails extends Component {
                         </StyledCertificateList>
                       )}
                   </InfosPro>
-                  {logoUrl && <LogoProImage image={logoUrl} size={'l'} />}
+                  {logoUrl &&
+                      <LogoProImage image={logoUrl} size={'l'} />}
                   <Divider />
                   <WrapperContactsPro>
                     <StyledContactList>
@@ -545,18 +542,20 @@ class FirmDetails extends Component {
                     </StyledContactList>
                   </WrapperContactsPro>
                   <Divider />
-                  {description && (
-                    <StyledDescription>
-                      <ReadMore lines={7} more={translate('firm.details.see_more')} less={translate('firm.details.see_less')}>
-                        {description}
-                      </ReadMore>
-                    </StyledDescription>
-                  )}
-                </WrapperInfosPro>
+                  {description && (<StyledDescription>
+                    <ReadMore lines={7} more={translate('firm.details.see_more')} less={translate('firm.details.see_less')}>
+                      {description}
+                    </ReadMore>
+                  </StyledDescription>
+                )}</WrapperInfosPro>
               </StyledRow>
             </Grid>
           </Section>
-          <StyledMoreInfoSection title={translate('firm.details.more_information')} light>
+          <StyledMoreInfoSection
+            title={translate('firm.details.more_information')}
+            light
+            mapEnabled={mapEnabled}
+          >
             <Grid>
               <StyledInformationRow>
                 {registrationNumber && (
@@ -566,14 +565,13 @@ class FirmDetails extends Component {
                     {registrationNumber}
                   </InformationBlock>
                 )}
-                {employeesNumber &&
-                  parseFloat(employeesNumber) !== 0 && (
-                    <InformationBlock xs={12} s={4} m={3}>
-                      <StyledInformationIcon icon="firm-details_employees-number" />
-                      <span>{labelWithColon(translate('firm.details.employees_number'))}</span>
-                      {employeesNumber}
-                    </InformationBlock>
-                  )}
+                {employeesNumber && parseFloat(employeesNumber) !== 0 && (
+                  <InformationBlock xs={12} s={4} m={3}>
+                    <StyledInformationIcon icon="firm-details_employees-number" />
+                    <span>{labelWithColon(translate('firm.details.employees_number'))}</span>
+                    {employeesNumber}
+                  </InformationBlock>
+                )}
                 {clientSince && (
                   <InformationBlock xs={12} s={4} m={3}>
                     <StyledInformationIcon icon="firm-details_client-since" />
@@ -590,28 +588,31 @@ class FirmDetails extends Component {
                 )}
               </StyledInformationRow>
             </Grid>
-            <StyledGrid>
-              <MapWrapper>
-                <FormattedMessage id="firm.details.served_area_cities" />: {renderList(servedAreaCities)}
-              </MapWrapper>
-            </StyledGrid>
+            {mapEnabled && (
+              <StyledGrid>
+                <MapWrapper>
+                  <GoogleMapsInterventionArea postCodes={postalCodes} />
+                </MapWrapper>
+              </StyledGrid>
+            )}
           </StyledMoreInfoSection>
           {teamPictures && teamPictures.length > 0 && <StyledTeamSection>
             <Grid narrow>
               <BorderBox grey mediumBorder title={translate('firm.details.team')}>
                 <TeamWrapper>
                   {teamPictures.map(item => (
-                  <TeamMemberWrapper>
+                    <TeamMemberWrapper>
                       <ProfileImage image={item.url} size={'l'} />
-                    {item.description && <strong>{item.description}</strong>}
-                  </TeamMemberWrapper>
+                          {item.description &&
+                      <strong>{item.description}</strong>}
+                    </TeamMemberWrapper>
                   ))}
                 </TeamWrapper>
               </BorderBox>
             </Grid>
           </StyledTeamSection>}
           {pictures &&
-          pictures.length > 0 && (
+            pictures.length > 0 && (
               <Section title={translate('firm.details.last_projects')} light>
                 <StyledGrid>
                   <Row>
@@ -638,7 +639,7 @@ class FirmDetails extends Component {
               </StyledOverlayModal>
             )}
         </Wrapper>
-      </Loading>
+
     )
   }
 }
