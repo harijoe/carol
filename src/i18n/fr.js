@@ -65,6 +65,7 @@ export default {
   'firm.details.website_missing': 'Pas de site web',
   'firm.faq': 'FAQ',
   'firm.find_pro': 'Trouver un pro',
+  'firm.gallery.of': 'sur',
   'firm.guide': 'Guides Travaux',
   'firm.i_am_pro.one': 'Vous êtes',
   'firm.i_am_pro.two': 'un pro ?',

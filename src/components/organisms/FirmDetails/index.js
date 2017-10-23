@@ -605,8 +605,8 @@ class FirmDetails extends Component {
             <Grid narrow>
               <BorderBox grey mediumBorder title={translate('firm.details.team')}>
                 <TeamWrapper>
-                  {teamPictures.map(item => (
-                    <TeamMemberWrapper>
+                  {teamPictures.map((item, index) => (
+                    <TeamMemberWrapper key={index}>
                     <ProfileImage image={item.url} size={'l'} />
                           {item.description &&
                       <strong>{item.description}</strong>}
