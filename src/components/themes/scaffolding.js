@@ -137,6 +137,7 @@ const scaffolding = theme => css`
   div.__react_component_tooltip.show {
     opacity: 1;
   }
+  
 `
 
 export default scaffolding

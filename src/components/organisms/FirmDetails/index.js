@@ -6,7 +6,6 @@ import { FormattedMessage } from 'react-intl'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import transformDate from 'utils/transformDate'
-import transformThumbnailUrl from 'utils/transformThumbnailUrl'
 import isTouchDevice from 'utils/isTouchDevice'
 import normalizeUrl from 'utils/normalizeUrl'
 import ReactTooltip from 'react-tooltip'
@@ -27,6 +26,7 @@ import {
   ReadMore,
   ProfileImage,
   StarRating,
+  FirmGallery,
 } from 'components'
 import GoogleMapsInterventionArea from './atoms/GoogleMapsInterventionArea'
 
@@ -358,15 +358,6 @@ const StyledReactTooltip = styled(ReactTooltip)`
   box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, 0.15);
 `
 
-const ColGrid = styled(Col)`
-  li {
-    list-style-type: none;
-  }
-  img {
-    max-width: 100%;
-  }
-`
-
 const StyledDescription = styled.div`
   width: 100%;
   margin: ${theme('spaces.m')} 0 0 0;
@@ -567,10 +558,7 @@ class FirmDetails extends Component {
               </StyledRow>
             </Grid>
           </Section>
-          <StyledMoreInfoSection
-            title={translate('firm.details.more_information')}
-            light
-          >
+          <StyledMoreInfoSection title={translate('firm.details.more_information')} light>
             <Grid>
               <StyledInformationRow>
                 {registrationNumber && (
@@ -619,7 +607,7 @@ class FirmDetails extends Component {
                 <TeamWrapper>
                   {teamPictures.map(item => (
                     <TeamMemberWrapper>
-                      <ProfileImage image={item.url} size={'l'} />
+                    <ProfileImage image={item.url} size={'l'} />
                           {item.description &&
                       <strong>{item.description}</strong>}
                     </TeamMemberWrapper>
@@ -628,20 +616,10 @@ class FirmDetails extends Component {
               </BorderBox>
             </Grid>
           </StyledTeamSection>}
-          {pictures &&
+          { pictures &&
             pictures.length > 0 && (
               <Section title={translate('firm.details.last_projects')} light>
-                <StyledGrid>
-                  <Row>
-                    {pictures.map(item => (
-                      <ColGrid key={item['@id']} xs={12} m={4} order={item['@id']} x>
-                        <li key={item['@id']}>
-                          <img src={transformThumbnailUrl(item.url)} alt={'alt'} />
-                        </li>
-                      </ColGrid>
-                    ))}
-                  </Row>
-                </StyledGrid>
+                <FirmGallery pictures={pictures} />
               </Section>
             )}
           {!isTouchDevice() && certificatesAvailable && <StyledReactTooltip type={'light'} effect={'solid'} place={'bottom'} />}
