@@ -1,47 +1,30 @@
 import React from 'react'
-import requireExternalLibrary from 'utils/requireExternalLibrary'
-import config from 'config'
-import fetchPostCodesGeoData from '../../utils/fetch-postcodes-geodata'
-import { calculateBounds, createPolygonsFromGeoData } from '../../utils/polygon-utils'
+import PropTypes from 'prop-types'
+import injectTranslate from 'i18n/hoc/injectTranslate'
+import LoadDataAndGoogleMapsAPI from './LoadDataAndGoogleMapsAPI'
+import GoogleMapsView from './GoogleMapsView'
+import Legend from './Legend'
+import LegendTitle from './LegendTitle'
 
-class GoogleMapsInterventionArea extends React.Component {
+const GoogleMapsInterventionArea = ({ postCodes, translate }) =>
+  <LoadDataAndGoogleMapsAPI postCodes={postCodes}>
+    {({ polygons, cities }) => {
+      const topTen = cities.length > 10 ? [...cities.slice(0, 10), '...'] : cities
+      return (
+        <div>
+          <GoogleMapsView polygons={polygons} />
+          <Legend>
+            <LegendTitle>{translate('firm.details.served_area_cities')}</LegendTitle>
+            {topTen.map(city => <div key={city}>{city}</div>)}
+          </Legend>,
+        </div>
+      )
+    }}
+  </LoadDataAndGoogleMapsAPI>
 
-  async componentDidMount() {
-    await requireExternalLibrary(`https://maps.googleapis.com/maps/api/js?key=${config.google.mapsKey}`)
-    const { google } = window
-    const { postCodes } = this.props
-    const uniquePostCodes = [...new Set(postCodes)]
-    const postCodesGeoData = await fetchPostCodesGeoData(uniquePostCodes)
-    const polygons = createPolygonsFromGeoData(postCodesGeoData)
-    this.map = new google.maps.Map(
-      this.mapDiv, {
-        mapTypeId: google.maps.MapTypeId.RoadMap,
-        disableDefaultUI: true,
-        zoomControl: true,
-        zoomControlOptions: {
-          position: google.maps.ControlPosition.TOP_LEFT,
-        },
-      },
-    )
-    this.map.fitBounds(calculateBounds(polygons))
-    const polygon = new google.maps.Polygon({
-      paths: polygons,
-      strokeWeight: 0,
-      fillColor: '#3333FE',
-      fillOpacity: 0.4,
-    })
-    polygon.setMap(this.map)
-  }
-
-  render() {
-    return (
-      <div
-        style={{ position: 'absolute', top: 0, left: 0, bottom: 0, right: 0 }}
-        ref={ref => { this.mapDiv = ref }}
-      />
-    )
-  }
-
+GoogleMapsInterventionArea.propTypes = {
+  postCodes: PropTypes.arrayOf(PropTypes.string).isRequired,
+  translate: PropTypes.func.isRequired,
 }
 
-export default GoogleMapsInterventionArea
+export default injectTranslate(GoogleMapsInterventionArea)

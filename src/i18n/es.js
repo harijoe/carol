@@ -59,7 +59,7 @@ export default {
   'firm.details.reviews': 'vista',
   'firm.details.see_less': 'Mostrar menos',
   'firm.details.see_more': 'Ver más',
-  'firm.details.served_area_cities': 'Los códigos de área postales servido',
+  'firm.details.served_area_cities': 'Zona de intervención',
   'firm.details.team': 'Equipo',
   'firm.details.website': 'Ir al sitio web del artesano',
   'firm.details.website_missing': 'no tiene sitio',

@@ -267,7 +267,7 @@ const StyledInformationIcon = styled(Icon)`
 `
 
 const MapWrapper = styled.div`
-  position: absolute;
+  position: relative;
   height: 34rem;
   width: 100%;
   background-color: #eee;
@@ -283,6 +283,10 @@ const StyledGrid = styled(Grid)`
   ${breakpointMax('l')`
     width: 100%;
   `};
+`
+
+const MapStyledGrid = styled(StyledGrid)`
+  margin: 0 auto;
 `
 
 const StyledTeamSection = styled(Section)`
@@ -391,8 +395,21 @@ const StyledCoverPro = styled.div`
   `};
 `
 
-const StyledMoreInfoSection = styled(Section)`
-  margin-bottom: ${({ mapEnabled }) => mapEnabled ? '17rem' : '0'};
+const StyledMoreInfoSection = Section
+
+const StyledMapSection = styled(Section)`
+  position: relative;
+  padding: 0;
+  
+  &::before {
+    position: absolute;
+    content: '';
+    background: ${theme('colors.grayscale.lightest')}; 
+    top: 0;
+    left: 0;
+    bottom: 50%;
+    right: 0;
+  }
 `
 
 class FirmDetails extends Component {
@@ -554,7 +571,6 @@ class FirmDetails extends Component {
           <StyledMoreInfoSection
             title={translate('firm.details.more_information')}
             light
-            mapEnabled={mapEnabled}
           >
             <Grid>
               <StyledInformationRow>
@@ -588,14 +604,16 @@ class FirmDetails extends Component {
                 )}
               </StyledInformationRow>
             </Grid>
-            {mapEnabled && (
-              <StyledGrid>
+          </StyledMoreInfoSection>
+          {mapEnabled && (
+            <StyledMapSection>
+              <MapStyledGrid>
                 <MapWrapper>
                   <GoogleMapsInterventionArea postCodes={postalCodes} />
                 </MapWrapper>
-              </StyledGrid>
-            )}
-          </StyledMoreInfoSection>
+              </MapStyledGrid>
+            </StyledMapSection>
+          )}
           {teamPictures && teamPictures.length > 0 && <StyledTeamSection>
             <Grid narrow>
               <BorderBox grey mediumBorder title={translate('firm.details.team')}>

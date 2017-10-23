@@ -3,7 +3,7 @@ class ExternalLibrary {
   static require(src) {
     const element = document.querySelector(`script[src='${src}']`)
     if (element) {
-      return Promise.resolve(resolve => element.library.subscribe(resolve))
+      return new Promise(resolve => element.library.subscribe(resolve))
     }
     const script = document.createElement('script')
     script.setAttribute('async', '')
