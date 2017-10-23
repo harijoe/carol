@@ -112,7 +112,6 @@ const LogoProImage = styled(ProfileImage)`
   width: 10rem;
   height: 10rem;
   border-radius: 6.25rem;
-  background-color: #f6f6f6;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
   overflow: hidden;
 
@@ -123,7 +122,6 @@ const LogoProImage = styled(ProfileImage)`
     width: 10rem;
     height: 10rem;
     border-radius: 6.25rem;
-    background-color: #f6f6f6;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
     overflow: hidden;
   `};
@@ -133,7 +131,6 @@ const LogoProImage = styled(ProfileImage)`
     width: 10rem;
     height: 10rem;
     border-radius: 6.25rem;
-    background-color: #f6f6f6;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
     overflow: hidden;
   `};
