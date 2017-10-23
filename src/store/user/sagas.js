@@ -1,7 +1,7 @@
 import { put, select } from 'redux-saga/effects'
 import { stopSubmit, reset } from 'redux-form'
 import { push } from 'react-router-redux'
-import { fromUser, fromRouting, fromContext } from 'store/selectors'
+import { fromUser, fromRouting, fromContext, fromProject } from 'store/selectors'
 import { authLogin, setPhoneValidationPopinMode, closeAll } from 'store/actions'
 import { HTTPError } from 'utils/errors'
 import { requireUser } from 'sagas/require'
@@ -12,6 +12,7 @@ import redirectToNextValidationStep from 'sagas/redirectToNextValidationStep'
 import getFormErrors from 'utils/formErrors'
 import pushGtmEvent from 'utils/gtm'
 import { takeLatest } from 'utils/effects'
+import { handleReadProjectListRequest } from 'store/project/sagas'
 import {
   USER_CREATE,
   USER_DETAILS,
@@ -177,14 +178,25 @@ function* handleEmailVerification() {
     } catch (e) {
       yield* notify('user.error', 'user.error.email_not_verified', 'error')
       yield put(push('/'))
+      return
     }
   }
 
   if (['validation-page', 'validation-page-form'].includes(origin)) {
     yield* redirectToNextValidationStep()
-  } else {
-    yield put(push('/profile'))
+    return
   }
+
+  yield* handleReadProjectListRequest()
+  const projectsToValidate = yield select(fromProject.getProjectsToValidate)
+  const projectsList = yield select(fromProject.getList)
+
+  if (projectsList.length === 1 && projectsToValidate.length === 1) {
+    yield* redirectToNextValidationStep()
+    return
+  }
+
+  yield put(push('/profile'))
 }
 
 export default function* () {
