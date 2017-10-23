@@ -508,10 +508,12 @@ class FirmDetails extends Component {
                   <InfosPro>
                     <Heading level={1}>{name}</Heading>
                     <Paragraph>{trade}</Paragraph>
-                    <Notation>
-                      <StarRating value={globalRating} />
-                      <strong> {globalRating}</strong> - {globalRatingCount} <FormattedMessage id="firm.details.rating_reviews" />
+                    {globalRatingCount > 0 && (
+                      <Notation>
+                        <StarRating value={globalRating} />
+                        <strong> {globalRating}</strong> - {globalRatingCount} <FormattedMessage id="firm.details.rating_reviews" />
                       </Notation>
+                    )}
                     {firmCertificates &&
                       firmCertificates.length > 0 && (
                         <StyledCertificateList>
