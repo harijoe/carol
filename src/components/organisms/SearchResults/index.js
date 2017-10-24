@@ -91,8 +91,8 @@ const ResultsHeading = styled(Heading)`
   `}
 `
 
-const SearchResults = ({ translate, results, query, locale }) => {
-  const hasResults = !results || results.length === 0
+const SearchResults = ({ translate, projectFlowResults, query, locale }) => {
+  const hasResults = !projectFlowResults || projectFlowResults.length === 0
 
   const shuffledImages = shuffle(locales[locale].genericProjectImages)
 
@@ -106,15 +106,15 @@ const SearchResults = ({ translate, results, query, locale }) => {
         </StyledRow>
       </StyledGrid>
     </Header>
-    {results &&
+    {projectFlowResults &&
     <Section
       light
       title={translate('search_page.result_section_title.projects')}
-      subtitle={`${!hasResults ? ` (${translate('search_page.result_section_title.results', { resultsCount: results.length })})` : ''}`}
+      subtitle={`${!hasResults ? ` (${translate('search_page.result_section_title.results', { resultsCount: projectFlowResults.hits.length })})` : ''}`}
     >
       <StyledGrid narrow>
         <Row>
-          {results.map(({ name, slug, id, image, _highlightResult }, i) =>
+          {projectFlowResults.hits.map(({ name, slug, id, image, _highlightResult }, i) =>
             <ColGrid xs={6} m={4} l={3} key={id} x>
               <SearchResultItem
                 slug={slug}
@@ -127,7 +127,7 @@ const SearchResults = ({ translate, results, query, locale }) => {
         </Row>
       </StyledGrid>
     </Section>}
-    {results && results.length === 0 &&
+    {projectFlowResults && projectFlowResults.hits.length === 0 &&
     <Section light>
       <StyledGrid narrow>
         <Row column>
@@ -140,7 +140,7 @@ const SearchResults = ({ translate, results, query, locale }) => {
         </Row>
       </StyledGrid>
     </Section>}
-      { !results &&
+      { !projectFlowResults &&
         <Section light>
           <StyledGrid narrow>
             <Row column>
@@ -157,7 +157,7 @@ const SearchResults = ({ translate, results, query, locale }) => {
 
 SearchResults.propTypes = {
   translate: PropTypes.func.isRequired,
-  results: PropTypes.array,
+  projectFlowResults: PropTypes.object,
   query: PropTypes.string,
   locale: PropTypes.string,
 }

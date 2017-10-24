@@ -7,9 +7,10 @@ import { SearchResultsModal } from 'components'
 const SearchResultsModalContainer = props => <SearchResultsModal {...props} />
 
 const mapStateToProps = state => ({
-  results: fromSearchEngine.getResults(state),
+  projectFlowResults: fromSearchEngine.getProjectFlowResults(state),
+  wordpressContentResults: fromSearchEngine.getWordpressContentResults(state),
+  isWordpressContentEnabled: fromContext.isFeatureEnabled(state, 'wordpress_content'),
   query: fromSearchEngine.getQuery(state),
-  nbHits: fromSearchEngine.getNbHits(state),
   locale: fromContext.getLocale(state),
 })
 

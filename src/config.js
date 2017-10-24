@@ -45,6 +45,11 @@ const configs = {
         GB: 'qa_ProjectFlow_dev_gb',
         ES: 'qa_ProjectFlow_dev_es',
       },
+      wordpressContentIndex: {
+        FR: 'dev_content_fr',
+        GB: 'dev_content_uk',
+        ES: 'dev_content_es',
+      },
     },
     cloudinary: {
       url: 'https://res.cloudinary.com/quotatis/image/upload',

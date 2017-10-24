@@ -1,9 +1,10 @@
+import get from 'lodash/get'
+
 export const initialState = {
   results: null,
   query: '',
-  nbHits: null,
 }
 
-export const getResults = (state = initialState) => state.results
+export const getProjectFlowResults = (state = initialState) => get(state, 'results.projectFlow')
+export const getWordpressContentResults = (state = initialState) => get(state, 'results.wordpressContent')
 export const getQuery = (state = initialState) => state.query
-export const getNbHits = (state = initialState) => state.nbHits

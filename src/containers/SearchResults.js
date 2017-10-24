@@ -7,9 +7,8 @@ import { SearchResults } from 'components'
 const SearchResultsContainer = props => <SearchResults {...props} />
 
 const mapStateToProps = state => ({
-  results: fromSearchEngine.getResults(state),
+  projectFlowResults: fromSearchEngine.getProjectFlowResults(state),
   query: fromSearchEngine.getQuery(state),
-  nbHits: fromSearchEngine.getNbHits(state),
   locale: fromContext.getLocale(state),
 })
 

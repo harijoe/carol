@@ -16,11 +16,13 @@ export default (state = initialState, action) => {
         }
       }
 
-      const { results, nbHits } = action.payload
+      const { hits, nbHits, indexName } = action.payload
       return {
         ...state,
-        results,
-        nbHits,
+        results: {
+          ...state.results,
+          [indexName]: { hits, nbHits },
+        },
       }
     }
     default:

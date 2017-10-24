@@ -222,16 +222,16 @@ const MoreResultsIcon = styled(Icon)`
   `}
 `
 
-const SearchResultsModal = ({ locale, translate, results, query, nbHits }) => {
+const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWordpressContentEnabled, wordpressContentResults }) => {
 
   const shuffledImages = shuffle(locales[locale].genericProjectImages)
 
   return (
     <WrapperResults>
-    {(!results || results.length === 0) &&
+    {(!projectFlowResults || projectFlowResults.hits.length === 0) &&
       <div>
-        {results &&
-          results.length === 0 &&
+        {projectFlowResults &&
+          projectFlowResults.hits.length === 0 &&
           <ResultsHeading level={3}>
             {translate('search_page.no_result_title')}
           </ResultsHeading>}
@@ -242,17 +242,17 @@ const SearchResultsModal = ({ locale, translate, results, query, nbHits }) => {
             <SearchSuggestions locale={locale} />
           </div>
       </div>}
-    {!results &&
+    {!projectFlowResults &&
       <SearchSuggestionsText locale={locale} />}
-    {results &&
-      results.length > 0 &&
+    {projectFlowResults &&
+      projectFlowResults.hits.length > 0 &&
       <div>
         <ResultsHeading level={3}>
           {translate('search_page.your_search')}
         </ResultsHeading>
         <StyledGrid narrow>
           <Row>
-            {results.filter((el, index) => index < 5).map(({ name, slug, id, image, _highlightResult }, i) =>
+            {projectFlowResults.hits.filter((el, index) => index < 5).map(({ name, slug, id, image, _highlightResult }, i) =>
               <ColGrid xs={6} m={4} l={3} order={i} key={id} x>
                 <SearchResultItem
                   slug={slug}
@@ -265,20 +265,27 @@ const SearchResultsModal = ({ locale, translate, results, query, nbHits }) => {
           </Row>
         </StyledGrid>
       </div>}
-    {results &&
-      results.length > 0 &&
-      nbHits > 5 &&
+    {projectFlowResults &&
+      projectFlowResults.hits.length > 0 &&
+      projectFlowResults.nbHits > 5 &&
       <div>
         <MoreResultsBlock>
           <StyledDivider />
           <LinkBlock to={`search-result?q=${query}`}>
             <p>
-              {translate('search_page.see_all_results')} <span>({nbHits})</span>
+              {translate('search_page.see_all_results')} <span>({ projectFlowResults.nbHits })</span>
             </p>
             <MoreResultsIcon icon="circle-arrow" />
           </LinkBlock>
         </MoreResultsBlock>
       </div>}
+      <div>
+        <ul>
+          {isWordpressContentEnabled && wordpressContentResults &&
+            wordpressContentResults.hits.map(el => <li>{el.title}</li>)
+          }
+        </ul>
+      </div>
     </WrapperResults>
   )
 }
@@ -286,9 +293,10 @@ const SearchResultsModal = ({ locale, translate, results, query, nbHits }) => {
 SearchResultsModal.propTypes = {
   locale: PropTypes.string,
   translate: PropTypes.func.isRequired,
-  results: PropTypes.array,
+  projectFlowResults: PropTypes.object,
   query: PropTypes.string.isRequired,
-  nbHits: PropTypes.number,
+  isWordpressContentEnabled: PropTypes.bool,
+  wordpressContentResults: PropTypes.object,
 }
 
 export default injectTranslate(SearchResultsModal)
