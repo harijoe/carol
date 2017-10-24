@@ -6,7 +6,7 @@ import { theme, breakpoint, breakpointMax } from 'utils/style'
 import { locales } from 'config'
 import shuffle from 'lodash/shuffle'
 
-import { Grid, Row, Col, Heading, Link, Icon, Divider, SearchSuggestions, SearchSuggestionsText, SearchResultItem } from 'components'
+import { Grid, Row, Col, Heading, Link, Icon, Divider, SearchSuggestions, SearchSuggestionsText, SearchResultItem, Image } from 'components'
 
 const WrapperResults = styled.div`
   max-width: 110rem;
@@ -222,9 +222,31 @@ const MoreResultsIcon = styled(Icon)`
   `}
 `
 
+const ContentWrapper = styled.div`
+  display: flex;
+`
+
+const ContentItem = styled.div`
+  flex: 1;
+`
+
+const StyledImage = styled(Image)`
+  width: 100%;
+`
+
 const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWordpressContentEnabled, wordpressContentResults }) => {
 
   const shuffledImages = shuffle(locales[locale].genericProjectImages)
+
+  const wpContentResultsByType = wordpressContentResults && wordpressContentResults.hits.reduce((acc, el) => {
+    if (acc[el.type]) {
+      acc[el.type].push(el)
+    } else {
+      acc[el.type] = [el]
+    }
+
+    return acc
+  }, {})
 
   return (
     <WrapperResults>
@@ -241,6 +263,21 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
             </ResultsHeading>
             <SearchSuggestions locale={locale} />
           </div>
+      </div>}
+      {projectFlowResults &&
+      projectFlowResults.hits.length > 0 &&
+      projectFlowResults.nbHits > 5 &&
+      <div>
+        <MoreResultsBlock>
+          <LinkBlock to={`search-result?q=${query}`}>
+            <p>
+              {translate('search_page.see_all_results')} <span>({ projectFlowResults.nbHits })</span>
+            </p>
+            <MoreResultsIcon icon="circle-arrow" />
+          </LinkBlock>
+          <StyledDivider />
+
+        </MoreResultsBlock>
       </div>}
     {!projectFlowResults &&
       <SearchSuggestionsText locale={locale} />}
@@ -265,27 +302,25 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
           </Row>
         </StyledGrid>
       </div>}
-    {projectFlowResults &&
-      projectFlowResults.hits.length > 0 &&
-      projectFlowResults.nbHits > 5 &&
+      {isWordpressContentEnabled && wordpressContentResults &&
       <div>
-        <MoreResultsBlock>
-          <StyledDivider />
-          <LinkBlock to={`search-result?q=${query}`}>
-            <p>
-              {translate('search_page.see_all_results')} <span>({ projectFlowResults.nbHits })</span>
-            </p>
-            <MoreResultsIcon icon="circle-arrow" />
-          </LinkBlock>
-        </MoreResultsBlock>
-      </div>}
-      <div>
-        <ul>
-          {isWordpressContentEnabled && wordpressContentResults &&
-            wordpressContentResults.hits.map(el => <li>{el.title}</li>)
-          }
-        </ul>
+        <ContentWrapper>
+            {
+              ['project_page', 'faqs', 'inspirations'].map(key => {
+                if (!wpContentResultsByType[key]) return null
+
+                return <ContentItem key={key}>
+                  <h2><em>{wpContentResultsByType[key].length}</em> {translate(`search_page.category.${key}.title`, { contentNumber: wpContentResultsByType[key].length })}</h2>
+                  <Grid>{wpContentResultsByType[key].slice(0, 2).map(el => <Col key={el.objectID}>
+                    <h3>{el.title}</h3>
+                      {el.image && <StyledImage src={el.image} />}
+                  </Col>)}</Grid>
+                </ContentItem>
+              })
+            }
+        </ContentWrapper>
       </div>
+      }
     </WrapperResults>
   )
 }
