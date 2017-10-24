@@ -38,7 +38,7 @@ const PhoneForm = props => {
         label={translate('user.mobile_phone')}
         placeholder={translate('user.mobile_phone')}
         disabled={loading || disabled}
-        type="phone"
+        type="tel"
         normalize={normalize(language)}
         format={format(language)}
       />
