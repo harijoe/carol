@@ -158,6 +158,33 @@ const IconCertificate = styled(Icon)`
   `};
 `
 
+const StyledIconLink = styled(IconLink)`
+  transition: all 0.2s ease;
+  display: block;
+  margin-bottom: ${theme('spaces.m')};
+  color: ${theme('colors.grayscale.dark')};
+
+  ${breakpoint('m')`
+    margin-bottom: ${theme('spaces.l')};
+  `} span {
+    vertical-align: top;
+
+    &:first-child {
+      margin-right: ${theme('spaces.m')};
+      height: 9px;
+      width: 23px;
+    }
+  }
+
+  &:hover {
+    color: ${theme('colors.secondary')};
+
+    path {
+      fill: ${theme('colors.secondary')};
+    }
+  }
+`
+
 const StyledCertificateList = styled(List)`
   list-style-type: none;
   font-weight: bold;
@@ -406,6 +433,9 @@ class FirmDetails extends Component {
     labelWithColon: PropTypes.func.isRequired,
     locale: PropTypes.string.isRequired,
     mapEnabled: PropTypes.bool.isRequired,
+    params: PropTypes.shape({
+      projectId: PropTypes.string,
+    }),
     details: PropTypes.shape({
       name: PropTypes.string,
       logoUrl: PropTypes.string,
@@ -447,7 +477,7 @@ class FirmDetails extends Component {
   render() {
     const { showModal, contentModal } = this.state
 
-    const { locale, translate, labelWithColon, mapEnabled } = this.props
+    const { locale, translate, labelWithColon, mapEnabled, params: { projectId } } = this.props
 
     const {
       logoUrl,
@@ -490,9 +520,9 @@ class FirmDetails extends Component {
             <Grid>
               <StyledRow>
                 <WrapperImagePro xs={12} m={5}>
-                  <IconLink to="/projects" icon="back_arrow">
+                  <StyledIconLink to={`projects/${projectId}`} icon="back_arrow">
                     <FormattedMessage id="firm.details.back_link_title" />
-                  </IconLink>
+                  </StyledIconLink>
                   <StyledCoverPro imageUrl={mainPicture || genericFirmDetailImage} />
                 </WrapperImagePro>
                 <WrapperInfosPro xs={12} m={7}>

@@ -209,7 +209,7 @@ const googleMapsParams = ({ lat, lng }) => {
 }
 
 const ProjectDetails = ({
-  project: { name, status, createdAt, questionsAnswers, comment, postalCode, startTimeframe, purpose, leadSales, imageUrl, leadReference },
+  project: { ['@id']: id, name, status, createdAt, questionsAnswers, comment, postalCode, startTimeframe, purpose, leadSales, imageUrl, leadReference },
   placeCoords,
   translate,
   labelWithColon,
@@ -242,7 +242,7 @@ const ProjectDetails = ({
           />
         </Grid>
         <StyledGrid>
-          <FirmList list={leadSales} />
+          <FirmList list={leadSales} projectId={id} />
         </StyledGrid>
       </StyledSection>
     )}

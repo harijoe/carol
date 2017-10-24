@@ -7,7 +7,7 @@ import { FirmDetails } from 'containers'
 const FirmPage = props => (
   <MainLayout>
     <MainWrapper paddingTop="m">
-      <FirmDetails id={props.params.firmId} />
+      <FirmDetails id={props.params.firmId} {...props} />
     </MainWrapper>
   </MainLayout>
 )

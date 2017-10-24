@@ -38,7 +38,7 @@ const StyledCarousel = styled(Carousel)`
   `};
 `
 
-const FirmList = ({ list }) => (
+const FirmList = ({ list, projectId }) => (
   <StyledRow className="qs-Carousel-Firms">
     <StyledCarousel
       variableWidth
@@ -50,13 +50,14 @@ const FirmList = ({ list }) => (
         { breakpoint: 10000, settings: { slidesToShow: 3, slidesToScroll: 3, arrows: true } },
       ]}
     >
-      {list.map(items => <FirmListItem key={items['@id']} {...items} />)}
+      {list.map(items => <FirmListItem key={items['@id']} projectId={projectId} {...items} />)}
     </StyledCarousel>
   </StyledRow>
 )
 
 FirmList.propTypes = {
   list: PropTypes.array.isRequired,
+  projectId: PropTypes.string.isRequired,
 }
 
 export default FirmList

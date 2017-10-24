@@ -36,7 +36,7 @@ addLocaleData([...es, ...en, ...fr])
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
-    <Route path="firms/:firmId" component={requiresAuth(FirmPage)} />
+    <Route path="projects/:projectId/firms/:firmId" component={requiresAuth(FirmPage)} />
     <Route path="forgot-password" component={anonymousOnly(ForgotPasswordPage)} />
     <Route path="help" component={HelpPage} />
     <Route path="login" component={anonymousOnly(LoginPage)} />

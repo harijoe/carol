@@ -253,6 +253,7 @@ class FirmListItem extends Component {
       logoUrl: PropTypes.string,
       firmCertificates: PropTypes.array,
     }),
+    projectId: PropTypes.string,
     proPostCode: PropTypes.string,
     proPhone: PropTypes.string,
     proEmail: PropTypes.string,
@@ -274,15 +275,15 @@ class FirmListItem extends Component {
   }
 
   render() {
-    const { firm: { name, logoUrl, firmCertificates, '@id': firmId }, proPostCode, proPhone, proEmail, proPageEnabled } = this.props
+    const { firm: { name, logoUrl, firmCertificates, '@id': firmId }, projectId, proPostCode, proPhone, proEmail, proPageEnabled } = this.props
 
     const { showModal, contentModal } = this.state
 
-    const LinkToPro = ({ children }) => (proPageEnabled ? <StyledLink to={firmId}>{children}</StyledLink> : children)
+    const LinkToPro = ({ children }) => (proPageEnabled ? <StyledLink to={`${projectId}${firmId}`}>{children}</StyledLink> : children)
 
     return (
       <StyledCard className="firm-item">
-        {proPageEnabled && <ClickableBackground to={firmId} />}
+        {proPageEnabled && <ClickableBackground to={`${projectId}${firmId}`} />}
         <LinkToPro>
           <HeaderCard>
             <ImageWrapper>
