@@ -30,7 +30,11 @@ if (!sprintNumber) {
 
 const insertAtTopOfChangelog = changes => {
   const changelog = fs.readFileSync('CHANGELOG.md')
-  fs.writeFileSync('CHANGELOG.md', `## ${version}${new Date().toISOString().replace(/T.*/, '')}\n\n${changes}\n\n\n${changelog}`)
+  const date = new Date().toISOString().replace(/T.*/, '')
+  fs.writeFileSync(
+    'CHANGELOG.md',
+    `## ${version} - ${date}\n\n${changes}\n\n\n${changelog}`
+  )
 }
 
 const MASTER = process.env.MASTER || 'master'
