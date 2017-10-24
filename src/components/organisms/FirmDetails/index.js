@@ -433,6 +433,7 @@ class FirmDetails extends Component {
     labelWithColon: PropTypes.func.isRequired,
     locale: PropTypes.string.isRequired,
     mapEnabled: PropTypes.bool.isRequired,
+    teamEnabled: PropTypes.bool.isRequired,
     params: PropTypes.shape({
       projectId: PropTypes.string,
     }),
@@ -477,7 +478,7 @@ class FirmDetails extends Component {
   render() {
     const { showModal, contentModal } = this.state
 
-    const { locale, translate, labelWithColon, mapEnabled, params: { projectId } } = this.props
+    const { locale, translate, labelWithColon, mapEnabled, teamEnabled, params: { projectId } } = this.props
 
     const {
       logoUrl,
@@ -631,7 +632,7 @@ class FirmDetails extends Component {
               </MapStyledGrid>
             </StyledMapSection>
           )}
-          {teamPictures && teamPictures.length > 0 && <StyledTeamSection>
+          {teamEnabled && teamPictures && teamPictures.length > 0 && <StyledTeamSection>
             <Grid narrow>
               <BorderBox grey mediumBorder title={translate('firm.details.team')}>
                 <TeamWrapper>
