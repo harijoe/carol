@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import debounce from 'lodash/debounce'
 import { calculateBounds } from './geo-utils'
 import GoogleMapsPlaceholder from './GoogleMapsPlaceholder'
+import mapStyles from './map-styles'
 
 class GoogleMapsView extends React.Component {
   static propTypes = {
@@ -15,6 +16,7 @@ class GoogleMapsView extends React.Component {
 
     this.map = new google.maps.Map(
       this.mapDiv, {
+        styles: mapStyles,
         mapTypeId: google.maps.MapTypeId.RoadMap,
         disableDefaultUI: true,
         zoomControl: true,
@@ -51,10 +53,7 @@ class GoogleMapsView extends React.Component {
     const bounds = calculateBounds(polygons)
     map.fitBounds(bounds)
     if (document.body.clientWidth >= 576) {
-      if (document.body.clientWidth < 768) {
-        setTimeout(() => map.setZoom(this.map.getZoom() - 1), 100)
-      }
-      map.panBy(120, 0)
+      map.panBy(90, 0)
     }
   }
 

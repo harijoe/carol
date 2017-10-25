@@ -30,7 +30,20 @@ import {
 } from 'components'
 import GoogleMapsInterventionArea from './atoms/GoogleMapsInterventionArea'
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  section:last-child {
+    padding-bottom: ${theme('spaces.xl')};
+
+    ${breakpoint('m')`
+      padding-bottom: ${theme('spaces.xxl')};
+    `};
+
+    ${breakpoint('xl')`
+      padding-bottom: ${theme('spaces.xxxl')};
+    `};
+  }
+
+`
 
 const StyledRow = styled(Row)`
   ${breakpoint('m')`
@@ -294,7 +307,10 @@ const MapWrapper = styled.div`
   position: relative;
   height: 34rem;
   width: 100%;
-  background-color: #eee;
+
+  ${breakpointMax('s')`
+    margin-bottom: 34rem;
+  `};
 `
 
 const StyledGrid = styled(Grid)`
@@ -414,7 +430,10 @@ const StyledMoreInfoSection = Section
 
 const StyledMapSection = styled(Section)`
   position: relative;
-  padding: 0;
+  
+  ${breakpointMax('s')`
+    padding: 0;
+  `};
   
   &::before {
     position: absolute;

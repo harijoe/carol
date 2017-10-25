@@ -4,7 +4,6 @@ import injectTranslate from 'i18n/hoc/injectTranslate'
 import LoadDataAndGoogleMapsAPI from './LoadDataAndGoogleMapsAPI'
 import GoogleMapsView from './GoogleMapsView'
 import Legend from './Legend'
-import LegendTitle from './LegendTitle'
 
 const GoogleMapsInterventionArea = ({ postCodes, translate }) =>
   <LoadDataAndGoogleMapsAPI postCodes={postCodes}>
@@ -14,7 +13,7 @@ const GoogleMapsInterventionArea = ({ postCodes, translate }) =>
         <div>
           <GoogleMapsView polygons={polygons} />
           <Legend>
-            <LegendTitle>{translate('firm.details.served_area_cities')}</LegendTitle>
+            <h4>{translate('firm.details.served_area_cities')}</h4>
             {topTen.map(city => <div key={city}>{city}</div>)}
           </Legend>,
         </div>
