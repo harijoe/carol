@@ -78,6 +78,7 @@ class Conversation extends Component {
 
   scrollTop = () => {
     this.history.scrollTop = this.history.scrollHeight
+    window.scrollTo(0, document.body.scrollHeight)
   }
 
   render() {
