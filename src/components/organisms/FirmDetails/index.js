@@ -477,6 +477,7 @@ class FirmDetails extends Component {
       firmCertificates: PropTypes.array,
       firmPictures: PropTypes.array,
       trade: PropTypes.string,
+      leadSales: PropTypes.array,
     }),
   }
 
@@ -502,9 +503,6 @@ class FirmDetails extends Component {
     const {
       logoUrl,
       name,
-      postalCode,
-      city,
-      countryCode,
       registrationNumber,
       description,
       websiteUrl,
@@ -515,9 +513,12 @@ class FirmDetails extends Component {
       firmCertificates,
       globalRating,
       globalRatingCount,
+      leadSales,
       contractZone: { postalCodes },
       trade,
     } = this.props.details
+
+    const { proEmail, proPhone, proPostCity, proPostCode } = leadSales.filter(lead => lead.project === `/projects/${projectId}`)[0]
 
     let mainPicture = null
     let teamPictures = null
@@ -579,13 +580,13 @@ class FirmDetails extends Component {
                     <StyledContactList>
                       <li>
                         <Icon icon="location-pin" />
-                        {city} {postalCode} {countryCode}
+                        {proPostCode} {proPostCity}
                       </li>
                       <li>
-                        <Icon icon="phone" />01 23 45 67 89
+                        <Icon icon="phone" />{proPhone}
                       </li>
                       <li>
-                        <Icon icon="mail" />mvenergies@quotatis.pro.com
+                        <Icon icon="mail" /><a href={`mailto:${proEmail}`}>{proEmail}</a>
                       </li>
                     </StyledContactList>
                     <StyledContactList>

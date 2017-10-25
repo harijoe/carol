@@ -22,4 +22,13 @@ export default {
   contractZone: {
     postalCodes: [],
   },
+  leadSales: [
+    {
+      project: '/projects/MOCK_PROJECT_FOUND_ID',
+      proEmail: 'guy@firm',
+      proPhone: '0123456789',
+      proPostCity: 'Paris',
+      proPostCode: '75001',
+    },
+  ],
 }
