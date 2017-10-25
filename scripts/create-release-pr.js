@@ -2,8 +2,9 @@ import fs from 'fs'
 import changeLogFromJIRA from './lib/changelog'
 import cliBuilder from './lib/cli-builder'
 import exec from './lib/exec'
+import { createPR } from './lib/github'
 
-const APP_NAME = 'prepare-release'
+const APP_NAME = 'release:pr'
 
 // eslint-disable-next-line no-console
 const { usage, fail } = cliBuilder(`Usage: yarn ${APP_NAME} <version> <sprint-number> [description]`)
@@ -39,7 +40,7 @@ const insertAtTopOfChangelog = changes => {
 
 const MASTER = process.env.MASTER || 'master'
 
-const release = async () => {
+const run = async () => {
   try {
     const clean = await exec('[[ -z $(git status -s) ]]').then(() => true).catch(() => false)
     if (!clean) {
@@ -54,9 +55,10 @@ const release = async () => {
     await exec('git add CHANGELOG.md package.json')
     await exec(`git commit -m'v${version}'`)
     await exec(`git push origin v${version}`)
+    await createPR({ version, body: changes })
   } catch (e) {
     console.error(e)
   }
 }
 
-release()
+run()

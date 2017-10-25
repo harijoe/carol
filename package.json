@@ -28,8 +28,8 @@
     "simulado:prime": "node scripts/simulado-prime.js",
     "cucumber": "cross-env NODE_ENV=mocks nightwatch",
     "i18n": "babel-node ./scripts/i18n.js",
-    "prepare-release": "babel-node scripts/prepare-release",
-    "release": "babel-node scripts/release"
+    "release:pr": "babel-node scripts/create-release-pr",
+    "release:create": "babel-node scripts/create-release"
   },
   "repository": {
     "type": "git",
