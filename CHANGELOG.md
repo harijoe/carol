@@ -1,3 +1,27 @@
+## 1.11.0 - 2017-10-25
+
+Emmergency release to fix a bug in the welcome email that is affecting massively our conversion rate
+
+### Features
+- [HIANDU-1647](https://quotatis.atlassian.net/browse/HIANDU-1647) PROJECT VALIDATION - from user registration email validate the project
+- [HIANDU-1600](https://quotatis.atlassian.net/browse/HIANDU-1600) PRO PAGE - Poc Firm photos - Masonry with react
+- [HIANDU-1520](https://quotatis.atlassian.net/browse/HIANDU-1520) GA - add Key 2 in the datalayer
+- [HIANDU-1656](https://quotatis.atlassian.net/browse/HIANDU-1656) PRO PAGE - Create a firm page linked to the project
+- [HIANDU-1626](https://quotatis.atlassian.net/browse/HIANDU-1626) ES FOOTER - Add few links
+- [HIANDU-1601](https://quotatis.atlassian.net/browse/HIANDU-1601) PRO PAGE - PoC - Firm photo zoom functionality
+- [HIANDU-1599](https://quotatis.atlassian.net/browse/HIANDU-1599) PRO PAGE - Firm team photos
+- [HIANDU-1551](https://quotatis.atlassian.net/browse/HIANDU-1551) FOOTER UK - Add linkedin link
+
+### Bug fixes
+- [HIANDU-1641](https://quotatis.atlassian.net/browse/HIANDU-1641) PRO PAGE - logo to reduce to fit with the bubble
+- [HIANDU-1644](https://quotatis.atlassian.net/browse/HIANDU-1644) PRO PAGE - Main picture 1 defined zone
+- [HIANDU-1529](https://quotatis.atlassian.net/browse/HIANDU-1529) LOGIN popin - link text to access sign up page should be on 1 line
+- [HIANDU-1675](https://quotatis.atlassian.net/browse/HIANDU-1675) PRO PAGE - back button should redirect to My project detailed page and not list of project
+- [HIANDU-1645](https://quotatis.atlassian.net/browse/HIANDU-1645) PRO PAGE - description zone width not always 100%
+- [HIANDU-1642](https://quotatis.atlassian.net/browse/HIANDU-1642) PRO PAGE - Remove See Review link
+- [HIANDU-1635](https://quotatis.atlassian.net/browse/HIANDU-1635) PROJECT DETAIL - postcode and city stuck
+
+
 ## 1.10.1 - 2017-10-19
 
 Patch release for Sprint 26
