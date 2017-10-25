@@ -29,6 +29,8 @@ if (!sprintNumber) {
   fail('Please specify a sprint number.')
 }
 
+const description = process.argv[4]
+
 const insertAtTopOfChangelog = changes => {
   const changelog = fs.readFileSync('CHANGELOG.md')
   const date = new Date().toISOString().replace(/T.*/, '')
@@ -50,7 +52,7 @@ const run = async () => {
     }
     await exec(`git checkout ${MASTER} && git pull && git checkout -b v${version}`)
     await exec(`yarn version --new-version ${version} --no-git-tag-version`)
-    const changes = await changeLogFromJIRA(sprintNumber)
+    const changes = await changeLogFromJIRA(sprintNumber, description)
     insertAtTopOfChangelog(changes)
     await exec('git add CHANGELOG.md package.json')
     await exec(`git commit -m'v${version}'`)
