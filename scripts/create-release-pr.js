@@ -57,6 +57,8 @@ const run = async () => {
     await exec('git add CHANGELOG.md package.json')
     await exec(`git commit -m'v${version}'`)
     await exec(`git push origin v${version}`)
+    await exec('git checkout master')
+    await exec(`git branch -D v${version}`)
     await createPR({ version, body: changes })
   } catch (e) {
     console.error(e)
