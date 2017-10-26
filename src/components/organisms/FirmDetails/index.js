@@ -593,15 +593,13 @@ class FirmDetails extends Component {
                         <Icon icon="mail" /><a href={`mailto:${proEmail}`}>{proEmail}</a>
                       </li>
                     </StyledContactList>
-                    <StyledContactList>
+                    {websiteUrl && <StyledContactList>
                       <li>
-                        {websiteUrl && (
-                          <WebsiteLink href={normalizeUrl(websiteUrl)} rel="nofollow" target="_blank">
-                            <FormattedMessage id="firm.details.website" />
-                          </WebsiteLink>
-                        )}
+                        <WebsiteLink href={normalizeUrl(websiteUrl)} rel="nofollow" target="_blank">
+                          <FormattedMessage id="firm.details.website" />
+                        </WebsiteLink>
                       </li>
-                    </StyledContactList>
+                    </StyledContactList>}
                   </WrapperContactsPro>
                   <Divider />
                   {description && (<StyledDescription>
