@@ -13,7 +13,10 @@ const RavenJS = () => {
 
     cachedRavenJS.config(sentry.url, {
       environment: process.env.NODE_ENV,
-      release: process.env.GIT_SHA1,
+      release: process.env.VERSION,
+      tags: {
+        git_commit: `v${process.env.GIT_SHA1}`,
+      },
     }).install()
 
     window.addEventListener('unhandledrejection', rejection => cachedRavenJS.captureException(rejection.reason))

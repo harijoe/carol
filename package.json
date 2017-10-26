@@ -29,7 +29,8 @@
     "cucumber": "cross-env NODE_ENV=mocks nightwatch",
     "i18n": "babel-node ./scripts/i18n.js",
     "release:pr": "babel-node scripts/create-release-pr",
-    "release:create": "babel-node scripts/create-release"
+    "release:create": "babel-node scripts/create-release",
+    "release:sentry": "scripts/sentry-release.sh"
   },
   "repository": {
     "type": "git",

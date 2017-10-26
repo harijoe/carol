@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const version = require('../package.json').version
 
 module.exports = options => ({
   entry: options.entry,
@@ -88,6 +89,7 @@ module.exports = options => ({
         PORT: JSON.stringify(process.env.PORT),
         DEBUG_API: 'false',
         GIT_SHA1: JSON.stringify(process.env.GIT_SHA1),
+        VERSION: JSON.stringify(version),
       },
     }),
   ]),
