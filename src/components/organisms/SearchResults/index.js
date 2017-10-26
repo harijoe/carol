@@ -90,13 +90,14 @@ const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsB
     >
       <ResultsGrid narrow>
         <Row>
-          {projectFlowResults.hits.slice(0, 8).map(({ name, slug, id, image, _highlightResult }, i) =>
+          {projectFlowResults.hits.slice(0, 8).map(({ name, slug, id, image }, i) =>
             <ColGrid xs={6} m={4} l={3} key={id} x>
               <SearchResultItem
                 slug={slug}
                 image={image || shuffledImages[i % shuffledImages.length]}
                 alt={name}
-                title={<div dangerouslySetInnerHTML={{ __html: _highlightResult.name.value }} />}
+                title={name}
+                query={query}
               />
             </ColGrid>,
           )}
