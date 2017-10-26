@@ -46,13 +46,15 @@ const getAllMessages = async (spreadsheet, languagesToInclude) => {
 
 const caseInsensitiveSort = keys => keys.slice().sort((a, b) => (a.toLowerCase() < b.toLowerCase() ? -1 : 1))
 
-const isLdJson = text => text.match(/^\\{/)
+const isLdJson = text => text.includes('@context')
 
-const fixMarked = markedRendered => markedRendered.trim().replace(/^<br>|<br>$/g, '').replace(/&amp;/g, '&').replace(/&quot;/g, '"')
+const fixMarked = markedRendered => markedRendered.replace(/&amp;/g, '&').replace(/&quot;/g, '"')
 
-const marked = text => (isLdJson(text) ? text : fixMarked(render(text)))
+const compressLdJson = text => JSON.stringify(JSON.parse(text), null, 0)
 
-const beautify = text => (isLdJson(text) ? text : marked(text))
+const marked = text => fixMarked(render(text.trim()))
+
+const beautify = text => isLdJson(text) ? compressLdJson(text) : marked(text)
 
 const serialize = translations =>
   caseInsensitiveSort(Object.keys(translations))
