@@ -6,7 +6,7 @@ import { theme, breakpoint, breakpointMax } from 'utils/style'
 import { locales } from 'config'
 import shuffle from 'lodash/shuffle'
 
-import { Grid, Row, Col, Heading, Link, Icon, Divider, SearchSuggestions, SearchSuggestionsText, SearchResultItem, Image } from 'components'
+import { Grid, Row, Col, Heading, Link, Icon, Divider, SearchSuggestions, SearchSuggestionsText, SearchResultItem, SearchResultContentItem, IconLink } from 'components'
 
 const WrapperResults = styled.div`
   max-width: 110rem;
@@ -71,66 +71,44 @@ const ColGrid = styled(Col)`
   }
 `
 
+const ColContent = styled(Col)`
+  animation: ${animationDelay} hide ease, 0.3s suggestions ease ${animationDelay};
+  
+  @keyframes hide {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes suggestions {
+    0% {
+      opacity: 0;
+      transform: translateY(15%);
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }  
+  
+`
+
 const ResultsHeading = styled(Heading)`
   font-family: ${theme('fonts.family.montserrat')};
   font-weight: bold;
-
-  ${breakpoint('l')`
-    padding-left: calc(${theme('spaces.l')} / 2);
-    padding-right: calc(${theme('spaces.l')} / 2);
-  `}
 `
 
 const MoreResultsBlock = styled.div`
   display: flex;
-  flex-direction: column;
-
-  ${breakpointMax('m')`
-    position: relative;
-    margin-left: calc(50% + ${theme('spaces.xs')});
-    margin-top: -25.4rem;
-    height: 25rem;
-    width: calc(50% - ${theme('spaces.s')});
-    flex-wrap: wrap;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    padding: ${theme('spaces.s')};
-    background-color: ${theme('colors.primary')};
-
-    .circle-arrow {
-      fill: ${theme('colors.white')};
-    }
-  `} 
+  flex-direction: column; 
 
   ${breakpoint('m')`
     padding-top: ${theme('spaces.l')};
-
-    > a{
-      animation: 0.25s hide linear, 0.5s fade ease-in 0.25s;
-
-      @keyframes hide {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 0;
-        }
-      }
-
-      @keyframes fade {
-        0% {
-          opacity: 0;
-          transform: translateY(50%);
-        }
-
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-    }
-
     .circle-arrow {
       fill: ${theme('colors.primary')};
     }
@@ -173,8 +151,17 @@ const StyledDivider = styled(Divider)`
 
 const LinkBlock = styled(Link)`
   display: flex;
+  justify-content: flex-end;
+  flex-wrap: nowrap;
+  align-items: center;  
   font-size: ${theme('fonts.size.base')};
   font-weight: bold;
+  position: relative;
+  margin: ${theme('spaces.l')} 0;
+  width: 100%;
+  font-size: ${theme('fonts.size.l')};
+  text-align: right;
+  color: ${theme('colors.primary')};  
 
   p{
     margin: 0;
@@ -184,32 +171,13 @@ const LinkBlock = styled(Link)`
       color: ${theme('colors.grayscale.medium')};
     }
   }
-
-  ${breakpointMax('m')`
-    flex-direction: column;
-    align-items: center;
-    color: ${theme('colors.white')};
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.38);
-    text-align: center;
-  `}
-  
-  ${breakpoint('m')`
-    position: relative;
-    margin: ${theme('spaces.l')} 0;
-    justify-content: flex-end;
-    flex-wrap: nowrap;
-    align-items: center;
-    width: 100%;
-    font-size: ${theme('fonts.size.l')};
-    text-align: right;
-    color: ${theme('colors.primary')};
-  `}
 `
 
 const MoreResultsIcon = styled(Icon)`
   z-index: 2;
   height: ${theme('icons.size.xl')};
   width: ${theme('icons.size.xl')};
+  margin-left: ${theme('spaces.m')};
 
   ${breakpointMax('m')`
     margin-top: ${theme('spaces.m')};
@@ -222,16 +190,43 @@ const MoreResultsIcon = styled(Icon)`
   `}
 `
 
+const StyledIconLink = styled(IconLink)`
+  line-height: ${theme('spaces.m')};
+  transition: all 0.2s ease;
+  display: block;
+  margin-bottom: ${theme('spaces.m')};
+  color: ${theme('colors.grayscale.dark')};
+
+  ${breakpoint('m')`
+    margin-bottom: ${theme('spaces.m')};
+  `} 
+  
+  span {
+    vertical-align: top;
+
+    &:first-child {
+      margin-right: ${theme('spaces.m')};
+      height: 9px;
+      width: 23px;
+    }
+  }
+
+  &:hover {
+    color: ${theme('colors.secondary')};
+
+    path {
+      fill: ${theme('colors.secondary')};
+    }
+  }
+`
+
 const ContentWrapper = styled.div`
-  display: flex;
+  width: 100%;
+  margin-top: ${theme('spaces.m')};
 `
 
 const ContentItem = styled.div`
-  flex: 1;
-`
 
-const StyledImage = styled(Image)`
-  width: 100%;
 `
 
 const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWordpressContentEnabled, wordpressContentResults }) => {
@@ -264,21 +259,6 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
             <SearchSuggestions locale={locale} />
           </div>
       </div>}
-      {projectFlowResults &&
-      projectFlowResults.hits.length > 0 &&
-      projectFlowResults.nbHits > 5 &&
-      <div>
-        <MoreResultsBlock>
-          <LinkBlock to={`search-result?q=${query}`}>
-            <p>
-              {translate('search_page.see_all_results')} <span>({ projectFlowResults.nbHits })</span>
-            </p>
-            <MoreResultsIcon icon="circle-arrow" />
-          </LinkBlock>
-          <StyledDivider />
-
-        </MoreResultsBlock>
-      </div>}
     {!projectFlowResults &&
       <SearchSuggestionsText locale={locale} />}
     {projectFlowResults &&
@@ -287,17 +267,20 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
         <ResultsHeading level={3}>
           {translate('search_page.your_search')}
         </ResultsHeading>
+        <StyledIconLink right to={`search-result?q=${query}&category=project`} icon="front_arrow">
+          <strong>{projectFlowResults.hits.length}</strong> {translate('search_page.category.project.title', { contentNumber: projectFlowResults.hits.length })}
+        </StyledIconLink>
         <StyledGrid narrow>
           <Row>
             {projectFlowResults.hits.filter((el, index) => index < 5).map(({ name, slug, id, image, _highlightResult }, i) =>
-              <ColGrid xs={6} m={4} l={3} order={i} key={id} x>
+              <ColGrid xs={6} m={4} l={3} order={i} key={id} >
                 <SearchResultItem
                   slug={slug}
                   image={image || shuffledImages[i % shuffledImages.length]}
                   alt={name}
                   title={<div dangerouslySetInnerHTML={{ __html: _highlightResult.name.value }} />}
                 />
-              </ColGrid>,
+              </ColGrid>
             )}
           </Row>
         </StyledGrid>
@@ -305,22 +288,43 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
       {isWordpressContentEnabled && wordpressContentResults &&
       <div>
         <ContentWrapper>
+          <Grid>
+            <Row>
             {
-              ['project_page', 'faqs', 'inspirations'].map(key => {
+              ['project_page', 'faqs', 'inspirations'].map((key, index) => {
                 if (!wpContentResultsByType[key]) return null
 
-                return <ContentItem key={key}>
-                  <h2><em>{wpContentResultsByType[key].length}</em> {translate(`search_page.category.${key}.title`, { contentNumber: wpContentResultsByType[key].length })}</h2>
-                  <Grid>{wpContentResultsByType[key].slice(0, 2).map(el => <Col key={el.objectID}>
-                    <h3>{el.title}</h3>
-                      {el.image && <StyledImage src={el.image} />}
-                  </Col>)}</Grid>
-                </ContentItem>
+                return <ColContent xs={12} m={4} l={4} order={index} key={index}>
+                  <ContentItem>
+                    <StyledIconLink right to={`search-result?q=${query}&category=${key}`} icon="front_arrow">
+                      <strong>{wpContentResultsByType[key].length}</strong> {translate(`search_page.category.${key}.title`, { contentNumber: wpContentResultsByType[key].length })}
+                    </StyledIconLink>
+                    {wpContentResultsByType[key].slice(0, 2).map((el, i) =>
+                      <SearchResultContentItem key={i} title={el.title} image={el.image} link={el.link} />
+                    )}
+                  </ContentItem>
+                </ColContent>
               })
             }
+            </Row>
+          </Grid>
         </ContentWrapper>
       </div>
       }
+      {projectFlowResults &&
+      projectFlowResults.hits.length > 0 &&
+      projectFlowResults.nbHits > 5 &&
+      <div>
+        <MoreResultsBlock>
+          <StyledDivider />
+          <LinkBlock to={`search-result?q=${query}`}>
+            <p>
+              {translate('search_page.see_all_results')} <span>({ projectFlowResults.nbHits })</span>
+            </p>
+            <MoreResultsIcon icon="circle-arrow" />
+          </LinkBlock>
+        </MoreResultsBlock>
+      </div>}
     </WrapperResults>
   )
 }
