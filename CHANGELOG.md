@@ -1,3 +1,19 @@
+## 1.11.1 - 2017-10-26
+
+Emmergency release to fix mobile search result and ld+json
+
+### Features
+- [HIANDU-1661](https://quotatis.atlassian.net/browse/HIANDU-1661) MODAL SEARCH - integrate content results
+- [HIANDU-1564](https://quotatis.atlassian.net/browse/HIANDU-1564) PRO PAGE - Firm Ratings at the top of the page
+- [HIANDU-1086](https://quotatis.atlassian.net/browse/HIANDU-1086) AV Step 2.1 - Type phone number fields as Phone to display digit keypad on Mobile 
+- [HIANDU-1562](https://quotatis.atlassian.net/browse/HIANDU-1562) PRO PAGE - Firm contact information
+
+### Bug fixes
+- [HIANDU-1451](https://quotatis.atlassian.net/browse/HIANDU-1451) CHATBOT - text field not visible on iOS and Safari
+- [HIANDU-1684](https://quotatis.atlassian.net/browse/HIANDU-1684) PRO PAGE - Small UI fixes
+- [HIANDU-1683](https://quotatis.atlassian.net/browse/HIANDU-1683) LD+JSON - regression - now contains html
+
+
 ## 1.11.0 - 2017-10-25
 
 Emmergency release to fix a bug in the welcome email that is affecting massively our conversion rate
