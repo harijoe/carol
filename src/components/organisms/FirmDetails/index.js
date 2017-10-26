@@ -587,7 +587,7 @@ class FirmDetails extends Component {
                         {proPostCode} {proPostCity}
                       </li>
                       <li>
-                        <Icon icon="phone" />{proPhone}
+                        <Icon icon="phone" /><a href={`tel:${proPhone}`}>{proPhone}</a>
                       </li>
                       <li>
                         <Icon icon="mail" /><a href={`mailto:${proEmail}`}>{proEmail}</a>
