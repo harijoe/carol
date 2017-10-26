@@ -535,6 +535,14 @@ class FirmDetails extends Component {
 
     const certificatesAvailable = firmCertificates && firmCertificates.length > 0
 
+    // Only for React Truncate, preserve newlines from plain text
+    // https://github.com/One-com/react-truncate
+    const renderDescription = desc => desc.split('\n').map((line, i, arr) => {
+        const l = <span key={i}>{line}</span>
+        if (i === arr.length - 1) return l
+        return [l, <br key={`${i}br`} />]
+      })
+
     return (
       <Wrapper>
           <Section>
@@ -604,7 +612,7 @@ class FirmDetails extends Component {
                   <Divider />
                   {description && (<StyledDescription>
                     <ReadMore lines={7} more={translate('firm.details.see_more')} less={translate('firm.details.see_less')}>
-                      {description}
+                      {renderDescription(description)}
                     </ReadMore>
                   </StyledDescription>
                 )}</WrapperInfosPro>
