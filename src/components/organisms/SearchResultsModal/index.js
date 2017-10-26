@@ -262,17 +262,16 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
         </StyledIconLink>
         <StyledGrid narrow>
           <Row>
-            {projectFlowResults.hits.filter((el, index) => index < 5).map(({ name, slug, id, image }, i) =>
+            {projectFlowResults.hits.filter((el, index) => index < 5).map(({ name, slug, id, image, _highlightResult }, i) =>
               <ColGrid xs={6} m={4} l={3} order={i} key={id} >
                 <SearchResultItem
                   slug={slug}
                   image={image || shuffledImages[i % shuffledImages.length]}
                   alt={name}
-                  title={name}
-                  query={query}
+                  title={<div dangerouslySetInnerHTML={{ __html: _highlightResult.name.value }} />}
                 />
-              </ColGrid>)
-            }
+              </ColGrid>
+            )}
           </Row>
         </StyledGrid>
       </div>}

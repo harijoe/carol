@@ -76,11 +76,11 @@ const StyledTag = styled(Tag)`
   bottom: 2.5rem;
 `
 
-const SearchResultItem = ({ className, slug, image, alt, title, query, tag }) =>
+const SearchResultItem = ({ className, slug, image, alt, title, tag }) =>
   <Link className={className} to={`/project-elaboration?slug=${slug}`}>
     <StyledThumbnailPoster
       image={{ src: image, alt }}
-      title={title && <div dangerouslySetInnerHTML={{ __html: title.split(query).join(`<em>${query}</em>`) }} />}
+      title={title}
       height="m"
       className="result"
     >
@@ -99,7 +99,6 @@ SearchResultItem.propTypes = {
   image: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
   title: PropTypes.node.isRequired,
-  query: PropTypes.string.isRequired,
   tag: PropTypes.string,
 }
 
