@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { projectElaborationSearch } from 'store/actions'
+import { projectElaborationSearch, setSearchCategory } from 'store/actions'
 import { SearchResultPage } from 'components'
 import { fromRouting } from 'store/selectors'
 
@@ -11,6 +11,7 @@ const mapStateToProps = state => ({
 })
 const mapDispatchToProps = dispatch => ({
   search: query => dispatch(projectElaborationSearch(query)),
+  setSearchCategory: category => dispatch(setSearchCategory(category)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchResultPageContainer)

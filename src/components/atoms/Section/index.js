@@ -40,13 +40,6 @@ const titleStyles = ({ dark }) => css`
     margin-left: -1.25rem;
   }
 
-  span {
-    display: block;
-    margin-bottom: -1.1rem;
-    font-size: ${theme('fonts.size.s')};
-    color: ${theme('colors.primary')};
-  }
-
   ${breakpoint('xl')`
     margin-bottom: ${theme('spaces.xxl')};
     padding-bottom: ${theme('spaces.l')};
@@ -89,16 +82,23 @@ const sectionStyles = ({ light, primary, dark, tall }) => css`
 
 const StyledSection = styled.section`${sectionStyles};`
 
+const Subtitle = styled.span`
+  display: block;
+  margin-bottom: -1.1rem;
+  font-size: ${theme('fonts.size.s')};
+  color: ${theme('colors.primary')};
+`
+
 const Section = ({ light, primary, dark, tall, children, title, subtitle, ...props }) =>
   <StyledSection light={light} primary={primary} dark={dark} tall={tall} {...props}>
     {title != null &&
       <Title light={light} primary={primary} dark={dark}>
-        {title}
+        <span dangerouslySetInnerHTML={{ __html: title }} />
 
         {subtitle != null &&
-          <span>
-            {subtitle}
-          </span>
+          <Subtitle>
+            <span dangerouslySetInnerHTML={{ __html: subtitle }} />
+          </Subtitle>
         }
       </Title>}
     {children}

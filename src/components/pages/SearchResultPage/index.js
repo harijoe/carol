@@ -8,12 +8,14 @@ class SearchResultPage extends Component {
   static propTypes = {
     search: PropTypes.func.isRequired,
     query: PropTypes.object.isRequired,
+    setSearchCategory: PropTypes.func.isRequired,
   }
 
   componentDidMount() {
-    const { search, query } = this.props
+    const { search, query, setSearchCategory } = this.props
 
     search(query.q)
+    setSearchCategory(query.category)
   }
 
   render() {

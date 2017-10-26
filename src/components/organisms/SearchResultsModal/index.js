@@ -73,7 +73,7 @@ const ColGrid = styled(Col)`
 
 const ColContent = styled(Col)`
   animation: ${animationDelay} hide ease, 0.3s suggestions ease ${animationDelay};
-  
+
   @keyframes hide {
     from {
       opacity: 0;
@@ -94,8 +94,8 @@ const ColContent = styled(Col)`
     100% {
       transform: translateY(0);
     }
-  }  
-  
+  }
+
 `
 
 const ResultsHeading = styled(Heading)`
@@ -229,19 +229,9 @@ const ContentItem = styled.div`
 
 `
 
-const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWordpressContentEnabled, wordpressContentResults }) => {
+const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWordpressContentEnabled, wordpressContentResultsByType }) => {
 
   const shuffledImages = shuffle(locales[locale].genericProjectImages)
-
-  const wpContentResultsByType = wordpressContentResults && wordpressContentResults.hits.reduce((acc, el) => {
-    if (acc[el.type]) {
-      acc[el.type].push(el)
-    } else {
-      acc[el.type] = [el]
-    }
-
-    return acc
-  }, {})
 
   return (
     <WrapperResults>
@@ -285,21 +275,21 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
           </Row>
         </StyledGrid>
       </div>}
-      {isWordpressContentEnabled && wordpressContentResults &&
+      {isWordpressContentEnabled && wordpressContentResultsByType &&
       <div>
         <ContentWrapper>
           <Grid>
             <Row>
             {
               ['project_page', 'faqs', 'inspirations'].map((key, index) => {
-                if (!wpContentResultsByType[key]) return null
+                if (!wordpressContentResultsByType[key]) return null
 
                 return <ColContent xs={12} m={4} l={4} order={index} key={index}>
                   <ContentItem>
                     <StyledIconLink right to={`search-result?q=${query}&category=${key}`} icon="front_arrow">
-                      <strong>{wpContentResultsByType[key].length}</strong> {translate(`search_page.category.${key}.title`, { contentNumber: wpContentResultsByType[key].length })}
+                      <strong>{wordpressContentResultsByType[key].length}</strong> {translate(`search_page.category.${key}.title`, { contentNumber: wordpressContentResultsByType[key].length })}
                     </StyledIconLink>
-                    {wpContentResultsByType[key].slice(0, 2).map((el, i) =>
+                    {wordpressContentResultsByType[key].slice(0, 2).map((el, i) =>
                       <SearchResultContentItem key={i} title={el.title} image={el.image} link={el.link} />
                     )}
                   </ContentItem>
@@ -335,7 +325,7 @@ SearchResultsModal.propTypes = {
   projectFlowResults: PropTypes.object,
   query: PropTypes.string.isRequired,
   isWordpressContentEnabled: PropTypes.bool,
-  wordpressContentResults: PropTypes.object,
+  wordpressContentResultsByType: PropTypes.object,
 }
 
 export default injectTranslate(SearchResultsModal)

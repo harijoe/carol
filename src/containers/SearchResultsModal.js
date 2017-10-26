@@ -8,7 +8,7 @@ const SearchResultsModalContainer = props => <SearchResultsModal {...props} />
 
 const mapStateToProps = state => ({
   projectFlowResults: fromSearchEngine.getProjectFlowResults(state),
-  wordpressContentResults: fromSearchEngine.getWordpressContentResults(state),
+  wordpressContentResultsByType: fromSearchEngine.getWordpressContentResultsByType(state),
   isWordpressContentEnabled: fromContext.isFeatureEnabled(state, 'wordpress_content'),
   query: fromSearchEngine.getQuery(state),
   locale: fromContext.getLocale(state),
