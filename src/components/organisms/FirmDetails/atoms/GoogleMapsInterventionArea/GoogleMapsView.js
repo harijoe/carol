@@ -30,7 +30,7 @@ class GoogleMapsView extends React.Component {
       paths: polygons,
       strokeWeight: 0,
       fillColor: '#3333FE',
-      fillOpacity: 0.4,
+      fillOpacity: 0.3,
     })
     polygon.setMap(this.map)
 

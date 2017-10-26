@@ -100,11 +100,11 @@ const InfosPro = styled.div`
   margin-top: ${theme('spaces.m')};
   width: 100%;
 
-  ${breakpoint('s')`
+  ${breakpointMax('xl')`
     width: calc( 100% - 10rem );
   `};
-  ${breakpoint('l')`
-    width: calc( 100% - 10rem );
+  ${breakpoint('m')`
+    margin-top: 0;
   `};
   ${breakpoint('xl')`
     width: 46.5rem;
@@ -139,8 +139,8 @@ const LogoProImage = styled(ProfileImage)`
     overflow: hidden;
   `};
   ${breakpoint('m')`
-    position: relative;
-    top: -${theme('spaces.m')};
+    top: 0;
+    right: 0;
     width: 10rem;
     height: 10rem;
     border-radius: 6.25rem;

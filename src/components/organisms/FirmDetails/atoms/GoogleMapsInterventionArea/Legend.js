@@ -6,9 +6,9 @@ export default styled.div`
   top: 1.6rem;
   right: 0;
   bottom: 2.4rem;
-  width: 20rem;
+  width: 25rem;
   background: white;
-  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   padding: 0 2em;
   
