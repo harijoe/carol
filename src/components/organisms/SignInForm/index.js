@@ -43,18 +43,6 @@ const Form = styled.form`
 
 Form.displayName = 'Form'
 
-const StyledLink = styled(Link)`
-  display: block;
-  width: 110px;
-  margin-top: ${theme('spaces.s')};
-  font-weight: bold;
-  line-height: 1;
-
-  &::after {
-    content: ' →';
-  }
-`
-
 const StyledLinkPopIn = styled(Link)`
   display: inline-block;
   margin: 10px auto;
@@ -141,9 +129,9 @@ const SignInForm = ({ error, handleSubmit, loading, translate, className, carous
             <FormattedMessage id="user.no_account_question" />
           </div>
           <div>
-            <StyledLink highlight kind="black" onClick={() => (onSwitch ? onSwitch() : redirectTo('/signup'))}>
+            <StyledLinkPopIn highlight kind="black" onClick={() => (onSwitch ? onSwitch() : redirectTo('/signup'))}>
               <FormattedMessage id="user.create_account" />
-            </StyledLink>
+            </StyledLinkPopIn>
           </div>
         </div>
       </CarouselPageTemplate>}
