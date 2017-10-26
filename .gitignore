@@ -9,3 +9,4 @@ webpack/webpack-assets.json
 !.storybook/public/favicon.ico
 reports/
 screenshots/
+gaston/
