@@ -12,9 +12,7 @@ import {
   App,
   FirmPage,
   ForgotPasswordPage,
-  HelpPage,
   LoginPage,
-  MessagePage,
   NotFoundPage,
   PhoneValidationPage,
   PhoneCodeValidationPage,
@@ -38,9 +36,7 @@ const routes = (
     <IndexRoute component={HomePage} />
     <Route path="projects/:projectId/firms/:firmId" component={requiresAuth(FirmPage)} />
     <Route path="forgot-password" component={anonymousOnly(ForgotPasswordPage)} />
-    <Route path="help" component={HelpPage} />
     <Route path="login" component={anonymousOnly(LoginPage)} />
-    <Route path="message" component={requiresAuth(MessagePage)} />
     <Route path="profile" component={requiresAuth(ProfilePage)} />
     <Route path="projects" component={requiresAuth(ProjectListPage)} />
     <Route path="projects/:projectId/account" component={requiresAuth(ProjectAccountPage)} />
