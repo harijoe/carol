@@ -25,6 +25,7 @@ import {
   ResetPasswordPage,
   SignupPage,
   FeaturesPage,
+  VersionPage,
 } from 'components'
 import { ProjectPreValidatePage, VerifyEmailPage, EmailValidationPage, HomePage, SearchResultPage } from 'containers'
 import { resets, scaffolding } from 'components/themes/default'
@@ -35,6 +36,7 @@ addLocaleData([...es, ...en, ...fr])
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
+    <Route path="version" component={VersionPage} />
     <Route path="features" component={FeaturesPage} />
     <Route path="projects/:projectId/firms/:firmId" component={requiresAuth(FirmPage)} />
     <Route path="forgot-password" component={anonymousOnly(ForgotPasswordPage)} />
