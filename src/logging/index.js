@@ -13,9 +13,9 @@ const RavenJS = () => {
 
     cachedRavenJS.config(sentry.url, {
       environment: process.env.NODE_ENV,
-      release: process.env.VERSION,
+      release: `v${process.env.VERSION}`,
       tags: {
-        git_commit: `v${process.env.GIT_SHA1}`,
+        git_commit: process.env.GIT_SHA1,
       },
     }).install()
 
