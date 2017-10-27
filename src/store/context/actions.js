@@ -27,9 +27,9 @@ export const setLang = lang => ({
   payload: lang,
 })
 
-export const enableFeature = feature => ({
+export const enableFeature = (feature, enabled = true) => ({
   type: CONTEXT_ENABLE_FEATURE,
-  payload: feature,
+  payload: { feature, enabled },
 })
 
 export const setInitialQueryParams = queryParams => ({

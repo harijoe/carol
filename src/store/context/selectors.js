@@ -39,6 +39,7 @@ export const isPopin = (state = initialState) => state.accountNavigation || stat
 export const getCountry = (state = initialState) => state.country
 export const getLocale = (state = initialState) => `${state.lang}-${state.country}`
 export const isFeatureEnabled = (state = initialState, feature) => !!state.features[feature]
+export const getFeatures = state => state.features
 export const getInitialQueryParams = (state = initialState) => state.initialQueryParams
 export const searchModalIsOpen = (state = initialState) => state.searchModalIsOpen
 export const showCookiesBanner = (state = initialState) => state.showCookiesBanner

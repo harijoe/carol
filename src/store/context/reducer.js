@@ -136,9 +136,10 @@ export default (state = initialState, action) => {
       }
     }
     case CONTEXT_ENABLE_FEATURE: {
+      const { feature, enabled } = action.payload
       return {
         ...state,
-        features: { ...state.features, [action.payload]: true },
+        features: { ...state.features, [feature]: enabled },
       }
     }
     case CONTEXT_TOGGLE_SEARCH_MODAL: {
