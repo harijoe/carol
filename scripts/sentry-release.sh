@@ -6,7 +6,7 @@ GIT_SHA1=$(git rev-parse HEAD)
 
 RELEASE='v'$(node -e "console.log(require('./package.json').version)")
 
-echo curl https://sentry.io/api/0/projects/quotatis-sarl/carol/releases/ \
+curl https://sentry.io/api/0/projects/quotatis-sarl/carol/releases/ \
   -X POST \
   -H "Authorization: Bearer ${TOKEN}" \
   -H "Content-Type: application/json" \
