@@ -142,6 +142,7 @@ export default {
   'how_it_works.step3.title': 'On vous guide',
   'Invalid username and password combination': 'Aucun compte ne correspond à cet email/ce mot de passe',
   'last_projects.section_title': 'Projets à la une',
+  'loading.message': 'Veuillez patienter quelques instants',
   'login': 'Se connecter',
   'login.coming_back': 'De retour ?',
   'main.baseline': 'Vos travaux en mieux',

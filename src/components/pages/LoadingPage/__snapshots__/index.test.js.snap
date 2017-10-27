@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders LoadingPage 1`] = `
+<LoadingPage
+  labelWithColon={[Function]}
+  rawTranslate={[Function]}
+  translate={[Function]}
+/>
+`;
