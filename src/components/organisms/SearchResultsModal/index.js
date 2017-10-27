@@ -106,13 +106,15 @@ const ResultsHeading = styled(Heading)`
 const MoreResultsBlock = styled.div`
   display: flex;
   flex-direction: column; 
-
+  .circle-arrow {
+    fill: ${theme('colors.primary')};
+  }
   ${breakpoint('m')`
     padding-top: ${theme('spaces.l')};
     .circle-arrow {
       fill: ${theme('colors.primary')};
     }
-  `} 
+  `}; 
 
   ${breakpoint('xl')`
     padding-top: ${theme('spaces.xxl')};
