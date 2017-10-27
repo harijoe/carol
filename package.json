@@ -30,7 +30,9 @@
     "i18n": "babel-node ./scripts/i18n.js",
     "release:pr": "babel-node scripts/create-release-pr",
     "release:create": "babel-node scripts/create-release",
-    "release:sentry": "scripts/sentry-release.sh"
+    "release:sentry": "scripts/sentry-release.sh",
+    "deploy:preprod": "scripts/deploy_carol_preprod.sh",
+    "deploy:prod": "scripts/deploy_carol_prod.sh"
   },
   "repository": {
     "type": "git",
