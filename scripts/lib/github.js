@@ -10,12 +10,13 @@ if (!GITHUB_ACCESS_TOKEN) {
 }
 
 export const createRelease = async ({ version, body }) => {
+  const tag = `v${version}`
   const response = await fetch(
     `${GITHUB_PROJECT_ROOT}/releases?access_token=${GITHUB_ACCESS_TOKEN}`, {
       method: 'POST',
       body: JSON.stringify({
-        name: `v${version}`,
-        tag_name: `v${version}`,
+        name: tag,
+        tag_name: tag,
         target_commitish: 'master',
         body,
         draft: false,
@@ -25,6 +26,8 @@ export const createRelease = async ({ version, body }) => {
   const json = await response.json()
   if (response.ok) {
     console.info(`🚀 Release created: ${json.html_url}`)
+  } else if (json.errors[0].code === 'already_exists') {
+    console.info(`😉 Release ${tag} already exists: https://github.com/Quotatis/carol/releases/tag/${tag}`)
   } else {
     throw new Error(`Failed to create the releease:\n${inspect(json, { depth: null, colors: true })}`)
   }
