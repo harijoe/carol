@@ -4,29 +4,43 @@ import injectTranslate from 'i18n/hoc/injectTranslate'
 import Masonry from 'react-masonry-component'
 import Lightbox from 'react-images'
 import styled from 'styled-components'
+import { breakpoint, theme } from 'utils/style'
 import transformThumbnailUrl from 'utils/transformThumbnailUrl'
 
 const MasonryWrapper = styled.div`
-  width: 95rem;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 95rem;
+  margin: 0 auto;  
   padding: 0;
   ul {
     width: 100%;
     margin: 0;
     padding: 0;
   }
+  
 `
 
 const MasonryItem = styled.li`
+  
   list-style-type: none;
-  width: 32%;
-  margin-right: 1%;
+  width: 100%;
   cursor: pointer;
   img {
     width: 100%;
     max-width: 100%;
     height: 100%;
   }
+  
+  ${breakpoint('m')`
+    width: 50%;
+    padding-right: ${theme('spaces.s')}
+  `} 
+   
+  ${breakpoint('l')`
+    width: 33.3%;
+    padding-right: ${theme('spaces.s')}
+  `}  
+  
 `
 
 const masonryOptions = {
