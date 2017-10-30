@@ -4,7 +4,9 @@ import styled from 'styled-components'
 import { FormattedMessage } from 'react-intl'
 import { theme, breakpoint } from 'utils/style'
 
-import { Section, Heading, NoProjectYet, Loading, Grid, ProjectList } from 'components'
+import { Section, Heading, Loading, Grid } from 'components'
+import NoProjectYet from './molecules/NoProjectYet'
+import ProjectList from './molecules/ProjectList'
 
 const StyledSection = styled(Section)`
   position: relative;

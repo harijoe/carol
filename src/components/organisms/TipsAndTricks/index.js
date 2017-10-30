@@ -7,7 +7,8 @@ import { locales } from 'config'
 import { breakpoint } from 'utils/style'
 
 import { PostList } from 'containers'
-import { Section, TipsAndTricksBlock, Link, Grid, Col, Row } from 'components'
+import { Section, Link, Grid, Col, Row } from 'components'
+import TipsAndTricksBlock from './organisms/TipsAndTricksBlock'
 
 const StyledRow = styled(Row)`
   width: 100%;

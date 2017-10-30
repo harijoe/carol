@@ -4,7 +4,8 @@ import styled from 'styled-components'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 
 import { Row } from 'components'
-import { Carousel, FirmListItem } from 'containers'
+import { Carousel } from 'containers'
+import FirmListItem from './containers/FirmListItem'
 
 const StyledRow = styled(Row)`
   ${breakpoint('m')`

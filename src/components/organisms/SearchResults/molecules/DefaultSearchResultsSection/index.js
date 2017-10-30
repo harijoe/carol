@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Row, Section, SearchSuggestions, ResultsHeading, ResultsGrid } from 'components'
+import { Row, Section, SearchSuggestions } from 'components'
 import injectTranslate from 'i18n/hoc/injectTranslate'
+import ResultsGrid from '../../atoms/ResultsGrid'
+import ResultsHeading from '../../atoms/ResultsHeading'
 
 const DefaultSearchResultsSection = ({ translate, locale }) => (
   <Section light>

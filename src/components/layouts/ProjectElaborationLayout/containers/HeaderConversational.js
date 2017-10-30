@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fromProjectElaboration } from 'store/selectors'
 
-import { HeaderConversational } from 'components'
+import HeaderConversational from '../organisms/HeaderConversational'
 
 const HeaderConversationalContainer = props => <HeaderConversational {...props} />
 

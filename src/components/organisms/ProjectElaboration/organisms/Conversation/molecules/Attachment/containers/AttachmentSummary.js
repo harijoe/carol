@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { AttachmentSummary } from 'components'
 import { fromProjectElaboration } from 'store/selectors'
+import AttachmentSummary from '../organisms/AttachmentSummary'
 
 const AttachmentSummaryContainer = props => <AttachmentSummary {...props} />
 

@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 
-import { Row, ProjectListItem } from 'components'
+import { Row } from 'components'
 import { Carousel } from 'containers'
+import ProjectListItem from '../ProjectListItem'
 
 const StyledRow = styled(Row)`
   ${breakpoint('m')`

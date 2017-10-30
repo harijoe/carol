@@ -1,7 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { FooterAdvices, FooterCorporate, FooterSocialNetworks, MainWrapper } from 'components'
+import { MainWrapper } from 'components'
+import FooterAdvices from './organisms/FooterAdvices'
+import FooterCorporate from './organisms/FooterCorporate'
+import FooterSocialNetworks from './organisms/FooterSocialNetworks'
 
 const Footer = ({ locale }) =>
   <MainWrapper resetState className="footer">

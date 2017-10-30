@@ -2,8 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { Section, FooterSocialNetworksLink } from 'components'
+import { Section } from 'components'
 import { theme, breakpoint } from 'utils/style'
+import FooterSocialNetworksLink from '../../molecules/FooterSocialNetworksLink'
 
 const StyledSection = styled(Section)`
   padding-bottom: ${theme('spaces.m')};

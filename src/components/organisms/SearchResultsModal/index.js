@@ -6,7 +6,9 @@ import { theme, breakpoint, breakpointMax } from 'utils/style'
 import { locales } from 'config'
 import shuffle from 'lodash/shuffle'
 
-import { Grid, Row, Col, Heading, Link, Icon, Divider, SearchSuggestions, SearchSuggestionsText, SearchResultItem, SearchResultContentItem, IconLink } from 'components'
+import { Grid, Row, Col, Heading, Link, Icon, Divider, SearchResultItem, SearchSuggestions, IconLink } from 'components'
+import SearchSuggestionsText from './organisms/SearchSuggestionsText'
+import SearchResultContentItem from './organisms/SearchResultContentItem'
 
 const WrapperResults = styled.div`
   max-width: 110rem;

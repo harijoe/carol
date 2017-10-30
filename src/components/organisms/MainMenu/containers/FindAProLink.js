@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { clickOnFindAPro } from 'store/actions'
 
-import { FindAProLink } from 'components'
+import FindAProLink from '../molecules/FindAProLink'
 
 const FindAProLinkContainer = props => <FindAProLink {...props} />
 

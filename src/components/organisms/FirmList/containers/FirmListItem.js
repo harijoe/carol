@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fromContext } from 'store/selectors'
 
-import { FirmListItem } from 'components'
+import FirmListItem from '../molecules/FirmListItem'
 
 const FirmItemContainer = props => <FirmListItem {...props} />
 

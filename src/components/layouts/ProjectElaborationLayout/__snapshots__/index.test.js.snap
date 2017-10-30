@@ -2,7 +2,7 @@
 
 exports[`should render ProjectElaborationLayout component 1`] = `
 <Mock
-  header={<Mock />}
+  header={<Connect(HeaderConversationalContainer) />}
 >
   test children
 </Mock>

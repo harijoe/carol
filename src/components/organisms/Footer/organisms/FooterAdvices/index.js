@@ -4,7 +4,8 @@ import styled from 'styled-components'
 import { theme, breakpoint } from 'utils/style'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 
-import { Section, List, Col, Row, FooterAdvicesListItem } from 'components'
+import { Section, List, Col, Row } from 'components'
+import FooterAdvicesListItem from '../../molecules/FooterAdvicesListItem'
 
 const StyledRow = styled(Row)`
   width: 100%;

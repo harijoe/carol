@@ -6,8 +6,9 @@ import { theme, ifThen, breakpoint, breakpointMax } from 'utils/style'
 import { locales } from 'config'
 import injectScroll from 'hoc/component/injectScroll'
 
-import { List, Link, ListItemWithSubmenu, FirmResourceSubMenu } from 'components'
-import { FindAProLink } from 'containers'
+import { List, Link, ListItemWithSubmenu } from 'components'
+import FirmResourceSubMenu from './molecules/FirmResourceSubMenu'
+import FindAProLink from './containers/FindAProLink'
 
 const StyledList = styled(List)`${({ homepage, atTop }) => css`
   display: flex;
