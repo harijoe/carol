@@ -41,6 +41,8 @@ const PhoneCodeForm = props => {
         placeholder={'XXXXXX'}
         onChange={handleChange}
         disabled={loading || disabled}
+        type="tel"
+        pattern="\d*"
       />
       {error && <FormattedMessage id={error} tagName="strong" />}
       <br />
