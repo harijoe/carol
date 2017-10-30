@@ -1,5 +1,6 @@
 import { fork, cancel, take, put } from 'redux-saga/effects'
 import splitActionType from 'utils/actions'
+import logging from 'logging'
 
 const takeFlow = ({ cancelLastTask = false } = {}) =>
   function* takeEvery(pattern, saga, ...args) {
@@ -14,7 +15,7 @@ const takeFlow = ({ cancelLastTask = false } = {}) =>
           try {
             yield* saga(action)
           } catch (e) {
-            console.error(e.stack)
+            logging.captureException(e)
           }
         }
 

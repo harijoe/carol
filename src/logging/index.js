@@ -19,7 +19,12 @@ const RavenJS = () => {
       },
     }).install()
 
-    window.addEventListener('unhandledrejection', rejection => cachedRavenJS.captureException(rejection.reason))
+    cachedRavenJS.handleException = errorMessage => {
+      console.error(errorMessage)
+      this.captureException(errorMessage)
+    }
+
+    window.addEventListener('unhandledrejection', rejection => cachedRavenJS.handleException(rejection.reason))
   }
 
   return cachedRavenJS
