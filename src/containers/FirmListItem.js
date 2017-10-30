@@ -7,7 +7,7 @@ import { FirmListItem } from 'components'
 const FirmItemContainer = props => <FirmListItem {...props} />
 
 const mapStateToProps = state => ({
-  proPageEnabled: fromContext.isFeatureEnabled(state, 'pro-page'),
+  proPageEnabled: fromContext.getLang(state) === 'fr' || fromContext.getLang(state) === 'en',
 })
 
 export default connect(mapStateToProps)(FirmItemContainer)

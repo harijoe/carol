@@ -32,7 +32,7 @@ const mapStateToProps = (state, { id }) => ({
   details: fromFirm.getDetails(state, id),
   loading: fromStatus.isLoading(state, FIRM_DETAILS.prefix),
   locale: fromContext.getLocale(state),
-  mapEnabled: fromContext.getLang(state) === 'fr' && fromContext.isFeatureEnabled(state, 'pro-page-map'),
+  mapEnabled: fromContext.getLang(state) === 'fr',
   teamEnabled: fromContext.isFeatureEnabled(state, 'pro-page-team'),
 })
 
