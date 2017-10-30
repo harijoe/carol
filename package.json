@@ -167,7 +167,7 @@
     "redux-thunk": "^2.2.0",
     "serialize-javascript": "^1.4.0",
     "serve-favicon": "^2.4.5",
-    "styled-components": "^2.2.1",
+    "styled-components": "^2.2.3",
     "uuid": "^3.0.1",
     "validator": "^9.0.0",
     "webpack": "^3.6.0",
