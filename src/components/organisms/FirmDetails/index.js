@@ -518,7 +518,8 @@ class FirmDetails extends Component {
       trade,
     } = this.props.details
 
-    const { proEmail, proPhone, proPostCity, proPostCode } = leadSales.filter(lead => lead.project === `/projects/${projectId}`)[0]
+    const projectFinder = ({ project: { '@id': id } }) => id === `/projects/${projectId}`
+    const { proEmail, proPhone, proPostCity, proPostCode } = leadSales.find(projectFinder)
 
     let mainPicture = null
     let teamPictures = null
