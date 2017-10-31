@@ -26,9 +26,9 @@ import {
   ReadMore,
   ProfileImage,
   StarRating,
-  FirmGallery,
 } from 'components'
 import GoogleMapsInterventionArea from './atoms/GoogleMapsInterventionArea'
+import FirmGallery from './molecules/FirmGallery'
 
 const Wrapper = styled.div`
   section:last-child {
