@@ -1,3 +1,11 @@
+## 1.11.3 - 2017-10-31
+
+Patch release for sprint 27
+
+### Bug fixes
+- [HIANDU-1743](https://quotatis.atlassian.net/browse/HIANDU-1743) PRO PAGE - Fail to display page following pro-price work
+
+
 ## 1.11.2 - 2017-10-31
 
 Last release for sprint 27
