@@ -34,6 +34,7 @@ if [ $BRANCH == "develop" ]; then
   echo ${JSON_PATCH}
   kubectl patch deployment carol-${BRANCH} --namespace=${BRANCH} -p $JSON_PATCH
   kubectl delete pods `kubectl get pod -l "run=carol-${BRANCH}" -o=template --template="{{ with index .items 0}}{{ .metadata.name }}{{ end }}" --namespace=${BRANCH}` --namespace=${BRANCH}
+  gcloud auth revoke #logout since we need to use the token in preprod deployment
 else
   echo "Nothing to deploy, BRANCH != master"
 fi
