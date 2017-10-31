@@ -1,3 +1,22 @@
+## 1.11.2 - 2017-10-31
+
+Last release for sprint 27
+
+### Features
+- [HIANDU-1566](https://quotatis.atlassian.net/browse/HIANDU-1566) PRO PAGE - Firm intervention area
+- [HIANDU-1663](https://quotatis.atlassian.net/browse/HIANDU-1663) MODAL SEARCH - Content result
+- [HIANDU-1662](https://quotatis.atlassian.net/browse/HIANDU-1662) RESULT PAGE - Content result
+- [HIANDU-1631](https://quotatis.atlassian.net/browse/HIANDU-1631) SEARCH ENGINE - Content results available
+- [HIANDU-1735](https://quotatis.atlassian.net/browse/HIANDU-1735) AV Step 2.2 - Display digit keypad on Mobile for phone confirmation code
+- [HIANDU-1686](https://quotatis.atlassian.net/browse/HIANDU-1686) PRO PAGE - remove some feature flag
+
+### Bug fixes
+- [HIANDU-1676](https://quotatis.atlassian.net/browse/HIANDU-1676) LOADING PAGE - brand it with logo and content
+- [HIANDU-1732](https://quotatis.atlassian.net/browse/HIANDU-1732) PRO PAGE - pro picture display in responsive
+- [HIANDU-1731](https://quotatis.atlassian.net/browse/HIANDU-1731) PRO PAGE - Rating display on iOS
+- [HIANDU-1695](https://quotatis.atlassian.net/browse/HIANDU-1695) MODAL SEARCH - arrow is missing for See all results
+
+
 ## 1.11.1 - 2017-10-26
 
 Emmergency release to fix mobile search result and ld+json
