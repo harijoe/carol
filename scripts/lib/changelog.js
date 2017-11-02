@@ -54,7 +54,7 @@ const changelogFromJIRA = async (sprintNumber, description) => {
   const changeLog = readChangeLog()
 
   const issues = allIssues
-    .filter(issue => issue.fields.status.name.match(/Done|Tests/))
+    .filter(issue => issue.fields.status.name.match(/done|test/i))
     .filter(issue => issue.fields.summary.match(/Integration|CAROL/))
     .filter(issue => !changeLog.includes(issue.key))
 
@@ -68,10 +68,21 @@ const changelogFromJIRA = async (sprintNumber, description) => {
   const bugs = issues.filter(isBug)
   const storiesOrTasks = issues.filter(issue => !isBug(issue))
 
+  const changes = []
+
+  if (storiesOrTasks.length > 0) {
+    changes.push(`### Features\n${formatIssues(storiesOrTasks).join('\n')}`)
+  }
+  if (bugs.length > 0) {
+    changes.push(`### Bug fixes\n${formatIssues(bugs).join('\n')}`)
+  }
+  if (changes.length === 0) {
+    changes.push('No bugs or features from JIRA - see commits for details.')
+  }
+
   return [
     description || `Release for Sprint ${sprintNumber}`,
-    `### Features\n${formatIssues(storiesOrTasks).join('\n')}`,
-    `### Bug fixes\n${formatIssues(bugs).join('\n')}`,
+    ...changes,
   ].join('\n\n')
 }
 
