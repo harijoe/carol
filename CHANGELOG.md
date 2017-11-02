@@ -1,3 +1,11 @@
+## 1.11.4 - 2017-11-02
+
+Second patch release for Sprint 27
+
+### Bug fixes
+- [HIANDU-1747](https://quotatis.atlassian.net/browse/HIANDU-1747) RESULT PAGE - Search is not working anymore
+
+
 ## 1.11.3 - 2017-10-31
 
 Patch release for sprint 27
