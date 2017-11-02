@@ -6,12 +6,9 @@ import { theme, breakpoint, breakpointMax } from 'utils/style'
 import { locales } from 'config'
 import shuffle from 'lodash/shuffle'
 
-import { Row, Col, Section, SearchResultItem } from 'components'
-import DefaultSearchResultsSection from './molecules/DefaultSearchResultsSection'
-import ResultsGrid from './atoms/ResultsGrid'
-import NoResultsSection from './molecules/NoResultsSection'
-import SearchTerm from './molecules/SearchTerm'
-import SearchCategories from './molecules/SearchCategories'
+import { Row, Col, Section, SearchResultItem, DefaultSearchResultsSection, ResultsGrid, NoResultsSection } from 'components'
+
+import { SearchTerm, SearchCategories } from 'containers'
 
 const WrapperResults = styled.div``
 
