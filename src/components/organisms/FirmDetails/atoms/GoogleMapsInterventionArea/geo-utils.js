@@ -5,9 +5,11 @@ export const calculateBounds = polygons => {
   return bounds
 }
 
+const inverseLatLng = ([x, y]) => ({ lat: y, lng: x })
+
 const fetchPostCodeGeoData = async postCode => {
   const response = await fetch(
-    `https://public.opendatasoft.com/api/records/1.0/search/?dataset=correspondance-code-insee-code-postal&q=${postCode}`,
+    `https://public.opendatasoft.com/api/records/1.0/search/?dataset=correspondance-code-insee-code-postal&rows=1000&q=${postCode}`,
   )
   const json = await response.json()
   const records = json.records
@@ -18,7 +20,12 @@ const fetchPostCodeGeoData = async postCode => {
         summary.population += record.fields.population
         // eslint-disable-next-line no-param-reassign
         summary.city = record.fields.nom_comm
-        record.fields.geo_shape.coordinates.forEach(polygon => summary.polygons.push(polygon.map(([x, y]) => ({ lat: y, lng: x }))))
+        if (record.fields.geo_shape.type === 'MultiPolygon') {
+          record.fields.geo_shape.coordinates.forEach(
+            multipolygon => summary.polygons.push(multipolygon[0].map(inverseLatLng)))
+        } else {
+          summary.polygons.push(record.fields.geo_shape.coordinates[0].map(inverseLatLng))
+        }
         return summary
       },
       { polygons: [], population: 0 },
