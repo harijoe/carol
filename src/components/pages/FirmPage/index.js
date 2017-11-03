@@ -1,14 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { breakpointMax } from 'utils/style'
 
 import { MainLayout, MainWrapper } from 'components'
 import { FirmDetails } from 'containers'
 
+const StyledMainWrapper = styled(MainWrapper)`
+  ${breakpointMax('m')`
+    padding-top: 5.6rem;
+  `}
+`
+
 const FirmPage = props => (
   <MainLayout>
-    <MainWrapper paddingTop="m">
+    <StyledMainWrapper paddingTop="m">
       <FirmDetails id={props.params.firmId} {...props} />
-    </MainWrapper>
+    </StyledMainWrapper>
   </MainLayout>
 )
 

@@ -31,6 +31,12 @@ import GoogleMapsInterventionArea from './atoms/GoogleMapsInterventionArea'
 import FirmGallery from './molecules/FirmGallery'
 
 const Wrapper = styled.div`
+  section:first-child {
+    ${breakpointMax('m')`
+      padding-top: 0;
+    `};
+  }
+
   section:last-child {
     padding-bottom: ${theme('spaces.xl')};
 
@@ -46,7 +52,15 @@ const Wrapper = styled.div`
 `
 
 const StyledRow = styled(Row)`
+  ${breakpointMax('m')`
+    margin-left: -${theme('spaces.m')};
+    margin-right: -${theme('spaces.m')};
+    padding-left: ${theme('spaces.m')};
+    padding-right: ${theme('spaces.m')};
+  `};
+
   ${breakpoint('m')`
+    position: relative;
     margin-left: 0;
     margin-right: 0;
   `};
@@ -56,20 +70,39 @@ const WrapperImagePro = styled(Col)`
   height: 25rem;
   overflow: hidden;
 
-  ${breakpoint('s')`
-    height: 30rem;
-  `};
   ${breakpoint('m')`
     height: 55rem;
+  `};
+
+  ${breakpointMax('m')`
+    position: relative;
+    flex-basis: 100vw;
+    margin-left: -${theme('spaces.m')};
+    margin-right: -${theme('spaces.m')};
+    max-width: 100vw;
+    width: 100vw;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(19,19,19,0.3);
+      content: '';
+    }
   `};
 
   > a {
     position: absolute;
     top: -32px;
+    z-index: 2;
     color: ${theme('colors.grayscale.dark')};
 
     ${breakpointMax('m')`
-      right: 0;
+      left: ${theme('spaces.m')};
+      top: 5rem;
+      color: ${theme('colors.white')};
     `};
   }
 `
@@ -82,9 +115,14 @@ const WrapperInfosPro = styled(Col)`
   margin-top: ${theme('spaces.l')};
   height: fit-content;
 
+  ${breakpointMax('m')`
+    position: relative;
+  `};
+
   ${breakpoint('m')`
     padding-left: ${theme('spaces.l')};
   `};
+
   ${breakpoint('xl')`
     padding-left: ${theme('spaces.xxl')};
   `};
@@ -147,6 +185,12 @@ const LogoProImage = styled(ProfileImage)`
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
     overflow: hidden;
   `};
+
+  ${breakpointMax('m')`
+    top: -10rem;
+    right: auto;
+  `};
+
   ${breakpoint('xl')`
     width: 12.5rem;
     height: 12.5rem;
@@ -179,7 +223,15 @@ const StyledIconLink = styled(IconLink)`
 
   ${breakpoint('m')`
     margin-bottom: ${theme('spaces.l')};
-  `} span {
+  `}
+
+  ${breakpointMax('m')`
+    span:first-child path{
+      fill: ${theme('colors.white')};
+    }
+  `} 
+
+  span {
     vertical-align: top;
 
     &:first-child {
@@ -200,9 +252,15 @@ const StyledIconLink = styled(IconLink)`
 
 const StyledCertificateList = styled(List)`
   list-style-type: none;
-  font-weight: bold;
   vertical-align: middle;
   color: ${theme('colors.grayscale.dark')};
+
+  ${breakpointMax('m')`
+    strong {
+      display: block;
+      margin-bottom: ${theme('spaces.s')};
+    }
+  `};
 
   li {
     display: inline-block;
@@ -213,10 +271,6 @@ const StyledCertificateList = styled(List)`
     font-size: ${theme('fonts.size.xs')};
     text-transform: uppercase;
     margin-right: ${theme('spaces.xs')};
-
-    &:first-child {
-      padding: ${theme('spaces.s')};
-    }
 
     &:last-child {
       margin-right: 0;
@@ -230,10 +284,6 @@ const StyledCertificateList = styled(List)`
       position: relative;
       padding-right: 2rem;
       vertical-align: middle;
-
-      &:first-child {
-        padding-right: 2rem;
-      }
     `};
   }
 `
@@ -547,78 +597,76 @@ class FirmDetails extends Component {
     return (
       <Wrapper>
           <Section>
-            <Grid>
-              <StyledRow>
-                <WrapperImagePro xs={12} m={5}>
-                  <StyledIconLink to={`projects/${projectId}`} icon="back_arrow">
-                    <FormattedMessage id="firm.details.back_link_title" />
-                  </StyledIconLink>
-                  <StyledCoverPro imageUrl={mainPicture || genericFirmDetailImage} />
-                </WrapperImagePro>
-                <WrapperInfosPro xs={12} m={7}>
-                  <InfosPro>
-                    <Heading level={1}>{name}</Heading>
-                    <Paragraph>{trade}</Paragraph>
-                      <Notation>
-                        {globalRatingCount > 0 ? (
-                          <div>
-                            <StarRating value={globalRating} />
-                            <strong> {globalRating}</strong> - {globalRatingCount} <FormattedMessage id="firm.details.rating_reviews" />
-                          </div>
-                        ) : (
-                          <span>&nbsp;</span>
-                        )}
-                      </Notation>
-                    {firmCertificates &&
-                      firmCertificates.length > 0 && (
-                        <StyledCertificateList>
-                          {labelWithColon(translate('firm.details.certifications'))}
-                          {firmCertificates.map(item => (
-                            <li
-                              key={item['@id']}
-                              data-tip={!isTouchDevice() ? item.certificate.description : null}
-                              onClick={() => this.showModal(item.certificate.description)}
-                            >
-                              {item.certificate.name}
-                              <IconCertificate icon="question-mark" />
-                            </li>
-                          ))}
-                        </StyledCertificateList>
+            <StyledRow>
+              <WrapperImagePro xs={12} m={5}>
+                <StyledIconLink to={`projects/${projectId}`} icon="back_arrow">
+                  <FormattedMessage id="firm.details.back_link_title" />
+                </StyledIconLink>
+                <StyledCoverPro imageUrl={mainPicture || genericFirmDetailImage} />
+              </WrapperImagePro>
+              <WrapperInfosPro xs={12} m={7}>
+                <InfosPro>
+                  <Heading level={1}>{name}</Heading>
+                  <Paragraph>{trade}</Paragraph>
+                    <Notation>
+                      {globalRatingCount > 0 ? (
+                        <div>
+                          <StarRating value={globalRating} />
+                          <strong> {globalRating}</strong> - {globalRatingCount} <FormattedMessage id="firm.details.rating_reviews" />
+                        </div>
+                      ) : (
+                        <span>&nbsp;</span>
                       )}
-                  </InfosPro>
-                  {logoUrl &&
-                      <LogoProImage image={logoUrl} size={'l'} />}
-                  <Divider />
-                  <WrapperContactsPro>
-                    <StyledContactList>
-                      <li>
-                        <Icon icon="location-pin" />
-                        {proPostCode} {proPostCity}
-                      </li>
-                      <li>
-                        <Icon icon="phone" /><a href={`tel:${proPhone}`}>{proPhone}</a>
-                      </li>
-                      <li>
-                        <Icon icon="mail" /><a href={`mailto:${proEmail}`}>{proEmail}</a>
-                      </li>
-                    </StyledContactList>
-                    {websiteUrl && <StyledContactList>
-                      <li>
-                        <WebsiteLink href={normalizeUrl(websiteUrl)} rel="nofollow" target="_blank">
-                          <FormattedMessage id="firm.details.website" />
-                        </WebsiteLink>
-                      </li>
-                    </StyledContactList>}
-                  </WrapperContactsPro>
-                  <Divider />
-                  {description && (<StyledDescription>
-                    <ReadMore lines={7} more={translate('firm.details.see_more')} less={translate('firm.details.see_less')}>
-                      {renderDescription(description)}
-                    </ReadMore>
-                  </StyledDescription>
-                )}</WrapperInfosPro>
-              </StyledRow>
-            </Grid>
+                    </Notation>
+                  {firmCertificates &&
+                    firmCertificates.length > 0 && (
+                      <StyledCertificateList>
+                        <strong>{labelWithColon(translate('firm.details.certifications'))}</strong>
+                        {firmCertificates.map(item => (
+                          <li
+                            key={item['@id']}
+                            data-tip={!isTouchDevice() ? item.certificate.description : null}
+                            onClick={() => this.showModal(item.certificate.description)}
+                          >
+                            {item.certificate.name}
+                            <IconCertificate icon="question-mark" />
+                          </li>
+                        ))}
+                      </StyledCertificateList>
+                    )}
+                </InfosPro>
+                {logoUrl &&
+                    <LogoProImage image={logoUrl} size={'l'} />}
+                <Divider />
+                <WrapperContactsPro>
+                  <StyledContactList>
+                    <li>
+                      <Icon icon="location-pin" />
+                      {proPostCode} {proPostCity}
+                    </li>
+                    <li>
+                      <Icon icon="phone" /><a href={`tel:${proPhone}`}>{proPhone}</a>
+                    </li>
+                    <li>
+                      <Icon icon="mail" /><a href={`mailto:${proEmail}`}>{proEmail}</a>
+                    </li>
+                  </StyledContactList>
+                  {websiteUrl && <StyledContactList>
+                    <li>
+                      <WebsiteLink href={normalizeUrl(websiteUrl)} rel="nofollow" target="_blank">
+                        <FormattedMessage id="firm.details.website" />
+                      </WebsiteLink>
+                    </li>
+                  </StyledContactList>}
+                </WrapperContactsPro>
+                <Divider />
+                {description && (<StyledDescription>
+                  <ReadMore lines={7} more={translate('firm.details.see_more')} less={translate('firm.details.see_less')}>
+                    {renderDescription(description)}
+                  </ReadMore>
+                </StyledDescription>
+              )}</WrapperInfosPro>
+            </StyledRow>
           </Section>
           <StyledMoreInfoSection title={translate('firm.details.more_information')} light>
             <Grid>
