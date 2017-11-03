@@ -10,7 +10,7 @@ import { Grid, Row, Col, Heading, Link, Icon, Divider, SearchSuggestions, Search
 
 const WrapperResults = styled.div`
   max-width: 110rem;
-  margin: ${theme('spaces.xxl')} auto 0 auto;
+  margin: ${theme('spaces.l')} auto 0 auto;
   padding-left: ${theme('spaces.m')};
   padding-right: ${theme('spaces.m')};
   padding-bottom: ${theme('spaces.m')}; 
@@ -198,10 +198,6 @@ const StyledIconLink = styled(IconLink)`
   display: block;
   margin-bottom: ${theme('spaces.m')};
   color: ${theme('colors.grayscale.dark')};
-
-  ${breakpoint('m')`
-    margin-bottom: ${theme('spaces.m')};
-  `} 
   
   span {
     vertical-align: top;
@@ -225,10 +221,18 @@ const StyledIconLink = styled(IconLink)`
 const ContentWrapper = styled.div`
   width: 100%;
   margin-top: ${theme('spaces.m')};
+
+  ${breakpoint('m')`
+    margin-top: calc(${theme('spaces.l')} / 2);
+  `} 
 `
 
 const ContentItem = styled.div`
-
+  ${breakpoint('m')`
+    a:last-child {
+      margin-bottom: 0;
+    }
+  `} 
 `
 
 const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWordpressContentEnabled, wordpressContentResultsByType }) => {
@@ -256,9 +260,6 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
     {projectFlowResults &&
       projectFlowResults.hits.length > 0 &&
       <div>
-        <ResultsHeading level={3}>
-          {translate('search_page.your_search')}
-        </ResultsHeading>
         <StyledIconLink right to={`search-result?q=${query}&category=project`} icon="front_arrow">
           <strong>{projectFlowResults.hits.length}</strong> {translate('search_page.category.project.title', { contentNumber: projectFlowResults.hits.length })}
         </StyledIconLink>
@@ -286,7 +287,7 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
               ['project_page', 'faqs', 'inspirations'].map((key, index) => {
                 if (!wordpressContentResultsByType[key]) return null
 
-                return <ColContent xs={12} m={4} l={4} order={index} key={index}>
+                return <ColContent xs={12} m={6} l={4} order={index} key={index}>
                   <ContentItem>
                     <StyledIconLink right to={`search-result?q=${query}&category=${key}`} icon="front_arrow">
                       <strong>{wordpressContentResultsByType[key].length}</strong> {translate(`search_page.category.${key}.title`, { contentNumber: wordpressContentResultsByType[key].length })}

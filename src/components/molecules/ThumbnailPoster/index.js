@@ -20,7 +20,7 @@ const styles = ({ height }) => {
       break
     case 'm':
       baseStyle = css`
-        height: 25rem;
+        height: 22.5rem;
 
         ${breakpoint('m')`
           height: 30rem;

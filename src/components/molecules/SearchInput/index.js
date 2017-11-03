@@ -20,6 +20,7 @@ const StyledInput = styled(Input)`
     font-size: ${theme('fonts.size.base')};
     font-weight: normal;
     line-height: 1;
+    color: ${theme('colors.primary')};
 
     &::-ms-clear {
       display: none;
@@ -59,11 +60,11 @@ const StyledInput = styled(Input)`
       border-bottom: 1px solid ${theme('colors.primary')};
 
       ${breakpoint('l')`
-        height: 15rem;
+        height: 11rem;
         width: calc(100% - ${theme('spaces.xl')} * 2);
-        margin-top: ${theme('spaces.xxl')};
-        padding-bottom: ${theme('spaces.xxl')};
-        padding-top: ${theme('spaces.xxl')};
+        margin-top: ${theme('spaces.xl')};
+        padding-bottom: ${theme('spaces.xl')};
+        padding-top: ${theme('spaces.xl')};
         font-size: ${theme('fonts.size.xxl')};
       `};
 

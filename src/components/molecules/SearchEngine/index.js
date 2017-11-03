@@ -34,9 +34,9 @@ const StyledIcon = styled(Icon)`
       fill: ${theme('colors.primary')};
 
       ${breakpoint('l')`
-        margin-top: calc(${theme('icons.size.xxl')} / -2);
-        height: ${theme('icons.size.xxl')};
-        width: ${theme('icons.size.xxl')};
+        margin-top: calc(${theme('icons.size.xl')} / -2);
+        height: ${theme('icons.size.xl')};
+        width: ${theme('icons.size.xl')};
       `};
     `,
     )};  
