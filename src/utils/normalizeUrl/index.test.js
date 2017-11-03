@@ -1,4 +1,4 @@
-import normalizeUrl from './normalizeUrl'
+import normalizeUrl from '.'
 
 describe('normalizeUrl', () => {
   it('returns the URL is it is absolute', () => {

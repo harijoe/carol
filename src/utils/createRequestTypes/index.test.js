@@ -1,4 +1,4 @@
-import actions, { createRequestTypes } from './'
+import actions, { createRequestTypes } from '.'
 
 describe('Service actions', () => {
   it('should render an object with type and payload ', () => {

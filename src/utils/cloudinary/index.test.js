@@ -1,4 +1,4 @@
-import cloudinary from './cloudinary'
+import cloudinary from '.'
 
 describe('cloudinary', () => {
   it('do not use auto-format for SVGs', () => {

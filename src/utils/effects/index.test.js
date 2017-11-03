@@ -1,6 +1,6 @@
 import { expectSaga } from 'redux-saga-test-plan'
 import { put, take } from 'redux-saga/effects'
-import { takeEvery, takeLatest, putAndAwait } from './'
+import { takeEvery, takeLatest, putAndAwait } from '.'
 
 describe('effects', () => {
   it('should not break saga in takeEvery even when an exception is thrown', () => {

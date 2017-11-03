@@ -1,4 +1,4 @@
-import isFirstChatbotStep from './isFirstChatbotStep'
+import isFirstChatbotStep from '.'
 
 const firstQuestion = {}
 

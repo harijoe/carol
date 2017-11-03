@@ -1,4 +1,4 @@
-import parseQueryString from './parseLocationSearch'
+import parseQueryString from '.'
 
 it('parses a query string', () => {
   expect(parseQueryString('?a=1&b=2')).toEqual({ a: '1', b: '2' })

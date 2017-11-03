@@ -1,4 +1,4 @@
-import requireExternalLibrary from './requireExternalLibrary'
+import requireExternalLibrary from '.'
 
 describe('External library', () => {
 

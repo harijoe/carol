@@ -1,4 +1,4 @@
-import { format, normalize } from './transformPhone'
+import { format, normalize } from '.'
 
 describe('fr', () => {
   it('formats a french number', () => {

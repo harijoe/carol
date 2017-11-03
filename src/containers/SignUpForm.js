@@ -4,7 +4,7 @@ import { reduxForm } from 'redux-form'
 import { push } from 'react-router-redux'
 
 import { createValidator, email, password, required } from 'services/validation'
-import { fromForm, fromStatus, fromRouting } from 'store/selectors'
+import { fromStatus, fromRouting } from 'store/selectors'
 import { userCreate } from 'store/actions'
 import { SignUpForm } from 'components'
 
@@ -28,9 +28,6 @@ const config = {
 }
 
 const mapStateToProps = state => ({
-  initialValues: {
-    _csrf: fromForm.getCsrfToken(state),
-  },
   loading: fromStatus.getLoading(state).USER_CREATE || fromStatus.getLoading(state).AUTH_LOGIN,
   redirectPathname: fromRouting.getState(state).redirectPathname || '/',
 })

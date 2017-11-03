@@ -1,4 +1,4 @@
-import hostnameFromUrl from './hostNameFromUrl'
+import hostnameFromUrl from '.'
 
 describe('hostnameFromUrl', () => {
   it('returns the hostname from an http url', () => {

@@ -1,4 +1,4 @@
-import transformThumbnailUrl from './transformThumbnailUrl'
+import transformThumbnailUrl from '.'
 
 describe('transformThumbnailUrl', () => {
 
