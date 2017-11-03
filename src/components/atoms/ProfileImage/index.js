@@ -7,6 +7,7 @@ const SIZES = {
   s: theme('icons.size.xxl'),
   m: theme('icons.size.xxxl'),
   l: '8rem',
+  xl: '10rem',
 }
 
 const styles = ({ size, image, defaultImage }) => css`

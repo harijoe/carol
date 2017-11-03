@@ -384,29 +384,28 @@ const StyledTeamSection = styled(Section)`
 `
 const TeamWrapper = styled.div`
   display: flex;
-  align-content: center;
+  flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
   width: 100%;
 `
 
 const TeamMemberWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  text-align: center;
+  align-items: center;
+  margin: 0 1.25rem;
   width: 12.5rem;
+  text-align: center;
 
-  > div {
-    margin: 0 auto ${theme('spaces.m')} auto;
-    width: 8rem;
-    height: 8rem;
-    border-radius: 50%;
-    overflow: hidden;
-    img {
-      height: 8rem;
-    }
-  }
+  ${breakpointMax('m')`
+    margin: 1.25rem;
+  `};
+`
+
+const StyledProfileImage = styled(ProfileImage)`
+  margin-bottom: ${theme('spaces.s')};
+  background-size: cover;
 `
 
 const WebsiteLink = styled.a`
@@ -717,9 +716,9 @@ class FirmDetails extends Component {
                 <TeamWrapper>
                   {teamPictures.map((item, index) => (
                     <TeamMemberWrapper key={index}>
-                    <ProfileImage image={item.url} size={'l'} />
+                    <StyledProfileImage image={item.url} size={'xl'} />
                           {item.description &&
-                      <strong>{item.description}</strong>}
+                      <span>{item.description}</span>}
                     </TeamMemberWrapper>
                   ))}
                 </TeamWrapper>
