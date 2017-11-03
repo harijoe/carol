@@ -1,3 +1,11 @@
+## 1.11.5 - 2017-11-03
+
+Third patch release for Sprint 27
+
+### Bug fixes
+- [HIANDU-1760](https://quotatis.atlassian.net/browse/HIANDU-1760) PRO PAGE - no display the map if no data or postcode errors
+
+
 ## 1.11.4 - 2017-11-02
 
 Second patch release for Sprint 27
