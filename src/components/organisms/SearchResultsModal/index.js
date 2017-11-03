@@ -261,7 +261,7 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
       projectFlowResults.hits.length > 0 &&
       <div>
         <StyledIconLink right to={`search-result?q=${query}&category=project`} icon="front_arrow">
-          <strong>{projectFlowResults.hits.length}</strong> {translate('search_page.category.project.title', { contentNumber: projectFlowResults.hits.length })}
+          {translate('search_page.see_sample_result')} <strong>{projectFlowResults.hits.length}</strong> {translate('search_page.category.project.title', { contentNumber: projectFlowResults.hits.length })}
         </StyledIconLink>
         <StyledGrid narrow>
           <Row>
@@ -290,7 +290,7 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
                 return <ColContent xs={12} m={6} l={4} order={index} key={index}>
                   <ContentItem>
                     <StyledIconLink right to={`search-result?q=${query}&category=${key}`} icon="front_arrow">
-                      <strong>{wordpressContentResultsByType[key].length}</strong> {translate(`search_page.category.${key}.title`, { contentNumber: wordpressContentResultsByType[key].length })}
+                      {translate('search_page.see_sample_result')} <strong>{wordpressContentResultsByType[key].length}</strong> {translate(`search_page.category.${key}.title`, { contentNumber: wordpressContentResultsByType[key].length })}
                     </StyledIconLink>
                     {wordpressContentResultsByType[key].slice(0, 2).map((el, i) =>
                       <SearchResultContentItem key={i} title={el.title} image={el.image} link={el.link} />
