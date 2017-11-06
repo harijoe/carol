@@ -17,12 +17,13 @@ const StyledLink = styled(Link)`
   display: inline-block;
 `
 
-const Tag = ({ link, label }) =>
-  <StyledLink to={link}>
+const Tag = ({ link, label, className }) =>
+  <StyledLink to={link} className={className}>
     {label}
   </StyledLink>
 
 Tag.propTypes = {
+  className: PropTypes.string,
   label: PropTypes.string.isRequired,
   link: PropTypes.string,
 }

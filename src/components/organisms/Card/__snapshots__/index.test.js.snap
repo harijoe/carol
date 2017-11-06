@@ -2,11 +2,22 @@
 
 exports[`renders the Card component 1`] = `
 <Wrapper
+  hoverState={true}
+  padding="fluid"
+  strongShadow={false}
   theme={
     Object {
       "colors": Object {
         "alert": "#ffa000",
         "black": "#262626",
+        "content": Object {
+          "connectedHouse": "#1ee3dc",
+          "faq": "#262626",
+          "greenHouse": "#acd373",
+          "guide": "#ffd900",
+          "inspiration": "#fe336c",
+          "seniorHouse": "#926cff",
+        },
         "danger": "#d32f2f",
         "grayscale": Object {
           "dark": "#5E5E5E",

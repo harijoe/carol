@@ -5,19 +5,24 @@ import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import { locales } from 'config'
 import shuffle from 'lodash/shuffle'
-
-import { Row, Col, Section, SearchResultItem, DefaultSearchResultsSection, ResultsGrid, NoResultsSection } from 'components'
-
 import { SearchTerm, SearchCategories } from 'containers'
+
+import { Row, Col, Section, SearchResultItem, FaqCard, GuideCard, WpCard } from 'components'
+import DefaultSearchResultsSection from './molecules/DefaultSearchResultsSection'
+import ResultsGrid from './atoms/ResultsGrid'
+import NoResultsSection from './molecules/NoResultsSection'
 
 const WrapperResults = styled.div``
 
-const Header = styled(Section)`
-  border-bottom: 0.1rem solid ${theme('colors.grey')};
+const StyledSection = styled(Section)`
+  &:nth-child(2n) {
+    background: ${theme('colors.grayscale.lightest')};
+  }
+`
 
-  ${breakpoint('l')`
-    padding-bottom: ${theme('spaces.xxl')};
-  `}
+const Header = styled(Section)`
+  padding-bottom: 0;
+  border-bottom: 0.1rem solid ${theme('colors.grey')};
 `
 
 const StyledRow = styled(Row)`
@@ -59,10 +64,18 @@ const ColGrid = styled(Col)`
     padding-top: calc(${theme('spaces.l')} / 2);
   `}
 
+  &.qs-ColGrid--medium {
+    ${breakpointMax('m')`
+      padding: ${theme('spaces.s')} ${theme('spaces.xs')};
+    `}
+  }
+`
+const StyledFaqCard = styled(FaqCard)`
   ${breakpoint('l')`
     max-width: 22.5rem;
   `}
 `
+
 
 const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsByType, wpContentGuides, wpContentFaqs, searchCategory, query, locale, isWordpressContentEnabled }) => {
   const hasResults = !projectFlowResults || projectFlowResults.length === 0
@@ -79,12 +92,13 @@ const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsB
           <Col xs={12}>
             <SearchTerm term={query} />
           </Col>
+          <Col xs={12}>
+            {isWordpressContentEnabled && <SearchCategories />}
+          </Col>
         </StyledRow>
       </ResultsGrid>
     </Header>
-    {isWordpressContentEnabled && <SearchCategories />}
-    {projectFlowSectionEnabled && <Section
-      light
+    {projectFlowSectionEnabled && <StyledSection
       title={translate('search_page.result_section_title.projects')}
       subtitle={`${!hasResults ? ` (${translate('search_page.result_section_title.results', { resultsCount: projectFlowResults.hits.length })})` : ''}`}
     >
@@ -102,35 +116,44 @@ const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsB
           )}
         </Row>
       </ResultsGrid>
-    </Section>}
-    {weGuideYouSectionEnabled && <Section
+    </StyledSection>}
+    {weGuideYouSectionEnabled && <StyledSection
       title={translate('search_page.result_section_title.we_guide_you')}
-      subtitle={`<em>${wpContentGuides.length}</em> ${translate('search_page.category.project_page.title', { contentNumber: wpContentGuides.length })} et <em>${wpContentFaqs.length}</em> ${translate('search_page.category.faqs.title', { contentNumber: wpContentFaqs.length })}`}
+      subtitle={`<b>${wpContentGuides.length}</b> ${translate('search_page.category.project_page.title', { contentNumber: wpContentGuides.length })} et <b>${wpContentFaqs.length}</b> ${translate('search_page.category.faqs.title', { contentNumber: wpContentFaqs.length })}`}
     >
       <ResultsGrid narrow>
         <Row>
-          {(!searchCategory || searchCategory === 'guides') && <div>
-            Guides: (keys available : title, image, description, type)
-            {wpContentGuides.slice(0, 2).map(({ title }) => <div key={title}>{title}</div>)}
-          </div>}
-        </Row>
-        <Row>
-          {(!searchCategory || searchCategory === 'faqs') && <div>
-            Faqs:
-            {wpContentFaqs.slice(0, 4).map(({ title }) => <div key={title}>{title}</div>)}
-          </div>}
+          {(!searchCategory || searchCategory === 'guides') &&
+            wpContentGuides.map(({ title, id, image, description }) =>
+              (<ColGrid xs={12} m={8} l={6} key={id} x>
+                <GuideCard title={title} image={{ src: image, alt: title }} description={description} />
+              </ColGrid>),
+            )
+          }
+          {(!searchCategory || searchCategory === 'faqs') &&
+            wpContentFaqs.map(({ title, id }) =>
+              <ColGrid xs={6} m={4} l={3} key={id} x>
+                <StyledFaqCard title={title} />
+              </ColGrid>,
+            )
+          }
         </Row>
       </ResultsGrid>
-    </Section>}
-    {articlesSectionEnabled && <Section
+    </StyledSection>}
+    {articlesSectionEnabled && <StyledSection
       title={translate('search_page.result_section_title.articles')}
     >
       <ResultsGrid narrow>
         <Row>
-          {wordpressContentResultsByType.inspirations.map(({ title }) => <div key={title}>{title}</div>)}
+          {wordpressContentResultsByType.inspirations.map(({ title, id, image }) =>
+            <ColGrid className="qs-ColGrid--medium" xs={12} m={6} l={4} key={id} x>
+              <WpCard title={title} image={{ src: image, alt: title }} />
+            </ColGrid>
+          )
+        }
         </Row>
       </ResultsGrid>
-    </Section>}
+    </StyledSection>}
     {projectFlowResults && projectFlowResults.hits.length === 0 &&
     <NoResultsSection />}
     {!projectFlowResults && <DefaultSearchResultsSection locale={locale} />}

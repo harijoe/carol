@@ -8,6 +8,7 @@ import { Heading, Input, Icon } from 'components'
 
 const StyledHeading = styled(Heading)`
   position: relative;
+  margin: 0;
   line-height: 1.1;
   font-family: ${theme('fonts.family.andesLight')};
 

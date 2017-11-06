@@ -86,7 +86,7 @@ const Subtitle = styled.span`
   display: block;
   margin-bottom: -1.1rem;
   font-size: ${theme('fonts.size.s')};
-  color: ${theme('colors.primary')};
+  color: ${theme('colors.grayscale.dark')};
 `
 
 const Section = ({ light, primary, dark, tall, children, title, subtitle, ...props }) =>
