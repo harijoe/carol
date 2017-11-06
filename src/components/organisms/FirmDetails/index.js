@@ -135,18 +135,15 @@ const WrapperInfosPro = styled(Col)`
 
 const InfosPro = styled.div`
   flex-direction: column;
-  padding-right: ${theme('spaces.l')};
   margin-top: ${theme('spaces.m')};
   width: 100%;
 
-  ${breakpointMax('xl')`
-    width: calc( 100% - 10rem );
-  `};
   ${breakpoint('m')`
     margin-top: 0;
+    width: calc(100% - 10rem);
   `};
   ${breakpoint('xl')`
-    width: 46.5rem;
+    width: calc(100% - 13rem);
   `};
 
   > h1 {
@@ -606,35 +603,34 @@ class FirmDetails extends Component {
                 <InfosPro>
                   <Heading level={1}>{name}</Heading>
                   <Paragraph>{trade}</Paragraph>
-                    <Notation>
-                      {globalRatingCount > 0 ? (
-                        <div>
-                          <StarRating value={globalRating} />
-                          <strong> {globalRating}</strong> - {globalRatingCount} <FormattedMessage id="firm.details.rating_reviews" />
-                        </div>
-                      ) : (
-                        <span>&nbsp;</span>
-                      )}
-                    </Notation>
-                  {firmCertificates &&
-                    firmCertificates.length > 0 && (
-                      <StyledCertificateList>
-                        <strong>{labelWithColon(translate('firm.details.certifications'))}</strong>
-                        {firmCertificates.map(item => (
-                          <li
-                            key={item['@id']}
-                            data-tip={!isTouchDevice() ? item.certificate.description : null}
-                            onClick={() => this.showModal(item.certificate.description)}
-                          >
-                            {item.certificate.name}
-                            <IconCertificate icon="question-mark" />
-                          </li>
-                        ))}
-                      </StyledCertificateList>
+                  <Notation>
+                    {globalRatingCount > 0 ? (
+                      <div>
+                        <StarRating value={globalRating} />
+                        <strong> {globalRating}</strong> - {globalRatingCount} <FormattedMessage id="firm.details.rating_reviews" />
+                      </div>
+                    ) : (
+                      <span>&nbsp;</span>
                     )}
+                  </Notation>
                 </InfosPro>
                 {logoUrl &&
                     <LogoProImage image={logoUrl} size={'l'} />}
+                {firmCertificates && firmCertificates.length > 0 && (
+                  <StyledCertificateList>
+                    <strong>{labelWithColon(translate('firm.details.certifications'))}</strong>
+                    {firmCertificates.map(item =>
+                      <li
+                        key={item['@id']}
+                        data-tip={!isTouchDevice() ? item.certificate.description : null}
+                        onClick={() => this.showModal(item.certificate.description)}
+                      >
+                        {item.certificate.name}
+                        <IconCertificate icon="question-mark" />
+                      </li>
+                    )}
+                  </StyledCertificateList>
+                )}
                 <Divider />
                 <WrapperContactsPro>
                   <StyledContactList>
