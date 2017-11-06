@@ -56,7 +56,7 @@ const StyledLink = styled(Link)`
 `
 
 const SearchResultContentItem = ({ title, image, link }) => (
-    <StyledLink to={link}>
+    <StyledLink to={link} target="_blank">
       <StyledWrapper>
         {image &&
           <StyledImage imageUrl={image} />

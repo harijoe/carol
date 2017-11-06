@@ -143,9 +143,9 @@ const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsB
     >
       <ResultsGrid narrow>
         <Row>
-          {wordpressContentResultsByType.inspirations.map(({ title, id, image }) =>
+          {wordpressContentResultsByType.inspirations.map(({ title, id, image, link }) =>
             <ColGrid className="qs-ColGrid--medium" xs={12} m={6} l={4} key={id} x>
-              <WpCard title={title} image={{ src: image, alt: title }} />
+              <WpCard title={title} image={{ src: image, alt: title }} link={link} />
             </ColGrid>
           )
           }

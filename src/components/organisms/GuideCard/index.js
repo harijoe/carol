@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { theme, ifThen, breakpointMax } from 'utils/style'
 
-import { Card, Paragraph } from 'components'
+import { Card, Paragraph, Link } from 'components'
 
 const styles = ({ orientation }) => css`
   ${ifThen(
@@ -93,26 +93,29 @@ const Content = styled(Paragraph)`
   `}
 `
 
-const GuideCard = ({ title, label, image, description, className, orientation, ...props }) =>
-  <StyledCard className={className} padding="fluid-small" orientation={orientation} {...props}>
-    <StyledCardHeader orientation={orientation}>
-      <StyledCardImage image={image} />
-      <Card.Tag label={label} type="guide" position="bottom" />
-    </StyledCardHeader>
-    <StyledCardBody orientation={orientation}>
-      <Card.Title title={title} />
-      {description != null &&
-        <Content>
-          {description}
-        </Content>
-      }
-    </StyledCardBody>
-  </StyledCard>
+const GuideCard = ({ title, label, image, description, className, orientation, link, ...props }) =>
+  <Link to={link} target="_blank">
+    <StyledCard className={className} padding="fluid-small" orientation={orientation} {...props}>
+      <StyledCardHeader orientation={orientation}>
+        <StyledCardImage image={image} />
+        <Card.Tag label={label} type="guide" position="bottom" />
+      </StyledCardHeader>
+      <StyledCardBody orientation={orientation}>
+        <Card.Title title={title} />
+        {description != null &&
+          <Content>
+            {description}
+          </Content>
+        }
+      </StyledCardBody>
+    </StyledCard>
+  </Link>
 
 GuideCard.propTypes = {
-  title: PropTypes.string,
-  label: PropTypes.string,
-  image: PropTypes.object,
+  title: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+  image: PropTypes.object.isRequired,
   className: PropTypes.string,
   orientation: PropTypes.string.isRequired,
   description: PropTypes.string,
