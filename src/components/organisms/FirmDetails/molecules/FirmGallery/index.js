@@ -6,6 +6,7 @@ import Lightbox from 'react-images'
 import styled from 'styled-components'
 import { breakpoint, theme } from 'utils/style'
 import transformThumbnailUrl from 'utils/transformThumbnailUrl'
+import { Button } from 'components'
 
 const MasonryWrapper = styled.div`
   width: 100%;
@@ -17,7 +18,6 @@ const MasonryWrapper = styled.div`
     margin: 0;
     padding: 0;
   }
-  
 `
 
 const MasonryItem = styled.li`
@@ -40,23 +40,33 @@ const MasonryItem = styled.li`
     width: 33.3%;
     padding-right: ${theme('spaces.s')}
   `}  
-  
+`
+
+const StyledButton = styled(Button)`
+  display: inline;
+  width: auto;
 `
 
 const masonryOptions = {
   transitionDuration: 0.3,
 }
 
+const CenteredWrapper = styled.div`
+  text-align: center;
+`
+
 class FirmGallery extends Component {
 
-  constructor(props) {
-    super(props)
+  state = {
+    showGallery: false,
+    lightboxIsOpen: false,
+    currentImage: 0,
+    maxPictures: 12,
+  }
 
-    this.state = {
-      showGallery: false,
-      lightboxIsOpen: false,
-      currentImage: 0,
-    }
+  onMoreProjectPictures = e => {
+    e.preventDefault()
+    this.setState(({ maxPictures }) => ({ maxPictures: maxPictures + 12 }))
   }
 
   goToNext = () => {
@@ -89,8 +99,9 @@ class FirmGallery extends Component {
   render() {
 
     const { translate, pictures } = this.props
+    const { currentImage, lightboxIsOpen, maxPictures } = this.state
 
-    const childElements = pictures.map((element, index) => (
+    const childElements = pictures.slice(0, maxPictures).map((element, index) => (
         <MasonryItem key={index} onClick={e => this.openLightbox(index, e)}>
           <img src={transformThumbnailUrl(element.url)} alt={element.description} />
         </MasonryItem>
@@ -104,28 +115,35 @@ class FirmGallery extends Component {
 
     return (
       <div>
-      <MasonryWrapper>
-        <Masonry
-          elementType={'ul'}
-          options={masonryOptions}
-          disableImagesLoaded={false}
-          updateOnEachImageLoad={false}
-        >
-          {childElements}
-        </Masonry>
-      </MasonryWrapper>
-      <Lightbox
-        backdropClosesModal
-        imageCountSeparator={` ${translate('firm.gallery.of')} `}
-        currentImage={this.state.currentImage}
-        images={galleryContent}
-        isOpen={this.state.lightboxIsOpen}
-        onClickNext={this.goToNext}
-        onClickPrev={this.goToPrevious}
-        onClickThumbnail={this.goToImage}
-        onClose={this.closeLightbox}
-        showThumbnails={false}
-      />
+        <MasonryWrapper>
+          <Masonry
+            elementType={'ul'}
+            options={masonryOptions}
+            disableImagesLoaded={false}
+            updateOnEachImageLoad={false}
+          >
+            {childElements}
+          </Masonry>
+        </MasonryWrapper>
+        <CenteredWrapper>
+        {maxPictures < pictures.length && (
+          <StyledButton onClick={this.onMoreProjectPictures}>
+            {translate('firm.gallery.see_more_project_pictures')}
+          </StyledButton>
+        )}
+        </CenteredWrapper>
+        <Lightbox
+          backdropClosesModal
+          imageCountSeparator={` ${translate('firm.gallery.of')} `}
+          currentImage={currentImage}
+          images={galleryContent}
+          isOpen={lightboxIsOpen}
+          onClickNext={this.goToNext}
+          onClickPrev={this.goToPrevious}
+          onClickThumbnail={this.goToImage}
+          onClose={this.closeLightbox}
+          showThumbnails={false}
+        />
       </div>
     )
   }
