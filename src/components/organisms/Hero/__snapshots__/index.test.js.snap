@@ -7,6 +7,12 @@ exports[`renders the Hero component 1`] = `
       "colors": Object {
         "alert": "#ffa000",
         "black": "#262626",
+        "button": Object {
+          "primary": "#FDB63F",
+          "primaryHover": "#fda20a",
+          "secondary": "#3333FE",
+          "secondaryHover": "#3000fe",
+        },
         "content": Object {
           "connectedHouse": "#1ee3dc",
           "faq": "#262626",

@@ -7,6 +7,12 @@ exports[`render RenderDropzone withour error 1`] = `
       "colors": Object {
         "alert": "#ffa000",
         "black": "#262626",
+        "button": Object {
+          "primary": "#FDB63F",
+          "primaryHover": "#fda20a",
+          "secondary": "#3333FE",
+          "secondaryHover": "#3000fe",
+        },
         "content": Object {
           "connectedHouse": "#1ee3dc",
           "faq": "#262626",
@@ -137,6 +143,12 @@ exports[`render RenderDropzone withour error 1`] = `
         "colors": Object {
           "alert": "#ffa000",
           "black": "#262626",
+          "button": Object {
+            "primary": "#FDB63F",
+            "primaryHover": "#fda20a",
+            "secondary": "#3333FE",
+            "secondaryHover": "#3000fe",
+          },
           "content": Object {
             "connectedHouse": "#1ee3dc",
             "faq": "#262626",
@@ -259,6 +271,12 @@ exports[`trigger an error 1`] = `
       "colors": Object {
         "alert": "#ffa000",
         "black": "#262626",
+        "button": Object {
+          "primary": "#FDB63F",
+          "primaryHover": "#fda20a",
+          "secondary": "#3333FE",
+          "secondaryHover": "#3000fe",
+        },
         "content": Object {
           "connectedHouse": "#1ee3dc",
           "faq": "#262626",
@@ -393,6 +411,12 @@ exports[`trigger an error 1`] = `
         "colors": Object {
           "alert": "#ffa000",
           "black": "#262626",
+          "button": Object {
+            "primary": "#FDB63F",
+            "primaryHover": "#fda20a",
+            "secondary": "#3333FE",
+            "secondaryHover": "#3000fe",
+          },
           "content": Object {
             "connectedHouse": "#1ee3dc",
             "faq": "#262626",

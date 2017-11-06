@@ -9,13 +9,38 @@ storiesOf('Button', module)
       Sample Action
     </Button>,
   )
-  .add('large', () =>
-    <Button onClick={action('button-click')} large>
+  .add('Secondary', () =>
+    <Button onClick={action('button-click')} state="secondary">
       Sample Action
     </Button>,
   )
-  .add('Secondary', () =>
-    <Button onClick={action('button-click')} secondary>
+  .add('Secondary Outline', () =>
+    <Button onClick={action('button-click')} state="secondary" outline>
+      Sample Action
+    </Button>,
+  )
+  .add('Third', () =>
+    <Button onClick={action('button-click')} state="third">
+      Sample Action
+    </Button>,
+  )
+  .add('Third Outline', () =>
+    <Button onClick={action('button-click')} state="third" outline>
+      Sample Action
+    </Button>,
+  )
+  .add('MaxWidth', () =>
+    <Button onClick={action('button-click')} maxWidth>
+      Sample Action
+    </Button>,
+  )
+  .add('Center', () =>
+    <Button onClick={action('button-click')} maxWidth center>
+      Sample Action
+    </Button>,
+  )
+  .add('large', () =>
+    <Button onClick={action('button-click')} large>
       Sample Action
     </Button>,
   )

@@ -29,6 +29,12 @@ theme.colors = {
   danger: '#d32f2f',
   alert: '#ffa000',
   success: '#388e3c',
+  button: {
+    primary: '#FDB63F',
+    secondary: '#3333FE',
+    primaryHover: '#fda20a',
+    secondaryHover: '#3000fe',
+  },
 }
 
 theme.fonts = {
