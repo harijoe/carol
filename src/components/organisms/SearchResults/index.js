@@ -7,10 +7,9 @@ import { locales } from 'config'
 import shuffle from 'lodash/shuffle'
 import { SearchTerm, SearchCategories } from 'containers'
 
-import { Row, Col, Section, SearchResultItem, FaqCard, GuideCard, WpCard } from 'components'
+import { Row, Col, Section, SearchResultItem, FaqCard, GuideCard, WpCard, ResultsHeading } from 'components'
 import DefaultSearchResultsSection from './molecules/DefaultSearchResultsSection'
 import ResultsGrid from './atoms/ResultsGrid'
-import NoResultsSection from './molecules/NoResultsSection'
 
 const WrapperResults = styled.div``
 
@@ -76,9 +75,8 @@ const StyledFaqCard = styled(FaqCard)`
   `}
 `
 
-
 const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsByType, wpContentGuides, wpContentFaqs, searchCategory, query, locale, isWordpressContentEnabled }) => {
-  const hasResults = !projectFlowResults || projectFlowResults.length === 0
+  const hasResults = projectFlowResults && projectFlowResults.hits.length !== 0
 
   const shuffledImages = shuffle(locales[locale].genericProjectImages)
   const projectFlowSectionEnabled = projectFlowResults && (!isWordpressContentEnabled || (!searchCategory || searchCategory === 'projects')) && projectFlowResults.hits.length !== 0
@@ -93,14 +91,14 @@ const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsB
             <SearchTerm term={query} />
           </Col>
           <Col xs={12}>
-            {isWordpressContentEnabled && <SearchCategories />}
+            {isWordpressContentEnabled && hasResults && <SearchCategories />}
           </Col>
         </StyledRow>
       </ResultsGrid>
     </Header>
     {projectFlowSectionEnabled && <StyledSection
       title={translate('search_page.result_section_title.projects')}
-      subtitle={`${!hasResults ? ` (${translate('search_page.result_section_title.results', { resultsCount: projectFlowResults.hits.length })})` : ''}`}
+      subtitle={`${hasResults ? ` (${translate('search_page.result_section_title.results', { resultsCount: projectFlowResults.hits.length })})` : ''}`}
     >
       <ResultsGrid narrow>
         <Row>
@@ -124,17 +122,17 @@ const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsB
       <ResultsGrid narrow>
         <Row>
           {(!searchCategory || searchCategory === 'guides') &&
-            wpContentGuides.map(({ title, id, image, description }) =>
-              (<ColGrid xs={12} m={8} l={6} key={id} x>
-                <GuideCard title={title} image={{ src: image, alt: title }} description={description} />
-              </ColGrid>),
+            wpContentGuides.map(({ title, id, image, description, link }) =>
+              <ColGrid xs={12} m={8} l={6} key={id} x>
+                <GuideCard title={title} image={{ src: image, alt: title }} description={description} link={link} />
+              </ColGrid>
             )
           }
           {(!searchCategory || searchCategory === 'faqs') &&
-            wpContentFaqs.map(({ title, id }) =>
+            wpContentFaqs.map(({ title, id, link }) =>
               <ColGrid xs={6} m={4} l={3} key={id} x>
-                <StyledFaqCard title={title} />
-              </ColGrid>,
+                <StyledFaqCard title={title} link={link} />
+              </ColGrid>
             )
           }
         </Row>
@@ -150,13 +148,20 @@ const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsB
               <WpCard title={title} image={{ src: image, alt: title }} />
             </ColGrid>
           )
-        }
+          }
         </Row>
       </ResultsGrid>
     </StyledSection>}
-    {projectFlowResults && projectFlowResults.hits.length === 0 &&
-    <NoResultsSection />}
-    {!projectFlowResults && <DefaultSearchResultsSection locale={locale} />}
+    {(!projectFlowResults || projectFlowResults.hits.length === 0) &&
+      <StyledSection>
+        {projectFlowResults &&
+        projectFlowResults.hits.length === 0 &&
+        <ResultsHeading level={3}>
+          {translate('search_page.no_result_title')}
+        </ResultsHeading>}
+        <DefaultSearchResultsSection locale={locale} />
+      </StyledSection>
+    }
   </WrapperResults>
 }
 

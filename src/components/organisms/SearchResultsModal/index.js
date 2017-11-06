@@ -6,7 +6,7 @@ import { theme, breakpoint, breakpointMax } from 'utils/style'
 import { locales } from 'config'
 import shuffle from 'lodash/shuffle'
 
-import { Grid, Row, Col, Heading, Link, Icon, Divider, SearchSuggestions, SearchSuggestionsText, SearchResultItem, SearchResultContentItem, IconLink } from 'components'
+import { Grid, Row, Col, Link, Icon, Divider, SearchSuggestions, SearchSuggestionsText, SearchResultItem, SearchResultContentItem, ResultsHeading, IconLink } from 'components'
 
 const WrapperResults = styled.div`
   max-width: 110rem;
@@ -96,11 +96,6 @@ const ColContent = styled(Col)`
     }
   }
 
-`
-
-const ResultsHeading = styled(Heading)`
-  font-family: ${theme('fonts.family.montserrat')};
-  font-weight: bold;
 `
 
 const MoreResultsBlock = styled.div`
@@ -248,12 +243,7 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
           <ResultsHeading level={3}>
             {translate('search_page.no_result_title')}
           </ResultsHeading>}
-          <div>
-            <ResultsHeading level={3}>
-              {translate('search_page.result_section_title.projects_default')}
-            </ResultsHeading>
-            <SearchSuggestions locale={locale} />
-          </div>
+        <SearchSuggestions locale={locale} />
       </div>}
     {!projectFlowResults &&
       <SearchSuggestionsText locale={locale} />}

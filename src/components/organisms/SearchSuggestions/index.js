@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import { locales } from 'config'
+import injectTranslate from 'i18n/hoc/injectTranslate'
 
-import { Row, Col, Grid, SearchResultItem } from 'components'
+import { Row, Col, Grid, SearchResultItem, Heading } from 'components'
 
 const StyledGrid = styled(Grid)`
   max-width: 110rem;
@@ -49,34 +50,47 @@ const ColGrid = styled(Col)`
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
     max-width: 22.49rem;
   }
+
 `
 
-const SearchSuggestions = ({ locale }) => {
+const ResultsHeading = styled(Heading)`
+  font-family: ${theme('fonts.family.montserrat')};
+  font-weight: bold;
+`
+
+const SearchSuggestions = ({ locale, translate }) => {
 
   const suggestions = locales[locale].searchSuggestions.primary
 
   return (
-    <StyledGrid narrow>
-      <Row>
-        {suggestions.map(({ title, imageUrl, tag, slug }, index) =>
-          <ColGrid key={index} xs={6} m={4} l={3} order={index} x>
-            <SearchResultItem
-              slug={slug}
-              image={imageUrl}
-              alt={title}
-              title={title}
-              tag={tag}
-              className="result"
-            />
-          </ColGrid>
-        )}
-      </Row>
-    </StyledGrid>
+    <div>
+      <ResultsHeading level={3}>
+        {translate('search_page.result_section_title.projects_default')}
+      </ResultsHeading>
+      <StyledGrid narrow>
+        <Row>
+          {suggestions.map(({ title, imageUrl, tag, slug }, index) =>
+            <ColGrid key={index} xs={6} m={4} l={3} order={index} x>
+              <SearchResultItem
+                slug={slug}
+                image={imageUrl}
+                alt={title}
+                title={title}
+                tag={tag}
+                className="result"
+              />
+            </ColGrid>
+          )}
+        </Row>
+      </StyledGrid>
+    </div>
+
   )
 }
 
 SearchSuggestions.propTypes = {
   locale: PropTypes.string,
+  translate: PropTypes.func,
 }
 
-export default SearchSuggestions
+export default injectTranslate(SearchSuggestions)
