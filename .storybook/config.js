@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 import React from 'react'
 import { configure, addDecorator } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
