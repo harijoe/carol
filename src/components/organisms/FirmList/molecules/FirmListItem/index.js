@@ -5,7 +5,6 @@ import styled, { css } from 'styled-components'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
-import ReactTooltip from 'react-tooltip'
 import isTouchDevice from 'utils/isTouchDevice'
 
 import { Heading, Card, Image, Icon, List, Link, CloseAllButton, ProfileImage } from 'components'
@@ -237,11 +236,6 @@ const StyledContentModal = styled.div`
   padding: ${theme('spaces.xxl')} ${theme('spaces.m')} 0 ${theme('spaces.m')};
 `
 
-const StyledReactTooltip = styled(ReactTooltip)`
-  max-width: 30rem;
-  box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, 0.15);
-`
-
 const StyledLink = styled(RouterLink)`
   text-decoration: none;
 `
@@ -320,7 +314,6 @@ class FirmListItem extends Component {
                   <IconCertificate icon="question-mark" />
                 </li>
               ))}
-              {!isTouchDevice() && <StyledReactTooltip type={'light'} effect={'solid'} />}
             </StyledCertificateList>
           )}
         </FooterCard>

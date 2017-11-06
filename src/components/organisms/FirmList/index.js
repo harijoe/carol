@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import ReactTooltip from 'react-tooltip'
+import isTouchDevice from 'utils/isTouchDevice'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 
 import { Row } from 'components'
@@ -39,6 +41,11 @@ const StyledCarousel = styled(Carousel)`
   `};
 `
 
+const StyledReactTooltip = styled(ReactTooltip)`
+  max-width: 30rem;
+  box-shadow: 1px 1px 2px 0 rgba(19, 19, 19, 0.15);
+`
+
 const FirmList = ({ list, projectId }) => (
   <StyledRow className="qs-Carousel-Firms">
     <StyledCarousel
@@ -53,6 +60,7 @@ const FirmList = ({ list, projectId }) => (
     >
       {list.map(items => <FirmListItem key={items['@id']} projectId={projectId} {...items} />)}
     </StyledCarousel>
+    {!isTouchDevice() && <StyledReactTooltip type={'light'} effect={'solid'} />}
   </StyledRow>
 )
 
