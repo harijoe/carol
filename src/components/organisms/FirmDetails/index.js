@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { FormattedMessage } from 'react-intl'
+import Truncate from 'react-truncate'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import transformDate from 'utils/transformDate'
@@ -385,8 +386,6 @@ const StyledTeamSection = styled(Section)`
 const TeamWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
   width: 100%;
 `
 
@@ -395,7 +394,7 @@ const TeamMemberWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0 1.25rem;
-  width: 12.5rem;
+  flex: 1;
   text-align: center;
 
   ${breakpointMax('m')`
@@ -716,9 +715,12 @@ class FirmDetails extends Component {
                 <TeamWrapper>
                   {teamPictures.map((item, index) => (
                     <TeamMemberWrapper key={index}>
-                    <StyledProfileImage image={item.url} size={'xl'} />
-                          {item.description &&
-                      <span>{item.description}</span>}
+                      <StyledProfileImage image={item.url} size={'xl'} />
+                      {item.description && (
+                        <Truncate lines={2}>
+                          {item.description}
+                        </Truncate>
+                      )}
                     </TeamMemberWrapper>
                   ))}
                 </TeamWrapper>
