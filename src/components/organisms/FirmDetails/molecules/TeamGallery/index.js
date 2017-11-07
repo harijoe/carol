@@ -1,15 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Truncate from 'react-truncate'
+import Lightbox from 'react-images'
 import injectTranslate from 'i18n/hoc/injectTranslate'
-import { theme, breakpointMax } from 'utils/style'
-
-import {
-  BorderBox,
-  Grid,
-  ProfileImage,
-} from 'components'
+import { BorderBox, Grid } from 'components'
+import TeamPictures from '../TeamPictures'
 
 const TeamWrapper = styled.div`
   display: flex;
@@ -17,47 +12,57 @@ const TeamWrapper = styled.div`
   width: 100%;
 `
 
-const TeamMemberWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 1.25rem;
-  flex: 1;
-  text-align: center;
+class TeamGallery extends React.Component {
+  state = {
+    lightboxIsOpen: false,
+    currentImage: 0,
+  }
 
-  ${breakpointMax('m')`
-    margin: 1.25rem;
-  `};
-`
+  onClickImage = imageIndex => {
+    this.setState({
+      currentImage: imageIndex,
+      lightboxIsOpen: true,
+    })
+  }
 
-const StyledProfileImage = styled(ProfileImage)`
-  margin-bottom: ${theme('spaces.s')};
-  background-size: cover;
-`
+  goToNext = () => this.setState(({ currentImage }) => ({ currentImage: currentImage + 1 }))
 
-const TeamGallery = ({ teamPictures, translate }) =>
-  <Grid narrow>
-    <BorderBox grey mediumBorder title={translate('firm.details.team')}>
-      <TeamWrapper>
-        {teamPictures.map((item, index) => (
-          <TeamMemberWrapper key={index}>
-            <StyledProfileImage image={item.url} size={'xl'} />
-            {item.description && (
-              <Truncate lines={2}>
-                {item.description}
-              </Truncate>
-            )}
-          </TeamMemberWrapper>
-        ))}
-      </TeamWrapper>
-    </BorderBox>
-  </Grid>
+  goToPrevious = () => this.setState(({ currentImage }) => ({ currentImage: currentImage - 1 }))
+
+  closeLightbox = () => {
+    this.setState({ lightboxIsOpen: false })
+  }
+
+  render() {
+    const { pictures, translate } = this.props
+    const { currentImage, lightboxIsOpen } = this.state
+    return (
+      <Grid narrow>
+        <BorderBox grey mediumBorder title={translate('firm.details.team')}>
+          <TeamWrapper>
+            <TeamPictures pictures={pictures} onClick={this.onClickImage} />
+            <Lightbox
+              images={pictures.map(({ url, description }) => ({ key: url, src: url, caption: description }))}
+              isOpen={lightboxIsOpen}
+              onClose={this.closeLightbox}
+              currentImage={currentImage}
+              onClickNext={this.goToNext}
+              onClickPrev={this.goToPrevious}
+              imageCountSeparator={` ${translate('firm.gallery.of')} `}
+              backdropClosesModal
+            />
+          </TeamWrapper>
+        </BorderBox>
+      </Grid>
+    )
+  }
+}
 
 TeamGallery.propTypes = {
-  teamPictures: PropTypes.arrayOf(PropTypes.shape({
+  pictures: PropTypes.arrayOf(PropTypes.shape({
     url: PropTypes.string.isRequired,
     description: PropTypes.string,
-  })),
+  })).isRequired,
   translate: PropTypes.func.isRequired,
 }
 

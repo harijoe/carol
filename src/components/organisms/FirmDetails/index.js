@@ -682,7 +682,7 @@ class FirmDetails extends Component {
           )}
           {teamEnabled && teamPictures && teamPictures.length > 0 && (
             <StyledTeamSection>
-              <TeamGallery teamPictures={teamPictures} />
+              <TeamGallery pictures={teamPictures} />
             </StyledTeamSection>
           )}
           { pictures && pictures.length > 0 && (

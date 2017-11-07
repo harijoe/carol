@@ -46,11 +46,6 @@ const StyledButton = styled(Button)`
   display: inline;
   width: auto;
 `
-
-const masonryOptions = {
-  transitionDuration: 0.3,
-}
-
 const CenteredWrapper = styled.div`
   text-align: center;
 `
@@ -58,7 +53,6 @@ const CenteredWrapper = styled.div`
 class FirmGallery extends Component {
 
   state = {
-    showGallery: false,
     lightboxIsOpen: false,
     currentImage: 0,
     maxPictures: 12,
@@ -107,18 +101,12 @@ class FirmGallery extends Component {
         </MasonryItem>
       ))
 
-    const galleryContent = pictures.map((element, index) => ({
-      key: index,
-      src: element.url,
-      caption: element.description,
-    }))
-
     return (
       <div>
         <MasonryWrapper>
           <Masonry
             elementType={'ul'}
-            options={masonryOptions}
+            options={{ transitionDuration: 0.3 }}
             disableImagesLoaded={false}
             updateOnEachImageLoad={false}
           >
@@ -133,16 +121,14 @@ class FirmGallery extends Component {
         )}
         </CenteredWrapper>
         <Lightbox
-          backdropClosesModal
-          imageCountSeparator={` ${translate('firm.gallery.of')} `}
-          currentImage={currentImage}
-          images={galleryContent}
+          images={pictures.map(({ url, description }) => ({ key: url, src: url, caption: description }))}
           isOpen={lightboxIsOpen}
+          onClose={this.closeLightbox}
+          currentImage={currentImage}
           onClickNext={this.goToNext}
           onClickPrev={this.goToPrevious}
-          onClickThumbnail={this.goToImage}
-          onClose={this.closeLightbox}
-          showThumbnails={false}
+          imageCountSeparator={` ${translate('firm.gallery.of')} `}
+          backdropClosesModal
         />
       </div>
     )
