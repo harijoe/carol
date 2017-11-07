@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { FormattedMessage } from 'react-intl'
-import Truncate from 'react-truncate'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import transformDate from 'utils/transformDate'
@@ -21,7 +20,6 @@ import {
   Paragraph,
   Icon,
   IconLink,
-  BorderBox,
   CloseAllButton,
   Col,
   ReadMore,
@@ -30,6 +28,7 @@ import {
 } from 'components'
 import GoogleMapsInterventionArea from './atoms/GoogleMapsInterventionArea'
 import FirmGallery from './molecules/FirmGallery'
+import TeamGallery from './molecules/TeamGallery'
 
 const Wrapper = styled.div`
   section:first-child {
@@ -380,30 +379,6 @@ const MapStyledGrid = styled(StyledGrid)`
 const StyledTeamSection = styled(Section)`
   padding-bottom: ${theme('spaces.xxl')};
 `
-const TeamWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-`
-
-const TeamMemberWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 1.25rem;
-  flex: 1;
-  text-align: center;
-
-  ${breakpointMax('m')`
-    margin: 1.25rem;
-  `};
-`
-
-const StyledProfileImage = styled(ProfileImage)`
-  margin-bottom: ${theme('spaces.s')};
-  background-size: cover;
-`
-
 const WebsiteLink = styled.a`
   color: ${theme('colors.primary')};
   text-decoration: none;
@@ -705,30 +680,16 @@ class FirmDetails extends Component {
               </MapStyledGrid>
             </StyledMapSection>
           )}
-          {teamEnabled && teamPictures && teamPictures.length > 0 && <StyledTeamSection>
-            <Grid narrow>
-              <BorderBox grey mediumBorder title={translate('firm.details.team')}>
-                <TeamWrapper>
-                  {teamPictures.map((item, index) => (
-                    <TeamMemberWrapper key={index}>
-                      <StyledProfileImage image={item.url} size={'xl'} />
-                      {item.description && (
-                        <Truncate lines={2}>
-                          {item.description}
-                        </Truncate>
-                      )}
-                    </TeamMemberWrapper>
-                  ))}
-                </TeamWrapper>
-              </BorderBox>
-            </Grid>
-          </StyledTeamSection>}
-          { pictures &&
-            pictures.length > 0 && (
-              <Section title={translate('firm.details.last_projects')} light>
-                <FirmGallery pictures={pictures} />
-              </Section>
-            )}
+          {teamEnabled && teamPictures && teamPictures.length > 0 && (
+            <StyledTeamSection>
+              <TeamGallery teamPictures={teamPictures} />
+            </StyledTeamSection>
+          )}
+          { pictures && pictures.length > 0 && (
+            <Section title={translate('firm.details.last_projects')} light>
+              <FirmGallery pictures={pictures} />
+            </Section>
+          )}
           {!isTouchDevice() && certificatesAvailable && <StyledReactTooltip type={'light'} effect={'solid'} place={'bottom'} />}
           {isTouchDevice() &&
             certificatesAvailable &&
