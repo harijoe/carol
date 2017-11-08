@@ -9,14 +9,6 @@ import andesExtralightWebfontEot from './default/fonts/andes-extralight-webfont.
 import andesExtralightWebfontTtf from './default/fonts/andes-extralight-webfont.ttf'
 import andesExtralightWebfontWoff from './default/fonts/andes-extralight-webfont.woff'
 import andesExtralightWebfontWoff2 from './default/fonts/andes-extralight-webfont.woff2'
-import montserratBoldWebfontEot from './default/fonts/montserrat-bold-webfont.eot'
-import montserratBoldWebfontTtf from './default/fonts/montserrat-bold-webfont.ttf'
-import montserratBoldWebfontWoff from './default/fonts/montserrat-bold-webfont.woff'
-import montserratBoldWebfontWoff2 from './default/fonts/montserrat-bold-webfont.woff2'
-import montserratLightWebfontEot from './default/fonts/montserrat-light-webfont.eot'
-import montserratLightWebfontTtf from './default/fonts/montserrat-light-webfont.ttf'
-import montserratLightWebfontWoff from './default/fonts/montserrat-light-webfont.woff'
-import montserratLightWebfontWoff2 from './default/fonts/montserrat-light-webfont.woff2'
 
 const scaffolding = theme => css`
   @font-face {
@@ -43,30 +35,6 @@ const scaffolding = theme => css`
     font-style: normal;
   }
 
-  @font-face {
-    font-family: 'montserrat';
-    src:
-      url('${assetPath + montserratLightWebfontEot}'),
-      url('${assetPath + montserratLightWebfontEot}?#iefix') format('embedded-opentype'),
-      url('${assetPath + montserratLightWebfontWoff2}') format('woff2'),
-      url('${assetPath + montserratLightWebfontWoff}') format('woff'),
-      url('${assetPath + montserratLightWebfontTtf}') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'montserrat';
-    src:
-      url('${assetPath + montserratBoldWebfontEot}'),
-      url('${assetPath + montserratBoldWebfontEot}?#iefix') format('embedded-opentype'),
-      url('${assetPath + montserratBoldWebfontWoff2}') format('woff2'),
-      url('${assetPath + montserratBoldWebfontWoff}') format('woff'),
-      url('${assetPath + montserratBoldWebfontTtf}') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-  }
-
   html {
     box-sizing: border-box;
     font-size: ${theme.fonts.size.reset};
@@ -81,7 +49,7 @@ const scaffolding = theme => css`
   }
 
   body {
-    font-family: 'montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: ${theme.fonts.size.base};
     line-height: 2.1rem;
     color: ${theme.colors.grayscale.darker};

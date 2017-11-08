@@ -53,7 +53,7 @@ theme.fonts = {
   family: {
     andesLight: 'andes-extralight, serif',
     andesBlack: 'andes-black, serif',
-    montserrat: 'montserrat, sans-serif',
+    montserrat: 'Montserrat, sans-serif',
   },
 }
 

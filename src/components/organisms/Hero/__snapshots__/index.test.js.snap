@@ -41,7 +41,7 @@ exports[`renders the Hero component 1`] = `
         "family": Object {
           "andesBlack": "andes-black, serif",
           "andesLight": "andes-extralight, serif",
-          "montserrat": "montserrat, sans-serif",
+          "montserrat": "Montserrat, sans-serif",
         },
         "size": Object {
           "base": "1.4rem",
