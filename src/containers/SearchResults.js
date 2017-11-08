@@ -9,8 +9,8 @@ const SearchResultsContainer = props => <SearchResults {...props} />
 const mapStateToProps = state => ({
   projectFlowResults: fromSearchEngine.getProjectFlowResults(state),
   wordpressContentResultsByType: fromSearchEngine.getWordpressContentResultsByType(state),
-  wpContentGuides: fromSearchEngine.getWpContentGuides(state),
-  wpContentFaqs: fromSearchEngine.getWpContentFaqs(state),
+  wpContentGuides: fromSearchEngine.getWpContentByCategory(state, 'guides'),
+  wpContentFaqs: fromSearchEngine.getWpContentByCategory(state, 'faqs'),
   query: fromSearchEngine.getQuery(state),
   locale: fromContext.getLocale(state),
   searchCategory: fromSearchEngine.getSearchCategory(state),

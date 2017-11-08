@@ -117,7 +117,7 @@ const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsB
     </StyledSection>}
     {weGuideYouSectionEnabled && <StyledSection
       title={translate('search_page.result_section_title.we_guide_you')}
-      subtitle={`<b>${wpContentGuides.length}</b> ${translate('search_page.category.project_page.title', { contentNumber: wpContentGuides.length })} et <b>${wpContentFaqs.length}</b> ${translate('search_page.category.faqs.title', { contentNumber: wpContentFaqs.length })}`}
+      subtitle={`<b>${wpContentGuides.length}</b> ${translate('search_page.category.guides.title', { contentNumber: wpContentGuides.length })} et <b>${wpContentFaqs.length}</b> ${translate('search_page.category.faqs.title', { contentNumber: wpContentFaqs.length })}`}
     >
       <ResultsGrid narrow>
         <Row>

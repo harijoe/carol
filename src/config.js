@@ -67,6 +67,11 @@ const configs = {
       enabled: false,
       url: 'https://3ccd80466e1946569044c33368ed7885@sentry.io/192401',
     },
+    wordpressContentCategories: {
+      guides: ['project_page', 'project_page_element'],
+      faqs: ['faqs', 'standards'],
+      articles: ['inspirations'],
+    },
   },
   qa: {
     devServer: false,

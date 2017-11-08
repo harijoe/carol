@@ -3,12 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { ifThen, theme, breakpoint } from 'utils/style'
-
-const wordpressContentCategories = {
-  guides: ['project_page', 'project_page_element'],
-  faqs: ['faqs', 'standards'],
-  articles: ['inspirations'],
-}
+import wordpressContentCategories from 'constants/wordpress-content-categories'
 
 const Wrapper = styled.ul`
   margin: 0;
@@ -61,12 +56,14 @@ const SearchCategories = ({ className, setSearchCategory, searchCategory, projec
         Projects {projectFlowResults && <span>({ projectFlowResults.nbHits || 0})</span>}
       </CategoryItem>
     </li>
+
     {Object.keys(wordpressContentCategories).map(key =>
     <li>
-      <CategoryItem onClick={() => setSearchCategory(key)} selected={searchCategory === key}>
+      <CategoryItem key={key} onClick={() => setSearchCategory(key)} selected={searchCategory === key}>
           {key} { wordpressContentResultsByType && <span>({wordpressContentCategories[key].reduce((acc, type) => {
+
             const results = wordpressContentResultsByType[type]
-            return (results && results.length) || 0
+            return acc + (results ? results.length : 0) || 0
       }, 0)})</span>}
       </CategoryItem>
     </li>)}

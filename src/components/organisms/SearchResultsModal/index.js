@@ -5,6 +5,7 @@ import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import { locales } from 'config'
 import shuffle from 'lodash/shuffle'
+import wordpressContentCategories from 'constants/wordpress-content-categories'
 
 import { Grid, Row, Col, Link, Icon, Divider, SearchSuggestions, SearchSuggestionsText, SearchResultItem, SearchResultContentItem, ResultsHeading, IconLink } from 'components'
 
@@ -233,6 +234,7 @@ const ContentItem = styled.div`
 const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWordpressContentEnabled, wordpressContentResultsByType }) => {
 
   const shuffledImages = shuffle(locales[locale].genericProjectImages)
+  let nbHitsTotal = 0
 
   return (
     <WrapperResults>
@@ -273,22 +275,35 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
         <ContentWrapper>
           <Grid>
             <Row>
-            {
-              ['project_page', 'faqs', 'inspirations'].map((key, index) => {
-                if (!wordpressContentResultsByType[key]) return null
+              {Object.keys(wordpressContentCategories).map(key => {
 
-                return <ColContent xs={12} m={6} l={4} order={index} key={index}>
+                const nbHits = wordpressContentCategories[key].reduce((acc, type) => {
+
+                  const results = wordpressContentResultsByType[type]
+                  return acc + (results ? results.length : 0) || 0
+                }, 0)
+
+                nbHitsTotal += nbHits
+
+                if (!nbHits) return null
+
+                const wordpressContentResultsByCategories = wordpressContentCategories[key].reduce((acc, type) => {
+
+                  const results = wordpressContentResultsByType[type]
+                  return acc.concat(results)
+                }, [])
+
+                return <ColContent xs={12} m={6} l={4} order={key} key={key}>
                   <ContentItem>
                     <StyledIconLink right to={`search-result?q=${query}&category=${key}`} icon="front_arrow">
-                      {translate('search_page.see_sample_result')} <strong>{wordpressContentResultsByType[key].length}</strong> {translate(`search_page.category.${key}.title`, { contentNumber: wordpressContentResultsByType[key].length })}
+                      {translate('search_page.see_sample_result')} <strong>{nbHits}</strong> {translate(`search_page.category.${key}.title`, { contentNumber: nbHits })}
                     </StyledIconLink>
-                    {wordpressContentResultsByType[key].slice(0, 2).map((el, i) =>
+                    {wordpressContentResultsByCategories.slice(0, 2).map((el, i) =>
                       <SearchResultContentItem key={i} title={el.title} image={el.image} link={el.link} />
                     )}
                   </ContentItem>
                 </ColContent>
-              })
-            }
+              })}
             </Row>
           </Grid>
         </ContentWrapper>
@@ -302,7 +317,7 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
           <StyledDivider />
           <LinkBlock to={`search-result?q=${query}`}>
             <p>
-              {translate('search_page.see_all_results')} <span>({ projectFlowResults.nbHits })</span>
+              {translate('search_page.see_all_results')} <span>({ projectFlowResults.nbHits + nbHitsTotal})</span>
             </p>
             <MoreResultsIcon icon="circle-arrow" />
           </LinkBlock>

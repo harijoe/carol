@@ -70,7 +70,7 @@ const SearchSuggestions = ({ locale, translate }) => {
       <StyledGrid narrow>
         <Row>
           {suggestions.map(({ title, imageUrl, tag, slug }, index) =>
-            <ColGrid key={index} xs={6} m={4} l={3} order={index} x>
+            <ColGrid key={index} xs={6} m={4} l={3} order={index} >
               <SearchResultItem
                 slug={slug}
                 image={imageUrl}

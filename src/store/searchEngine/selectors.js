@@ -1,4 +1,5 @@
 import get from 'lodash/get'
+import wordpressContentCategories from 'constants/wordpress-content-categories'
 
 export const initialState = {
   category: null,
@@ -23,26 +24,12 @@ export const getWordpressContentResultsByType = (state = initialState) => {
     return acc
   }, {})
 }
-export const getWpContentGuides = (state = initialState) => {
+export const getWpContentByCategory = (state = initialState, category) => {
   const hits = get(state, 'results.wordpressContent.hits')
   if (!hits) return null
 
   return hits.reduce((acc, el) => {
-    if (!['project_page', 'project_page_element'].includes(el.type)) {
-      return acc
-    }
-
-    acc.push(el)
-
-    return acc
-  }, [])
-}
-export const getWpContentFaqs = (state = initialState) => {
-  const hits = get(state, 'results.wordpressContent.hits')
-  if (!hits) return null
-
-  return hits.reduce((acc, el) => {
-    if (!['faqs', 'standards'].includes(el.type)) {
+    if (!wordpressContentCategories[category].includes(el.type)) {
       return acc
     }
 
