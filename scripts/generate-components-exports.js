@@ -4,10 +4,10 @@ import path from 'path'
 
 const mapping = {}
 
-find.file(/(\/[^/]+)\/index\.js$/, path.join(__dirname, '/../src/components'), files => {
+find.file(/([\\/][^\\/]+)[\\/]index\.js$/, path.join(__dirname, '/../src/components'), files => {
   files.forEach(key => {
-    const componentName = key.replace(/^.+\/([^/]+)\/index\.js/, '$1')
-    mapping[componentName] = key.replace(/.*(components.*)\/index\.js/, '$1')
+    const componentName = key.replace(/^.+[\\/]([^\\/]+)[\\/]index\.js/, '$1')
+    mapping[componentName] = key.replace(/.*(components.*)[\\/]index\.js/, '$1').replace(/\\/g, '/')
   })
 
   const renderedImports = Object.keys(mapping).map(key => `export { default as ${key} } from '${mapping[key]}'`)
