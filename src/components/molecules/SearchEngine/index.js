@@ -158,7 +158,7 @@ class SearchEngine extends Component {
     const { isExpanded } = this.state
 
     return (
-      <SearchEngineWrapper isExpanded={isExpanded} disabled={isExpanded} onClick={this.toggleSearch}>
+      <SearchEngineWrapper isExpanded={isExpanded} onClick={!isExpanded ? this.toggleSearch : null}>
         {isExpanded && <StyledCloseAllButton closeAll={this.toggleSearch} />}
         <SearchInnerWrapper>
           <StyledIcon icon="search" isExpanded={isExpanded} />
