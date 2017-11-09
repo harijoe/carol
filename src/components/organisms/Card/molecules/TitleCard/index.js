@@ -20,9 +20,7 @@ const styles = ({ light }) => css`
 const StyledHeading = styled(Heading)`${styles}`
 
 const TitleCard = ({ light, title, className, ...props }) =>
-  <StyledHeading level={3} className={`qs-Card-title ${className}`} light={light} {...props}>
-    {title}
-  </StyledHeading>
+  <StyledHeading level={3} className={`qs-Card-title ${className}`} light={light} dangerouslySetInnerHTML={{ __html: title }} {...props} />
 
 TitleCard.propTypes = {
   light: PropTypes.bool,

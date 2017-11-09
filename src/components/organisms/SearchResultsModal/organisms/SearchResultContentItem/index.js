@@ -61,7 +61,7 @@ const SearchResultContentItem = ({ title, image, link }) => (
         {image &&
           <StyledImage imageUrl={image} />
         }
-        <StyledHeading level={3}>{title}</StyledHeading>
+        <StyledHeading level={3} dangerouslySetInnerHTML={{ __html: title }} />
       </StyledWrapper>
     </StyledLink>
   )
