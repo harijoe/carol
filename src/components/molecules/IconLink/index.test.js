@@ -25,6 +25,7 @@ it('mounts with different combination of props', () => {
   mount(<IconLink icon="github" right />)
   mount(<IconLink icon="github" responsive />)
   mount(<IconLink icon="github" right responsive />)
+  mount(<IconLink icon="github" html />)
 })
 
 it('renders children when passed in', () => {

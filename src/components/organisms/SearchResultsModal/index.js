@@ -231,6 +231,7 @@ const ContentItem = styled.div`
   `} 
 `
 
+
 const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWordpressContentEnabled, wordpressContentResultsByType }) => {
 
   const shuffledImages = shuffle(locales[locale].genericProjectImages)
@@ -252,8 +253,10 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
     {projectFlowResults &&
       projectFlowResults.hits.length > 0 &&
       <div>
-        <StyledIconLink right to={`search-result?q=${query}&category=project`} icon="front_arrow">
-          {translate('search_page.see_sample_result')} <strong>{projectFlowResults.hits.length}</strong> {translate('search_page.category.project.title', { contentNumber: projectFlowResults.hits.length })}
+        <StyledIconLink to={`search-result?q=${query}&category=project`} icon="front_arrow">
+          <span
+            dangerouslySetInnerHTML={{ __html: translate('search_page.modal.project.title', { count: projectFlowResults.hits.length }) }}
+          />
         </StyledIconLink>
         <StyledGrid narrow>
           <Row>
@@ -297,7 +300,7 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
                 return <ColContent xs={12} m={6} l={4} order={key} key={key}>
                   <ContentItem>
                     <StyledIconLink right to={`search-result?q=${query}&category=${key}`} icon="front_arrow">
-                      {translate('search_page.see_sample_result')} <strong>{nbHits}</strong> {translate(`search_page.category.${key}.title`, { contentNumber: nbHits })}
+                      <span dangerouslySetInnerHTML={{ __html: translate(`search_page.modal.${key}.title`, { count: nbHits }) }} />
                     </StyledIconLink>
                     {wordpressContentResultsByCategories.slice(0, 2).map((el, i) =>
                       <SearchResultContentItem key={i} title={el.title} image={el.image} link={el.link} />
