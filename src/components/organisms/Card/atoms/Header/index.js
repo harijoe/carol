@@ -7,8 +7,10 @@ const styles = ({ height }) => css`
   position: relative;
   padding: ${theme('spaces.s')};
 
+  ${ifThen(height === 'xsmall', css`height: 12rem;`)}
   ${ifThen(height === 'small', css`height: 15rem;`)}
   ${ifThen(height === 'medium', css`height: 22.5rem;`)}
+  ${ifThen(height === 'auto', css`height: auto;`)}
 `
 
 const Wrapper = styled.header`${styles}`
@@ -17,7 +19,7 @@ const Header = ({ className, ...props }) =>
   <Wrapper className={`qs-Card-header ${className}`} {...props} />
 
 Header.propTypes = {
-  height: PropTypes.oneOf(['small', 'medium']),
+  height: PropTypes.oneOf(['xsmall', 'small', 'medium', 'auto']),
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
 }

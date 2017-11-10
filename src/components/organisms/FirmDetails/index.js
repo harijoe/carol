@@ -29,6 +29,7 @@ import {
 import GoogleMapsInterventionArea from './atoms/GoogleMapsInterventionArea'
 import FirmGallery from './molecules/FirmGallery'
 import TeamGallery from './molecules/TeamGallery'
+import RatingReviews from './organisms/RatingReviews'
 
 const Wrapper = styled.div`
   section:first-child {
@@ -473,6 +474,7 @@ class FirmDetails extends Component {
     locale: PropTypes.string.isRequired,
     mapEnabled: PropTypes.bool.isRequired,
     teamEnabled: PropTypes.bool.isRequired,
+    reviewsEnabled: PropTypes.bool.isRequired,
     params: PropTypes.shape({
       projectId: PropTypes.string,
     }),
@@ -498,6 +500,7 @@ class FirmDetails extends Component {
       firmPictures: PropTypes.array,
       trade: PropTypes.string,
       leadSales: PropTypes.array,
+      reviews: PropTypes.array,
     }),
   }
 
@@ -518,7 +521,7 @@ class FirmDetails extends Component {
   render() {
     const { showModal, contentModal } = this.state
 
-    const { locale, translate, labelWithColon, mapEnabled, teamEnabled, params: { projectId } } = this.props
+    const { details, locale, translate, labelWithColon, mapEnabled, teamEnabled, reviewsEnabled, params: { projectId } } = this.props
 
     const {
       logoUrl,
@@ -536,7 +539,8 @@ class FirmDetails extends Component {
       leadSales,
       contractZone: { postalCodes },
       trade,
-    } = this.props.details
+      reviews,
+    } = details
 
     const projectFinder = ({ project: { '@id': id } }) => id === `/projects/${projectId}`
     const { proEmail, proPhone, proPostCity, proPostCode } = leadSales.find(projectFinder)
@@ -564,79 +568,81 @@ class FirmDetails extends Component {
         return [l, <br key={`${i}br`} />]
       })
 
+    const coverProImage = mainPicture || genericFirmDetailImage
+
     return (
       <Wrapper>
-          <Section>
-            <StyledRow>
-              <WrapperImagePro xs={12} m={5}>
-                <StyledIconLink to={`projects/${projectId}`} icon="back_arrow">
-                  <FormattedMessage id="firm.details.back_link_title" />
-                </StyledIconLink>
-                <StyledCoverPro imageUrl={mainPicture || genericFirmDetailImage} />
-              </WrapperImagePro>
-              <WrapperInfosPro xs={12} m={7}>
-                <InfosPro>
-                  <Heading level={1}>{name}</Heading>
-                  <Paragraph>{trade}</Paragraph>
-                  <Notation>
-                    {globalRatingCount > 0 ? (
-                      <div>
-                        <StarRating value={globalRating} />
-                        <strong> {globalRating}</strong> - {globalRatingCount} <FormattedMessage id="firm.details.rating_reviews" />
-                      </div>
-                    ) : (
-                      <span>&nbsp;</span>
-                    )}
-                  </Notation>
-                </InfosPro>
-                {logoUrl &&
-                    <LogoProImage image={logoUrl} size={'l'} />}
-                {firmCertificates && firmCertificates.length > 0 && (
-                  <StyledCertificateList>
-                    <strong>{labelWithColon(translate('firm.details.certifications'))}</strong>
-                    {firmCertificates.map(item =>
-                      <li
-                        key={item['@id']}
-                        data-tip={!isTouchDevice() ? item.certificate.description : null}
-                        onClick={() => this.showModal(item.certificate.description)}
-                      >
-                        {item.certificate.name}
-                        <IconCertificate icon="question-mark" />
-                      </li>
-                    )}
-                  </StyledCertificateList>
-                )}
-                <Divider />
-                <WrapperContactsPro>
-                  <StyledContactList>
-                    <li>
-                      <Icon icon="location-pin" />
-                      {proPostCode} {proPostCity}
+        <Section>
+          <StyledRow>
+            <WrapperImagePro xs={12} m={5}>
+              <StyledIconLink to={`projects/${projectId}`} icon="back_arrow">
+                <FormattedMessage id="firm.details.back_link_title" />
+              </StyledIconLink>
+              <StyledCoverPro imageUrl={coverProImage} />
+            </WrapperImagePro>
+            <WrapperInfosPro xs={12} m={7}>
+              <InfosPro>
+                <Heading level={1}>{name}</Heading>
+                <Paragraph>{trade}</Paragraph>
+                <Notation>
+                  {globalRatingCount > 0 ? (
+                    <div>
+                      <StarRating value={globalRating} />
+                      <strong> {globalRating}</strong> - {globalRatingCount} <FormattedMessage id="firm.details.rating_reviews" />
+                    </div>
+                  ) : (
+                    <span>&nbsp;</span>
+                  )}
+                </Notation>
+              </InfosPro>
+              {logoUrl &&
+                  <LogoProImage image={logoUrl} size={'l'} />}
+              {firmCertificates && firmCertificates.length > 0 && (
+                <StyledCertificateList>
+                  <strong>{labelWithColon(translate('firm.details.certifications'))}</strong>
+                  {firmCertificates.map(item =>
+                    <li
+                      key={item['@id']}
+                      data-tip={!isTouchDevice() ? item.certificate.description : null}
+                      onClick={() => this.showModal(item.certificate.description)}
+                    >
+                      {item.certificate.name}
+                      <IconCertificate icon="question-mark" />
                     </li>
-                    <li>
-                      <Icon icon="phone" /><a href={`tel:${proPhone}`}>{proPhone}</a>
-                    </li>
-                    <li>
-                      <Icon icon="mail" /><a href={`mailto:${proEmail}`}>{proEmail}</a>
-                    </li>
-                  </StyledContactList>
-                  {websiteUrl && <StyledContactList>
-                    <li>
-                      <WebsiteLink href={normalizeUrl(websiteUrl)} rel="nofollow" target="_blank">
-                        <FormattedMessage id="firm.details.website" />
-                      </WebsiteLink>
-                    </li>
-                  </StyledContactList>}
-                </WrapperContactsPro>
-                <Divider />
-                {description && (<StyledDescription>
-                  <ReadMore lines={7} more={translate('firm.details.see_more')} less={translate('firm.details.see_less')}>
-                    {renderDescription(description)}
-                  </ReadMore>
-                </StyledDescription>
-              )}</WrapperInfosPro>
-            </StyledRow>
-          </Section>
+                  )}
+                </StyledCertificateList>
+              )}
+              <Divider />
+              <WrapperContactsPro>
+                <StyledContactList>
+                  <li>
+                    <Icon icon="location-pin" />
+                    {proPostCode} {proPostCity}
+                  </li>
+                  <li>
+                    <Icon icon="phone" /><a href={`tel:${proPhone}`}>{proPhone}</a>
+                  </li>
+                  <li>
+                    <Icon icon="mail" /><a href={`mailto:${proEmail}`}>{proEmail}</a>
+                  </li>
+                </StyledContactList>
+                {websiteUrl && <StyledContactList>
+                  <li>
+                    <WebsiteLink href={normalizeUrl(websiteUrl)} rel="nofollow" target="_blank">
+                      <FormattedMessage id="firm.details.website" />
+                    </WebsiteLink>
+                  </li>
+                </StyledContactList>}
+              </WrapperContactsPro>
+              <Divider />
+              {description && (<StyledDescription>
+                <ReadMore lines={7} more={translate('firm.details.see_more')} less={translate('firm.details.see_less')}>
+                  {renderDescription(description)}
+                </ReadMore>
+              </StyledDescription>
+            )}</WrapperInfosPro>
+          </StyledRow>
+        </Section>
           <StyledMoreInfoSection title={translate('firm.details.more_information')} light>
             <Grid>
               <StyledInformationRow>
@@ -686,7 +692,7 @@ class FirmDetails extends Component {
             </StyledTeamSection>
           )}
           { pictures && pictures.length > 0 && (
-            <Section title={translate('firm.details.last_projects')} light>
+            <Section title={translate('firm.details.last_projects')}>
               <FirmGallery pictures={pictures} />
             </Section>
           )}
@@ -701,6 +707,7 @@ class FirmDetails extends Component {
                 </StyledModal>
               </StyledOverlayModal>
             )}
+            {reviewsEnabled && reviews.length > 0 && <RatingReviews firmDetails={details} />}
         </Wrapper>
 
     )

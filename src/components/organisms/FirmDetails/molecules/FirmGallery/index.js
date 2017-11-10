@@ -44,8 +44,8 @@ const MasonryItem = styled.li`
 
 const StyledButton = styled(Button)`
   display: inline;
-  width: auto;
 `
+
 const CenteredWrapper = styled.div`
   text-align: center;
 `
@@ -106,7 +106,7 @@ class FirmGallery extends Component {
         <MasonryWrapper>
           <Masonry
             elementType={'ul'}
-            options={{ transitionDuration: 0.3 }}
+            options={{ transitionDuration: '0.5s' }}
             disableImagesLoaded={false}
             updateOnEachImageLoad={false}
           >
@@ -115,8 +115,8 @@ class FirmGallery extends Component {
         </MasonryWrapper>
         <CenteredWrapper>
         {maxPictures < pictures.length && (
-          <StyledButton onClick={this.onMoreProjectPictures}>
-            {translate('firm.gallery.see_more_project_pictures')}
+          <StyledButton state="third" outline maxWidth onClick={this.onMoreProjectPictures}>
+            {translate('firm.gallery.see_more')}
           </StyledButton>
         )}
         </CenteredWrapper>

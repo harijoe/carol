@@ -34,6 +34,7 @@ const mapStateToProps = (state, { id }) => ({
   locale: fromContext.getLocale(state),
   mapEnabled: fromContext.getLang(state) === 'fr',
   teamEnabled: fromContext.isFeatureEnabled(state, 'pro-page-team'),
+  reviewsEnabled: fromContext.isFeatureEnabled(state, 'pro-page-reviews'),
 })
 
 const mapDispatchToProps = (dispatch, { id }) => ({

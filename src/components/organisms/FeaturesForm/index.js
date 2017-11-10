@@ -13,7 +13,7 @@ const StyledSection = styled(Section)`
   background: ${theme('colors.white')};
 `
 
-const FEATURES = ['pro-page', 'pro-page-team', 'pro-page-map', 'wordpress_content']
+const FEATURES = ['pro-page-team', 'pro-page-reviews', 'wordpress_content']
 
 class FeaturesForm extends React.Component {
   static propTypes = {
