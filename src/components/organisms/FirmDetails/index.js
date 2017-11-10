@@ -707,7 +707,9 @@ class FirmDetails extends Component {
                 </StyledModal>
               </StyledOverlayModal>
             )}
-            {reviewsEnabled && reviews.length > 0 && <RatingReviews firmDetails={details} />}
+            {reviewsEnabled && reviews.length > 0 && (
+              <RatingReviews coverProImage={coverProImage} firmDetails={details} />
+            )}
         </Wrapper>
 
     )

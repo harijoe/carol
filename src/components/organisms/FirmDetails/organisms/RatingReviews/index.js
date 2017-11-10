@@ -43,7 +43,7 @@ const RightCol = styled(Col)`
 `
 
 
-const RatingReviews = ({ translate, labelWithColon, firmDetails }) =>
+const RatingReviews = ({ translate, labelWithColon, coverProImage, firmDetails }) =>
   <Section title={translate('firm.reviews.section_title')} light>
     <RatingGrid narrow>
       <StyledRow>
@@ -57,7 +57,7 @@ const RatingReviews = ({ translate, labelWithColon, firmDetails }) =>
           </select>
         </SortByCol>
         <LeftCol xs={12} m={4}>
-          <ProCardRating {...firmDetails} />
+          <ProCardRating image={{ src: coverProImage }} {...firmDetails} />
         </LeftCol>
         <RightCol xs={12} m={8}>
           <ReviewsLoader reviewsLight={firmDetails.reviews}>
@@ -76,7 +76,7 @@ const RatingReviews = ({ translate, labelWithColon, firmDetails }) =>
 RatingReviews.propTypes = {
   translate: PropTypes.func,
   labelWithColon: PropTypes.func,
-  reviews: PropTypes.array,
+  coverProImage: PropTypes.string,
   firmDetails: PropTypes.object.isRequired,
 }
 
