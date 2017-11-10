@@ -253,6 +253,7 @@ export default {
   'search_page.see_all_results': 'Ver todos los resultados',
   'search_page.see_more_projects': 'Y también',
   'search_page.see_sample_result': 'Ver el',
+  'search_page.tags.project': 'Proyecto',
   'search_page.your_search': 'Resultados de tu búsqueda',
   'server_error': 'Ha ocurrido un error, gracias de nuevo más tarde',
   'sms.mobile_phone.invalid': 'Este número de teléfono no es válido, por favor inténtalo de nuevo',

@@ -254,6 +254,7 @@ export default {
   'search_page.see_all_results': 'Voir tous les résultats',
   'search_page.see_more_projects': 'Et aussi',
   'search_page.see_sample_result': 'Voir les',
+  'search_page.tags.project': 'Projet',
   'search_page.your_search': 'Résultats de votre recherche :',
   'server_error': 'Une erreur s\'est produite, merci de réessayer plus tard',
   'sms.mobile_phone.invalid': 'Le numéro de téléphone n\'est pas valide',

@@ -71,9 +71,7 @@ const WrapperTag = styled.div`
 `
 
 const StyledTag = styled(Tag)`
-  position: absolute;
-  left: 2.5rem;
-  bottom: 2.5rem;
+  margin: 0;
 `
 
 const SearchResultItem = ({ className, slug, image, alt, title, tag }) =>

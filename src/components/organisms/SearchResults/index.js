@@ -109,6 +109,7 @@ const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsB
                 image={image || shuffledImages[i % shuffledImages.length]}
                 alt={name}
                 title={<div dangerouslySetInnerHTML={{ __html: _highlightResult.name.value }} />}
+                tag={slug ? translate('search_page.tags.project') : null}
               />
             </ColGrid>,
           )}

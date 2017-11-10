@@ -263,6 +263,7 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
                   slug={slug}
                   image={image || shuffledImages[i % shuffledImages.length]}
                   alt={name}
+                  tag={slug ? translate('search_page.tags.project') : null}
                   title={<div dangerouslySetInnerHTML={{ __html: _highlightResult.name.value }} />}
                 />
               </ColGrid>
