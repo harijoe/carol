@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FormattedDate } from 'react-intl'
 import { theme, breakpoint } from 'utils/style'
+import anonymise from 'utils/anonymizeUserName'
 
 import { Card, StarRating, ProfileImage } from 'components'
 
@@ -70,7 +71,7 @@ const ReviewCard = ({ userName, reviewDate, reviewText, globalRating, ...props }
       <RightCol>
         <UserWrapper>
           <p>
-            <strong>{userName}</strong>
+            <strong>{anonymise(userName)}</strong>
             <StyledTime dateTime={reviewDate}>
               <FormattedDate
                 value={Date.parse(reviewDate)}
