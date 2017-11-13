@@ -74,8 +74,13 @@ const StyledTag = styled(Tag)`
   margin: 0;
 `
 
+const StyledLink = styled(Link)`
+  display: block;
+  overflow: hidden;
+`
+
 const SearchResultItem = ({ className, slug, image, alt, title, tag }) =>
-  <Link className={className} to={`/project-elaboration?slug=${slug}`}>
+  <StyledLink className={className} to={`/project-elaboration?slug=${slug}`}>
     <StyledThumbnailPoster
       image={{ src: image, alt }}
       title={title}
@@ -89,7 +94,7 @@ const SearchResultItem = ({ className, slug, image, alt, title, tag }) =>
         </WrapperTag>
       )}
     </StyledThumbnailPoster>
-  </Link>
+  </StyledLink>
 
 SearchResultItem.propTypes = {
   className: PropTypes.string,
