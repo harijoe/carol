@@ -197,12 +197,15 @@ const StyledIconLink = styled(IconLink)`
   
   span {
     vertical-align: top;
+  }
 
-    &:first-child {
-      margin-right: ${theme('spaces.m')};
-      height: 9px;
-      width: 23px;
-    }
+  > span:first-child {
+    margin-right: ${theme('spaces.m')};
+  }
+
+  > span:last-child {
+    height: 9px;
+    width: 23px;
   }
 
   &:hover {
@@ -253,7 +256,7 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
     {projectFlowResults &&
       projectFlowResults.hits.length > 0 &&
       <div>
-        <StyledIconLink to={`search-result?q=${query}&category=project`} icon="front_arrow">
+        <StyledIconLink right to={`search-result?q=${query}&category=project`} icon="front_arrow">
           <span
             dangerouslySetInnerHTML={{ __html: translate('search_page.modal.project.title', { count: projectFlowResults.hits.length }) }}
           />
