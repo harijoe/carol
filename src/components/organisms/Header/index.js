@@ -33,7 +33,6 @@ const Background = styled.div`
 
 const StyledMainWrapper = styled(MainWrapper)`${({ homepage }) => css`
   display: flex;
-  align-items: center;
   min-height: 5.6rem;
   ${mapBreakpoints(
     bp => css`
@@ -56,7 +55,6 @@ const StyledMainWrapper = styled(MainWrapper)`${({ homepage }) => css`
 const SecondNavigation = styled.div`
   position: relative;
   display: flex;
-  align-items: center;
   margin: 0;
   margin-left: auto;
 

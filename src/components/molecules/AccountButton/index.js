@@ -17,6 +17,22 @@ const Wrapper = styled.div`
   margin: 0;
   transition: all 0.3s ease;
 
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    content: '';
+    transform: scale(0);
+    transform-origin: 50%;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::after {
+    transform: scale(1);
+  }
+
   ${breakpointMax('l')`
     margin-right: ${theme('spaces.s')};
     min-height: ${theme('icons.size.l')};
@@ -38,7 +54,7 @@ const Wrapper = styled.div`
       }
     }
   `,
-  )} 
+  )}
 
   ${ifThen(
     !homepage || !atTop,
@@ -54,22 +70,57 @@ const Wrapper = styled.div`
         border-top-color: ${theme('colors.black')};
       }
     }
+
+    &:hover {
+      .qs-header-cnx {
+        fill: ${theme('colors.primary')};
+      }
+
+      p {
+        color: ${theme('colors.primary')};
+
+        &::after {
+          border-top-color: ${theme('colors.primary')};
+        }
+      }
+    }
+
+    &::after {
+      background-color: ${theme('colors.primary')};
+    }
   `,
   )}
 
-  &:hover {
+  ${ifThen(
+    atTop && homepage,
+    css`
+    &::after {
+      background-color: ${theme('colors.white')};
+    }
+
     .qs-header-cnx {
-      fill: ${theme('colors.secondary')};
+      fill: ${theme('colors.white')};      
     }
 
     p {
-      color: ${theme('colors.secondary')};
+      color: ${theme('colors.white')};
+    }
 
-      &::after {
-        border-top-color: ${theme('colors.secondary')};
+    &:hover {
+      .qs-header-cnx {
+        fill: ${theme('colors.white')};
+      }
+
+      p {
+        color: ${theme('colors.white')};
+
+        &::after {
+          border-top-color: ${theme('colors.white')};
+        }
       }
     }
-  }
+  `,
+  )}
 `};
 `
 

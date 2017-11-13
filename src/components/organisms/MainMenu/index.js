@@ -20,7 +20,32 @@ const StyledList = styled(List)`${({ homepage, atTop }) => css`
   > li {
     position: relative;
     padding: 0;
+    padding-top: 0.4rem;
     color: ${theme('colors.black')};
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      content: '';
+      transform: scale(0);
+      transform-origin: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+
+    > a:hover, > [role="link"]:hover {
+      color: inherit;
+    }
+
+    &:first-child {
+      padding-top: 0.4rem;
+    }
 
     ${breakpointMax('l')`
       &:first-child {
@@ -39,11 +64,23 @@ const StyledList = styled(List)`${({ homepage, atTop }) => css`
       ${ifThen(
         atTop && homepage,
         css`
+        &::after {
+          background-color: ${theme('colors.white')};
+        }
+
         > a, > [role="link"] {
           color: ${theme('colors.white')};
 
+          &:hover {
+            color: ${theme('colors.white')};
+          }
+
           &.qs-linkMenu--toggle::after {
             border-top-color: ${theme('colors.white')};
+
+            &:hover {
+              border-top-color: ${theme('colors.white')};
+            }
           }
         }
       `,
@@ -52,8 +89,16 @@ const StyledList = styled(List)`${({ homepage, atTop }) => css`
       ${ifThen(
         !atTop,
         css`
+        &::after {
+          background-color: ${theme('colors.primary')};
+        }
+
         > a, > [role="link"] {
           color: ${theme('colors.black')};
+
+          &:hover {
+            color: ${theme('colors.primary')};
+          }
         }
       `,
       )}
@@ -70,23 +115,6 @@ const StyledList = styled(List)`${({ homepage, atTop }) => css`
 
   ${breakpoint('l')`
     flex-direction: row;
-
-    > li {
-      &::before {
-        position: absolute;
-        left: -0.2rem;
-        top: 50%;
-        margin-top: -0.2rem;
-        height: 0.4rem;
-        width: 0.4rem;
-        content: '';
-        background-color: ${theme('colors.grayscale.lighter')};
-        border-radius: 2rem;
-      }
-
-      &:first-child::before {
-        display: none;
-      }
     }
   `}
 `}`
@@ -145,7 +173,7 @@ const linkStyle = css`
     }
 
     &:hover::after {
-      border-top-color: ${theme('colors.secondary')};
+      border-top-color: ${theme('colors.primary')};
     }
   }
 
