@@ -80,7 +80,6 @@ const styles = ({ reverse, column, start, center, end, top, middle, bottom, arou
   )}
   ${breakpointMax('m')`
     margin: 0;
-    padding: 0;
   `}
 `
 

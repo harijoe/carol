@@ -13,6 +13,10 @@ import { SORT_KEYS } from './reviewSorting'
 
 const StyledRow = styled(Row)`
   align-items: flex-start;
+
+  ${breakpointMax('m')`
+    margin: calc(${theme('spaces.m')} / -2);
+  `}
 `
 
 const RatingGrid = styled(Grid)`
@@ -23,7 +27,7 @@ const RatingGrid = styled(Grid)`
 
 const LeftCol = styled(Col)`
   ${breakpointMax('m')`
-    order: 1;
+    display: none;
   `}
 `
 
@@ -32,7 +36,7 @@ const SortByCol = styled(Col)`
   text-align: right;
   ${breakpointMax('m')`
     margin: ${theme('spaces.m')} 0;
-    order: 2;
+    order: 1;
   `}
 `
 
@@ -41,7 +45,7 @@ const RightCol = styled(Col)`
   flex-direction: column;
 
   ${breakpointMax('m')`
-    order: 3;
+    order: 2;
   `};
 `
 
