@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import { scroller } from 'react-scroll'
 import { FormattedMessage } from 'react-intl'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
@@ -386,6 +387,12 @@ const WebsiteLink = styled.a`
   font-size: ${theme('fonts.size.s')};
 `
 
+const AvisLink = styled.a`
+  color: ${theme('colors.primary')};
+  text-decoration: none;
+  margin-left: 10px;
+`
+
 const StyledOverlayModal = styled.div`
   position: absolute;
   top: 0;
@@ -518,6 +525,14 @@ class FirmDetails extends Component {
     this.setState({ showModal: false })
   }
 
+  scrollToRatings = () => {
+    scroller.scrollTo('reviews', {
+      duration: 800,
+      delay: 0,
+      smooth: 'easeInOutQuart',
+    })
+  }
+
   render() {
     const { showModal, contentModal } = this.state
 
@@ -589,6 +604,7 @@ class FirmDetails extends Component {
                     <div>
                       <StarRating value={globalRating} />
                       <strong> {globalRating}</strong> - {globalRatingCount} <FormattedMessage id="firm.details.rating_reviews" />
+                      <AvisLink name="myScrollToElement" onClick={this.scrollToRatings}>{translate('firm.details.see_reviews')} </AvisLink>
                     </div>
                   ) : (
                     <span>&nbsp;</span>
@@ -708,7 +724,10 @@ class FirmDetails extends Component {
               </StyledOverlayModal>
             )}
             {reviewsEnabled && reviews.length > 0 && (
-              <RatingReviews coverProImage={coverProImage} firmDetails={details} />
+              <div>
+                <a name="reviews" id="reviews" />
+                <RatingReviews coverProImage={coverProImage} firmDetails={details} />
+              </div>
             )}
         </Wrapper>
 
