@@ -1,5 +1,4 @@
 import get from 'lodash/get'
-import { createSelector } from 'reselect'
 
 export const initialState = {
   sessionId: null,
@@ -40,16 +39,9 @@ export const initialState = {
   enterKey: null,
 }
 
-
-export const getAnswersText = (state = initialState) => state.activeConversation.filter(data => data.answer).map(data => data.answer.text)
-export const getConversation = (state = initialState) => state.activeConversation
 export const getPartnerHeaderText = (state = initialState) => get(state, ['partner', 'headerText'])
 export const getPartnerHeaderLink = (state = initialState) => get(state, ['partner', 'headerLink'])
 export const getPartnerHeaderWebsite = (state = initialState) => get(state, ['partner', 'website'])
-export const hasActiveConversation = (state = initialState) => {
-  const activeConversation = getConversation(state)
-  return !!(activeConversation.length > 0 && activeConversation[0].answer && activeConversation[0].answer.text)
-}
 export const getConversations = (state = initialState) => state.conversations
 export const getSessionId = (state = initialState) => state.sessionId
 export const getFirstChoices = (state = initialState) => state.hero[1].message.attachment.payload.elements
@@ -61,19 +53,14 @@ export const getProFormId = (state = initialState) => state.proFormId
 export const getProFormLabel = (state = initialState) => state.proFormLabel
 export const isNewConversation = (state = initialState) => state.isNewConversation
 
-export const getHeroAnswer = createSelector(
-  getAnswersText,
-  answersText => (state = initialState) => answersText(state)[0]
-)
-export const getKey2Label = createSelector(
-  getAnswersText,
-  answersText => (state = initialState) => answersText(state)[1]
-)
-export const getKey1 = createSelector(
-  getAnswersText,
-  answersText => (state = initialState) => (!state.enterKey ? answersText(state)[0] : state.key1)
-)
-export const getKey2 = createSelector(
-  getAnswersText,
-  answersText => (state = initialState) => (!state.enterKey ? answersText(state)[1] : state.key2)
-)
+export const getConversation = (state = initialState) => state.activeConversation
+export const hasActiveConversation = (state = initialState) => {
+  const activeConversation = getConversation(state)
+  return !!(activeConversation.length > 0 && activeConversation[0].answer && activeConversation[0].answer.text)
+}
+
+const getAnswersText = (state = initialState) => state.activeConversation.filter(data => data.answer).map(data => data.answer.text)
+export const getHeroAnswer = (state = initialState) => getAnswersText(state)[0]
+export const getKey2Label = (state = initialState) => getAnswersText(state)[1]
+export const getKey1 = (state = initialState) => (!state.enterKey ? getAnswersText(state)[0] : state.key1)
+export const getKey2 = (state = initialState) => (!state.enterKey ? getAnswersText(state)[1] : state.key2)
