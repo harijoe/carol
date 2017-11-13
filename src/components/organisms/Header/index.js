@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { theme, ifThen, mapBreakpoints, breakpoint } from 'utils/style'
+import { theme, ifThen, mapBreakpoints, breakpoint, breakpointMax } from 'utils/style'
 import injectScroll from 'hoc/component/injectScroll'
 
 import { MainWrapper } from 'components'
@@ -58,6 +58,10 @@ const SecondNavigation = styled.div`
   margin: 0;
   margin-left: auto;
 
+  ${breakpointMax('l')`
+    align-items: center;
+  `} 
+
   ${breakpoint('l')`
     margin-left: 0;
     padding-left: ${theme('spaces.m')};
@@ -73,7 +77,9 @@ const SecondNavigation = styled.div`
       background-color: ${theme('colors.grayscale.lighter')};
       border-radius: 2rem;
     }
-  `} ${breakpoint('xl')`
+  `} 
+
+  ${breakpoint('xl')`
     padding-left: ${theme('spaces.l')};
   `};
 `
