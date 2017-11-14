@@ -4,6 +4,7 @@ export default {
   contentSiteUrl: 'https://www.quotatis.co.uk/advice/',
   mainMenu: {
     resource: {
+      blog: { path: '', target: '_blank' },
       guide: { path: 'guide', target: '_blank' },
       inspiring: { path: 'inspiration', target: '_blank' },
       faq: { path: 'FAQ', target: '_blank' },

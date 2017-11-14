@@ -4,6 +4,7 @@ export default {
   contentSiteUrl: 'https://www.quotatis.es/consejos-reformas/',
   mainMenu: {
     resource: {
+      blog: { path: '', target: '_blank' },
       guide: { path: 'guia', target: '_blank' },
       inspiring: { path: 'Inspiracion', target: '_blank' },
       faq: { path: 'preguntas-frecuentes', target: '_blank' },

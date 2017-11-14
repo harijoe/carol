@@ -4,6 +4,7 @@ export default {
   contentSiteUrl: 'https://www.quotatis.fr/conseils-travaux/',
   mainMenu: {
     resource: {
+      blog: { path: '', target: '_blank' },
       guide: { path: 'guide', target: '_blank' },
       inspiring: { path: 'inspirations', target: '_blank' },
       faq: { path: 'FAQ', target: '_blank' },

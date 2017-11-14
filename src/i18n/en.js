@@ -32,6 +32,7 @@ export default {
   'directory': 'Pro Directory',
   'firm.all': 'Our advice',
   'firm.and_you': 'The work and you',
+  'firm.blog': 'Project Advice',
   'firm.details.back_link_title': 'Return to my Project',
   'firm.details.budget': 'Budget',
   'firm.details.certificate': 'Certificate',
