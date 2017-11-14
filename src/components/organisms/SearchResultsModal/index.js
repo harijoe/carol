@@ -295,8 +295,7 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
                 if (!nbHits) return null
 
                 const wordpressContentResultsByCategories = wordpressContentCategories[key].reduce((acc, type) => {
-
-                  const results = wordpressContentResultsByType[type]
+                  const results = wordpressContentResultsByType[type] || []
                   return acc.concat(results)
                 }, [])
 
@@ -316,9 +315,7 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
         </ContentWrapper>
       </div>
       }
-      {projectFlowResults &&
-      projectFlowResults.hits.length > 0 &&
-      projectFlowResults.nbHits > 5 &&
+      {projectFlowResults && projectFlowResults.nbHits + nbHitsTotal > 5 &&
       <div>
         <MoreResultsBlock>
           <StyledDivider />
