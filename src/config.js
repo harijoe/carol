@@ -47,9 +47,9 @@ const configs = {
         ES: 'qa_ProjectFlow_dev_es',
       },
       wordpressContentIndex: {
-        FR: 'dev_content_fr',
-        GB: 'dev_content_uk',
-        ES: 'dev_content_es',
+        FR: 'qa_content_fr',
+        GB: 'qa_content_gb',
+        ES: 'qa_content_es',
       },
     },
     cloudinary: {
@@ -121,6 +121,11 @@ const configs = {
         GB: 'preprod_ProjectFlow_prod_gb',
         ES: 'preprod_ProjectFlow_prod_es',
       },
+      wordpressContentIndex: {
+        FR: 'preprod_content_fr',
+        GB: 'preprod_content_uk',
+        ES: 'preprod_content_es',
+      },
     },
     sentry: {
       enabled: true,
@@ -161,6 +166,11 @@ const configs = {
         FR: 'prod_ProjectFlow_prod_fr',
         GB: 'prod_ProjectFlow_prod_gb',
         ES: 'prod_ProjectFlow_prod_es',
+      },
+      wordpressContentIndex: {
+        FR: 'prod_content_fr',
+        GB: 'prod_content_uk',
+        ES: 'prod_content_es',
       },
     },
     sentry: {

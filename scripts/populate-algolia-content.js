@@ -19,13 +19,13 @@ const client = algoliaSearch('TIM81UW1UV', algolia.adminApiKey)
 
 const config = [{
   filepath: '../conseilstravaux.wordpress.2017-11-06.xml',
-  indexes: ['dev_content_fr', 'qa_content_fr', 'prod_content_fr'],
+  indexes: ['qa_content_fr', 'preprod_content_fr', 'prod_content_fr'],
 }, {
   filepath: '../consejosreformas.wordpress.2017-11-10.xml',
-  indexes: ['dev_content_es', 'qa_content_es', 'prod_content_es'],
+  indexes: ['qa_content_es', 'preprod_content_es', 'prod_content_es'],
 }, {
   filepath: '../advice.wordpress.2017-11-10.xml',
-  indexes: ['dev_content_uk', 'qa_content_uk', 'prod_content_uk'],
+  indexes: ['qa_content_gb', 'preprod_content_gb', 'prod_content_gb'],
 }]
 
 /*
@@ -41,7 +41,7 @@ const parseStringPromise = (...props) => new Promise((resolve, reject) => {
 })
 
 const populate = async (filepath, indexes) => {
-  const xml = fs.readFileSync(path.join(__dirname, '../conseilstravaux.wordpress.2017-11-06.xml'), 'utf-8')
+  const xml = fs.readFileSync(path.join(__dirname, filepath), 'utf-8')
 
   const result = await parseStringPromise(xml)
 
