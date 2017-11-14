@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
@@ -102,7 +103,7 @@ const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsB
     >
       <ResultsGrid narrow>
         <Row>
-          {projectFlowResults.hits.slice(0, 8).map(({ name, slug, id, image, _highlightResult }, i) =>
+          {projectFlowResults.hits.map(({ name, slug, id, image, _highlightResult }, i) =>
             <ColGrid xs={6} m={4} l={3} key={id} x>
               <SearchResultItem
                 slug={slug}
@@ -123,9 +124,9 @@ const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsB
       <ResultsGrid narrow>
         <Row>
           {(!searchCategory || searchCategory === 'guides') &&
-            wpContentGuides.map(({ title, id, image, description, link }) =>
+            wpContentGuides.map(({ title, id, image, image_meta, excerpt, link }) =>
               <ColGrid xs={12} m={8} l={6} key={id} x>
-                <GuideCard title={title} image={{ src: image, alt: title }} description={description} link={link} />
+                <GuideCard title={title} image={image} imageMeta={image_meta} description={excerpt} link={link} />
               </ColGrid>
             )
           }
@@ -144,9 +145,9 @@ const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsB
     >
       <ResultsGrid narrow>
         <Row>
-          {wordpressContentResultsByType.inspirations.map(({ title, id, image, link }) =>
+          {wordpressContentResultsByType.inspirations.map(({ title, id, image, image_meta, link }) =>
             <ColGrid className="qs-ColGrid--medium" xs={12} m={6} l={4} key={id} x>
-              <WpCard title={title} image={{ src: image, alt: title }} link={link} />
+              <WpCard title={title} image={image} imageMeta={image_meta} link={link} />
             </ColGrid>
           )
           }

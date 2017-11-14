@@ -256,7 +256,7 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
     {projectFlowResults &&
       projectFlowResults.hits.length > 0 &&
       <div>
-        <StyledIconLink right to={`search-result?q=${query}&category=project`} icon="front_arrow">
+        <StyledIconLink right to={`search-result?q=${query}&category=projects`} icon="front_arrow">
           <span
             dangerouslySetInnerHTML={{ __html: translate('search_page.modal.project.title', { count: projectFlowResults.hits.length }) }}
           />

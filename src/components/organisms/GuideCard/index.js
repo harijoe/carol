@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { theme, ifThen, breakpointMax } from 'utils/style'
+import selectImageSizeFromMeta from 'utils/selectImageSizeFromMeta'
 
 import { Card, Paragraph, Link } from 'components'
 
@@ -82,7 +83,6 @@ const StyledCardImage = styled(Card.Image)`
 `
 
 const Content = styled(Paragraph)`
-  max-height: 10rem; 
   margin: 0;
   color: ${theme('colors.grayscale.dark')};
   overflow: hidden;
@@ -93,11 +93,11 @@ const Content = styled(Paragraph)`
   `}
 `
 
-const GuideCard = ({ title, label, image, description, className, orientation, link, ...props }) =>
+const GuideCard = ({ title, label, image, imageMeta, description, className, orientation, link, ...props }) =>
   <Link to={link} target="_blank">
     <StyledCard className={className} padding="fluid-small" orientation={orientation} {...props}>
       <StyledCardHeader orientation={orientation}>
-        <StyledCardImage image={image} />
+        {image && <StyledCardImage image={{ src: selectImageSizeFromMeta(image, imageMeta, '370_650'), alt: title }} />}
         <Card.Tag label={label} type="guide" position="bottom" />
       </StyledCardHeader>
       <StyledCardBody orientation={orientation}>
@@ -116,6 +116,7 @@ GuideCard.propTypes = {
   label: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
   image: PropTypes.object.isRequired,
+  imageMeta: PropTypes.object.isRequired,
   className: PropTypes.string,
   orientation: PropTypes.string.isRequired,
   description: PropTypes.string,

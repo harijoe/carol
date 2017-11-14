@@ -26,6 +26,7 @@ export const getWordpressContentResultsByType = (state = initialState) => {
 }
 export const getWpContentByCategory = (state = initialState, category) => {
   const hits = get(state, 'results.wordpressContent.hits')
+
   if (!hits) return null
 
   return hits.reduce((acc, el) => {
