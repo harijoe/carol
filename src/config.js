@@ -40,6 +40,7 @@ const configs = {
     },
     algolia: {
       apiKey: '833cbf062e3b7c3979155c0d07e3f058',
+      adminApiKey: '9f00c13877793598aa8c4e74f5d0272b',
       projectFlowIndex: {
         FR: 'qa_ProjectFlow_dev_fr',
         GB: 'qa_ProjectFlow_dev_gb',
