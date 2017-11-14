@@ -566,7 +566,11 @@ class FirmDetails extends Component {
                     <div>
                       <StarRating value={globalRating} />
                       <strong> {globalRating}</strong> - {globalRatingCount} <FormattedMessage id="firm.details.rating_reviews" />
-                      <AvisLink name="myScrollToElement" onClick={this.scrollToRatings}>{translate('firm.details.see_reviews')} </AvisLink>
+                      {reviewsEnabled && (
+                        <AvisLink name="myScrollToElement" onClick={this.scrollToRatings}>
+                          {translate('firm.details.see_reviews')}
+                        </AvisLink>
+                      )}
                     </div>
                   ) : (
                     <span>&nbsp;</span>
