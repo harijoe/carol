@@ -28,6 +28,7 @@ import {
   StarRating,
 } from 'components'
 import GoogleMapsInterventionArea from './atoms/GoogleMapsInterventionArea'
+import FirmCertificate from './molecules/FirmCertificate'
 import FirmGallery from './molecules/FirmGallery'
 import TeamGallery from './molecules/TeamGallery'
 import RatingReviews from './organisms/RatingReviews'
@@ -200,20 +201,6 @@ const Notation = styled.div`
   margin-top: ${theme('spaces.s')};
   color: ${theme('colors.grayscale.dark')};
 `
-const IconCertificate = styled(Icon)`
-  display: none;
-
-  ${breakpointMax('m')`
-    display: block;
-    position: absolute;
-    right: 4px;
-    top: 50%;
-    margin-top: -0.55rem;
-    height: 1.1rem;
-    width: 1.1rem;
-  `};
-`
-
 const StyledIconLink = styled(IconLink)`
   transition: all 0.2s ease;
   display: block;
@@ -260,31 +247,6 @@ const StyledCertificateList = styled(List)`
       margin-bottom: ${theme('spaces.s')};
     }
   `};
-
-  li {
-    display: inline-block;
-    margin: ${theme('spaces.xs')};
-    padding: ${theme('spaces.s')};
-    background-color: ${theme('colors.grey')};
-    border-radius: ${theme('spaces.m')};
-    font-size: ${theme('fonts.size.xs')};
-    text-transform: uppercase;
-    margin-right: ${theme('spaces.xs')};
-
-    &:last-child {
-      margin-right: 0;
-    }
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    ${breakpointMax('m')`
-      position: relative;
-      padding-right: 2rem;
-      vertical-align: middle;
-    `};
-  }
 `
 
 const WrapperContactsPro = styled.div`
@@ -513,16 +475,16 @@ class FirmDetails extends Component {
 
   constructor() {
     super()
-    this.state = { showModal: false, contentModal: null }
+    this.state = { modalIsVisible: false, contentModal: null }
   }
 
-  showModal(description) {
+  showModal = description => {
     if (!isTouchDevice()) return
-    this.setState({ contentModal: description, showModal: true })
+    this.setState({ contentModal: description, modalIsVisible: true })
   }
 
   hideModal = () => {
-    this.setState({ showModal: false })
+    this.setState({ modalIsVisible: false })
   }
 
   scrollToRatings = () => {
@@ -534,7 +496,7 @@ class FirmDetails extends Component {
   }
 
   render() {
-    const { showModal, contentModal } = this.state
+    const { modalIsVisible, contentModal } = this.state
 
     const { details, locale, translate, labelWithColon, mapEnabled, teamEnabled, reviewsEnabled, params: { projectId } } = this.props
 
@@ -616,15 +578,8 @@ class FirmDetails extends Component {
               {firmCertificates && firmCertificates.length > 0 && (
                 <StyledCertificateList>
                   <strong>{labelWithColon(translate('firm.details.certifications'))}</strong>
-                  {firmCertificates.map(item =>
-                    <li
-                      key={item['@id']}
-                      data-tip={!isTouchDevice() ? item.certificate.description : null}
-                      onClick={() => this.showModal(item.certificate.description)}
-                    >
-                      {item.certificate.name}
-                      <IconCertificate icon="question-mark" />
-                    </li>
+                  {firmCertificates.map(({ ['@id']: id, certificate }) =>
+                    <FirmCertificate key={id} {...certificate} showModal={this.showModal} />
                   )}
                 </StyledCertificateList>
               )}
@@ -715,7 +670,7 @@ class FirmDetails extends Component {
           {!isTouchDevice() && certificatesAvailable && <StyledReactTooltip type={'light'} effect={'solid'} place={'bottom'} />}
           {isTouchDevice() &&
             certificatesAvailable &&
-            showModal && (
+            modalIsVisible && (
               <StyledOverlayModal onClick={this.hideModal}>
                 <StyledModal>
                   <CloseAllButton closeAll={this.hideModal} />

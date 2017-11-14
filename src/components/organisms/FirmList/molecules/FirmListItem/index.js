@@ -265,7 +265,7 @@ class FirmListItem extends Component {
   }
 
   hideModal = () => {
-    this.setState({ showModal: false })
+    this.setState({ modalIsVisible: false })
   }
 
   render() {
@@ -308,7 +308,7 @@ class FirmListItem extends Component {
                 <li
                   key={item['@id']}
                   data-tip={!isTouchDevice() ? item.certificate.description : null}
-                  onClick={() => this.showModal(item.certificate.description)}
+                  onClick={() => this.modalIsVisible(item.certificate.description)}
                 >
                   {item.certificate.name}
                   <IconCertificate icon="question-mark" />
