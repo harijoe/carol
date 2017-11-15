@@ -83,6 +83,8 @@ const StyledCardImage = styled(Card.Image)`
 `
 
 const Content = styled(Paragraph)`
+  position: relative;
+  max-height: 10rem;
   margin: 0;
   color: ${theme('colors.grayscale.dark')};
   overflow: hidden;
@@ -91,6 +93,16 @@ const Content = styled(Paragraph)`
   ${breakpointMax('m')`
     font-size: ${theme('fonts.size.s')};
   `}
+
+  &::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 20px;
+    width: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    content: '';
+  }
 `
 
 const GuideCard = ({ title, label, image, imageMeta, description, className, orientation, link, ...props }) =>
