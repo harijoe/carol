@@ -17,7 +17,10 @@ export default (state = initialState, action) => {
       if (!action.payload) {
         return {
           ...state,
-          ...initialState,
+          ...{
+            category: null,
+            results: null,
+          },
         }
       }
 

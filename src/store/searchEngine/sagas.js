@@ -6,7 +6,7 @@ import { fromContext, fromRouting, fromSearchEngine } from 'store/selectors'
 import { SEARCH_ENGINE_SEARCH, SEARCH_ENGINE_SET_CATEGORY, projectElaborationSetResults } from './actions'
 
 function* search({ query }) {
-  if (!query) {
+  if (!query || query.length < 3) {
     yield put(projectElaborationSetResults(null))
 
     return

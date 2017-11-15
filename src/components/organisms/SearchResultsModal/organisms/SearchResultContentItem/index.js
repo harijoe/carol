@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { theme, breakpoint } from 'utils/style'
+import selectImageSizeFromMeta from 'utils/selectImageSizeFromMeta'
 
 import { Heading, Link } from 'components'
 
@@ -55,11 +56,11 @@ const StyledLink = styled(Link)`
   margin-bottom: ${theme('spaces.m')};
 `
 
-const SearchResultContentItem = ({ title, image, link }) => (
+const SearchResultContentItem = ({ title, image, imageMeta, link }) => (
     <StyledLink to={link} target="_blank">
       <StyledWrapper>
         {image &&
-          <StyledImage imageUrl={image} />
+          <StyledImage imageUrl={selectImageSizeFromMeta(image, imageMeta, '80')} />
         }
         <StyledHeading level={3} dangerouslySetInnerHTML={{ __html: title }} />
       </StyledWrapper>
@@ -69,6 +70,7 @@ const SearchResultContentItem = ({ title, image, link }) => (
 SearchResultContentItem.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.string,
+  imageMeta: PropTypes.string,
   link: PropTypes.string,
 }
 

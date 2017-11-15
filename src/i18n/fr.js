@@ -263,6 +263,7 @@ export default {
   'project.validation_page': 'Valider mon projet',
   'renovation': 'Rénovation',
   'search': 'Recherche',
+  'search_page.category.all.title': 'Tout',
   'search_page.category.articles.title': '{contentNumber, plural, =1 { article} other { articles}}',
   'search_page.category.faqs.title': '{contentNumber, plural, =1 { faq} other { faqs}}',
   'search_page.category.guides.title': '{contentNumber, plural, =1 { guide} other { guides}}',

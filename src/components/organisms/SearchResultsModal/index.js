@@ -305,7 +305,7 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
                       <span dangerouslySetInnerHTML={{ __html: translate(`search_page.modal.${key}.title`, { count: nbHits }) }} />
                     </StyledIconLink>
                     {wordpressContentResultsByCategories.slice(0, 2).map((el, i) =>
-                      <SearchResultContentItem key={i} title={el.title} image={el.image} link={el.link} />
+                      <SearchResultContentItem key={i} title={el.title} image={el.image} imageMeta={el.image_meta} link={el.link} />
                     )}
                   </ContentItem>
                 </ColContent>

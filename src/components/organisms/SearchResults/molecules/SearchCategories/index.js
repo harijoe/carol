@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { ifThen, theme, breakpoint } from 'utils/style'
 import wordpressContentCategories from 'constants/wordpress-content-categories'
+import capitalize from 'lodash/capitalize'
 
 const Wrapper = styled.ul`
   margin: 0;
@@ -44,29 +45,32 @@ const CategoryItem = styled.button`${({ selected }) => css`
   
 `};`
 
-const SearchCategories = ({ className, setSearchCategory, searchCategory, projectFlowResults, wordpressContentResults, wordpressContentResultsByType }) =>
+const SearchCategories = ({ className, setSearchCategory, searchCategory, projectFlowResults, wordpressContentResults, wordpressContentResultsByType, translate }) =>
   <Wrapper className={className}>
     <li>
       <CategoryItem onClick={() => setSearchCategory(null)} selected={searchCategory == null}>
-        All {projectFlowResults && wordpressContentResults && <span>({ projectFlowResults.nbHits + wordpressContentResults.nbHits || 0})</span>}
+        {capitalize(translate('search_page.category.all.title'))} {projectFlowResults && wordpressContentResults && <span>({ projectFlowResults.nbHits + wordpressContentResults.nbHits || 0})</span>}
       </CategoryItem>
     </li>
     <li>
       <CategoryItem onClick={() => setSearchCategory('projects')} selected={searchCategory === 'projects'}>
-        Projects {projectFlowResults && <span>({ projectFlowResults.nbHits || 0})</span>}
+        {capitalize(translate('search_page.category.project.title', { contentNumber: projectFlowResults.nbHits || 0 }))} {projectFlowResults && <span>({ projectFlowResults.nbHits || 0})</span>}
       </CategoryItem>
     </li>
 
-    {Object.keys(wordpressContentCategories).map(key =>
-    <li>
-      <CategoryItem key={key} onClick={() => setSearchCategory(key)} selected={searchCategory === key}>
-          {key} { wordpressContentResultsByType && <span>({wordpressContentCategories[key].reduce((acc, type) => {
+    {Object.keys(wordpressContentCategories).map(key => {
+        const count = wordpressContentResultsByType && wordpressContentCategories[key].reduce((acc, type) => {
 
-            const results = wordpressContentResultsByType[type]
-            return acc + (results ? results.length : 0) || 0
-      }, 0)})</span>}
-      </CategoryItem>
-    </li>)}
+          const results = wordpressContentResultsByType[type]
+          return acc + (results ? results.length : 0) || 0
+        }, 0) || 0
+        return <li>
+          <CategoryItem key={key} onClick={() => setSearchCategory(key)} selected={searchCategory === key}>
+            {capitalize(translate(`search_page.category.${key}.title`, { contentNumber: count }))} {wordpressContentResultsByType && <span>({count})</span>}
+          </CategoryItem>
+        </li>
+      })
+    }
   </Wrapper>
 
 SearchCategories.propTypes = {
@@ -75,6 +79,7 @@ SearchCategories.propTypes = {
   projectFlowResults: PropTypes.object,
   wordpressContentResults: PropTypes.object,
   wordpressContentResultsByType: PropTypes.object,
+  translate: PropTypes.func,
   className: PropTypes.string,
 }
 
