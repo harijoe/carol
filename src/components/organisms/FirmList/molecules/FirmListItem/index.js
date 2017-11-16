@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link as RouterLink } from 'react-router'
+import { FormattedMessage } from 'react-intl'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import injectTranslate from 'i18n/hoc/injectTranslate'
@@ -7,7 +8,7 @@ import { theme, breakpoint, breakpointMax } from 'utils/style'
 import cloudinary from 'utils/cloudinary'
 import isTouchDevice from 'utils/isTouchDevice'
 
-import { Heading, Card, Image, Icon, List, Link, CloseAllButton, ProfileImage } from 'components'
+import { Heading, Card, Image, Icon, List, Link, CloseAllButton, ProfileImage, StarRating } from 'components'
 
 const StyledCard = styled(Card)`
   ${breakpoint('xs')`
@@ -54,7 +55,6 @@ const StyledHeading = styled(Heading)`
   margin-bottom: ${theme('spaces.s')};
   font-size: ${theme('fonts.size.xl')};
   text-transform: lowercase;
-  height: 5rem;
 
   &::first-letter {
     text-transform: uppercase;
@@ -246,6 +246,8 @@ class FirmListItem extends Component {
       name: PropTypes.string,
       logoUrl: PropTypes.string,
       firmCertificates: PropTypes.array,
+      globalRating: PropTypes.number,
+      globalRatingCount: PropTypes.number,
     }),
     projectId: PropTypes.string,
     proPostCode: PropTypes.string,
@@ -269,7 +271,7 @@ class FirmListItem extends Component {
   }
 
   render() {
-    const { firm: { name, logoUrl, firmCertificates, '@id': firmId }, projectId, proPostCode, proPhone, proEmail, proPageEnabled } = this.props
+    const { firm: { name, logoUrl, firmCertificates, globalRating, globalRatingCount, '@id': firmId }, projectId, proPostCode, proPhone, proEmail, proPageEnabled } = this.props
 
     const { showModal, contentModal } = this.state
 
@@ -290,6 +292,16 @@ class FirmListItem extends Component {
           <LinkToPro>
             <StyledHeading level={3}>{name}</StyledHeading>
           </LinkToPro>
+          <div>
+            {globalRatingCount > 0 ?
+              <div>
+                <StarRating value={globalRating} />
+                <strong> {globalRating}</strong> - {globalRatingCount} <FormattedMessage id="firm.details.rating_reviews" />
+              </div>
+             :
+              <br />
+            }
+          </div>
           <StyledList>
             <li>
               <StyledIcon icon="location-pin" /> <span>{proPostCode}</span>
