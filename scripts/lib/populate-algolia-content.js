@@ -6,8 +6,9 @@ export const transformToAlgoliaItem = item => {
 
   if (Array.isArray(item.category)) {
     const theme = item.category.filter(cat => get(cat, '$.domain') === 'inspiration_themes')
+
     if (theme[0]) {
-      algoliaItem.theme = theme[0].$.nicename
+      algoliaItem.theme_inspirations = theme[0]._
     }
   }
 

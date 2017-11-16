@@ -124,16 +124,16 @@ const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsB
       <ResultsGrid narrow>
         <Row>
           {(!searchCategory || searchCategory === 'guides') &&
-            wpContentGuides.map(({ title, id, image, image_meta, excerpt, link }) =>
+            wpContentGuides.map(({ title, id, image, image_meta, excerpt, link, type }) =>
               <ColGrid xs={12} m={8} l={6} key={id} x>
-                <GuideCard title={title} image={image} imageMeta={image_meta} description={excerpt} link={link} />
+                <GuideCard title={title} image={image} imageMeta={image_meta} description={excerpt} link={link} label={translate(`search_page.tags.${type}`)} />
               </ColGrid>
             )
           }
           {(!searchCategory || searchCategory === 'faqs') &&
-            wpContentFaqs.map(({ title, id, link }) =>
+            wpContentFaqs.map(({ title, id, link, type }) =>
               <ColGrid xs={6} m={4} l={3} key={id} x>
-                <StyledFaqCard title={title} link={link} />
+                <StyledFaqCard title={title} link={link} label={translate(`search_page.tags.${type}`)} />
               </ColGrid>
             )
           }
@@ -145,9 +145,9 @@ const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsB
     >
       <ResultsGrid narrow>
         <Row>
-          {wordpressContentResultsByType.inspirations.map(({ title, id, image, image_meta, link }) =>
+          {wordpressContentResultsByType.inspirations.map(({ title, id, image, image_meta, link, theme_inspirations }) =>
             <ColGrid className="qs-ColGrid--medium" xs={12} m={6} l={4} key={id} x>
-              <WpCard title={title} image={image} imageMeta={image_meta} link={link} />
+              <WpCard title={title} image={image} imageMeta={image_meta} link={link} label={theme_inspirations} />
             </ColGrid>
           )
           }
