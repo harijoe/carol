@@ -236,7 +236,8 @@ const StyledIconLink = styled(IconLink)`
   }
 `
 
-const StyledCertificateList = styled(List)`
+const CertificateList = styled.ul`
+  padding: 0;
   list-style-type: none;
   vertical-align: middle;
   color: ${theme('colors.grayscale.dark')};
@@ -580,12 +581,12 @@ class FirmDetails extends Component {
               {logoUrl &&
                   <LogoProImage image={logoUrl} size={'l'} />}
               {firmCertificates && firmCertificates.length > 0 && (
-                <StyledCertificateList>
+                <CertificateList>
                   <strong>{labelWithColon(translate('firm.details.certifications'))}</strong>
                   {firmCertificates.map(({ ['@id']: id, certificate }) =>
                     <FirmCertificate key={id} {...certificate} showModal={this.showModal} />
                   )}
-                </StyledCertificateList>
+                </CertificateList>
               )}
               <Divider />
               <WrapperContactsPro>
