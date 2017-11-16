@@ -99,10 +99,10 @@ class Conversation extends Component {
               <RichTextContent content={content} />
             </ProjectElaborationQuestion>
           )}
-          {activeConversation.map(({ message: { text, attachment, quick_replies, image_url }, answer }, index) =>
+          {activeConversation.map(({ message: { text, attachment, quick_replies }, answer }, index) =>
           <div key={index}>
             { // eslint-disable-next-line camelcase
-              <ProjectElaborationQuestion imageUrl={image_url} onAnimationEnd={this.scrollTop}>
+              <ProjectElaborationQuestion onAnimationEnd={this.scrollTop}>
                 {text != null ? text : null}
               </ProjectElaborationQuestion>}
             {isLastQuestion(index)
