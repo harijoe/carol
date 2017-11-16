@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { fromFirm, fromStatus, fromContext } from 'store/selectors'
+import { fromFirm, fromStatus } from 'store/selectors'
 import { firmReviews, FIRM_REVIEWS } from 'store/actions'
 import { sort, SORT_KEYS } from './reviewSorting'
 import ReviewsView from './ReviewsView'
@@ -10,7 +10,6 @@ import ReviewsView from './ReviewsView'
 class RatingReviews extends React.Component {
   static propTypes = {
     requestFirmReviews: PropTypes.func.isRequired,
-    reviewsEnabled: PropTypes.bool.isRequired,
     loading: PropTypes.bool,
     reviews: PropTypes.array,
   }
@@ -33,8 +32,8 @@ class RatingReviews extends React.Component {
   }
 
   render() {
-    const { reviewsEnabled, loading, reviews, ...props } = this.props
-    if (!reviewsEnabled || loading || !reviews || reviews.length === 0) {
+    const { loading, reviews, ...props } = this.props
+    if (loading || !reviews || reviews.length === 0) {
       return null
     }
 
@@ -56,7 +55,6 @@ export default (
     (state, { firmDetails: { '@id': id } }) => ({
       details: fromFirm.getDetails(state, id),
       loading: fromStatus.isLoading(state, FIRM_REVIEWS.prefix),
-      reviewsEnabled: fromContext.isFeatureEnabled(state, 'pro-page-reviews'),
       reviews: fromFirm.getReviews(state, id),
     }),
     (dispatch, { firmDetails: { '@id': id } }) => ({
