@@ -354,6 +354,7 @@ const AvisLink = styled.a`
   color: ${theme('colors.primary')};
   text-decoration: none;
   margin-left: 10px;
+  cursor: pointer;
 `
 
 const StyledOverlayModal = styled.div`
@@ -490,6 +491,7 @@ class FirmDetails extends Component {
 
   scrollToRatings = () => {
     scroller.scrollTo('reviews', {
+      offset: -50,
       duration: 800,
       delay: 0,
       smooth: 'easeInOutQuart',

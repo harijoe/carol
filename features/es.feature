@@ -5,7 +5,7 @@ Feature: As a spanish customer I can use the quotatis website
 
   Scenario: Home page
     When I go to the 'home' page
-    Then I should be on a page titled 'Presupuestos de reforma'
+    Then I should be on a page titled 'Quotatis | Presupuestos de Reformas Integrales para el Hogar. Piso, Vivienda & Casa'
     And I should see '¿Cuál es tu proyecto?'
     And I should see 11 Key-one slides
     And I should see 12 items in the footer advices section
