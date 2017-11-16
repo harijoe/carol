@@ -5,7 +5,7 @@ import { fromProject } from 'store/selectors'
 import redirectToNextValidationStep from 'sagas/redirectToNextValidationStep'
 import { projectDetails as projectDetailsAction } from 'store/actions'
 
-import { firmList, firmDetails, FIRM_LIST, FIRM_DETAILS } from './actions'
+import { firmList, firmDetails, firmReviews, FIRM_LIST, FIRM_DETAILS, FIRM_REVIEWS } from './actions'
 
 export function* handleReadFirmListRequest({ projectId }) {
   let projectDetails = yield select(fromProject.getDetails, projectId)
@@ -25,9 +25,17 @@ export function* handleReadFirmListRequest({ projectId }) {
 }
 
 export function* handleReadFirmDetailsRequest({ id }) {
-  yield* fetch(firmDetails, 'get', `/firms/${id}`)
+  yield* fetch(firmDetails, 'get', id)
+}
+
+export function* handleReadFirmReviewsRequest({ id }) {
+  yield* fetch(firmReviews, 'get', `${id}/reviews?pagination=false`)
 }
 
 export default function* () {
-  yield [takeLatest(FIRM_LIST.REQUEST, handleReadFirmListRequest), takeLatest(FIRM_DETAILS.REQUEST, handleReadFirmDetailsRequest)]
+  yield [
+    takeLatest(FIRM_LIST.REQUEST, handleReadFirmListRequest),
+    takeLatest(FIRM_DETAILS.REQUEST, handleReadFirmDetailsRequest),
+    takeLatest(FIRM_REVIEWS.REQUEST, handleReadFirmReviewsRequest),
+  ]
 }

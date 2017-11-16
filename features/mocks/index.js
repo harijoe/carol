@@ -10,6 +10,7 @@ import projects from './projects'
 import * as user from './user'
 import partner from './partner'
 import firm from './firm'
+import reviews from './reviews'
 
 export default [
   {
@@ -156,5 +157,9 @@ export default [
   {
     path: '/partners?acqSource=LM&countryCode=FR',
     response: partner,
+  },
+  {
+    path: '/firms/MOCK_FIRM_ID/reviews?pagination=false',
+    response: reviews,
   },
 ]

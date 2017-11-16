@@ -10,12 +10,11 @@ class FirmDetailsContainer extends Component {
   static propTypes = {
     details: PropTypes.object,
     loading: PropTypes.bool,
-    request: PropTypes.func.isRequired,
-    locale: PropTypes.string,
+    requestFirmDetails: PropTypes.func.isRequired,
   }
 
   componentWillMount() {
-    this.props.request()
+    this.props.requestFirmDetails()
   }
 
   render() {
@@ -28,19 +27,18 @@ class FirmDetailsContainer extends Component {
   }
 }
 
-const mapStateToProps = (state, { id }) => ({
-  details: fromFirm.getDetails(state, id),
-  loading: fromStatus.isLoading(state, FIRM_DETAILS.prefix),
-  locale: fromContext.getLocale(state),
-  mapEnabled: fromContext.getLang(state) === 'fr',
-  teamEnabled: fromContext.isFeatureEnabled(state, 'pro-page-team'),
-  reviewsEnabled: fromContext.isFeatureEnabled(state, 'pro-page-reviews'),
-})
+const idToIRI = id => `/firms/${id}`
 
-const mapDispatchToProps = (dispatch, { id }) => ({
-  request: () => {
-    dispatch(firmDetails.request(id))
-  },
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(FirmDetailsContainer)
+export default connect(
+  (state, { id }) => ({
+    details: fromFirm.getDetails(state, idToIRI(id)),
+    loading: fromStatus.isLoading(state, FIRM_DETAILS.prefix),
+    locale: fromContext.getLocale(state),
+    mapEnabled: fromContext.getLang(state) === 'fr',
+    teamEnabled: fromContext.isFeatureEnabled(state, 'pro-page-team'),
+    reviews: fromFirm.getReviews(state, idToIRI(id)),
+  }),
+  (dispatch, { id }) => ({
+    requestFirmDetails: () => dispatch(firmDetails.request(idToIRI(id))),
+  }),
+)(FirmDetailsContainer)

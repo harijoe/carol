@@ -444,7 +444,7 @@ class FirmDetails extends Component {
     locale: PropTypes.string.isRequired,
     mapEnabled: PropTypes.bool.isRequired,
     teamEnabled: PropTypes.bool.isRequired,
-    reviewsEnabled: PropTypes.bool.isRequired,
+    reviews: PropTypes.array,
     params: PropTypes.shape({
       projectId: PropTypes.string,
     }),
@@ -499,7 +499,7 @@ class FirmDetails extends Component {
   render() {
     const { modalIsVisible, contentModal } = this.state
 
-    const { details, locale, translate, labelWithColon, mapEnabled, teamEnabled, reviewsEnabled, params: { projectId } } = this.props
+    const { details, locale, translate, labelWithColon, mapEnabled, teamEnabled, reviews, params: { projectId } } = this.props
 
     const {
       logoUrl,
@@ -517,7 +517,6 @@ class FirmDetails extends Component {
       leadSales,
       contractZone: { postalCodes },
       trade,
-      reviews,
     } = details
 
     const projectFinder = ({ project: { '@id': id } }) => id === `/projects/${projectId}`
@@ -567,7 +566,7 @@ class FirmDetails extends Component {
                     <div>
                       <StarRating value={globalRating} />
                       <strong> {globalRating}</strong> - {globalRatingCount} <FormattedMessage id="firm.details.rating_reviews" />
-                      {reviewsEnabled && (
+                      {reviews && reviews.length > 0 && (
                         <AvisLink name="myScrollToElement" onClick={this.scrollToRatings}>
                           {translate('firm.details.see_reviews')}
                         </AvisLink>
@@ -683,12 +682,7 @@ class FirmDetails extends Component {
                 </StyledModal>
               </StyledOverlayModal>
             )}
-            {reviewsEnabled && reviews.length > 0 && (
-              <div>
-                <a name="reviews" id="reviews" />
-                <RatingReviews coverProImage={coverProImage} firmDetails={details} />
-              </div>
-            )}
+            <RatingReviews coverProImage={coverProImage} firmDetails={details} />
         </Wrapper>
 
     )

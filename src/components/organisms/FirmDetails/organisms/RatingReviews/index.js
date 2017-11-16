@@ -1,113 +1,66 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { theme, breakpoint, breakpointMax } from 'utils/style'
-import injectTranslate from 'i18n/hoc/injectTranslate'
-import { Section, Grid, Row, Col, Button } from 'components'
+import { connect } from 'react-redux'
 
-import ProCardRating from './ProCardRating'
-import ReviewCard from './ReviewCard'
-import ReviewsLoader from './ReviewsLoader'
-import ReviewsSorterHOC from './ReviewsSorterHOC'
-import { SORT_KEYS } from './reviewSorting'
+import { fromFirm, fromStatus, fromContext } from 'store/selectors'
+import { firmReviews, FIRM_REVIEWS } from 'store/actions'
+import { sort, SORT_KEYS } from './reviewSorting'
+import ReviewsView from './ReviewsView'
 
-const StyledRow = styled(Row)`
-  align-items: flex-start;
+class RatingReviews extends React.Component {
+  static propTypes = {
+    requestFirmReviews: PropTypes.func.isRequired,
+    reviewsEnabled: PropTypes.bool.isRequired,
+    loading: PropTypes.bool,
+    reviews: PropTypes.array,
+  }
 
-  ${breakpointMax('m')`
-    margin: calc(${theme('spaces.m')} / -2);
-  `}
-`
+  state = {
+    sortKey: SORT_KEYS.most_recent.name,
+    maxReviews: 3,
+  }
 
-const RatingGrid = styled(Grid)`
-  ${breakpoint('l')`
-    max-width: 95rem;
-  `};
-`
+  componentDidMount() {
+    this.props.requestFirmReviews()
+  }
 
-const LeftCol = styled(Col)`
-  ${breakpointMax('m')`
-    display: none;
-  `}
-`
+  onChangeBy = sortKey => {
+    this.setState({ sortKey })
+  }
 
-const SortByCol = styled(Col)`
-  margin-bottom: ${theme('spaces.m')};
-  text-align: right;
-  ${breakpointMax('m')`
-    margin: ${theme('spaces.m')} 0;
-    order: 1;
-  `}
-`
+  onSeeMore = () => {
+    this.setState({ maxReviews: this.state.maxReviews + 3 })
+  }
 
-const RightCol = styled(Col)`
-  display: flex;
-  flex-direction: column;
+  render() {
+    const { reviewsEnabled, loading, reviews, ...props } = this.props
+    if (!reviewsEnabled || loading || !reviews || reviews.length === 0) {
+      return null
+    }
 
-  ${breakpointMax('m')`
-    order: 2;
-  `};
-`
-
-const ReactArray = ({ children }) => children
-
-const StyledSelect = styled.select`
-  margin-left: 1ch;
-`
-
-const RatingReviews = ({ translate, labelWithColon, sortKey, maxReviews, onChangeBy, onSeeMore, coverProImage, firmDetails }) =>
-  <Section title={translate('firm.reviews.section_title')} light>
-    <RatingGrid narrow>
-      <StyledRow>
-        <SortByCol xs={12}>
-          {labelWithColon(translate('firm.reviews.sort_by'))}
-          <StyledSelect onChange={event => onChangeBy(event.target.value)}>
-            {Object.values(SORT_KEYS).map(({ name }) =>
-              <option
-                selected={name === sortKey}
-                key={name}
-                value={name}
-              >
-                {translate(`firm.reviews.${name}`)}
-              </option>
-            )}
-          </StyledSelect>
-        </SortByCol>
-        <LeftCol xs={12} m={4}>
-          <ProCardRating image={{ src: coverProImage }} {...firmDetails} />
-        </LeftCol>
-        <RightCol xs={12} m={8}>
-          <ReviewsLoader
-            sortKey={sortKey}
-            reviewsLight={firmDetails.reviews}
-          >
-            {reviews => (
-              <ReactArray>
-                {reviews.slice(0, maxReviews).map(review =>
-                  <ReviewCard key={review['@id']} {...review} />,
-                )}
-                {reviews.length > maxReviews && (
-                  <Button state="third" outline maxWidth onClick={onSeeMore}>
-                    {translate('firm.reviews.see_more')}
-                  </Button>
-                )}
-              </ReactArray>
-            )}
-          </ReviewsLoader>
-        </RightCol>
-      </StyledRow>
-    </RatingGrid>
-  </Section>
-
-RatingReviews.propTypes = {
-  translate: PropTypes.func.isRequired,
-  labelWithColon: PropTypes.func.isRequired,
-  sortKey: PropTypes.string.isRequired,
-  maxReviews: PropTypes.number.isRequired,
-  onChangeBy: PropTypes.func.isRequired,
-  onSeeMore: PropTypes.func.isRequired,
-  coverProImage: PropTypes.string,
-  firmDetails: PropTypes.object.isRequired,
+    const { sortKey } = this.state
+    return (
+      <ReviewsView
+        reviews={sort(reviews, sortKey)}
+        {...props}
+        {...this.state}
+        onChangeBy={this.onChangeBy}
+        onSeeMore={this.onSeeMore}
+      />
+    )
+  }
 }
 
-export default injectTranslate(ReviewsSorterHOC(RatingReviews))
+export default (
+  connect(
+    (state, { firmDetails: { '@id': id } }) => ({
+      details: fromFirm.getDetails(state, id),
+      loading: fromStatus.isLoading(state, FIRM_REVIEWS.prefix),
+      reviewsEnabled: fromContext.isFeatureEnabled(state, 'pro-page-reviews'),
+      reviews: fromFirm.getReviews(state, id),
+    }),
+    (dispatch, { firmDetails: { '@id': id } }) => ({
+      requestFirmReviews: () => dispatch(firmReviews.request(id)),
+    }),
+  )
+)(RatingReviews)
