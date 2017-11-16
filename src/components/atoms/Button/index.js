@@ -10,7 +10,8 @@ const StyledButton = styled.button`
   display: block;
   cursor: pointer;
   margin: ${theme('spaces.m')} 0 0 0;
-  padding: ${ifThen(loading, css`${theme('spaces.xs')}`, css`${theme('spaces.m')}`)};
+  padding: ${theme('spaces.m')};
+  min-height: 62px;
   width: 100%;
   border: 0;
   outline: 0;
@@ -18,10 +19,9 @@ const StyledButton = styled.button`
   font-size: ${theme('fonts.size.base')};
   letter-spacing: 0.05rem;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease;
   background-color: ${ifThen(
     loading,
-    css`${theme('colors.white')}`,
     css`${ifThen(cssDisabled, css`${theme('colors.grayscale.light')}`, css`${theme('colors.secondary')}`)}`,
   )};
   color: ${theme('colors.black')};
@@ -39,35 +39,6 @@ const StyledButton = styled.button`
   `,
   )}
   ${ifThen(block, 'width: 100%')};
-  ${ifThen(
-    highlight,
-    css`
-    position: relative;
-    margin: 0;
-    padding: 0 4px;
-    width: auto;
-    text-decoration: none;
-    font-weight: normal;
-    letter-spacing: 0;
-    line-height: 1;
-    background-color: transparent;
-    color: ${theme('colors.black')};
-    padding-left: ${theme('spaces.xs')};
-    padding-right: ${theme('spaces.xs')};
-    box-shadow: inset 0 -0.6rem 0 rgba(51, 51, 254, 0.2);
-    transition: all 0.3s ease;
-
-    &:hover {
-      color: ${theme('colors.white')};
-      box-shadow: inset 0 -6rem 0 rgba(51, 51, 254, 1);
-    }
-
-    ${breakpoint('m')`
-      margin: 0;
-      padding: 0 4px;
-    `}
-  `,
-  )};
   ${ifThen(
     maxWidth,
     css`
@@ -150,6 +121,7 @@ const StyledButton = styled.button`
       background-color: transparent;
       border-width: 2px;
       border-style: solid;
+      transition: border 0.3s ease;
 
       &:hover {
         background-color: transparent;
@@ -160,15 +132,55 @@ const StyledButton = styled.button`
   ${ifThen(loading,
     css`
       background-color: transparent;
-      border: 1px solid ${theme('colors.secondary')};
+      border: 2px solid ${theme('colors.button.primary')};
+
+      &:hover {
+        background-color: transparent;
+      }
+
+      > span {
+        height: ${theme('icons.size.m')};
+        width: ${theme('icons.size.m')};
+        margin: 0;
+      }
     `,
-  )}
+  )};
+
+  ${ifThen(
+    highlight,
+    css`
+    position: relative;
+    margin: 0;
+    padding: 0 4px;
+    width: auto;
+    text-decoration: none;
+    font-weight: normal;
+    letter-spacing: 0;
+    line-height: 1;
+    background-color: transparent;
+    color: ${theme('colors.black')};
+    padding-left: ${theme('spaces.xs')};
+    padding-right: ${theme('spaces.xs')};
+    box-shadow: inset 0 -0.6rem 0 rgba(51, 51, 254, 0.2);
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: ${theme('colors.white')};
+      box-shadow: inset 0 -6rem 0 rgba(51, 51, 254, 1);
+    }
+
+    ${breakpoint('m')`
+      margin: 0;
+      padding: 0 4px;
+    `}
+  `,
+  )};
 
 `};
 `
 
 const Button = ({ type, children, loading, disabled, highlight, state, outline, ...props }) => {
-  const loadingButton = <Icon icon="spinner" size={55} />
+  const loadingButton = <Icon icon="spinner" size={24} />
   const actualChildren = loading && !highlight ? loadingButton : children
   const actualDisabled = loading || disabled
 
