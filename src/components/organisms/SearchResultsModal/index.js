@@ -234,6 +234,10 @@ const ContentItem = styled.div`
   `} 
 `
 
+const StyledResultsHeading = styled(ResultsHeading)`
+  margin-bottom: ${theme('spaces.xl')};
+`
+
 
 const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWordpressContentEnabled, wordpressContentResultsByType }) => {
 
@@ -246,9 +250,9 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
       <div>
         {projectFlowResults &&
           projectFlowResults.hits.length === 0 &&
-          <ResultsHeading level={3}>
+          <StyledResultsHeading level={3}>
             {translate('search_page.no_result_title')}
-          </ResultsHeading>}
+          </StyledResultsHeading>}
         <SearchSuggestions locale={locale} />
       </div>}
     {!projectFlowResults &&

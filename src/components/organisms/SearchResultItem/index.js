@@ -76,7 +76,6 @@ const StyledTag = styled(Tag)`
 
 const StyledLink = styled(Link)`
   display: block;
-  overflow: hidden;
 `
 
 const SearchResultItem = ({ className, slug, image, alt, title, tag }) =>

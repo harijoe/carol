@@ -158,9 +158,13 @@ const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsB
       <StyledSection>
         {projectFlowResults &&
         projectFlowResults.hits.length === 0 &&
-        <ResultsHeading level={3}>
-          {translate('search_page.no_result_title')}
-        </ResultsHeading>}
+        <ResultsGrid narrow>
+          <Row>
+            <ResultsHeading level={3}>
+              {translate('search_page.no_result_title')}
+            </ResultsHeading>
+          </Row>
+        </ResultsGrid>}
         <DefaultSearchResultsSection locale={locale} />
       </StyledSection>
     }
