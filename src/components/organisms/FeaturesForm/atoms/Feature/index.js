@@ -7,7 +7,12 @@ const StyledRow = styled.div`
   margin: 1.8rem 0;
 `
 
-const Feature = ({ name, enabled, onClick }) =>
+const Description = styled.span`
+  font-size: 1.4rem;
+  color: grey;
+`
+
+const Feature = ({ name, enabled, description, onClick }) =>
   <StyledRow>
     <label htmlFor={name}>
       <input
@@ -15,12 +20,13 @@ const Feature = ({ name, enabled, onClick }) =>
         type="checkbox"
         checked={enabled}
         onChange={onClick}
-      /> {name}
+      /> {name} - <Description>{description}</Description>
     </label>
   </StyledRow>
 
 Feature.propTypes = {
   name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
   enabled: PropTypes.bool.isRequired,
   onClick: PropTypes.func.isRequired,
 }

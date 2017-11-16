@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import reactCookie from 'services/cookies/index'
 import styled from 'styled-components'
 import { theme } from 'utils/style'
+import FEATURES from 'constants/features'
 import { Section } from 'components'
 import Feature from './atoms/Feature'
 
@@ -13,7 +14,6 @@ const StyledSection = styled(Section)`
   background: ${theme('colors.white')};
 `
 
-const FEATURES = ['pro-page-team', 'pro-page-reviews', 'wordpress_content']
 
 class FeaturesForm extends React.Component {
   static propTypes = {
@@ -38,12 +38,13 @@ class FeaturesForm extends React.Component {
     return (
       <StyledSection>
         <h1>Features</h1>
-        {FEATURES.map(feature =>
+        {FEATURES.map(({ id, description }) =>
           <Feature
-            key={feature}
-            name={feature}
-            enabled={!!features[feature]}
-            onClick={() => enableFeature(feature, !features[feature])}
+            key={id}
+            name={id}
+            description={description}
+            enabled={!!features[id]}
+            onClick={() => enableFeature(id, !features[id])}
           />
         )}
       </StyledSection>
