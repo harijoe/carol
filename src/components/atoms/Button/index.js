@@ -151,7 +151,8 @@ const StyledButton = styled.button`
     css`
     position: relative;
     margin: 0;
-    padding: 0 4px;
+    padding: 0 ${theme('spaces.xs')};
+    min-height: auto;
     width: auto;
     text-decoration: none;
     font-weight: normal;
@@ -168,11 +169,6 @@ const StyledButton = styled.button`
       color: ${theme('colors.white')};
       box-shadow: inset 0 -6rem 0 rgba(51, 51, 254, 1);
     }
-
-    ${breakpoint('m')`
-      margin: 0;
-      padding: 0 4px;
-    `}
   `,
   )};
 
