@@ -11,7 +11,7 @@ import Form from './organisms/Form'
 const StyledGrid = styled(Grid)`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: flex-end;
   height: 100vh;
   max-height: 100vh;
   padding-bottom: 0;
