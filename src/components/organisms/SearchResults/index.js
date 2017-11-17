@@ -124,9 +124,9 @@ const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsB
       <ResultsGrid narrow>
         <Row>
           {(!searchCategory || searchCategory === 'guides') &&
-            wpContentGuides.map(({ title, id, image, image_meta, excerpt, link, type }) =>
+            wpContentGuides.map(({ title, content, id, image, image_meta, excerpt, link, type }) =>
               <ColGrid xs={12} m={8} l={6} key={id} x>
-                <GuideCard title={title} image={image} imageMeta={image_meta} description={excerpt} link={link} label={translate(`search_page.tags.${type}`)} />
+                <GuideCard title={title} content={content} image={image} imageMeta={image_meta} description={excerpt} link={link} label={translate(`search_page.tags.${type}`)} />
               </ColGrid>
             )
           }

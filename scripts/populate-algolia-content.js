@@ -6,7 +6,12 @@ import algoliaSearch from 'algoliasearch'
 import program from 'commander'
 import prompt from 'prompt'
 import { transformToAlgoliaItem, unserializeImageMetadata, injectThumbnailToPost } from './lib/populate-algolia-content'
+import stripTags from '../src/utils/stripTags'
 import { algolia } from '../src/config'
+
+/*
+  README here : https://goo.gl/q2thkV
+ */
 
 program
   .usage('[options]')
@@ -27,10 +32,6 @@ const config = [{
   filepath: '../advice.wordpress.2017-11-10.xml',
   indexes: ['qa_content_gb', 'preprod_content_gb', 'prod_content_gb'],
 }]
-
-/*
-  README here : https://goo.gl/q2thkV
- */
 
 const parseStringPromise = (...props) => new Promise((resolve, reject) => {
   parseString(...props, (err, result) => {
@@ -58,6 +59,11 @@ const populate = async (filepath, indexes) => {
     }, {})
 
   const algoliaReadyObjects = Object.values(objects)
+    .map(values => Object.keys(values).reduce((acc, key) => {
+        acc[key] = typeof values[key] === 'string' ? stripTags(values[key]).trim().slice(0, 1000) : values[key]
+        return acc
+      }, {})
+    )
     .map(injectThumbnailToPost(objects))
     .filter(({ status }) => status === 'publish')
 

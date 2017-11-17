@@ -20,6 +20,7 @@ export const transformToAlgoliaItem = item => {
     date: 'pubDate',
     image: 'wp:attachment_url',
     type: 'wp:post_type',
+    content: 'content:encoded',
     excerpt: 'excerpt:encoded',
   }
 

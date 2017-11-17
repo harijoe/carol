@@ -105,7 +105,7 @@ const Content = styled(Paragraph)`
   }
 `
 
-const GuideCard = ({ title, label, image, imageMeta, description, className, orientation, link, ...props }) =>
+const GuideCard = ({ title, label, image, imageMeta, description, content, className, orientation, link, ...props }) =>
   <Link to={link} target="_blank">
     <StyledCard className={className} padding="fluid-small" orientation={orientation} {...props}>
       <StyledCardHeader orientation={orientation}>
@@ -114,11 +114,7 @@ const GuideCard = ({ title, label, image, imageMeta, description, className, ori
       </StyledCardHeader>
       <StyledCardBody orientation={orientation}>
         <Card.Title title={title} />
-        {description != null &&
-          <Content>
-            {description}
-          </Content>
-        }
+        <Content>{description || content}</Content>
       </StyledCardBody>
     </StyledCard>
   </Link>
@@ -132,6 +128,7 @@ GuideCard.propTypes = {
   className: PropTypes.string,
   orientation: PropTypes.string.isRequired,
   description: PropTypes.string,
+  content: PropTypes.string,
 }
 
 GuideCard.defaultProps = {
