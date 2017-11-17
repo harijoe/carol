@@ -54,6 +54,7 @@ export default {
   'firm.details.name': 'Firm Name',
   'firm.details.notation': 'Notation',
   'firm.details.postal_code': 'Postal code',
+  'firm.details.rating_comments': 'whose {count} with comments',
   'firm.details.rating_on': 'out of',
   'firm.details.rating_reviews': 'reviews',
   'firm.details.registration_number': 'Registration No.',

@@ -54,6 +54,7 @@ export default {
   'firm.details.name': 'nombre de la empresa',
   'firm.details.notation': 'notación',
   'firm.details.postal_code': 'Código postal',
+  'firm.details.rating_comments': 'cuyo {count} con comentarios',
   'firm.details.rating_on': 'sobre',
   'firm.details.rating_reviews': 'valoraciones',
   'firm.details.registration_number': 'NIF/CIF',

@@ -74,7 +74,7 @@ const ReviewsView = ({ translate, labelWithColon, sortKey, maxReviews, onChangeB
             </StyledSelect>
           </SortByCol>
           <LeftCol xs={12} m={4}>
-            <ProCardRating image={{ src: coverProImage }} {...firmDetails} />
+            <ProCardRating image={{ src: coverProImage }} {...firmDetails} globalCommentsCount={reviews.length} />
           </LeftCol>
           <RightCol xs={12} m={8}>
             <ReactArray>
