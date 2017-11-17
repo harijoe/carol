@@ -1,3 +1,15 @@
+## 1.12.2 - 2017-11-17
+
+Second patch release to add last minute features and fixes
+
+### Features
+- [HIANDU-1801](https://quotatis.atlassian.net/browse/HIANDU-1801) RESULT PAGE - Guides should always have a summary
+- [HIANDU-1787](https://quotatis.atlassian.net/browse/HIANDU-1787) FEATURES FLAG - add small description
+
+### Bug fixes
+- [HIANDU-1778](https://quotatis.atlassian.net/browse/HIANDU-1778) PRO PAGE - align additional info on the left on Mobile device
+
+
 ## 1.12.1 - 2017-11-17
 
 Patch release to remove unwanted feature
