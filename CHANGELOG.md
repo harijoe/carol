@@ -1,3 +1,50 @@
+## 1.12.0 - 2017-11-17
+
+Release for Sprint 28
+
+### Features
+- [HIANDU-1687](https://quotatis.atlassian.net/browse/HIANDU-1687) SEARCH ENGINE - type selection
+- [HIANDU-1724](https://quotatis.atlassian.net/browse/HIANDU-1724) PRO PAGE - User review sorting
+- [HIANDU-1704](https://quotatis.atlassian.net/browse/HIANDU-1704) PRO PAGE - Pro picture pagination
+- [HIANDU-1804](https://quotatis.atlassian.net/browse/HIANDU-1804) R&R - use reviews endpoint
+- [HIANDU-1577](https://quotatis.atlassian.net/browse/HIANDU-1577) RESULT PAGE - Integrate the content results cards
+- [HIANDU-1674](https://quotatis.atlassian.net/browse/HIANDU-1674) RESULT PAGE - Add suggestions if no results found
+- [HIANDU-1690](https://quotatis.atlassian.net/browse/HIANDU-1690) MODAL SEARCH - refacto modal search
+- [HIANDU-1692](https://quotatis.atlassian.net/browse/HIANDU-1692) SEARCH ENGINE - Content picture thumbnails
+- [HIANDU-1797](https://quotatis.atlassian.net/browse/HIANDU-1797) PRO CARD - add again ratings
+- [HIANDU-1719](https://quotatis.atlassian.net/browse/HIANDU-1719) PRO PAGE - Integrate R&R area
+- [HIANDU-1709](https://quotatis.atlassian.net/browse/HIANDU-1709) PRO PAGE - team picture: add zoom light box
+- [HIANDU-1793](https://quotatis.atlassian.net/browse/HIANDU-1793) SEARCH ENGINE - align texts
+- [HIANDU-1721](https://quotatis.atlassian.net/browse/HIANDU-1721) MODAL SEARCH - Category number of results
+- [HIANDU-1723](https://quotatis.atlassian.net/browse/HIANDU-1723) PRO PAGE - User reviews
+- [HIANDU-1691](https://quotatis.atlassian.net/browse/HIANDU-1691) MODAL SEARCH - Target _blank for all content results
+- [HIANDU-1736](https://quotatis.atlassian.net/browse/HIANDU-1736) HEADER - add a link to the advice HP website
+- [HIANDU-1794](https://quotatis.atlassian.net/browse/HIANDU-1794) SEARCH RESULT - filters should be in a select field on mobile
+- [HIANDU-1688](https://quotatis.atlassian.net/browse/HIANDU-1688) MODAL SEARCH - See all results number to update
+- [HIANDU-1673](https://quotatis.atlassian.net/browse/HIANDU-1673) SEARCH CARDS - Add project tag on Project cards
+- [HIANDU-1825](https://quotatis.atlassian.net/browse/HIANDU-1825) MODAL SEARCH - don't keep the previous query
+- [HIANDU-1824](https://quotatis.atlassian.net/browse/HIANDU-1824) R&R - remove reviews if none have comments
+- [HIANDU-1820](https://quotatis.atlassian.net/browse/HIANDU-1820) CHATBOT - remove Key 2 image when users enter with a slug
+- [HIANDU-1794](https://quotatis.atlassian.net/browse/HIANDU-1794) SEARCH RESULT - filters should be in a select field on mobile
+- [HIANDU-1689](https://quotatis.atlassian.net/browse/HIANDU-1689) MODAL SEARCH - Remove Résultats de recherche
+- [HIANDU-1720](https://quotatis.atlassian.net/browse/HIANDU-1720) MODAL SEARCH - highlight the shortlinks
+
+### Bug fixes
+- [HIANDU-1694](https://quotatis.atlassian.net/browse/HIANDU-1694) SEARCH ENGINE - special characters
+- [HIANDU-1765](https://quotatis.atlassian.net/browse/HIANDU-1765) RESULT PAGE - Layout bugs
+- [HIANDU-1765](https://quotatis.atlassian.net/browse/HIANDU-1765) RESULT PAGE - Layout bugs
+- [HIANDU-1696](https://quotatis.atlassian.net/browse/HIANDU-1696) PRO PAGE - Back to my project button to align on the left
+- [HIANDU-1759](https://quotatis.atlassian.net/browse/HIANDU-1759) PARTNER - logo links to wrong link
+- [HIANDU-1708](https://quotatis.atlassian.net/browse/HIANDU-1708) PRO PAGE - team picture: legend text to improve
+- [HIANDU-1783](https://quotatis.atlassian.net/browse/HIANDU-1783) GA EVENTS - label are wrong
+- [HIANDU-1740](https://quotatis.atlassian.net/browse/HIANDU-1740) PRO PAGE - certificate to align properly on mobile device
+- [HIANDU-1707](https://quotatis.atlassian.net/browse/HIANDU-1707) PRO PAGE - team picture: extend circle size and align correctly picture in it
+- [HIANDU-1761](https://quotatis.atlassian.net/browse/HIANDU-1761) PRO PAGE - team picture: legend text to improve
+- [HIANDU-1762](https://quotatis.atlassian.net/browse/HIANDU-1762) PROJECT DETAIL - certificate tooltip shows more than once 
+- [HIANDU-1800](https://quotatis.atlassian.net/browse/HIANDU-1800) CERTIFICATE - displaying to correct on pro page
+- [HIANDU-1764](https://quotatis.atlassian.net/browse/HIANDU-1764) MODAL SEARCH - See all results button
+
+
 ## 1.11.5 - 2017-11-03
 
 Third patch release for Sprint 27
