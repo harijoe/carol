@@ -296,16 +296,31 @@ const InformationBlock = styled(Col)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 
   span {
     font-weight: bold;
   }
 
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
   ${breakpointMax('m')`
+    flex-direction: row;
+    align-items: flex-start;
     margin-top: ${theme('spaces.m')};
     margin-right: auto;
     margin-left: auto;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-left: ${theme('spaces.m')};
+    }
   `};
 `
 
@@ -313,6 +328,10 @@ const StyledInformationIcon = styled(Icon)`
   margin-bottom: ${theme('spaces.m')};
   height: 3rem;
   width: auto;
+
+  ${breakpointMax('m')`
+    width: 4rem;
+  `};
 `
 
 const MapWrapper = styled.div`
@@ -624,31 +643,39 @@ class FirmDetails extends Component {
             <Grid>
               <StyledInformationRow>
                 {registrationNumber && (
-                  <InformationBlock xs={12} s={4} m={3}>
+                  <InformationBlock xs={12} m={3}>
                     <StyledInformationIcon icon="firm-details_registration-number" />
-                    <span>{labelWithColon(translate('firm.details.registration_number'))}</span>
-                    {registrationNumber}
+                    <div>
+                      <span>{labelWithColon(translate('firm.details.registration_number'))}</span>
+                      {registrationNumber}
+                    </div>
                   </InformationBlock>
                 )}
                 {employeesNumber && parseFloat(employeesNumber) !== 0 && (
-                  <InformationBlock xs={12} s={4} m={3}>
+                  <InformationBlock xs={12} m={3}>
                     <StyledInformationIcon icon="firm-details_employees-number" />
-                    <span>{labelWithColon(translate('firm.details.employees_number'))}</span>
-                    {employeesNumber}
+                    <div>
+                      <span>{labelWithColon(translate('firm.details.employees_number'))}</span>
+                      {employeesNumber}
+                    </div>
                   </InformationBlock>
                 )}
                 {clientSince && (
-                  <InformationBlock xs={12} s={4} m={3}>
+                  <InformationBlock xs={12} m={3}>
                     <StyledInformationIcon icon="firm-details_client-since" />
-                    <span>{labelWithColon(translate('firm.details.client_since'))}</span>
-                    {transformDate(clientSince)}
+                    <div>
+                      <span>{labelWithColon(translate('firm.details.client_since'))}</span>
+                      {transformDate(clientSince)}
+                    </div>
                   </InformationBlock>
                 )}
                 {creationDate && (
-                  <InformationBlock xs={12} s={4} m={3}>
+                  <InformationBlock xs={12} m={3}>
                     <StyledInformationIcon icon="firm-details_exist-since" />
-                    <span>{labelWithColon(translate('firm.details.exist_since'))}</span>
-                    {transformDate(creationDate)}
+                    <div>
+                      <span>{labelWithColon(translate('firm.details.exist_since'))}</span>
+                      {transformDate(creationDate)}
+                    </div>
                   </InformationBlock>
                 )}
               </StyledInformationRow>
