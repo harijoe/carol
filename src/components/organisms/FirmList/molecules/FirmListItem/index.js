@@ -154,7 +154,7 @@ const StyledCertificateList = styled(List)`
     margin: ${theme('spaces.xs')};
     padding: ${theme('spaces.s')};
     background-color: ${theme('colors.grey')};
-    border-radius: ${theme('spaces.m')};
+    border-radius: 60px;
     font-size: ${theme('fonts.size.xs')};
     text-transform: uppercase;
     margin-right: ${theme('spaces.xs')};
