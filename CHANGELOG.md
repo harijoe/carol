@@ -1,3 +1,13 @@
+## 1.12.1 - 2017-11-17
+
+Patch release to remove unwanted feature
+
+### Bug fixes
+- [HIANDU-1789](https://quotatis.atlassian.net/browse/HIANDU-1789) CTA - wrong behavior when user clicks on it
+- [HIANDU-1756](https://quotatis.atlassian.net/browse/HIANDU-1756) PRO PAGE - R&R link and a pretty scroll down
+- [HIANDU-1835](https://quotatis.atlassian.net/browse/HIANDU-1835) CHATBOT - Revert chatbox align to top
+
+
 ## 1.12.0 - 2017-11-17
 
 Release for Sprint 28
