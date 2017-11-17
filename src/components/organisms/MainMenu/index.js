@@ -30,6 +30,7 @@ const StyledList = styled(List)`${({ homepage, atTop }) => css`
       height: 2px;
       width: 100%;
       content: '';
+      background-color: ${theme('colors.primary')};
       transform: scale(0);
       transform-origin: 50%;
       transition: transform 0.3s ease;
@@ -37,10 +38,6 @@ const StyledList = styled(List)`${({ homepage, atTop }) => css`
 
     &:hover::after {
       transform: scale(1);
-    }
-
-    > a:hover, > [role="link"]:hover {
-      color: inherit;
     }
 
     &:first-child {
@@ -126,7 +123,7 @@ const linkStyle = css`
   transition: all 0.3s ease;
 
   &:hover {
-    color: ${theme('colors.secondary')};
+    color: ${theme('colors.primary')};
   }
 
   ${breakpointMax('l')`
