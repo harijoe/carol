@@ -9,8 +9,9 @@ import anonymise from 'utils/anonymizeUserName'
 import { Card, StarRating, ProfileImage } from 'components'
 
 const StyledCard = styled(Card)`
-  min-height: unset;
+  min-height: auto;
   margin: ${theme('spaces.s')} 0;
+  flex: 1;
 
   &:first-child {
     margin-top: 0;    

@@ -159,7 +159,7 @@ const InfosPro = styled.div`
 const LogoProImage = styled(ProfileImage)`
   position: absolute;
   top: 18.5rem;
-  right: ${theme('spaces.m')};
+  right: 0;
   width: 10rem;
   height: 10rem;
   border-radius: 6.25rem;
@@ -167,28 +167,14 @@ const LogoProImage = styled(ProfileImage)`
   overflow: hidden;
 
   ${breakpoint('s')`
-    position: absolute;
     top: 25rem;
     right: ${theme('spaces.m')};
-    width: 10rem;
-    height: 10rem;
-    border-radius: 6.25rem;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
   `};
   ${breakpoint('m')`
     top: 0;
-    right: 0;
-    width: 10rem;
-    height: 10rem;
-    border-radius: 6.25rem;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
   `};
-
   ${breakpointMax('m')`
     top: -10rem;
-    right: auto;
   `};
 
   ${breakpoint('xl')`
