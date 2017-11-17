@@ -24,10 +24,12 @@ if (!version.match(SEMVER_REGEX)) {
   fail('Please specify a valid semantic number. See http://semver.org/')
 }
 
-const sprintNumber = process.argv[3]
-if (!sprintNumber) {
+const sprintNumberValue = process.argv[3]
+if (!sprintNumberValue) {
   fail('Please specify a sprint number.')
 }
+
+const sprintNumber = parseInt(sprintNumberValue, 10)
 
 const description = process.argv[4]
 

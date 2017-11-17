@@ -9,10 +9,12 @@ if (['-h', '--help'].includes(process.argv[2])) {
   process.exit(0)
 }
 
-const sprintNumber = process.argv[2]
-if (!sprintNumber) {
-  fail('please specify sprint number.')
+const sprintNumberValue = process.argv[2]
+if (!sprintNumberValue) {
+  fail('Please specify a sprint number.')
 }
+
+const sprintNumber = parseInt(sprintNumberValue, 10)
 
 const description = process.argv[3]
 

@@ -3,6 +3,7 @@ import fs from 'fs'
 import readlineSync from 'readline-sync'
 import btoa from 'btoa'
 import util from 'util'
+import flatten from 'lodash/flatten'
 
 const env = JSON.parse(JSON.stringify(process.env))
 
@@ -41,21 +42,30 @@ const changelogFromJIRA = async (sprintNumber, description) => {
   const password = JIRA_PASSWORD || readlineSync.question('JIRA password? ', { hideEchoBack: true })
   const fetchOptions = fetchOptionsBuilder(username, password)
   const api = apiBuilder(fetchOptions)
-  const sprints = await api('/rest/agile/1.0/board/11/sprint?maxResults=100').then(result => result.values)
+  const sprintResults = await api('/rest/agile/1.0/board/11/sprint?maxResults=100').then(result => result.values)
 
-  const sprint = sprints.find(s => s.name.includes(`Sprint ${sprintNumber}`))
+  const sprints = sprintResults.filter(
+    s => s.name.includes(`Sprint ${sprintNumber}`) || s.name.includes(`Sprint ${sprintNumber + 1}`)
+  )
 
   if (DEBUG) {
-    console.info(util.inspect(sprint, { depth: null, colors: true }))
+    console.info(util.inspect(sprints, { depth: null, colors: true }))
   }
 
-  const allIssues = await api(`/rest/api/2/search?jql=Sprint=${sprint.id}&maxResults=100`).then(result => result.issues)
+  const allIssues = flatten(
+    await Promise.all(
+      sprints.map(sprint =>
+        api(`/rest/api/2/search?jql=Sprint=${sprint.id}&maxResults=100`)
+          .then(result => result.issues))
+    )
+  )
 
   const changeLog = readChangeLog()
 
   const issues = allIssues
     .filter(issue => issue.fields.status.name.match(/done|test/i))
     .filter(issue => issue.fields.summary.match(/Integration|CAROL/))
+    .filter(issue => !issue.fields.summary.match(/batimat|qpro/i))
     .filter(issue => !changeLog.includes(issue.key))
 
   issues.sort((a, b) => b.fields.customfield_10005 - a.fields.customfield_10005)
