@@ -76,13 +76,13 @@ const StyledFaqCard = styled(FaqCard)`
   `}
 `
 
-const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsByType, wpContentGuides, wpContentFaqs, searchCategory, query, locale, isWordpressContentEnabled }) => {
+const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsByType, wpContentGuides, wpContentFaqs, searchCategory, query, locale }) => {
   const hasResults = projectFlowResults && projectFlowResults.hits.length !== 0
 
   const shuffledImages = shuffle(locales[locale].genericProjectImages)
-  const projectFlowSectionEnabled = projectFlowResults && (!isWordpressContentEnabled || (!searchCategory || searchCategory === 'projects')) && projectFlowResults.hits.length !== 0
-  const weGuideYouSectionEnabled = isWordpressContentEnabled && wordpressContentResultsByType && (!searchCategory || ['guides', 'faqs'].includes(searchCategory)) && ((wordpressContentResultsByType.guides && wordpressContentResultsByType.guides.length !== 0) || (wordpressContentResultsByType.faqs && wordpressContentResultsByType.faqs.length !== 0))
-  const articlesSectionEnabled = isWordpressContentEnabled && wordpressContentResultsByType && (!searchCategory || searchCategory === 'articles') && wordpressContentResultsByType.inspirations && wordpressContentResultsByType.inspirations.length !== 0
+  const projectFlowSectionEnabled = projectFlowResults && (!searchCategory || searchCategory === 'projects') && projectFlowResults.hits.length !== 0
+  const weGuideYouSectionEnabled = wordpressContentResultsByType && (!searchCategory || ['guides', 'faqs'].includes(searchCategory)) && ((wordpressContentResultsByType.guides && wordpressContentResultsByType.guides.length !== 0) || (wordpressContentResultsByType.faqs && wordpressContentResultsByType.faqs.length !== 0))
+  const articlesSectionEnabled = wordpressContentResultsByType && (!searchCategory || searchCategory === 'articles') && wordpressContentResultsByType.inspirations && wordpressContentResultsByType.inspirations.length !== 0
 
   return <WrapperResults>
     <Header>
@@ -92,7 +92,7 @@ const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsB
             <SearchTerm term={query} />
           </Col>
           <Col xs={12}>
-            {isWordpressContentEnabled && hasResults && <SearchCategories />}
+            {hasResults && <SearchCategories />}
           </Col>
         </StyledRow>
       </ResultsGrid>
@@ -180,7 +180,6 @@ SearchResults.propTypes = {
   wpContentGuides: PropTypes.array,
   wpContentFaqs: PropTypes.array,
   searchCategory: PropTypes.func,
-  isWordpressContentEnabled: PropTypes.bool,
 }
 
 export default injectTranslate(SearchResults)

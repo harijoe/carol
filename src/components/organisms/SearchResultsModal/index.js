@@ -239,7 +239,7 @@ const StyledResultsHeading = styled(ResultsHeading)`
 `
 
 
-const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWordpressContentEnabled, wordpressContentResultsByType }) => {
+const SearchResultsModal = ({ locale, translate, projectFlowResults, query, wordpressContentResultsByType }) => {
 
   const shuffledImages = shuffle(locales[locale].genericProjectImages)
   let nbHitsTotal = 0
@@ -281,7 +281,7 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, isWo
           </Row>
         </StyledGrid>
       </div>}
-      {isWordpressContentEnabled && wordpressContentResultsByType &&
+      {wordpressContentResultsByType &&
       <div>
         <ContentWrapper>
           <Grid>
@@ -340,7 +340,6 @@ SearchResultsModal.propTypes = {
   translate: PropTypes.func.isRequired,
   projectFlowResults: PropTypes.object,
   query: PropTypes.string.isRequired,
-  isWordpressContentEnabled: PropTypes.bool,
   wordpressContentResultsByType: PropTypes.object,
 }
 

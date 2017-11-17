@@ -14,7 +14,6 @@ const mapStateToProps = state => ({
   query: fromSearchEngine.getQuery(state),
   locale: fromContext.getLocale(state),
   searchCategory: fromSearchEngine.getSearchCategory(state),
-  isWordpressContentEnabled: fromContext.isFeatureEnabled(state, 'wordpress_content'),
 })
 
 export default connect(mapStateToProps)(SearchResultsContainer)
