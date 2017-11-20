@@ -44,6 +44,10 @@ const ColGrid = styled(Col)`
   ${breakpoint('m')`
     padding-bottom: calc(${theme('spaces.l')} / 2);
     padding-top: calc(${theme('spaces.l')} / 2);
+    max-width: 20rem;
+  `}
+
+  ${breakpoint('xl')`
     max-width: 22.5rem;
   `}
 

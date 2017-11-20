@@ -52,6 +52,12 @@ const ColGrid = styled(Col)`
     }
   }
 
+  ${breakpoint('m')`
+    padding-bottom: calc(${theme('spaces.l')} / 2);
+    padding-top: calc(${theme('spaces.l')} / 2);
+    max-width: 20rem;
+  `}
+
   ${breakpoint('l')`
     padding-left: calc(${theme('spaces.l')} / 2);
     padding-right: calc(${theme('spaces.l')} / 2);
@@ -59,12 +65,6 @@ const ColGrid = styled(Col)`
 
   ${breakpoint('xl')`
     max-width: 22.5rem;
-  `}
-
-  ${breakpoint('m')`
-    padding-bottom: calc(${theme('spaces.l')} / 2);
-    padding-top: calc(${theme('spaces.l')} / 2);
-    max-width: 20rem;
   `}
 
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
