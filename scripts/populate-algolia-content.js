@@ -30,7 +30,7 @@ const config = [{
   indexes: ['qa_content_es', 'preprod_content_es', 'prod_content_es'],
 }, {
   filepath: '../advice.wordpress.2017-11-10.xml',
-  indexes: ['qa_content_gb', 'preprod_content_gb', 'prod_content_gb'],
+  indexes: ['qa_content_uk', 'preprod_content_uk', 'prod_content_uk'],
 }]
 
 const parseStringPromise = (...props) => new Promise((resolve, reject) => {
