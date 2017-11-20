@@ -1,3 +1,12 @@
+## 1.12.3 - 2017-11-20
+
+Third patch release to last minute features and fixes
+
+### Features
+- [HIANDU-1799](https://quotatis.atlassian.net/browse/HIANDU-1799) R&R - x avis including x with comment
+- [HIANDU-1796](https://quotatis.atlassian.net/browse/HIANDU-1796) LINKS - should not be underlined in orange/yellow
+
+
 ## 1.12.2 - 2017-11-17
 
 Second patch release to add last minute features and fixes
