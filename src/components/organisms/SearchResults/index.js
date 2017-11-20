@@ -76,6 +76,26 @@ const StyledFaqCard = styled(FaqCard)`
   `}
 `
 
+const NoResultWrapper = styled.div`
+  background: ${theme('colors.grayscale.lightest')};
+`
+
+const NoResultsHeading = styled(ResultsHeading)`
+  margin: 0;
+  padding: ${theme('spaces.xl')} ${theme('spaces.m')} 0 ${theme('spaces.m')};
+
+  ${breakpoint('m')`
+    padding-left: ${theme('spaces.l')};
+    padding-right: ${theme('spaces.l')};
+    padding-top: ${theme('spaces.xxl')};
+  `}
+
+  ${breakpoint('l')`
+    padding-left: 0;
+    padding-right: 0;
+  `}
+`
+
 const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsByType, wpContentGuides, wpContentFaqs, searchCategory, query, locale }) => {
   const hasResults = projectFlowResults && projectFlowResults.hits.length !== 0
 
@@ -155,18 +175,18 @@ const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsB
       </ResultsGrid>
     </StyledSection>}
     {(!projectFlowResults || projectFlowResults.hits.length === 0) &&
-      <StyledSection>
+      <NoResultWrapper>
         {projectFlowResults &&
         projectFlowResults.hits.length === 0 &&
         <ResultsGrid narrow>
           <Row>
-            <ResultsHeading level={3}>
+            <NoResultsHeading level={3}>
               {translate('search_page.no_result_title')}
-            </ResultsHeading>
+            </NoResultsHeading>
           </Row>
         </ResultsGrid>}
         <DefaultSearchResultsSection locale={locale} />
-      </StyledSection>
+      </NoResultWrapper>
     }
   </WrapperResults>
 }
