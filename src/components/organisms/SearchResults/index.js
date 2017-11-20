@@ -174,7 +174,7 @@ const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsB
         </Row>
       </ResultsGrid>
     </StyledSection>}
-    {(!projectFlowResults || projectFlowResults.hits.length === 0) &&
+    {(projectFlowResults && projectFlowResults.hits.length === 0) &&
       <NoResultWrapper>
         {projectFlowResults &&
         projectFlowResults.hits.length === 0 &&

@@ -6,7 +6,7 @@ import search from './search'
 const mocks = [
   {
     request: {
-      query: 'a',
+      query: 'abri',
       page: 0,
       hitsPerPage: 1000,
       filters: 'countryCode:FR',
