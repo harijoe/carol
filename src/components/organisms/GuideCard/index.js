@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { theme, ifThen, breakpointMax } from 'utils/style'
 import selectImageSizeFromMeta from 'utils/selectImageSizeFromMeta'
+import truncate from 'utils/truncate'
 
 import { Card, Paragraph, Link } from 'components'
 
@@ -113,7 +114,7 @@ const GuideCard = ({ title, label, image, imageMeta, description, content, class
         <Card.Tag label={label} type="guide" position="bottom" />
       </StyledCardHeader>
       <StyledCardBody orientation={orientation}>
-        <Card.Title title={title} />
+        <Card.Title title={truncate(title, 20)} />
         <Content>{description || content}</Content>
       </StyledCardBody>
     </StyledCard>

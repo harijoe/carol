@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { theme } from 'utils/style'
 import selectImageSizeFromMeta from 'utils/selectImageSizeFromMeta'
+import truncate from 'utils/truncate'
 
 import { Card, Link } from 'components'
 
@@ -24,7 +25,7 @@ const WpCard = ({ title, image, imageMeta, label, className, link, ...props }) =
         <Card.Tag label={label} type="faq" position="above" />
       </Card.Header>
       <StyledCardBody>
-        <StyledCardTitle title={title} />
+        <StyledCardTitle title={truncate(title, 40)} />
       </StyledCardBody>
     </Card>
   </Link>

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { theme, breakpoint } from 'utils/style'
 import selectImageSizeFromMeta from 'utils/selectImageSizeFromMeta'
+import truncate from 'utils/truncate'
 
 import { Heading, Link } from 'components'
 
@@ -62,7 +63,9 @@ const SearchResultContentItem = ({ title, image, imageMeta, link }) => (
         {image &&
           <StyledImage imageUrl={selectImageSizeFromMeta(image, imageMeta, '80')} />
         }
-        <StyledHeading level={3} dangerouslySetInnerHTML={{ __html: title }} />
+        <StyledHeading level={3}>
+          {truncate(title, 50)}
+        </StyledHeading>
       </StyledWrapper>
     </StyledLink>
   )

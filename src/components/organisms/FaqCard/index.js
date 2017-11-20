@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { theme } from 'utils/style'
+import truncate from 'utils/truncate'
 
 import { Card, Link } from 'components'
 
@@ -13,7 +14,7 @@ const FaqCard = ({ title, label, className, link, ...props }) =>
   <Link to={link} target="_blank">
     <StyledCard className={className} padding="fluid-small" {...props}>
       <Card.Body>
-        <Card.Title title={title} light />
+        <Card.Title title={truncate(title, 40)} light />
       </Card.Body>
       <Card.Footer>
         <Card.Tag label={label} type="faq" />
