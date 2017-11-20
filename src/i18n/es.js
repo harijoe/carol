@@ -263,6 +263,7 @@ export default {
   'renovation': 'renovación',
   'search': 'búsqueda',
   'search_page.category.all.title': 'Todos',
+  'search_page.category.and': 'y',
   'search_page.category.articles.title': '{contentNumber, plural, =1 { artículo} other { artículos }}',
   'search_page.category.faqs.title': '{contentNumber, plural, =1 { Pregunta Frecuente} other { Preguntas Frecuentes}}',
   'search_page.category.guides.title': '{contentNumber, plural, =1 {guía} other { guías}}',

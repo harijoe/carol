@@ -266,6 +266,7 @@ export default {
   'renovation': 'Renovation',
   'search': 'Search',
   'search_page.category.all.title': 'All',
+  'search_page.category.and': 'and',
   'search_page.category.articles.title': '{contentNumber, plural, =1 { article} other { articles}}',
   'search_page.category.faqs.title': '{contentNumber, plural, =1 { faq} other { faqs}}',
   'search_page.category.guides.title': '{contentNumber, plural, =1 { guide} other { guides}}',

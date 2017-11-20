@@ -48,7 +48,7 @@ const configs = {
       },
       wordpressContentIndex: {
         FR: 'qa_content_fr',
-        GB: 'qa_content_gb',
+        GB: 'qa_content_uk',
         ES: 'qa_content_es',
       },
     },
