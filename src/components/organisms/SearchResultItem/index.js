@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { theme, breakpoint } from 'utils/style'
+import { theme, breakpoint, breakpointMax } from 'utils/style'
 
 import { ThumbnailPoster, Link, Icon, Tag } from 'components'
 
@@ -76,7 +76,10 @@ const StyledTag = styled(Tag)`
 
 const StyledLink = styled(Link)`
   display: block;
-  overflow: hidden;
+
+  ${breakpointMax('m')`
+    overflow: hidden;
+  `};
 `
 
 const SearchResultItem = ({ className, slug, image, alt, title, tag }) =>

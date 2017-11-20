@@ -27,7 +27,6 @@ const StyledGrid = styled(Grid)`
 `
 const animationDelay = props => `${props.order * 0.125}s`
 const ColGrid = styled(Col)`
-  max-width: 20rem;
   padding: ${theme('spaces.xs')};
   animation: ${animationDelay} hide ease, 0.3s suggestions ease ${animationDelay};
 
@@ -65,6 +64,7 @@ const ColGrid = styled(Col)`
   ${breakpoint('m')`
     padding-bottom: calc(${theme('spaces.l')} / 2);
     padding-top: calc(${theme('spaces.l')} / 2);
+    max-width: 20rem;
   `}
 
   @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
