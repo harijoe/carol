@@ -232,28 +232,6 @@ const configs = {
     },
     mocking: true,
   },
-  travis: {
-    devServer: false,
-    api: {
-      url: 'http://carol-fr-dev.qarx.io:7001',
-    },
-    locales: {
-      'fr-FR': {
-        url: 'http://carol-fr-dev.qarx.io:4321',
-      },
-      'en-GB': {
-        url: 'http://carol-co-uk-dev.qarx.io:4321',
-      },
-      'es-ES': {
-        url: 'http://carol-es-dev.qarx.io:4321',
-      },
-    },
-    port: 4321,
-    ssl: {
-      enabled: false,
-    },
-    mocking: true,
-  },
 }
 
 const config = merge(configs.all, configs[configs.all.env])
