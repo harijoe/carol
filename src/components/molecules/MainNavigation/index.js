@@ -28,7 +28,8 @@ const StyledNav = styled.nav`
     background: ${theme('colors.white')};
     transform: translateY(-100%);
     transition: transform 0.3s ease-in;
-
+    overflow: auto;
+    
     ${ifThen(
       show,
       css`
