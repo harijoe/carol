@@ -1,29 +1,26 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import { Icon } from 'components'
 
-class Loading extends Component {
-  static propTypes = {
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    loading: PropTypes.bool,
-  }
+const Loading = ({ loading, children }) => {
+  const content = loading === true ? <Icon icon="spinner" size={60} /> : children
 
-  static defaultProps = {
-    loading: false,
-    children: null,
-  }
-
-  render() {
-    const { loading, children } = this.props
-    const content = loading === true ? <Icon icon="spinner" size={60} /> : children
-
-    return (
-      <div>
-        {content}
-      </div>
-    )
-  }
+  return (
+    <div>
+      {content}
+    </div>
+  )
 }
+
+Loading.propTypes = {
+  children: PropTypes.PropTypes.node,
+  loading: PropTypes.bool,
+}
+
+Loading.defaultProps = {
+  loading: false,
+}
+
 
 export default Loading
