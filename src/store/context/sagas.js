@@ -10,6 +10,10 @@ import {
   showCookiesBanner,
   CONTEXT_TOGGLE_MAIN_NAVIGATION,
   CONTEXT_TOGGLE_ACCOUNT_NAVIGATION,
+  CONTEXT_TOGGLE_SIGN_IN_POPIN,
+  CONTEXT_TOGGLE_CHATBOT_POPIN,
+  CONTEXT_TOGGLE_PHONE_VALIDATION_POPIN,
+  CONTEXT_TOGGLE_EMAIL_VALIDATION_POPIN,
   CONTEXT_CLOSE_ALL,
   CONTEXT_SHOW_COOKIES_BANNER,
   enableFeature,
@@ -28,24 +32,20 @@ export function* handleLocationChange() {
   yield put(closeAll())
 }
 
+/*
+  Adds a noscroll attribute to the html root element to prevent scrolling while popin is opened
+ */
 export function* handlePopinChange() {
-  /*
-    Adds a noscroll class to the body to prevent scrolling while popin is opened
-   */
   if (typeof document === 'undefined') {
     return
   }
 
   const isPopin = yield select(fromContext.isPopin)
-  let classes = document.body.className.split(' ').filter(e => e !== '')
-
-  if (isPopin && !classes.includes('noscroll')) {
-    classes.push('noscroll')
+  if (isPopin) {
+    document.documentElement.setAttribute('mobile-no-scroll', '')
   } else {
-    classes = classes.filter(e => e !== 'noscroll')
+    document.documentElement.removeAttribute('mobile-no-scroll')
   }
-
-  document.body.className = classes.join(' ')
 }
 
 const handleShowCookiesBanner = show => {
@@ -89,6 +89,10 @@ export default function* () {
     takeLatest(CLIENT_INITIATED, handleClientInitiated),
     takeLatest(LOCATION_CHANGE, handleLocationChange),
     takeLatest(CONTEXT_TOGGLE_MAIN_NAVIGATION, handlePopinChange),
+    takeLatest(CONTEXT_TOGGLE_SIGN_IN_POPIN, handlePopinChange),
+    takeLatest(CONTEXT_TOGGLE_CHATBOT_POPIN, handlePopinChange),
+    takeLatest(CONTEXT_TOGGLE_PHONE_VALIDATION_POPIN, handlePopinChange),
+    takeLatest(CONTEXT_TOGGLE_EMAIL_VALIDATION_POPIN, handlePopinChange),
     takeLatest(CONTEXT_SHOW_COOKIES_BANNER, handleShowCookiesBanner),
     takeLatest(CLIENT_INITIATED, initiateCookiesBanner),
     takeLatest(CONTEXT_TOGGLE_ACCOUNT_NAVIGATION, handlePopinChange),

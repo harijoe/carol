@@ -70,13 +70,28 @@ const scaffolding = theme => css`
       background-color: ${theme.colors.grayscale.light};
     }
 
-    @media (max-width: 768px) {
-      &.noscroll {
-        overflow: hidden;
-      }
+  }
+
+  html[no-scroll] {
+    &, body {
+      position: fixed;
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
     }
   }
 
+  @media (max-width: 768px) {
+    html[mobile-no-scroll] {
+      &, body {
+        position: fixed;
+        overflow: hidden;
+        width: 100vw;
+        height: 100vh;
+      }
+    }
+  }
+  
   abbr[title],
   abbr[data-original-title] {
     cursor: help;
@@ -93,13 +108,6 @@ const scaffolding = theme => css`
   button {
     border: 0;
     outline: 0;
-  }
-  
-  .no-scroll {
-    overflow: hidden;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
   }
   
   div.__react_component_tooltip.show {

@@ -18,6 +18,7 @@ const Wrapper = styled.div`
   width: 100%;
   max-width: 80rem;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   overflow-x: hidden;
 
   ${mapBreakpoints(

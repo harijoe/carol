@@ -35,7 +35,15 @@ export const getChatbotPopinMode = (state = initialState) => state.chatbotPopin.
 export const getPhoneValidationPopin = (state = initialState) => state.phoneValidationPopin.enabled
 export const getPhoneValidationPopinMode = (state = initialState) => state.phoneValidationPopin.mode
 export const getEmailValidationPopin = (state = initialState) => state.emailValidationPopin
-export const isPopin = (state = initialState) => state.accountNavigation || state.mainNavigation
+export const isPopin = (state = initialState) =>
+  [
+    state.mainNavigation,
+    state.accountNavigation,
+    state.signInPopin,
+    state.chatbotPopin.enabled,
+    state.phoneValidationPopin.enabled,
+    state.emailValidationPopin,
+  ].some(value => value)
 export const getCountry = (state = initialState) => state.country
 export const getLocale = (state = initialState) => `${state.lang}-${state.country}`
 export const isFeatureEnabled = (state = initialState, feature) => !!state.features[feature]

@@ -89,7 +89,8 @@ const SearchEngineWrapper = styled.div`
       left: 0;
       width: 100vw;
       height: 100vh;
-      overflow-y: scroll;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
       background-color: rgba(255, 255, 255, 0.98);
 
       @media screen and (max-height: 600px) {
@@ -101,7 +102,8 @@ const SearchEngineWrapper = styled.div`
         top: 0;
         width: 100vw;
         height: 100vh;
-        overflow-y: scroll;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
       `};
     `,
     )};  

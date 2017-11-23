@@ -21,6 +21,10 @@ const WrapperResults = styled.div`
     padding-left: 0;
     padding-right: 0;
   `};
+  
+  ${breakpointMax('m')`
+    margin-bottom: ${theme('spaces.xxl')};
+  `};
 `
 
 const StyledGrid = styled(Grid)`

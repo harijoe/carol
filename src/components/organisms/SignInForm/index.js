@@ -61,14 +61,11 @@ const Container = styled.div`
 `
 
 const Wrapper = styled.div`
-  ${breakpointMax('m')`
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  `};
-
   ${breakpointMax('xl')`
     margin-top: ${theme('spaces.xl')};
+  `};
+  ${breakpointMax('m')`
+    margin-bottom: ${theme('spaces.xxl')};
   `};
 `
 

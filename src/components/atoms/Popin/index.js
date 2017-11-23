@@ -69,7 +69,8 @@ const InnerWrapper = styled.div`
 const ScrollWrapper = styled.div`
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 `
 
 const Background = styled.div`
