@@ -57,8 +57,8 @@ const StyledLink = styled(Link)`
   margin-bottom: ${theme('spaces.m')};
 `
 
-const SearchResultContentItem = ({ title, image, imageMeta, link }) => (
-    <StyledLink to={link} target="_blank">
+const SearchResultContentItem = ({ title, image, imageMeta, link, onClick }) => (
+    <StyledLink to={link} target="_blank" onClick={onClick}>
       <StyledWrapper>
         {image &&
           <StyledImage imageUrl={selectImageSizeFromMeta(image, imageMeta, '80')} />
@@ -74,6 +74,7 @@ SearchResultContentItem.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.string,
   imageMeta: PropTypes.string,
+  onClick: PropTypes.func,
   link: PropTypes.string,
 }
 

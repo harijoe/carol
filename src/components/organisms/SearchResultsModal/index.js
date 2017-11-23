@@ -6,8 +6,9 @@ import { theme, breakpoint, breakpointMax } from 'utils/style'
 import { locales } from 'config'
 import shuffle from 'lodash/shuffle'
 import wordpressContentCategories from 'constants/wordpress-content-categories'
-
+import pushGtmEvent from 'utils/gtm'
 import { Grid, Row, Col, Link, Icon, Divider, SearchSuggestions, SearchSuggestionsText, SearchResultItem, SearchResultContentItem, ResultsHeading, IconLink } from 'components'
+import extractPath from 'utils/extractPath'
 
 const WrapperResults = styled.div`
   max-width: 110rem;
@@ -270,6 +271,7 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, word
             {projectFlowResults.hits.filter((el, index) => index < 5).map(({ name, slug, id, image, _highlightResult }, i) =>
               <ColGrid xs={6} m={4} l={3} order={i} key={id} >
                 <SearchResultItem
+                  onClick={() => pushGtmEvent({ event: 'projects', query, slug })}
                   slug={slug}
                   image={image || shuffledImages[i % shuffledImages.length]}
                   alt={name}
@@ -305,11 +307,11 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, word
 
                 return <ColContent xs={12} m={6} l={4} order={key} key={key}>
                   <ContentItem>
-                    <StyledIconLink right to={`search-result?q=${query}&category=${key}`} icon="front_arrow">
+                    <StyledIconLink right to={`search-result?q=${query}&category=${key}`} icon="front_arrow" onClick={() => pushGtmEvent({ event: 'Shortcut', query, category: `all_${key}` })}>
                       <span dangerouslySetInnerHTML={{ __html: translate(`search_page.modal.${key}.title`, { count: nbHits }) }} />
                     </StyledIconLink>
                     {wordpressContentResultsByCategories.slice(0, 2).map((el, i) =>
-                      <SearchResultContentItem key={i} title={el.title} image={el.image} imageMeta={el.image_meta} link={el.link} />
+                      <SearchResultContentItem key={i} title={el.title} image={el.image} imageMeta={el.image_meta} link={el.link} onClick={() => pushGtmEvent({ event: key, query, link: extractPath(el.link) })} />
                     )}
                   </ContentItem>
                 </ColContent>
@@ -323,7 +325,7 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, word
       <div>
         <MoreResultsBlock>
           <StyledDivider />
-          <LinkBlock to={`search-result?q=${query}`}>
+          <LinkBlock onClick={() => pushGtmEvent({ event: 'SeeAllResults', query })} to={`search-result?q=${query}`}>
             <p>
               {translate('search_page.see_all_results')} <span>({ projectFlowResults.nbHits + nbHitsTotal})</span>
             </p>

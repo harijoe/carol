@@ -82,8 +82,8 @@ const StyledLink = styled(Link)`
   `};
 `
 
-const SearchResultItem = ({ className, slug, image, alt, title, tag }) =>
-  <StyledLink className={className} to={`/project-elaboration?slug=${slug}`}>
+const SearchResultItem = ({ className, slug, image, alt, title, tag, onClick }) =>
+  <StyledLink className={className} to={`/project-elaboration?slug=${slug}`} onClick={onClick}>
     <StyledThumbnailPoster
       image={{ src: image, alt }}
       title={title}
@@ -106,6 +106,7 @@ SearchResultItem.propTypes = {
   alt: PropTypes.string.isRequired,
   title: PropTypes.node.isRequired,
   tag: PropTypes.string,
+  onClick: PropTypes.func,
 }
 
 export default SearchResultItem

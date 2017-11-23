@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { ifThen, theme, breakpoint } from 'utils/style'
+import pushGtmEvent from 'utils/gtm'
 
 import { CloseAllButton, Icon } from 'components'
 import { SearchInput, SearchResultsModal } from 'containers'
@@ -145,6 +146,11 @@ class SearchEngine extends Component {
 
   toggleSearch = () => {
     const isExpanded = !this.state.isExpanded
+    if (isExpanded) {
+      pushGtmEvent({ event: 'ModalOpen' })
+    } else {
+      pushGtmEvent({ event: 'ModalClose' })
+    }
     this.setState({ isExpanded }, () => {
       this.props.toggleSearchModal(isExpanded)
       if (isIOS() && isExpanded) {

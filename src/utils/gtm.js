@@ -1,6 +1,6 @@
-const pushGtmEvent = items => {
+const pushGtmEvent = item => {
   if (typeof window !== 'undefined' && typeof window.dataLayer !== 'undefined') {
-    window.dataLayer.push(items)
+    window.dataLayer.push(item)
   }
 }
 
