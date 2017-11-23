@@ -4,9 +4,9 @@ import styled, { css } from 'styled-components'
 
 import { theme, ifThen, mapBreakpoints, breakpoint } from 'utils/style'
 
-const titleStyles = ({ dark }) => css`
+const titleStyles = ({ dark, darkgrey }) => css`
   ${ifThen(
-    dark,
+    dark || darkgrey,
     css`
     color: ${theme('colors.white')};
     &::before {
@@ -48,8 +48,8 @@ const titleStyles = ({ dark }) => css`
 
 const Title = styled.h2`${titleStyles};`
 
-const sectionStyles = ({ light, primary, dark, tall }) => css`
-  background: ${theme('colors.white')};
+const sectionStyles = ({ light, primary, dark, darkgrey, tall }) => css`
+  background-color: ${theme('colors.white')};
   ${mapBreakpoints(
     bp => css`
     padding: calc(${theme(`grid.gutterWidth.${bp}`, 'rem')} * 2) ${theme(`grid.gutterWidth.${bp}`, 'rem')};
@@ -61,9 +61,10 @@ const sectionStyles = ({ light, primary, dark, tall }) => css`
     padding-top: ${theme('grid.gutterWidth.xl')}rem;
   `}
 
-  ${ifThen(light, css`background: ${theme('colors.grayscale.lightest')};`)}
-  ${ifThen(primary, css`background: ${theme('colors.primary')};`)}   
-  ${ifThen(dark, css`background: ${theme('colors.black')};`)}
+  ${ifThen(light, css`background-color: ${theme('colors.grayscale.lightest')};`)}
+  ${ifThen(primary, css`background-color: ${theme('colors.primary')};`)}   
+  ${ifThen(darkgrey, css`background-color: ${theme('colors.grayscale.darker')};`)}
+  ${ifThen(dark, css`background-color: ${theme('colors.black')};`)}
   ${ifThen(
     tall,
     css`
@@ -89,10 +90,10 @@ const Subtitle = styled.span`
   color: ${theme('colors.grayscale.dark')};
 `
 
-const Section = ({ light, primary, dark, tall, children, title, subtitle, ...props }) =>
-  <StyledSection light={light} primary={primary} dark={dark} tall={tall} {...props}>
+const Section = ({ light, primary, dark, darkgrey, tall, children, title, subtitle, ...props }) =>
+  <StyledSection light={light} primary={primary} dark={dark} darkgrey={darkgrey} tall={tall} {...props}>
     {title != null &&
-      <Title light={light} primary={primary} dark={dark}>
+      <Title light={light} primary={primary} dark={dark} darkgrey={darkgrey}>
         <span dangerouslySetInnerHTML={{ __html: title }} />
 
         {subtitle != null &&
@@ -108,6 +109,7 @@ Section.propTypes = {
   light: PropTypes.bool,
   primary: PropTypes.bool,
   dark: PropTypes.bool,
+  darkgrey: PropTypes.bool,
   tall: PropTypes.bool,
   children: PropTypes.any,
   title: PropTypes.string,

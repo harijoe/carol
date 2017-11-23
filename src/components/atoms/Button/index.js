@@ -33,9 +33,7 @@ const StyledButton = styled.button`
   ${ifThen(
     large,
     css`
-    ${breakpoint('m')`
-      padding: ${theme('spaces.l')};
-    `}
+    padding: ${theme('spaces.l')};
   `,
   )}
   ${ifThen(block, 'width: 100%')};

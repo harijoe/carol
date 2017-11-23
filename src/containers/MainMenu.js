@@ -9,12 +9,14 @@ const MainMenuContainer = props => <MainMenu {...props} />
 
 MainMenuContainer.propTypes = {
   locale: PropTypes.string,
-  homepage: PropTypes.bool,
+  isHomepage: PropTypes.bool,
+  isProHomepage: PropTypes.bool,
 }
 
 const mapStateToProps = state => ({
   locale: fromContext.getLocale(state),
-  homepage: fromRouting.isHomepage(state),
+  isHomepage: fromRouting.isHomepage(state),
+  isProHomepage: fromRouting.isProHomepage(state),
 })
 
 export default connect(mapStateToProps)(MainMenuContainer)

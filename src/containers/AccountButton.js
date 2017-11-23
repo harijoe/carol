@@ -10,7 +10,8 @@ const AccountButtonContainer = props => <AccountButton {...props} />
 const mapStateToProps = state => ({
   accountNavigation: fromContext.getAccountNavigation(state),
   authenticated: fromAuth.isAuthenticated(state),
-  homepage: fromRouting.isHomepage(state),
+  isHomepage: fromRouting.isHomepage(state),
+  isProHomepage: fromRouting.isProHomepage(state),
   firstName: fromUser.getFirstName(state),
 })
 

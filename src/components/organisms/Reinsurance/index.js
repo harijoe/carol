@@ -115,7 +115,7 @@ class Reinsurance extends Component {
             slidesToShow: 1,
             slidesToScroll: 1,
             dots: false,
-            autoplay: true,
+            autoplay: false,
             pauseOnHover: true,
             responsive: [{ breakpoint: 1200 }, { breakpoint: 10000, settings: { arrows: true } }],
           }}

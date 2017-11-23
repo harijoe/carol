@@ -10,7 +10,7 @@ import { List, Link, ListItemWithSubmenu } from 'components'
 import FirmResourceSubMenu from './molecules/FirmResourceSubMenu'
 import FindAProLink from './containers/FindAProLink'
 
-const StyledList = styled(List)`${({ homepage, atTop }) => css`
+const StyledList = styled(List)`${({ transparent, atTop }) => css`
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -59,7 +59,7 @@ const StyledList = styled(List)`${({ homepage, atTop }) => css`
 
     ${breakpoint('l')`
       ${ifThen(
-        atTop && homepage,
+        atTop && transparent,
         css`
         &::after {
           background-color: ${theme('colors.white')};
@@ -184,12 +184,12 @@ const linkStyle = css`
 const StyledLink = styled(Link)`${linkStyle}`
 const StyledFindAProLink = styled(FindAProLink)`${linkStyle}`
 
-const MainMenu = ({ locale, homepage, atTop }) =>
-  <StyledList homepage={homepage} atTop={atTop}>
+const MainMenu = ({ locale, isHomepage, isProHomepage, atTop }) =>
+  <StyledList transparent={isHomepage || isProHomepage} atTop={atTop}>
     <li key="firm.find_pro">
       <StyledFindAProLink />
     </li>
-    <ListItemWithSubmenu key="firm.resource" id="firm.resource" linkStyle={linkStyle} homepage={homepage}>
+    <ListItemWithSubmenu key="firm.resource" id="firm.resource" linkStyle={linkStyle} transparent={isHomepage || isProHomepage}>
       {Object.keys(locales[locale].mainMenu.resource).map(submenu =>
         <FirmResourceSubMenu key={submenu} locale={locale} submenu={submenu} />,
       )}
@@ -208,7 +208,8 @@ const MainMenu = ({ locale, homepage, atTop }) =>
 
 MainMenu.propTypes = {
   locale: PropTypes.string,
-  homepage: PropTypes.bool,
+  isHomepage: PropTypes.bool,
+  isProHomepage: PropTypes.bool,
   atTop: PropTypes.bool,
 }
 

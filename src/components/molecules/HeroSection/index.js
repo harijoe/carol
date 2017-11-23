@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { theme, breakpoint } from 'utils/style'
+import { theme, breakpoint, ifThen, breakpointMax } from 'utils/style'
 
 import { Heading, Section } from 'components'
 
 const Wrapper = styled.header`
-  ${({ imageLink }) => css`
+  ${({ imageLink, dark }) => css`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -24,8 +24,16 @@ const Wrapper = styled.header`
     height: 100%;
     width: 100%;
     content: '';
-    background-color: #3333fe;
+    background-color: ${theme('colors.primary')};
     opacity: 0.85;
+
+    ${ifThen(
+    dark,
+    css`
+      background-color: ${theme('colors.black')};
+      opacity: 0.5;
+    `,
+    )}
   }
 
   ${breakpoint('l')`
@@ -38,27 +46,39 @@ const StyledSection = styled(Section)`
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  max-width: 120rem;
   width: 100%;
   background-color: transparent;
 `
 
+const InnerWrapper = styled.div``
+
 const StyledHeading = styled(Heading)`
   color: ${theme('colors.white')};
+  line-height: 1.25;
+
+  ${breakpointMax('m')`
+    font-size: ${theme('fonts.size.xxl')};
+  `}
 `
 
-const HeroSection = ({ title, imageLink, children, ...props }) =>
-  <Wrapper imageLink={imageLink} {...props}>
+const HeroSection = ({ title, imageLink, dark, children, ...props }) =>
+  <Wrapper imageLink={imageLink} dark={dark} {...props}>
     <StyledSection>
-      <StyledHeading level={1} className="qs-Hero-title">
-        {title}
-      </StyledHeading>
-      {children}
+      <InnerWrapper>
+        {title != null &&
+        <StyledHeading level={1} className="qs-Hero-title">
+          {title}
+        </StyledHeading>}
+        {children}
+      </InnerWrapper>
     </StyledSection>
   </Wrapper>
 
 HeroSection.propTypes = {
   title: PropTypes.string,
   imageLink: PropTypes.string,
+  dark: PropTypes.bool,
   children: PropTypes.any,
 }
 

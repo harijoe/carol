@@ -8,7 +8,7 @@ exports[`renders Reinsurance 1`] = `
     carousel={
       Object {
         "afterChange": [Function],
-        "autoplay": true,
+        "autoplay": false,
         "dots": false,
         "infinite": true,
         "pauseOnHover": true,

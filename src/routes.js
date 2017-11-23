@@ -16,6 +16,7 @@ import {
   NotFoundPage,
   PhoneValidationPage,
   PhoneCodeValidationPage,
+  ProHomePage,
   ProjectElaborationPage,
   ProjectValidationPage,
   ProfilePage,
@@ -55,6 +56,7 @@ const routes = (
     <Route path="reset-password" component={ResetPasswordPage} />
     <Route path="search-result" component={SearchResultPage} />
     <Route path="signup" component={anonymousOnly(SignupPage)} />
+    <Route path="pro" component={ProHomePage} />
     <Route path="*" component={NotFoundPage} />
   </Route>
 )

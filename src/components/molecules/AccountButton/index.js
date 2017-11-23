@@ -8,7 +8,7 @@ import injectScroll from 'hoc/component/injectScroll'
 import { Icon } from 'components'
 
 const Wrapper = styled.div`
-  ${({ homepage, atTop }) => css`
+  ${({ transparent, atTop, isHomepage }) => css`
   position: relative;
   display: flex;
   align-items: center;
@@ -40,7 +40,7 @@ const Wrapper = styled.div`
   `}
 
   ${ifThen(
-    homepage,
+    transparent,
     css`
     .qs-header-cnx {
       fill: ${theme('colors.white')};
@@ -57,7 +57,7 @@ const Wrapper = styled.div`
   )}
 
   ${ifThen(
-    !homepage || !atTop,
+    !transparent || !atTop,
     css`
     .qs-header-cnx {
       fill: ${theme('colors.black')};
@@ -92,7 +92,7 @@ const Wrapper = styled.div`
   )}
 
   ${ifThen(
-    atTop && homepage,
+    atTop && isHomepage,
     css`
     &::after {
       background-color: ${theme('colors.white')};
@@ -178,8 +178,8 @@ const LogInLabel = styled.p`
   `};
 `
 
-const AccountButton = ({ atTop, authenticated, toggleAccountNavigation, toggleSignInPopin, homepage, firstName }) =>
-  <Wrapper homepage={homepage} atTop={atTop} onClick={authenticated ? toggleAccountNavigation : toggleSignInPopin}>
+const AccountButton = ({ atTop, authenticated, toggleAccountNavigation, toggleSignInPopin, isHomepage, isProHomepage, firstName }) =>
+  <Wrapper transparent={isHomepage || isProHomepage} atTop={atTop} onClick={authenticated ? toggleAccountNavigation : toggleSignInPopin}>
     <Icon size={32} icon="login" />
     {authenticated
       ? <LogInLabel>
@@ -196,7 +196,8 @@ AccountButton.propTypes = {
   firstName: PropTypes.string,
   atTop: PropTypes.bool,
   authenticated: PropTypes.bool,
-  homepage: PropTypes.bool,
+  isHomepage: PropTypes.bool,
+  isProHomepage: PropTypes.bool,
 }
 
 export default injectScroll(AccountButton)

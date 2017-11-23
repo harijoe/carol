@@ -31,7 +31,7 @@ const Background = styled.div`
 `};
 `
 
-const StyledMainWrapper = styled(MainWrapper)`${({ homepage }) => css`
+const StyledMainWrapper = styled(MainWrapper)`${({ transparent }) => css`
   display: flex;
   min-height: 5.6rem;
   ${mapBreakpoints(
@@ -41,7 +41,7 @@ const StyledMainWrapper = styled(MainWrapper)`${({ homepage }) => css`
   )}
 
   ${ifThen(
-    !homepage,
+    !transparent,
     `
     background-color: white;
     box-shadow: 0 0.1rem 0 #D1D1D1;
@@ -84,9 +84,9 @@ const SecondNavigation = styled.div`
   `};
 `
 
-const Header = ({ atTop, homepage }) =>
+const Header = ({ atTop, isHomepage, isProHomepage }) =>
   <Background atTop={atTop}>
-    <StyledMainWrapper homepage={homepage}>
+    <StyledMainWrapper transparent={isHomepage || isProHomepage}>
       <QuotatisLogo />
       <MainNavigation />
       <SecondNavigation>
@@ -102,7 +102,8 @@ const Header = ({ atTop, homepage }) =>
 
 Header.propTypes = {
   atTop: PropTypes.bool,
-  homepage: PropTypes.bool,
+  isHomepage: PropTypes.bool,
+  isProHomepage: PropTypes.bool,
 }
 
 export default injectScroll(Header)

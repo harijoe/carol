@@ -7,7 +7,7 @@ import { QuotatisLogo } from 'components'
 const QuotatisLogoContainer = props => <QuotatisLogo {...props} />
 
 const mapStateToProps = state => ({
-  homepage: fromRouting.isHomepage(state),
+  isHomepage: fromRouting.isHomepage(state),
 })
 
 export default connect(mapStateToProps)(QuotatisLogoContainer)

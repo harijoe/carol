@@ -15,7 +15,8 @@ HeaderContainer.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  homepage: fromRouting.isHomepage(state),
+  isHomepage: fromRouting.isHomepage(state),
+  isProHomepage: fromRouting.isProHomepage(state),
 })
 
 export default connect(mapStateToProps)(HeaderContainer)

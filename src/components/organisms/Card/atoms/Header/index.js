@@ -10,6 +10,7 @@ const styles = ({ height }) => css`
   ${ifThen(height === 'xsmall', css`height: 12rem;`)}
   ${ifThen(height === 'small', css`height: 15rem;`)}
   ${ifThen(height === 'medium', css`height: 22.5rem;`)}
+  ${ifThen(height === 'large', css`height: 25rem;`)}
   ${ifThen(height === 'auto', css`height: auto;`)}
 `
 
@@ -19,7 +20,7 @@ const Header = ({ className, ...props }) =>
   <Wrapper className={`qs-Card-header ${className}`} {...props} />
 
 Header.propTypes = {
-  height: PropTypes.oneOf(['xsmall', 'small', 'medium', 'auto']),
+  height: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'auto']),
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
 }
