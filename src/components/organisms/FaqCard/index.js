@@ -11,7 +11,7 @@ const StyledCard = styled(Card)`
 `
 
 const FaqCard = ({ title, label, className, link, ...props }) =>
-  <Link to={link} target="_blank">
+  <Link to={link} target="_blank" title={title}>
     <StyledCard className={className} padding="fluid-small" {...props}>
       <Card.Body>
         <Card.Title title={truncate(title, 40)} light />

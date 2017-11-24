@@ -107,7 +107,7 @@ const Content = styled(Paragraph)`
 `
 
 const GuideCard = ({ title, label, image, imageMeta, description, content, className, orientation, link, ...props }) =>
-  <Link to={link} target="_blank">
+  <Link to={link} target="_blank" title={title}>
     <StyledCard className={className} padding="fluid-small" orientation={orientation} {...props}>
       <StyledCardHeader orientation={orientation}>
         {image && <StyledCardImage image={{ src: selectImageSizeFromMeta(image, imageMeta, '370_650'), alt: title }} />}

@@ -18,7 +18,7 @@ const StyledCardTitle = styled(Card.Title)`
 `
 
 const WpCard = ({ title, image, imageMeta, label, className, link, ...props }) =>
-  <Link to={link} target="_blank">
+  <Link to={link} target="_blank" title={title}>
     <Card className={className} padding="fluid" {...props}>
       <Card.Header>
         <Card.Image image={{ src: selectImageSizeFromMeta(image, imageMeta, '300'), alt: title }} />
