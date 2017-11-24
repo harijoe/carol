@@ -2,9 +2,8 @@
 
 set -xe
 
-yarn install
-
 if [ ${NODE_ENV} = 'insideDocker' ]; then
+    yarn install
     yarn start
     exit
 fi;
