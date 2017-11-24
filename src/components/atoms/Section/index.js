@@ -4,9 +4,9 @@ import styled, { css } from 'styled-components'
 
 import { theme, ifThen, mapBreakpoints, breakpoint } from 'utils/style'
 
-const titleStyles = ({ dark, darkgrey }) => css`
+const titleStyles = ({ dark, darkgrey, primary }) => css`
   ${ifThen(
-    dark || darkgrey,
+    dark || darkgrey || primary,
     css`
     color: ${theme('colors.white')};
     &::before {
