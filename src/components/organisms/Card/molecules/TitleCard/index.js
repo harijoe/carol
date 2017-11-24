@@ -9,6 +9,7 @@ const styles = ({ light }) => css`
   font-size: ${theme('fonts.size.l')};
   line-height: 1.25;
   text-overflow: ellipsis;
+  word-wrap: break-word;
 
   ${breakpoint('m')`
     font-size: ${theme('fonts.size.xl')};
