@@ -265,7 +265,12 @@ const SearchResultsModal = ({ locale, translate, projectFlowResults, query, word
     {projectFlowResults &&
       projectFlowResults.hits.length > 0 &&
       <div>
-        <StyledIconLink right to={`search-result?q=${query}&category=projects`} icon="front_arrow">
+        <StyledIconLink
+          right
+          to={`search-result?q=${query}&category=projects`}
+          icon="front_arrow"
+          onClick={() => pushGtmEvent({ event: 'Shortcut', query, category: 'all_projects' })}
+        >
           <span
             dangerouslySetInnerHTML={{ __html: translate('search_page.modal.project.title', { count: projectFlowResults.hits.length }) }}
           />
