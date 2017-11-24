@@ -1,8 +1,6 @@
 import { initialState } from './selectors'
 import { FIRM_LIST, FIRM_DETAILS, FIRM_REVIEWS } from './actions'
 
-const onlyRealComments = reviews => reviews.filter(review => review.reviewText)
-
 export default (state = initialState, action) => {
   switch (action.type) {
     case FIRM_LIST.SUCCESS:
@@ -20,7 +18,7 @@ export default (state = initialState, action) => {
         ...state,
         reviews: {
           ...state.reviews,
-          [action.payload['@id']]: onlyRealComments(action.payload['hydra:member']),
+          [action.payload['@id']]: action.payload['hydra:member'],
         },
       }
     default: {

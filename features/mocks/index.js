@@ -159,7 +159,7 @@ export default [
     response: partner,
   },
   {
-    path: '/firms/MOCK_FIRM_ID/reviews?pagination=false',
+    path: '/firms/MOCK_FIRM_ID/reviews?pagination=false&reviewText[exists]',
     response: reviews,
   },
 ]

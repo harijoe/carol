@@ -29,7 +29,7 @@ export function* handleReadFirmDetailsRequest({ id }) {
 }
 
 export function* handleReadFirmReviewsRequest({ id }) {
-  yield* fetch(firmReviews, 'get', `${id}/reviews?pagination=false`)
+  yield* fetch(firmReviews, 'get', `${id}/reviews?pagination=false&reviewText[exists]`)
 }
 
 export default function* () {

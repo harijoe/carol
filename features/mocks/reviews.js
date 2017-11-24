@@ -20,15 +20,6 @@ export default {
     globalRating: 3.1,
     reviewText: 'c\'est la review de bob',
     countryCode: 'FR',
-  }, {
-    '@id': '/reviews/bac410b6-075e-4137-85d7-4e33bf1d1559',
-    '@type': 'Review',
-    legacyId: 1,
-    userName: 'alice',
-    reviewDate: '1979-03-09T14:46:51+00:00',
-    globalRating: 3,
-    reviewText: '',
-    countryCode: 'FR',
   }],
-  'hydra:totalItems': 3,
+  'hydra:totalItems': 2,
 }
