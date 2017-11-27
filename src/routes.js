@@ -10,6 +10,7 @@ import anonymousOnly from 'hoc/security/anonymousOnly'
 import requiresAuth from 'hoc/security/requiresAuth'
 import {
   App,
+  DirectoryHomePage,
   FirmPage,
   ForgotPasswordPage,
   LoginPage,
@@ -57,6 +58,7 @@ const routes = (
     <Route path="search-result" component={SearchResultPage} />
     <Route path="signup" component={anonymousOnly(SignupPage)} />
     <Route path="pro" component={ProHomePage} />
+    <Route path="directory" component={DirectoryHomePage} />
     <Route path="*" component={NotFoundPage} />
   </Route>
 )
