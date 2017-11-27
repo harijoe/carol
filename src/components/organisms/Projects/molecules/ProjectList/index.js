@@ -40,9 +40,21 @@ const StyledRow = styled(Row)`
 const StyledCarousel = styled(Carousel)`
   ${breakpointMax('m')`
     max-width: 100vw;
-
+    
+    // fix height 100% doesn't work for safari
+    .slick-track {
+      @media screen (min-height: 450px) {
+        height: 100vh;
+      }
+      
+      @media screen (min-height: 600px) {
+        height: 65vh;
+      }
+    }
+    
     .slick-list {
       padding-bottom: ${theme('spaces.m')};
+      height: 100%;
     }
   `}
 `
