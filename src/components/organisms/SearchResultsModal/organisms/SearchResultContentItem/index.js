@@ -58,7 +58,7 @@ const StyledLink = styled(Link)`
 `
 
 const SearchResultContentItem = ({ title, image, imageMeta, link, onClick }) => (
-    <StyledLink to={link} target="_blank" onClick={onClick}>
+    <StyledLink to={link} target="_blank" onClick={onClick} title={title}>
       <StyledWrapper>
         {image &&
           <StyledImage imageUrl={selectImageSizeFromMeta(image, imageMeta, '80')} />
