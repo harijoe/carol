@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { theme, mapBreakpoints } from 'utils/style'
+import { theme, mapBreakpoints, breakpoint } from 'utils/style'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 
 import { ProjectElaborationQuestion, RichTextContent } from 'components'
@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   bottom: 0;
   margin: 0 auto;
   margin-bottom: 5.6rem;
-  max-height: calc(100vh - 18.5rem);
+  height: calc(100vh - 18.5rem);
   width: 100%;
   max-width: 80rem;
   overflow-y: auto;
@@ -30,6 +30,10 @@ const Wrapper = styled.div`
     border-radius: 6rem;
     background-color: ${theme('colors.grayscale.lightest')};
   }
+
+  ${breakpoint('l')`
+    padding-top: ${theme('grid.gutterWidth.xl')}rem;
+  `};
 
   &::-webkit-scrollbar {
     height: ${theme('spaces.xs')};
