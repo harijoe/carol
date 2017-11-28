@@ -5,9 +5,10 @@ import { theme, ifThen } from 'utils/style'
 
 import { Tag } from 'components'
 
-const styles = ({ position, type }) => css`
+const styles = ({ position, type, themeColor }) => css`
   margin: 0;
-
+  padding: 0.4rem 1.6rem;
+  
   ${ifThen(position === 'bottom',
     css`
       position: absolute;
@@ -37,18 +38,34 @@ const styles = ({ position, type }) => css`
     color: ${theme('colors.grayscale.darker')};
   `,
   )}
+  
+  ${ifThen(
+    type === 'inspirations',
+    css`
+    background-color: ${themeColor};
+    color: ${theme('colors.white')};
+  `,
+  )}
+  
+`
+const StyledImg = styled.img`
+  height: ${theme('icons.size.xs')};
+  margin-right: ${theme('spaces.xs')};
+  
 `
 
 const StyledTag = styled(Tag)`${styles}`
 
-const TagCard = ({ className, label, ...props }) =>
-  <StyledTag className={`qs-Card-tag ${className}`} label={label} {...props} />
+const TagCard = ({ className, themeInspirations, themeIconUrl, ...props }) =>
+  <StyledTag className={`qs-Card-tag ${className}`} label={<div><StyledImg src={themeIconUrl} /><span>{themeInspirations}</span></div>} {...props} />
 
 TagCard.propTypes = {
   position: PropTypes.oneOf(['bottom', 'above']),
-  type: PropTypes.oneOf(['faq', 'guide']),
+  type: PropTypes.oneOf(['faq', 'guide', 'inspirations']),
   className: PropTypes.string,
-  label: PropTypes.string.isRequired,
+  themeInspirations: PropTypes.string.isRequired,
+  themeColor: PropTypes.string,
+  themeIconUrl: PropTypes.string,
 }
 
 export default TagCard

@@ -9,6 +9,7 @@ export const transformToAlgoliaItem = item => {
 
     if (theme[0]) {
       algoliaItem.theme_inspirations = theme[0]._
+      algoliaItem.theme_iconId = item['wp:postmeta'].filter(meta => get(meta, 'wp:meta_key')[0] === '_yoast_wpseo_primary_inspiration_themes')[0]['wp:meta_value'][0]
     }
   }
 
@@ -55,6 +56,33 @@ export const unserializeImageMetadata = ({ image_meta, ...item }) => {
 export const injectThumbnailToPost = objects => ({ image, ...item }) => {
   if (objects[item.thumbnail]) {
     return { ...item, image: objects[item.thumbnail].image, image_meta: objects[item.thumbnail].image_meta }
+  }
+
+  return item
+}
+
+export const transformThemes = (items, themes) =>
+  themes.map(theme => {
+    if (theme['wp:termmeta']) {
+      const icon = theme['wp:termmeta'].filter(meta => meta['wp:meta_key'][0] === 'theme_icon')
+      const color = theme['wp:termmeta'].filter(meta => meta['wp:meta_key'][0] === 'theme_color')
+
+      if (icon[0] && color[0]) {
+        return {
+          id: theme['wp:term_id'][0],
+          color: color[0]['wp:meta_value'][0],
+          icon_url: items.filter(item => item['wp:post_id'][0] === icon[0]['wp:meta_value'][0])[0]['wp:attachment_url'][0],
+        }
+      }
+    }
+    return null
+    })
+
+export const mappingThemes = (objects, themes) => ({ ...item }) => {
+
+  if (item.type === 'inspirations') {
+    const themeInfo = themes.filter(theme => theme.id === item.theme_iconId)
+    return { ...item, theme_icon_url: themeInfo[0].icon_url, theme_color: themeInfo[0].color }
   }
 
   return item

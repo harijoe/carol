@@ -17,12 +17,12 @@ const StyledCardTitle = styled(Card.Title)`
   font-size: ${theme('fonts.size.xl')};
 `
 
-const WpCard = ({ title, image, imageMeta, label, className, link, ...props }) =>
+const WpCard = ({ title, image, imageMeta, themeInspirations, className, themeColor, themeIconUrl, link, ...props }) =>
   <Link to={link} target="_blank" title={title}>
     <Card className={className} padding="fluid" {...props}>
       <Card.Header>
         <Card.Image image={{ src: selectImageSizeFromMeta(image, imageMeta, '300'), alt: title }} />
-        <Card.Tag label={label} type="faq" position="above" />
+        <Card.Tag themeInspirations={themeInspirations} type="inspirations" position="above" themeColor={themeColor} themeIconUrl={themeIconUrl} />
       </Card.Header>
       <StyledCardBody>
         <StyledCardTitle title={truncate(title, 40)} />
@@ -32,8 +32,10 @@ const WpCard = ({ title, image, imageMeta, label, className, link, ...props }) =
 
 WpCard.propTypes = {
   title: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+  themeInspirations: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
+  themeColor: PropTypes.string.isRequired,
+  themeIconUrl: PropTypes.string.isRequired,
   image: PropTypes.object,
   imageMeta: PropTypes.object,
   className: PropTypes.string,

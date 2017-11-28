@@ -5,7 +5,7 @@ import get from 'lodash/get'
 import algoliaSearch from 'algoliasearch'
 import program from 'commander'
 import prompt from 'prompt'
-import { transformToAlgoliaItem, unserializeImageMetadata, injectThumbnailToPost } from './lib/populate-algolia-content'
+import { transformToAlgoliaItem, unserializeImageMetadata, injectThumbnailToPost, mappingThemes, transformThemes } from './lib/populate-algolia-content'
 import stripTags from '../src/utils/stripTags'
 import { algolia } from '../src/config'
 
@@ -23,13 +23,13 @@ prompt.start()
 const client = algoliaSearch('TIM81UW1UV', algolia.adminApiKey)
 
 const config = [{
-  filepath: '../conseilstravaux.wordpress.2017-11-06.xml',
+  filepath: '../conseilstravaux.wordpress.2017-11-27.xml',
   indexes: ['qa_content_fr', 'preprod_content_fr', 'prod_content_fr'],
 }, {
-  filepath: '../consejosreformas.wordpress.2017-11-10.xml',
+  filepath: '../consejosreformas.wordpress.2017-11-27.xml',
   indexes: ['qa_content_es', 'preprod_content_es', 'prod_content_es'],
 }, {
-  filepath: '../advice.wordpress.2017-11-10.xml',
+  filepath: '../advice.wordpress.2017-11-27.xml',
   indexes: ['qa_content_uk', 'preprod_content_uk', 'prod_content_uk'],
 }]
 
@@ -47,7 +47,9 @@ const populate = async (filepath, indexes) => {
   const result = await parseStringPromise(xml)
 
   const items = get(result, ['rss', 'channel', '0', 'item'])
+  const themes = get(result, ['rss', 'channel', '0', 'wp:term'])
 
+  const themesIconAndColor = transformThemes(items, themes).filter(x => x)
   const objects = items
     .map(transformToAlgoliaItem)
     .map(unserializeImageMetadata)
@@ -66,6 +68,7 @@ const populate = async (filepath, indexes) => {
     )
     .map(injectThumbnailToPost(objects))
     .filter(({ status }) => status === 'publish')
+    .map(mappingThemes(objects, themesIconAndColor))
 
   await indexes.map(async index => {
     await index.clearIndex()

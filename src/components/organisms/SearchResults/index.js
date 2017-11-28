@@ -145,14 +145,14 @@ const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsB
         <Row>
           {(!searchCategory || searchCategory === 'guides') &&
             wpContentGuides.map(({ title, content, id, image, image_meta, excerpt, link, type }) =>
-              <ColGrid xs={12} m={8} l={6} key={id} x>
+              <ColGrid xs={12} m={8} l={6} key={id} >
                 <GuideCard title={title} content={content} image={image} imageMeta={image_meta} description={excerpt} link={link} label={translate(`search_page.tags.${type}`)} />
               </ColGrid>
             )
           }
           {(!searchCategory || searchCategory === 'faqs') &&
             wpContentFaqs.map(({ title, id, link, type }) =>
-              <ColGrid xs={6} m={4} l={3} key={id} x>
+              <ColGrid xs={6} m={4} l={3} key={id} >
                 <StyledFaqCard title={title} link={link} label={translate(`search_page.tags.${type}`)} />
               </ColGrid>
             )
@@ -165,9 +165,9 @@ const SearchResults = ({ translate, projectFlowResults, wordpressContentResultsB
     >
       <ResultsGrid narrow>
         <Row>
-          {wordpressContentResultsByType.inspirations.map(({ title, id, image, image_meta, link, theme_inspirations }) =>
-            <ColGrid className="qs-ColGrid--medium" xs={12} m={6} l={4} key={id} x>
-              <WpCard title={title} image={image} imageMeta={image_meta} link={link} label={theme_inspirations} />
+          {wordpressContentResultsByType.inspirations.map(({ title, id, image, image_meta, link, theme_inspirations, theme_icon_url, theme_color }) =>
+            <ColGrid className="qs-ColGrid--medium" xs={12} m={6} l={4} key={id} >
+              <WpCard title={title} image={image} imageMeta={image_meta} link={link} themeInspirations={theme_inspirations} themeColor={theme_color} themeIconUrl={theme_icon_url} />
             </ColGrid>
           )
           }
