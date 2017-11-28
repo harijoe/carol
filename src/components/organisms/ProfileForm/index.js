@@ -55,6 +55,10 @@ const StyledHeroSection = styled(HeroSection)`
     ${breakpoint('l')`
       margin-bottom: -8rem;
       max-width: 80rem;
+
+      > div {
+        display: flex;
+      }
     `}
   }
 
@@ -138,7 +142,6 @@ const StyledGrid = styled(Grid)`
 `
 
 const StyledProfileImage = styled(ProfileImage)`
-  order: 1;
   height: 9rem;
   width: 9rem;
 
