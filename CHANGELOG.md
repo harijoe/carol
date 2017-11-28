@@ -1,3 +1,11 @@
+## 1.13.1 - 2017-11-28
+
+First patch release for Sprint 29
+
+### Bug fixes
+- [HIANDU-1863](https://quotatis.atlassian.net/browse/HIANDU-1863) PROFILE - Header text bug
+
+
 ## 1.13.0 - 2017-11-28
 
 Release for Sprint 29
