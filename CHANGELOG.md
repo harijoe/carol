@@ -1,3 +1,24 @@
+## 1.13.0 - 2017-11-28
+
+Release for Sprint 29
+
+### Features
+- [HIANDU-1813](https://quotatis.atlassian.net/browse/HIANDU-1813) CHATBOT - setup AB testing through GO on Chatbot
+- [HIANDU-1812](https://quotatis.atlassian.net/browse/HIANDU-1812) GA events - new events on search modal results
+- [HIANDU-1795](https://quotatis.atlassian.net/browse/HIANDU-1795) RESULT PAGE - add relevant color & icon for articles
+- [HIANDU-1798](https://quotatis.atlassian.net/browse/HIANDU-1798) PRO PROFILE - not display reviews without comment
+- [HIANDU-1766](https://quotatis.atlassian.net/browse/HIANDU-1766) SEARCH ENGINE - Truncate rules
+- [HIANDU-1850](https://quotatis.atlassian.net/browse/HIANDU-1850) SEARCH ENGINE - add basic tooltip on result card with truncated texts
+
+### Bug fixes
+- [HIANDU-1523](https://quotatis.atlassian.net/browse/HIANDU-1523) PROJECT CARD - not same size on mobile
+- [HIANDU-1832](https://quotatis.atlassian.net/browse/HIANDU-1832) RESULT PAGE - suggestion should not appear when user reload the page
+- [HIANDU-1845](https://quotatis.atlassian.net/browse/HIANDU-1845) MENU - In landscape mode advice submenu expanded leaks at top
+- [HIANDU-1844](https://quotatis.atlassian.net/browse/HIANDU-1844) MENU - on mobile impossible to scroll in landscape mode when menu is long
+- [HIANDU-1790](https://quotatis.atlassian.net/browse/HIANDU-1790) LOGIN POPIN - issue on Mobile
+- [HIANDU-1828](https://quotatis.atlassian.net/browse/HIANDU-1828) RESULT PAGE - wrong display
+
+
 ## 1.12.3 - 2017-11-20
 
 Third patch release to last minute features and fixes
