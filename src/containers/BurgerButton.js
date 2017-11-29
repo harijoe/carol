@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { BurgerButton } from 'components'
+import BurgerButton from 'components/BurgerButton'
 import { fromContext } from 'store/selectors'
 import { toggleMainNavigation, closeAll } from 'store/actions'
 

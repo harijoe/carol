@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { fromUser, fromRouting } from 'store/selectors'
 import { checkValidationFlow } from 'store/actions'
 
-import { PhoneAlreadyVerified } from 'components'
+import PhoneAlreadyVerified from 'components/PhoneAlreadyVerified'
 
 class PhoneAlreadyVerifiedContainer extends Component {
   static propTypes = {

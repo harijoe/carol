@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { fromContext } from 'store/selectors'
 import { enableFeature } from 'store/actions'
-import { FeaturesForm } from 'components'
+import FeaturesForm from 'components/FeaturesForm'
 
 const FeaturesContainer = props =>
   !props.ssr && <FeaturesForm {...props} />

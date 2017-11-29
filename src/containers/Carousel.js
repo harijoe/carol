@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fromContext } from 'store/selectors'
 
-import { Carousel } from 'components'
+import Carousel from 'components/Carousel'
 
 const CarouselContainer = props =>
   <Carousel {...props}>

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { fromContext } from 'store/selectors'
 import { toggleSearchModal } from 'store/actions'
 
-import { PageTemplate } from 'components'
+import PageTemplate from 'templates/PageTemplate'
 
 const PageTemplateContainer = props =>
   <PageTemplate {...props}>

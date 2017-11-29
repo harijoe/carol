@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { google } from 'config'
 import { fromContext } from 'store/selectors'
 
-import { GoogleTagManager } from 'components'
+import GoogleTagManager from 'components/GoogleTagManager'
 
 const GoogleTagManagerContainer = ({ country }) => <GoogleTagManager gtmId={google.tagManagerId[country]} />
 

@@ -8,7 +8,7 @@ import { fromUser, fromContext, fromStatus } from 'store/selectors'
 import transformDate from 'utils/transformDate'
 import { createValidator, required, date } from 'services/validation'
 
-import { ProfileForm } from 'components'
+import ProfileForm from 'components/ProfileForm'
 
 const form = 'ProfileForm'
 

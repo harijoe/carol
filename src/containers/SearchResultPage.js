@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { projectElaborationSearch, setSearchCategory } from 'store/actions'
-import { SearchResultPage } from 'components'
+import SearchResultPage from 'pages/SearchResultPage'
 import { fromRouting } from 'store/selectors'
 
 const SearchResultPageContainer = props => <SearchResultPage {...props} />

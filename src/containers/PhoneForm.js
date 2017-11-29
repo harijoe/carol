@@ -6,7 +6,7 @@ import { validatePhone } from 'store/actions'
 import { fromUser, fromStatus, fromContext } from 'store/selectors'
 import { createValidator, required } from 'services/validation'
 
-import { PhoneForm } from 'components'
+import PhoneForm from 'components/PhoneForm'
 
 const PhoneFormContainer = props => <PhoneForm {...props} />
 

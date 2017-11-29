@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { projectElaborationSetResults, toggleSearchModal } from 'store/actions'
 
-import { SearchEngine } from 'components'
+import SearchEngine from 'components/SearchEngine'
 
 const SearchEngineContainer = props => <SearchEngine {...props} />
 

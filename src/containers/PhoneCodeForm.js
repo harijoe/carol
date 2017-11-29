@@ -5,7 +5,7 @@ import { reduxForm } from 'redux-form'
 import { validatePhoneCode, validatePhoneAgain } from 'store/actions'
 import { fromUser, fromStatus } from 'store/selectors'
 
-import { PhoneCodeForm } from 'components'
+import PhoneCodeForm from 'components/PhoneCodeForm'
 
 const PhoneCodeFormContainer = props => <PhoneCodeForm {...props} />
 

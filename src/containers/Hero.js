@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 import { fromProjectElaboration } from 'store/selectors'
 import { projectElaborationHeroDetails, setProjectElaborationHeroAnswer } from 'store/actions'
 
-import { Hero } from 'components'
+import Hero from 'components/Hero'
 
 class HeroContainer extends Component {
   static propTypes = {

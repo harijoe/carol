@@ -20,7 +20,7 @@ export default routes => {
   app.use(morgan(env === 'production' ? 'common' : 'dev'))
   app.use(cookieParser())
   app.use(express.static(path.join(root, 'dist')))
-  app.use(favicon(path.join(root, 'src/components/themes/default/favicon.ico')))
+  app.use(favicon(path.join(root, 'src/theme/default/favicon.ico')))
   app.use(bodyParser.urlencoded({ extended: false }))
   app.use(bodyParser.json())
   app.use(methodOverride('X-HTTP-Method-Override'))

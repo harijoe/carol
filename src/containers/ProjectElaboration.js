@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 import { projectElaborationReply, projectElaborationConversationCurrent } from 'store/actions'
 import { fromProjectElaboration } from 'store/selectors'
 
-import { ProjectElaboration } from 'components'
+import ProjectElaboration from 'components/ProjectElaboration'
 
 class ProjectElaborationContainer extends Component {
   static propTypes = {

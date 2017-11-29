@@ -3,15 +3,14 @@ import { connect } from 'react-redux'
 import { fromContext, fromAuth, fromRouting, fromUser } from 'store/selectors'
 import { toggleSignInPopin, toggleAccountNavigation } from 'store/actions'
 
-import { AccountButton } from 'components'
+import AccountButton from 'components/AccountButton'
 
 const AccountButtonContainer = props => <AccountButton {...props} />
 
 const mapStateToProps = state => ({
   accountNavigation: fromContext.getAccountNavigation(state),
   authenticated: fromAuth.isAuthenticated(state),
-  isHomepage: fromRouting.isHomepage(state),
-  isProHomepage: fromRouting.isProHomepage(state),
+  isLandingPage: fromRouting.isLandingPage(state),
   firstName: fromUser.getFirstName(state),
 })
 

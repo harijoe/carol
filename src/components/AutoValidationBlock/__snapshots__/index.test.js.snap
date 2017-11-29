@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the AutoValidationBlock component 1`] = `
+<Container>
+  <Wrapper>
+    <StyledImage />
+    <Heading
+      level={2}
+    >
+      Test
+    </Heading>
+    <Paragraph />
+  </Wrapper>
+</Container>
+`;

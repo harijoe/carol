@@ -6,7 +6,7 @@ import { authLogin } from 'store/actions'
 import { createValidator, required, email } from 'services/validation'
 import { fromStatus, fromRouting } from 'store/selectors'
 
-import { SignInForm } from 'components'
+import SignInForm from 'components/SignInForm'
 
 const SignInFormContainer = props => <SignInForm {...props} />
 

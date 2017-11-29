@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { DropDownMenu } from 'components'
+import DropDownMenu from 'containers/DropDownMenu'
 
 const DropDownMenuContainer = ({ routing, label, children }) =>
   <DropDownMenu routing={routing} label={label}>

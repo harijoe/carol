@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Header component 1`] = `
+<Background
+  atTop={true}
+>
+  <StyledMainWrapper>
+    <Connect(QuotatisLogoContainer) />
+    <Connect(MainNavigationContainer) />
+    <SecondNavigation>
+      <Connect(AccountButtonContainer) />
+      <Connect(BurgerButtonContainer) />
+    </SecondNavigation>
+    <Connect(AccountNavigationContainer) />
+    <Connect(SignInPopinContainer) />
+    <Connect(PhoneValidationPopinContainer) />
+    <Connect(EmailValidationPopinContainer) />
+  </StyledMainWrapper>
+</Background>
+`;

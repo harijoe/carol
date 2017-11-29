@@ -6,7 +6,7 @@ import { push } from 'react-router-redux'
 import { createValidator, email, password, required } from 'services/validation'
 import { fromStatus, fromRouting } from 'store/selectors'
 import { userCreate } from 'store/actions'
-import { SignUpForm } from 'components'
+import SignUpForm from 'components/SignUpForm'
 
 const SignUpFormContainer = props => <SignUpForm {...props} />
 

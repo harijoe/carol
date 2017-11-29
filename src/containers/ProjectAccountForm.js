@@ -6,7 +6,7 @@ import { projectValidate, checkValidationFlow } from 'store/actions'
 import { fromUser, fromProject, fromStatus } from 'store/selectors'
 import { createValidator, required } from 'services/validation'
 
-import { ProjectAccountForm } from 'components'
+import ProjectAccountForm from 'components/ProjectAccountForm'
 
 class ProjectAccountFormContainer extends Component {
   static propTypes = {

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fromAuth, fromProjectElaboration } from 'store/selectors'
 import { toggleChatbotPopin, setRedirectPathname } from 'store/actions'
 
-import { ValidateProjectButton } from 'components'
+import ValidateProjectButton from 'components/ValidateProjectButton'
 
 const ValidateProjectButtonContainer = props => <ValidateProjectButton {...props} />
 

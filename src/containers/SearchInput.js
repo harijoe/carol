@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { projectElaborationSearch } from 'store/actions'
 import { fromSearchEngine } from 'store/selectors'
 
-import { SearchInput } from 'components'
+import SearchInput from 'components/SearchInput'
 
 const SearchInputContainer = props => <SearchInput {...props} />
 

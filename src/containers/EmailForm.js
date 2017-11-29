@@ -5,7 +5,7 @@ import { validateEmail } from 'store/actions'
 import { fromUser } from 'store/selectors'
 import { createValidator, required } from 'services/validation'
 
-import { EmailForm } from 'components'
+import EmailForm from 'components/EmailForm'
 
 const EmailFormContainer = props => <EmailForm {...props} />
 

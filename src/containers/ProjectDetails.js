@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 
 import { fromProject, fromStatus } from 'store/selectors'
 import { projectDetails, PROJECT_DETAILS } from 'store/actions'
-import { Loading, ProjectDetails } from 'components'
+import Loading from 'components/Loading'
+import ProjectDetails from 'components/ProjectDetails'
 
 class ProjectDetailsContainer extends Component {
   static propTypes = {

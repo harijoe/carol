@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ProjectElaborationLayout component 1`] = `
+<ProjectElaborationTemplate
+  header={<Connect(HeaderConversationalContainer) />}
+>
+  test children
+</ProjectElaborationTemplate>
+`;

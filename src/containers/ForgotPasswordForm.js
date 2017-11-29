@@ -5,7 +5,7 @@ import { createValidator, required, email } from 'services/validation'
 import { fromStatus } from 'store/selectors'
 import { forgotPassword } from 'store/actions'
 
-import { ForgotPasswordForm } from 'components'
+import ForgotPasswordForm from 'components/ForgotPasswordForm'
 
 const ForgotPasswordFormContainer = props => <ForgotPasswordForm {...props} />
 

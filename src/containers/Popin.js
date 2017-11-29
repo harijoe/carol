@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { closeAll } from 'store/actions'
 
-import { Popin } from 'components'
+import Popin from 'components/Popin'
 
 const PopinContainer = props => <Popin {...props} />
 

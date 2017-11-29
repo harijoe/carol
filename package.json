@@ -31,7 +31,6 @@
     "release:pr": "babel-node scripts/create-release-pr",
     "release:create": "babel-node scripts/create-release",
     "release:sentry": "scripts/sentry-release.sh",
-    "generate:components": "babel-node scripts/generate-components-exports",
     "deploy:preprod": "scripts/deploy_carol_preprod.sh",
     "deploy:prod": "scripts/deploy_carol_prod.sh",
     "algolia:content": "babel-node scripts/populate-algolia-content.js"
@@ -46,11 +45,11 @@
       "node_modules"
     ],
     "moduleNameMapper": {
-      "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/fileMock.js",
-      "^.+\\.(css|scss|less)$": "<rootDir>/test/styleMock.js",
-      "^(components|containers)$": "<rootDir>/test/componentsMock.js",
-      "^(store|\\.\\.)\\/selectors$": "<rootDir>/test/selectorsMock.js",
-      "^(store|\\.\\.)\\/actions$": "<rootDir>/test/actionsMock.js"
+      "^.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/mocks/fileMock.js",
+      "^.+\\.(css|scss|less)$": "<rootDir>/src/mocks/styleMock.js",
+      "^(components|containers)$": "<rootDir>/src/mocks/componentsMock.js",
+      "^(store|\\.\\.)\\/selectors$": "<rootDir>/src/mocks/selectorsMock.js",
+      "^(store|\\.\\.)\\/actions$": "<rootDir>/src/mocks/actionsMock.js"
     },
     "setupFiles": [
       "raf/polyfill",

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { CountryMenu } from 'components'
+import CountryMenu from 'components/CountryMenu'
 import { fromContext } from 'store/selectors'
 
 const CountryMenuContainer = props => <CountryMenu {...props} />

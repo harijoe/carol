@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fromContext } from 'store/selectors'
 import { validateEmail } from 'store/actions'
-import { EmailValidationPopin } from 'components'
+import EmailValidationPopin from 'components/EmailValidationPopin'
 
 class EmailValidationPopinContainer extends Component {
   static propTypes = {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fromContext, fromRouting } from 'store/selectors'
 
-import { Footer } from 'components'
+import Footer from 'components/Footer'
 
 const FooterContainer = props => <Footer {...props} />
 

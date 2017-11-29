@@ -7,7 +7,7 @@ import styled from 'styled-components'
 import { authLogin } from 'store/actions'
 import { theme } from 'utils/style'
 
-import { Icon } from 'components'
+import Icon from 'components/Icon'
 
 const StyledIcon = styled(Icon)`
   position: absolute;

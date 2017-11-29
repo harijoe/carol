@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { fromContext } from 'store/selectors'
 import { toggleMainNavigation } from 'store/actions'
 
-import { MainNavigation } from 'components'
+import MainNavigation from 'components/MainNavigation'
 
 const MainNavigationContainer = ({ show }) => <MainNavigation show={show} />
 

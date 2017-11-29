@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fromContext } from 'store/selectors'
 import { toggleChatbotPopinMode } from 'store/actions'
 
-import { ChatbotPopin } from 'components'
+import ChatbotPopin from 'components/ChatbotPopin'
 
 const ChatbotPopinContainer = props => <ChatbotPopin {...props} />
 

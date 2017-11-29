@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fromContext } from 'store/selectors'
 import { setPhoneValidationPopinMode } from 'store/actions'
 
-import { PhoneValidationPopin } from 'components'
+import PhoneValidationPopin from 'components/PhoneValidationPopin'
 
 const PhoneValidationPopinContainer = props => <PhoneValidationPopin {...props} />
 

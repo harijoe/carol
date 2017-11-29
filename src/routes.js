@@ -8,29 +8,31 @@ import es from 'react-intl/locale-data/es'
 import { injectGlobals } from 'utils/style'
 import anonymousOnly from 'hoc/security/anonymousOnly'
 import requiresAuth from 'hoc/security/requiresAuth'
-import {
-  App,
-  DirectoryHomePage,
-  FirmPage,
-  ForgotPasswordPage,
-  LoginPage,
-  NotFoundPage,
-  PhoneValidationPage,
-  PhoneCodeValidationPage,
-  ProHomePage,
-  ProjectElaborationPage,
-  ProjectValidationPage,
-  ProfilePage,
-  ProjectListPage,
-  ProjectPage,
-  ProjectAccountPage,
-  ResetPasswordPage,
-  SignupPage,
-  FeaturesPage,
-  VersionPage,
-} from 'components'
-import { ProjectPreValidatePage, VerifyEmailPage, EmailValidationPage, HomePage, SearchResultPage } from 'containers'
-import { resets, scaffolding } from 'components/themes/default'
+import App from 'components/App'
+import DirectoryHomePage from 'pages/DirectoryHomePage'
+import FirmPage from 'pages/FirmPage'
+import ForgotPasswordPage from 'pages/ForgotPasswordPage'
+import LoginPage from 'pages/LoginPage'
+import NotFoundPage from 'pages/NotFoundPage'
+import PhoneValidationPage from 'pages/PhoneValidationPage'
+import PhoneCodeValidationPage from 'pages/PhoneCodeValidationPage'
+import ProHomePage from 'pages/ProHomePage'
+import ProjectElaborationPage from 'pages/ProjectElaborationPage'
+import ProjectValidationPage from 'pages/ProjectValidationPage'
+import ProfilePage from 'pages/ProfilePage'
+import ProjectListPage from 'pages/ProjectListPage'
+import ProjectPage from 'pages/ProjectPage'
+import ProjectAccountPage from 'pages/ProjectAccountPage'
+import ResetPasswordPage from 'pages/ResetPasswordPage'
+import SignupPage from 'pages/SignupPage'
+import FeaturesPage from 'pages/FeaturesPage'
+import VersionPage from 'pages/VersionPage'
+import ProjectPreValidatePage from 'containers/ProjectPreValidatePage'
+import VerifyEmailPage from 'containers/VerifyEmailPage'
+import EmailValidationPage from 'containers/EmailValidationPage'
+import HomePage from 'containers/HomePage'
+import SearchResultPage from 'containers/SearchResultPage'
+import { resets, scaffolding } from 'theme/default'
 
 injectGlobals([resets, scaffolding])
 addLocaleData([...es, ...en, ...fr])

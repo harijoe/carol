@@ -3,7 +3,7 @@ import React from 'react'
 import { configure, addDecorator } from '@storybook/react'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
-import theme from 'components/themes/default'
+import theme from 'theme/default'
 
 const req = require.context('components', true, /.stories.js$/)
 

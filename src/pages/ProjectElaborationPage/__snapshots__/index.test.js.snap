@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+<ProjectElaborationLayout>
+  <HelmetWrapper
+    defer={true}
+    encodeSpecialCharacters={true}
+  >
+    <meta
+      content="noindex, nofollow"
+      name="robots"
+    />
+  </HelmetWrapper>
+  <Connect(ProjectElaborationContainer) />
+</ProjectElaborationLayout>
+`;

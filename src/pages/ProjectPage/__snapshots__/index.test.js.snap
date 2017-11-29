@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ProjectPage 1`] = `
+<Layout>
+  <MainWrapper
+    paddingTop="m"
+  >
+    <Connect(ProjectDetailsContainer)
+      id="1"
+    />
+  </MainWrapper>
+</Layout>
+`;

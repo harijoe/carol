@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fromPost, fromContext } from 'store/selectors'
 import { postList } from 'store/actions'
-import { PostList } from 'components'
+import PostList from 'components/PostList'
 
 class PostListContainer extends Component {
   static propTypes = {

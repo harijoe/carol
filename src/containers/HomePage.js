@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { HomePage } from 'components'
+import HomePage from 'pages/HomePage'
 import { fromContext } from 'store/selectors'
 
 const HomePageContainer = props => <HomePage {...props} />

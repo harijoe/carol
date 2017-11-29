@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { setSearchCategory } from 'store/actions'
-import { SearchCategories } from 'components'
+import SearchCategories from 'components/SearchResults/molecules/SearchCategories'
 import { fromSearchEngine } from 'store/selectors'
 
 const SearchCategoriesContainer = props => <SearchCategories {...props} />

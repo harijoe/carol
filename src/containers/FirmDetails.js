@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 
 import { fromFirm, fromStatus, fromContext } from 'store/selectors'
 import { firmDetails, FIRM_DETAILS } from 'store/actions'
-import { Loading, FirmDetails } from 'components'
+import Loading from 'components/Loading'
+import FirmDetails from 'components/FirmDetails'
 
 class FirmDetailsContainer extends Component {
   static propTypes = {

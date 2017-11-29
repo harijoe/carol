@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { fromProject, fromStatus } from 'store/selectors'
 import { projectList, PROJECT_LIST } from 'store/actions'
 
-import { Projects } from 'components'
+import Projects from 'components/Projects'
 
 class ProjectsContainer extends Component {
   static propTypes = {

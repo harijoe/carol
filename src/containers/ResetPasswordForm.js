@@ -5,7 +5,7 @@ import { createValidator, required, match, password } from 'services/validation'
 import { resetPassword } from 'store/actions'
 import { fromStatus } from 'store/selectors'
 
-import { ResetPasswordForm } from 'components'
+import ResetPasswordForm from 'components/ResetPasswordForm'
 
 const ResetPasswordFormContainer = props => <ResetPasswordForm {...props} />
 

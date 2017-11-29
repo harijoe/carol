@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders LoginPage 1`] = `
+<Layout>
+  <Connect(ReduxForm)
+    carousel={true}
+    initialValues={
+      Object {
+        "email": null,
+      }
+    }
+  />
+</Layout>
+`;

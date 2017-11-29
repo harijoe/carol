@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { verifyEmail } from 'store/actions'
 
-import { LoadingPage } from 'components'
+import LoadingPage from 'pages/LoadingPage'
 
 class VerifyEmailPageContainer extends Component {
   static propTypes = {

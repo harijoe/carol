@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { fromContext, fromAuth } from 'store/selectors'
 import { toggleAccountNavigation } from 'store/actions'
 
-import { AccountNavigation } from 'components'
+import AccountNavigation from 'components/AccountNavigation'
 
 const AccountNavigationContainer = ({ ...props }) => <AccountNavigation {...props} />
 

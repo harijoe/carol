@@ -6,7 +6,7 @@ import { fromContext, fromProjectElaboration } from 'store/selectors'
 
 import { projectElaborationHeroDetails, setProjectElaborationHeroAnswer, clickOnFindAPro } from 'store/actions'
 
-import { MotionMenu } from 'components'
+import MotionMenu from 'components/MotionMenu'
 
 class MotionMenuContainer extends Component {
   static propTypes = {

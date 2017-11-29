@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fromRouting } from 'store/selectors'
 
-import { QuotatisLogo } from 'components'
+import QuotatisLogo from 'components/QuotatisLogo'
 
 const QuotatisLogoContainer = props => <QuotatisLogo {...props} />
 
