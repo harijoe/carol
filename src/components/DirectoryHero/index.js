@@ -50,6 +50,7 @@ const Subtitle = styled.p`
   ${breakpoint('m')`
     margin: ${theme('spaces.l')} 0 ${theme('spaces.xl')} 0;
     max-width: 80%;
+    font-size: ${theme('fonts.size.xl')};
   `}
 `
 

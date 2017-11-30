@@ -14,14 +14,11 @@ const FormWrapper = styled.form`
   position: relative;
   display: flex;
   flex-wrap: wrap;
+  background-color: ${theme('colors.white')};
+  box-shadow: 0 0 20px 0 rgba(19, 19, 19, 0.2);
 
   ${breakpointMax('m')`
     flex-direction: column;
-  `};
-
-  ${breakpoint('m')`
-    background-color: ${theme('colors.white')};
-    box-shadow: 0 0 20px 0 rgba(19, 19, 19, 0.2);
   `};
 `
 
@@ -41,17 +38,19 @@ const FormCell = styled.div`
   }
 
   ${breakpointMax('m')`
-    padding: ${theme('spaces.s')};
-    background-color: ${theme('colors.white')};
+    padding: ${theme('spaces.m')};
 
     &:first-child {
-      margin-bottom: ${theme('spaces.m')};
+      box-shadow: inset 0 -1px ${theme('colors.grey')};
+    }
+
+    input, select {
+      border: none;
     }
   `};
 
   ${breakpoint('m')`
     padding: ${theme('spaces.m')} ${theme('spaces.l')} 0 ${theme('spaces.l')};
-    max-height: 75px;
     width: calc((100% - 75px) / 2);
 
     &:first-child {
@@ -73,14 +72,26 @@ const FormCell = styled.div`
 `
 
 const SubmitForm = styled(Button)`
+  margin: 0;
+
+  > span:first-child {
+    margin-right: ${theme('spaces.s')};
+  }
+
+  span {
+    vertical-align: middle;
+  }
 
   ${breakpoint('m')`
     position: absolute;
     right: 0;
     top: 0;
-    margin: 0;
     height: 100%;
     max-width: 75px;
+
+    > span:first-child {
+      display: none;
+    }
   `};
 `
 
@@ -128,6 +139,7 @@ const SearchDirectory = ({ translate }) =>
       />
     </FormCell>
     <SubmitForm state="secondary">
+      <span>{translate('directory.form.button.label')}</span>
       <SearchIcon icon="search" />
     </SubmitForm>
   </FormWrapper>
