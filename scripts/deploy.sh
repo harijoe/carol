@@ -11,3 +11,4 @@ if [ $BRANCH == "develop" ]; then
     firebase deploy --token "${FIREBASE_TOKEN}"
 else
   echo "Nothing to deploy, BRANCH != master"
+fi
