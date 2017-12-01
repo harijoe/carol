@@ -16,8 +16,9 @@ const VersionPage = props =>
   <MainLayout {...props}>
     <MainWrapper>
       <StyledSection>
-        <h1>v{process.env.VERSION}</h1>
+        {process.env.VERSION && <h1>v{process.env.VERSION}</h1>}
         {process.env.GIT_SHA1 && <p>Git SHA1: {process.env.GIT_SHA1}</p>}
+        {process.env.REACT_APP_TARGET && <p>Target: {process.env.REACT_APP_TARGET}</p>}
       </StyledSection>
     </MainWrapper>
   </MainLayout>

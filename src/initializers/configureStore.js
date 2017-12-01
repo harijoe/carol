@@ -1,19 +1,19 @@
-import { createStore, applyMiddleware, compose } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
 import createSagaMiddleware from 'redux-saga'
-import reducer from './reducer'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import reducer from '../store/reducer'
 
-const configureStore = (initialState, history) => {
-  const hasWindow = typeof window !== 'undefined'
+const configureStore = history => {
   const sagaMiddleware = createSagaMiddleware()
+  const initialState = window.__INITIAL_STATE__ // eslint-disable-line no-underscore-dangle
 
   const store = createStore(
     reducer,
     initialState,
-    compose(
+    composeWithDevTools(
       applyMiddleware(thunk, sagaMiddleware, routerMiddleware(history)),
-      hasWindow && window.devToolsExtension ? window.devToolsExtension() : f => f,
     ),
   )
 

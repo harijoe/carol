@@ -58,8 +58,7 @@ const StyledSelect = styled.select`
 
 const ReviewsView = ({ translate, labelWithColon, sortKey, maxReviews, onChangeBy, onSeeMore, coverProImage, firmDetails, reviews }) =>
   <div>
-    <a name="reviews" id="reviews" />
-    <Section title={translate('firm.reviews.section_title')} light>
+    <Section id="reviews" title={translate('firm.reviews.section_title')} light>
       <RatingGrid narrow>
         <StyledRow>
           <SortByCol xs={12}>

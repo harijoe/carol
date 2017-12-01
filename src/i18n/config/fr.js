@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   url: 'https://carol-fr-dev.qarx.io',
   countryLabel: 'country.france',
   contentSiteUrl: 'https://www.quotatis.fr/conseils-travaux/',

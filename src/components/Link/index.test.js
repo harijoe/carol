@@ -1,20 +1,26 @@
 import React from 'react'
 import { mount, shallow } from 'enzyme'
 import { ThemeProvider } from 'styled-components'
+import { StaticRouter } from 'react-router-dom'
 import theme from 'theme/default'
 import Link, { StyledLink, Anchor } from '.'
-
-const wrap = props => shallow(<Link theme={theme} {...props} />)
-
-const wrapAndDive = props => wrap(props).dive()
 
 const withTheme = component =>
   <ThemeProvider theme={theme}>
     {component}
   </ThemeProvider>
 
+const withRouter = component =>
+  <StaticRouter>
+    {component}
+  </StaticRouter>
+
+const wrap = props => shallow(<Link theme={theme} {...props} />)
+
+const wrapAndDive = props => wrap(props).dive()
+
 const wrapMounted = (props = {}) =>
-  mount(withTheme(<Link {...props} />)).find(Link)
+  mount(withTheme(withRouter(<Link {...props} />))).find(Link)
 
 it('mounts with different combination of props', () => {
   mount(<Link theme={theme} />)

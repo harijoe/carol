@@ -21,7 +21,7 @@ const CountryMenu = ({ currentLocale, className }) =>
     defaultValue={currentLocale}
     className={className}
     onChange={e => {
-      location.href = (locale => getUrlFromLocale(locale))(e.target.value)
+      window.location.href = (locale => getUrlFromLocale(locale))(e.target.value)
     }}
   >
     <CountryOption name="country.spain" value="es-ES" />

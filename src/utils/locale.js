@@ -1,4 +1,4 @@
-import { defaultLocale, locales } from 'config'
+import { locales, defaultLocale } from 'config'
 import hostNameFromUrl from './hostNameFromUrl'
 
 export const getLocaleFromHostname = hostname =>

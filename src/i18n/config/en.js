@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   url: 'https://carol-co-uk-dev.qarx.io',
   countryLabel: 'country.great_britain',
   contentSiteUrl: 'https://www.quotatis.co.uk/advice/',

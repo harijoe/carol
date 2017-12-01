@@ -4,6 +4,7 @@ import { reduxForm } from 'redux-form'
 import { createValidator, required, match, password } from 'services/validation'
 import { resetPassword } from 'store/actions'
 import { fromStatus } from 'store/selectors'
+import qs from 'query-string'
 
 import ResetPasswordForm from 'components/ResetPasswordForm'
 
@@ -19,7 +20,7 @@ const validate = createValidator({
 const mapStateToProps = state => ({
   loading: fromStatus.getLoading(state).USER_UPDATE_PASSWORD,
   initialValues: {
-    token: typeof state.routing !== 'undefined' ? state.routing.locationBeforeTransitions.query.token : '',
+    token: typeof state.routing !== 'undefined' ? qs(state.routing.location.search).token : '',
   },
 })
 

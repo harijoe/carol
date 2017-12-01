@@ -16,14 +16,16 @@ const StyledMainWrapper = styled(MainWrapper)`
 const FirmPage = props => (
   <MainLayout>
     <StyledMainWrapper paddingTop="m">
-      <FirmDetails id={props.params.firmId} {...props} />
+      <FirmDetails id={props.match.params.firmId} {...props} />
     </StyledMainWrapper>
   </MainLayout>
 )
 
 FirmPage.propTypes = {
-  params: PropTypes.shape({
-    firmId: PropTypes.string,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      firmId: PropTypes.string,
+    }),
   }),
 }
 

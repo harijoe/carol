@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import logging from 'logging'
@@ -18,22 +18,33 @@ const styles = ({ size }) => css`
 
 const Wrapper = styled.span`${styles};`
 
-const Icon = ({ icon, ...props }) => {
-  try {
-    const svg = require(`./icons/${icon}.svg`)
-
-    return <Wrapper {...props} dangerouslySetInnerHTML={{ __html: svg }} />
-  } catch (e) {
-    logging.captureException(e)
-    console.warn(e)
-
-    return null
+class Icon extends Component {
+  static propTypes = {
+    icon: PropTypes.string.isRequired,
+    size: PropTypes.number,
   }
-}
 
-Icon.propTypes = {
-  icon: PropTypes.string.isRequired,
-  size: PropTypes.number,
+  state = {
+    component: null,
+  }
+
+  async componentDidMount() {
+    const { icon, ...props } = this.props
+    try {
+      const Svg = require(`./icons/${icon}.svg`)
+      const component = <Wrapper {...props}><Svg /></Wrapper>
+
+      // eslint-disable-next-line react/no-did-mount-set-state
+      this.setState({ component })
+    } catch (e) {
+      logging.captureException(e)
+      console.warn(e)
+    }
+  }
+
+  render() {
+    return this.state.component
+  }
 }
 
 export default Icon

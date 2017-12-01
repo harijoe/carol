@@ -1,8 +1,8 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { shallow } from 'enzyme'
+import mockStore from 'mocks/storeMock'
 import PageTemplate from '.'
-import mockStore from '../../mocks/storeMock'
 
 const store = mockStore()
 

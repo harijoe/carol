@@ -79,7 +79,7 @@ function* handleClientInitiated() {
   }
 
   // Initialize query params
-  const queryParams = parseLocationSearch(location.search)
+  const queryParams = parseLocationSearch(window.location.search)
 
   yield put(setInitialQueryParams(queryParams))
 }

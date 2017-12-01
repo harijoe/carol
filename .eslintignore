@@ -1,1 +1,9 @@
-dist
+.dist
+.features
+.git
+.storybook
+build
+node_modules
+test
+**/*.stories.js
+**/*.test.js

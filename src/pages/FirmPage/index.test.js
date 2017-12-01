@@ -3,5 +3,5 @@ import { shallow } from 'enzyme'
 import FirmPage from './'
 
 it('renders', () => {
-  shallow(<FirmPage params={{ firmId: '1' }} />)
+  shallow(<FirmPage match={ {params: { firmId: '1' }}} />)
 })

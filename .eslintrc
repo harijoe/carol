@@ -60,8 +60,8 @@
   },
   "settings": {
     "import/resolver": {
-      "webpack": {
-        "config": "webpack/dev.config.js"
+      "node": {
+        "moduleDirectory": ["src", "node_modules"]
       }
     }
   }

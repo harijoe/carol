@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { theme, breakpoint } from 'utils/style'
-import config from 'config'
+import { locales } from 'config'
 import Icon from 'components/Icon'
 import Link from 'components/Link'
 
@@ -18,12 +18,12 @@ const StyledIcon = styled(Icon)`
 `
 
 const FooterSocialNetworksLink = ({ id, locale }) => {
-  if (config.locales[locale].footer.social[id] == null) {
+  if (locales[locale].footer.social[id] == null) {
     return null
   }
 
   return (
-    <Link to={config.locales[locale].footer.social[id]} target="_blank">
+    <Link to={locales[locale].footer.social[id]} target="_blank">
       <StyledIcon icon={`social-${id}`} />
     </Link>
   )

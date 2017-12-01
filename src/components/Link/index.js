@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
-import { Link as RouterLink } from 'react-router'
+import { Link as RouterLink } from 'react-router-dom'
 import omit from 'lodash/omit'
 import { theme, ifThen, breakpoint } from 'utils/style'
 

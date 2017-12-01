@@ -1,10 +1,10 @@
-import merge from 'lodash/merge'
+const merge = require('lodash/merge')
 
-import { fr, en, es } from './i18n/config'
+const { fr, en, es } = require('./i18n/config')
 
 const configs = {
   all: {
-    env: process.env.NODE_ENV || 'development',
+    env: process.env.REACT_APP_TARGET || 'development',
     ip: process.env.IP || '0.0.0.0',
     port: 443,
     browser: typeof window !== 'undefined',
@@ -249,5 +249,3 @@ if (process.env.DEV_SERVER) {
 }
 
 module.exports = config
-
-export default config

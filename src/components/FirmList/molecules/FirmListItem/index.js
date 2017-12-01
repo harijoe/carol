@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link as RouterLink } from 'react-router'
+import { Link as RouterLink } from 'react-router-dom'
 import { FormattedMessage } from 'react-intl'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'

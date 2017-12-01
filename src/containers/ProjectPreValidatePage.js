@@ -6,13 +6,15 @@ import { projectElaborationPreValidate } from 'store/actions'
 class ProjectPreValidatePageContainer extends Component {
   static propTypes = {
     request: PropTypes.func,
-    params: PropTypes.shape({
-      chatbotStorageId: PropTypes.string,
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        chatbotStorageId: PropTypes.string,
+      }),
     }),
   }
 
   componentWillMount() {
-    const { request, params: { chatbotStorageId } } = this.props
+    const { request, match: { params: { chatbotStorageId } } } = this.props
 
     request(chatbotStorageId)
   }

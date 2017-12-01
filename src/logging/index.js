@@ -1,4 +1,4 @@
-import { browser, sentry } from 'config'
+import { sentry, browser } from 'config'
 
 export const EmptyRavenStub = {
   captureException: () => {},

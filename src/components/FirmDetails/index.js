@@ -10,8 +10,7 @@ import transformDate from 'utils/transformDate'
 import isTouchDevice from 'utils/isTouchDevice'
 import normalizeUrl from 'utils/normalizeUrl'
 import ReactTooltip from 'react-tooltip'
-
-import config from 'config'
+import { locales } from 'config'
 
 import List from 'components/List'
 import Section from 'components/Section'
@@ -452,8 +451,10 @@ class FirmDetails extends Component {
     mapEnabled: PropTypes.bool.isRequired,
     teamEnabled: PropTypes.bool.isRequired,
     reviews: PropTypes.array,
-    params: PropTypes.shape({
-      projectId: PropTypes.string,
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        projectId: PropTypes.string,
+      }),
     }),
     details: PropTypes.shape({
       name: PropTypes.string,
@@ -507,7 +508,7 @@ class FirmDetails extends Component {
   render() {
     const { modalIsVisible, contentModal } = this.state
 
-    const { details, locale, translate, labelWithColon, mapEnabled, teamEnabled, reviews, params: { projectId } } = this.props
+    const { details, locale, translate, labelWithColon, mapEnabled, teamEnabled, reviews, match: { params: { projectId } } } = this.props
 
     const {
       logoUrl,
@@ -541,7 +542,7 @@ class FirmDetails extends Component {
       pictures = firmPictures.filter(picture => picture.tag !== 'team' && !picture.main)
     }
 
-    const genericFirmDetailImage = config.locales[locale].genericFirmDetailImage
+    const genericFirmDetailImage = locales[locale].genericFirmDetailImage
 
     const certificatesAvailable = firmCertificates && firmCertificates.length > 0
 
@@ -590,7 +591,7 @@ class FirmDetails extends Component {
               {firmCertificates && firmCertificates.length > 0 && (
                 <CertificateList>
                   <strong>{labelWithColon(translate('firm.details.certifications'))}</strong>
-                  {firmCertificates.map(({ ['@id']: id, certificate }) =>
+                  {firmCertificates.map(({ '@id': id, certificate }) =>
                     <FirmCertificate key={id} {...certificate} showModal={this.showModal} />
                   )}
                 </CertificateList>

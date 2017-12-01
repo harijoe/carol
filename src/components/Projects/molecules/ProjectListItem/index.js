@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Link as RouterLink } from 'react-router'
+import { Link as RouterLink } from 'react-router-dom'
 import { FormattedMessage } from 'react-intl'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'

@@ -5,36 +5,9 @@ set -xe
 echo "/!\ BRANCH == ${BRANCH} /!\ "
 
 if [ $BRANCH == "develop" ]; then
-  echo "Start deploy for develop"
-  curl https://sdk.cloud.google.com | bash
-  source /home/travis/.bashrc
-  export PATH=$HOME/google-cloud-sdk/bin:$PATH
-  gcloud components install kubectl
-  gcloud auth activate-service-account "travis@quotatis-152617.iam.gserviceaccount.com" --key-file=quotatis-01d6e02592a9.json
-  gcloud container clusters get-credentials cluster-1 --zone europe-west1-b --project quotatis-152617
-  export GOOGLE_APPLICATION_CREDENTIALS=quotatis-01d6e02592a9.json
-  gcloud docker -- push eu.gcr.io/quotatis-152617/carol:${BRANCH}
-  kubectl create ns ${BRANCH} || true
-  kubectl get svc --namespace=develop dora-develop -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
-  while [ $? -ne 0 ]; do
-      kubectl get svc --namespace=develop dora-develop -o jsonpath='{.status.loadBalancer.ingress[0].ip}';
-  done;
-  kubectl run carol-${BRANCH} --namespace=${BRANCH} --image=eu.gcr.io/quotatis-152617/carol:${BRANCH} --port=443  --replicas=1 \
-            --labels="branch=${BRANCH},app=quotatis,run=carol-${BRANCH}" --env="GIT_SHA1=${GIT_SHA1}" --env="PUB_IP=${CAROL_IP}" \
-            --env="NODE_ENV=qa" --env="PORT=443" --env="API_PORT=443" \
-            --env="API_IP=`kubectl get svc --namespace=develop dora-develop -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`" \
-            --image-pull-policy=Always  || true
-  kubectl expose --port=443 deploy carol-${BRANCH} --type=LoadBalancer --name=carol-${BRANCH} --namespace=${BRANCH} || true
-  kubectl get svc --namespace=${BRANCH} carol-${BRANCH} -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
-  while [ $? -ne 0 ]; do
-     kubectl get svc --namespace=${BRANCH} carol-${BRANCH} -o jsonpath='{.status.loadBalancer.ingress[0].ip}';
-  done;
-  export CAROL_IP=`kubectl get svc --namespace=${BRANCH} carol-${BRANCH} -o jsonpath="{.status.loadBalancer.ingress[0].ip}"`
-  export JSON_PATCH=`echo '{"spec":{"template":{"spec":{"containers":[{"env":[{"name":"API_IP","value":"104.199.107.196"},{"name":"GIT_SHA1","value":"GIT_SHA1_VALUE"}],"name":"carol-BRANCH"}]}}}}' | sed s/BRANCH/$BRANCH/g | sed s/GIT_SHA1_VALUE/$GIT_SHA1/g`
-  echo ${JSON_PATCH}
-  kubectl patch deployment carol-${BRANCH} --namespace=${BRANCH} -p $JSON_PATCH
-  kubectl delete pods `kubectl get pod -l "run=carol-${BRANCH}" -o=template --template="{{ with index .items 0}}{{ .metadata.name }}{{ end }}" --namespace=${BRANCH}` --namespace=${BRANCH}
-  gcloud auth revoke #logout since we need to use the token in preprod deployment
+    echo "Start deploy for develop"
+    npm install -g firebase-tools
+    REACT_APP_TARGET=qa yarn build
+    firebase deploy --token "${FIREBASE_TOKEN}"
 else
   echo "Nothing to deploy, BRANCH != master"
-fi

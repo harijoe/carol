@@ -1,16 +1,42 @@
-require('babel-polyfill')
-require('babel-core/register')
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import 'logging'
+import configureStore from 'initializers/configureStore'
+import initializeLocale from 'initializers/initializeLocale'
+import initializeStyle from 'initializers/initializeStyle'
+import sagas from 'store/sagas'
+import { clientInitiated } from 'store/actions'
+import ScrollToTop from 'components/ScrollToTop'
+import Routes from 'components/Routes'
+import Helmet from 'components/Helmet'
+import { ConnectedRouter } from 'react-router-redux'
+import IntlProvider from 'containers/IntlProvider'
+import GoogleTagManager from 'containers/GoogleTagManager'
+import createBrowserHistory from 'history/createBrowserHistory'
 
-process.on('unhandledRejection', (reason, p) => {
-  console.error('Unhandled Rejection at:', p, 'reason:', reason)
-})
+const history = createBrowserHistory()
+const store = configureStore(history)
 
-const WebpackIsomorphicTools = require('webpack-isomorphic-tools')
-const webpackIsomorphicToolsConfig = require('../webpack/webpack-isomorphic-tools')
-const path = require('path')
+// Set lang and country
+initializeLocale(store)
+initializeStyle()
+store.runSaga(sagas)
+store.dispatch(clientInitiated())
 
-const projectBasePath = path.resolve(__dirname, '../')
+const root = document.getElementById('root')
 
-global.webpackIsomorphicTools = new WebpackIsomorphicTools(webpackIsomorphicToolsConfig).server(projectBasePath, () => {
-  require('./server')
-})
+const renderApp = () =>
+  <Provider store={store}>
+    <IntlProvider>
+      <ConnectedRouter history={history}>
+        <ScrollToTop>
+            <Helmet />
+            <GoogleTagManager />
+            <Routes />
+        </ScrollToTop>
+      </ConnectedRouter>
+    </IntlProvider>
+  </Provider>
+
+render(renderApp(), root)

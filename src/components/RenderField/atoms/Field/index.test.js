@@ -3,9 +3,9 @@ import { shallow, mount } from 'enzyme'
 import { FormattedMessage } from 'react-intl'
 import { ThemeProvider } from 'styled-components'
 import intlMock from 'mocks/intlMock'
+import messages from 'mocks/translations'
 import theme from 'theme/default'
 import Field from '.'
-import messages from '../../../../mocks/translations'
 
 const wrapperShallowed = (props = {}) =>
   shallow(

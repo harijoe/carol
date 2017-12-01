@@ -3,6 +3,7 @@ coverage/
 .nyc_output/
 *.log
 jest/
+build/
 dist/
 webpack/webpack-assets.json
 .storybook/public/*

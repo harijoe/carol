@@ -8,9 +8,3 @@ it('mounts with different combination of props', () => {
   mount(<Icon icon="github" />)
   mount(<Icon icon="github" size={20} />)
 })
-
-it('renders props when passed in', () => {
-  const wrapper = wrap({ id: 'foo' })
-
-  expect(wrapper.find({ id: 'foo' }).length).toBeGreaterThan(0)
-})

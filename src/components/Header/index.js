@@ -3,16 +3,18 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
 import { theme, ifThen, mapBreakpoints, breakpoint, breakpointMax } from 'utils/style'
 import injectScroll from 'hoc/component/injectScroll'
+import asyncComponent from 'utils/asyncComponent'
 
 import MainWrapper from 'components/MainWrapper'
 import AccountButton from 'containers/AccountButton'
 import MainNavigation from 'containers/MainNavigation'
 import AccountNavigation from 'containers/AccountNavigation'
 import BurgerButton from 'containers/BurgerButton'
-import SignInPopin from 'containers/SignInPopin'
 import QuotatisLogo from 'containers/QuotatisLogo'
-import PhoneValidationPopin from 'containers/PhoneValidationPopin'
-import EmailValidationPopin from 'containers/EmailValidationPopin'
+
+const AsyncSignInPopin = asyncComponent(() => import(/* webpackChunkName: "Popin_SignInPopin" */ 'containers/SignInPopin'))
+const AsyncPhoneValidationPopin = asyncComponent(() => import(/* webpackChunkName: "Popin_PhoneValidationPopin" */ 'containers/PhoneValidationPopin'))
+const AsyncEmailValidationPopin = asyncComponent(() => import(/* webpackChunkName: "Popin_EmailValidationPopin" */ 'containers/EmailValidationPopin'))
 
 const Background = styled.div`
   ${({ atTop }) => css`
@@ -92,9 +94,9 @@ const Header = ({ atTop, isLandingPage }) =>
         <BurgerButton />
       </SecondNavigation>
       <AccountNavigation />
-      <SignInPopin />
-      <PhoneValidationPopin />
-      <EmailValidationPopin />
+      <AsyncSignInPopin />
+      <AsyncPhoneValidationPopin />
+      <AsyncEmailValidationPopin />
     </StyledMainWrapper>
   </Background>
 

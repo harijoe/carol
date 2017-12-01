@@ -1,6 +1,6 @@
-import fr from './fr'
-import en from './en'
-import es from './es'
+const fr = require('./fr')
+const en = require('./en')
+const es = require('./es')
 
 const l11n = {
   fr,
@@ -8,4 +8,9 @@ const l11n = {
   es,
 }
 
-export { l11n as default, fr, en, es }
+module.exports = {
+  default: l11n,
+  fr,
+  en,
+  es,
+}

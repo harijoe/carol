@@ -12,9 +12,9 @@ exports[`should render Header component 1`] = `
       <Connect(BurgerButtonContainer) />
     </SecondNavigation>
     <Connect(AccountNavigationContainer) />
-    <Connect(SignInPopinContainer) />
-    <Connect(PhoneValidationPopinContainer) />
-    <Connect(EmailValidationPopinContainer) />
+    <AsyncComponent />
+    <AsyncComponent />
+    <AsyncComponent />
   </StyledMainWrapper>
 </Background>
 `;

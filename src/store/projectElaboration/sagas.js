@@ -5,7 +5,6 @@ import pushGtmEvent from 'utils/gtm'
 import { takeLatest } from 'utils/effects'
 import fetch from 'sagas/fetch'
 import { requirePartner } from 'sagas/require'
-import ssr from 'sagas/ssr'
 import notify from 'sagas/notify'
 import { saveProjectElaborationIdInCookies } from 'utils/cookies'
 import reactCookie from 'services/cookies'
@@ -16,7 +15,6 @@ import {
   PROJECT_ELABORATION_CONVERSATION_REPLY,
   PROJECT_ELABORATION_HERO_SET_RESPONSE,
   PROJECT_ELABORATION_HERO_DETAILS,
-  PROJECT_ELABORATION_CONVERSATIONS_DETAILS,
   PROJECT_ELABORATION_CONVERSATION_CURRENT,
   PROJECT_ELABORATION_PRE_VALIDATE,
   PROJECT_ELABORATION_CLICK_FIND_A_PRO,
@@ -234,10 +232,9 @@ export default function* () {
     takeLatest(CLIENT_INITIATED, generateSessionIdIfRequired),
     takeLatest(PROJECT_ELABORATION_CONVERSATION_REPLY.REQUEST, replyConversation),
     takeLatest(PROJECT_ELABORATION_HERO_DETAILS.REQUEST, getConversations),
-    takeLatest(PROJECT_ELABORATION_HERO_DETAILS.REQUEST, ssr(requestHero)),
+    takeLatest(PROJECT_ELABORATION_HERO_DETAILS.REQUEST, requestHero),
     takeLatest(PROJECT_ELABORATION_HERO_SET_RESPONSE, replyHero),
     takeLatest(PROJECT_ELABORATION_CLICK_FIND_A_PRO, handleClickOnFindAPro),
-    takeLatest(PROJECT_ELABORATION_CONVERSATIONS_DETAILS.REQUEST, getConversations),
     takeLatest(PROJECT_ELABORATION_CONVERSATION_CURRENT.REQUEST, getConversationCurrent),
     takeLatest(PROJECT_ELABORATION_PRE_VALIDATE.REQUEST, preValidate),
     takeLatest(AUTH_LOGOUT, regenerateChatbotSessionId),

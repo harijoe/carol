@@ -5,7 +5,7 @@ import { push } from 'react-router-redux'
 import notify from 'sagas/notify'
 import { saveToken, removeToken } from 'sagas/token'
 import { takeLatest } from 'utils/effects'
-import config from 'config'
+import { api } from 'config'
 import isAuthenticated from 'utils/auth'
 import pushGtmEvent from 'utils/gtm'
 
@@ -56,7 +56,7 @@ export function* handleAuthLoginRequest({ grantType = 'client_credentials', form
       actualCredentials = `&refresh_token=${refreshToken}`
     }
 
-    const url = `/oauth/v2/token?client_id=${config.api.clientId}&client_secret=${config.api
+    const url = `/oauth/v2/token?client_id=${api.clientId}&client_secret=${api
       .clientSecret}&grant_type=${actualGrantType}${actualCredentials}`
 
     yield* fetchWithoutRefreshingToken(authLogin(actualGrantType), 'get', url)

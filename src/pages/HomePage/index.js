@@ -2,16 +2,18 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import injectTranslate from 'i18n/hoc/injectTranslate'
+import asyncComponent from 'utils/asyncComponent'
 
 import MainLayout from 'layouts/MainLayout'
-import HowItWorks from 'components/HowItWorks'
-import Testimonials from 'components/Testimonials'
-import TipsAndTricks from 'components/TipsAndTricks'
-import Reinsurance from 'components/Reinsurance'
 import MainWrapper from 'components/MainWrapper'
 import Hero from 'containers/Hero'
-import MotionMenu from 'containers/MotionMenu'
 import SearchEngine from 'containers/SearchEngine'
+
+const AsyncMotionMenu = asyncComponent(() => import(/* webpackChunkName: "Component_MotionMenu" */ 'containers/MotionMenu'))
+const AsyncHowItWorks = asyncComponent(() => import(/* webpackChunkName: "Component_HowItWorks" */ 'components/HowItWorks'))
+const AsyncTestimonials = asyncComponent(() => import(/* webpackChunkName: "Component_Testimonials" */ 'components/Testimonials'))
+const AsyncTipsAndTricks = asyncComponent(() => import(/* webpackChunkName: "Component_TipsAndTricks" */ 'components/TipsAndTricks'))
+const AsyncReinsurance = asyncComponent(() => import(/* webpackChunkName: "Component_Reinsurance" */ 'components/Reinsurance'))
 
 const HomePage = ({ locale, translate, rawTranslate, ...props }) => (
   <MainLayout {...props}>
@@ -22,12 +24,12 @@ const HomePage = ({ locale, translate, rawTranslate, ...props }) => (
     <SearchEngine />
     <Hero />
     <MainWrapper resetState>
-      <HowItWorks locale={locale} />
-      <Testimonials />
-      <TipsAndTricks locale={locale} />
-      <Reinsurance />
+      <AsyncHowItWorks locale={locale} />
+      <AsyncTestimonials />
+      <AsyncTipsAndTricks locale={locale} />
+      <AsyncReinsurance />
     </MainWrapper>
-    <MotionMenu />
+    <AsyncMotionMenu />
   </MainLayout>
 )
 

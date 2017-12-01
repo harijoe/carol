@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Field from './atoms/Field'
+import Field from './atoms/Field/index'
 
 const RenderField = ({ meta, input, ...props }) =>
   <Field {...{ ...props, ...input, invalid: meta.touched && !!meta.error, error: meta.error }} />

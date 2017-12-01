@@ -6,7 +6,7 @@ import { ROUTING_SET_REDIRECT_PATHNAME } from './actions'
 export default (state = initialState, action) => {
   switch (action.type) {
     case ROUTING_SET_REDIRECT_PATHNAME: {
-      return set(state, ['locationBeforeTransitions', 'state', 'redirectPathname'], action.payload)
+      return set(state, ['location', 'state', 'redirectPathname'], action.payload)
     }
     default: {
       return routerReducer(state, action)

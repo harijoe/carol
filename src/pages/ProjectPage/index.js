@@ -8,13 +8,15 @@ import ProjectDetails from 'containers/ProjectDetails'
 const ProjectPage = props =>
   <MainLayout>
     <MainWrapper paddingTop="m">
-      <ProjectDetails id={props.params.projectId} />
+      <ProjectDetails id={props.match.params.projectId} />
     </MainWrapper>
   </MainLayout>
 
 ProjectPage.propTypes = {
-  params: PropTypes.shape({
-    projectId: PropTypes.string,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      projectId: PropTypes.string,
+    }),
   }),
 }
 

@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl'
 import injectTranslate from 'i18n/hoc/injectTranslate'
 import { theme, breakpoint, breakpointMax } from 'utils/style'
 import transformDate from 'utils/transformDate'
-import config from 'config'
+import { google } from 'config'
 import cloudinary from 'utils/cloudinary'
 
 import Section from 'components/Section'
@@ -195,7 +195,7 @@ const googleMapsParams = ({ lat, lng }) => {
     scale: 1,
     size: '300x150',
     maptype: 'roadmap',
-    key: config.google.mapsKey,
+    key: google.mapsKey,
     format: 'png',
     visual_refresh: true,
     markers: `icon:${markerImageUrl}|shadow:true|${lat},${lng}`,
@@ -207,7 +207,7 @@ const googleMapsParams = ({ lat, lng }) => {
 }
 
 const ProjectDetails = ({
-  project: { ['@id']: id, name, status, createdAt, questionsAnswers, comment, postalCode, startTimeframe, purpose, leadSales, imageUrl, leadReference },
+  project: { '@id': id, name, status, createdAt, questionsAnswers, comment, postalCode, startTimeframe, purpose, leadSales, imageUrl, leadReference },
   placeCoords,
   translate,
   labelWithColon,

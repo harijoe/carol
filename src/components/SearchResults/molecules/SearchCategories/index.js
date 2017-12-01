@@ -50,11 +50,11 @@ const SearchCategories = ({ setSearchCategory, searchCategory, projectFlowResult
     </li>
 
     {Object.keys(wordpressContentCategories).map(key => {
-        const count = wordpressContentResultsByType && wordpressContentCategories[key].reduce((acc, type) => {
+        const count = (wordpressContentResultsByType && wordpressContentCategories[key].reduce((acc, type) => {
 
           const results = wordpressContentResultsByType[type]
           return acc + (results ? results.length : 0) || 0
-        }, 0) || 0
+        }, 0)) || 0
         return <li key={key}>
           <CategoryItem onClick={() => setSearchCategory(key)} selected={searchCategory === key}>
             {capitalize(translate(`search_page.category.${key}.title`, { contentNumber: count }))} {wordpressContentResultsByType && <span>({count})</span>}
